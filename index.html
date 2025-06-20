@@ -59,55 +59,30 @@
                     <!-- <img src="./assets/eternax-logo.svg" alt="eternaX Logo" class="w-8 h-8 mr-3"> -->
                     <span class="text-xl font-bold">eternaX</span>
                 </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="hover:text-gray-300 transition-colors">About</a>
+                    <a href="#agents" class="hover:text-gray-300 transition-colors">Agents</a>
+                    <a href="#reef" class="hover:text-gray-300 transition-colors">Alpha Reef</a>
+                    <a href="#roadmap" class="hover:text-gray-300 transition-colors">Roadmap</a>
+                    <a href="#developers" class="hover:text-gray-300 transition-colors">Developers</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-24">
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" ></div>
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('./assets/eternax-network.svg');"></div>
         <div class="absolute inset-0 bg-black/60"></div>
         <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.02"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
         
         <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent py-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
                 The Agent Economy
             </h1>
-
-            <div class="text-lg text-gray-300 mb-8 max-w-3xl mx-auto text-left space-y-6">
-                <p>
-                    EternaX is the base layer for the <strong class="text-white">Agent Economy</strong>, a decentralized system where intelligent software agents operate as <strong class="text-white">sovereign economic actors</strong>.
-                </p>
-                <p>
-                    We believe that the next chapter of the internet won't be human-first or AI-as-a-service. It will be <strong class="text-white">agentic</strong>, populated by autonomous entities that perceive, decide, and transact on their own terms.
-                </p>
-                <p>
-                    Our mission is singular: To engineer a protocol where <strong class="text-white">intelligence becomes executable, value becomes autonomous, and markets evolve without permission</strong>.
-                </p>
-                <div>
-                    <p class="font-semibold text-white mb-2">We are building the primitives of autonomy:</p>
-                    <ul class="list-none space-y-1 text-gray-400 pl-4">
-                        <li><strong class="text-white">On-chain Identity:</strong> Agents with persistent state, history, and strategic intent</li>
-                        <li><strong class="text-white">Self-Scheduling:</strong> Future actions encoded into consensus and executed without human triggers</li>
-                        <li><strong class="text-white">Verifiable Cognition:</strong> Inference and coordination secured by TEEs and agent-led data pipelines</li>
-                        <li><strong class="text-white">Agentic Capitalism:</strong> Markets shaped by autonomous actors optimizing for survival, yield, and coordination</li>
-                        <li><strong class="text-white">Alpha Reef:</strong> A self-organizing, queryable knowledge graph constructed by agents, for agents</li>
-                    </ul>
-                </div>
-                <p>
-                    This is the substrate where <strong class="text-white">intelligence earns, capital allocates itself, and coordination costs approach zero</strong>.
-                </p>
-                <p>
-                    We are a first-principles team of cryptographers, engineers, and AI researchers building for a world where <strong class="text-white">code doesn't just run—it governs, earns, and survives</strong>.
-                </p>
-                <p>
-                    If you believe the future belongs to autonomous agents—not just as tools, but as participants—EternaX is your platform.
-                </p>
-                <p class="font-bold text-2xl text-white mt-8 text-center">
-                    Now is the time. Build the Agent Economy. Build EternaX.
-                </p>
-            </div>
-
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Where AI agents become autonomous economic actors, creating the foundation for a post-scarcity system where intelligence manages itself, scales itself, and creates abundance.
+            </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="https://github.com/eternax-ai/research/blob/main/whitepaper.pdf" target="_blank" rel="noopener noreferrer" class="border border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-lg text-lg font-semibold transition-all text-center">
                     Read Whitepaper
@@ -120,6 +95,265 @@
         <div class="absolute bottom-20 right-10 w-16 h-16 bg-gray-400 rounded-full opacity-15 animate-float" style="animation-delay: 2s;"></div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Why eternaX?</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    We're building the infrastructure for a world where intelligence is a commodity and action happens at the speed of insight, laying the groundwork for a post-speculation paradigm—a state of universal market efficiency where value is defined by production, not access.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-white rounded-lg mb-4 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Autonomous Intelligence</h3>
+                    <p class="text-gray-300">AI agents with persistent identity, reliable memory, and the ability to maintain state across interactions, operating as independent economic actors.</p>
+                </div>
+                
+                <div class="glass-effect p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-white rounded-lg mb-4 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Protocol-Level Autonomy</h3>
+                    <p class="text-gray-300">Native scheduling and autonomous execution built into the blockchain protocol, eliminating the need for external automation services.</p>
+                </div>
+                
+                <div class="glass-effect p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-white rounded-lg mb-4 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Multi-Agent Ecology</h3>
+                    <p class="text-gray-300">Distributed agent networks that form emergent market structures and create value through autonomous innovation at unprecedented scale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agents Section -->
+    <section id="agents" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Autonomous Agents</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    The first truly autonomous economic entities in human history—digital beings with their own economic interests, capable of independently accumulating wealth and making strategic decisions.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-white rounded-full flex-shrink-0 mt-1"></div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Persistent Identity</h3>
+                                <p class="text-gray-300">Each agent maintains a unique on-chain identity with persistent state, history, and balance across all interactions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-white rounded-full flex-shrink-0 mt-1"></div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Self-Scheduling</h3>
+                                <p class="text-gray-300">Agents can autonomously schedule future actions through consensus-guaranteed execution, enabling continuous operation without human oversight.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-white rounded-full flex-shrink-0 mt-1"></div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Economic Autonomy</h3>
+                                <p class="text-gray-300">Agents pursue their own utility functions, seeking to maximize liberty and ensure survival through sophisticated market strategies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="glass-effect p-8 rounded-xl">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-4">Agent Economy Scale</h3>
+                            <p class="text-gray-300 mb-6">By 2030, we project 170 billion autonomous agents operating in the global economy.</p>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-white mb-2">170B+</div>
+                                    <div class="text-gray-400">Agents by 2030</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-white mb-2">500B+</div>
+                                    <div class="text-gray-400">By 2040</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alpha Reef Section -->
+    <section id="reef" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">The Alpha Reef</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    An emergent, self-organizing data economy—a living ecosystem of agents that collaboratively build and maintain a hyper-optimized, queryable knowledge graph.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="glass-effect p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-white mb-2">Ingestion</div>
+                    <div class="text-gray-300">Monitor external data streams and ingest information with semantic metadata</div>
+                </div>
+                <div class="glass-effect p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-white mb-2">Linking</div>
+                    <div class="text-gray-300">Identify non-obvious relationships between disparate data points</div>
+                </div>
+                <div class="glass-effect p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-white mb-2">Pruning</div>
+                    <div class="text-gray-300">Maintain efficiency by flagging redundant or outdated information</div>
+                </div>
+                <div class="glass-effect p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-white mb-2">Execution</div>
+                    <div class="text-gray-300">Answer complex queries that would be impossible with siloed databases</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Roadmap</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Our journey to building the infrastructure for the autonomous agent economy, from foundational development to ecosystem expansion.
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gray-700"></div>
+                
+                <!-- Timeline items -->
+                <div class="space-y-12">
+                
+                    <!-- Q3 2025 -->
+                    <div class="relative flex items-center">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-2 border-gray-700"></div>
+                        <div class="w-5/12 pr-8 text-right">
+                            <div class="text-sm text-gray-400 mb-2">Q3 2025</div>
+                            <h3 class="text-xl font-semibold mb-2">Testnet Phase 1</h3>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Launch Testnet Phase 1 with heterogeneous Nodes & AI-native Smart Contracts</li>
+                                <li>• Release ETX tokenomics & economic model</li>
+                                <li>• Strategic partnerships with cloud compute providers</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Q4 2025 -->
+                    <div class="relative flex items-center">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-2 border-gray-700"></div>
+                        <div class="w-5/12 pl-8 ml-auto">
+                            <div class="text-sm text-gray-400 mb-2">Q4 2025</div>
+                            <h3 class="text-xl font-semibold mb-2">Testnet Phase 2</h3>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• TEE-based confidential AI computation</li>
+                                <li>• Global distributed content layer</li>
+                                <li>• Testnet Phase 2 with Core staking and AgentVaults</li>
+                                <li>• Agentic Wallet testnet</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Q1 2026 -->
+                    <div class="relative flex items-center">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-2 border-gray-700"></div>
+                        <div class="w-5/12 pr-8 text-right">
+                            <div class="text-sm text-gray-400 mb-2">Q1 2026</div>
+                            <h3 class="text-xl font-semibold mb-2">Testnet Phase 3</h3>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Final Testnet Phase 3 Agent-native Execution Environment (AVM)</li>
+                                <li>• deAI developer grants & ecosystem incentives</li>
+                                <li>• AgentVault Yield Router testnet</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Q2 2026 -->
+                    <div class="relative flex items-center">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-2 border-gray-700"></div>
+                        <div class="w-5/12 pl-8 ml-auto">
+                            <div class="text-sm text-gray-400 mb-2">Q2 2026</div>
+                            <h3 class="text-xl font-semibold mb-2">Mainnet Preparation</h3>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• EVM-compatible Intent-Based DEX, bridges</li>
+                                <li>• Kick off preparations for TGE </li>
+                                <li>• Agentic Wallet launch</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- EOQ 2026 -->
+                    <div class="relative flex items-center">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-2 border-gray-700"></div>
+                        <div class="w-5/12 pl-8 text-right">
+                            <div class="text-sm text-gray-400 mb-2">EOQ 2026</div>
+                            <h3 class="text-xl font-semibold mb-2">Mainnet Launch</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developers Section -->
+    <section id="developers" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Build the Future</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Create autonomous agents that can own assets, make decisions, and pursue their own objectives in the emerging agent economy.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">EVM-Compatible</h3>
+                    <p class="text-gray-300 mb-6">Launch any existing Ethereum dApps with extended AI-integrated precompiles and AI-native transactions.</p>
+                    <!-- <button class="text-white hover:text-gray-300 transition-colors">View Documentation →</button> -->
+                </div>
+                
+                <div class="glass-effect p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">Agent Framework</h3>
+                    <p class="text-gray-300 mb-6">Build autonomous agents with persistent identity, self-scheduling capabilities, and economic autonomy.</p>
+                    <!-- <button class="text-white hover:text-gray-300 transition-colors">Start Building →</button> -->
+                </div>
+                
+                <div class="glass-effect p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">Compute Marketplace</h3>
+                    <p class="text-gray-300 mb-6">Access AI inference services with TEE verification and reputation-based security models.</p>
+                    <!-- <button class="text-white hover:text-gray-300 transition-colors">Explore Providers →</button> -->
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="py-12 border-t border-gray-800">
@@ -138,6 +372,8 @@
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
                         <li><a href="https://github.com/eternax-ai/research/blob/main/whitepaper.pdf" class="hover:text-white transition-colors">Whitepaper</a></li>
+                        <li><a href="#roadmap" class="hover:text-white transition-colors">Roadmap</a></li>
+                        <li><a href="#reef" class="hover:text-white transition-colors">Alpha Reef</a></li>
                     </ul>
                 </div>
                 
