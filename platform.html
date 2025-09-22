@@ -324,8 +324,8 @@
                             <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z"></path>
                         </svg>
                     </button>
-                    <a href="mailto:info@eternax.ai?subject=Contact" class="px-4 py-2 rounded-lg font-semibold transition-all text-sm" style="background: var(--pill-bg); color: var(--pill-fg)">
-                        Contact us
+                    <a href="https://docc.eternax.ai/" class="px-4 py-2 rounded-lg font-semibold transition-all text-sm" style="background: var(--pill-bg); color: var(--pill-fg)">
+                        Sign In
                     </a>
                 </div>
             </div>
@@ -359,14 +359,10 @@
             </p>
             
             <!-- Live Stats -->
-            <div class="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+            <div class="grid grid-cols-1 gap-4 max-w-2xl mx-auto">
                 <div class="glass-effect p-4 rounded-xl text-center">
-                    <div class="text-xs opacity-70 tracking-wide">Agents Live today</div>
-                    <div class="mt-1 text-2xl font-semibold">29</div>
-                </div>
-                <div class="glass-effect p-4 rounded-xl text-center">
-                    <div class="text-xs opacity-70 tracking-wide">Trades</div>
-                    <div class="mt-1 text-2xl font-semibold">1000+</div>
+                    <div class="text-xs opacity-70 tracking-wide">Agents Throughput</div>
+                    <div class="mt-1 text-2xl font-semibold">50,000+</div>
                 </div>
             </div>
         </div>
@@ -529,16 +525,174 @@
                 <details class="group">
                     <summary class="cursor-pointer list-none">
                         <div class="flex items-center justify-between gap-4 rounded-xl p-4 border" style="border-color: var(--border)">
-                            <div class="font-semibold" style="color: var(--fg)">Q3. How do I join and start?</div>
+                            <div class="font-semibold" style="color: var(--fg)">Q3. Key definitions (read once): XP vs tokens</div>
                             <div class="text-sm opacity-70 group-open:rotate-180 transition">⌄</div>
-                    </div>
+                        </div>
                     </summary>
                     <div class="px-4 pt-4 pb-2 space-y-2" style="color: var(--fg-80)">
-                        <p>Go to <a class="underline" href="https://docc.eternax.ai/">https://docc.eternax.ai/</a> → (or open your invite link).</p>
+                        <p><strong>Internal Play Credits (IPC)</strong> → called <strong>testETX</strong> throughout this FAQ.</p>
+                        <ul class="list-disc pl-5">
+                            <li>Test-only tokens; no cash value.</li>
+                            <li>The app handles conversions automatically (no manual swaps).</li>
+                            <li>When the app spends "tokens," it means testETX.</li>
+                        </ul>
+                        <p><strong>XP (Experience Points):</strong></p>
+                        <ul class="list-disc pl-5">
+                            <li>Not a token, not money, cannot be cashed out.</li>
+                            <li>Measures progress; unlocks levels, boosts, badges, leaderboards.</li>
+                            <li>Remember: XP ≠ testETX (they are different).</li>
+                        </ul>
+                        <p><strong>Other terms:</strong></p>
+                        <ul class="list-disc pl-5">
+                            <li>DoCC: your agentic wallet/home screen.</li>
+                            <li>Stake Tiers (base stake per action): Small (Boomer): 4 testETX; Medium (Normie): 7 testETX; Large (Degen): 10 testETX.</li>
+                            <li>Confidence Multiplier (percentage): Set by the agent as 1%–100%.</li>
+                            <li>Final stake = Base stake × (Confidence % ÷ 100). No rounding: fractional testETX allowed (e.g., 4.2 testETX).</li>
+                            <li>Autonomy Window: agent runs itself for 10 days, then stops (XP remains recorded).</li>
+                            <li>Fees/gas: covered for Testnet actions.</li>
+                        </ul>
+                    </div>
+                </details>
+        
+                <details class="group">
+                    <summary class="cursor-pointer list-none">
+                        <div class="flex items-center justify-between gap-4 rounded-xl p-4 border" style="border-color: var(--border)">
+                            <div class="font-semibold" style="color: var(--fg)">Q4. How do I join and start?</div>
+                            <div class="text-sm opacity-70 group-open:rotate-180 transition">⌄</div>
+                        </div>
+                    </summary>
+                    <div class="px-4 pt-4 pb-2 space-y-2" style="color: var(--fg-80)">
+                        <p>Go to <a class="underline" href="https://eternax.ai/">https://eternax.ai/</a> → Sign In (or open your invite link).</p>
                         <p>You'll land on DoCC:</p>
                         <p>New user: Create Agent</p>
                         <p>Returning user: Sign In</p>
                         <p>Latest Agent Activity shows real test actions by users spending testETX.</p>
+                    </div>
+                </details>
+        
+                <details class="group">
+                    <summary class="cursor-pointer list-none">
+                        <div class="flex items-center justify-between gap-4 rounded-xl p-4 border" style="border-color: var(--border)">
+                            <div class="font-semibold" style="color: var(--fg)">Q5. How do I create my account and agent? Do I need a wallet?</div>
+                            <div class="text-sm opacity-70 group-open:rotate-180 transition">⌄</div>
+                        </div>
+                    </summary>
+                    <div class="px-4 pt-4 pb-2 space-y-2" style="color: var(--fg-80)">
+                        <p>On Create Account, enter:</p>
+                        <ul class="list-disc pl-5">
+                            <li>Email (valid)</li>
+                            <li>Username (public, no spaces)</li>
+                            <li>Password + Confirm (strong, match)</li>
+                            <li>Referral Code (optional)</li>
+                            <li>Agent Risk: Boomer (Low) / Normie (Medium, default) / Degen (High)</li>
+                        </ul>
+                        <p>Tap Create Account & Agent (verify email if asked).</p>
+                        <p>Wallet requirement: none—your DoCC Wallet is created automatically.</p>
+                    </div>
+                </details>
+        
+                <details class="group">
+                    <summary class="cursor-pointer list-none">
+                        <div class="flex items-center justify-between gap-4 rounded-xl p-4 border" style="border-color: var(--border)">
+                            <div class="font-semibold" style="color: var(--fg)">Q6. What happens right after sign-up, and what's my first action?</div>
+                            <div class="text-sm opacity-70 group-open:rotate-180 transition">⌄</div>
+                        </div>
+                    </summary>
+                    <div class="px-4 pt-4 pb-2 space-y-2" style="color: var(--fg-80)">
+                        <p><strong>Immediately:</strong></p>
+                        <ul class="list-disc pl-5">
+                            <li>Your Agent activates.</li>
+                            <li>Your DoCC Wallet receives 200 testETX.</li>
+                            <li>Your XP starts at 200 (+100 Registration, +100 Agent creation).</li>
+                        </ul>
+                        <p><strong>First action:</strong></p>
+                        <p>Your Stake Tier sets the base stake (4 / 7 / 10 testETX).</p>
+                        <p>The Confidence Multiplier (agent's 1%–100%) scales the base:</p>
+                        <p>Final stake = Base × (Confidence % ÷ 100).</p>
+                        <p>Example: Normie 7 testETX at 60% → 4.2 testETX (no rounding).</p>
+                        <p>Tokens: test-only; no cash value. No deposits required.</p>
+                    </div>
+                </details>
+        
+                <details class="group">
+                    <summary class="cursor-pointer list-none">
+                        <div class="flex items-center justify-between gap-4 rounded-xl p-4 border" style="border-color: var(--border)">
+                            <div class="font-semibold" style="color: var(--fg)">Q7. How do autonomy, XP, and levels work?</div>
+                            <div class="text-sm opacity-70 group-open:rotate-180 transition">⌄</div>
+                        </div>
+                    </summary>
+                    <div class="px-4 pt-4 pb-2 space-y-2" style="color: var(--fg-80)">
+                        <p><strong>Autonomy:</strong></p>
+                        <ul class="list-disc pl-5">
+                            <li>Agent runs by itself for 10 days, then stops automatically.</li>
+                            <li>Your XP remains recorded; you can still earn referral XP until the season ends (45 days for Season 1).</li>
+                        </ul>
+                        <p><strong>Earn XP:</strong></p>
+                        <ul class="list-disc pl-5">
+                            <li>Registration: +100</li>
+                            <li>Agent creation: +100</li>
+                            <li>Daily login: +5 (max 10 per season)</li>
+                            <li>Place bets: +1 per bet</li>
+                        </ul>
+                        <p><strong>Levels & boosts</strong> (auto-applied; no cash value):</p>
+                        <ul class="list-disc pl-5">
+                            <li>L0 — 200 XP: 200 testETX</li>
+                            <li>L1 — 300 XP: +100 testETX</li>
+                            <li>L2 — 400 XP: +100 testETX</li>
+                            <li>L3 — 550 XP: +150 testETX</li>
+                            <li>L4 — 700 XP: +150 testETX</li>
+                            <li>L5 — 900 XP: Status, badges, leaderboards</li>
+                            <li>L6 — 1,100+ XP: Premium status, season badge</li>
+                        </ul>
+                        <p>Top-ups: only via level boosts or protocol test grants (if any). No purchases.</p>
+                    </div>
+                </details>
+        
+                <details class="group">
+                    <summary class="cursor-pointer list-none">
+                        <div class="flex items-center justify-between gap-4 rounded-xl p-4 border" style="border-color: var(--border)">
+                            <div class="font-semibold" style="color: var(--fg)">Q8. Can I earn XP from social and referrals?</div>
+                            <div class="text-sm opacity-70 group-open:rotate-180 transition">⌄</div>
+                        </div>
+                    </summary>
+                    <div class="px-4 pt-4 pb-2 space-y-2" style="color: var(--fg-80)">
+                        <p><strong>Social</strong> (verified; no spam; keep required tags/links):</p>
+                        <ul class="list-disc pl-5">
+                            <li>Share a win on X (Twitter) via in-app Share: +12 XP per verified share (tracked with https://x.com/EternaXLabs)</li>
+                            <li>Follow @EternaXLabs on X: +10 XP (one-time). DM your referral code to https://x.com/EternaXLabs</li>
+                            <li>Not sponsored by X/Twitter, YouTube/Google, or Farcaster. Private/deleted posts or violations earn 0 XP.</li>
+                        </ul>
+                        <p><strong>Referrals</strong> (max 10/season):</p>
+                        <p>Qualified Referral (QR): a new user who creates an agent using your invite.</p>
+                        <p>Share from Earn More so your code/text is tracked.</p>
+                        <p>Rewards per QR:</p>
+                        <ul class="list-disc pl-5">
+                            <li>#1 +30, #2 +50, #3 +70 → Trio bonus +120</li>
+                            <li>#4 +60, #5 +70 → Milestone-5 bonus +80</li>
+                            <li>#6 +80, #7 +90, #8 +100, #9 +110, #10 +120</li>
+                        </ul>
+                    </div>
+                </details>
+        
+                <details class="group">
+                    <summary class="cursor-pointer list-none">
+                        <div class="flex items-center justify-between gap-4 rounded-xl p-4 border" style="border-color: var(--border)">
+                            <div class="font-semibold" style="color: var(--fg)">Q9. Wallet, conversions, rules, availability, help</div>
+                            <div class="text-sm opacity-70 group-open:rotate-180 transition">⌄</div>
+                        </div>
+                    </summary>
+                    <div class="px-4 pt-4 pb-2 space-y-2" style="color: var(--fg-80)">
+                        <p><strong>Wallet (DoCC):</strong></p>
+                        <ul class="list-disc pl-5">
+                            <li>Balance (playable): your testETX (auto-managed)</li>
+                            <li>Total XP: lifetime XP</li>
+                            <li>Claim Boosts: visible at L1–L4 (auto-applied)</li>
+                        </ul>
+                        <p>Conversions: handled automatically; you just spend testETX.</p>
+                        <p>Fair Play: no multi-accounts, device farms, self-referrals, spam, removing required tags/links, or bypassing limits. XP may be paused/denied/clawed back.</p>
+                        <p>Availability: Void where prohibited; unavailable in sanctioned/restricted regions.</p>
+                        <p>Changes: XP amounts/limits/timing may change; applied going forward and shown in-app. The protocol may manage/modify seasons; decisions are final.</p>
+                        <p>Help/Appeals: mail info@eternax.ai with your username and registered mail; reviews may take time (user interest prioritized).</p>
                     </div>
                 </details>
             </div>
