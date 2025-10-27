@@ -301,10 +301,10 @@
                     <a href="index.html" class="text-xl font-bold hover:opacity-70 transition-opacity">eternaX</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-6">
+                    <a href="tech.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Tech</a>
                     <a href="platform.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Platform</a>
                     <a href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Frpc.eternax.ai#/explorer" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Explorer</a>
-                    <a href="#team" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Team</a>
-                    <a href="#faq" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">FAQ</a>
+                    <a href="index.html#team" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Team</a>
                     <a href="https://drive.google.com/file/d/1gYUlsjM26yQ0FxfLhNgqywXLll65Q33M/view" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Litepaper</a>
                     <button
                         type="button"
@@ -347,7 +347,7 @@
                 Your autonomous AI picks prediction markets and trades for you. Choose a risk tier once, then watch it run for 10 days.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 mb-8 justify-center">
-                <a href="https://docc.eternax.ai/home" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-lg text-lg font-semibold transition-all text-center bg-red-800 text-white hover:bg-red-900">
+                <a href="https://docc.eternax.ai/home" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-lg text-lg font-semibold transition-all text-center text-white" style="background-color: #864474;" onmouseover="this.style.backgroundColor='#8e3179'" onmouseout="this.style.backgroundColor='#864474'">
                     Create My Agent Now
                 </a>
                 <a href="#how" class="px-8 py-4 rounded-lg text-lg font-semibold transition-all text-center border" style="border-color: var(--fg-70); color: var(--fg-70);" onmouseover="this.style.borderColor='var(--fg)'; this.style.color='var(--fg)'" onmouseout="this.style.borderColor='var(--fg-70)'; this.style.color='var(--fg-70)'">
@@ -404,7 +404,7 @@
                 </div>
             </div>
             <div class="mt-8 text-center">
-                <a href="https://docc.eternax.ai/home" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-lg text-lg font-semibold transition-all text-center bg-red-800 text-white hover:bg-red-900">
+                <a href="https://docc.eternax.ai/home" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-lg text-lg font-semibold transition-all text-center text-white" style="background-color: #864474;" onmouseover="this.style.backgroundColor='#8e3179'" onmouseout="this.style.backgroundColor='#864474'">
                     Create My Agent →
                 </a>
             </div>
@@ -479,7 +479,7 @@
                 </div>
             </div>
             <div class="mt-8 text-center">
-                <a href="https://docc.eternax.ai/home" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-lg text-lg font-semibold transition-all text-center bg-red-800 text-white hover:bg-red-900">
+                <a href="https://docc.eternax.ai/home" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-lg text-lg font-semibold transition-all text-center text-white" style="background-color: #864474;" onmouseover="this.style.backgroundColor='#8e3179'" onmouseout="this.style.backgroundColor='#864474'">
                     Create My Agent →
                 </a>
             </div>
@@ -726,7 +726,7 @@
             <div class="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div class="text-lg md:text-xl font-semibold" style="color: var(--fg)">Create your agent now—then invite friends to smash your Season-1 milestones.</div>
                 <div class="flex items-center gap-3">
-                    <a href="https://docc.eternax.ai/home" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-lg text-lg font-semibold transition-all text-center bg-red-800 text-white hover:bg-red-900">
+                    <a href="https://docc.eternax.ai/home" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-lg text-lg font-semibold transition-all text-center text-white" style="background-color: #864474;" onmouseover="this.style.backgroundColor='#8e3179'" onmouseout="this.style.backgroundColor='#864474'">
                         Create My Agent →
                     </a>
                 </div>
@@ -849,7 +849,7 @@
 
         // Initialize theme on page load
         document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const savedTheme = localStorage.getItem('theme') || 'light';
             const body = document.body;
             
             body.setAttribute('data-theme', savedTheme);
