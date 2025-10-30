@@ -300,6 +300,7 @@
                     <!-- <img src="./assets/eternax-logo.svg" alt="eternaX Logo" class="w-8 h-8 mr-3"> -->
                     <a href="index.html" class="text-xl font-bold hover:opacity-70 transition-opacity">eternaX</a>
                 </div>
+                <!-- Desktop nav -->
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="tech.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Tech</a>
                     <a href="platform.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Platform</a>
@@ -327,6 +328,50 @@
                     <a href="https://docc.eternax.ai/" class="px-4 py-2 rounded-lg font-semibold transition-all text-sm" style="background: var(--pill-bg); color: var(--pill-fg)">
                         Sign In
                     </a>
+                </div>
+                <!-- Mobile hamburger -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2" style="color: var(--fg-70); border-color: var(--border)">
+                        <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
+                            <path d="M3 6h18M3 12h18M3 18h18" />
+                        </svg>
+                        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 hidden">
+                            <path d="M6 6l12 12M6 18L18 6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4" role="dialog" aria-modal="true">
+                <div class="mt-2 space-y-3 border-t pt-4" style="border-color: var(--border)">
+                    <a href="tech.html" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Tech</a>
+                    <a href="platform.html" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Platform</a>
+                    <a href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Frpc.eternax.ai#/explorer" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Explorer</a>
+                    <a href="index.html#team" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Team</a>
+                    <a href="https://drive.google.com/file/d/1gYUlsjM26yQ0FxfLhNgqywXLll65Q33M/view" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Litepaper</a>
+                    <div class="flex items-center justify-between pt-3">
+                        <button
+                            type="button"
+                            role="switch"
+                            aria-label="Toggle color mode"
+                            aria-checked="false"
+                            title="Switch to light mode"
+                            onclick="toggleTheme()"
+                            class="theme-toggle"
+                        >
+                            <svg aria-hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style="color: var(--fg-70)">
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                            </svg>
+                            <div class="track" aria-hidden></div>
+                            <svg aria-hidden viewBox="0 0 24 24" fill="currentColor" style="color: var(--fg-70)">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z"></path>
+                            </svg>
+                        </button>
+                        <a href="https://docc.eternax.ai/" class="px-4 py-2 rounded-lg font-semibold transition-all text-sm" style="background: var(--pill-bg); color: var(--pill-fg)">
+                            Sign In
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -697,6 +742,56 @@
             if (button) {
                 button.setAttribute('aria-checked', savedTheme === 'light');
                 button.setAttribute('title', savedTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+            }
+
+            // Mobile menu toggle
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconMenu = document.getElementById('icon-menu');
+            const iconClose = document.getElementById('icon-close');
+
+            function closeMobileMenu() {
+                if (!mobileMenu) return;
+                mobileMenu.classList.add('hidden');
+                if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+                if (iconMenu) iconMenu.classList.remove('hidden');
+                if (iconClose) iconClose.classList.add('hidden');
+            }
+
+            function openMobileMenu() {
+                if (!mobileMenu) return;
+                mobileMenu.classList.remove('hidden');
+                if (menuButton) menuButton.setAttribute('aria-expanded', 'true');
+                if (iconMenu) iconMenu.classList.add('hidden');
+                if (iconClose) iconClose.classList.remove('hidden');
+            }
+
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', () => {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+                    if (isHidden) {
+                        openMobileMenu();
+                    } else {
+                        closeMobileMenu();
+                    }
+                });
+
+                // Close on link click
+                mobileMenu.querySelectorAll('a').forEach(a => {
+                    a.addEventListener('click', () => closeMobileMenu());
+                });
+
+                // Close on ESC
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') closeMobileMenu();
+                });
+
+                // Close when resizing to md and above
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth >= 768) {
+                        closeMobileMenu();
+                    }
+                });
             }
         });
 
