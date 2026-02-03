@@ -481,8 +481,14 @@
             
             <div class="max-w-4xl mx-auto mb-8">
                 <p class="text-lg mb-4" style="color: var(--fg-80)">
-                    On existing blockchains, post-quantum upgrades introduce larger signatures, slower verification, lower throughput, and higher latency.
-                </p>    
+                    On existing blockchains, post-quantum upgrades introduce:
+                </p>
+                <ul class="list-disc list-inside mb-6 space-y-2" style="color: var(--fg-80)">
+                    <li>larger signatures</li>
+                    <li>slower verification</li>
+                    <li>lower throughput</li>
+                    <li>higher latency</li>
+                </ul>
                 <p class="text-lg mb-6" style="color: var(--fg-80)">
                     Which forces networks to trade performance for safety.
                 </p>
@@ -500,17 +506,6 @@
                 <p class="text-lg" style="color: var(--fg-80)">
                     This enables machine-scale markets without compromising future security.
                 </p>
-                <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div>
-                        <img src="./assets/pk_sig_sizes_chart.svg" alt="Public key and signature size comparison" class="w-full h-auto rounded-lg" loading="lazy">
-                        <p class="text-sm mt-2 text-center" style="color: var(--fg-70)">PK + signature size</p>
-                    </div>
-                    <div>
-                        <img src="./assets/verification_cost_chart.svg" alt="Verification cost comparison" class="w-full h-auto rounded-lg" loading="lazy">
-                        <p class="text-sm mt-2 text-center" style="color: var(--fg-70)">Verification cost</p>
-                    </div>
-                </div>
-                
             </div>
         </div>
     </section>
