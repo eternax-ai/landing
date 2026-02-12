@@ -11,7 +11,7 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <meta name="bingbot" content="index, follow">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#e2e2e2">
     <link rel="canonical" href="https://eternax.ai/">
     <!-- Additional SEO and AI optimization meta tags -->
     <meta name="language" content="English">
@@ -187,27 +187,14 @@
     </script>
     <style>
         :root {
-            --bg: #000000;
-            --fg: #ffffff;
-            --fg-70: #b3b3b3;
-            --fg-80: #cccccc;
-            --fg-90: #e6e6e6;
-            --border: #404040;
-            --pill-bg: #ffffff;
-            --pill-fg: #000000;
-            --hero-bg: #000000;
-        }
-
-        [data-theme="light"] {
-            --bg: #ffffff;
-            --fg: #000000;
-            --fg-70: #4c4c4c;
-            --fg-80: #333333;
-            --fg-90: #1a1a1a;
-            --border: #e5e5e5;
-            --pill-bg: #000000;
+            --bg: #e2e2e2;
+            --fg: #283771;
+            --fg-70: #283771;
+            --fg-80: #283771;
+            --fg-90: #283771;
+            --border: #283771;
+            --pill-bg: #283771;
             --pill-fg: #ffffff;
-            --hero-bg: #f8f9fa;
         }
 
         body {
@@ -216,68 +203,13 @@
         }
 
         .gradient-bg {
-            background: linear-gradient(135deg, #404040 0%, #262626 100%);
-        }
-
-        [data-theme="light"] .gradient-bg {
             background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
         }
 
         .glass-effect {
             backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        [data-theme="light"] .glass-effect {
             background: rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        [data-theme="light"] .hero-overlay {
-            background-color: rgba(248, 249, 250, 0.8) !important;
-        }
-
-        .theme-toggle {
-            position: relative;
-            width: 48px;
-            height: 24px;
-            background: var(--border);
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .theme-toggle .track {
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 20px;
-            height: 20px;
-            background: var(--fg);
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
-
-        [data-theme="light"] .theme-toggle .track {
-            transform: translateX(24px);
-        }
-
-        .theme-toggle svg {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 16px;
-            height: 16px;
-        }
-
-        .theme-toggle svg:first-child {
-            left: 4px;
-        }
-
-        .theme-toggle svg:last-child {
-            right: 4px;
         }
 
         .animate-float {
@@ -289,7 +221,7 @@
         }
     </style>
 </head>
-<body class="font-sans" itemscope itemtype="https://schema.org/WebPage" data-theme="dark">
+<body class="font-sans" itemscope itemtype="https://schema.org/WebPage">
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-effect">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -775,41 +707,14 @@
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
-                nav.classList.add('bg-black/80');
+                nav.classList.add('bg-white/80');
             } else {
-                nav.classList.remove('bg-black/80');
+                nav.classList.remove('bg-white/80');
             }
         });
 
-        // Theme switching functionality
-        function toggleTheme() {
-            const body = document.body;
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            // Update button aria attributes
-            const button = document.querySelector('.theme-toggle');
-            button.setAttribute('aria-checked', newTheme === 'light');
-            button.setAttribute('title', newTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-        }
-
-        // Initialize theme on page load
+        // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            const body = document.body;
-            
-            body.setAttribute('data-theme', savedTheme);
-            
-            // Update button state
-            const button = document.querySelector('.theme-toggle');
-            if (button) {
-                button.setAttribute('aria-checked', savedTheme === 'light');
-                button.setAttribute('title', savedTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-            }
-
             // Mobile menu toggle
             const menuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
