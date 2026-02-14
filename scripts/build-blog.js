@@ -45,8 +45,18 @@ if (!title) {
 }
 
 if (!description) {
-  const firstP = body.replace(/^#.*$/m, '').trim().match(/^(.+?)(?:\n\n|$)/s);
-  description = firstP ? firstP[1].replace(/\s+/g, ' ').trim().slice(0, 160) : '';
+  const bodyAfterTitle = body.replace(/^#.*$/m, '').trim();
+  const blocks = bodyAfterTitle.split(/\n\n+/);
+  const isImageBlock = (s) => /^\s*!\[[\s\S]*\]\s*\([\s\S]*\)\s*$/.test(s.trim());
+  let candidate = '';
+  for (const block of blocks) {
+    const trimmed = block.trim();
+    if (!trimmed) continue;
+    if (isImageBlock(trimmed)) continue;
+    candidate = trimmed.replace(/\s+/g, ' ').replace(/^#+\s*/, '').replace(/\*\*([^*]+)\*\*|__([^_]+)__/g, '$1$2').replace(/\*([^*]+)\*|_([^_]+)_/g, '$1$2').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/^>\s*/, '').trim();
+    break;
+  }
+  description = candidate ? candidate.slice(0, 160) : '';
 }
 
 marked.setOptions({ gfm: true });
