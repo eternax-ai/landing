@@ -1,0 +1,10 @@
+{
+  "name": "eternax-landing",
+  "private": true,
+  "scripts": {
+    "build-blog": "node scripts/build-blog.js"
+  },
+  "dependencies": {
+    "marked": "^15.0.4"
+  }
+}
