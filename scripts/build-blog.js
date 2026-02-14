@@ -13,7 +13,8 @@ const root = path.resolve(process.cwd());
 const blogPath = path.resolve(root, blogFolder);
 const blogsDir = path.join(root, 'blogs');
 
-if (!blogPath.startsWith(blogsDir) || blogPath === blogsDir) {
+const relativeToBlogs = path.relative(blogsDir, blogPath);
+if (relativeToBlogs.startsWith('..') || path.isAbsolute(relativeToBlogs) || relativeToBlogs === '') {
   console.error('Blog folder must be inside blogs/ (e.g. blogs/my-post)');
   process.exit(1);
 }
