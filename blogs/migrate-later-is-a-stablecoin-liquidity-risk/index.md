@@ -1,6 +1,6 @@
 # “Migrate Later” Is a Stablecoin Liquidity Risk: Why PQ-Native Day One Wins Distribution
 
-![Control Loop (68).png](Control_Loop_(68).png)
+![Hero Image](Control_Loop_(68).png)
 
 ### **The quantum threat is not a date. It is a coordination race. Stablecoins cannot afford to lose that race.**
 
@@ -134,8 +134,7 @@ In stablecoins, reliability is the product. When rails look unreliable, the mark
 
 **A) You do not control the schedule.** Base-layer upgrades are governed by social consensus and ecosystem coordination. Issuers cannot bet distribution on timelines they cannot enforce.
 
-> **B) Even successful upgrades can be throughput-fatal.**
-> 
+**B) Even successful upgrades can be throughput-fatal.**
 
 This is the fatal combination: delayed plus throughput-fatal.
 
@@ -172,7 +171,7 @@ EternaX also adds **auditable privacy**: selective disclosure with verifiable co
 
 Directional sensitivity snapshot (mechanism illustration):
 
-[Comparison Chart](image.png)
+![Comparison Chart](image.png)
 
 - **EternaX**: ~2% overhead
 - **Solana (Falcon-class)**: ~77% TPS loss

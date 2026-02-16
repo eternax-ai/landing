@@ -61,7 +61,17 @@ if (!description) {
 }
 
 marked.setOptions({ gfm: true });
-const content = marked.parse(body);
+let content = marked.parse(body);
+
+const publishedDate = new Date().toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+content = content.replace(/<h1>([\s\S]*?)<\/h1>/, (match, h1Content) => {
+  return `<h1>${h1Content}</h1>\n<p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 1.5em;">${escapeHtml(publishedDate)}</p>`;
+});
 
 const templatePath = path.join(__dirname, 'blog-template.html');
 let html = fs.readFileSync(templatePath, 'utf8');
