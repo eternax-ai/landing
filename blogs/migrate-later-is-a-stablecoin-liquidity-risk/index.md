@@ -161,15 +161,15 @@ PQ becomes an adoption wedge, not a future liability.
 
 Many networks will add PQ compatibility. The differentiator is whether PQ preserves market speed and whether privacy remains auditable.
 
-EternaX is engineered around a **protocol-native novel PQ scheme** specifically to avoid the Falcon-class throughput cliff and keep markets fast while upgrading authorization safety. In EternaX materials, the claimed signature size is ~160 bytes (under peer review), with low single-digit directional overhead rather than Falcon-class haircuts.
+EternaX is engineered around a **protocol-native novel PQ scheme** specifically to avoid the Falcon-class throughput cliff and keep markets fast while upgrading authorization safety. In EternaX materials, the claimed signature size is ~160 bytes (under peer review), with low single-digit overhead rather than Falcon-class haircuts.
 
 EternaX also adds **auditable privacy**: selective disclosure with verifiable controls, enabling serious flows without choosing between fully public rails and opaque privacy.
 
 ---
 
-### **5) Directional TPS-loss sensitivity: EternaX vs Falcon-class assumptions**
+### **5) Modeled TPS-loss sensitivity: EternaX vs Falcon-class assumptions**
 
-Directional sensitivity snapshot (mechanism illustration):
+Modeled TPS-loss sensitivity snapshot (mechanism illustration):
 
 ![Comparison Chart](image.png)
 
@@ -177,8 +177,6 @@ Directional sensitivity snapshot (mechanism illustration):
 - **Solana (Falcon-class)**: ~77% TPS loss
 - **Sui (Falcon-class)**: ~69% TPS loss
 - **Ethereum (Falcon-class)**: ~31% TPS loss
-
-Credibility note: treat these as directional sensitivity estimates. Publish assumptions and benchmarks. Separate measured results from modeled results.
 
 ---
 
@@ -203,4 +201,4 @@ EternaX is built for the second answer, with the additional commercial requireme
 
 **Connect: [info@eternax.ai](mailto:info@eternax.ai)**
 
-*EternaX is a post-quantum, market-speed blockchain built for stablecoins, tokenized cash, RWAs, and high-velocity on-chain markets. Its core advantage is a **protocol-native novel post-quantum scheme** designed to keep real markets fast while upgrading authorization security. In EternaX materials, the claimed PQ signature size is **~160 bytes**, targeting **low single-digit directional overhead** and **~120ms spendable finality**, rather than accepting Falcon-class throughput haircuts that can compress TPS, raise fees, and degrade liquidity. EternaX also provides **auditable privacy** (selective disclosure with verifiable controls) so serious flows can move with transparency where required and confidentiality where necessary. For issuers and investors, the wedge is direct: **mint PQ-native stablecoins day one**, avoid future perimeter-migration and liquidity-fracture risk, and scale on rails engineered for speed, security, and continuity. For more details, contact [**info@eternax.ai**](mailto:info@eternax.ai).*
+*EternaX is a post-quantum, market-speed blockchain built for stablecoins, tokenized cash, RWAs, and high-velocity on-chain markets. Its core advantage is a **protocol-native novel post-quantum scheme** designed to keep real markets fast while upgrading authorization security. In EternaX materials, the PQ signature size is **~160 bytes**, targeting **low single-digit overhead** and **~120ms spendable finality**, rather than accepting Falcon-class throughput haircuts that can compress TPS, raise fees, and degrade liquidity. EternaX also provides **auditable privacy** (selective disclosure with verifiable controls) so serious flows can move with transparency where required and confidentiality where necessary. For issuers and investors, the wedge is direct: **mint PQ-native stablecoins day one**, avoid future perimeter-migration and liquidity-fracture risk, and scale on rails engineered for speed, security, and continuity. For more details, contact [**info@eternax.ai**](mailto:info@eternax.ai).*
