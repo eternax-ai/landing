@@ -228,6 +228,15 @@
         .btn-primary:hover {
             background-color: #1e2d5a;
         }
+        .nav-products-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s, visibility 0.15s;
+        }
+        .group:hover .nav-products-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 <body class="font-sans" itemscope itemtype="https://schema.org/WebPage">
@@ -242,8 +251,22 @@
                 <!-- Desktop nav -->
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="why-eternax.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Why EternaX</a>
-                    <a href="blogs/index.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Blogs</a>
+                    <div class="relative group">
+                        <span class="hover:opacity-70 transition-colors flex items-center gap-1 cursor-default" style="color: var(--fg-70)">Products
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </span>
+                        <div class="nav-products-dropdown absolute left-0 top-full pt-1">
+                            <div class="glass-effect rounded-lg py-2 min-w-[320px] shadow-lg" style="border: 1px solid var(--border)">
+                                <a href="#product-settlement" class="block px-4 py-2.5 text-sm hover:opacity-70 transition-colors" style="color: var(--fg)">Post-Quantum Settlement and Execution Layer</a>
+                                <a href="#product-issuance" class="block px-4 py-2.5 text-sm hover:opacity-70 transition-colors" style="color: var(--fg)">Post-Quantum Issuance and Tokenization Rails (Stablecoins and RWAs)</a>
+                                <a href="#product-migration" class="block px-4 py-2.5 text-sm hover:opacity-70 transition-colors" style="color: var(--fg)">Post-Quantum Migration and Interoperability Rails</a>
+                                <a href="#product-wallet" class="block px-4 py-2.5 text-sm hover:opacity-70 transition-colors" style="color: var(--fg)">Post-Quantum Wallet, Custody, and Policy Controls</a>
+                                <a href="#product-venues" class="block px-4 py-2.5 text-sm hover:opacity-70 transition-colors" style="color: var(--fg)">Post-Quantum Market Infrastructure Venues</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="#team" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Team</a>
+                    <a href="blogs/index.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Blogs</a>
                     <a href="mailto:info@eternax.ai" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-center text-white">
                         Contact Us
                     </a>
@@ -265,6 +288,12 @@
                 <div class="mt-2 space-y-3 border-t pt-4" style="border-color: var(--border)">
                     <a href="why-eternax.html" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Why EternaX</a>
                     <a href="blogs/index.html" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Blogs</a>
+                    <span class="block px-1 text-sm font-semibold" style="color: var(--fg-70)">Products</span>
+                    <a href="#product-settlement" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Settlement and Execution Layer</a>
+                    <a href="#product-issuance" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Issuance and Tokenization Rails (Stablecoins and RWAs)</a>
+                    <a href="#product-migration" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Migration and Interoperability Rails</a>
+                    <a href="#product-wallet" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Wallet, Custody, and Policy Controls</a>
+                    <a href="#product-venues" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Market Infrastructure Venues</a>
                     <a href="#team" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Team</a>
                     <a href="mailto:info@eternax.ai" class="btn-primary block px-4 py-2 rounded-lg text-sm font-semibold text-center text-white">
                         Contact Us
@@ -456,7 +485,7 @@
     </section>
 
     <!-- Products Section -->
-    <section class="pt-12 pb-20" style="background-color: var(--bg); border-color: var(--border);">
+    <section id="products" class="pt-12 pb-20" style="background-color: var(--bg); border-color: var(--border);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl sm:text-5xl font-semibold tracking-tight mb-4" style="color: var(--fg)">
                 Products
@@ -470,39 +499,79 @@
 
             <!-- Product Cards -->
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="glass-effect p-6 rounded-lg flex flex-col">
+                <div id="product-settlement" class="glass-effect p-6 rounded-lg flex flex-col">
                     <div class="mb-4">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--fg);">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                         </svg>
                     </div>
-                    <div class="font-semibold text-lg mb-3" style="color: var(--fg)">PQ-Safe On-Chain Vaults</div>
-                    <p class="text-sm mb-4 flex-grow" style="color: var(--fg-80)">
-                        Preserve on legacy chains first. Origin-chain vaults reduce cryptographic exposure immediately. No forced migration.
+                    <div class="font-semibold text-lg mb-3" style="color: var(--fg)">Post-Quantum Settlement and Execution Layer</div>
+                    <p class="text-sm flex-grow" style="color: var(--fg-80)">
+                        PQ-native execution and settlement with auditable privacy and fast finality (~120 ms).
                     </p>
                 </div>
-                <div class="glass-effect p-6 rounded-lg flex flex-col">
-                    <div class="mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--fg);">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                    </div>
-                    <div class="font-semibold text-lg mb-3" style="color: var(--fg)">Post-Quantum Settlement Layer</div>
-                    <p class="text-sm mb-4 flex-grow" style="color: var(--fg-80)">
-                        PQ-safe authorization with ~120ms spendable finality target. The base layer everything else builds on.
-                    </p>
-                </div>
-                <div class="glass-effect p-6 rounded-lg flex flex-col">
+                <div id="product-issuance" class="glass-effect p-6 rounded-lg flex flex-col">
                     <div class="mb-4">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--fg);">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <div class="font-semibold text-lg mb-3" style="color: var(--fg)">PQ-Native Stablecoin Issuance and Payments</div>
-                    <p class="text-sm mb-4 flex-grow" style="color: var(--fg-80)">
-                         Mint PQ-native dollars from day one. Use them as a payments and settlement rail. 
+                    <div class="font-semibold text-lg mb-3" style="color: var(--fg)">Post-Quantum Issuance and Tokenization Rails (Stablecoins and RWAs)</div>
+                    <p class="text-sm mb-3 flex-grow" style="color: var(--fg-80)">
+                        Day-one PQ-native issuance for stablecoins and RWAs, with issuer-grade mint/burn governance, compliance hooks, and auditable privacy settlement.
+                    </p>
+                    <ul class="text-xs space-y-1" style="color: var(--fg-80)">
+                        <li>Post-Quantum Stablecoin Issuance</li>
+                        <li>Post-Quantum RWA Tokenization and Issuance</li>
+                    </ul>
+                </div>
+                <div id="product-migration" class="glass-effect p-6 rounded-lg flex flex-col">
+                    <div class="mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--fg);">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
+                    </div>
+                    <div class="font-semibold text-lg mb-3" style="color: var(--fg)">Post-Quantum Migration and Interoperability Rails</div>
+                    <p class="text-sm mb-3 flex-grow" style="color: var(--fg-80)">
+                        Move assets from existing chains into PQ-native settlement paths via vault and bridge infrastructure.
+                    </p>
+                    <ul class="text-xs space-y-1" style="color: var(--fg-80)">
+                        <li>Post-Quantum Vault (Ethereum / EVM)</li>
+                        <li>Post-Quantum Migration Bridge</li>
+                    </ul>
+                </div>
+                <div id="product-wallet" class="glass-effect p-6 rounded-lg flex flex-col">
+                    <div class="mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--fg);">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <div class="font-semibold text-lg mb-3" style="color: var(--fg)">Post-Quantum Wallet, Custody, and Policy Controls</div>
+                    <p class="text-sm flex-grow" style="color: var(--fg-80)">
+                        PQ signing, wallet policies, custody controls, and agent permissions (KYA-ready).
                     </p>
                 </div>
+                <div class="flex flex-col items-center justify-center">
+                    <a href="mailto:info@eternax.ai" class="btn-primary px-8 py-4 rounded-lg text-base font-semibold text-center text-white hover:opacity-90 transition-opacity">
+                        Contact us
+                    </a>
+                </div>
+                <div id="product-venues" class="glass-effect p-6 rounded-lg flex flex-col">
+                    <div class="mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--fg);">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <div class="font-semibold text-lg mb-3" style="color: var(--fg)">Post-Quantum Market Infrastructure Venues</div>
+                    <p class="text-sm mb-3 flex-grow" style="color: var(--fg-80)">
+                        High-velocity trading and information markets powered by PQ-safe collateral and agentic users.
+                    </p>
+                    <ul class="text-xs space-y-1" style="color: var(--fg-80)">
+                        <li>Post-Quantum Perpetuals Exchange (PQ Perps)</li>
+                        <li>Post-Quantum Prediction Markets</li>
+                    </ul>
+                </div>
+                
             </div>
         </div>
     </section>

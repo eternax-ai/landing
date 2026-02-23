@@ -55,6 +55,8 @@
             transition: background-color 0.15s;
         }
         .btn-primary:hover { background-color: #1e2d5a; }
+        .nav-products-dropdown { opacity: 0; visibility: hidden; transition: opacity 0.15s, visibility 0.15s; }
+        .group:hover .nav-products-dropdown { opacity: 1; visibility: visible; }
         .blog-body { max-width: 720px; margin: 0 auto; }
         .blog-body h1 { font-size: 2rem; font-weight: 600; margin-top: 0; margin-bottom: 0.75em; letter-spacing: -0.01em; line-height: 1.2; }
         .blog-body h2 { font-size: 1.5rem; font-weight: 600; margin-top: 1.75rem; margin-bottom: 0.5em; letter-spacing: -0.01em; line-height: 1.3; }
@@ -81,6 +83,20 @@
                 <a href="../../index.html" class="text-xl font-bold" style="color: var(--fg)">eternaX</a>
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="../../why-eternax.html" class="hover:opacity-70 transition-colors link-muted">Why EternaX</a>
+                    <div class="relative group">
+                        <span class="hover:opacity-70 transition-colors flex items-center gap-1 cursor-default link-muted">Products
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </span>
+                        <div class="nav-products-dropdown absolute left-0 top-full pt-1">
+                            <div class="glass-effect rounded-lg py-2 min-w-[320px] shadow-lg" style="border: 1px solid var(--border)">
+                                <a href="../../index.html#product-settlement" class="block px-4 py-2.5 text-sm hover:opacity-70 transition-colors" style="color: var(--fg)">Post-Quantum Settlement and Execution Layer</a>
+                                <a href="../../index.html#product-issuance" class="block px-4 py-2.5 text-sm hover:opacity-70 transition-colors" style="color: var(--fg)">Post-Quantum Issuance and Tokenization Rails (Stablecoins and RWAs)</a>
+                                <a href="../../index.html#product-migration" class="block px-4 py-2.5 text-sm hover:opacity-70 transition-colors" style="color: var(--fg)">Post-Quantum Migration and Interoperability Rails</a>
+                                <a href="../../index.html#product-wallet" class="block px-4 py-2.5 text-sm hover:opacity-70 transition-colors" style="color: var(--fg)">Post-Quantum Wallet, Custody, and Policy Controls</a>
+                                <a href="../../index.html#product-venues" class="block px-4 py-2.5 text-sm hover:opacity-70 transition-colors" style="color: var(--fg)">Post-Quantum Market Infrastructure Venues</a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="../../index.html#team" class="hover:opacity-70 transition-colors link-muted">Team</a>
                     <a href="mailto:info@eternax.ai" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-center text-white">Contact Us</a>
                 </div>
@@ -94,6 +110,12 @@
             <div id="mobile-menu" class="md:hidden hidden pb-4" role="dialog" aria-modal="true">
                 <div class="mt-2 space-y-3 border-t pt-4" style="border-color: var(--border)">
                     <a href="../../why-eternax.html" class="block px-1 link-muted">Why EternaX</a>
+                    <span class="block px-1 text-sm font-semibold link-muted">Products</span>
+                    <a href="../../index.html#product-settlement" class="block px-1 pl-4 link-muted text-sm">Post-Quantum Settlement and Execution Layer</a>
+                    <a href="../../index.html#product-issuance" class="block px-1 pl-4 link-muted text-sm">Post-Quantum Issuance and Tokenization Rails (Stablecoins and RWAs)</a>
+                    <a href="../../index.html#product-migration" class="block px-1 pl-4 link-muted text-sm">Post-Quantum Migration and Interoperability Rails</a>
+                    <a href="../../index.html#product-wallet" class="block px-1 pl-4 link-muted text-sm">Post-Quantum Wallet, Custody, and Policy Controls</a>
+                    <a href="../../index.html#product-venues" class="block px-1 pl-4 link-muted text-sm">Post-Quantum Market Infrastructure Venues</a>
                     <a href="../../index.html#team" class="block px-1 link-muted">Team</a>
                     <a href="mailto:info@eternax.ai" class="btn-primary block px-4 py-2 rounded-lg text-sm font-semibold text-center text-white">Contact Us</a>
                 </div>
