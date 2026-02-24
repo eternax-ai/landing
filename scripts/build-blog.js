@@ -70,7 +70,7 @@ const publishedDate = new Date().toLocaleDateString('en-US', {
 });
 
 content = content.replace(/<h1>([\s\S]*?)<\/h1>/, (match, h1Content) => {
-  return `<h1>${h1Content}</h1>\n<p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 1.5em;">${escapeHtml(publishedDate)}</p>`;
+  return `<h1>${h1Content}</h1>\n<p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 0.25em;">${escapeHtml(publishedDate)}</p>\n<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: EternaX Labs</p>`;
 });
 
 const templatePath = path.join(__dirname, 'blog-template.html');
