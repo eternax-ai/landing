@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}} | EternaX</title>
-    <meta name="description" content="{{description}}">
+    <title>Post-Quantum Is Not Enough | EternaX</title>
+    <meta name="description" content="How to secure financial infrastructure in the world of AI and quantum computers">
     <meta name="theme-color" content="#e2e2e2">
-    <link rel="icon" type="image/svg+xml" href="{{base}}assets/eternax-icon.svg">
-    <link rel="icon" type="image/png" href="{{base}}assets/eternax-icon.png">
+    <link rel="icon" type="image/svg+xml" href="../../assets/eternax-icon.svg">
+    <link rel="icon" type="image/png" href="../../assets/eternax-icon.png">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="{{title}}">
-    <meta property="og:description" content="{{description}}">
+    <meta property="og:title" content="Post-Quantum Is Not Enough">
+    <meta property="og:description" content="How to secure financial infrastructure in the world of AI and quantum computers">
     <meta property="og:site_name" content="EternaX">
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="{{title}}">
-    <meta property="twitter:description" content="{{description}}">
+    <meta property="twitter:title" content="Post-Quantum Is Not Enough">
+    <meta property="twitter:description" content="How to secure financial infrastructure in the world of AI and quantum computers">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
@@ -90,7 +90,7 @@
     <nav class="fixed w-full z-50 glass-effect border-b" style="background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-2">
-                <a href="{{base}}index.html" class="text-xl font-bold" style="color: var(--fg)">eternaX</a>
+                <a href="../../index.html" class="text-xl font-bold" style="color: var(--fg)">eternaX</a>
                 <!-- Desktop nav -->
                 <div class="hidden md:flex items-center space-x-6">
                     <div class="relative group">
@@ -166,7 +166,134 @@
 
     <main class="pt-24 pb-16 px-4">
         <article class="blog-body">
-            {{content}}
+            <h1>Post-Quantum Is Not Enough</h1>
+<p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 0.25em;">February 24, 2026</p>
+<p><img src="Hero_Image.png" alt="Hero Image"></p>
+<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: Dariia Porechna, cryptographer, co-founder of EternaX</p>
+<p><strong>How to secure financial infrastructure in the world of AI and quantum computers</strong></p>
+<h2>The bet</h2>
+<p>Every blockchain in production today rests on the same foundation: the belief that certain mathematical problems are hard to solve. Bitcoin uses ECDSA over secp256k1, Ethereum uses the same for externally owned accounts, and every other blockchain in production uses a variant of elliptic curve cryptography. Every transaction a user sends, every block a validator signs, every attestation in the consensus protocol depends on one assumption: that no one can efficiently compute a discrete logarithm on an elliptic curve.</p>
+<p>This assumption has held for roughly 40 years. In cryptography, 40 years is both a long time and not very long at all. The Enigma cipher, which Nazi Germany considered unbreakable, lasted about 15 years before Polish and British mathematicians found systematic ways to defeat it. The knapsack-based public key cryptosystem proposed by Merkle and Hellman in 1978 was broken by Shamir in 1984. More recently, SIDH, a promising post-quantum scheme based on supersingular isogenies, was catastrophically broken in 2022 by a single paper, years after it had been a NIST post-quantum candidate.</p>
+<p>The pattern is consistent: cryptographic schemes built on structured mathematical problems eventually meet the algorithm that exploits that structure. The only question is when.</p>
+<h2>The blind spot</h2>
+<p>The blockchain industry has been preparing for one specific version of this threat: quantum computers. The story is well known. A sufficiently large quantum computer running Shor’s algorithm can solve the discrete logarithm problem in polynomial time, breaking ECC along with RSA and most of the public-key cryptography deployed today. NIST has responded by standardizing schemes designed to resist attacks from quantum hardware: ML-DSA/Dilithium (based on lattice problems), FN-DSA/Falcon (also lattice-based), SLH-DSA/SPHINCS+ (based on hash functions).</p>
+<p>This is important work. But there is a different threat vector that receives less attention.</p>
+<p>Justin Drake, a researcher at the Ethereum Foundation, articulated it clearly on the Unchained podcast:</p>
+<blockquote>
+<p>“The current elliptic curves that we have use the so-called discrete log assumption, and it is possible that a non-quantum computer, a so-called classical computer, could break these things. And the reason is that there’s a lot of structure in these elliptic curves, and you could imagine some sort of mathematical breakthrough to happen. Now traditionally, these mathematical breakthroughs have happened by humans, by mathematicians, over periods of decades. But what we’re seeing with AI is that time is shrinking, and we’re starting to potentially see AI being much better than humans at mathematics. And so maybe they can find these kind of clever breakthroughs that leverage the structure of elliptic curves within a similar timeline or a shorter timeline than that of quantum computers. So this migration to post-quantum cryptography is also a migration to post-AI cryptography.”</p>
+</blockquote>
+<p>The point is subtle but important. The discrete logarithm problem has no proven lower bound on its computational complexity. We believe it is hard because decades of effort by talented mathematicians have not produced a fast algorithm. But “decades of human effort” is a weaker guarantee than it used to be. AI systems like DeepMind’s AlphaGeometry and FunSearch have demonstrated that machines can discover novel mathematical results, find new constructions and proofs that humans had missed. These are early results and the capabilities are advancing rapidly.</p>
+<p>A classical algorithmic breakthrough for the discrete logarithm problem would not require building a quantum computer. It would require one good idea, possibly found by a system that can explore the mathematical landscape faster and more broadly than any human team. And unlike a quantum computer, which announces itself through years of engineering progress, an algorithmic breakthrough can appear in a single paper.</p>
+<h2>Structure as attack surface</h2>
+<p>The reason Drake specifically mentions “structure in elliptic curves” is that structure is what makes algorithmic breakthroughs possible. Elliptic curves are rich mathematical objects. They carry a group law, endomorphism rings, pairings between curves, and deep connections to algebraic number theory. Each of these properties is a potential entry point for a new algorithm. The index calculus method, which efficiently solves the discrete log in multiplicative groups of finite fields, works precisely because it can exploit the factorization structure of those groups. Elliptic curves have resisted analogous attacks so far, but the structure is there, waiting.</p>
+<p>Lattice-based cryptography, which forms the basis of Dilithium and Falcon, also carries algebraic structure. The hard problems (Learning With Errors, Ring-LWE) live in lattices over polynomial rings. There is an active research community probing this structure, and while no devastating attack has appeared, the Ethereum Foundation has taken note. Their preference for hash-based post-quantum schemes over lattice-based ones reflects a deliberate choice to minimize the algebraic surface area available to future attackers.</p>
+<p>Hash-based signatures like SPHINCS+ sit at the conservative end of this spectrum. Their security reduces to the assumption that hash functions like SHA-256 are one-way, that you cannot efficiently find an input that produces a given output. Hash functions are designed to be structureless, to behave as much like random oracles as possible. There is very little algebraic handle for an algorithm to grab. This makes hash-based schemes the most conservative computational choice available.</p>
+<p>But they are still computational. The security of SPHINCS+ depends on SHA-256 being hard to invert. If that assumption fails (and “never” is a strong word in cryptography), the scheme fails with it.</p>
+<h2>Removing the assumption</h2>
+<p>There is a category of cryptographic security that does not depend on computational hardness at all. Information-theoretic security means that a scheme cannot be broken even by an adversary with unlimited computational power. Not “infeasible to break” but “mathematically impossible to break,” because the information required to break it simply is not available to the attacker.</p>
+<p>The concept is not new. The one-time pad, described by Claude Shannon in 1949, provides information-theoretic secrecy: a ciphertext encrypted with a truly random key of equal length reveals nothing about the plaintext, regardless of how much computation the adversary performs. The limitation of the one-time pad is the need for a pre-shared key as long as the message, which kept it impractical for most applications. Authenticated codes (MACs) based on universal hashing provide information-theoretic authentication, but only between parties who share a secret key, with no way for a third party to verify.</p>
+<p>EternaX uses an information-theoretic signature scheme designed for high performance blockchain operations. When a user submits a transaction to a blockchain, it travels over a TLS connection to a validator or RPC node. TLS establishes a shared secret between the two parties as part of its handshake. This happens before any transaction data is exchanged and is a fundamental part of how the internet works. EternaX uses this shared secret as the channel key for its information-theoretic construction. The validator verifies the signature using the shared channel key, includes the transaction in a block with a publicly verifiable receipt. </p>
+<p>We have chosen an information-theoretic signature, because the unforgeability of this class does not reduce to any computational problem or hardness assumption. The signature encodes a system of equations over a finite field with more unknowns than constraints, leaving a full degree of freedom in the solution space. From the attacker’s perspective, the critical verification value is uniformly distributed over all possible values, regardless of what the attacker computes. The probability of a successful forgery is exactly 1/p, where p is the size of the field (approximately 2^255). This bound holds against classical computers, quantum computers, AI-discovered algorithms, and any combination thereof.</p>
+<p>The threat landscape, viewed through this lens:</p>
+<table>
+<thead>
+<tr>
+<th>Threat scenario</th>
+<th>ECC</th>
+<th>Lattice PQC</th>
+<th>Hash-based PQC</th>
+<th>EternaX novel PQ scheme</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Known classical algorithms</td>
+<td>Safe</td>
+<td>Safe</td>
+<td>Safe</td>
+<td>Safe</td>
+</tr>
+<tr>
+<td>AI-discovered classical breakthrough</td>
+<td>Breaks</td>
+<td>At risk</td>
+<td>Safe</td>
+<td>Safe</td>
+</tr>
+<tr>
+<td>Quantum computer</td>
+<td>Breaks</td>
+<td>Believed safe</td>
+<td>Safe</td>
+<td>Safe</td>
+</tr>
+<tr>
+<td>AI + quantum combined</td>
+<td>Breaks</td>
+<td>Uncertain</td>
+<td>Likely safe</td>
+<td>Safe</td>
+</tr>
+<tr>
+<td>Unbounded adversary</td>
+<td>Breaks</td>
+<td>Breaks</td>
+<td>Breaks</td>
+<td>Safe</td>
+</tr>
+</tbody></table>
+<h2>Size and performance</h2>
+<p>Post-quantum migration has a cost problem. The NIST-standardized schemes produce signatures that are dramatically larger than ECC:</p>
+<table>
+<thead>
+<tr>
+<th>Scheme</th>
+<th>Signature size</th>
+<th>Public key size</th>
+<th>Security basis</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ECDSA (secp256k1)</td>
+<td>64 bytes</td>
+<td>33 bytes</td>
+<td>Elliptic curve (not PQ-safe)</td>
+</tr>
+<tr>
+<td>EternaX PQ novel scheme</td>
+<td>160 bytes</td>
+<td>64 bytes</td>
+<td>Information-theoretic</td>
+</tr>
+<tr>
+<td>Dilithium2</td>
+<td>2,420 bytes</td>
+<td>1,312 bytes</td>
+<td>Lattice</td>
+</tr>
+<tr>
+<td>Falcon-512</td>
+<td>666 bytes</td>
+<td>897 bytes</td>
+<td>Lattice</td>
+</tr>
+<tr>
+<td>SPHINCS+-128s</td>
+<td>7,856 bytes</td>
+<td>32 bytes</td>
+<td>Hash-based</td>
+</tr>
+</tbody></table>
+<p><img src="benchmark_comparison_line.png" alt="benchmark_comparison_line.png"></p>
+<p>Transaction signatures are the most numerous cryptographic objects on a blockchain. They account for a large share of block space, network bandwidth, and verification cost. Eternax’s IT-signature is 160 bytes, about 2.5x the size of ECDSA, but &gt;4x times smaller than the most compact NIST post-quantum standard and ~60 times smaller than the most conservative one. Verification requires a small number of field multiplications and additions, comparable in cost to ECC verification and an order of magnitude cheaper than lattice or hash-based alternatives.</p>
+<p>For a blockchain processing thousands of transactions per second, the difference between 64-byte and 2,420-byte signatures is not a rounding error. It determines whether post-quantum migration is a seamless upgrade or a scalability regression that forces architectural compromises.</p>
+<h2>A different kind of migration</h2>
+<p>The blockchain industry will need to move away from elliptic curve cryptography. Whether the forcing function is a quantum computer, an AI-discovered algorithm, or a human mathematical breakthrough, the current foundation is not permanent. The only open questions are when and what to migrate to.</p>
+<p>The standard answer is lattice-based or hash-based schemes that are believed to resist quantum attacks. This is a reasonable default, and for many applications it may be the only option.</p>
+<p>But for blockchains, where secure connections between users and nodes are universal, where validators naturally serve as verifiers, and where signature size directly impacts scalability, there is a stronger option. Information-theoretic signatures make no bet on the hardness of any mathematical problem. They require no future migration when the next algorithmic surprise arrives, because their security does not depend on the absence of algorithmic surprises. It depends on the secrecy of a channel key that is established by the infrastructure every blockchain relies on.</p>
+<p>Post-quantum is a necessary step. It is not the last one.</p>
+<p><strong>Connect: <a href="mailto:info@eternax.ai">info@eternax.ai</a></strong></p>
+<p><em>EternaX is a high-performance, post-quantum cryptography (PQC) native settlement rail built to become the default home for minting new dollars onchain: stablecoins, tokenized treasuries, and tokenized RWAs. The issuer reality is simple: mint on legacy ECDSA and EdDSA rails and you embed migration debt that gets called under stress through selective key compromise, depegs, collateral haircuts, and liquidity fragmentation. EternaX’s wedge is PQ-native authorization from day one with a novel post-quantum signature design that is engineered for market throughput and delivers signatures about 4x smaller than next best, avoiding the throughput and ecosystem coordination cliffs of retrofit PQC. With auditable privacy, sub-second finality targets (~120ms), prediction markets live, and spot plus perps next, EternaX unifies issuance and market venues on one PQ-secured rail. Adoption compounds through two paths: canonical PQ-native issuance for new assets and a 1:1 lock-and-mint migration-to-safety route for legacy liquidity into PQ-secured settlement.</em></p>
+<p><em>Full details of the EternaX novel digital signature are currently under NDA pending publication in the IACR Journal on Cryptology.</em></p>
         </article>
     </main>
 
