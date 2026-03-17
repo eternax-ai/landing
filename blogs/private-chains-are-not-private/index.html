@@ -169,7 +169,7 @@
             <h1>Private Chains Are Neither Private Nor Post Quantum Safe</h1>
 <p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 0.25em;">March 16, 2026</p>
 <p><img src="Control_Loop_(18).png" alt="Control Loop (18).png"></p>
-<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: Dariia Porechna, co-founder of EternaX, cryptographer; Paarthh Birla, co-founder of EternaX, digital assets strategy</p>
+<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: Dariia Porechna, co-founder of EternaX, cryptographer; Paarrthhh Birla, co-founder of EternaX, digital assets strategy</p>
 <p>Why Zcash and Monero Fail the Post-Quantum Test. Why This Is Now a Day-One Decision for Stablecoin, RWA, Tokenized Fund, and Tokenized Equity Issuers. And Why We Are Building EternaX for a Post-Quantum World</p>
 
 <h2>TL;DR</h2>
@@ -198,6 +198,9 @@
 <p>Monero’s architecture is not the same as Zcash’s. That matters. But it does not rescue the system from the core argument. Monero’s official FAQ says privacy comes from ring signatures, RingCT, and stealth addresses, and that all transactions on the network are private by mandate. Those mechanisms hide sender ambiguity, amounts, and receiver identity today. (<a href="http://getmonero.org/">getmonero.org</a><a href="https://www.getmonero.org/get-started/faq/">, The Monero Project</a>)</p>
 <p>Its post-quantum CCS proposal then says that a quantum adversary who obtains a public wallet address can derive the private key, learn the user’s entire past and subsequent transaction history, and steal current or future funds. It also says a quantum adversary can derive private keys from key images, breaking privacy features for already-recorded transactions, and can deobfuscate the transaction graph. (<a href="https://ccs.getmonero.org/proposals/research-post-quantum-monero.html">Community Crowdfunding System</a>)</p>
 <p>So Monero is not best described as a narrow “harvest now, decrypt later” case. A more precise description is: archive now, solve later, deanonymize later, steal later. The evidence base here is not as formal as Zcash’s ZIP process. It relies on Monero’s official documentation plus first-party research materials. But the direction of the risk is still clear. (<a href="http://getmonero.org/">getmonero.org</a><a href="https://www.getmonero.org/get-started/faq/">, The Monero Project</a>)</p>
+<h2>The Attack-Cost Curve Is Compressing</h2>
+<p>Five years ago, RSA-2048 break estimates sat near 20 million noisy qubits. By 2025, that fell below 1 million under stated assumptions. By February 2026, serious architecture work was arguing for sub-100,000 physical qubits. And by March, even more aggressive claims entered the conversation. Whether every new claim survives scrutiny is not the point. The point is that the security margin around RSA and ECC is compressing faster than institutional migration plans were built for.</p>
+<p><img src="1773746901307.png" alt="Quantum Risk Cost Curve"></p>
 <h2>If the Quantum adversaries existed today, what would Zcash and Monero users actually face?</h2>
 <p>For Zcash, the answer is severe.</p>
 <p>If the relevant discrete-log assumptions became practically breakable, ZIP 2005 indicates the risk is not limited to privacy exposure. The failure surface includes:</p>
