@@ -53,6 +53,12 @@ Its post-quantum CCS proposal then says that a quantum adversary who obtains a p
 
 So Monero is not best described as a narrow “harvest now, decrypt later” case. A more precise description is: archive now, solve later, deanonymize later, steal later. The evidence base here is not as formal as Zcash’s ZIP process. It relies on Monero’s official documentation plus first-party research materials. But the direction of the risk is still clear. ([getmonero.org](http://getmonero.org/)[, The Monero Project](https://www.getmonero.org/get-started/faq/))
 
+## The Attack-Cost Curve Is Compressing  
+
+Five years ago, RSA-2048 break estimates sat near 20 million noisy qubits. By 2025, that fell below 1 million under stated assumptions. By February 2026, serious architecture work was arguing for sub-100,000 physical qubits. And by March, even more aggressive claims entered the conversation. Whether every new claim survives scrutiny is not the point. The point is that the security margin around RSA and ECC is compressing faster than institutional migration plans were built for.
+
+![Quantum Risk Cost Curve](1773746901307.png)
+
 ## If the Quantum adversaries existed today, what would Zcash and Monero users actually face?
 
 For Zcash, the answer is severe.
