@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Already Broken: The Post-Quantum Threat to Stablecoins, Tokenized Finance, Privacy Chains, and Cryptographic Migration Debt | EternaX Research</title>
+  <meta name="description" content="27 named institutions. $144.4 trillion in financial infrastructure. Zero published post-quantum migration plans. This report explains cryptographic migration debt, why Zcash and Monero are not post-quantum safe, why Ethereum is still targeting 2029 for full post-quantum completion, and why Post-Quantum Native Day One with EternaX offers both a debt escape and a distribution advantage.">
+    <meta name="keywords" content="quantum-safe settlement, post-quantum cryptography, PQ-native assets, quantum risk, quantum threat, quantum migration, quantum safe, quantum resistant, quantum secure, quantum safe settlement, quantum safe cryptography, quantum safe blockchain, quantum safe infrastructure, quantum safe vaults, quantum safe signatures, quantum safe transactions, quantum safe contracts, quantum safe smart contracts, quantum safe dapps, quantum safe wallets, quantum safe exchanges, quantum safe lending, quantum safe borrowing, quantum safe stablecoins, quantum safe tokenized finance, quantum safe privacy chains, quantum safe cryptographic migration debt, quantum safe zcash, quantum safe monero, quantum safe ethereum, quantum safe post-quantum completion, quantum safe post-quantum native, quantum safe post-quantum day one, quantum safe post-quantum debt escape, quantum safe post-quantum distribution advantage">
+    <link rel="canonical" href="https://eternax.ai/already-broken-quantum-risk-report-q1-2026.html">
+    
+    <!-- Common metadata (same for all pages) -->
+    <meta name="author" content="eternaX Labs">
+    <meta name="publisher" content="eternaX Labs">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="theme-color" content="#e2e2e2">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Favicon -->
+    <!--Note: The template uses ../assets/ for assets (assuming subpages might be in subdirectories). If all pages are in the root, change to ./assets/ like in why-eternax.html.-->
+    <link rel="icon" type="image/svg+xml" href="../assets/eternax-icon.svg">
+    <link rel="icon" type="image/png" href="../assets/eternax-icon.png">
+    
+    <!-- PAGE-SPECIFIC: Update Open Graph tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eternax.ai/already-broken-quantum-risk-report-q1-2026.html">
+    <meta property="og:title" content="Already Broken: The Post-Quantum Threat to Stablecoins, Tokenized Finance, and Privacy Chains - EternaX">
+    <meta property="og:description" content="27 named institutions. $144.4 trillion in financial infrastructure. Zero published post-quantum migration plans. This report explains cryptographic migration debt, why Zcash and Monero are not post-quantum safe, why Ethereum is still targeting 2029 for full post-quantum completion, and why Post-Quantum Native Day One with EternaX offers both a debt escape and a distribution advantage.">
+    <meta property="og:image" content="https://eternax.ai/assets/preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+    <meta property="og:site_name" content="EternaX">
+    <meta property="og:locale" content="en_US">
+
+    <!-- PAGE-SPECIFIC: Update Twitter Card tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://eternax.ai/already-broken-quantum-risk-report-q1-2026.html">
+    <meta property="twitter:title" content="Already Broken: The Post-Quantum Threat to Stablecoins, Tokenized Finance, and Privacy Chains - EternaX">
+    <meta property="twitter:description" content="27 named institutions. $144.4 trillion in financial infrastructure. Zero published post-quantum migration plans. This report explains cryptographic migration debt, why Zcash and Monero are not post-quantum safe, why Ethereum is still targeting 2029 for full post-quantum completion, and why Post-Quantum Native Day One with EternaX offers both a debt escape and a distribution advantage.">
+    <meta property="twitter:image" content="https://eternax.ai/assets/preview.png">
+    <meta property="twitter:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+    <meta property="twitter:site" content="@eternaXLabs">
+    <meta property="twitter:creator" content="@eternaXLabs">
+    
+    <!-- Resource Hints for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'eternax': {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            400: '#a3a3a3',
+                            500: '#737373',
+                            600: '#525252',
+                            700: '#404040',
+                            800: '#262626',
+                            900: '#171717',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['IBM Plex Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        'condensed': ['IBM Plex Sans Condensed', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --site-bg: #F8F4F4;
+      --site-surface: #FFFFFF;
+      --site-text: #283771;
+      --site-text-muted: #586390;
+      --site-border: #E0DEDE;
+      --site-surface-soft: #F4F0F0;
+      --site-header: #EAE7E7;
+      --site-navy-soft: rgba(40,55,113,0.08);
+      --site-red-soft: rgba(141,46,46,0.04);
+      --site-green-soft: rgba(47,94,82,0.05);
+
+      --bg: var(--site-bg);
+      --bg-elevated: var(--site-surface-soft);
+      --bg-card: var(--site-surface);
+      --bg-table-header: var(--site-header);
+      --bg-table-row: #FBF8F8;
+      --bg-table-row-alt: #FFFFFF;
+      --bg-briefing: #F6F2F2;
+      --border: var(--site-border);
+      --border-accent: #D6D2D2;
+      --text: var(--site-text);
+      --text-muted: var(--site-text-muted);
+      --text-heading: var(--site-text);
+      --text-bright: var(--site-text);
+      --accent: #283771;
+      --accent-blue: #37457B;
+      --green: #2F5E52;
+      --none-red: #8D2E2E;
+      --content-width: 860px;
+      --content-width-wide: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      line-height: 1.69;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: rgba(40,55,113,0.18); color: var(--text-bright); }
+    a { color: inherit; }
+    nav { font-family: ui-sans-serif, system-ui, sans-serif; }
+
+    .btn-primary {
+      background-color: var(--accent);
+      transition: background-color 0.15s;
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background-color: var(--accent-blue);
+    }
+
+    .glass-effect {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .nav-products-dropdown {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.15s, visibility 0.15s;
+    }
+
+    .group:hover .nav-products-dropdown {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .masthead,
+    .disclaimer-bar,
+    .source-strip,
+    .accountability-strip,
+    .top-fact-strip,
+    .exec-briefing,
+    .team-section,
+    .connect-section,
+    .report-footer,
+    .methodology-note-wrap { padding-left: 2rem; padding-right: 2rem; }
+
+    .masthead-inner,
+    .accountability-inner,
+    .top-fact-inner,
+    .methodology-note,
+    .report-footer-inner,
+    .team-inner,
+    .connect-inner,
+    .source-strip-inner,
+    .disclaimer-bar p,
+    .toc,
+    .content,
+    .faq-section { max-width: var(--content-width); margin: 0 auto; }
+
+    .masthead-label,
+    .section-num,
+    .toc h2,
+    .exec-briefing-label,
+    .accountability-label,
+    .team-label,
+    .connect-label,
+    .report-footer h3,
+    .source-strip-label,
+    .faq-label,
+    .verdict-label,
+    .perimeter-title,
+    .phase-divider span,
+    .top-fact-label,
+    .methodology-note-label {
+      font-family: 'IBM Plex Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .masthead {
+      border-bottom: 1px solid var(--border);
+      padding-top: calc(2.5rem + 64px);
+      padding-bottom: 2rem;
+      background: linear-gradient(180deg, #FFFFFF 0%, var(--bg) 100%);
+    }
+    .masthead-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+    .masthead-title {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 3.2rem;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: var(--text-bright);
+      margin-bottom: 0.65rem;
+    }
+    .masthead-kicker {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .masthead-subtitle {
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 760px;
+    }
+    .masthead-meta {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .disclaimer-bar {
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border);
+      padding-top: 0.85rem;
+      padding-bottom: 0.85rem;
+    }
+    .disclaimer-bar p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .source-strip {
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border);
+      padding-top: 0.7rem;
+      padding-bottom: 0.7rem;
+    }
+    .source-strip-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .source-strip-label {
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-right: 0.25rem;
+    }
+    .source-strip-item {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--text);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.55rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .accountability-strip {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding-top: 1rem;
+      padding-bottom: 1.05rem;
+    }
+    .accountability-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+    }
+    .accountability-text {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--text-bright);
+    }
+    .accountability-text strong { color: var(--accent); }
+
+    .share-panel {
+      margin: 2.2rem auto 2.6rem;
+      max-width: var(--content-width);
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    .share-panel-inner {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem 1.5rem 1.35rem;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.85) inset;
+    }
+    .share-panel-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
+    }
+    .share-panel-title {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text-heading);
+      margin-bottom: 1rem;
+    }
+    .share-panel-kicker {
+      font-size: 0.96rem;
+      line-height: 1.58;
+      color: var(--text-bright);
+      margin-top: 0.95rem;
+    }
+    .share-panel-kicker-strong {
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+    .share-panel-source {
+      margin-top: 0.8rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.64rem;
+      line-height: 1.55;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+    }
+    .share-panel-hero .share-panel-inner {
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      background: linear-gradient(180deg, rgba(40,55,113,0.035) 0%, rgba(40,55,113,0) 100%), var(--bg-card);
+    }
+    .share-panel-metrics-3up {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .share-metric {
+      background: #FAF8F8;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1rem 0.95rem 0.9rem;
+      min-height: 132px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .share-metric-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+    }
+    .share-metric-number-danger { color: var(--none-red); }
+    .share-metric-text {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .share-panel-grid .share-panel-inner {
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(180deg, rgba(40,55,113,0.03) 0%, rgba(40,55,113,0) 100%), var(--bg-card);
+    }
+    .share-panel-institution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.2rem;
+    }
+    .share-panel-institution {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-heading);
+      background: #FAF8F8;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.7rem 0.75rem;
+      line-height: 1.4;
+    }
+    .share-panel-verdict .share-panel-inner {
+      border-top: 2px solid var(--none-red);
+      border-bottom: 2px solid var(--none-red);
+      background: linear-gradient(180deg, rgba(141,46,46,0.035) 0%, rgba(141,46,46,0) 100%), var(--bg-card);
+      text-align: center;
+    }
+    .share-panel-verdict-lines {
+      display: grid;
+      gap: 0.35rem;
+      margin-top: 0.2rem;
+    }
+    .share-panel-verdict-line {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.2rem;
+      line-height: 1.35;
+      color: var(--text-heading);
+      margin: 0;
+    }
+    .share-panel-verdict-line strong {
+      color: var(--none-red);
+      font-weight: 600;
+    }
+    .share-panel-money .share-panel-inner {
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      text-align: center;
+      background: linear-gradient(180deg, rgba(40,55,113,0.04) 0%, rgba(40,55,113,0) 100%), var(--bg-card);
+    }
+    .share-panel-money-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 3.6rem;
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      color: var(--accent);
+      margin: 0.15rem 0 0.5rem;
+    }
+    .share-panel-money-subtitle {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.08rem;
+      line-height: 1.42;
+      color: var(--text-heading);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .share-panel-answer .share-panel-inner {
+      border-top: 2px solid var(--green);
+      border-bottom: 2px solid var(--green);
+      box-shadow: inset 4px 0 0 rgba(47,94,82,0.92), 0 1px 0 rgba(255,255,255,0.85) inset;
+      background: linear-gradient(180deg, rgba(47,94,82,0.045) 0%, rgba(47,94,82,0) 100%), var(--bg-card);
+    }
+    .share-panel-answer .share-panel-title { color: var(--green); }
+    .share-panel-answer-points {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 0.2rem;
+    }
+    .share-panel-answer-point {
+      font-size: 0.96rem;
+      line-height: 1.56;
+      color: var(--text-heading);
+      margin: 0;
+    }
+    .share-panel-answer-point::before {
+      content: '• ';
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .exec-briefing {
+      background: var(--bg-briefing);
+      border-bottom: 1px solid var(--border-accent);
+      padding-top: 2.35rem;
+      padding-bottom: 1.9rem;
+    }
+    .exec-briefing-inner { max-width: var(--content-width-wide); margin: 0 auto; }
+    .exec-briefing-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    .exec-briefing h2 {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.48rem;
+      line-height: 1.25;
+      color: var(--text-heading);
+      margin-bottom: 0.95rem;
+      max-width: 860px;
+    }
+    .exec-briefing .lead {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.64;
+      margin-bottom: 0.9rem;
+      max-width: 760px;
+    }
+    .exec-trigger {
+      margin: 0 0 1.35rem;
+      padding: 1.1rem 1.2rem;
+      background: #EEF1F8;
+      border: 1px solid rgba(40,55,113,0.26);
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+    .exec-trigger-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .exec-trigger p { font-size: 0.84rem; color: var(--text-bright); }
+
+    .toc { padding: 3rem 2rem 0; }
+    .toc h2 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 2rem;
+    }
+    .toc-phase {
+      grid-column: 1 / -1;
+      margin-top: 0.65rem;
+      margin-bottom: 0.1rem;
+      padding-top: 0.3rem;
+      border-top: 1px solid rgba(42,49,72,0.2);
+    }
+    .toc-phase span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .toc-list li a {
+      display: flex;
+      gap: 0.6rem;
+      text-decoration: none;
+      font-size: 0.82rem;
+      color: var(--text);
+      padding: 0.3rem 0;
+    }
+    .toc-list li a:hover { color: var(--accent); }
+    .toc-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      min-width: 1.6rem;
+    }
+
+    .content { padding: 0 2rem 4.75rem; }
+    .phase-divider {
+      margin-top: 4.8rem;
+      margin-bottom: -0.8rem;
+      padding: 0.8rem 0;
+      text-align: center;
+      position: relative;
+    }
+    .phase-divider::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: var(--border);
+    }
+    .phase-divider span {
+      position: relative;
+      z-index: 1;
+      background: var(--bg);
+      padding: 0 1.2rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.3em;
+    }
+
+    .section {
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      scroll-margin-top: 1.5rem;
+    }
+    .section-num {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .section h2 {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.76rem;
+      line-height: 1.22;
+      color: var(--text-heading);
+      margin-bottom: 1.45rem;
+      letter-spacing: -0.018em;
+    }
+    .section h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin: 2rem 0 0.8rem;
+    }
+    .section p {
+      font-size: 0.95rem;
+      margin-bottom: 1.1rem;
+      line-height: 1.69;
+    }
+
+    #s8 h3 {
+      margin-top: 2.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(40,55,113,0.18);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    #s8 h3:first-of-type {
+      margin-top: 1.4rem;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .epigraph {
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      background: var(--bg-card);
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .epigraph p {
+      font-family: 'IBM Plex Serif', serif;
+      font-style: italic;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--text-heading);
+      margin-bottom: 0;
+    }
+    .epigraph .attr {
+      display: block;
+      margin-top: 0.6rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    .epigraph.high-impact {
+      position: relative;
+      padding: 1.95rem 1.8rem 1.55rem 2rem;
+    }
+    .epigraph.high-impact::before {
+      content: '“';
+      position: absolute;
+      top: -0.15rem;
+      left: 0.75rem;
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 4rem;
+      color: rgba(40,55,113,0.12);
+      line-height: 1;
+    }
+    .epigraph.high-impact::after {
+      content: 'KEY QUOTE';
+      position: absolute;
+      top: 0.8rem;
+      right: 1rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: rgba(40,55,113,0.28);
+    }
+    .epigraph.high-impact p {
+      font-size: 1.04rem;
+      line-height: 1.6;
+      color: var(--text-bright);
+    }
+
+    .callout {
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      background: var(--bg-card);
+      padding: 2rem 2.2rem;
+      margin: 2.5rem 0;
+      border-radius: 4px;
+      text-align: center;
+      box-shadow: inset 0 0 0 1px var(--border);
+    }
+    .callout p {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 0.95rem;
+      color: var(--text-heading);
+      line-height: 1.65;
+      margin-bottom: 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stat-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3.5rem;
+      margin: 2.8rem 0;
+      padding: 2.75rem 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      border-radius: 4px;
+    }
+    .stat-item { text-align: center; }
+    .stat-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 700;
+      font-size: 5rem;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+    .stat-number.num-institutions { color: var(--text-bright); }
+    .stat-number.num-plans { color: var(--none-red); }
+    .stat-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.45rem;
+      max-width: 210px;
+    }
+    .stat-divider {
+      width: 2px;
+      height: 86px;
+      background: linear-gradient(180deg, transparent 0%, var(--border-accent) 20%, var(--border-accent) 80%, transparent 100%);
+    }
+
+    .table-shell,
+    .table-wrapper {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+      background:
+        linear-gradient(to right, rgba(40,55,113,0.08), rgba(40,55,113,0)) left center / 18px 100% no-repeat,
+        linear-gradient(to left, rgba(40,55,113,0.08), rgba(40,55,113,0)) right center / 18px 100% no-repeat,
+        var(--bg-card);
+    }
+    .exec-briefing table { min-width: 760px; }
+    .table-wrapper { margin: 2rem 0; }
+    .table-wrapper.wide { max-width: var(--content-width-wide); margin-left: -110px; margin-right: -110px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      line-height: 1.42;
+    }
+    thead th {
+      background: var(--bg-table-header);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #46537F;
+      padding: 0.62rem 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-accent);
+      white-space: nowrap;
+    }
+    tbody td {
+      padding: 0.52rem 0.8rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+    tbody tr:nth-child(even) { background: var(--bg-table-row); }
+    tbody tr:nth-child(odd) { background: var(--bg-table-row-alt); }
+    .col-none {
+      color: var(--none-red);
+      font-weight: 600;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+    }
+    .col-highlight { color: var(--green); font-weight: 600; }
+    .col-warn { color: var(--accent-blue); font-weight: 500; }
+    .col-mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; }
+
+    /* Keep captions aligned with wide tables (reduced wrapping). */
+    .table-wrapper.wide {
+      max-width: var(--content-width-wide);
+      margin-left: -110px;
+      margin-right: -110px;
+      font-size: 0.64rem;
+      font-style: italic;
+      color: var(--text-muted);
+      background: var(--bg-elevated);
+      padding: 0.42rem 0.8rem 0.42rem 1.8rem;
+      border-top: 0;
+      border-left: 2px solid rgba(40,55,113,0.22);
+      border-bottom: 1px solid var(--border);
+      line-height: 1.55;
+    }
+    .methodology-row td {
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 0.64rem !important;
+      color: var(--text-muted) !important;
+      font-style: italic;
+      padding: 0.42rem 0.8rem 0.42rem 1.8rem !important;
+      background: var(--bg-elevated) !important;
+      border-bottom: 1px solid var(--border) !important;
+      border-left: 2px solid rgba(40,55,113,0.22) !important;
+      line-height: 1.55;
+    }
+    .table-wrapper table th:first-child,
+    .table-wrapper table td:first-child,
+    .table-shell table th:first-child,
+    .table-shell table td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+    }
+    .table-wrapper table th:first-child,
+    .table-shell table th:first-child {
+      background: #E7E3E3;
+      box-shadow: 1px 0 0 var(--border-accent);
+    }
+    .table-wrapper table td:first-child,
+    .table-shell table td:first-child {
+      background: #FCFAFA;
+      box-shadow: 1px 0 0 var(--border);
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+    .status-dot.open { background: var(--accent-blue); }
+    .status-dot.partial { background: #94a3b8; }
+    .status-dot.final { background: var(--accent); }
+
+    .perimeter {
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    .perimeter-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 0.5rem;
+    }
+    .perimeter p { font-size: 0.85rem; margin-bottom: 0.45rem; }
+    .perimeter p:last-child { margin-bottom: 0; }
+
+    .verdict {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0 2.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .verdict-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .verdict p { font-size: 0.85rem; line-height: 1.6; margin-bottom: 0; }
+    #s8 .verdict { margin-top: 1.15rem; margin-bottom: 2.9rem; }
+
+    .reveal-row td {
+      background: rgba(47,94,82,0.18) !important;
+      border-top: 2px solid rgba(47,94,82,0.48) !important;
+      border-bottom: 2px solid rgba(47,94,82,0.48) !important;
+      box-shadow: inset 6px 0 0 0 rgba(47,94,82,0.98), inset 0 1px 0 rgba(47,94,82,0.22), inset 0 -1px 0 rgba(47,94,82,0.22);
+    }
+
+    .faq-section { padding: 0 2rem 0; }
+    .faq-shell {
+      margin-top: 3.2rem;
+      padding: 2.25rem 2rem 2.1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      border-radius: 4px;
+    }
+    .faq-label {
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.55rem;
+    }
+    .faq-section h2 {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.42rem;
+      line-height: 1.32;
+      color: var(--text-heading);
+      margin-bottom: 0.85rem;
+    }
+    .faq-intro {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.66;
+      max-width: 760px;
+      margin-bottom: 1.35rem;
+    }
+    .faq-mini-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin: 0 0 1.7rem;
+    }
+    .faq-mini-nav a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.66rem;
+      text-decoration: none;
+      padding: 0.45rem 0.65rem;
+      border: 1px solid var(--border-accent);
+      border-radius: 999px;
+      background: var(--bg-elevated);
+    }
+    .faq-cluster { margin-top: 2rem; scroll-margin-top: 3.5rem; }
+    .faq-cluster h3 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.95rem;
+    }
+    .faq-item { border-top: 1px solid rgba(42,49,72,0.2); }
+    .faq-item:last-child { border-bottom: 1px solid rgba(42,49,72,0.2); }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      position: relative;
+      padding: 1rem 2.1rem 1rem 0;
+      font-size: 0.88rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--text-heading);
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      position: absolute;
+      right: 0.1rem;
+      top: 0.95rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-answer { padding: 0 0 1rem; }
+    .faq-answer p { font-size: 0.84rem; line-height: 1.68; margin-bottom: 0; }
+    .faq-anchor { text-decoration: none; }
+
+    .closing-separator {
+      margin: 4.5rem auto 0;
+      max-width: var(--content-width);
+      border: none;
+      border-top: 2px solid var(--border-accent);
+    }
+
+    .team-section {
+      border-top: 2px solid var(--border-accent);
+      padding-top: 3rem;
+      padding-bottom: 2.5rem;
+      background: var(--bg);
+    }
+    .team-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+    .team-section h2 {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.3rem;
+      color: var(--text-heading);
+      margin-bottom: 1.5rem;
+    }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .team-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.2rem 1.2rem 1rem;
+    }
+    .team-name { font-size: 0.9rem; font-weight: 600; color: var(--text-heading); margin-bottom: 0.1rem; }
+    .team-role {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      margin-bottom: 0.6rem;
+    }
+    .team-bio { font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 0.7rem; }
+    .team-links { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: var(--text-muted); }
+    .team-links a { text-decoration: none; }
+    .team-links a:hover { color: var(--text-bright); }
+
+    .connect-section {
+      border-top: 1px solid var(--border);
+      padding-top: 2.5rem;
+      padding-bottom: 3rem;
+      background: var(--bg);
+    }
+    .connect-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+      text-align: center;
+    }
+    .connect-section h2 {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.3rem;
+      color: var(--text-heading);
+      margin-bottom: 0.6rem;
+      text-align: center;
+    }
+    .connect-intro {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 620px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+    .connect-contacts {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .connect-person {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 0.82rem;
+    }
+    .connect-person .name {
+      font-weight: 600;
+      color: var(--text-heading);
+      min-width: 180px;
+      text-align: right;
+    }
+    .connect-person .role {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      min-width: 90px;
+      text-align: left;
+    }
+    .connect-person .email {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+    .connect-sep { color: var(--text-muted); margin: 0 0.25rem; }
+    .connect-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .connect-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 4px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .connect-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .connect-btn.primary { background: var(--accent); color: #fff; }
+    .connect-btn.primary:hover { background: var(--accent-blue); }
+    .connect-btn.secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-accent);
+    }
+
+    .methodology-note-wrap { margin-top: 2.25rem; }
+    .methodology-note-inner {
+      background: #FBF9F9;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 0.95rem 1rem;
+    }
+    .methodology-note-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .methodology-note p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .report-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      margin-top: 1rem;
+    }
+    .report-footer h3 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .report-footer p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.72;
+      margin-bottom: 0.8rem;
+    }
+
+    @media (max-width: 1120px) {
+      .table-wrapper.wide { margin-left: 0; margin-right: 0; }
+    }
+
+    @media (max-width: 700px) {
+      .masthead,
+      .disclaimer-bar,
+      .source-strip,
+      .accountability-strip,
+      .top-fact-strip,
+      .exec-briefing,
+      .team-section,
+      .connect-section,
+      .report-footer,
+      .methodology-note-wrap,
+      .share-panel { padding-left: 1rem; padding-right: 1rem; }
+      .toc,
+      .content,
+      .faq-section { padding-left: 1rem; padding-right: 1rem; }
+      .masthead-title { font-size: 2.15rem; }
+      .toc-list { grid-template-columns: 1fr; }
+      .section h2 { font-size: 1.38rem; }
+      .section p { font-size: 0.93rem; }
+      .stat-block {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem 1rem;
+      }
+      .stat-number { font-size: 4rem; }
+      .stat-divider {
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent 0%, var(--border-accent) 20%, var(--border-accent) 80%, transparent 100%);
+      }
+      .team-grid { grid-template-columns: 1fr; }
+      .connect-person { flex-direction: column; gap: 0.2rem; }
+      .connect-person .name,
+      .connect-person .role { min-width: auto; text-align: center; }
+      .connect-actions { margin-top: 2rem; flex-direction: column; gap: 0.8rem; }
+      .share-panel { margin: 1.7rem auto 2rem; }
+      .share-panel-inner { padding: 1.15rem 1rem 1.05rem; }
+      .share-panel-title { font-size: 1.16rem; line-height: 1.25; margin-bottom: 0.85rem; }
+      .share-panel-kicker { font-size: 0.9rem; line-height: 1.55; }
+      .share-panel-metrics-3up,
+      .share-panel-institution-grid { grid-template-columns: 1fr; }
+      .share-metric { min-height: auto; padding: 0.9rem 0.9rem 0.82rem; }
+      .share-metric-number { font-size: 2.15rem; }
+      .share-panel-verdict-line { font-size: 1.02rem; }
+      .share-panel-money-number { font-size: 2.55rem; }
+      .share-panel-money-subtitle { font-size: 0.96rem; }
+      .share-panel-institution { font-size: 0.64rem; padding: 0.62rem 0.68rem; }
+    }
+
+    @media print {
+      @page {
+        margin-top: 0.35in;
+        margin-bottom: 0.35in;
+      }
+      :root {
+        --bg: #ffffff;
+        --bg-elevated: #f7f7f7;
+        --bg-card: #ffffff;
+        --bg-table-header: #ececec;
+        --bg-table-row: #fafafa;
+        --bg-table-row-alt: #ffffff;
+        --bg-briefing: #f7f7f7;
+        --border: #d7d7d7;
+        --border-accent: #cfcfcf;
+        --text: #1f2b57;
+        --text-muted: #5b6484;
+        --text-heading: #1f2b57;
+        --text-bright: #1f2b57;
+      }
+      body { background: #fff; }
+      .source-strip,
+      .faq-mini-nav,
+      .connect-actions,
+      .no-print { display: none !important; }
+      .manual-page-break {
+    break-before: page;
+    page-break-before: always;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+      .masthead,
+      .exec-briefing,
+      .team-section,
+      .connect-section,
+      .report-footer,
+      .faq-shell,
+      .callout,
+      .epigraph,
+      .verdict,
+      .perimeter,
+      .methodology-note-inner,
+      .share-panel-inner {
+        box-shadow: none !important;
+        background: #fff !important;
+      }
+      .table-wrapper,
+      .verdict,
+      .callout,
+      .epigraph,
+      .perimeter,
+      .faq-item,
+      .team-card,
+      .share-panel-inner {
+        page-break-inside: avoid;
+      }
+      /* Allow sections to split across pages to avoid “forced new page” behavior. */
+      .section {
+        page-break-inside: auto !important;
+        break-inside: auto !important;
+      }
+      .table-wrapper.wide { margin-left: 0 !important; margin-right: 0 !important; }
+      .table-wrapper,
+      .table-shell { overflow: visible !important; background: #fff !important; }
+      .table-wrapper table th:first-child,
+      .table-wrapper table td:first-child,
+      .table-shell table th:first-child,
+      .table-shell table td:first-child {
+        position: static !important;
+        box-shadow: none !important;
+      }
+      .faq-item { border-color: #d9d9d9 !important; }
+      .faq-item summary::after { display: none !important; }
+      /* Print: force FAQ answers to render even when <details> is collapsed. */
+      .faq-item:not([open]) .faq-answer { display: block !important; }
+      .share-metric,
+      .share-panel-institution { background: #fff !important; }
+    }
+  </style>
+  <script>
+    // Ensure FAQ answers render in print/PDF output by expanding <details>.
+    (function () {
+      function expandFaqDetails() {
+        document.querySelectorAll('details.faq-item').forEach((d) => d.setAttribute('open', ''));
+      }
+
+      try {
+        if (window.matchMedia && window.matchMedia('print').matches) expandFaqDetails();
+        window.addEventListener('beforeprint', expandFaqDetails);
+      } catch (e) {
+        // Ignore environments that lack matchMedia/beforeprint.
+      }
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://eternax.ai/#organization",
+        "name": "EternaX Labs",
+        "url": "https://eternax.ai",
+        "email": "info@eternax.ai",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://eternax.ai/assets/eternax-icon.svg",
+          "width": "256",
+          "height": "256"
+      },
+      "sameAs": [
+      "https://x.com/eternaXLabs",
+      "https://github.com/eternax-ai",
+      "https://www.youtube.com/@eternaXlabs",
+      "https://farcaster.xyz/eternax",
+      "https://www.linkedin.com/company/eternax-labs"
+  ],
+  "founder": [
+      {
+          "@type": "Person",
+          "@id": "https://eternax.ai/#dariia-porechna",
+          "name": "Dariia Porechna",
+          "jobTitle": "Co-founder",
+          "description": "Distributed systems architect, formerly Head of Protocol at Subspace, Research Engineer at Wolfram|Alpha, degree in Cryptography.",
+          "sameAs": [
+              "https://www.linkedin.com/in/dariia-porechna",
+              "https://x.com/FutureDies"
+          ]
+      },
+      {
+          "@type": "Person",
+          "@id": "https://eternax.ai/#paarrthhh-birla",
+          "name": "Paarrthhh Birla",
+          "jobTitle": "Co-founder",
+          "description": "Web3 + AI strategist, formerly VP Growth at Polygon, Co-founder of Aadify, M&A and digital assets at EYP, MBA from ISB.",
+          "sameAs": [
+              "https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/",
+              "https://x.com/parthweb34ai"
+          ]
+      }
+  ],
+  "advisor": {
+      "@type": "Person",
+      "@id": "https://eternax.ai/#chen-feng",
+      "name": "Dr. Chen Feng",
+      "jobTitle": "Chief Scientific Advisor",
+      "description": "Principal's Research Chair in Blockchain and Associate Professor at UBC. 100+ peer-reviewed papers, h-index 29. Drives innovation in secure, AI-integrated Web3 distributed infrastructure.",
+      "sameAs": [
+          "https://www.linkedin.com/in/chen-feng-75272a37",
+          "https://scholar.google.com/citations?user=D8b0l-EAAAAJ"
+      ]
+  }
+},
+      {
+        "@type": "Article",
+        "@id": "https://eternax.ai/already-broken/#article",
+        "headline": "Already Broken",
+        "alternativeHeadline": "The Post-Quantum Threat to Stablecoins, Tokenized Finance, Privacy Chains, and Cryptographic Migration Debt",
+        "description": "27 named institutions. $144.4 trillion in financial infrastructure. Zero published post-quantum migration plans. This report explains cryptographic migration debt, why Zcash and Monero are not post-quantum safe, why Ethereum is still targeting 2029 for full post-quantum completion, and why Post-Quantum Native Day One with EternaX offers both a debt escape and a distribution advantage.",
+        "datePublished": "2026-03-25",
+        "dateModified": "2026-03-25",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "author": [
+          {"@type": "Person", "name": "Paarrthhh Birla", "jobTitle": "Co-Founder"},
+          {"@type": "Person", "name": "Dr. Chen Feng", "jobTitle": "Chief Scientist"},
+          {"@type": "Person", "name": "Dariia Porechna", "jobTitle": "Co-Founder"}
+        ],
+        "publisher": {"@id": "https://eternax.ai/#organization"},
+        "about": [
+          "Post-quantum cryptography",
+          "Quantum threat",
+          "Cryptographic migration debt",
+          "Stablecoin quantum threat",
+          "Tokenized financial infrastructure",
+          "Privacy-chain quantum risk",
+          "Post-Quantum Native Day One with EternaX"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://eternax.ai/already-broken/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is post-quantum security only a hurdle, or is it also a distribution opportunity?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Post-quantum security is both, but the larger commercial opportunity is distribution. The first global financial system that is genuinely post-quantum secure gains a natural security selling point. This report argues that EternaX extends that logic one step further: the strongest position is not to promise future migration, but to offer Post-Quantum Native Day One with EternaX."}
+          },
+          {
+            "@type": "Question",
+            "name": "Are Zcash and Monero post-quantum safe?",
+            "acceptedAnswer": {"@type": "Answer", "text": "No. Zcash and Monero are not post-quantum safe today in the durable sense users may assume. Privacy does not equal post-quantum safety. A privacy chain can still lose the durability of its privacy model if the underlying cryptographic assumptions fail."}
+          },
+          {
+            "@type": "Question",
+            "name": "Why does Ethereum’s 2029 target matter for stablecoins, tokenized funds, and money market funds issuing today?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Because if Ethereum is still targeting 2029 for full post-quantum completion, then any stablecoin, tokenized treasury, tokenized money market fund, tokenized security, custody flow, or settlement system issued before then is knowingly being launched inside a pre-upgrade exposure window. That means the problem is not only future migration cost. It is also present time-at-risk before full migration is complete."}
+          },
+          {
+            "@type": "Question",
+            "name": "What is Post-Quantum Native Day One with EternaX?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Post-Quantum Native Day One with EternaX means issuing on post-quantum-native infrastructure from the start, so cryptographic migration debt does not arise at the point of launch. This is fundamentally different from issuing on classical rails first and trying to retrofit post-quantum cryptography later."}
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 glass-effect border-b" style="background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-2">
+            <div class="flex items-center">
+                <a href="./index.html" class="text-xl font-bold" style="color: var(--fg);">eternaX</a>
+            </div>
+            <!-- Desktop nav -->
+            <div class="hidden md:flex items-center space-x-6">
+              <a href="./why-eternax.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Why EternaX</a>
+                    <a href="./already-broken-quantum-risk-report-q1-2026.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Quantum Risk Report</a>
+                <div class="relative group">
+                    <span class="hover:opacity-70 transition-colors flex items-center gap-1 cursor-default" style="color: var(--fg-70)">Products
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-products-dropdown absolute left-0 top-full pt-1">
+                        <div class="glass-effect rounded-lg py-2 min-w-[380px] max-w-[420px] shadow-lg" style="border: 1px solid var(--border)">
+                            <a href="./index.html#product-settlement" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b border-transparent hover:bg-black/5 rounded-t-lg" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Post-Quantum Settlement and Execution Layer</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">PQ-native execution and settlement with auditable privacy and fast finality (~120 ms).</span>
+                            </a>
+                            <a href="./index.html#product-issuance" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b border-transparent hover:bg-black/5" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Post-Quantum Issuance and Tokenization Rails (Stablecoins and RWAs)</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">Day-one PQ-native issuance for stablecoins and RWAs, with issuer-grade mint/burn governance, compliance hooks, and auditable privacy settlement.</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Stablecoin Issuance</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum RWA Tokenization and Issuance</span>
+                            </a>
+                            <a href="./index.html#product-migration" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b border-transparent hover:bg-black/5" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Post-Quantum Migration and Interoperability Rails</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">Move assets from existing chains into PQ-native settlement paths via vault and bridge infrastructure.</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Vault (Ethereum/EVM)
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Migration Bridge</span>
+                            </a>
+                            <a href="./index.html#product-wallet" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b border-transparent hover:bg-black/5" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Post-Quantum Wallet, Custody, and Policy Controls</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">PQ signing, wallet policies, custody controls, and agent permissions (KYA-ready).</span>
+                            </a>
+                            <a href="./index.html#product-venues" class="block px-4 py-3.5 hover:opacity-90 transition-colors hover:bg-black/5 rounded-b-lg" style="color: var(--fg)">
+                                <span class="font-semibold text-sm block">Post-Quantum Market Infrastructure Venues</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">High-velocity trading and information markets powered by PQ-safe collateral and agentic users.</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Perpetuals Exchange (PQ Perps)</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Prediction Markets</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="./index.html#team" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Team</a>
+                <a href="blogs/index.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Blogs</a>
+                <a href="mailto:info@eternax.ai" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-center text-white">
+                    Contact Us
+                </a>
+            </div>
+            <!-- Mobile hamburger -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2" style="color: var(--fg-70); border-color: var(--border)">
+                    <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
+                        <path d="M3 6h18M3 12h18M3 18h18" />
+                    </svg>
+                    <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 hidden">
+                        <path d="M6 6l12 12M6 18L18 6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden pb-4" role="dialog" aria-modal="true">
+            <div class="mt-2 space-y-3 border-t pt-4" style="border-color: var(--border)">
+                <span class="block px-1 text-sm font-semibold" style="color: var(--fg-70)">Products</span>
+                <a href="./index.html#product-settlement" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Settlement and Execution Layer</a>
+                <a href="./index.html#product-issuance" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Issuance and Tokenization Rails (Stablecoins and RWAs)</a>
+                <a href="./index.html#product-migration" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Migration and Interoperability Rails</a>
+                <a href="./index.html#product-wallet" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Wallet, Custody, and Policy Controls</a>
+                <a href="./index.html#product-venues" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Market Infrastructure Venues</a>
+                <a href="./index.html#team" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Team</a>
+                <a href="mailto:info@eternax.ai" class="btn-primary block px-4 py-2 rounded-lg text-sm font-semibold text-center text-white">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="masthead-label">EternaX Research | Post-Quantum Financial Infrastructure</div>
+      <h1 class="masthead-title">ALREADY BROKEN</h1>
+      <p class="masthead-kicker">The Post-Quantum Threat to Stablecoins, Tokenized Finance, Privacy Chains, and Cryptographic Migration Debt</p>
+      <p class="masthead-subtitle">The quantum threat is no longer theoretical. Institutions issuing on classical cryptographic rails in 2026 are creating cryptographic migration debt inside a live pre-upgrade window. This report explains why that matters - and why Post-Quantum Native Day One with EternaX is both a debt escape and a distribution advantage.</p>
+        <a href="eternax-report-already-broken-quantum-risk-report-q1-2026.pdf" target="_blank" rel="noopener" class="connect-btn primary no-print">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Save as PDF
+        </a>
+      <div class="masthead-meta">
+        <span>March 2026</span>
+        <span>Paarrthhh Birla, Co-Founder</span>
+        <span>Dr. Chen Feng, Chief Scientist</span>
+        <span>Dariia Porechna, Co-Founder</span>
+      </div>
+    </div>
+    
+  </header>
+
+  <div class="disclaimer-bar">
+    <p>Not investment advice. All market data March 17-20, 2026. EternaX novel PQ scheme pending IACR Journal of Cryptology publication. Sections 1 through 9 present independent analysis sourced from public records, federal standards, peer-reviewed research, and recorded statements by named industry researchers. EternaX’s architecture is presented in Sections 11 and 12.</p>
+  </div>
+
+  <div class="source-strip">
+    <div class="source-strip-inner">
+      <span class="source-strip-label">Sourced from</span>
+      <span class="source-strip-item">NIST FIPS 203/204/205</span>
+      <span class="source-strip-item">CISA</span>
+      <span class="source-strip-item">Federal Reserve</span>
+      <span class="source-strip-item">Gidney 2025</span>
+      <span class="source-strip-item">evolutionQ / GRI</span>
+      <span class="source-strip-item">Ethereum Foundation</span>
+      <span class="source-strip-item">BlackRock</span>
+    </div>
+  </div>
+
+  <div class="accountability-strip">
+    <div class="accountability-inner">
+      <div class="accountability-label">Who this report is for</div>
+      <div class="accountability-text"><strong>If you are making a 2026 architecture decision in stablecoins, tokenization, custody, settlement, privacy infrastructure, or market structure, the question is simple:</strong> are you creating post-quantum migration debt and time-at-risk that did not need to exist?</div>
+    </div>
+  </div>
+
+  <section class="share-panel share-panel-hero" id="share-panel-27-0-2029" aria-labelledby="share-panel-27-0-2029-title">
+    <div class="share-panel-inner">
+      <div class="share-panel-metrics share-panel-metrics-3up">
+        <div class="share-metric">
+          <div class="share-metric-number">27</div>
+          <div class="share-metric-text">Named institutions on classical cryptographic rails</div>
+        </div>
+        <div class="share-metric">
+          <div class="share-metric-number share-metric-number-danger">0</div>
+          <div class="share-metric-text">Published post-quantum migration plans</div>
+        </div>
+        <div class="share-metric">
+          <div class="share-metric-number">2029</div>
+          <div class="share-metric-text">Ethereum target for full post-quantum completion</div>
+        </div>
+      </div>
+      <p class="share-panel-kicker">Institutions are still issuing now on classical cryptographic rails.</p>
+      <p class="share-panel-source">EternaX Research. March 2026.</p>
+    </div>
+  </section>
+  <div class="manual-page-break"></div>
+  <section class="exec-briefing">
+    <div class="exec-briefing-inner">
+      <div class="exec-briefing-label">Executive Briefing</div>
+      <h2>Nine 2026 Post-Quantum Architecture Decisions Still Open</h2>
+      <p class="lead">This report documents $57B to $135B in first-order exposure across 27 named institutions and multiple live blockchain systems still building on classical cryptographic rails. The commercial point is simple: every institution still designing in 2026 has one low-cost chance to avoid cryptographic migration debt and choose a stronger long-duration issuance story before architecture lock-in.</p>
+      <p class="lead">Post-quantum-native issuance is not only a security response. It is a distribution advantage for the issuer, venue, or infrastructure provider that can say, credibly and from day one, that it did not launch on rails requiring future repair.</p>
+      <div class="exec-trigger">
+        <div class="exec-trigger-label">The question this report is meant to create</div>
+        <p>Did we knowingly choose classical cryptographic rails after federal standards, public migration deadlines, expert probability estimates, and industry warnings were already in the record?</p>
+      </div>
+      <div class="table-shell">
+        <table>
+          <thead>
+            <tr><th>Institution</th><th>Decision</th><th>Window Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Wells Fargo</strong></td><td>WFUSD chain selection + signing infrastructure</td><td class="col-warn"><span class="status-dot open"></span>Fully open - closing this quarter</td></tr>
+            <tr><td><strong>G7 10-bank consortium</strong></td><td>Chain specification for reserve-backed stablecoin</td><td class="col-warn"><span class="status-dot open"></span>Fully open - chain unspecified</td></tr>
+            <tr><td><strong>DTCC</strong></td><td>Tokenization Services allowlisted wallet signing standard</td><td class="col-warn"><span class="status-dot open"></span>Open - H2 2026 locks the standard</td></tr>
+            <tr><td><strong>Swift</strong></td><td>Blockchain pilot signing architecture</td><td class="col-warn"><span class="status-dot open"></span>Open - 11,500 institutions inherit it</td></tr>
+            <tr><td><strong>Circle</strong></td><td>Arc institutional blockchain cryptographic substrate</td><td><span class="status-dot partial"></span>Partially open - mainnet 2026</td></tr>
+            <tr><td><strong>Bridge / Stripe</strong></td><td>OCC trust charter + Open Issuance architecture</td><td><span class="status-dot partial"></span>Partially hardening</td></tr>
+            <tr><td><strong>NYSE / ICE</strong></td><td>Tokenized securities settlement signing standard</td><td><span class="status-dot partial"></span>Partially open - approval stage</td></tr>
+            <tr><td><strong>Nasdaq</strong></td><td>Tokenized equity scaling infrastructure</td><td><span class="status-dot partial"></span>Scaling decisions open</td></tr>
+            <tr><td><strong>CME Group</strong></td><td>Tokenized collateral architecture with Google Cloud</td><td><span class="status-dot final"></span>Final decisions happening now</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lead" style="margin-top:1rem; margin-bottom:0; font-family:'IBM Plex Mono', monospace; font-size:0.75rem; color:var(--text-muted);">Start here if you are scanning for institutional exposure, migration debt, or open 2026 decision windows. Section 5 names the 27 institutions. Section 8 includes privacy-chain analysis for Zcash and Monero. Section 9 quantifies first-order losses at $57B to $135B. Section 10 identifies live decision windows. Section 11 explains why Post-Quantum Native Day One with EternaX is the only architecture in this report where the debt does not arise at issuance - and why that is also a distribution advantage.</p>
+    </div>
+  </section>
+
+  <section class="share-panel share-panel-grid" id="share-panel-open-decisions" aria-labelledby="share-panel-open-decisions-title">
+    <div class="share-panel-inner">
+      <div class="share-panel-label">Share Panel</div>
+      <h2 class="share-panel-title" id="share-panel-open-decisions-title">Nine 2026 architecture decisions are still open.</h2>
+      <div class="share-panel-institution-grid">
+        <div class="share-panel-institution">Wells Fargo</div>
+        <div class="share-panel-institution">DTCC</div>
+        <div class="share-panel-institution">Swift</div>
+        <div class="share-panel-institution">Circle Arc</div>
+        <div class="share-panel-institution">CME Group</div>
+        <div class="share-panel-institution">NYSE / ICE</div>
+        <div class="share-panel-institution">Nasdaq</div>
+        <div class="share-panel-institution">Bridge / Stripe</div>
+        <div class="share-panel-institution">G7 10-bank consortium</div>
+      </div>
+      <p class="share-panel-kicker">The question is not whether post-quantum migration debt exists.</p>
+      <p class="share-panel-kicker share-panel-kicker-strong">The question is whether you are still early enough not to create it.</p>
+    </div>
+  </section>
+
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol class="toc-list">
+      <li class="toc-phase"><span>Part I - The Threat</span></li>
+      <li><a href="#s1"><span class="toc-num">01</span> What the Builders Already Know About the Quantum Threat</a></li>
+      <li><a href="#s2"><span class="toc-num">02</span> The Privacy You Think You Have Is Not Post-Quantum Privacy</a></li>
+      <li><a href="#s3"><span class="toc-num">03</span> The $144 Trillion Post-Quantum Financial Infrastructure Problem</a></li>
+      <li><a href="#s4"><span class="toc-num">04</span> The Quantum Threat Timeline, Ethereum’s 2029 Target, and the Post-Quantum Migration Window</a></li>
+      <li class="toc-phase"><span>Part II - The Exposure</span></li>
+      <li><a href="#s5"><span class="toc-num">05</span> 27 Institutions. Zero Published Post-Quantum Migration Plans.</a></li>
+      <li><a href="#s6"><span class="toc-num">06</span> Why Post-Quantum Signatures Break Legacy Financial Rails</a></li>
+      <li><a href="#s7"><span class="toc-num">07</span> Eight Independent Post-Quantum Migration Perimeters</a></li>
+      <li><a href="#s8"><span class="toc-num">08</span> Nine Chains. Nine Post-Quantum Verdicts.</a></li>
+      <li><a href="#s9"><span class="toc-num">09</span> $57B to $135B in First-Order Post-Quantum Migration Debt</a></li>
+      <li class="toc-phase"><span>Part III - The Decision</span></li>
+      <li><a href="#s10"><span class="toc-num">10</span> The Open 2026 Decisions. Before Architecture Lock-In.</a></li>
+      <li><a href="#s11"><span class="toc-num">11</span> Post-Quantum Native Day One with EternaX</a></li>
+      <li><a href="#s12"><span class="toc-num">12</span> What Institutions Should Do Now</a></li>
+      <li><a href="#faq"><span class="toc-num">13</span> Frequently Asked Questions</a></li>
+    </ol>
+  </nav>
+
+  <main class="content">
+    <div class="phase-divider"><span>Part I - The Threat</span></div>
+
+    <section class="section" id="s1">
+      <div class="section-num">Section 01</div>
+      <h2>What the Builders Already Know About the Quantum Threat</h2>
+      <p>Before any data. Before any table. Before any EternaX claim.</p>
+      <p>The industry’s own leading researchers are no longer describing the quantum threat as distant theory. Ethereum’s own post-quantum roadmap leadership now treats post-quantum readiness as a current engineering and market-structure issue, not a remote abstraction. That shift matters because it changes the decision rule for issuers, funds, and institutions.</p>
+      <div class="epigraph high-impact">
+        <p>&ldquo;If we have a cryptographically relevant computer, it is basically game over. It’s systemically bad for the whole industry where the notion of property rights starts to crumple.&rdquo;</p>
+        <span class="attr">Justin Drake, Ethereum Foundation researcher, leading Ethereum’s own post-quantum roadmap, recorded 2026</span>
+      </div>
+      <div class="epigraph">
+        <p>&ldquo;When that foundation crumbles and becomes completely insecure, everything built on top of it also collapses.&rdquo;</p>
+        <span class="attr">Chris Peikert, one of the world’s most cited post-quantum cryptographers</span>
+      </div>
+      <div class="epigraph">
+        <p>&ldquo;Any chains that want to prevent this type of attack have to act before quantum computing poses a threat to blockchains. That action to upgrade things is a long slow one that’s going to take a matter of years.&rdquo;</p>
+        <span class="attr">Justin Drake</span>
+      </div>
+      <p>These are not external critics of the industry. Drake leads Ethereum’s own post-quantum roadmap. Peikert has spent his career building the cryptographic standards the industry is now being told to adopt. When the architects of the infrastructure describe their own creation as a foundation that crumbles, the question is not whether to believe them. The question is what every institution building on that foundation has done in response.</p>
+      <p>The answer to that question is Section 5.</p>
+      <p>This is the report’s first core claim: the quantum threat is already validated by the industry’s own experts. The unresolved question is which institutions are still issuing as if post-quantum migration were optional.</p>
+      <div class="callout"><p>Ethereum’s own post-quantum researcher said “game over.” The institutions building on Ethereum have published zero migration plans in response. Not one.</p></div>
+    </section>
+
+    <section class="section" id="s2">
+      <div class="section-num">Section 02</div>
+      <h2>The Privacy You Think You Have Is Not Post-Quantum Privacy</h2>
+      <div class="epigraph">
+        <p>&ldquo;It’s not a matter of, oh, the quantum computer has to be out there actively making itself known while it’s doing these cryptographic attacks. It’s a quiet attack and then when you’re ready, you take your action.&rdquo;</p>
+        <span class="attr">Chris Peikert</span>
+      </div>
+      <div class="epigraph">
+        <p>&ldquo;I think privacy coins like Zcash are going to be the very first target of a quantum computer. And the reason is that you can steal funds without anyone noticing. Within the privacy pool, you can just empty the privacy pool and no one will know.&rdquo;</p>
+        <span class="attr">Justin Drake</span>
+      </div>
+      <p>Every transaction you have ever made on a chain you believed was private - Monero, Zcash, any privacy layer - is already recorded on a permanent public ledger. A quantum adversary does not need to be present when you transact. It needs only to exist at some future point with access to the blockchain that is always there. The harvest is passive, structural, and already underway. The decryption is deferred. The exposure is current.</p>
+      <p>This is where Zcash and Monero become especially important. Privacy chains are often marketed as stronger forms of digital money because they hide transaction details, balances, or counterparties. But privacy that is not post-quantum safe is not durable privacy. Once the relevant cryptography fails, historical privacy can fail with it.</p>
+      <p>Monero’s own research team documents retroactive deanonymization as irreversible. Zcash’s ZIP-2005 acknowledges that upgrading the protocol may not restore the Balance property for historical transactions. The Federal Reserve Board and Federal Reserve Bank of Chicago have published a working paper warning explicitly that quantum computers could decrypt historical blockchain transactions and that post-quantum cryptography cannot retroactively protect data already recorded on public blockchains.</p>
+      <p>Zcash’s own ZIP-2005 is explicit that Orchard does not by itself make the protocol secure against quantum adversaries, that Sapling would also need to be disabled if discrete-log-breaking attacks became practical, and that the note commitment algorithms used by Sapling and Orchard are not post-quantum binding. That means Zcash is not post-quantum safe today in the way many readers would assume.</p>
+      <p>Monero’s own post-quantum research framing explicitly prioritizes retroactive deanonymization because it threatens today’s users before theft even becomes the main issue. In other words, Monero’s own research agenda acknowledges that quantum risk is not only about future theft. It is also about the historical privacy users believe they already have.</p>
+      <p>Migration addresses future transactions. It cannot un-reveal what is already recorded.</p>
+      <p>The privacy is already gone. Only the adversary has not arrived yet.</p>
+      <div class="callout"><p>Zcash is not post-quantum safe. Monero is not post-quantum safe. Privacy today does not mean privacy survives a post-quantum world.</p></div>
+    </section>
+
+    <section class="share-panel share-panel-verdict" id="share-panel-privacy-shock" aria-labelledby="share-panel-privacy-shock-title">
+      <div class="share-panel-inner">
+        <div class="share-panel-label">Share Panel</div>
+        <h2 class="share-panel-title" id="share-panel-privacy-shock-title">Privacy Threat</h2>
+        <div class="share-panel-verdict-lines">
+          <p class="share-panel-verdict-line"><strong>Zcash is not post-quantum safe.</strong></p>
+          <p class="share-panel-verdict-line"><strong>Monero is not post-quantum safe.</strong></p>
+        </div>
+        <p class="share-panel-kicker">Privacy today does not mean privacy survives a post-quantum world.</p>
+      </div>
+    </section>
+
+    <section class="section" id="s3">
+      <div class="section-num">Section 03</div>
+      <h2>The $144 Trillion Post-Quantum Financial Infrastructure Problem</h2>
+      <p>The standard framing of this risk is too small. $2.62 trillion in crypto market cap. $316 billion in stablecoins. These are the assets already on classical rails. They are evidence of what migration debt looks like at scale. They are not the target of this report. The target is the $144.4 trillion U.S. financial stack now actively choosing its cryptographic foundation.</p>
+      <h3>The Financial Stack Now Opening to On-Chain Infrastructure</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Layer</th><th>Value</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>U.S. equity market cap</td><td class="col-mono">$68.2T</td><td>Year-end 2025</td></tr>
+            <tr><td>U.S. fixed income outstanding</td><td class="col-mono">$49.6T</td><td>Q4 2025</td></tr>
+            <tr><td>U.S. commercial bank deposits</td><td class="col-mono">$18.78T</td><td>February 2026</td></tr>
+            <tr><td>U.S. money market fund assets</td><td class="col-mono">$7.86T</td><td>March 18, 2026</td></tr>
+            <tr><td>Core securities stack</td><td class="col-mono">$117.8T</td><td>SIFMA / Federal Reserve</td></tr>
+            <tr><td>Full financial balances and claims</td><td class="col-mono" style="color:var(--text-bright);font-weight:700;">$144.4T</td><td>SIFMA / Federal Reserve</td></tr>
+            <tr><td>Annual new securities issuance</td><td class="col-mono">$11.5T/year</td><td>2025</td></tr>
+            <tr><td>U.S. fixed income daily trading</td><td class="col-mono">~$375T/year ann.</td><td>SIFMA 2025</td></tr>
+            <tr><td>Treasury repo daily volume</td><td class="col-mono">&gt;$1.1Q/year ann.</td><td>SIFMA Feb 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>This stack is not waiting. DTCC tokenization services roll out H2 2026 covering the Russell 1000, major ETFs, and U.S. Treasury bills, notes, and bonds. Nasdaq received SEC approval for tokenized equity trading and settlement on March 18, 2026. NYSE is building 24/7 tokenized venues. OCC is approving bank charters. Wells Fargo filed a stablecoin trademark fourteen days before this report was published. Every dollar of the $144.4 trillion that lands on classical cryptographic rails extends the migration debt by one dollar. The PQ problem scales with the migration.</p>
+      <p>This is why the report focuses on post-quantum financial infrastructure, not only on crypto assets already reflected in market-cap tables. The larger issue is the next layer of stablecoins, tokenized treasuries, tokenized money market funds, tokenized securities, custody systems, and settlement flows now deciding where to live.</p>
+      <div class="callout"><p>The U.S. capital markets add $11.5 trillion in new securities issuance per year. This quarter they are choosing the cryptographic rails. The framework they are building on has a government-mandated expiration date.</p></div>
+    </section>
+
+    <section class="section" id="s4">
+      <div class="section-num">Section 04</div>
+      <h2>The Quantum Threat Timeline, Ethereum’s 2029 Target, and the Post-Quantum Migration Window</h2>
+      <p>The Quantum Threat Timeline Report 2025, published by evolutionQ and the Global Risk Institute, surveyed 26 internationally recognized quantum computing experts under a structured elicitation methodology. Average estimated likelihood of a cryptographically relevant quantum computer capable of breaking RSA-2048 within five years: <strong>15%</strong>. Within ten years: <strong>49%</strong>. This is not an analyst’s forecast. It is the structured average probability estimate of 26 domain experts. 13 of 26 placed the ten-year likelihood at approximately 50% or higher.</p>
+      <p>Ethereum’s own post-quantum roadmap leadership is targeting 2029 for full post-quantum completion. That is a serious signal. It means Ethereum itself is still treating full post-quantum security as a live engineering target, not a completed condition. The relevant institutional question is no longer “When should we think about post-quantum?” The relevant question is “Why are we still issuing on rails that even their own core roadmap says are not fully post-quantum-complete yet?”</p>
+      <p>That has direct consequences for stablecoins, tokenized treasuries, tokenized money market funds, tokenized securities, custody systems, collateral systems, and settlement infrastructure already being launched on Ethereum and Ethereum-linked rails. If full post-quantum completion is still being targeted for 2029, then every new issuance before that date is knowingly launched inside a pre-upgrade exposure window. That is migration debt. It is also time-at-risk.</p>
+      <p>Craig Gidney’s 2025 peer-reviewed paper establishes that breaking RSA-2048 requires under one million physical qubits. In 2021 the estimate was approximately 20 million. A 20x compression in four years. That compression trend is what should matter most to institutions deciding whether they can safely issue first and migrate later.</p>
+      <p>Even the expert framing is shifting away from a clean, binary Q-Day. The more realistic risk is a compressed period in which the highest-value targets become vulnerable first, uncertainty spreads before certainty, and market repricing begins before the public gets a simple story. That makes post-quantum architecture a current issuance decision, not a future migration discussion.</p>
+      <div class="epigraph high-impact">
+        <p>&ldquo;When a technology achieves liftoff, it grows very quickly. The time to go from one quantum computer that can break a key in a few minutes to the time where there are a hundred such computers is going to be a very short period of time and once you’re in that window it’s far too late to act.&rdquo;</p>
+        <span class="attr">Chris Peikert</span>
+      </div>
+      <p>NIST says full integration takes 10 to 20 years. The clock started in 2024. Optimistic end: full integration by 2034. The 26 domain experts say 49% probability the threat arrives by the same window. Ethereum is still targeting 2029. Institutions are still issuing now. The arithmetic does not close cleanly for anyone choosing classical rails in 2026.</p>
+      <div class="manual-page-break"></div>
+      <h3>The Regulatory and Industry Timeline</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Year</th><th>Event</th><th>Implication</th></tr></thead>
+          <tbody>
+            <tr><td class="col-mono">2024</td><td>NIST PQ standards finalized</td><td>Algorithms exist. Migration is engineering, not research. No excuse condition.</td></tr>
+            <tr><td class="col-mono">Mid-2026</td><td>Google defaults Chrome and Android to PQ-TLS</td><td>Billions of devices migrate. Every institutional CISO receives the signal.</td></tr>
+            <tr><td class="col-mono">H2 2026</td><td>DTCC tokenization services rollout</td><td>Russell 1000, ETFs, Treasuries on-chain. Architecture setting now.</td></tr>
+            <tr><td class="col-mono" style="color:var(--accent);">2027</td><td><strong>CISA federal agency migration deadline</strong></td><td>OCC-chartered institutions in same framework. Ten months from today.</td></tr>
+            <tr><td class="col-mono">2028</td><td>UK NCSC discovery and planning deadline</td><td>Large organizations must have inventoried all cryptographic dependencies.</td></tr>
+            <tr><td class="col-mono">2029</td><td>Ethereum PQ completion target</td><td>Ethereum itself still treats full post-quantum readiness as an unfinished engineering milestone.</td></tr>
+            <tr><td class="col-mono">2030</td><td>Australia classical asymmetric crypto prohibited</td><td>Regulatory ban. Not a warning. A prohibition.</td></tr>
+            <tr><td class="col-mono">By 2034</td><td>49% expert probability window closes</td><td>NIST migration optimistic completion also 2034. Lines converge.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>In other words, the post-quantum migration window for new issuance is already inside the quantum threat window.</p>
+      <div class="callout"><p>Ethereum is still targeting 2029 for full post-quantum completion. Every stablecoin, tokenized fund, money market fund, tokenized security, custody flow, and settlement system launched on classical rails before then is knowingly entering a pre-upgrade exposure window.</p></div>
+    </section>
+    <div class="manual-page-break"></div>
+    <div class="phase-divider"><span>Part II - The Exposure</span></div>
+
+    <section class="section" id="s5">
+      <div class="section-num">Section 05</div>
+      <h2>27 Institutions. Zero Published Post-Quantum Migration Plans.</h2>
+      <p>Every product in this table is a live production system, active regulatory filing, or live institutional architecture surface. Every one depends on classical cryptographic rails. Not one has published a concrete post-quantum migration plan with a deployment timeline.</p>
+      <div class="stat-block">
+        <div class="stat-item">
+          <div class="stat-number num-institutions">27</div>
+          <div class="stat-label">Institutions on classical signing infrastructure</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number num-plans">0</div>
+          <div class="stat-label">Published post-quantum migration plans</div>
+        </div>
+      </div>
+      <div class="table-wrapper wide">
+        <table>
+          <thead>
+            <tr><th>Institution</th><th>Product / Role</th><th>Scale</th><th>Signing Infrastructure</th><th>PQ Plan</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tether</td><td>USDT</td><td class="col-mono">$184B / 5 chains</td><td class="col-mono">ECDSA secp256k1</td><td class="col-none">None</td></tr>
+            <tr><td>Circle</td><td>USDC / CCTP Iris attestation</td><td class="col-mono">$60-79B / 32 chains</td><td class="col-mono">ECDSA secp256k1</td><td class="col-none">None</td></tr>
+            <tr><td>Paxos</td><td>PYUSD for PayPal, USDP</td><td class="col-mono">$4.1B / 3 chains</td><td class="col-mono">ECDSA secp256k1</td><td class="col-none">None</td></tr>
+            <tr><td>Ethena</td><td>USDe</td><td class="col-mono">$5.9B / 23 chains</td><td class="col-mono">ECDSA secp256k1</td><td class="col-none">None</td></tr>
+            <tr><td>BlackRock / Securitize</td><td>BUIDL - live collateral on Deribit and Binance</td><td class="col-mono">$2.2B / 7 chains</td><td class="col-mono">ECDSA secp256k1</td><td class="col-none">None</td></tr>
+            <tr><td>Franklin Templeton</td><td>BENJI - SEC-registered government MMF</td><td class="col-mono">$864M</td><td class="col-mono">Ed25519 / ECDSA</td><td class="col-none">None</td></tr>
+            <tr><td>WisdomTree</td><td>WTGXX - first SEC-exempted 24/7 tokenized MMF</td><td class="col-mono">Undisclosed</td><td class="col-mono">Classical</td><td class="col-none">None</td></tr>
+            <tr><td>Fidelity Investments</td><td>FIDD stablecoin; Digital Assets custody; OCC conditional</td><td class="col-mono">OCC conditional</td><td class="col-mono">ECDSA secp256k1</td><td class="col-none">None</td></tr>
+            <tr><td>Securitize</td><td>Tokenization platform and transfer agent</td><td class="col-mono">$4B+ AUM</td><td class="col-mono">ECDSA secp256k1</td><td class="col-none">None</td></tr>
+            <tr><td>Centrifuge</td><td>RWA tokenization - private credit, invoices, real estate</td><td class="col-mono">$500M+ TVL</td><td class="col-mono">ECDSA secp256k1</td><td class="col-none">None</td></tr>
+            <tr><td>JPMorgan</td><td>Kinexys on Canton - institutional settlement</td><td class="col-mono">$1B+/day</td><td class="col-mono">Ed25519 (Canton)</td><td class="col-warn">Research only</td></tr>
+            <tr><td>Goldman Sachs</td><td>GS DAP tokenization; mirrored MMF tokens; G7 consortium</td><td class="col-mono">G-SIB</td><td class="col-mono">Ed25519 (Canton)</td><td class="col-none">None</td></tr>
+            <tr><td>BNY Mellon</td><td>GS DAP participant; $55.8T AUC; Canton</td><td class="col-mono">$55.8T custody</td><td class="col-mono">Ed25519</td><td class="col-none">None</td></tr>
+            <tr><td>BNP Paribas</td><td>Canton participant; G7 consortium</td><td class="col-mono">G-SIB</td><td class="col-mono">Ed25519 (Canton)</td><td class="col-none">None</td></tr>
+            <tr><td>Citadel Securities</td><td>Largest U.S. equities MM; crypto liquidity</td><td class="col-mono">Largest U.S. equities MM</td><td class="col-mono">Classical exchange</td><td class="col-none">None</td></tr>
+            <tr><td>DRW / Cumberland</td><td>Crypto prime brokerage; institutional liquidity</td><td class="col-mono">Major institutional</td><td class="col-mono">Classical exchange</td><td class="col-none">None</td></tr>
+            <tr><td>Anchorage Digital</td><td>First OCC-chartered federal crypto bank</td><td class="col-mono">First OCC crypto charter</td><td class="col-mono">Threshold ECDSA/EdDSA</td><td class="col-none">None</td></tr>
+            <tr><td>BitGo</td><td>OCC charter approved; $200M NYSE IPO filed</td><td class="col-mono">OCC approved</td><td class="col-mono">Threshold ECDSA/EdDSA</td><td class="col-none">None</td></tr>
+            <tr><td>CME Group</td><td>Tokenized collateral with Google Cloud; 2026 launch</td><td class="col-mono">World’s largest derivatives exchange</td><td class="col-mono">Classical + Google Cloud PKI</td><td class="col-none">None</td></tr>
+            <tr><td>DTCC</td><td>Tokenization Services - Russell 1000, ETFs, Treasuries H2 2026</td><td class="col-mono">~$2.5Q settled/year</td><td class="col-mono">Classical allowlisted</td><td class="col-none">None</td></tr>
+            <tr><td>NYSE / ICE</td><td>Tokenized securities with blockchain settlement</td><td class="col-mono">U.S. equity infrastructure</td><td class="col-mono">Classical (chain dep.)</td><td class="col-none">None</td></tr>
+            <tr><td>Nasdaq</td><td>Tokenized equity trading via DTC - SEC approved March 18</td><td class="col-mono">SEC approved</td><td class="col-mono">Classical token system</td><td class="col-none">None</td></tr>
+            <tr><td>Cboe Global Markets</td><td>Options and derivatives; digital asset products</td><td class="col-mono">Global derivatives</td><td class="col-mono">Classical exchange</td><td class="col-none">None</td></tr>
+            <tr><td>Swift</td><td>Blockchain pilots - 11,500+ member institutions</td><td class="col-mono">Global interbank</td><td class="col-mono">Classical PKI / HSM</td><td class="col-none">None</td></tr>
+            <tr><td>Hyperliquid</td><td>S&P 500, gold, oil perps - live March 17; $4T+ volume</td><td class="col-mono">$4T+ cumulative</td><td class="col-mono">EIP-712 secp256k1</td><td class="col-none">None</td></tr>
+            <tr><td>Wells Fargo</td><td>WFUSD stablecoin - trademark filed March 9, 2026</td><td class="col-mono">$1.9T bank</td><td class="col-mono">TBD</td><td class="col-none">None</td></tr>
+            <tr><td>Bridge / Stripe</td><td>Open Issuance stablecoin; conditional OCC trust charter</td><td class="col-mono">Stripe $159B valuation</td><td class="col-mono">Multi-chain classical</td><td class="col-none">None</td></tr>
+          </tbody>
+          <tfoot><tr class="methodology-row"><td colspan="5">EternaX Research requested PQ migration documentation from each institution listed. None provided a published plan as of March 2026. Fidelity has published quantum risk disclosures. JPMorgan has published ML-DSA research. Neither constitutes a published migration plan with a deployment timeline.</td></tr></tfoot>
+        </table>
+        
+      </div>
+      
+      <p>This is the report’s core institutional point: the quantum threat is now public, post-quantum cryptography is now a real design variable, and yet major issuers, tokenization platforms, fund managers, and infrastructure providers are still hardening classical architecture anyway.</p>
+      <div class="callout"><p>Ethereum’s own researcher said “game over.” BlackRock disclosed quantum risk in its Bitcoin ETF filing. Not one institution in this table has published a migration plan in response to either.</p></div>
+    </section>
+
+    <section class="section" id="s6">
+      <div class="section-num">Section 06</div>
+      <h2>Why Post-Quantum Signatures Break Legacy Financial Rails</h2>
+      <p>The natural response to the quantum threat is: we will just migrate to post-quantum cryptography later. This section explains why that answer is commercially weak on legacy rails.</p>
+      <div class="epigraph high-impact">
+        <p>&ldquo;ECDSA has 64 byte signatures and the smallest NIST standardized scheme is called Falcon 512 and it has signature sizes of 666 bytes. If you maintain the block size which for pretty much any blockchain is like the scarcest resource that you have, your throughput, and you increase your size of your transactions by a factor of 10, then your TPS your throughput is going to go down by a factor of 10. Imagine Bitcoin going from 3 TPS to 0.3 TPS or Ethereum going from 25 to 2.5 or Solana going from a thousand to 100. In my personal opinion this is just a non-starter just from a commercial standpoint. It would just be way too disruptive.&rdquo;</p>
+        <span class="attr">Justin Drake, Ethereum Foundation researcher - describing migration of his own chain</span>
+      </div>
+      <p>That is why post-quantum-native day one matters commercially. If the retrofit is a non-starter, the market advantage belongs to the rail that does not need the retrofit in the first place.</p>
+      <p>The Ethereum Foundation researcher used the phrase “non-starter” to describe migrating his own chain. This report does not need to argue this point. Drake already argued it about himself.</p>
+      <div class="manual-page-break"></div>
+      <h3>NIST Post-Quantum Signature Standards vs. Current Infrastructure</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Scheme</th><th>Signature Size</th><th>vs Today</th><th>Standard Status</th><th>On-Chain Consequence</th></tr></thead>
+          <tbody>
+            <tr><td>Ed25519 / ECDSA (today)</td><td class="col-mono">64 bytes</td><td class="col-mono">1x</td><td>In production everywhere</td><td>Baseline</td></tr>
+            <tr><td>FN-DSA / Falcon-512</td><td class="col-mono">666 bytes</td><td class="col-mono" style="color:var(--accent-blue);">10x</td><td>NIST draft - not yet an approved standard</td><td>Approaches Solana 4,096-byte limit under real tx loads</td></tr>
+            <tr><td>ML-DSA-44</td><td class="col-mono">2,420 bytes</td><td class="col-mono" style="color:var(--accent);">38x</td><td>NIST minimum approved standard</td><td>Exceeds Solana’s prior 1,232-byte limit entirely</td></tr>
+            <tr><td>ML-DSA-87</td><td class="col-mono">4,627 bytes</td><td class="col-mono" style="color:var(--accent);">72x</td><td>NIST level 5 approved standard</td><td>Approaches Solana expanded 4,096-byte limit</td></tr>
+            <tr><td>SLH-DSA-256f</td><td class="col-mono">49,856 bytes</td><td class="col-mono" style="color:var(--accent);">779x</td><td>NIST hash-based approved standard</td><td>Unusable on-chain</td></tr>
+          </tbody>
+          <tfoot><tr class="methodology-row"><td colspan="5">Finalized NIST FIPS 203/204/205 standards. The smallest approved standard is 38x current signature sizes. The smallest draft is 10x.</td></tr></tfoot>
+        </table>
+      </div>
+      <h3>TPS Loss Under System-Wide PQ Migration</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Chain</th><th>TPS Loss</th><th>What Breaks</th></tr></thead>
+          <tbody>
+            <tr><td>Solana</td><td class="col-mono" style="color:var(--accent);font-weight:600;">~77%</td><td>Every USDC transfer, PYUSD payment, BUIDL subscription, S&P 500 perp execution</td></tr>
+            <tr><td>Sui</td><td class="col-mono" style="color:var(--accent);font-weight:600;">~69%</td><td>Object-model transactions, stablecoin settlement</td></tr>
+            <tr><td>Ethereum</td><td class="col-mono" style="color:var(--accent-blue);font-weight:600;">~31%</td><td>USDT, USDC, BUIDL, BENJI, WTGXX, GS DAP, and every tokenized product launched before full migration is complete</td></tr>
+            </tbody>
+            <tfoot><tr class="methodology-row"><td colspan="3">All chains modeled using FN-DSA/Falcon (~666-byte signatures), the smallest available NIST scheme. Approved standards would produce significantly greater losses.</td></tr></tfoot>
+        </table>
+      </div>  
+      <p>If Ethereum itself is still targeting 2029 for full post-quantum completion, then the implication for institutions is obvious: every new stablecoin, tokenized fund, money market fund, or tokenized security launched before that point is entering a period in which migration remains unfinished and exposure remains live.</p>
+      <div class="callout"><p>The Ethereum Foundation’s own researcher called migration a “non-starter” from a commercial standpoint. Every institution in Section 5 is building on the infrastructure he was describing when he said it.</p></div>
+    </section>
+
+    <section class="section" id="s7">
+      <div class="section-num">Section 07</div>
+      <h2>Eight Independent Post-Quantum Migration Perimeters</h2>
+      <div class="epigraph">
+        <p>&ldquo;When migrating to postquantum cryptography there’s really two challenges. One is a technical one and the other one is a social one. First of all they need to recognize that indeed there is a problem. And then even once they’ve recognized they need to put in place all of the coordination infrastructure.&rdquo;</p>
+        <span class="attr">Justin Drake</span>
+      </div>
+      <div class="epigraph">
+        <p>&ldquo;It takes a long time. All of these things are slow and deliberative and one needs to start early because it’s a marathon, right? It’s not a sprint.&rdquo;</p>
+        <span class="attr">Chris Peikert</span>
+      </div>
+      <p>A chain upgrade addresses one perimeter. The other seven are independent programs no chain upgrade initiates.</p>
+      <div class="perimeter"><div class="perimeter-title">Perimeter 1 - Chain Protocol</div><p>Every wallet, every validator, every admin key, every bridge signer on every chain must migrate. For Bitcoin, migrating all UTXOs requires approximately 76 days of full network capacity assuming perfect coordination across every holder, every exchange, and every custodian simultaneously. No central authority can compel this.</p></div>
+      <div class="perimeter"><div class="perimeter-title">Perimeter 2 - Issuance Controls</div><p>Tether’s freeze authority must independently migrate on Ethereum, Tron, BNB Chain, Solana, and additional chains - five separate programs each with their own timeline, testing, and audit. Circle’s CCTP Iris attestation must independently migrate across 32 chains. Paxos must migrate on three chains. Each is a completely separate program. None is initiated by any chain hard fork. None has been initiated.</p></div>
+      <div class="perimeter"><div class="perimeter-title">Perimeter 3 - Custody Infrastructure</div><p>Anchorage Digital, BitGo, Coinbase Prime, Fireblocks - all on threshold ECDSA and EdDSA. Each must rekey, reaudit, and recertify independently. Gated by HSM vendor support matrices and regulatory approval cycles. Estimated timeline: 18 to 36 months per custodian. Not 18 to 36 months combined. Per custodian. Independently.</p></div>
+      <div class="perimeter"><div class="perimeter-title">Perimeter 4 - Bridges</div><p>Wormhole guardian sets. LayerZero DVNs. Circle CCTP Iris. Each bridge is an independent signing perimeter with its own migration program. A migrated L1 does not migrate bridge risk. Bridge risk is independent and additive to every other perimeter.</p></div>
+      <div class="perimeter"><div class="perimeter-title">Perimeter 5 - Fund Governance</div><p>Franklin Templeton’s BENJI, WisdomTree’s WTGXX, every Securitize-managed product requires prospectus updates, regulatory filings, transfer agent control migration, and audit procedure changes. The timeline is measured in quarters per product. Not quarters total. Quarters per product. Independently.</p></div>
+      <div class="perimeter"><div class="perimeter-title">Perimeter 6 - Market Infrastructure</div><p>DTCC allowlisted wallet signing standards. CME clearing member workflows. Cboe derivatives settlement infrastructure. Exchange collateral parameters at Deribit, Binance, and CME. Each is a separate coordination surface with its own regulatory and contractual requirements.</p></div>
+      <div class="perimeter"><div class="perimeter-title">Perimeter 7 - Payment Rails</div><p>Visa processing $3.5B+ annualized stablecoin settlement. Mastercard operating 130 crypto co-brand card programs and completing the BVNK acquisition. Swift blockchain pilots across 11,500 member institutions. The payment layer is not adjacent to the debt surface. It is inside it.</p></div>
+      <div class="perimeter"><div class="perimeter-title">Perimeter 8 - Oracle and Attestation Layer</div><p>Chainlink OCR signs every price feed underlying every Securitize-managed fund NAV, every Centrifuge RWA attestation, every Ondo tokenized treasury. Independent of every chain. Not initiated by any chain upgrade. Not addressed in any chain’s PQ migration discussion.</p></div>
+      <p>When any one perimeter begins migrating, all others must follow simultaneously or the system fractures. PQ-safe and legacy USDC coexist on the same chain. Institutional participants refuse the legacy version. Liquidity fragments. Collateral reprices across Deribit, Binance, and CME simultaneously. Not sequentially. Simultaneously. In the same compressed window.</p>
+      <p>This is also why post-quantum-native issuance has a distribution advantage. The issuer that avoids creating this eight-perimeter migration burden has a cleaner story for enterprises, custodians, auditors, counterparties, exchanges, and long-duration capital from day one.</p>
+      <div class="callout"><p>Eight perimeters. Zero coordination plans across 27 named institutions. Drake said the social coordination is the harder problem. The social coordination has not started at any of them.</p></div>
+    </section>
+    <div class="manual-page-break"></div>
+    <section class="section" id="s8">
+      <div class="section-num">Section 08</div>
+      <h2>Nine Chains. Nine Post-Quantum Verdicts.</h2>
+      <h3>Bitcoin</h3>
+      <p>BlackRock IBIT holds 577,919 BTC - the ETF filing added quantum computing risk disclosures in 2025. BIP 360, a Pay-to-Merkle-Root proposal introducing a quantum-resistant output type, was published in early 2026. It is described as step one. It has not been activated. No mainnet timeline exists.</p>
+      <div class="epigraph"><p>&ldquo;Bitcoin is a chain that only makes upgrades extremely infrequently. In the last 10 years it’s only made two upgrades and it’s plausible that it would take them at least five years to upgrade to post quantum cryptography.&rdquo;</p><span class="attr">Justin Drake</span></div>
+      <p>4 to 6 million BTC are immediately exposed at rest via P2PK addresses and reused P2PKH addresses. Peer-reviewed research establishes that convincing a decentralized community to accept 50% capacity loss and 2 to 3 times fee increases could take 10 to 15 years.</p>
+      <div class="verdict"><div class="verdict-label">Verdict</div><p>Bitcoin has a proposal. Not a plan. The governance required to execute a system-wide migration has never been demonstrated for a change of comparable cost and zero short-term benefit.</p></div>
+      <div class="manual-page-break"></div>
+      <h3>Ethereum</h3>
+      <p>Drake confirmed three independent vulnerability layers: ECDSA for user transactions, BLS for proof-of-stake consensus signatures, KZG polynomial commitments for data-availability blobs. Three independent programs. No single hard fork addresses all three simultaneously.</p>
+      <p>Assets on Ethereum include USDT, USDC, BlackRock BUIDL, Franklin Templeton BENJI, WisdomTree WTGXX, Fidelity FIDD, Goldman GS DAP, Securitize products, Centrifuge products, and multiple L2 ecosystems that multiply the signer and bridge perimeter count.</p>
+      <p>Ethereum’s 2029 PQ target has no committed hard-fork date. The Fellowship of Ethereum Magicians documented in March 2026 that the path to post-quantum Ethereum currently looks like Shibuya Crossing: too many proposals all trying to solve the same problem in different ways.</p>
+      <div class="epigraph high-impact"><p>&ldquo;If let’s say tomorrow we had a quantum computer that was able to crack Ethereum addresses at will, what would probably happen is that we would just shut down the chain.&rdquo;</p><span class="attr">Justin Drake - describing his own chain’s emergency response</span></div>
+      <div class="verdict"><div class="verdict-label">Verdict</div><p>Three independent vulnerability layers. An L2 ecosystem that multiplies the perimeter count. Multiple competing migration paths with no converged standard. Every token minted on Ethereum today enters known migration debt and known pre-upgrade time-at-risk.</p></div>
+      <div class="manual-page-break"></div>
+      <h3>Solana</h3>
+      <p>The Solana Foundation deployed a post-quantum transaction prototype on a testnet on December 16, 2025. An optional non-default Winternitz Vault was introduced in January 2025. Solana’s transaction size limit is increasing to 4,096 bytes in 2026. These facts are acknowledged completely and accurately.</p>
+      <p>What these facts do not constitute: a mainnet migration timeline, a protocol-level commitment, a system-wide cryptographic transition, or coverage for any of the $180B+ in assets currently on Ed25519 infrastructure.</p>
+      <p>The structural vulnerability is categorical: Solana and Ed25519-based chains face near-complete vulnerability because public keys are directly used as addresses. Every funded Solana account is permanently exposed. There is no transit window, no conditional safety, no partial protection.</p>
+      <div class="verdict"><div class="verdict-label">Verdict</div><p>A testnet confirms the problem can be studied. It does not migrate the $180B+ on Ed25519 infrastructure, commit to a mainnet date, or change the performance economics of any system-wide migration under current NIST standards.</p></div>
+  
+      <h3>Tron</h3>
+      <p>$80 billion in Tether USDT - 98.34% of all Tron stablecoin volume. Daily transfer volume: $27.5 billion across 1.15 million active accounts. Monthly transfer volume: $600 billion, predominantly in transactions under $1,000 from Sub-Saharan Africa, Latin America, and Southeast Asia.</p>
+      <p>Zero migration preparation. No published roadmap. No proposed protocol upgrade. No research collaboration. No academic partnership. No community discussion thread on PQ migration in any forum. Zero preparation at any level of the protocol stack.</p>
+      <div class="verdict"><div class="verdict-label">Verdict</div><p>The most systemically critical dollar liquidity rail in the developing world has zero migration architecture. The migration starts from absolute zero. The chain that carries the most human-scale dollar exposure in the world has done the least to protect it.</p></div>
+      <div class="manual-page-break"></div>
+      <h3>Base</h3>
+      <p>$5.1 billion in stablecoins with 90.73% USDC dominance. Three independent migration programs presented as one L2: Ethereum L1, Coinbase sequencer, and bridge / admin multisig surfaces.</p>
+      <p>Coinbase Prime holds a very large concentration of crypto market infrastructure in MPC-based systems built on threshold ECDSA and EdDSA. If chartered or regulated institutions begin formal PQ migration programs, Coinbase faces a multi-surface transition touching sequencer, custody, and compliance infrastructure simultaneously.</p>
+      <div class="verdict"><div class="verdict-label">Verdict</div><p>Base has Ethereum’s migration problem plus additional independent programs that no Ethereum upgrade addresses. It is a stacked dependency system, not a single dependency system.</p></div>
+      
+      <h3>Canton Network</h3>
+      <p>JPMorgan Kinexys processing $1B+ daily. Goldman Sachs GS DAP. BNY Mellon. BNP Paribas. Canton’s documented signing infrastructure uses classical keys, with Ed25519 as an explicit signing algorithm.</p>
+      <p>The migration failure mode for Canton is institutional coordination impossibility. Every participant must agree. Every legal agreement must be re-papered. Every audit must be reconducted. Every regulator must be informed and must not object. The largest custody and bank participants set the speed of the whole network.</p>
+      <div class="verdict"><div class="verdict-label">Verdict</div><p>Multiple G-SIBs, their regulators, their auditors, their HSM vendors, and their legal teams must coordinate simultaneously. No participant has decided to start.</p></div>
+      <div class="manual-page-break"></div>
+      <h3>Hyperliquid</h3>
+      <p>S&P 500, gold, and oil perpetual contracts live as of March 17, 2026. $4 trillion+ in cumulative trading volume. Approximately 60% of decentralized perpetuals market share. $4.4 billion in USDC locked on the platform.</p>
+      <p>Every perpetual contract settles in USDC. During any CCTP or issuer-control migration, USDC on migrated chains and USDC on non-migrated chains can coexist simultaneously. For a perps venue where every position settles in a single stablecoin standard, settlement uncertainty during that migration window is an existential product risk.</p>
+      <div class="verdict"><div class="verdict-label">Verdict</div><p>The S&P 500 perpetuals product created in March 2026 is a visible example of institutional financial exposure built on classical cryptographic rails without a PQ plan in the same moment regulatory comfort was expanding.</p></div>
+ 
+      <h3>Zcash</h3>
+      <p>Zcash is not post-quantum safe today. That is not an outside accusation. It follows from Zcash’s own technical record. ZIP-2005 explicitly says Orchard does not by itself make the protocol secure against quantum adversaries, says Sapling would also need to be disabled if discrete-log-breaking attacks became practical, and explains that the note commitment algorithms used by Sapling and Orchard are not post-quantum binding.</p>
+      <p>The strategic consequence is severe. If a privacy chain is not post-quantum safe, then its privacy story is not just threatened at the edges. Historical privacy, note integrity, and balance integrity can all come under stress together. Justin Drake’s warning that privacy coins are natural early targets should be read in that context.</p>
+      <div class="verdict"><div class="verdict-label">Verdict</div><p>Zcash is not post-quantum safe today. Its own recovery-oriented design work confirms that privacy and recoverability are not the same thing as present post-quantum security.</p></div>
+      <div class="manual-page-break"></div>
+      <h3>Monero</h3>
+      <p>Monero is also not post-quantum safe today in the durable sense users may assume. Monero’s own research framing explicitly prioritizes retroactive deanonymization because it threatens current users before theft even becomes the main issue. That is the critical point.</p>
+      <p>A privacy chain facing the quantum threat does not only face future-loss risk. It faces the possibility that historical privacy assumptions weaken retroactively. Privacy without post-quantum safety is not durable privacy. It may be the place where the failure is most psychologically surprising.</p>
+      <div class="verdict"><div class="verdict-label">Verdict</div><p>Monero is not post-quantum safe today in the durable-privacy sense users likely assume. Its own research prioritization makes clear that retroactive deanonymization is a live part of the threat model.</p></div>
+      <div class="callout"><p>Tron shows the scale of global dollar exposure on non post-quantum rails. Zcash and Monero show the failure of assuming privacy means post-quantum safety. Together they make the larger point: the quantum threat is not just a Bitcoin or Ethereum problem. It is a financial infrastructure problem and a privacy-chain problem at the same time.</p></div>
+    </section>
+    <div class="manual-page-break"></div>
+    <section class="section" id="s9">
+      <div class="section-num">Section 09</div>
+      <h2>$57B to $135B in First-Order Post-Quantum Migration Debt</h2>
+      <p>This is the financial meaning of cryptographic migration debt.</p>
+      <p>The repricing mechanism already exists. It is operational today. It is dormant. It requires only one parameter change. Deribit already publishes explicit haircut tables for BlackRock’s BUIDL in its cross-collateral system. Binance integrates BUIDL as off-exchange collateral with its own margin parameters. The infrastructure for repricing quantum-exposed collateral is built into venue systems today.</p>
+      <p>If Q-Day is not a single black-and-white event, repricing becomes even more important. Institutions do not wait for perfect public clarity to change haircut tables, collateral eligibility, audit language, or board-level risk treatment.</p>
+    </section>
+
+    <section class="share-panel share-panel-money" id="share-panel-money" aria-labelledby="share-panel-money-title">
+      <div class="share-panel-inner">
+        <div class="share-panel-label">Share Panel</div>
+        <h2 class="share-panel-title" id="share-panel-money-title">First-Order Migration Debt</h2>
+        <div class="share-panel-money-number">$57B to $135B</div>
+        <div class="share-panel-money-subtitle">in first-order post-quantum migration debt</div>
+        <p class="share-panel-kicker share-panel-kicker-strong">Before a single quantum key is broken.</p>
+        <p class="share-panel-source">The repricing can begin with a committee decision, a haircut update, or an audit flag.</p>
+      </div>
+    </section>
+    <section class="section" id="s9b">
+      <div class="table-wrapper wide">
+        <table>
+          <thead><tr><th>Domino</th><th>Mechanism</th><th>First-Order Estimate</th></tr></thead>
+          <tbody>
+            <tr><td>Collateral haircut-driven margin compression</td><td>Deribit, Binance, CME parameter update on classically-signed tokenized treasury collateral including BUIDL, BENJI, WTGXX</td><td class="col-mono">$2.5B-$25B</td></tr>
+            <tr class="methodology-row"><td colspan="3">Methodology: 2-10% haircut applied to ~$25B combined tokenized treasury collateral base across Deribit, Binance, and CME margin systems.</td></tr>
+            <tr><td>Stablecoin fragmentation during migration</td><td>PQ-safe vs legacy version splits of USDT and USDC; institutional refusal to hold legacy version; market-maker spread explosion</td><td class="col-mono">$1.85B-$18.5B</td></tr>
+            <tr class="methodology-row"><td colspan="3">Methodology: 0.5-5% depeg on $370B combined USDT+USDC supply during migration version-split window, weighted by institutional refusal probability.</td></tr>
+            <tr><td>Lending market forced liquidations</td><td>Collateral ratio increases on non-PQ assets; Aave, Morpho, Spark reflexive cascade</td><td class="col-mono">$5B-$25B</td></tr>
+            <tr class="methodology-row"><td colspan="3">Methodology: 5-25% forced liquidation on large DeFi lending TVL under collateral-ratio shock from PQ haircut propagation.</td></tr>
+            <tr><td>Derivatives capital efficiency loss</td><td>Margin requirement increases on Hyperliquid, CME, Deribit, Cboe on uncertain stablecoin settlement; annualized</td><td class="col-mono">$25B-$33B</td></tr>
+            <tr class="methodology-row"><td colspan="3">Methodology: 5-7% annualized capital-efficiency loss on major derivatives open interest across on-chain and hybrid venues.</td></tr>
+            <tr><td>DTCC coordination flag-day cost</td><td>Market-wide simultaneous transition across broker-dealers, custodians, and settlement participants</td><td class="col-mono">$7B+ (federal floor)</td></tr>
+            <tr class="methodology-row"><td colspan="3">Methodology: US OMB M-23-02 federal PQ migration programme used as a floor estimate for comparable market-infrastructure-wide transition.</td></tr>
+            <tr><td>Custody compliance forced asset movements</td><td>OCC-aligned PQ requirements applied to Anchorage, BitGo, Coinbase Prime, Fireblocks; 18-36 month windows</td><td class="col-mono">$16B+ flows; $160-$320M friction</td></tr>
+            <tr class="methodology-row"><td colspan="3">Methodology: large institutional custody AUM subject to forced migration between custodians; execution friction on asset movements.</td></tr>
+            <tr><td>Fund governance re-papering</td><td>BENJI, WTGXX, Securitize, Centrifuge, and tokenized-product re-papering</td><td class="col-mono">Quarters of delay per product</td></tr>
+            <tr><td>Audit and insurance repricing</td><td>First Big Four PQ flag reprices all named issuers simultaneously</td><td class="col-mono">Systemic</td></tr>
+            <tr><td>Equity re-platforming inherited risk</td><td>NYSE, Nasdaq, Cboe, DTCC signing-surface migration</td><td class="col-mono">Systemic</td></tr>
+          </tbody>
+          <tfoot>
+            <tr style="background:var(--bg-table-header);border-top:2px solid var(--accent);"><td colspan="2" style="font-weight:700;color:var(--text-heading);padding:0.8rem;">Total first-order losses</td><td class="col-mono" style="font-weight:700;color:var(--accent);font-size:0.9rem;padding:0.8rem;">$57B-$135B</td></tr>
+            <tr style="background:var(--bg-card);"><td colspan="2" style="color:var(--text-muted);padding:0.8rem;">Second-order market-cap destruction (institutional retreat, reflexive selling, confidence shock)</td><td class="col-mono" style="color:var(--accent-blue);font-weight:600;padding:0.8rem;">$200B-$500B</td></tr>
+          </tfoot>
+        </table>
+      </div>
+      <p>The trigger is not a quantum computer suddenly appearing in public. The trigger is the repricing conversation. This report is that conversation.</p>
+      <p>This section explains the downside. The next section explains the remaining upside for institutions still early enough to avoid creating the debt, reduce pre-upgrade time-at-risk, and capture a distribution advantage instead.</p>
+      <div class="callout"><p>$57B to $135B in first-order losses. The trigger is not a quantum computer arriving in public. It is a risk committee updating a parameter in a system that already exists.</p></div>
+    </section>
+    <div class="manual-page-break"></div>
+    <div class="phase-divider"><span>Part III - The Decision</span></div>
+
+    <section class="section" id="s10">
+      <div class="section-num">Section 10</div>
+      <h2>The Open 2026 Decisions. Before Architecture Lock-In.</h2>
+      <p>This section is the commercial core of the report. It identifies the institutions that still have a chance to choose post-quantum-native issuance before architecture lock-in.</p>
+      <p>The opportunity is not only to avoid future migration cost. It is to issue on infrastructure that enterprises, counterparties, auditors, custodians, and market participants can treat as the cleaner long-duration answer from day one. In that sense, post-quantum-native issuance is not only a risk response. It is a distribution decision.</p>
+      <div class="manual-page-break"></div>
+      <h3>The Issuance Decision Table - Architecture Still Mutable</h3>
+      <div class="table-wrapper wide">
+        <table>
+          <thead><tr><th>Institution</th><th>Initiative</th><th>Stage</th><th>Architecture Mutable</th><th>Window</th></tr></thead>
+          <tbody>
+            <tr><td>Wells Fargo</td><td>WFUSD stablecoin</td><td>Trademark filed March 9, 2026</td><td class="col-highlight">Fully open - nothing committed</td><td class="col-warn">Closing this quarter</td></tr>
+            <tr><td>G7 10-bank consortium</td><td>Reserve-backed public-chain stablecoin</td><td>Exploration announced October 2025</td><td class="col-highlight">Fully open - chain unspecified</td><td class="col-warn">Early stage is only low-cost window</td></tr>
+            <tr><td>DTCC</td><td>Tokenization Services pilot</td><td>From December 2025 no-action letter</td><td class="col-highlight">Open - pilot standards not final</td><td class="col-warn">H2 2026 rollout locks the standard</td></tr>
+            <tr><td>Bridge / Stripe</td><td>OCC trust charter + Open Issuance</td><td>Conditional OCC approval</td><td>Partially hardening</td><td>Lock-in measured in months</td></tr>
+            <tr><td>Swift</td><td>Blockchain pilots via Swift Connect</td><td>Pilot design stage</td><td class="col-highlight">Open - not committed</td><td class="col-warn">11,500 institutions inherit the choice</td></tr>
+            <tr><td>Circle</td><td>Arc institutional blockchain</td><td>Testnet with 100+ banks and fintechs</td><td>Partially open - testnet can change</td><td>Mainnet 2026 locks the substrate</td></tr>
+            <tr><td>NYSE / ICE</td><td>Tokenized securities settlement</td><td>Regulatory approval pending</td><td>Partially open</td><td>Approval stage is the last moment</td></tr>
+            <tr><td>Nasdaq</td><td>Tokenized equity scaling</td><td>SEC approved March 18; scaling now</td><td>Scaling decisions open</td><td>Scaling choices determine lock-in depth</td></tr>
+            <tr><td>CME Group</td><td>Tokenized collateral with Google Cloud</td><td>Testing; 2026 launch</td><td>Final architecture stage</td><td>Final decisions happening now</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Wells Fargo:</strong> What chain has Wells Fargo selected for WFUSD? Has the OCC filing addressed CISA-aligned cryptographic migration requirements for the signing infrastructure? What is the estimated migration cost if the architecture must change after the first token mints?</p>
+      <p><strong>DTCC:</strong> What post-quantum readiness requirements are included in the allowlisted wallet signing standard being set during this pilot? If DTCC sets the standard on classical infrastructure, every institution that follows DTCC into tokenized entitlements inherits the migration debt simultaneously.</p>
+      <p><strong>The G7 Ten-Bank Consortium:</strong> Which chains are under evaluation? What is the cryptographic infrastructure review process? If this product launches on classical rails it becomes one of the clearest migration-debt creation events in financial history.</p>
+      <p><strong>Swift:</strong> Has Swift’s innovation team reviewed whether the blockchain pilot architecture should require post-quantum signing as a baseline condition before propagation to member institutions?</p>
+      <p><strong>CME Group:</strong> Has CME’s risk committee reviewed post-quantum readiness as a condition of the tokenized collateral architecture before the partner stack locks?</p>
+      <p>If Ethereum itself is still targeting 2029 for full post-quantum completion, then every institution choosing classical Ethereum-linked rails before that target date is knowingly choosing both migration debt and pre-upgrade time-at-risk.</p>
+      <div class="callout"><p>The window to build post-quantum-native is open precisely once - before the first token mints. Wells Fargo filed WFUSD days ago. DTCC rolls out H2 2026. The G7 consortium has not named a chain. Swift’s pilot is in design. The window is open. Not for much longer.</p></div>
+    </section>
+    <div class="manual-page-break"></div>
+    <section class="section" id="s11">
+      <div class="section-num">Section 11</div>
+      <h2>Post-Quantum Native Day One with EternaX</h2>
+      <div class="epigraph high-impact">
+        <p>&ldquo;I’ve stopped thinking about postquantum as a hurdle that we have to overcome. I think of it more as an opportunity. It’s an opportunity to stand out as the very first global financial system that is postquantum secure.&rdquo;</p>
+        <span class="attr">Justin Drake, Ethereum Foundation researcher, recorded 2026</span>
+      </div>
+      <p>Post-quantum security is now both a defensive requirement and an offensive opportunity. Even Ethereum’s own post-quantum leadership now frames the issue not merely as a hurdle, but as a chance for the first global financial system to stand out on security. EternaX takes that logic one step further: not migrate later, but issue right the first time.</p>
+      <p><strong>Post-Quantum Native Day One with EternaX means issuing on a post-quantum-secure chain from day one, rather than launching on classical rails and carrying migration debt forward.</strong></p>
+    </section>
+
+    <section class="share-panel share-panel-answer" id="share-panel-eternax-answer" aria-labelledby="share-panel-eternax-answer-title">
+      <div class="share-panel-inner">
+        <div class="share-panel-label">Share Panel</div>
+        <h2 class="share-panel-title" id="share-panel-eternax-answer-title">Post-Quantum Native Day One with EternaX</h2>
+        <div class="share-panel-answer-points">
+          <p class="share-panel-answer-point">No migration debt at issuance.</p>
+          <p class="share-panel-answer-point">No pre-upgrade time-at-risk.</p>
+          <p class="share-panel-answer-point">A stronger distribution story than “we will migrate later.”</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="s11b">
+      <p>ML-DSA and Falcon rely on computational hardness assumptions. Lattice problems are believed to resist quantum attack. Believed is the operative word. If AI-accelerated mathematical research finds a shortcut through lattice problems, those schemes require replacement again. Every institution that migrated to them would still carry migration debt - just a different kind.</p>
+      <p>EternaX’s scheme is presented here as information-theoretic. Unforgeability does not depend on any computational hardness assumption - not lattice, not discrete log, not factoring, not any class yet to be discovered or broken by AI. It does not require a belief about the future of mathematics. It is intended to be permanent by construction.</p>
+      <h3>The Architecture Comparison</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Scheme</th><th>Signature</th><th>Public Key</th><th>Security Basis</th><th>TPS Loss</th></tr></thead>
+          <tbody>
+            <tr><td>ECDSA secp256k1 (today)</td><td class="col-mono">64 bytes</td><td class="col-mono">32 bytes</td><td>Elliptic curve - breaks under Shor’s</td><td class="col-mono">0% baseline</td></tr>
+            <tr><td>ML-DSA-44 (NIST min. approved)</td><td class="col-mono">2,420 bytes</td><td class="col-mono">1,312 bytes</td><td>Lattice - computational hardness</td><td class="col-mono" style="color:var(--accent);">~77% on Solana</td></tr>
+            <tr><td>Falcon-512 / FN-DSA (NIST draft)</td><td class="col-mono">666 bytes</td><td class="col-mono">897 bytes</td><td>Lattice - computational hardness</td><td class="col-mono" style="color:var(--accent-blue);">~69% on Sui</td></tr>
+            <tr class="reveal-row"><td><strong>EternaX novel PQ scheme</strong></td><td class="col-mono" style="color:var(--green);font-weight:700;">160 bytes</td><td class="col-mono" style="color:var(--green);font-weight:700;">64 bytes</td><td style="color:var(--green);font-weight:600;">Information-theoretic - no hardness assumption</td><td class="col-mono" style="color:var(--green);font-weight:700;">~2%</td></tr>
+          </tbody>
+          <tfoot><tr class="methodology-row"><td colspan="5">Solana, Sui, and Ethereum TPS loss modeled using FN-DSA/Falcon (~666-byte signatures). EternaX modeled using proprietary ~160-byte PQ scheme. EternaX scheme pending IACR Journal of Cryptology publication.</td></tr></tfoot>
+        </table>
+      </div>
+      <p>The commercial implication is larger than cost avoidance. If an issuer launches post-quantum-native day one, it does not only avoid migration debt and reduce pre-upgrade time-at-risk. It gains a cleaner answer for boards, regulators, auditors, enterprises, custodians, counterparties, exchanges, and long-duration capital. That cleaner answer is a distribution advantage.</p>
+      <h3>What EternaX Avoids and What EternaX Enables</h3>
+      <p><strong>Zero migration debt.</strong> No forced migration programs. No compressed windows. No simultaneous coordination across eight independent perimeters.</p>
+      <p><strong>Zero stablecoin fragmentation.</strong> No PQ-safe version versus legacy version. Stablecoins minted on EternaX are PQ-safe from the first mint.</p>
+      <p><strong>Zero TPS cliff.</strong> Not 31% loss. Not 69% loss. Not 77% loss. Approximately 2%. Commercially viable throughput under post-quantum security.</p>
+      <p><strong>Zero collateral repricing for legacy rail risk.</strong> Collateral issued on PQ-native rails does not receive the same PQ haircuts tied to classical infrastructure.</p>
+      <p><strong>Zero fund governance re-papering caused by substrate replacement.</strong> Products registered on PQ-native rails do not need to rewrite the cryptographic substrate later.</p>
+      <p><strong>Distribution advantage.</strong> Issuers and institutions can market a product as post-quantum-native from day one instead of promising future migration.</p>
+      <p><strong>Enterprise confidence.</strong> Enterprises and institutional counterparties get a cleaner answer to long-duration infrastructure risk.</p>
+      <p><strong>Audit clarity.</strong> Boards, auditors, and risk committees can point to issuance on post-quantum-native rails instead of a future retrofit plan.</p>
+      <p><strong>Adoption leverage.</strong> In a market where many rails still imply migration debt and unfinished post-quantum migration, the rail that avoids creating that debt becomes easier to justify internally and externally.</p>
+      <p><strong>Category leadership.</strong> If post-quantum-native issuance becomes a differentiator, the first infrastructure that offers it at market speed gains a natural security-driven distribution wedge.</p>
+      <p><strong>Live today.</strong> Testnet launched November 2025. Over 1,000,000 transactions processed. Over 475,000 prediction bets placed. PQ-native L1 with PQ-EVM running. Migration vaults for Ethereum and EVM tokens deployed. PQ-safe wallet operational. Prediction markets live. Perpetuals next.</p>
+      <div class="callout"><p>Post-Quantum Native Day One with EternaX is not only the architecture in this report where cryptographic migration debt does not arise at issuance. It is also the architecture that gives issuers, enterprises, and institutions a stronger distribution story than “we will migrate later.”</p></div>
+    </section>
+    <div class="manual-page-break"></div>
+    <section class="section" id="s12">
+      <div class="section-num">Section 12</div>
+      <h2>What Institutions Should Do Now</h2>
+      <p>This is not a theoretical recommendation. It is a 2026 architecture checklist for institutions facing the quantum threat now.</p>
+      <p><strong>If you are an OCC charter applicant:</strong> Address cryptographic migration risk as a material infrastructure consideration before your architecture commits.</p>
+      <p><strong>If you are a stablecoin issuer:</strong> Disclose signing infrastructure and PQ migration planning status in your next reserve attestation.</p>
+      <p><strong>If you are a tokenized fund manager:</strong> Add quantum exposure to your prospectus risk factors now.</p>
+      <p><strong>If you are a custody provider:</strong> Include PQ migration planning in your internal control scope before examiners ask.</p>
+      <p><strong>If you are an institutional investor:</strong> Ask every portfolio company for its cryptographic risk disclosures before the next board meeting.</p>
+      <p><strong>If your architecture is still open:</strong> Evaluate post-quantum-native issuance before the first token mints.</p>
+      <p>The practical choice is now dual, not singular. Institutions must decide whether to avoid creating cryptographic migration debt and pre-upgrade time-at-risk. They must also decide whether to capture the distribution advantage available to the first issuers and infrastructure providers that can say they are post-quantum-native from day one.</p>
+      <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);">
+        <h3 style="margin-top:0;">The Audit Trail Statement</h3>
+        <p>The risk documented in this report is the subject of finalized federal standards, public agency migration deadlines, peer-reviewed research, structured expert probability surveys, Federal Reserve work on quantum decryption of historical blockchain transactions, mandatory quantum disclosures in major public filings, and direct recorded statements from Ethereum’s own post-quantum leadership describing “game over” and chain shutdown as the emergency response.</p>
+        <p>This report is now in institutional circulation. Every institution that issues on classical rails after this date is making a documented choice, not an uninformed one. That distinction matters in fiduciary reviews, audit processes, regulatory examinations, and the insurance conversations that follow the first serious public PQ audit flag.</p>
+      </div>
+      <p style="margin-top:2.5rem;font-family:'IBM Plex Serif',serif;font-size:1.15rem;color:var(--text-heading);font-weight:600;text-align:center;">Issue once. Issue right.</p>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="faq-shell">
+        <div class="faq-label">Frequently Asked Questions</div>
+        <h2>Post-Quantum Financial Infrastructure, Stablecoin Quantum Threat, Privacy Chains, Post-Quantum Cryptography, and Post-Quantum Native Day One with EternaX</h2>
+        <p class="faq-intro">This FAQ section is optimized for institutional forwarding, AI retrieval, and exact-query matching across post-quantum cryptography, quantum threat, stablecoin quantum threat, privacy-chain quantum risk, tokenized securities post-quantum risk, cryptographic migration debt, post-quantum-native day one, and EternaX post-quantum infrastructure.</p>
+        <div class="faq-mini-nav">
+          <a href="#faq-core">Core Questions</a>
+          <a href="#faq-stable">Stablecoins and Tokenization</a>
+          <a href="#faq-etx">EternaX and Strategy</a>
+        </div>
+        <div class="faq-cluster" id="faq-core">
+          <h3>Core Questions</h3>
+          <details class="faq-item" open>
+            <summary><a class="faq-anchor" href="#faq">Is post-quantum security only a hurdle, or is it also a distribution opportunity?</a></summary>
+            <div class="faq-answer"><p><strong>Post-quantum security is both, but the larger commercial opportunity is distribution.</strong> The first global financial system that is genuinely post-quantum secure gains a natural security selling point. This report argues that EternaX extends that logic one step further: the strongest position is not to promise future migration, but to offer Post-Quantum Native Day One with EternaX.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><a class="faq-anchor" href="#faq">Are Zcash and Monero post-quantum safe?</a></summary>
+            <div class="faq-answer"><p><strong>No.</strong> Zcash and Monero are not post-quantum safe today in the durable sense users may assume. Privacy does not equal post-quantum safety. A privacy chain can still lose the durability of its privacy model if the underlying cryptographic assumptions fail.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><a class="faq-anchor" href="#faq">Is Q-Day a single event, or can the quantum threat arrive gradually?</a></summary>
+            <div class="faq-answer"><p><strong>The quantum threat does not need to arrive as one clean public event to become economically relevant.</strong> High-value systems can become vulnerable first, uncertainty can spread before certainty, and institutions can begin repricing risk before the public gets a simple narrative. That is why post-quantum-native day one matters before perfect certainty.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><a class="faq-anchor" href="#faq">Why does Ethereum’s 2029 target matter for stablecoins, tokenized funds, and money market funds issuing today?</a></summary>
+            <div class="faq-answer"><p><strong>Because if Ethereum is still targeting 2029 for full post-quantum completion, then any stablecoin, tokenized treasury, tokenized money market fund, tokenized security, custody flow, or settlement system issued before then is knowingly being launched inside a pre-upgrade exposure window.</strong> That means the problem is not only future migration cost. It is also present time-at-risk before full migration is complete.</p></div>
+          </details>
+        </div>
+        <div class="faq-cluster" id="faq-stable">
+          <h3>Stablecoins and Tokenization</h3>
+          <details class="faq-item">
+            <summary><a class="faq-anchor" href="#faq">What is the stablecoin quantum threat?</a></summary>
+            <div class="faq-answer"><p><strong>The stablecoin quantum threat is the risk that a stablecoin issued on classical cryptographic rails will later require disruptive post-quantum migration across mint, burn, freeze, bridge, custody, exchange, and collateral systems.</strong> This is why the report argues that stablecoin design in 2026 is not just a product question. It is a post-quantum architecture question.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><a class="faq-anchor" href="#faq">Why can stablecoin issuers not just migrate to post-quantum cryptography later?</a></summary>
+            <div class="faq-answer"><p><strong>Because post-quantum migration for a stablecoin is not one upgrade. It is a multi-surface coordination event.</strong> Stablecoin issuers must migrate issuer controls, bridges, attestations, custody, exchange integrations, market-maker workflows, and chain-specific admin surfaces. That is why migrate later is structurally different from post-quantum-native day one.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><a class="faq-anchor" href="#faq">What is tokenized securities post-quantum risk?</a></summary>
+            <div class="faq-answer"><p><strong>Tokenized securities post-quantum risk is the risk that tokenized equities, tokenized bonds, tokenized funds, and tokenized settlement systems inherit the cryptographic weaknesses of the rails they issue and settle on.</strong> If those rails later require post-quantum migration, the product can inherit custody changes, re-papering, transfer-agent changes, settlement uncertainty, and repricing risk.</p></div>
+          </details>
+        </div>
+        <div class="faq-cluster" id="faq-etx">
+          <h3>EternaX and Strategy</h3>
+          <details class="faq-item">
+            <summary><a class="faq-anchor" href="#faq">What is Post-Quantum Native Day One with EternaX?</a></summary>
+            <div class="faq-answer"><p><strong>Post-Quantum Native Day One with EternaX means issuing on a post-quantum-secure chain from day one, not promising future migration on classical rails.</strong> That is the strategic difference between creating debt and avoiding it at issuance.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><a class="faq-anchor" href="#faq">What is EternaX post-quantum infrastructure?</a></summary>
+            <div class="faq-answer"><p><strong>EternaX post-quantum infrastructure is this report’s answer to the quantum threat for new financial issuance, settlement, custody, and tokenization systems.</strong> It is presented not as a better migration patch, but as post-quantum-native architecture where the debt is not created at issuance.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><a class="faq-anchor" href="#faq">Why does the report say EternaX is the only architecture in the report where the debt does not arise?</a></summary>
+            <div class="faq-answer"><p><strong>Because this report is organized around the moment debt is created.</strong> Debt is created when an institution launches on rails it already knows will later need post-quantum replacement. The report’s claim is that EternaX is the only architecture presented where the institution can avoid creating that debt at issuance.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><a class="faq-anchor" href="#faq">Is EternaX described clearly enough in the report as post-quantum secure from day one?</a></summary>
+            <div class="faq-answer"><p><strong>That claim should be explicit but not overused.</strong> The report clearly says that Post-Quantum Native Day One with EternaX means issuing on a post-quantum-secure chain from day one, not promising future migration on classical rails.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <hr class="closing-separator" />
+  <div class="manual-page-break"></div>
+  <section class="team-section">
+    <div class="team-inner">
+      <div class="team-label">About the Authors</div>
+      <h2>EternaX Labs | Post-Quantum Financial Infrastructure</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="flex justify-center mb-3">
+            <img src="./assets/dariia.png" alt="Dariia Porechna" class="w-32 h-32 rounded-full object-cover" loading="eager" itemprop="image">
+          </div>
+          <div class="team-name">Dariia Porechna</div>
+          <div class="team-role">Co-Founder</div>
+          <div class="team-bio">Cryptographer and distributed systems architect. Former Head of Protocol at Subspace. Former Research Engineer at Wolfram|Alpha.</div>
+          <div class="team-links"><a href="https://www.linkedin.com/in/dariia-porechna" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://x.com/FutureDies" target="_blank" rel="noopener">X</a></div>
+        </div>
+        <div class="team-card">
+          <div class="flex justify-center mb-3">
+            <img src="./assets/parthh.png" alt="Paarrthhh Birla" class="w-32 h-32 rounded-full object-cover" loading="eager" itemprop="image">
+          </div>
+          <div class="team-name">Paarrthhh Birla</div>
+          <div class="team-role">Co-Founder</div>
+          <div class="team-bio">Former VP, Growth Office at Polygon. Former Head of Partnerships at Subspace Protocol. Former digital-assets strategy advisor at EYP. MBA, CPA.</div>
+          <div class="team-links"><a href="https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://x.com/parthweb34ai" target="_blank" rel="noopener">X</a></div>
+        </div>
+        <div class="team-card">
+          <div class="flex justify-center mb-3">
+            <img src="./assets/chen.png" alt="Dr. Chen Feng" class="w-32 h-32 rounded-full object-cover" loading="eager" itemprop="image">
+          </div>
+          <div class="team-name">Dr. Chen Feng</div>
+          <div class="team-role">Chief Scientist</div>
+          <div class="team-bio">Associate Professor, University of British Columbia. PhD, University of Toronto. 100+ peer-reviewed papers across quantum communications, blockchain, and TEE privacy.</div>
+          <div class="team-links"><a href="https://www.linkedin.com/in/chen-feng-75272a37" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://scholar.google.com/citations?user=D8b0l-EAAAAJ" target="_blank" rel="noopener">Google Scholar</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="connect-section">
+    <div class="connect-inner">
+      <div class="connect-label">Contact</div>
+      <h2>Institutional Inquiries</h2>
+      <p class="connect-intro">For institutional inquiries regarding post-quantum financial infrastructure, stablecoin post-quantum architecture, tokenized finance post-quantum risk, privacy-chain post-quantum risk, cryptographic migration debt, pre-upgrade time-at-risk, or EternaX post-quantum infrastructure.</p>
+      <div class="connect-contacts">
+        <div class="connect-person"><span class="name">Paarrthhh Birla</span><span class="connect-sep">-</span><span class="role">Co-Founder</span><span class="connect-sep">-</span><a href="mailto:paarrthhh.b@eternax.ai" class="email">paarrthhh.b@eternax.ai</a></div>
+        <div class="connect-person"><span class="name">Dariia Porechna</span><span class="connect-sep">-</span><span class="role">Co-Founder</span><span class="connect-sep">-</span><a href="mailto:dariia.p@eternax.ai" class="email">dariia.p@eternax.ai</a></div>
+      </div>
+      <div class="connect-actions">
+        <a href="eternax-report-already-broken-quantum-risk-report-q1-2026.pdf" target="_blank" rel="noopener" class="connect-btn primary no-print">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Save as PDF
+        </a>
+        <a href="https://eternax.ai" target="_blank" rel="noopener" class="connect-btn secondary">eternax.ai</a>
+        <a href="https://www.linkedin.com/company/eternax/" target="_blank" rel="noopener" class="connect-btn secondary">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+  <div class="manual-page-break"></div>
+  <footer class="report-footer">
+    <div class="report-footer-inner">
+      <h3>Sources</h3>
+      <p>NIST FIPS 203/204/205; NIST IR 8547; evolutionQ and Global Risk Institute Quantum Threat Timeline Report 2025; CISA quantum readiness guidance and 2027 federal agency deadline; UK NCSC PQC migration roadmap (2025); US OMB M-23-02; Federal Reserve Board and Federal Reserve Bank of Chicago post-quantum blockchain working paper; Gidney 2025; Campbell et al. on hybrid post-quantum signatures; Zcash ZIP-2005; Monero post-quantum research materials; Ethereum Foundation roadmap materials; BIP 360; BlackRock IBIT quantum disclosures; Franklin Templeton BENJI materials; WisdomTree WTGXX materials; DTCC Tokenization Services no-action letter; NYSE / ICE tokenized-securities materials; Nasdaq tokenized-equity approval; CME Group and Google Cloud tokenization materials; Stripe / Bridge Open Issuance materials; Wells Fargo WFUSD trademark filing; G7 ten-bank consortium reporting; Canton Network documentation; Circle CCTP / Iris materials; Hyperliquid documentation; SEC / CFTC and GENIUS Act materials; SIFMA statistics; Federal Reserve deposit data; SEC money-market fund data; DeFiLlama; RWA.xyz.</p>
+    </div>
+  </footer>
+  <!-- Footer -->
+  <footer class="py-12 border-t" style="background-color: var(--bg); border-color: var(--border);" itemscope itemtype="https://schema.org/WPFooter">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-start justify-between gap-6 mb-6">
+            <div>
+                <span class="text-lg font-bold" style="color: var(--fg)">eternaX</span>
+                <p class="text-sm mt-1" style="color: var(--fg-70)">Quantum-safe Settlement at Market Speed</p>
+                <div class="text-xs" style="color: var(--fg-70)">&copy; 2025 EternaX Labs</div>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/eternax-ai" class="text-sm link-muted" itemprop="sameAs">GitHub</a>
+                <a href="https://www.youtube.com/@eternaXlabs" class="text-sm link-muted">YouTube</a>
+                <a href="https://t.me/eternax_official" class="text-sm link-muted" itemprop="sameAs">Telegram</a>
+                <a href="https://x.com/EternaXlabs" class="text-sm link-muted" itemprop="sameAs">X (Twitter)</a>
+                <a href="https://www.linkedin.com/company/eternax-labs" class="text-sm link-muted" itemprop="sameAs">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+              target.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+              });
+          }
+      });
+  });
+
+  // Initialize page
+  document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu toggle
+      const menuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconMenu = document.getElementById('icon-menu');
+      const iconClose = document.getElementById('icon-close');
+
+      function closeMobileMenu() {
+          if (!mobileMenu) return;
+          mobileMenu.classList.add('hidden');
+          if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+          if (iconMenu) iconMenu.classList.remove('hidden');
+          if (iconClose) iconClose.classList.add('hidden');
+      }
+
+      function openMobileMenu() {
+          if (!mobileMenu) return;
+          mobileMenu.classList.remove('hidden');
+          if (menuButton) menuButton.setAttribute('aria-expanded', 'true');
+          if (iconMenu) iconMenu.classList.add('hidden');
+          if (iconClose) iconClose.classList.remove('hidden');
+      }
+
+      if (menuButton && mobileMenu) {
+          menuButton.addEventListener('click', () => {
+              const isHidden = mobileMenu.classList.contains('hidden');
+              if (isHidden) {
+                  openMobileMenu();
+              } else {
+                  closeMobileMenu();
+              }
+          });
+
+          // Close on link click
+          mobileMenu.querySelectorAll('a').forEach(a => {
+              a.addEventListener('click', () => closeMobileMenu());
+          });
+
+          // Close on ESC
+          document.addEventListener('keydown', (e) => {
+              if (e.key === 'Escape') closeMobileMenu();
+          });
+
+          // Close when resizing to md and above
+          window.addEventListener('resize', () => {
+              if (window.innerWidth >= 768) {
+                  closeMobileMenu();
+              }
+          });
+      }
+  });
+</script>
+</body>
+</html>
