@@ -516,6 +516,12 @@
       margin-bottom: 0.95rem;
       max-width: 860px;
     }
+    .exec-briefing h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin: 2rem 0 0.8rem;
+    }
     .exec-briefing .lead {
       font-size: 0.92rem;
       color: var(--text);
@@ -853,6 +859,18 @@
       border-bottom: 1px solid var(--border) !important;
       border-left: 2px solid rgba(40,55,113,0.22) !important;
       line-height: 1.55;
+    }
+    .table-subheading-row td {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 0.55rem 0.8rem;
+      background: #F0ECEC;
+      border-top: 1px solid var(--border-accent);
+      border-bottom: 1px solid var(--border-accent);
     }
     .table-wrapper table th:first-child,
     .table-wrapper table td:first-child,
@@ -1626,7 +1644,138 @@
           </tbody>
         </table>
       </div>
-      <p class="lead" style="margin-top:1rem; margin-bottom:0; font-family:'IBM Plex Mono', monospace; font-size:0.75rem; color:var(--text-muted);">Start here if you are scanning for institutional exposure, migration debt, or open 2026 decision windows. Section 5 names the 27 institutions. Section 8 includes privacy-chain analysis for Zcash and Monero. Section 9 quantifies first-order losses at $57B to $135B. Section 10 identifies live decision windows. Section 11 explains why Post-Quantum Native Day One with EternaX is the only architecture in this report where the debt does not arise at issuance - and why that is also a distribution advantage.</p>
+      <p class="lead">Start here if you are scanning for institutional exposure, migration debt, or open 2026 decision windows. Section 5 names the 27 institutions. Section 8 includes privacy-chain analysis for Zcash and Monero. Section 9 quantifies first-order losses at $57B to $135B. Section 10 identifies live decision windows. Section 11 explains why Post-Quantum Native Day One with EternaX is the only architecture in this report where the debt does not arise at issuance - and why that is also a distribution advantage.</p>
+      <h3>Every Major Rail in Crypto Is Accumulating Quantum Migration Debt. One Is Not.</h3>
+      <p class="lead">BlackRock, JPMorgan, Visa, PayPal, Tether, Franklin, BNY, and others are already building on classical signature stacks that will have to migrate under pressure.EternaX is the only row built post-quantum native from day one, with auditable privacy and no retrofit debt.</p>
+    <div class="table-wrapper">
+      <table>
+        <thead><tr><th>Chain</th><th>Gross Exposure</th><th>Named Institutions / Products</th><th>PQ Failure Path</th><th>Privacy</th><th>Public PQ Plan / Timeline</th></tr></thead>
+        <tbody>
+          <tr class="table-subheading-row"><td colspan="6">Legacy Rails: Mint with Post Quantum Migration Debt</td></tr>
+          <tr>
+            <td><strong>Bitcoin</strong></td>
+            <td class="col-mono">$1.43T BTC + $55.8B IBIT</td>
+            <td>BlackRock IBIT. Spot BTC ETF complex. (BlackRock)</td>
+            <td>ECDSA, Schnorr. Exposed keys become forgeable, creating theft risk and forced UTXO migration.</td>
+            <td>Public.</td>
+            <td>No public PQ plan</td>
+          </tr>
+          <tr>
+            <td><strong>Ethereum</strong></td>
+            <td class="col-mono">$251.3B ETH + $164.0B stablecoins</td>
+            <td>BlackRock BUIDL, Ondo OUSG, Franklin BENJI, PYUSD, USDC. (Securitize)</td>
+            <td>ECDSA / secp256k1, BLS, KZG. Execution, consensus, and data assumptions break together.</td>
+            <td>Public.</td>
+            <td>Yes. EF PQ team says L1 protocol upgrades could be completed by 2029; full execution-layer migration takes longer. (Post-Quantum Ethereum)</td>
+          </tr>
+          <tr>
+            <td><strong>BNB Chain</strong></td>
+            <td class="col-mono">$88.3B BNB + $13.7B stablecoins</td>
+            <td>BlackRock BUIDL, Franklin Benji, VanEck VBILL, Ondo Global Markets, Binance collateral workflows. (BNB Chain)</td>
+            <td>ECDSA / secp256k1. Account and validator auth fail, forcing live migration across collateral and tokenized-asset rails.</td>
+            <td>Public.</td>
+            <td>No public PQ plan</td>
+          </tr>
+          <tr>
+            <td><strong>Solana</strong></td>
+            <td class="col-mono">$52.4B SOL + $15.25B stablecoins</td>
+            <td>Visa, Worldpay, PayPal, Circle, Fiserv, Western Union, Franklin Templeton, BlackRock / BUIDL, Ondo / OUSG, Societe Generale, Hamilton Lane, Brevan Howard.</td>
+            <td>Ed25519. Signers break, and the 1,232-byte tx limit turns PQ migration into a format bottleneck.</td>
+            <td>Public.</td>
+            <td>No adopted public mainnet PQ migration plan</td>
+          </tr>
+          <tr>
+            <td><strong>Canton Network</strong></td>
+            <td class="col-mono">$5.29B CC + $6T+ on-chain assets + $280B+ daily U.S. Treasury repo</td>
+            <td>BNY, BNP Paribas, Citi, Bank of America, Santander, Circle, Broadridge, DRW, BitGo, Binance US, Tradeweb and others across the Canton ecosystem.</td>
+            <td>Ed25519, plus ECDSA over P-256 and secp256k1. Permissioned visibility does not save the signer layer.</td>
+            <td>Selective visibility, not PQ-safe privacy.</td>
+            <td>No public PQ plan</td>
+          </tr>
+          <tr>
+            <td><strong>TRON</strong></td>
+            <td class="col-mono">$29.8B TRX + $86.1B stablecoins</td>
+            <td>Tether / USDT global dollar rail. (DeFi Llama)</td>
+            <td>ECDSA / secp256k1. Ethereum-style account auth breaks on one of the biggest live stablecoin rails.</td>
+            <td>Public.</td>
+            <td>No public PQ plan</td>
+          </tr>
+          <tr>
+            <td><strong>Hyperliquid</strong></td>
+            <td class="col-mono">$9.60B HYPE + $5.15B stablecoins + $7.06B OI</td>
+            <td>USDC settlement, HyperCore, HyperEVM, API wallets, subaccounts, vaults. (Hyperliquid Docs)</td>
+            <td>ECDSA / secp256k1 via EIP-712. Delegated trading control breaks: forged actions, transfer abuse, unauthorized trading.</td>
+            <td>Public.</td>
+            <td>No public PQ plan</td>
+          </tr>
+          <tr>
+            <td><strong>Tempo</strong></td>
+            <td class="col-mono">No public token. Mainnet live stablecoin payment rail</td>
+            <td>Paradigm, Stripe, Anthropic, Deutsche Bank, Visa, Mastercard, UBS, OpenAI, Revolut, Shopify, Klarna, Brex, Cross River, Payoneer, Ramp and others are listed across Tempo's public ecosystem and partner materials. (Tempo)</td>
+            <td>WebAuthn / P-256 plus EVM-compatible classical signers. Modern UX does not change classical signer risk.</td>
+            <td>Privacy coming soon, not live.</td>
+            <td>No public PQ plan</td>
+          </tr>
+          <tr>
+            <td><strong>Monero</strong></td>
+            <td class="col-mono">$6.28B XMR</td>
+            <td>Privacy asset. No major institutional RWA footprint surfaced in the reviewed official materials.</td>
+            <td>Privacy stack. Ownership and privacy can fail together, exposing history and funds.</td>
+            <td>Privacy can fail retroactively.</td>
+            <td>Research only. No deployed public PQ migration path identified in the reviewed materials.</td>
+          </tr>
+          <tr>
+            <td><strong>Base</strong></td>
+            <td class="col-mono">No token + $4.82B stablecoins + nearly $15B assets on platform</td>
+            <td>J.P. Morgan / JPMD, USDC, EURC, Shopify + Base Pay, Coinbase / Base. Base says JPMD is a USD-backed permissioned deposit-token pilot for institutional clients, and Base Pay is live on Shopify with USDC checkout. (Base)</td>
+            <td>ECDSA / secp256k1 at the EVM layer. PQ break forces signer migration across payments, stablecoins, and tokenized flows.</td>
+            <td>Public. Profile privacy only, not chain privacy.</td>
+            <td>No public PQ plan</td>
+          </tr>
+          <tr>
+            <td><strong>Stellar</strong></td>
+            <td class="col-mono">$5.86B XLM + $390M stablecoins + $580M+ tokenized Treasuries</td>
+            <td>Franklin BENJI, PYUSD, WisdomTree, Circle, Ondo, ABN AMRO, Visa, U.S. Bank. (Stellar)</td>
+            <td>Ed25519, plus secp256r1 in newer wallet flows. Classical signer assumptions break across payments and tokenized assets.</td>
+            <td>Public.</td>
+            <td>No public PQ plan</td>
+          </tr>
+          <tr>
+            <td><strong>Avalanche</strong></td>
+            <td class="col-mono">$4.17B AVAX + $1.56B stablecoins</td>
+            <td>BlackRock, KKR, Hamilton Lane via Securitize and Avalanche integrations. (Avalanche Builder Hub)</td>
+            <td>ECDSA / secp256k1. User and transaction auth fail across issuer and tokenized-fund rails.</td>
+            <td>Public.</td>
+            <td>No public PQ plan</td>
+          </tr>
+          <tr>
+            <td><strong>Zcash</strong></td>
+            <td class="col-mono">$3.75B ZEC</td>
+            <td>Privacy asset. No major institutional RWA footprint surfaced in the reviewed official materials.</td>
+            <td>Shielded privacy stack. Not just signatures. Balance integrity can fail, enabling forged notes and theft.</td>
+            <td>Privacy is not durably PQ-safe today.</td>
+            <td>Recoverability work exists, but ZIP 2005 explicitly says it does not by itself make the protocol secure against quantum adversaries.</td>
+          </tr>
+          <tr>
+            <td><strong>NEAR</strong></td>
+            <td class="col-mono">$1.58B NEAR + $120M stablecoins</td>
+            <td>No major tokenized-RWA footprint surfaced in the reviewed official materials at the level seen on Ethereum, Solana, BNB, Stellar, Avalanche, or Canton.</td>
+            <td>secp256k1 + ed25519. Classical account-signing breaks across user, app, and chain-signature flows.</td>
+            <td>Public.</td>
+            <td>No public PQ plan</td>
+          </tr>
+          <tr class="table-subheading-row"><td colspan="6">Post Quantum Native Day One, zero Migration Debt</td></tr>
+          
+            <tr class="reveal-row"><td><strong>EternaX</strong></td>
+            <td class="col-mono">Pre-launch. No public token market cap yet. Built for stablecoins, RWAs, tokenized cash, and high-velocity markets.</td>
+            <td>The destination rail for issuers Stablecoins/ RWA, custodians, broker-dealers, exchanges, and market makers</td>
+            <td>No legacy signer trap. No ECDSA retrofit. No Ed25519 retrofit. No migration debt. Built PQ-native from day one.</td>
+            <td>Auditable privacy from day one. Private for the post-quantum era.</td>
+            <td>No fix-later roadmap. Launches PQ-native from day one.</td>
+          
+        </tbody>
+      </table>
+    </div>
     </div>
   </section>
 
