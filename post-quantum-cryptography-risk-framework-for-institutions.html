@@ -151,6 +151,8 @@ tailwind.config = {
   --green-soft:   rgba(47,94,82,0.05);
   --red-medium:   rgba(141,46,46,0.10);
   --green-medium: rgba(47,94,82,0.10);
+  --content-width: 860px;
+  --content-width-wide: 1080px;
   /* Typography (aligned with existing report system) */
   --font: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
   --serif: 'IBM Plex Serif', serif;
@@ -183,8 +185,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:
 .nav-links a:hover,.nav-links .nav-active{color:var(--navy)}
 
 /* ── LAYOUT ── */
-.page-wrap{max-width:880px;margin:0 auto;padding:0 40px}
-.wide-wrap{max-width:1100px;margin:0 auto;padding:0 40px}
+.content{max-width:var(--content-width);margin:0 auto;padding:0 2rem 4.75rem}
+.content-wide{max-width:var(--content-width-wide);margin:0 auto;padding:0 2rem}
+/* Q1-style breakout when wide content is nested inside main content column. */
+.content > .content-wide{margin-left:-110px;margin-right:-110px;padding-left:0;padding-right:0}
 
 /* ── COVER ── */
 .cover{
@@ -493,22 +497,50 @@ tbody td:first-child{background:var(--sticky-body)}
 .share-panel-num{font-size:2.2rem;font-weight:700;color:#fff;letter-spacing:-.025em;margin-bottom:10px;display:block;line-height:1}
 .share-panel-desc{font-family:var(--mono);font-size:.66rem;color:rgba(255,255,255,.58);line-height:1.62;letter-spacing:.01em}
 
-/* ── PRINT / PDF EXPORT ── */
+/* ── PRINT / PDF EXPORT (aligned with already-broken-quantum-risk-report-q1-2026: @page top/bottom only; no extra .content horizontal padding; wide breakout zeroed in print) ── */
 @media print{
+  @page{margin-top:.35in;margin-bottom:.35in}
+  :root{
+    --bg:#fff;
+    --surface:#fff;
+    --surface-soft:#f7f7f7;
+    --surface-brief:#f7f7f7;
+    --surface-row:#fafafa;
+    --header-tint:#ececec;
+    --exec-trigger:#f7f7f7;
+    --table-sub:#ececec;
+    --sticky-head:#ececec;
+    --sticky-body:#fafafa;
+    --method-note:#fff;
+    --share-metric:#fff;
+    --border:#d7d7d7;
+    --border-accent:#cfcfcf
+  }
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .site-nav,.share-panel,.pdf-btn,.author-photo-slot{display:none!important}
-  body{font-size:11pt;line-height:1.55}
-  .cover{padding:48px 0 36px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .page-wrap,.wide-wrap,.fastpath-inner,.cover-inner{padding:0 28px}
-  .fastpath,.plane-diagram,.trace,.case-study,.verdict-box,.verdict-box-green,.conviction-box{break-inside:avoid}
+  body{background:#fff}
+  .site-nav,.pdf-btn,.author-photo-slot,.connect-actions,.no-print{display:none!important}
+  .manual-page-break{break-before:page;page-break-before:always;height:0!important;margin:0!important;padding:0!important}
+  .cover,.fastpath,.team-section,.connect-section,.report-footer,.case-study,.verdict-box,.verdict-box-green{
+    box-shadow:none!important;background:#fff!important
+  }
+  .chart-wrap,.exec-quote,.verdict-box,.callout-box,.faq-item,.team-card{page-break-inside:avoid}
+  /* Fill the full available print width — prevents max-width + margin:auto from centering at viewport width */
+  .content{max-width:none!important;margin-left:0!important;margin-right:0!important}
+  .cover-inner,.fastpath-inner{max-width:none!important;margin-left:0!important;margin-right:0!important;padding-left:2rem!important;padding-right:2rem!important}
+  .content-wide{margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
+  .section{page-break-inside:auto!important;break-inside:auto!important}
   .section-rule{background:#E0DEDE;height:1px;border:none;margin:40px 0 0}
   .pull-quote::before,.discontinuity::after{display:none}
-  .stat-grid,.taxonomy,.moat-grid,.framework-grid,.fastpath-grid,.toc-grid,.authors-grid{break-inside:avoid}
+  .table-wrap.wide{margin-left:0!important;margin-right:0!important}
+  .table-wrap{overflow:visible!important;background:#fff!important}
+  .table-wrap table th:first-child,.table-wrap table td:first-child{position:static!important;box-shadow:none!important}
+  .faq-item{border-color:#d9d9d9!important}
+  .faq-item summary::after{display:none!important}
+  .faq-item:not([open]) .faq-a{display:block!important}
+  .stat-grid,.taxonomy,.moat-grid,.framework-grid,.fastpath-grid,.toc-grid{break-inside:avoid}
   h2{break-after:avoid}
   .part-header{padding-top:32px}
   a{color:var(--navy)!important;border-bottom:none!important}
-  .toc{display:none}
-  @page{margin:.75in .65in;size:A4}
 }
 
 /* ── CASE STUDY ── */
@@ -580,7 +612,10 @@ summary.faq-q:hover{color:var(--navy-hover)}
 .footnote-section p{font-family:var(--mono);font-size:.66rem;line-height:1.6;color:var(--text-muted);margin-bottom:5px}
 
 /* ── FOOTER ── */
-.report-footer{background:var(--navy);color:#fff;padding:40px 0}
+.report-footer{background:var(--bg);border-top:1px solid var(--border);padding:3rem 0}
+.report-footer-inner{max-width:860px;margin:0 auto;padding:0 40px}
+.report-footer h3{font-size:.7rem;font-weight:600;color:var(--text-muted);margin-bottom:1rem;letter-spacing:.08em;text-transform:uppercase}
+.report-footer p{font-size:.75rem;color:var(--text-muted);line-height:1.72;margin-bottom:.8rem}
 .footer-inner{max-width:1100px;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
 .footer-brand{font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
 .footer-brand span{color:rgba(255,255,255,.9)}
@@ -688,7 +723,8 @@ summary.faq-q:hover{color:var(--navy-hover)}
   .plane-id{border-right:none;border-bottom:1px solid var(--border)}
   .plane-content{border-right:none;border-bottom:1px solid var(--border)}
   /* Page layout */
-  .page-wrap,.wide-wrap,.fastpath-inner,.cover-inner{padding:0 20px}
+  .content,.content-wide,.fastpath-inner,.cover-inner{padding:0 20px}
+  .content > .content-wide{margin-left:0;margin-right:0}
   .cover-title{font-size:1.9rem}
   .cover-meta{gap:20px}
   /* Grids */
@@ -855,16 +891,16 @@ summary.faq-q:hover{color:var(--navy-hover)}
     <div class="cover-meta-item"><div class="cover-meta-label">Audience</div><div class="cover-meta-value">Boards · Risk Committees · Tokenization Teams · Stablecoin Issuers · Custodians · Enterprise Digital Asset Programmes</div></div>
   </div>
   <p class="cover-disclaimer">Not investment advice. EternaX novel PQ scheme pending IACR Journal of Cryptology publication. Sections 1–14 present independent analysis sourced from public records, federal standards, peer-reviewed research, and published statements. EternaX architecture and positioning are presented in Section 15. All market data as of April 2026.</p>
-  <button class="pdf-btn" onclick="window.print()" aria-label="Save report as PDF">
+  <a class="pdf-btn" href="eternax-report-post-quantum-cryptography-risk-framework-for-institutions.pdf" download aria-label="Save report as PDF">
     <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     Save as PDF
-  </button>
+  </a>
 </div>
 </header>
 
 <!-- ═══ SHAREABLE SUMMARY PANEL -->
 <section class="share-panel" aria-label="Key facts summary">
-<div class="wide-wrap">
+<div class="content-wide">
   <span class="share-panel-label">Six facts every board, risk committee, and institutional digital asset team must act on in 2026</span>
   <div class="share-panel-grid">
     <div class="share-panel-cell green-top">
@@ -896,6 +932,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
 </section>
 
 <!-- ═══ BOARD FAST-PATH -->
+<div class="manual-page-break"></div>
 <section class="fastpath" aria-label="Board fast-path summary">
 <div class="fastpath-inner">
   <span class="fastpath-label">If you have 7 minutes — Read this before your next risk committee or tokenization strategy meeting</span>
@@ -925,9 +962,8 @@ summary.faq-q:hover{color:var(--navy-hover)}
 </div>
 </section>
 
-<main role="main">
-<div class="page-wrap">
-
+<main role="main" class="content">
+  <div class="manual-page-break"></div>
 <!-- TOC -->
 <div class="toc">
   <span class="toc-title">Contents</span>
@@ -960,14 +996,15 @@ summary.faq-q:hover{color:var(--navy-hover)}
 <p><strong>Not one of these programmes has a disclosed end-to-end post-quantum cryptographic roadmap covering custody, admin controls, settlement mechanics, interoperability, and audit.</strong></p>
 <p>That gap is the problem this report addresses. Post-quantum risk to stablecoins and tokenized RWAs is not primarily about wallets being stolen. It is about <strong>migration debt</strong> accumulating from the moment of issuance. <strong>Control-plane vulnerability</strong> concentrating institutional exposure in admin key surfaces that are permanently exposed on-chain. <strong>Privacy degrading retroactively</strong> for on-chain transaction data already recorded — meaning today's transactions are tomorrow's intelligence for an adversary with a quantum computer. And <strong>blockchain rail risk contaminating</strong> off-chain assets with cryptographic liabilities they never needed to carry. The question is not whether to tokenize. It is which rails the next generation of institutional value should be issued on — and what happens to the assets already on the wrong ones.</p>
 </div>
-
+<div class="manual-page-break"></div>
 <!-- SELF-IDENTIFICATION MATRIX -->
 <div class="self-id-section">
   <span class="self-id-label">If you are involved in digital assets, tokenization, custody, settlement, or on-chain finance — this report is about you</span>
   <div class="self-id-title">Find Yourself. Find Your Risk. Find Your Next Step.</div>
-  <div class="table-wrap wide" style="margin-top:0">
-    <table>
-      <thead><tr><th style="width:20%">If you are…</th><th style="width:21%">Your primary PQ exposure</th><th style="width:21%">Your biggest control-plane risk</th><th style="width:18%">Your privacy risk</th><th>What to do now</th></tr></thead>
+  <div class="content-wide">
+    <div class="table-wrap wide" style="margin-top:0">
+      <table>
+      <thead><tr><th style="width:20%">If you are…</th><th style="width:20%">Your primary <br>PQ exposure</th><th style="width:20%">Your biggest <br>control-plane risk</th><th style="width:20%">Your privacy risk</th><th>What to do now</th></tr></thead>
       <tbody>
         <tr><td class="td-bold">Stablecoin issuer<br><span style="font-weight:400;font-size:.75rem;color:var(--text-muted)">USDC, FIDD, PYUSD, Tether, USDT</span></td><td>Rail + admin keys governing mint/burn/freeze authority over the full circulating supply</td><td>A quantum attacker forging a mint transaction creates unlimited token supply decoupled from reserves</td><td>Treasury movements, reserve rebalancing, and redemption patterns permanently on-chain</td><td><strong>Stop new issuance on vulnerable rails. Map mint/burn/freeze key exposure. Engage custodian on PQ roadmap now.</strong></td></tr>
         <tr><td class="td-bold">Tokenized fund / RWA manager<br><span style="font-weight:400;font-size:.75rem;color:var(--text-muted)">BUIDL, MONY, FOBXX, FYOXX</span></td><td>Rail + transfer-agent logic + bridge dependencies across every chain the fund operates on</td><td>Admin and upgrade keys governing fund contract logic — if forged, can redirect investor redemptions or destroy NAV accounting</td><td>Investor wallet identities, fund flows, and counterparty relationships observable on public rails</td><td><strong>Freeze further chain expansion. Map all transfer-agent and bridge dependencies. Block new fund launches on legacy rails.</strong></td></tr>
@@ -977,7 +1014,8 @@ summary.faq-q:hover{color:var(--navy-hover)}
         <tr><td class="td-bold">Oracle / bridge / attestation<br><span style="font-weight:400;font-size:.75rem;color:var(--text-muted)">Chainlink, Wormhole, CCTP, LayerZero</span></td><td>Signer perimeter — oracle and bridge attesters are among the highest-value at-rest targets in the entire ecosystem</td><td>A forged bridge attestation can drain the entire locked-value reserve of a bridge; Wormhole exploit was $320M via guardian key compromise</td><td>Routing decisions, cross-chain flow patterns, and price-feed dependencies permanently observable</td><td><strong>Treat signer migration as top priority. Map every attester key's on-chain exposure. Bridge and oracle PQ migration cannot wait for chain upgrades.</strong></td></tr>
         <tr><td class="td-bold">Bank / payment processor<br><span style="font-weight:400;font-size:.75rem;color:var(--text-muted)">Visa, JPMorgan, DTCC, Stripe/Bridge</span></td><td>Settlement and treasury integration points where traditional finance connects to on-chain rails — each connection point inherits rail-level PQ risk</td><td>Internal approval keys and custody controls for stablecoin and tokenized-settlement flows; if on-chain, they are permanently exposed</td><td>Treasury and counterparty flow data; strategic payment routing and settlement patterns visible on public rails</td><td><strong>Separate legacy on-chain settlement exposure from future issuance decisions. Require PQ roadmap from every blockchain rail used for institutional settlement.</strong></td></tr>
       </tbody>
-    </table>
+      </table>
+    </div>
   </div>
 </div>
 
@@ -996,12 +1034,6 @@ summary.faq-q:hover{color:var(--navy-hover)}
     <div class="answers-item">What is post-quantum risk in Ethereum, Solana, and Bitcoin?</div>
     <div class="answers-item">Why is Fidelity FIDD a post-quantum risk case study?</div>
   </div>
-</div>
-
-<!-- ARC MARKER 1 -->
-<div class="arc-marker" id="arc1">
-  <span class="arc-marker-num">Reaction 01 ·</span>
-  <span class="arc-marker-text">"This is bigger, earlier, and more enterprise-relevant than I thought."</span>
 </div>
 
 <!-- EXEC SUMMARY -->
@@ -1037,6 +1069,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
 </div>
 
 <!-- KEY NUMBERS -->
+<div class="manual-page-break"></div>
 <hr class="section-rule" id="key-numbers">
 <div class="part-header">
   <span class="part-number">Reference Data</span>
@@ -1060,6 +1093,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
 <p class="stat-footnote">Sources: Google Quantum AI whitepaper (March 30, 2026); Oratomic/Caltech arXiv:2603.28627 (March 30, 2026); Ethereum Foundation pq.ethereum.org (March 24, 2026); DTCC/SEC no-action letter (December 11, 2025); NIST FIPS 203/204/205 (August 2024); BlackRock/Securitize, JPMorgan AM, Franklin Templeton, Visa, Fidelity, WisdomTree primary press releases; Elliptic/TRM Labs (Drift, April 2026).</p>
 
 <!-- SECTION 1 -->
+<div class="manual-page-break"></div>
 <hr class="section-rule" id="before-theft">
 <div class="part-header">
   <span class="part-number">Section 01</span>
@@ -1197,7 +1231,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
 <div class="pull-quote">
   <p>"Nobody knows the day or the hour. It will just happen one day. Google compressed the qubit buffer by 20× in a single paper, and their own authors say there will be no significant notice period before a CRQC exists. Institutions cannot plan for a warning that will not come."</p>
 </div>
-
+<div class="manual-page-break"></div>
 <!-- SECTION 3 -->
 <hr class="section-rule" id="scope">
 <div class="part-header">
@@ -1259,12 +1293,12 @@ summary.faq-q:hover{color:var(--navy-hover)}
   <cite>— Circle Research, "How Blockchains Are Preparing for Q-Day," January 2026</cite>
 </div>
 
-<div class="table-wrap">
+<div class="table-wrap wide">
   <span class="table-label">Table 3.2 — TPS Impact Under Post-Quantum Migration by Chain: Modeled vs. Live Testnet</span>
   <table>
-    <thead><tr><th>Chain</th><th>Modeled TPS loss (FN-DSA)</th><th>Live testnet result</th><th>Primary institutional programmes</th><th>Known PQ roadmap</th></tr></thead>
+    <thead><tr><th>Chain</th><th>Modeled TPS <br> loss (FN-DSA)</th><th>Live testnet result</th><th>Primary institutional programmes</th><th>Known PQ roadmap</th></tr></thead>
     <tbody>
-      <tr><td class="td-bold">Solana</td><td class="td-number">~77%</td><td class="td-number" style="color:var(--red)">~90% (Project Eleven / Solana Foundation, Apr 2026)</td><td>Visa stablecoin settlement, WisdomTree tokenized funds, BUIDL Solana share class, FOBXX Solana network</td><td><span class="td-none">None — testnet only, no mainnet roadmap</span></td></tr>
+      <tr><td class="td-bold">Solana</td><td class="td-number">~77%</td><td class="td-number" style="color:var(--red)">~90% (Project Eleven, <br> Solana Foundation, Apr 2026)</td><td>Visa stablecoin settlement, WisdomTree tokenized funds, BUIDL Solana share class, FOBXX Solana network</td><td><span class="td-none">None — testnet only, no mainnet roadmap</span></td></tr>
       <tr><td class="td-bold">Sui</td><td class="td-number">~69%</td><td style="font-family:var(--mono);font-size:.67rem;color:var(--text-muted)">No published testnet</td><td>Institutional DeFi, early RWA pilots</td><td><span class="td-none">None disclosed</span></td></tr>
       <tr><td class="td-bold">Ethereum</td><td class="td-number">~31%</td><td style="font-family:var(--mono);font-size:.67rem;color:var(--text-muted)">Devnets in progress</td><td>BUIDL (primary), MONY, FOBXX (ETH network), FYOXX, major stablecoin issuers</td><td>Partial — base-layer by 2029; contracts and L2s separate</td></tr>
       <tr><td class="td-bold">EternaX</td><td class="td-number">~2%</td><td class="td-yes">Protocol-native; no retrofit required</td><td>PQ-native issuance, migration destination rail</td><td><span class="td-yes">Native — protocol-level information-theoretic scheme</span></td></tr>
@@ -1342,6 +1376,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
 </div>
 
 <!-- SECTION 4 -->
+<div class="manual-page-break"></div>
 <hr class="section-rule" id="external-value">
 <div class="part-header">
   <span class="part-number">Section 04</span>
@@ -1397,7 +1432,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
   </div>
   <p>The key insight: BUIDL's $2.85 billion in AUM represents a claim on U.S. Treasury bills, repurchase agreements, and cash. That underlying value is unaffected by quantum computing. What is affected is the entire chain of authorization, transfer-agent governance, cross-chain interoperability, and investor privacy above it. Securitize's transfer-agent signing perimeter controls the official record of share ownership — if compromised, the official ownership record is attackable regardless of how clean the underlying Treasury securities are.</p>
 </div>
-
+<div class="manual-page-break"></div>
 <div class="trace">
   <span class="trace-label">Trace 02 — Visa Stablecoin Settlement ($3.5B+ annualized)</span>
   <div class="trace-title">Enterprise → Product → Counterparties → Control Surfaces → Privacy Surfaces → Rail</div>
@@ -1425,7 +1460,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
   </div>
   <p>DTC's override key infrastructure — the master keys that can reverse transactions and destroy tokens — becomes a critical control surface for U.S. capital markets when tokenized entitlements of Russell 1000 equities, U.S. Treasuries, and major ETFs begin trading on public blockchains from H2 2026. The fact that PQ criteria for approved Canton blockchains have not been publicly disclosed is a gap the industry should ask to be addressed before H2 2026 rollout begins.</p>
 </div>
-
+<div class="manual-page-break"></div>
 <div class="trace">
   <span class="trace-label">Trace 04 — The Custodian / DeFi Protocol / Oracle Operator (Self-Application Template)</span>
   <div class="trace-title">For every entity in Table 6.1 not covered by Traces 01–03: how to apply this framework to your own stack</div>
@@ -1467,9 +1502,10 @@ summary.faq-q:hover{color:var(--navy-hover)}
   </table>
 </div>
 
-<div class="table-wrap wide">
-  <span class="table-label">Table 6.2 — Named Institutional Programmes: Rails, Dependencies, and Post-Quantum Posture</span>
-  <table>
+<div class="content-wide">
+  <div class="table-wrap wide">
+    <span class="table-label">Table 6.2 — Named Institutional Programmes: Rails, Dependencies, and Post-Quantum Posture</span>
+    <table>
     <thead><tr><th>Programme</th><th>Scale</th><th>Primary rail(s)</th><th>Key dependencies</th><th>Primary PQ exposure</th><th>PQ roadmap?</th></tr></thead>
     <tbody>
       <tr><td class="td-bold">BlackRock BUIDL</td><td>~$2.85B AUM; 9 chains; $100M+ dividends paid; largest tokenized RWA fund globally</td><td>Ethereum (primary), Solana, Arbitrum, Aptos, Avalanche, BNB Chain, Optimism, Polygon</td><td>Securitize (transfer agent), BNY (custodian), Wormhole (interop)</td><td><span class="exp-tag asset">ASSET</span><span class="exp-tag control">CONTROL</span><span class="exp-tag bridge">BRIDGE</span><br><small style="font-size:.72rem;color:var(--text-muted)">9 chains; Securitize signing; bridge attesters</small></td><td><span class="td-none">None disclosed</span></td></tr>
@@ -1482,7 +1518,8 @@ summary.faq-q:hover{color:var(--navy-hover)}
       <tr><td class="td-bold">Fidelity FYOXX</td><td>Launched mid-2025; first on-chain tokenized product from $5.9T AUM manager; Ethereum</td><td>Ethereum (current); additional chains per SEC filing in development</td><td>Fidelity Digital Asset Management; Ethereum transfer agent infrastructure</td><td><span class="exp-tag asset">ASSET</span><span class="exp-tag control">CONTROL</span><br><small style="font-size:.72rem;color:var(--text-muted)">Ethereum key exposure; transfer agent signing</small></td><td><span class="td-none">None disclosed</span></td></tr>
       <tr><td class="td-bold">Fidelity Digital Dollar (FIDD)</td><td>Launched February 4, 2026; new institutional stablecoin issued by Fidelity Digital Assets, NA; 1:1 USD-backed, backed by cash/U.S. Treasurys; available retail and institutional; purchasable/redeemable at $1; transferable to any Ethereum mainnet address</td><td>Ethereum mainnet; transferable to any ETH address</td><td>Fidelity Digital Assets, NA (issuer); Fidelity reserve management; Fidelity platform distribution; daily supply and reserve NAV disclosure</td><td><span class="exp-tag asset">ASSET</span><span class="exp-tag control">CONTROL</span><span class="exp-tag privacy">PRIVACY</span><br><small style="font-size:.72rem;color:var(--red);font-weight:600">Live Feb 2026 — new issuance on non-PQ-safe rail</small></td><td><span class="td-none">None disclosed</span></td></tr>
     </tbody>
-  </table>
+    </table>
+  </div>
 </div>
 
 <div class="verdict-box">
@@ -1503,7 +1540,6 @@ summary.faq-q:hover{color:var(--navy-hover)}
 
 <!-- ARC MARKER 2 — fires after reader has seen the nine named programmes and the verdict -->
 <div class="arc-marker" id="arc2">
-  <span class="arc-marker-num">Reaction 02 ·</span>
   <span class="arc-marker-text">"This affects real institutions conducting real operations on real rails — not crypto traders."</span>
 </div>
 
@@ -1557,6 +1593,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
 </div>
 
 <!-- SECTION 8 -->
+<div class="manual-page-break"></div>
 <hr class="section-rule" id="privacy">
 <div class="part-header">
   <span class="part-number">Section 08</span>
@@ -1573,9 +1610,10 @@ summary.faq-q:hover{color:var(--navy-hover)}
   <p>In 2031 or 2033, those assumptions may not hold. An adversary who collected and stored that 2026 data now holds the complete strategic record of that treasury desk's Q3 2026 operations: positions, counterparties, rebalancing timing, collateral strategy, the identity of every wallet involved. The transaction already occurred. The data is permanently on-chain. The cryptographic protection that appeared adequate in 2026 is what is being retroactively broken — not the transaction itself.</p>
 </div>
 
-<div class="table-wrap wide">
-  <span class="table-label">Table 8.1 — Privacy Models and Their Institutional Durability</span>
-  <table>
+<div class="content-wide">
+  <div class="table-wrap">
+    <span class="table-label">Table 8.1 — Privacy Models and Their Institutional Durability</span>
+    <table>
     <thead><tr><th>Privacy model</th><th>What it provides today</th><th>What it fails to provide</th><th>Assessment</th></tr></thead>
     <tbody>
       <tr><td class="td-bold">Public-by-default (Ethereum, Solana)</td><td>Transparency and composability for all market participants</td><td>Balance, flow, and strategy confidentiality for all market participants simultaneously</td><td>Inadequate for institutional treasury, fund management, or sensitive counterparty workflows</td></tr>
@@ -1584,12 +1622,14 @@ summary.faq-q:hover{color:var(--navy-hover)}
       <tr><td class="td-bold">Obfuscation-based</td><td>Reduced immediate readability</td><td>Machine learning already degrades obfuscation; quantum compounds this; not durable</td><td>Not a long-term institutional solution</td></tr>
       <tr><td class="td-bold">Auditable-private with PQ-safe foundations</td><td>Hidden flows with selective disclosure for compliance; verifiable settlement without broadcasting counterparty or strategy data</td><td>Requires information-theoretic or PQ-safe cryptographic foundations to be truly durable; security model must be proved, not assumed</td><td>The correct institutional direction — confidentiality, compliance, and cryptographic durability simultaneously. The only model that satisfies all three.</td></tr>
     </tbody>
-  </table>
+    </table>
+  </div>
 </div>
 
-<div class="table-wrap wide" style="margin-top:28px">
-  <span class="table-label">Table 8.2 — Why Institutions Need PQ-Safe Auditable Privacy: The Four-Requirement Case</span>
-  <table>
+<div class="content-wide">
+  <div class="table-wrap" style="margin-top:28px">
+    <span class="table-label">Table 8.2 — Why Institutions Need PQ-Safe Auditable Privacy: The Four-Requirement Case</span>
+    <table>
     <thead><tr><th style="width:22%">Institutional need</th><th>Why public rails fail</th><th>Why privacy chains fail</th><th>Why PQ-safe auditable-private design matters</th></tr></thead>
     <tbody>
       <tr><td class="td-bold">Hidden treasury operations</td><td>Balance, flow timing, and counterparty relationships permanently visible on-chain — any analyst can reconstruct treasury strategy in real time</td><td>Zcash on-setup quantum attack retroactively compromises all shielded transactions; Monero uses Ed25519 (quantum-vulnerable); Arc defers privacy to post-mainnet</td><td>Hidden flows with information-theoretic durability — today's treasury movements cannot be retroactively decoded regardless of future computational advances</td></tr>
@@ -1598,7 +1638,8 @@ summary.faq-q:hover{color:var(--navy-hover)}
       <tr><td class="td-bold">Regulatory transparency on demand</td><td>Public rails provide too much transparency to everyone — not selective disclosure to supervisors while maintaining market confidentiality</td><td>Hard-privacy rails fail supervisors — compliance-grade selective disclosure requires architectural support that privacy-overlay chains do not provide</td><td>Selective disclosure to regulators, auditors, and compliance functions — simultaneously with confidentiality from market participants — built in at the architecture layer</td></tr>
       <tr><td class="td-bold">Investor identity protection</td><td>Wallet-to-entity linkage trivially available through on-chain analytics — investor identities and positions permanently observable</td><td>Computationally-secure privacy chains offer protection today; under quantum attack, historical investor identity data is retroactively exposed from the permanent on-chain record</td><td>Information-theoretically private investor identity data — not protected by computational assumptions that a quantum computer could eventually break</td></tr>
     </tbody>
-  </table>
+    </table>
+  </div>
 </div>
 
 <div class="pull-quote">
@@ -1646,6 +1687,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
 </div>
 
 <!-- SECTION 10 -->
+<div class="manual-page-break"></div>
 <hr class="section-rule" id="legacy-vs-new">
 <div class="part-header">
   <span class="part-number">Section 10</span>
@@ -1667,9 +1709,10 @@ summary.faq-q:hover{color:var(--navy-hover)}
 
 <p><strong>Legacy exposure may require years of managed migration. New issuance is entirely a choice.</strong> No board wants to be told in 2030 that in April 2026 — with NIST standards finalized, government milestones published, Google's paper in the public record, and the Ethereum Foundation acknowledging the urgency — their programme knowingly created fresh migration debt for long-duration assets on documented vulnerable rails.</p>
 
-<div class="table-wrap wide" style="margin-top:28px">
-  <span class="table-label">Table 10.2 — Board Decision Matrix: What Each Institution Type Should Do in the Next 90 Days</span>
-  <table>
+<div class="content-wide">
+  <div class="table-wrap" style="margin-top:28px">
+    <span class="table-label">Table 10.2 — Board Decision Matrix: What Each Institution Type Should Do in the Next 90 Days</span>
+    <table>
     <thead><tr><th style="width:24%">If you have…</th><th style="width:14%">Risk level</th><th>Immediate action (now)</th><th>What to avoid</th><th>90-day decision</th></tr></thead>
     <tbody>
       <tr><td class="td-bold">Legacy stablecoin or tokenized fund already live on Ethereum or Solana</td><td style="color:var(--red);font-weight:700">Critical</td><td>Inventory all admin keys, mint/burn/freeze authority, and transfer-agent signing perimeters. Map which are permanently exposed on-chain. Begin control-plane hardening immediately.</td><td>Any further expansion — new chains, new DeFi integrations, new client relationships — deepens migration debt</td><td>Define migration route. Evaluate PQ-native issuance rails for any next-generation programme. Set board-level PQ risk mandate.</td></tr>
@@ -1678,12 +1721,14 @@ summary.faq-q:hover{color:var(--navy-hover)}
       <tr><td class="td-bold">Public-chain treasury or stablecoin settlement flows (Visa, JPMorgan JPMD model)</td><td style="color:var(--text-muted);font-weight:700">High</td><td>Privacy review of all on-chain settlement flows. Map treasury movement visibility. Assess whether on-chain settlement creates competitive intelligence exposure under HNDL threat model.</td><td>Expanding public-chain settlement volumes without understanding the privacy exposure that data creates under quantum threat</td><td>Evaluate auditable-private settlement rails. Define minimum privacy requirements for any new on-chain settlement architecture.</td></tr>
       <tr><td class="td-bold">Custody or key management for institutional digital assets</td><td style="color:var(--text-muted);font-weight:700">High</td><td>Inventory all key types and their on-chain exposure. Require PQ roadmap from every key-management vendor. Classify master keys, omnibus keys, and client-specific keys by exposure level.</td><td>Renewing long-term key-management vendor contracts without PQ disclosure requirements</td><td>Define institution-wide PQ key management standard. Begin RFP process for PQ-capable custody infrastructure.</td></tr>
     </tbody>
-  </table>
+    </table>
+  </div>
 </div>
 
-<div class="table-wrap wide" style="margin-top:28px">
-  <span class="table-label">Table 10.3 — Per-Entity Action Plan: This Week · In 90 Days · Stop Now</span>
-  <table>
+<div class="content-wide">
+  <div class="table-wrap wide" style="margin-top:28px">
+    <span class="table-label">Table 10.3 — Per-Entity Action Plan: This Week · In 90 Days · Stop Now</span>
+    <table>
     <thead><tr><th style="width:16%">If you are…</th><th>Do this week</th><th>Do in 90 days</th><th style="width:25%">Stop immediately</th></tr></thead>
     <tbody>
       <tr><td class="td-bold">Stablecoin issuer<br><span style="font-weight:400;font-size:.75rem;color:var(--text-muted)">USDC, FIDD, PYUSD, Tether</span></td><td>Map every admin key — mint, burn, freeze, upgrade — and its on-chain exposure status. Assign ownership. Set board-level mandate for PQ risk.</td><td>Require PQ roadmap from every custodian, transfer agent, and bridge you depend on. Define rail criteria for any future product launch. Begin migration-debt inventory across all active programmes.</td><td><strong>Stop expanding existing programmes to new chains or DeFi integrations without a board decision on compounding migration debt. Stop issuing new stablecoins on legacy rails without evaluating PQ-native alternatives.</strong></td></tr>
@@ -1694,7 +1739,8 @@ summary.faq-q:hover{color:var(--navy-hover)}
       <tr><td class="td-bold">Oracle / bridge / attestation<br><span style="font-weight:400;font-size:.75rem;color:var(--text-muted)">Chainlink, Wormhole, CCTP, LayerZero</span></td><td>Map every attester key and its on-chain exposure status. Classify signer perimeters by value governed. Treat this as a board-level security item, not an engineering backlog.</td><td>Publish a signer-level PQ migration timeline. Begin evaluation of NIST FIPS 204/205 for attester and bridge signing. Notify institutional clients of current exposure posture.</td><td><strong>Stop conflating chain-layer PQ plans with bridge and oracle signer migration. They are different problems with different owners. Your signer perimeter cannot wait for the chain.</strong></td></tr>
       <tr><td class="td-bold">Bank / payment processor<br><span style="font-weight:400;font-size:.75rem;color:var(--text-muted)">Visa, JPMorgan, DTCC, Stripe/Bridge</span></td><td>Separate legacy on-chain settlement exposure from new issuance decisions. Map which on-chain keys are permanently exposed. Define minimum PQ criteria for any new blockchain rail engagement.</td><td>Require PQ roadmap disclosure from every blockchain rail used for institutional settlement. Evaluate auditable-private settlement architectures for any new on-chain payment or settlement programme.</td><td><strong>Stop treating post-quantum risk as a future security problem in your blockchain programmes. Migration debt, privacy contamination, and governance burden are accumulating today against assets that never needed to carry them.</strong></td></tr>
     </tbody>
-  </table>
+    </table>
+  </div>
 </div>
 
 <div class="conviction-box">
@@ -1704,7 +1750,6 @@ summary.faq-q:hover{color:var(--navy-hover)}
 
 <!-- ARC MARKER 3 -->
 <div class="arc-marker" id="arc3">
-  <span class="arc-marker-num">Reaction 03 ·</span>
   <span class="arc-marker-text">"There is a right way and a wrong way to issue new value on-chain from here — and the right way is now identifiable."</span>
 </div>
 
@@ -1903,9 +1948,10 @@ summary.faq-q:hover{color:var(--navy-hover)}
   <h2 class="part-title">Why Partial Fixes Fail and Why Non-PQ-Safe Privacy Chains Cannot Solve Institutional Post-Quantum Blockchain Risk</h2>
 </div>
 
-<div class="table-wrap wide">
-  <span class="table-label">Table 13.1 — Alternatives Comparison: What Each Approach Solves and What It Leaves Open</span>
-  <table>
+<div class="content-wide">
+  <div class="table-wrap">
+    <span class="table-label">Table 13.1 — Alternatives Comparison: What Each Approach Solves and What It Leaves Open</span>
+    <table>
     <thead><tr><th style="width:24%">Option</th><th>What it solves</th><th>What it leaves unresolved</th><th>Best use case</th></tr></thead>
     <tbody>
       <tr><td class="td-bold">Wait for underlying chain upgrades</td><td>Defers integration burden; leverages chain-team investment</td><td>Compounds migration debt during the wait; Ethereum's 2029 covers only base-layer, not contracts, bridges, or L2s; Solana has no disclosed equivalent</td><td>Only for tightly contained, low-sensitivity, short-duration legacy exposure</td></tr>
@@ -1917,7 +1963,8 @@ summary.faq-q:hover{color:var(--navy-hover)}
       <tr><td class="td-bold">Phased PQ hardening — wallet-first (Circle Arc model, April 2026)</td><td>Opt-in PQ wallet signatures at mainnet (SLH-DSA-SHA2-128s, 7,856 bytes); privacy near-term post-mainnet; validator PQ explicitly deferred to long-term; no published TPS benchmark under PQ load</td><td>Validator hardening deferred means the consensus layer remains quantum-vulnerable; new issuers still accumulate migration debt at each phase boundary; 7,856-byte signature choice is 49× larger than EternaX's scheme — throughput implications unquantified publicly; privacy post-mainnet means HNDL exposure from day one of mainnet; the phased approach is more orderly than doing nothing, but each deferred phase is a future migration event for every issuer who builds during the wait</td><td>Credible for institutions that need Circle's EVM tooling and are willing to accept phased migration risk; not a day-one full-stack PQ-native answer</td></tr>
       <tr><td class="td-bold">PQ-native institution-compatible destination rail</td><td>Avoids creating fresh debt on new issuance; integrates PQ-safe authorization, auditable privacy, migration support, and execution quality from inception</td><td>Must prove technical and commercial viability; requires institutional-grade governance and interoperability; adoption and partner traction must be demonstrated at scale</td><td>Best answer for new long-duration issuance of stablecoins, tokenized funds, tokenized deposits, and RWAs</td></tr>
     </tbody>
-  </table>
+    </table>
+  </div>
 </div>
 
 <!-- SECTION 14: CATEGORY -->
@@ -1976,6 +2023,9 @@ summary.faq-q:hover{color:var(--navy-hover)}
     <p class="moat-desc">Live testnet data from Project Eleven and the Solana Foundation (April 2026) shows ~90% throughput loss on Solana under quantum-resistant signatures. FN-DSA imposes ~31% TPS loss on Ethereum. Circle chose SLH-DSA-SHA2-128s for its Arc blockchain — at 7,856 bytes per signature, that is 122× larger than Ed25519 and 49× larger than EternaX's 160-byte protocol-native scheme. Nic Carter framed the industry's minimum unavoidable cost as a "10× deterioration in signature sizes" under any NIST-compliant approach. EternaX's scheme is 2.5× current — below Carter's stated floor for any NIST-compliant migration. This is not a model: it is a comparison against the specific scheme the most credible institutional blockchain issuer just publicly chose. Competitors cannot adopt PQ authorization without accepting this throughput sacrifice. EternaX's 160-byte integration cannot be replicated by existing chains without a complete protocol redesign — the multi-year coordinated upgrade the Ethereum Foundation's roadmap illustrates, and that Circle's own phased validator deferral acknowledges.</p>
     <span class="moat-tag">Live-testnet-confirmed — 49× size advantage vs. Arc's named scheme</span>
   </div>
+</div>
+<div class="manual-page-break"></div> 
+<div class="moat-grid">
   <div class="moat-cell">
     <span class="moat-num">Moat 03</span>
     <div class="moat-name">Privacy: PQ-Safe Auditable Privacy — Both Layers, Not Just Signing</div>
@@ -1993,7 +2043,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
 <p>The market EternaX competes in has two distinct components: the migration market (assets already on quantum-vulnerable rails that will require re-platforming over the NCSC 2028–2035 window), and the new-issuance market (every dollar of long-duration institutional value that will be tokenized from here, which faces a binary choice between legacy vulnerable rails and PQ-native infrastructure). The new-issuance market is the primary opportunity — it requires no migration coordination, no counterparty consent, and no legacy smart contract replacement. It requires only a decision at the moment of issuance.</p>
 
 <div class="tam-strip">
-<div class="wide-wrap">
+<div class="content-wide">
   <div class="tam-inner" style="grid-template-columns:1fr 1fr">
     <div class="tam-cell"><span class="tam-number">$3.1T</span><span class="tam-label">On-chain value today (stablecoins + RWAs). Every dollar currently on quantum-vulnerable rails. The migration addressable market over the NCSC 2028–2035 planning horizon.</span></div>
     <div class="tam-cell"><span class="tam-number">$72T</span><span class="tam-label">Projected on-chain by 2028 ($68T tokenized RWAs + $4T stablecoins). Every dollar of new long-duration institutional issuance from here is a direct choice: migrate-later liability or zero-debt PQ-native issuance.</span></div>
@@ -2015,6 +2065,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
 <div class="pull-quote">
   <p>"The choice is simple: rails that guarantee a future migration event, or infrastructure that was never built to need one. EternaX is the only full-stack answer the market currently has. The category is right, and the market scale is measured in trillions."</p>
 </div>
+<div class="manual-page-break"></div> 
 <hr class="section-rule" id="conclusion">
 <div class="part-header">
   <span class="part-number">Conclusion</span>
@@ -2069,7 +2120,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
         <td class="td-bold">Q1 2026</td>
         <td><strong>Already Broken: The Post-Quantum Threat to Stablecoins, Tokenized Finance, Privacy Chains, and Cryptographic Migration Debt</strong> — 27 named institutions, nine chains, nine chains verdicted, $57B–$135B first-order exposure, nine open 2026 architecture decisions</td>
         <td>27 institutions. 0 PQ plans. 9 open decisions. Migration debt introduced as a named category.</td>
-        <td><a href="https://eternax.ai/already-broken-quantum-risk-report-q1-2026.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.72rem;color:#fff;background:var(--navy);padding:9px 14px;text-decoration:none;border:none;font-weight:500;letter-spacing:.04em" target="_blank" rel="noopener">Read Q1 2026 →</a></td>
+        <td><a href="https://eternax.ai/already-broken-quantum-risk-report-q1-2026.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.72rem;color:#fff!important;background:var(--navy);padding:9px 14px;text-decoration:none;border:none;font-weight:500;letter-spacing:.04em" target="_blank" rel="noopener">Read Q1 2026 →</a></td>
       </tr>
       <tr>
         <td class="td-bold">Q2 2026</td>
@@ -2086,6 +2137,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
 </div>
 
 <!-- FAQ -->
+<div class="manual-page-break"></div> 
 <hr class="section-rule" id="faq">
 <div class="part-header">
   <span class="part-number">Frequently Asked Questions</span>
@@ -2177,38 +2229,8 @@ summary.faq-q:hover{color:var(--navy-hover)}
     <summary class="faq-q">How can my institution issue a stablecoin or tokenized RWA with zero post-quantum liability from day one?</summary>
     <div class="faq-a">The answer is EternaX. The path is: issue on a PQ-native rail with PQ-safe privacy foundations, rather than issuing on quantum-vulnerable infrastructure and creating a migration event you will have to manage later. What zero quantum liability from day one means in practice: your minting authority cannot be forged by a quantum computer because EternaX's authorization scheme is information-theoretically secure, not reliant on computational hardness. Your transaction history cannot be retroactively decrypted because EternaX's privacy layer is built on the same information-theoretic foundations — harvested data yields nothing. Your programme will not require a multi-year coordinated migration when the market reprices quantum-vulnerable rails. The cost of new issuance on EternaX is the same as the cost of new issuance on Ethereum or Solana — the difference is that one creates zero migration debt and the other creates compounding liability that grows with every new counterparty, DeFi integration, and client relationship you add. To discuss your institution's new issuance architecture and diligence EternaX against your specific requirements, contact Paarrthhh Birla (paarrthhh.b@eternax.ai) or Dariia Porechna (dariia.p@eternax.ai).</div>
   </details>
-  <details class="faq-item">
-    <summary class="faq-q">What are the primary sources and citations for this report?</summary>
-    <div class="faq-a"><p><strong>Primary Sources and Citations</strong></p>
-      <p>[1] Google Quantum AI. "Securing Elliptic Curve Cryptocurrencies against Quantum Vulnerabilities: Resource Estimates and Mitigations." Babbush, Zalcman, Gidney et al. (Google Quantum AI), Drake (Ethereum Foundation), Boneh (Stanford). March 30, 2026. quantumai.google/static/site-assets/downloads/cryptocurrency-whitepaper.pdf · research.google/blog/safeguarding-cryptocurrency-by-disclosing-quantum-vulnerabilities-responsibly</p>
-      <p>[2] Oratomic/Caltech. "Shor's algorithm is possible with as few as 10,000 reconfigurable atomic qubits." Cain, Xu, King, Picard, Levine, Endres, Preskill, Huang, Bluvstein. arXiv:2603.28627. March 30, 2026. arxiv.org/abs/2603.28627</p>
-      <p>[3] Ethereum Foundation. pq.ethereum.org — Post-Quantum Ethereum Research Hub. Launched March 24, 2026. Four-fork roadmap (I, J, L, M) targeting 2029 base-layer upgrade; full execution-layer migration beyond 2029. EF statement: "The work must begin well before the threat arrives."</p>
-      <p>[4] NIST. FIPS 203 (ML-KEM), 204 (ML-DSA), 205 (SLH-DSA). August 13, 2024. csrc.nist.gov</p>
-      <p>[5] NCSC. "Timelines for migration to post-quantum cryptography." 2028/2031/2035 enterprise milestones. ncsc.gov.uk/guidance/pqc-migration-timelines</p>
-      <p>[5a] European Commission / EU Member States. Coordinated PQC transition roadmap, 2025–2026. Requires national PQC strategies by 2026; quantum-resistant encryption for critical infrastructure by 2030. European Union Agency for Cybersecurity (ENISA) coordinating implementation.</p>
-      <p>[5b] Google / Android. Android 17 to ship ML-DSA (NIST FIPS 204) post-quantum digital signature protection natively. Confirmed April 2026. Represents >3 billion devices adopting PQ signatures by default before most institutional blockchain infrastructure has a disclosed migration roadmap.</p>
-      <p>[6] BlackRock/Securitize. BUIDL fund: $2.85B AUM (2026); nine chains; $100M+ cumulative dividends (Dec 29, 2025). prnewswire.com; wormhole.com/blog</p>
-      <p>[7] J.P. Morgan Asset Management. "JPMorgan Launches First Tokenized Money Market Fund (MONY) on Ethereum." December 15, 2025. am.jpmorgan.com</p>
-      <p>[8] Digital Asset / Kinexys. "JPM Coin (JPMD) natively to Canton Network." January 7, 2026. prnewswire.com</p>
-      <p>[9] DTCC/DTC. SEC No-Action Letter (December 11, 2025); Canton Network partnership (December 2025). sec.gov/files/tm/no-action/dtc-nal-121125.pdf; dtcc.com</p>
-      <p>[10] Visa. "Visa Launches Stablecoin Settlement in the United States." December 16, 2025. usa.visa.com</p>
-      <p>[11] WisdomTree. "WisdomTree Expands Tokenization Ecosystem to Solana." January 2026. ir.wisdomtree.com</p>
-      <p>[12] Fidelity. Fidelity Treasury Digital Fund (FYOXX). Mid-2025 launch on Ethereum. coindesk.com (March 22, 2025 filing)</p>
-      <p>[13] Franklin Templeton. FOBXX/Benji: SEC prospectus; Canton Network expansion (November 2025). franklintempleton.com/FOBXX</p>
-      <p>[14] Drift Protocol. $285–286M exploit, April 1, 2026. DPRK attribution (Elliptic, TRM Labs). Durable nonce social engineering. elliptic.co; trmlabs.com; coindesk.com (April 2, 2026)</p>
-      <p>[15] Project Eleven / Solana Foundation. Live testnet: quantum-resistant signatures 20–40× larger than Ed25519; Solana network ~90% slower under quantum-safe cryptography. Pruden: "In Solana, 100% of the network is vulnerable. A quantum computer could pick any wallet and immediately start trying to recover the private key." CoinDesk, April 4, 2026. (Source: Margaux Nijkerk, CoinDesk)</p>
-      <p>[16] Circle / Arc. "Arc's Quantum-Resistant Design and Roadmap." arc.network/blog, April 3, 2026. SLH-DSA-SHA2-128s (7,856 bytes) chosen for wallet signatures at mainnet; validator PQ deferred to long-term phase; privacy near-term post-mainnet; opt-in approach; no published TPS benchmark under PQ load. CoinDesk coverage: April 6, 2026.</p>
-      <p>[17] Circle Research. "How Blockchains Are Preparing for Q-Day." circle.com/blog, January 2026. Signature size comparison table: ECDSA 65B → Falcon 666B → ML-DSA 2,420B → SLH-DSA-SHA2-128s 7,856B. Quote: "Active addresses that have already signed transactions must migrate before Q-Day because their public keys have been exposed."</p>
-      <p>[18] Nic Carter, Castle Island Ventures. Bankless Podcast, April 2026. Quotes cited: no-notice-period argument; Manhattan Project / 1940 framing; Solana "rebuild everything from scratch"; Cloudflare migration completion; Bitcoin governance assessment; signature size floor ("minimum 10× deterioration").</p>
-      <p>[19] Algorand Foundation. First major L1 mainnet Falcon-1024 transaction, November 3, 2025. State proofs PQ-secured; core accounts still Ed25519; opt-in CLI tool. Cited in Google Quantum AI whitepaper (March 30, 2026) as real-world PQC deployment example.</p>
-      <p>[20] Brian Armstrong, CEO Coinbase. Public statement, April 6, 2026: personal engagement on quantum threat. No PQ roadmap disclosed for Coinbase custody, exchange, or Base L2.</p>
-      <p>[21] Fidelity Digital Assets, NA. Fidelity Digital Dollar (FIDD). Launched February 4, 2026. 1:1 USD-backed stablecoin; backed by cash, U.S. Treasurys, or other liquid assets; issued by Fidelity Digital Assets, National Association (subsidiary of Fidelity Investments); available to retail and institutional investors; purchasable/redeemable at $1; transferable to any Ethereum mainnet address; daily circulating supply and reserve NAV disclosure. Source: fidelitydigitalassets.com/stablecoin. No post-quantum migration roadmap disclosed as of April 2026.</p>
-      <p><strong>Methodology Note:</strong> TPS loss figures for Solana (~77%), Sui (~69%), and Ethereum (~31%) use FN-DSA (NIST FIPS 206/Falcon) as the PQ signature replacement. EternaX (~2%) reflects its own protocol-native 160-byte PQ scheme. Not equivalent-methodology comparisons — do not cite without this note.</p>
-      <p><strong>Disclaimer:</strong> Not investment advice. EternaX Labs has a direct commercial interest in the conclusions of this report. All primary source citations are individually verified. Data current as of April 2026. Readers should conduct independent diligence on all claims before making any institutional decision.</p></div>
-  </details>
 </div>
-</div><!-- /page-wrap -->
-</main>
+</main><!-- /content -->
 
 <!-- ═══ AUTHORS SECTION -->
 <section class="team-section">
@@ -2256,7 +2278,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
       <div class="connect-person"><span class="name">Dariia Porechna</span><span class="connect-sep">-</span><span class="role">Co-Founder</span><span class="connect-sep">-</span><a href="mailto:dariia.p@eternax.ai" class="email">dariia.p@eternax.ai</a></div>
     </div>
     <div class="connect-actions">
-      <a href="eternax-report-already-broken-quantum-risk-report-q1-2026.pdf" target="_blank" rel="noopener" class="connect-btn primary no-print">
+      <a href="eternax-report-post-quantum-cryptography-risk-framework-for-institutions.pdf" target="_blank" rel="noopener" class="connect-btn primary no-print">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Save as PDF
       </a>
@@ -2265,27 +2287,118 @@ summary.faq-q:hover{color:var(--navy-hover)}
     </div>
   </div>
 </section>
-
-<!-- Footer -->
-<footer class="py-12 border-t" style="background-color: var(--bg); border-color: var(--border);" itemscope itemtype="https://schema.org/WPFooter">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row items-start justify-between gap-6 mb-6">
-          <div>
-              <span class="text-lg font-bold" style="color: var(--fg)">eternaX</span>
-              <p class="text-sm mt-1" style="color: var(--fg-70)">Quantum-safe Settlement at Market Speed</p>
-              <div class="text-xs" style="color: var(--fg-70)">&copy; 2025 EternaX Labs</div>
-          </div>
-          <div class="flex items-center gap-4">
-              <a href="https://github.com/eternax-ai" class="text-sm link-muted" itemprop="sameAs">GitHub</a>
-              <a href="https://www.youtube.com/@eternaXlabs" class="text-sm link-muted">YouTube</a>
-              <a href="https://t.me/eternax_official" class="text-sm link-muted" itemprop="sameAs">Telegram</a>
-              <a href="https://x.com/EternaXlabs" class="text-sm link-muted" itemprop="sameAs">X (Twitter)</a>
-              <a href="https://www.linkedin.com/company/eternax-labs" class="text-sm link-muted" itemprop="sameAs">LinkedIn</a>
-          </div>
-      </div>
+<div class="manual-page-break"></div> 
+<footer class="report-footer">
+  <div class="report-footer-inner">
+    <h3>Sources</h3>
+    <p><strong>Primary Sources and Citations</strong></p>
+      <p>[1] Google Quantum AI. "Securing Elliptic Curve Cryptocurrencies against Quantum Vulnerabilities: 
+      Resource Estimates and Mitigations." Babbush, Zalcman, Gidney et al. (Google Quantum AI), Drake (Ethereum 
+      Foundation), Boneh (Stanford). March 30, 2026. quantumai.google/static/site-assets/downloads/
+      cryptocurrency-whitepaper.pdf · research.google/blog/
+      safeguarding-cryptocurrency-by-disclosing-quantum-vulnerabilities-responsibly</p>
+      <p>[2] Oratomic/Caltech. "Shor's algorithm is possible with as few as 10,000 reconfigurable atomic qubits." 
+      Cain, Xu, King, Picard, Levine, Endres, Preskill, Huang, Bluvstein. arXiv:2603.28627. March 30, 2026. arxiv.
+      org/abs/2603.28627</p>
+      <p>[3] Ethereum Foundation. pq.ethereum.org — Post-Quantum Ethereum Research Hub. Launched March 24, 2026. 
+      Four-fork roadmap (I, J, L, M) targeting 2029 base-layer upgrade; full execution-layer migration beyond 
+      2029. EF statement: "The work must begin well before the threat arrives."</p>
+      <p>[4] NIST. FIPS 203 (ML-KEM), 204 (ML-DSA), 205 (SLH-DSA). August 13, 2024. csrc.nist.gov</p>
+      <p>[5] NCSC. "Timelines for migration to post-quantum cryptography." 2028/2031/2035 enterprise milestones. 
+      ncsc.gov.uk/guidance/pqc-migration-timelines</p>
+      <p>[5a] European Commission / EU Member States. Coordinated PQC transition roadmap, 2025–2026. Requires 
+      national PQC strategies by 2026; quantum-resistant encryption for critical infrastructure by 2030. European 
+      Union Agency for Cybersecurity (ENISA) coordinating implementation.</p>
+      <p>[5b] Google / Android. Android 17 to ship ML-DSA (NIST FIPS 204) post-quantum digital signature 
+      protection natively. Confirmed April 2026. Represents >3 billion devices adopting PQ signatures by default 
+      before most institutional blockchain infrastructure has a disclosed migration roadmap.</p>
+      <p>[6] BlackRock/Securitize. BUIDL fund: $2.85B AUM (2026); nine chains; $100M+ cumulative dividends (Dec 
+      29, 2025). prnewswire.com; wormhole.com/blog</p>
+      <p>[7] J.P. Morgan Asset Management. "JPMorgan Launches First Tokenized Money Market Fund (MONY) on Ethereum.
+      " December 15, 2025. am.jpmorgan.com</p>
+      <p>[8] Digital Asset / Kinexys. "JPM Coin (JPMD) natively to Canton Network." January 7, 2026. prnewswire.
+      com</p>
+      <p>[9] DTCC/DTC. SEC No-Action Letter (December 11, 2025); Canton Network partnership (December 2025). sec.
+      gov/files/tm/no-action/dtc-nal-121125.pdf; dtcc.com</p>
+      <p>[10] Visa. "Visa Launches Stablecoin Settlement in the United States." December 16, 2025. usa.visa.com</p>
+      <p>[11] WisdomTree. "WisdomTree Expands Tokenization Ecosystem to Solana." January 2026. ir.wisdomtree.com</
+      p>
+      <p>[12] Fidelity. Fidelity Treasury Digital Fund (FYOXX). Mid-2025 launch on Ethereum. coindesk.com (March 
+      22, 2025 filing)</p>
+      <p>[13] Franklin Templeton. FOBXX/Benji: SEC prospectus; Canton Network expansion (November 2025). 
+      franklintempleton.com/FOBXX</p>
+      <p>[14] Drift Protocol. $285–286M exploit, April 1, 2026. DPRK attribution (Elliptic, TRM Labs). Durable 
+      nonce social engineering. elliptic.co; trmlabs.com; coindesk.com (April 2, 2026)</p>
+      <p>[15] Project Eleven / Solana Foundation. Live testnet: quantum-resistant signatures 20–40× larger than 
+      Ed25519; Solana network ~90% slower under quantum-safe cryptography. Pruden: "In Solana, 100% of the network 
+      is vulnerable. A quantum computer could pick any wallet and immediately start trying to recover the private 
+      key." CoinDesk, April 4, 2026. (Source: Margaux Nijkerk, CoinDesk)</p>
+      <p>[16] Circle / Arc. "Arc's Quantum-Resistant Design and Roadmap." arc.network/blog, April 3, 2026. 
+      SLH-DSA-SHA2-128s (7,856 bytes) chosen for wallet signatures at mainnet; validator PQ deferred to long-term 
+      phase; privacy near-term post-mainnet; opt-in approach; no published TPS benchmark under PQ load. CoinDesk 
+      coverage: April 6, 2026.</p>
+      <p>[17] Circle Research. "How Blockchains Are Preparing for Q-Day." circle.com/blog, January 2026. Signature 
+      size comparison table: ECDSA 65B → Falcon 666B → ML-DSA 2,420B → SLH-DSA-SHA2-128s 7,856B. Quote: "Active 
+      addresses that have already signed transactions must migrate before Q-Day because their public keys have 
+      been exposed."</p>
+      <p>[18] Nic Carter, Castle Island Ventures. Bankless Podcast, April 2026. Quotes cited: no-notice-period 
+      argument; Manhattan Project / 1940 framing; Solana "rebuild everything from scratch"; Cloudflare migration 
+      completion; Bitcoin governance assessment; signature size floor ("minimum 10× deterioration").</p>
+      <p>[19] Algorand Foundation. First major L1 mainnet Falcon-1024 transaction, November 3, 2025. State proofs 
+      PQ-secured; core accounts still Ed25519; opt-in CLI tool. Cited in Google Quantum AI whitepaper (March 30, 
+      2026) as real-world PQC deployment example.</p>
+      <p>[20] Brian Armstrong, CEO Coinbase. Public statement, April 6, 2026: personal engagement on quantum 
+      threat. No PQ roadmap disclosed for Coinbase custody, exchange, or Base L2.</p>
+      <p>[21] Fidelity Digital Assets, NA. Fidelity Digital Dollar (FIDD). Launched February 4, 2026. 1:1 
+      USD-backed stablecoin; backed by cash, U.S. Treasurys, or other liquid assets; issued by Fidelity Digital 
+      Assets, National Association (subsidiary of Fidelity Investments); available to retail and institutional 
+      investors; purchasable/redeemable at $1; transferable to any Ethereum mainnet address; daily circulating 
+      supply and reserve NAV disclosure. Source: fidelitydigitalassets.com/stablecoin. No post-quantum migration 
+      roadmap disclosed as of April 2026.</p>
+      <p><strong>Methodology Note:</strong> TPS loss figures for Solana (~77%), Sui (~69%), and Ethereum (~31%) 
+      use FN-DSA (NIST FIPS 206/Falcon) as the PQ signature replacement. EternaX (~2%) reflects its own 
+      protocol-native 160-byte PQ scheme. Not equivalent-methodology comparisons — do not cite without this note.</
+      p>
+      <p><strong>Disclaimer:</strong> Not investment advice. EternaX Labs has a direct commercial interest in the 
+      conclusions of this report. All primary source citations are individually verified. Data current as of April 
+      2026. Readers should conduct independent diligence on all claims before making any institutional decision.</
+      p>
   </div>
 </footer>
+
+<!-- Footer -->
+  <footer class="py-12 border-t" style="background-color: var(--bg); border-color: var(--border);" itemscope itemtype="https://schema.org/WPFooter">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-start justify-between gap-6 mb-6">
+            <div>
+                <span class="text-lg font-bold" style="color: var(--fg)">eternaX</span>
+                <p class="text-sm mt-1" style="color: var(--fg-70)">Quantum-safe Settlement at Market Speed</p>
+                <div class="text-xs" style="color: var(--fg-70)">&copy; 2025 EternaX Labs</div>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/eternax-ai" class="text-sm link-muted" itemprop="sameAs">GitHub</a>
+                <a href="https://www.youtube.com/@eternaXlabs" class="text-sm link-muted">YouTube</a>
+                <a href="https://t.me/eternax_official" class="text-sm link-muted" itemprop="sameAs">Telegram</a>
+                <a href="https://x.com/EternaXlabs" class="text-sm link-muted" itemprop="sameAs">X (Twitter)</a>
+                <a href="https://www.linkedin.com/company/eternax-labs" class="text-sm link-muted" itemprop="sameAs">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+</footer>
 <script>
+// Ensure FAQ answers render in print/PDF output by expanding <details>.
+(function () {
+  function expandFaqDetails() {
+    document.querySelectorAll('details.faq-item').forEach((d) => d.setAttribute('open', ''));
+  }
+  try {
+    if (window.matchMedia && window.matchMedia('print').matches) expandFaqDetails();
+    window.addEventListener('beforeprint', expandFaqDetails);
+  } catch (e) {
+    // Ignore environments that lack matchMedia/beforeprint.
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
   const menuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
