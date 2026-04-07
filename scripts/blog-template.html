@@ -94,7 +94,23 @@
                 <!-- Desktop nav -->
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="../../why-eternax.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Why EternaX</a>
-                    <a href="../../already-broken-quantum-risk-report-q1-2026.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Quantum Risk Report</a>
+                    <div class="relative group">
+                        <span class="hover:opacity-70 transition-colors flex items-center gap-1 cursor-default" style="color: var(--fg-70)">Quantum Risk Reports
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </span>
+                        <div class="nav-products-dropdown absolute left-0 top-full pt-1">
+                            <div class="glass-effect rounded-lg py-2 min-w-[340px] shadow-lg" style="border: 1px solid var(--border)">
+                                <a href="../../post-quantum-cryptography-risk-framework-for-institutions.html" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b hover:bg-black/5 rounded-t-lg" style="color: var(--fg); border-color: var(--border)">
+                                    <span class="font-semibold text-sm block">Cryptographic Migration Debt Framework</span>
+                                    <span class="text-xs block mt-0.5" style="color: var(--fg-80)">April 2026 · Post-quantum exposure framework for institutional digital asset programmes.</span>
+                                </a>
+                                <a href="../../already-broken-quantum-risk-report-q1-2026.html" class="block px-4 py-3.5 hover:opacity-90 transition-colors hover:bg-black/5 rounded-b-lg" style="color: var(--fg)">
+                                    <span class="font-semibold text-sm block">Already Broken — Quantum Risk Report Q1 2026</span>
+                                    <span class="text-xs block mt-0.5" style="color: var(--fg-80)">Q1 2026 · The case that institutional blockchain infrastructure is already at risk.</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="relative group">
                         <span class="hover:opacity-70 transition-colors flex items-center gap-1 cursor-default" style="color: var(--fg-70)">Products
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
@@ -151,6 +167,10 @@
             <!-- Mobile menu -->
             <div id="mobile-menu" class="md:hidden hidden pb-4" role="dialog" aria-modal="true">
                 <div class="mt-2 space-y-3 border-t pt-4" style="border-color: var(--border)">
+                    <a href="../../why-eternax.html" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Why EternaX</a>
+                    <span class="block px-1 text-sm font-semibold" style="color: var(--fg-70)">Quantum Risk Reports</span>
+            <a href="../../post-quantum-cryptography-risk-framework-for-institutions.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Cryptographic Migration Debt Framework <span class="text-xs opacity-60">Apr 2026</span></a>
+            <a href="../../already-broken-quantum-risk-report-q1-2026.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Already Broken — Q1 2026</a>
                     <span class="block px-1 text-sm font-semibold" style="color: var(--fg-70)">Products</span>
                     <a href="../../index.html#product-settlement" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Settlement and Execution Layer</a>
                     <a href="../../index.html#product-issuance" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Issuance and Tokenization Rails (Stablecoins and RWAs)</a>
