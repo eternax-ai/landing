@@ -1,23 +1,41 @@
 User-agent: *
 Allow: /
 
-# AI Crawlers
+# LLM and AI crawlers - explicitly allowed
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: CCBot
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
 Allow: /
 
 User-agent: anthropic-ai
 Allow: /
 
-User-agent: Claude-Web
+User-agent: cohere-ai
 Allow: /
 
-User-agent: PerplexityBot
+User-agent: Omgilibot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
 Allow: /
 
 User-agent: YouBot
@@ -26,8 +44,5 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
-# Sitemap
 Sitemap: https://eternax.ai/sitemap.xml
-
-# Crawl delay
-Crawl-delay: 1
+Sitemap: https://eternax.ai/sitemap-blogs.xml
