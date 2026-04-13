@@ -174,7 +174,7 @@
   "@context": "https://schema.org",
   "@type": "DefinedTermSet",
   "name": "EternaX Post-Quantum Blockchain Glossary",
-  "description": "Definitions of key terms in post-quantum cryptography, blockchain security, and cryptographic migration risk from EternaX Labs.",
+  "description": "Definitions of key terms in post-quantum cryptography, blockchain security, institutional risk, and cryptographic migration debt from EternaX Labs.",
   "url": "https://eternax.ai/glossary.html",
   "publisher": {
     "@id": "https://eternax.ai/#organization"
@@ -189,7 +189,13 @@
     {
       "@type": "DefinedTerm",
       "name": "Cryptographic Migration Debt",
-      "description": "The accumulated financial, operational, and coordination cost of moving from classical signatures to post-quantum authorization.",
+      "description": "The accumulated financial, operational, and coordination cost of moving from classical signatures to post-quantum authorization. First-order estimate: $57B-$135B across major institutional digital asset programmes.",
+      "inDefinedTermSet": "https://eternax.ai/glossary.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Control-Plane Vulnerability",
+      "description": "Risk concentration in admin keys, mint/burn/freeze authority, governance multisigs, and transfer-agent signing that are more directly attackable than dispersed user wallets.",
       "inDefinedTermSet": "https://eternax.ai/glossary.html"
     },
     {
@@ -206,20 +212,56 @@
     },
     {
       "@type": "DefinedTerm",
-      "name": "ML-DSA",
-      "description": "NIST-standard post-quantum signature scheme formerly known as Dilithium.",
+      "name": "Cryptographically Relevant Quantum Computer (CRQC)",
+      "description": "A quantum computer with sufficient qubits and error correction to break current cryptographic schemes.",
       "inDefinedTermSet": "https://eternax.ai/glossary.html"
     },
     {
       "@type": "DefinedTerm",
-      "name": "Falcon",
-      "description": "Compact post-quantum signature scheme family frequently used as a throughput comparison baseline.",
+      "name": "Q-Day",
+      "description": "The anticipated day when a cryptographically relevant quantum computer becomes operational and can break currently deployed cryptography.",
+      "inDefinedTermSet": "https://eternax.ai/glossary.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Rail-Induced Asset Contamination",
+      "description": "When assets issued on non-PQ-safe rails absorb a market risk premium that their underlying credit or reserve quality would otherwise not justify.",
+      "inDefinedTermSet": "https://eternax.ai/glossary.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "At-Rest Attack",
+      "description": "Quantum attack targeting permanently exposed public keys with no time pressure.",
+      "inDefinedTermSet": "https://eternax.ai/glossary.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "On-Spend Attack",
+      "description": "Quantum attack targeting live mempool transactions before confirmation.",
+      "inDefinedTermSet": "https://eternax.ai/glossary.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ML-DSA",
+      "description": "NIST FIPS 204 standard post-quantum digital signature algorithm, formerly known as CRYSTALS-Dilithium.",
+      "inDefinedTermSet": "https://eternax.ai/glossary.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "FN-DSA (Falcon)",
+      "description": "Compact lattice-based post-quantum signature scheme family with ~666 byte signatures at 128-bit security.",
       "inDefinedTermSet": "https://eternax.ai/glossary.html"
     },
     {
       "@type": "DefinedTerm",
       "name": "SLH-DSA",
-      "description": "Stateless hash-based post-quantum signature standard formerly SPHINCS+.",
+      "description": "NIST FIPS 205 stateless hash-based post-quantum signature standard, formerly SPHINCS+.",
+      "inDefinedTermSet": "https://eternax.ai/glossary.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "secp256k1",
+      "description": "The elliptic curve used by Bitcoin, Ethereum, and most blockchains for digital signatures. Vulnerable to Shor's algorithm.",
       "inDefinedTermSet": "https://eternax.ai/glossary.html"
     },
     {
@@ -238,6 +280,18 @@
       "@type": "DefinedTerm",
       "name": "RWA Tokenization",
       "description": "Issuance of real-world assets as programmable on-chain representations.",
+      "inDefinedTermSet": "https://eternax.ai/glossary.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Admin Keys",
+      "description": "Privileged keys governing mint/burn/freeze authority, contract upgrades, and governance functions.",
+      "inDefinedTermSet": "https://eternax.ai/glossary.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "PQ-Safe Vault",
+      "description": "Preserve-first controls for treasuries, custodians, and exchanges that reduce cryptographic exposure immediately.",
       "inDefinedTermSet": "https://eternax.ai/glossary.html"
     }
   ]
@@ -399,6 +453,11 @@
             <!-- Mobile menu -->
             <div id="mobile-menu" class="md:hidden hidden pb-4" role="dialog" aria-modal="true">
                 <div class="mt-2 space-y-3 border-t pt-4" style="border-color: var(--border)">
+                    <a href="./why-eternax.html" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Why EternaX</a>
+                    <span class="block px-1 text-sm font-semibold" style="color: var(--fg-70)">Quantum Risk Reports</span>
+                    <a href="./post-quantum-cryptography-risk-framework-for-institutions.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Cryptographic Migration Debt Framework <span class="text-xs opacity-60">Apr 2026</span></a>
+                    <a href="./already-broken-quantum-risk-report-q1-2026.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Already Broken — Q1 2026</a>
+                    <a href="blogs/index.html" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Blogs</a>
                     <span class="block px-1 text-sm font-semibold" style="color: var(--fg-70)">Products</span>
                     <a href="./index.html#product-settlement" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Settlement and Execution Layer</a>
                     <a href="./index.html#product-issuance" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Issuance and Tokenization Rails (Stablecoins and RWAs)</a>
@@ -415,28 +474,191 @@
     </nav>
 
     <!-- PAGE CONTENT STARTS HERE -->
-    <!-- Add your page-specific content below -->
     <main class="pt-20">
-        <section class="py-20">
+        <section class="py-16 lg:py-20">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight mb-8" style="color: var(--fg)">
+                <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight mb-6" style="color: var(--fg)">
                     EternaX Post-Quantum Glossary
                 </h1>
-                <div class="prose max-w-none" style="color: var(--fg-80);">
-                    <p class="text-lg mb-6">Canonical definitions for post-quantum cryptography, migration risk, and infrastructure terminology used across EternaX research.</p>
-                    <div class="space-y-4">
-                        <div class="glass-effect p-5 rounded-lg"><h2 class="text-xl font-semibold mb-2" style="color: var(--fg)">PQ-Native</h2><p>A system where post-quantum authorization is built into the protocol from inception rather than retrofitted later.</p></div>
-                        <div class="glass-effect p-5 rounded-lg"><h2 class="text-xl font-semibold mb-2" style="color: var(--fg)">Cryptographic Migration Debt</h2><p>The accumulated financial, operational, and coordination cost of moving from classical signatures to post-quantum authorization.</p></div>
-                        <div class="glass-effect p-5 rounded-lg"><h2 class="text-xl font-semibold mb-2" style="color: var(--fg)">Information-Theoretic Security</h2><p>Security not based on computational hardness assumptions and resilient regardless of attacker compute power.</p></div>
-                        <div class="glass-effect p-5 rounded-lg"><h2 class="text-xl font-semibold mb-2" style="color: var(--fg)">Harvest Now Decrypt Later (HNDL)</h2><p>Threat model where encrypted data is collected today and decrypted later when quantum capabilities improve.</p></div>
-                        <div class="glass-effect p-5 rounded-lg"><h2 class="text-xl font-semibold mb-2" style="color: var(--fg)">ML-DSA</h2><p>NIST-standard post-quantum signature scheme formerly known as Dilithium.</p></div>
-                        <div class="glass-effect p-5 rounded-lg"><h2 class="text-xl font-semibold mb-2" style="color: var(--fg)">Falcon</h2><p>Compact post-quantum signature scheme family frequently used as a throughput comparison baseline.</p></div>
-                        <div class="glass-effect p-5 rounded-lg"><h2 class="text-xl font-semibold mb-2" style="color: var(--fg)">SLH-DSA</h2><p>Stateless hash-based post-quantum signature standard formerly SPHINCS+.</p></div>
-                        <div class="glass-effect p-5 rounded-lg"><h2 class="text-xl font-semibold mb-2" style="color: var(--fg)">Auditable Privacy</h2><p>Privacy model combining confidential transaction data with selective disclosure and verifiable settlement proofs.</p></div>
-                        <div class="glass-effect p-5 rounded-lg"><h2 class="text-xl font-semibold mb-2" style="color: var(--fg)">Spendable Finality</h2><p>Time after which a transfer is safely usable for downstream settlement without rollback risk.</p></div>
-                        <div class="glass-effect p-5 rounded-lg"><h2 class="text-xl font-semibold mb-2" style="color: var(--fg)">RWA Tokenization</h2><p>Issuance of real-world assets as programmable on-chain representations.</p></div>
+                <p class="text-lg mb-8" style="color: var(--fg-80)">Canonical definitions for post-quantum cryptography, institutional risk, migration debt, and infrastructure terminology used across EternaX research.</p>
+                
+                <!-- Quick Navigation -->
+                <div class="glass-effect p-4 rounded-lg mb-10">
+                    <p class="text-sm font-semibold mb-3" style="color: var(--fg)">Jump to section</p>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="#core-concepts" class="text-xs px-3 py-1 rounded-full border hover:opacity-70 transition-opacity" style="border-color: var(--border); color: var(--fg)">Core Concepts</a>
+                        <a href="#institutional-risk" class="text-xs px-3 py-1 rounded-full border hover:opacity-70 transition-opacity" style="border-color: var(--border); color: var(--fg)">Institutional Risk</a>
+                        <a href="#attack-taxonomy" class="text-xs px-3 py-1 rounded-full border hover:opacity-70 transition-opacity" style="border-color: var(--border); color: var(--fg)">Attack Taxonomy</a>
+                        <a href="#pq-standards" class="text-xs px-3 py-1 rounded-full border hover:opacity-70 transition-opacity" style="border-color: var(--border); color: var(--fg)">PQ Standards</a>
+                        <a href="#infrastructure" class="text-xs px-3 py-1 rounded-full border hover:opacity-70 transition-opacity" style="border-color: var(--border); color: var(--fg)">Infrastructure</a>
                     </div>
                 </div>
+
+                <!-- Core Concepts Section -->
+                <section id="core-concepts" class="mb-12">
+                    <h2 class="text-2xl font-semibold mb-6 pb-2 border-b" style="color: var(--fg); border-color: var(--border)">Core Concepts</h2>
+                    <div class="space-y-4">
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">PQ-Native</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">A system where post-quantum authorization is built into the protocol from inception rather than retrofitted later. PQ-native issuance avoids migration debt entirely because the authorization model is quantum-safe from day one.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Post-Quantum Cryptography (PQC)</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Cryptographic algorithms designed to be secure against both classical and quantum computers. NIST finalized three post-quantum standards in August 2024: ML-KEM (key encapsulation), ML-DSA (signatures), and SLH-DSA (hash-based signatures).</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Information-Theoretic Security</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Security not based on computational hardness assumptions and resilient regardless of attacker compute power. Unlike computational security, information-theoretic security cannot be broken even with unlimited computational resources, including quantum computers.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Cryptographically Relevant Quantum Computer (CRQC)</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">A quantum computer with sufficient qubits and error correction to break current cryptographic schemes. Google's March 2026 paper estimates fewer than 500,000 physical qubits required to break secp256k1, down from prior estimates of ~9 million.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Q-Day</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">The anticipated day when a cryptographically relevant quantum computer becomes operational and can break currently deployed cryptography. Google's whitepaper authors explicitly state that Q-Day will likely arrive without significant advance notice.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Institutional Risk Section -->
+                <section id="institutional-risk" class="mb-12">
+                    <h2 class="text-2xl font-semibold mb-6 pb-2 border-b" style="color: var(--fg); border-color: var(--border)">Institutional Risk Framework</h2>
+                    <div class="space-y-4">
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Cryptographic Migration Debt</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">The accumulated financial, operational, and coordination cost of moving from classical signatures to post-quantum authorization. Migration debt accrues at issuance time, not at break time. Every new asset issued on a quantum-vulnerable rail compounds the debt. First-order estimate: $57B-$135B across major institutional digital asset programmes.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Control-Plane Vulnerability</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Risk concentration in admin keys, mint/burn/freeze authority, governance multisigs, transfer-agent signing, and bridge attesters. For enterprises, the governance layer is more exposed than individual end-user accounts. A quantum attacker targeting the admin key governing $200B in stablecoins does not need to attack a single wallet.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Rail-Induced Asset Contamination</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">When assets issued on non-PQ-safe rails absorb a market risk premium that their underlying credit, legal structure, or reserve quality would otherwise not justify. A stablecoin backed 1:1 by dollars should not trade at a rail-induced discount. A tokenized Treasury fund should not absorb blockchain cryptographic risk.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Privacy Contamination</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">On-chain data is permanent. The cryptographic assumptions protecting it are not. Balances, counterparties, flow timing, and treasury movements on public rails carry permanent retroactive exposure risk as quantum capabilities improve. Historical transaction data remains vulnerable to future decryption.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Vendor Dependence Risk</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Tokenization providers, custodians, exchanges, and middleware may have no credible PQ roadmap. The institution's migration is governed by its slowest supplier. "The chain will upgrade later" does not fix supplier risk.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Liquidity Fragmentation</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">During migration, assets bifurcate into old and new forms across venues, custodians, and DeFi protocols. Pricing divergence, capital inefficiency, and compliance complexity arrive before the first key is attacked.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Disclosed PQ Roadmap Standard</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">To qualify as "disclosed," a roadmap must be: publicly available, time-bound, and cover the full workflow — including custody, admin control surfaces, settlement mechanics, interoperability, and privacy. "The chain may upgrade later" does not qualify. "We are monitoring the quantum threat" is not sufficient.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Attack Taxonomy Section -->
+                <section id="attack-taxonomy" class="mb-12">
+                    <h2 class="text-2xl font-semibold mb-6 pb-2 border-b" style="color: var(--fg); border-color: var(--border)">Attack Taxonomy</h2>
+                    <div class="space-y-4">
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Harvest Now Decrypt Later (HNDL)</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Threat model where encrypted data is collected today and decrypted later when quantum capabilities improve. State actors are already collecting blockchain data for retroactive decryption. Every treasury movement, counterparty relationship, and settlement flow recorded on a public rail today is being archived.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">On-Spend Attack</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Targets live mempool transactions before confirmation. Requires fast-clock CRQC. ~9 minute window for Bitcoin (41% success probability within 10-min block time). Ethereum's ~12s finality narrows this. Solana's ~400ms finality provides structural protection against on-spend attacks specifically.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">At-Rest Attack</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Targets permanently exposed public keys with no time pressure — days or more available. Both fast-clock and slow-clock CRQCs can execute this. Every exposed admin key is a permanent, never-expiring target. Ethereum permanently exposes public keys on first transaction with no rotation without account abandonment.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">On-Setup Attack</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">One-time quantum computation recovers "toxic waste" from a cryptographic ceremony (e.g., Ethereum's KZG trusted setup for Data Availability Sampling), creating a permanent reusable classical backdoor. Bitcoin is immune. Requires CRQC only once — all subsequent exploits are classical.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PQ Standards Section -->
+                <section id="pq-standards" class="mb-12">
+                    <h2 class="text-2xl font-semibold mb-6 pb-2 border-b" style="color: var(--fg); border-color: var(--border)">Post-Quantum Standards and Schemes</h2>
+                    <div class="space-y-4">
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">ML-DSA (Dilithium)</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">NIST FIPS 204 standard post-quantum digital signature algorithm, formerly known as CRYSTALS-Dilithium. Lattice-based signature scheme. Signature sizes: 2,420-4,595 bytes depending on security level.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">FN-DSA (Falcon)</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Compact lattice-based post-quantum signature scheme family frequently used as a throughput comparison baseline. ~666 byte signatures at 128-bit security. Often referenced in blockchain PQ migration analysis due to smaller signature size than ML-DSA.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">SLH-DSA (SPHINCS+)</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">NIST FIPS 205 stateless hash-based post-quantum signature standard. Security based only on hash function properties. Larger signatures (7,856-49,856 bytes) but conservative security assumptions.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">ML-KEM (Kyber)</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">NIST FIPS 203 standard post-quantum key encapsulation mechanism, formerly known as CRYSTALS-Kyber. Used for key exchange and encryption, not signatures.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">secp256k1</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">The elliptic curve used by Bitcoin, Ethereum, and most blockchains for digital signatures. Vulnerable to Shor's algorithm on a sufficiently powerful quantum computer. Google estimates fewer than 500,000 qubits required to break.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">BLS Signatures</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Boneh-Lynn-Shacham signature scheme used in Ethereum's Proof-of-Stake consensus layer. Google considers BLS quantum-vulnerable. ~37 million staked ETH secured by BLS signatures.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Infrastructure Section -->
+                <section id="infrastructure" class="mb-12">
+                    <h2 class="text-2xl font-semibold mb-6 pb-2 border-b" style="color: var(--fg); border-color: var(--border)">Infrastructure and Settlement</h2>
+                    <div class="space-y-4">
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Auditable Privacy</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Privacy model combining confidential transaction data with selective disclosure and verifiable settlement proofs. Confidential by default, verifiable in settlement, selectively disclosable under policy. Designed for routing that needs confidentiality without losing accountability.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Spendable Finality</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Time after which a transfer is safely usable for downstream settlement without rollback risk. EternaX targets ~120ms spendable finality. Critical for market-speed payments and settlement.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">RWA Tokenization</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Issuance of real-world assets as programmable on-chain representations. Includes tokenized treasuries, money market funds, securities, real estate, and other off-chain assets. $36B+ tokenized RWAs (ex-stablecoins) on-chain as of late 2025.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Admin Keys</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Privileged keys governing mint/burn/freeze authority, contract upgrades, and governance functions. Google estimates $200B in stablecoins and tokenized RWAs on Ethereum depends on admin keys permanently exposed on-chain.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">PQ-Safe Vault</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Preserve-first controls for treasuries, custodians, exchanges, and foundations. Reduces cryptographic exposure immediately through controlled policy and operational safeguards, without requiring an immediate ecosystem-wide upgrade.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Transfer Agent</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">In tokenized securities, the entity responsible for maintaining shareholder records, processing transfers, and ensuring compliance. Transfer-agent logic in smart contracts creates admin key exposure that is separate from end-user wallet risk.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Bridge Attester</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Signer nodes that validate cross-chain transfers. Oracle and bridge attesters are among the highest-value at-rest targets in the ecosystem. A forged bridge attestation can drain the entire locked-value reserve of a bridge.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="mt-12 pt-8 border-t" style="border-color: var(--border)">
+                    <p class="text-sm mb-4" style="color: var(--fg-80)">For detailed analysis of these concepts in institutional context, see:</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="post-quantum-cryptography-risk-framework-for-institutions.html" class="glass-effect px-4 py-3 rounded-lg hover:opacity-90 transition-opacity inline-block">
+                            <span class="text-sm font-semibold block" style="color: var(--fg)">Cryptographic Migration Debt Framework</span>
+                            <span class="text-xs" style="color: var(--fg-80)">April 2026 · Institutional post-quantum exposure framework</span>
+                        </a>
+                        <a href="already-broken-quantum-risk-report-q1-2026.html" class="glass-effect px-4 py-3 rounded-lg hover:opacity-90 transition-opacity inline-block">
+                            <span class="text-sm font-semibold block" style="color: var(--fg)">Already Broken — Q1 2026</span>
+                            <span class="text-xs" style="color: var(--fg-80)">The case for immediate institutional action</span>
+                        </a>
+                    </div>
+                </section>
             </div>
         </section>
     </main>
@@ -458,6 +680,10 @@
                     <a href="https://x.com/EternaXlabs" class="text-sm link-muted" itemprop="sameAs">X (Twitter)</a>
                     <a href="https://www.linkedin.com/company/eternax-labs" class="text-sm link-muted" itemprop="sameAs">LinkedIn</a>
                 </div>
+            </div>
+            <div class="flex items-center gap-4 pt-4 border-t" style="border-color: var(--border);">
+                <a href="about.html" class="text-sm link-muted">About</a>
+                <a href="glossary.html" class="text-sm link-muted">Glossary</a>
             </div>
         </div>
     </footer>
