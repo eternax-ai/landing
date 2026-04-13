@@ -12,6 +12,74 @@ if (!blogFolder) {
 const root = path.resolve(process.cwd());
 const blogPath = path.resolve(root, blogFolder);
 const blogsDir = path.join(root, 'blogs');
+const postMetaMap = {
+  'hiding-your-public-key-wont-save-your-coins': {
+    datePublished: '2026-04-03',
+    description: 'Why operational security is not a post-quantum strategy for protecting digital assets.',
+    keywords: 'post-quantum security, bitcoin security, cryptographic vulnerability',
+    about: ['Post-Quantum Security', 'Bitcoin Security', 'Cryptographic Vulnerability']
+  },
+  'all-in-one-signature-that-built-bitcoin': {
+    datePublished: '2026-03-18',
+    description: 'ECDSA and secp256k1 enabled Bitcoin ownership, but quantum risk changes the long-term security model.',
+    keywords: 'ecdsa, bitcoin, post-quantum cryptography, secp256k1',
+    about: ['ECDSA', 'Bitcoin', 'Post-Quantum Cryptography', 'Secp256k1']
+  },
+  'private-chains-are-not-private': {
+    datePublished: '2026-03-16',
+    description: 'Why private chains still carry post-quantum cryptographic exposure despite privacy-focused design.',
+    keywords: 'zcash, monero, post-quantum privacy, zip-2005',
+    about: ['Zcash', 'Monero', 'Post-Quantum Privacy', 'ZIP-2005']
+  },
+  'occ-did-not-kill-stablecoins': {
+    datePublished: '2026-03-08',
+    description: 'The OCC update is a market-structure and distribution signal, not a stablecoin category shutdown.',
+    keywords: 'occ, genius act, stablecoin regulation',
+    about: ['OCC', 'GENIUS Act', 'Stablecoin Regulation']
+  },
+  'the-real-migration-is-bigger-than-quantum': {
+    datePublished: '2026-03-02',
+    description: 'Post-quantum transition is an infrastructure migration problem, not just a cryptography patch.',
+    keywords: 'post-quantum migration, blockchain infrastructure, security',
+    about: ['Post-Quantum Migration', 'Blockchain Infrastructure', 'Security']
+  },
+  'post-quantum-is-not-enough': {
+    datePublished: '2026-02-24',
+    description: 'Post-quantum security alone is insufficient without resilient security assumptions and operational design.',
+    keywords: 'information-theoretic security, post-quantum cryptography, ai security',
+    about: ['Information-Theoretic Security', 'Post-Quantum Cryptography', 'AI Security']
+  },
+  'quantum-risk-is-a-cost-curve': {
+    datePublished: '2026-02-20',
+    description: 'Quantum migration behaves like a cost curve across blockchains, with major implications for issuance rails.',
+    keywords: 'ethereum pq migration, bitcoin quantum risk, cost curve',
+    about: ['Ethereum PQ Migration', 'Bitcoin Quantum Risk', 'Cost Curve']
+  },
+  'right-to-cryptography': {
+    datePublished: '2026-02-13',
+    description: 'Why strong cryptography should be treated as a foundational digital right for modern economies.',
+    keywords: 'cryptography history, public-key cryptography, digital rights',
+    about: ['Cryptography History', 'Public-Key Cryptography', 'Digital Rights']
+  },
+  'migrate-later-is-a-stablecoin-liquidity-risk': {
+    datePublished: '2026-02-13',
+    description: 'Delaying post-quantum migration can become a structural liquidity risk for stablecoin issuers.',
+    keywords: 'stablecoin issuance, post-quantum migration, liquidity risk',
+    about: ['Stablecoin Issuance', 'Post-Quantum Migration', 'Liquidity Risk']
+  },
+  '3-trillion-must-migrate': {
+    datePublished: '2026-02-04',
+    description: 'A large share of on-chain value faces eventual post-quantum migration pressure across major networks.',
+    keywords: 'blockchain migration, post-quantum, bitcoin, ethereum',
+    about: ['Blockchain Migration', 'Post-Quantum', 'Bitcoin', 'Ethereum']
+  },
+  'mint-new-dollars-onchain-on-a-post-quantum-settlement-rail': {
+    datePublished: '2026-02-01',
+    description: 'Why new on-chain dollar issuance should be designed for post-quantum settlement from day one.',
+    keywords: 'stablecoin issuance, post-quantum settlement, rwa',
+    about: ['Stablecoin Issuance', 'Post-Quantum Settlement', 'RWA']
+  }
+};
 
 const relativeToBlogs = path.relative(blogsDir, blogPath);
 if (relativeToBlogs.startsWith('..') || path.isAbsolute(relativeToBlogs) || relativeToBlogs === '') {
@@ -45,7 +113,17 @@ if (!title) {
   title = h1 ? h1[1].trim() : path.basename(blogPath);
 }
 
-if (!description) {
+const slug = path.basename(blogPath);
+const postMeta = postMetaMap[slug] || {
+  datePublished: new Date().toISOString().slice(0, 10),
+  description: '',
+  keywords: 'post-quantum cryptography, blockchain security, eternax',
+  about: ['Post-Quantum Cryptography']
+};
+
+if (postMeta.description) {
+  description = postMeta.description;
+} else if (!description) {
   const bodyAfterTitle = body.replace(/^#.*$/m, '').trim();
   const blocks = bodyAfterTitle.split(/\n\n+/);
   const isImageBlock = (s) => /^\s*!\[[\s\S]*\]\s*\([\s\S]*\)\s*$/.test(s.trim());
@@ -54,19 +132,28 @@ if (!description) {
     const trimmed = block.trim();
     if (!trimmed) continue;
     if (isImageBlock(trimmed)) continue;
-    candidate = trimmed.replace(/\s+/g, ' ').replace(/^#+\s*/, '').replace(/\*\*([^*]+)\*\*|__([^_]+)__/g, '$1$2').replace(/\*([^*]+)\*|_([^_]+)_/g, '$1$2').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/^>\s*/, '').trim();
+    candidate = trimmed
+      .replace(/\s+/g, ' ')
+      .replace(/^#+\s*/, '')
+      .replace(/\*\*([^*]+)\*\*|__([^_]+)__/g, '$1$2')
+      .replace(/\*([^*]+)\*|_([^_]+)_/g, '$1$2')
+      .replace(/!\[([^\]]*)\]\([^)]+\)/g, '$1')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/^>\s*/, '')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
     break;
   }
-  description = candidate ? candidate.slice(0, 160) : '';
+  description = candidate ? candidate.slice(0, 160).replace(/\s+\S*$/, '').trim() : '';
 }
 
 marked.setOptions({ gfm: true });
 let content = marked.parse(body);
-
-const publishedDate = new Date().toLocaleDateString('en-US', {
+const publishedDate = new Date(`${postMeta.datePublished}T00:00:00Z`).toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
-  day: 'numeric'
+  day: 'numeric',
+  timeZone: 'UTC'
 });
 
 content = content.replace(/<h1>([\s\S]*?)<\/h1>/, (match, h1Content) => {
@@ -80,6 +167,11 @@ html = html
   .replace(/\{\{base\}\}/g, base)
   .replace(/\{\{title\}\}/g, escapeHtml(title))
   .replace(/\{\{description\}\}/g, escapeHtml(description))
+  .replace(/\{\{canonicalUrl\}\}/g, `https://eternax.ai/blogs/${slug}/index.html`)
+  .replace(/\{\{datePublished\}\}/g, postMeta.datePublished)
+  .replace(/\{\{keywords\}\}/g, escapeHtml(postMeta.keywords))
+  .replace(/\{\{keywordsJson\}\}/g, JSON.stringify(postMeta.keywords))
+  .replace(/\{\{aboutJson\}\}/g, JSON.stringify(postMeta.about.map((name) => ({ '@type': 'Thing', name }))))
   .replace(/\{\{content\}\}/, content);
 
 const outPath = path.join(blogPath, 'index.html');
