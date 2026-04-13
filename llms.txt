@@ -1,0 +1,23 @@
+# EternaX Labs
+
+> EternaX Labs is a post-quantum-native Layer 1 blockchain infrastructure company building market-speed settlement, stablecoin issuance, RWA tokenization, and institutional custody with cryptographic security that does not depend on computational hardness assumptions.
+
+## Core Pages
+
+- [Homepage](https://eternax.ai/): EternaX overview, product stack, FAQ, and traction.
+- [Why EternaX](https://eternax.ai/why-eternax.html): PQ-native rationale, performance comparison, and institutional positioning.
+- [About EternaX Labs](https://eternax.ai/about.html): Canonical entity page for founders, mission, and company profile.
+- [Glossary](https://eternax.ai/glossary.html): Definitions for post-quantum cryptography and migration terminology.
+- [Blog Index](https://eternax.ai/blogs/index.html): Research reports and blog archive.
+
+## Research Reports
+
+- [Cryptographic Migration Debt Framework for Institutions](https://eternax.ai/post-quantum-cryptography-risk-framework-for-institutions.html)
+- [Already Broken — Quantum Risk Report Q1 2026](https://eternax.ai/already-broken-quantum-risk-report-q1-2026.html)
+
+## Contact
+
+- Email: info@eternax.ai
+- GitHub: https://github.com/eternax-ai
+- LinkedIn: https://www.linkedin.com/company/eternax-labs
+- X: https://x.com/EternaXlabs

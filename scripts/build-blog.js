@@ -12,6 +12,63 @@ if (!blogFolder) {
 const root = path.resolve(process.cwd());
 const blogPath = path.resolve(root, blogFolder);
 const blogsDir = path.join(root, 'blogs');
+const postMetaMap = {
+  'hiding-your-public-key-wont-save-your-coins': {
+    datePublished: '2026-04-03',
+    keywords: 'post-quantum security, bitcoin security, cryptographic vulnerability',
+    about: ['Post-Quantum Security', 'Bitcoin Security', 'Cryptographic Vulnerability']
+  },
+  'all-in-one-signature-that-built-bitcoin': {
+    datePublished: '2026-03-18',
+    keywords: 'ecdsa, bitcoin, post-quantum cryptography, secp256k1',
+    about: ['ECDSA', 'Bitcoin', 'Post-Quantum Cryptography', 'Secp256k1']
+  },
+  'private-chains-are-not-private': {
+    datePublished: '2026-03-16',
+    keywords: 'zcash, monero, post-quantum privacy, zip-2005',
+    about: ['Zcash', 'Monero', 'Post-Quantum Privacy', 'ZIP-2005']
+  },
+  'occ-did-not-kill-stablecoins': {
+    datePublished: '2026-03-08',
+    keywords: 'occ, genius act, stablecoin regulation',
+    about: ['OCC', 'GENIUS Act', 'Stablecoin Regulation']
+  },
+  'the-real-migration-is-bigger-than-quantum': {
+    datePublished: '2026-03-02',
+    keywords: 'post-quantum migration, blockchain infrastructure, security',
+    about: ['Post-Quantum Migration', 'Blockchain Infrastructure', 'Security']
+  },
+  'post-quantum-is-not-enough': {
+    datePublished: '2026-02-24',
+    keywords: 'information-theoretic security, post-quantum cryptography, ai security',
+    about: ['Information-Theoretic Security', 'Post-Quantum Cryptography', 'AI Security']
+  },
+  'quantum-risk-is-a-cost-curve': {
+    datePublished: '2026-02-20',
+    keywords: 'ethereum pq migration, bitcoin quantum risk, cost curve',
+    about: ['Ethereum PQ Migration', 'Bitcoin Quantum Risk', 'Cost Curve']
+  },
+  'right-to-cryptography': {
+    datePublished: '2026-02-13',
+    keywords: 'cryptography history, public-key cryptography, digital rights',
+    about: ['Cryptography History', 'Public-Key Cryptography', 'Digital Rights']
+  },
+  'migrate-later-is-a-stablecoin-liquidity-risk': {
+    datePublished: '2026-02-13',
+    keywords: 'stablecoin issuance, post-quantum migration, liquidity risk',
+    about: ['Stablecoin Issuance', 'Post-Quantum Migration', 'Liquidity Risk']
+  },
+  '3-trillion-must-migrate': {
+    datePublished: '2026-02-04',
+    keywords: 'blockchain migration, post-quantum, bitcoin, ethereum',
+    about: ['Blockchain Migration', 'Post-Quantum', 'Bitcoin', 'Ethereum']
+  },
+  'mint-new-dollars-onchain-on-a-post-quantum-settlement-rail': {
+    datePublished: '2026-02-01',
+    keywords: 'stablecoin issuance, post-quantum settlement, rwa',
+    about: ['Stablecoin Issuance', 'Post-Quantum Settlement', 'RWA']
+  }
+};
 
 const relativeToBlogs = path.relative(blogsDir, blogPath);
 if (relativeToBlogs.startsWith('..') || path.isAbsolute(relativeToBlogs) || relativeToBlogs === '') {
@@ -62,11 +119,17 @@ if (!description) {
 
 marked.setOptions({ gfm: true });
 let content = marked.parse(body);
-
-const publishedDate = new Date().toLocaleDateString('en-US', {
+const slug = path.basename(blogPath);
+const postMeta = postMetaMap[slug] || {
+  datePublished: new Date().toISOString().slice(0, 10),
+  keywords: 'post-quantum cryptography, blockchain security, eternax',
+  about: ['Post-Quantum Cryptography']
+};
+const publishedDate = new Date(`${postMeta.datePublished}T00:00:00Z`).toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
-  day: 'numeric'
+  day: 'numeric',
+  timeZone: 'UTC'
 });
 
 content = content.replace(/<h1>([\s\S]*?)<\/h1>/, (match, h1Content) => {
@@ -80,6 +143,11 @@ html = html
   .replace(/\{\{base\}\}/g, base)
   .replace(/\{\{title\}\}/g, escapeHtml(title))
   .replace(/\{\{description\}\}/g, escapeHtml(description))
+  .replace(/\{\{canonicalUrl\}\}/g, `https://eternax.ai/blogs/${slug}/index.html`)
+  .replace(/\{\{datePublished\}\}/g, postMeta.datePublished)
+  .replace(/\{\{keywords\}\}/g, escapeHtml(postMeta.keywords))
+  .replace(/\{\{keywordsJson\}\}/g, JSON.stringify(postMeta.keywords))
+  .replace(/\{\{aboutJson\}\}/g, JSON.stringify(postMeta.about.map((name) => ({ '@type': 'Thing', name }))))
   .replace(/\{\{content\}\}/, content);
 
 const outPath = path.join(blogPath, 'index.html');

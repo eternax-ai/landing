@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}} | EternaX</title>
+    <title>{{title}} | EternaX Labs Blog</title>
     <meta name="description" content="{{description}}">
+    <meta name="keywords" content="post-quantum blockchain, post-quantum cryptography, quantum-safe settlement, stablecoin issuance, rwa tokenization, EternaX, {{keywords}}">
+    <meta name="author" content="EternaX Labs">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="article:publisher" content="https://www.linkedin.com/company/eternax-labs">
+    <link rel="canonical" href="{{canonicalUrl}}">
     <meta name="theme-color" content="#e2e2e2">
     <link rel="icon" type="image/svg+xml" href="{{base}}assets/eternax-icon.svg">
     <link rel="icon" type="image/png" href="{{base}}assets/eternax-icon.png">
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{title}}">
     <meta property="og:description" content="{{description}}">
-    <meta property="og:site_name" content="EternaX">
+    <meta property="og:site_name" content="EternaX Labs">
+    <meta property="og:url" content="{{canonicalUrl}}">
+    <meta property="og:image" content="https://eternax.ai/assets/preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="{{title}}">
     <meta property="twitter:description" content="{{description}}">
+    <meta property="twitter:url" content="{{canonicalUrl}}">
+    <meta property="twitter:site" content="@EternaXlabs">
+    <meta property="twitter:creator" content="@EternaXlabs">
+    <meta property="twitter:image" content="https://eternax.ai/assets/preview.png">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
@@ -85,6 +99,81 @@
         .blog-body th, .blog-body td { padding: 0.5em 0.75em; border: 1px solid rgba(40,55,113,0.2); text-align: left; vertical-align: top; }
         .blog-body th { font-weight: 600; background: rgba(40,55,113,0.06); }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://eternax.ai/#organization",
+      "name": "EternaX Labs",
+      "alternateName": ["EternaX", "EternaX Labs Inc"],
+      "url": "https://eternax.ai",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://eternax.ai/assets/logo.png",
+        "width": 400,
+        "height": 80
+      },
+      "description": "EternaX Labs is a post-quantum-native Layer 1 blockchain infrastructure company.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "general",
+        "email": "info@eternax.ai"
+      },
+      "sameAs": [
+        "https://github.com/eternax-ai",
+        "https://www.linkedin.com/company/eternax-labs",
+        "https://x.com/EternaXlabs"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "{{canonicalUrl}}#article",
+      "headline": "{{title}}",
+      "description": "{{description}}",
+      "datePublished": "{{datePublished}}",
+      "dateModified": "{{datePublished}}",
+      "author": { "@id": "https://eternax.ai/#organization" },
+      "publisher": { "@id": "https://eternax.ai/#organization" },
+      "keywords": {{keywordsJson}},
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "EternaX Labs Blog",
+        "url": "https://eternax.ai/blogs/index.html"
+      },
+      "mainEntityOfPage": "{{canonicalUrl}}",
+      "about": {{aboutJson}}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "EternaX",
+          "item": "https://eternax.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blogs",
+          "item": "https://eternax.ai/blogs/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{title}}",
+          "item": "{{canonicalUrl}}"
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="font-sans">
     <nav class="fixed w-full z-50 glass-effect border-b" style="background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px);">
@@ -198,7 +287,7 @@
                 <div>
                     <span class="text-lg font-bold" style="color: var(--fg)">eternaX</span>
                     <p class="text-sm mt-1" style="color: var(--fg-70)">Quantum-safe Settlement at Market Speed</p>
-                    <div class="text-xs" style="color: var(--fg-70)">&copy; 2025 EternaX Labs</div>
+                    <div class="text-xs" style="color: var(--fg-70)">&copy; 2026 EternaX Labs</div>
                 </div>
                 <div class="flex items-center gap-4">
                     <a href="https://github.com/eternax-ai" class="text-sm link-muted">GitHub</a>
