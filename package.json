@@ -2,7 +2,8 @@
   "name": "eternax-landing",
   "private": true,
   "scripts": {
-    "build-blog": "node scripts/build-blog.js"
+    "build-blog": "node scripts/build-blog.js",
+    "build:css": "npx tailwindcss@3.4.17 -c tailwind.config.js -i ./styles/tailwind.css -o ./styles/tailwind.generated.css --minify"
   },
   "dependencies": {
     "marked": "^15.0.4"
