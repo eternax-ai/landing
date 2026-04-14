@@ -238,6 +238,15 @@
             opacity: 1;
             visibility: visible;
         }
+        .hero-network-bg {
+            background-image: url("./assets/eternax-network.webp");
+            background-position: center bottom;
+        }
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+            .hero-network-bg {
+                background-image: url("./assets/eternax-network.svg");
+            }
+        }
     </style>
 </head>
 <body class="font-sans" itemscope itemtype="https://schema.org/WebPage">
@@ -347,7 +356,7 @@
 
     <!-- Hero Section -->
     <section class="flex items-center justify-center relative overflow-hidden pt-32 lg:pt-40 pb-12 lg:pb-16" itemscope itemtype="https://schema.org/WebPageElement" itemprop="mainContentOfPage">
-        <div class="absolute inset-0 bg-center bg-no-repeat opacity-80" style="background-image: url('./assets/eternax-network.svg'); background-position: center bottom; background-size: 110% 110%;"></div>
+        <div class="hero-network-bg absolute inset-0 bg-center bg-no-repeat opacity-80"></div>
         <div class="relative z-10 w-full max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-8 items-center lg:items-start">
             <!-- Left side: 2/3 width -->
             <div class="w-full lg:w-2/3 flex flex-col">
