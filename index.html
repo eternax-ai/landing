@@ -152,26 +152,53 @@
                 }
             },
             {
-                "@type": "Product",
-                "@id": "https://eternax.ai/#product",
+                "@type": "Service",
+                "@id": "https://eternax.ai/#service",
                 "name": "EternaX - Quantum-safe Settlement at Market Speed",
                 "description": "PQ-native assets, market-speed payments and settlement. Post-quantum market infrastructure built to stay fast when markets reprice quantum risk. ~160B signatures, ~120ms finality, PQ-safe vaults.",
-                "manufacturer": {
+                "provider": {
                     "@id": "https://eternax.ai/#organization"
                 },
-                "category": "Post-Quantum Market Infrastructure",
-                "applicationCategory": "Post-Quantum Blockchain, Market Infrastructure, DeFi",
-                "operatingSystem": "EVM-Compatible",
-                "features": [
-                    "Quantum-safe Settlement at Market Speed",
-                    "PQ-Native Assets",
-                    "Post-Quantum Settlement Layer (~120ms finality)",
-                    "PQ-Safe On-Chain Vaults",
-                    "PQ-Native Stablecoin Issuance",
-                    "Protocol-native PQ Authorization (~160B signatures)",
-                    "Market-speed Payments and Settlement",
-                    "Post-Quantum Secure from Genesis"
-                ],
+                "serviceType": "Post-Quantum Market Infrastructure",
+                "category": "Blockchain Technology, Post-Quantum Cryptography, Market Infrastructure, DeFi",
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "EternaX Services",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "PQ-Native Assets",
+                                "serviceType": "Asset Infrastructure"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Post-Quantum Settlement",
+                                "serviceType": "Settlement Infrastructure"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "PQ-Safe Vaults",
+                                "serviceType": "Custody Infrastructure"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "PQ-Native Stablecoin Issuance",
+                                "serviceType": "Issuance Infrastructure"
+                            }
+                        }
+                    ]
+                },
                 "url": "https://eternax.ai"
             },
             {
