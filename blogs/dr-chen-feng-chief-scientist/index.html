@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Chen Feng, Chief Scientist at EternaX: SILMARILS, Post-Quantum Cryptography, and the Scientific Foundation of EternaX | EternaX Labs Blog</title>
+    <meta name="description" content="EternaX introduces Dr. Chen Feng, our Chief Scientist. Associate Professor at UBC Okanagan, Tier-2 Principal's Research Chair in Blockchain, recipient of two NSERC Alliance International Catalyst Quantum grants in April 2026, and co-architect of SILMARILS, EternaX's novel post-quantum signature scheme pending publication in the IACR Journal of Cryptology.">
+    <meta name="keywords" content="post-quantum blockchain, post-quantum cryptography, quantum-safe settlement, stablecoin issuance, rwa tokenization, EternaX, SILMARILS, Dr. Chen Feng, Chen Feng EternaX, Chief Scientist, UBC Okanagan, NSERC Alliance Quantum, post-quantum signature scheme, IACR Journal of Cryptology, blockchain">
+    <meta name="author" content="EternaX Labs">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="article:publisher" content="https://www.linkedin.com/company/eternax-labs">
+    <link rel="canonical" href="https://eternax.ai/blogs/dr-chen-feng-chief-scientist/index.html">
+    <meta name="theme-color" content="#e2e2e2">
+    <link rel="icon" type="image/svg+xml" href="../../assets/eternax-icon.svg">
+    <link rel="icon" type="image/png" href="../../assets/eternax-icon.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Dr. Chen Feng, Chief Scientist at EternaX: SILMARILS, Post-Quantum Cryptography, and the Scientific Foundation of EternaX">
+    <meta property="og:description" content="EternaX introduces Dr. Chen Feng, our Chief Scientist. Associate Professor at UBC Okanagan, Tier-2 Principal's Research Chair in Blockchain, recipient of two NSERC Alliance International Catalyst Quantum grants in April 2026, and co-architect of SILMARILS, EternaX's novel post-quantum signature scheme pending publication in the IACR Journal of Cryptology.">
+    <meta property="og:site_name" content="EternaX Labs">
+    <meta property="og:url" content="https://eternax.ai/blogs/dr-chen-feng-chief-scientist/index.html">
+    <meta property="og:image" content="https://eternax.ai/assets/chen.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Dr. Chen Feng, Chief Scientist at EternaX: SILMARILS, Post-Quantum Cryptography, and the Scientific Foundation of EternaX">
+    <meta property="twitter:description" content="EternaX introduces Dr. Chen Feng, our Chief Scientist. Associate Professor at UBC Okanagan, Tier-2 Principal's Research Chair in Blockchain, recipient of two NSERC Alliance International Catalyst Quantum grants in April 2026, and co-architect of SILMARILS, EternaX's novel post-quantum signature scheme pending publication in the IACR Journal of Cryptology.">
+    <meta property="twitter:url" content="https://eternax.ai/blogs/dr-chen-feng-chief-scientist/index.html">
+    <meta property="twitter:site" content="@EternaXlabs">
+    <meta property="twitter:creator" content="@EternaXlabs">
+    <meta property="twitter:image" content="https://eternax.ai/assets/chen.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../styles/tailwind.generated.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --bg: #f7f4f4;
+            --fg: #283771;
+            --fg-70: #283771;
+            --fg-80: #283771;
+            --border: #283771;
+            --pill-bg: #283771;
+            --pill-fg: #ffffff;
+        }
+        body { background-color: var(--bg); color: var(--fg); font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; }
+        .glass-effect {
+            background: #ffffff;
+            border: 1px solid #e0dede;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .link-muted { color: var(--fg-70); transition: color 0.15s; }
+        .link-muted:hover { color: var(--fg); }
+        .btn-primary {
+            background-color: var(--fg);
+            transition: background-color 0.15s;
+        }
+        .btn-primary:hover { background-color: #1e2d5a; }
+        .nav-products-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s, visibility 0.15s;
+        }
+        .group:hover .nav-products-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        .blog-body { max-width: 720px; margin: 0 auto; }
+        .blog-body.blog-body--longform { max-width: 1240px; }
+        .blog-body h1 { font-size: 2rem; font-weight: 600; margin-top: 0; margin-bottom: 0.75em; letter-spacing: -0.01em; line-height: 1.2; }
+        .blog-body h2 { font-size: 1.5rem; font-weight: 600; margin-top: 1.75rem; margin-bottom: 0.5em; letter-spacing: -0.01em; line-height: 1.3; }
+        .blog-body h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.4em; line-height: 1.3; }
+        .blog-body p { margin-top: 0.75em; margin-bottom: 0.75em; line-height: 1.65; }
+        .blog-body ul, .blog-body ol { margin: 0.75em 0; padding-left: 1.5em; }
+        .blog-body li { margin: 0.35em 0; line-height: 1.6; }
+        .blog-body blockquote { margin: 1em 0; padding-left: 1em; border-left: 3px solid var(--fg); opacity: 0.9; font-style: italic; }
+        .blog-body code { background: rgba(40,55,113,0.1); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.9em; }
+        .blog-body pre { background: rgba(40,55,113,0.08); padding: 1em; border-radius: 6px; overflow-x: auto; margin: 1em 0; }
+        .blog-body pre code { background: none; padding: 0; }
+        .blog-body a { color: var(--fg); text-decoration: underline; }
+        .blog-body a:hover { opacity: 0.8; }
+        .blog-body img { max-width: 100%; height: auto; border-radius: 4px; }
+        .blog-body figure { margin: 1.5em 0; }
+        .blog-body figcaption { margin-top: 0.5em; font-size: 0.9rem; color: var(--fg-70); text-align: center; font-style: italic; }
+        .blog-body hr { border: none; border-top: 1px solid rgba(40,55,113,0.2); margin: 1.5em 0; }
+        .blog-body table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 1em 0; font-size: 0.95em; }
+        .blog-body th, .blog-body td { padding: 0.5em 0.75em; border: 1px solid rgba(40,55,113,0.2); text-align: left; vertical-align: top; }
+        .blog-body th { font-weight: 600; background: rgba(40,55,113,0.06); }
+    </style>
+
+    <style>
+
+    :root {
+      --eternax-navy: #283771;
+      --eternax-navy-soft: #3a4a87;
+      --eternax-surface: #FFFFFF;
+      --eternax-border: #E0DEDE;
+      --eternax-border-strong: #C9C6C6;
+      --eternax-ink: #1a1f3d;
+      --eternax-ink-soft: #4a4f6a;
+      --eternax-muted: #6b6870;
+      --eternax-rule: #D4D1D1;
+      --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+      --font-cond: "IBM Plex Sans Condensed", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .blog-body--longform a:not(.link-muted) { color: var(--eternax-navy); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; transition: color 120ms ease; }
+    .blog-body--longform a:not(.link-muted):hover { color: var(--eternax-navy-soft); }
+
+    .article-wrap { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+    .fact-strip-wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+    /* Kicker */
+    .kicker { display: inline-block; font-family: var(--font-cond); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--eternax-navy); padding: 6px 12px; border: 1px solid var(--eternax-navy); border-radius: 2px; margin-bottom: 28px; }
+
+    /* Hero */
+    .hero { padding: 56px 0 0; border-bottom: 1px solid var(--eternax-rule); }
+    h1.headline { font-family: var(--font-sans); font-weight: 600; font-size: 2rem; line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 0.75em; color: var(--eternax-ink); max-width: 920px; }
+    h1.headline em { font-style: italic; color: var(--eternax-navy); font-weight: 600; }
+    .standfirst { font-family: var(--font-sans); font-weight: 400; font-style: italic; font-size: 1.25rem; line-height: 1.5; color: var(--eternax-ink-soft); max-width: 760px; margin: 0 0 1.5em; letter-spacing: -0.01em; }
+    .byline { display: flex; align-items: center; gap: 16px; padding: 20px 0; border-top: 1px solid var(--eternax-rule); border-bottom: 1px solid var(--eternax-rule); font-family: var(--font-cond); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--eternax-muted); flex-wrap: wrap; }
+    .byline .author { color: var(--eternax-ink); font-weight: 600; }
+    .byline .dot { width: 3px; height: 3px; background: var(--eternax-border-strong); border-radius: 50%; }
+
+    /* Fact strip */
+    .fact-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 40px 0 56px; border-top: 2px solid var(--eternax-navy); border-bottom: 1px solid var(--eternax-rule); }
+    .fact { padding: 24px 20px 24px 0; border-right: 1px solid var(--eternax-rule); }
+    .fact:last-child { border-right: 0; padding-right: 0; }
+    .fact-label { font-family: var(--font-cond); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--eternax-muted); margin-bottom: 10px; }
+    .fact-value { font-family: var(--font-sans); font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--eternax-navy); letter-spacing: -0.01em; }
+    .fact-note { font-size: 0.875rem; color: var(--eternax-muted); margin-top: 8px; font-family: var(--font-sans); line-height: 1.45; }
+
+    /* Portrait (same headshot as Founding Team on index.html) */
+    .portrait-figure { margin: 44px auto 8px; max-width: 380px; text-align: center; }
+    /* Frame hugs image intrinsic aspect ratio (no fixed 4:5 or cover crop) */
+    .portrait-frame { display: inline-block; max-width: 100%; border-radius: 2px; border: 1.5px solid var(--eternax-border); background: var(--eternax-surface); line-height: 0; }
+    .portrait-img { display: block; max-width: 100%; width: auto; height: auto; }
+    .portrait-figure figcaption { margin-top: 16px; font-family: var(--font-sans); font-size: 13px; line-height: 1.55; color: var(--eternax-muted); font-style: italic; }
+
+    /* Body typography */
+    .df-body { padding: 0 0 3rem; }
+    .df-body p { font-family: var(--font-sans); font-size: 1rem; line-height: 1.65; margin: 0.75em 0; color: var(--eternax-ink); }
+    .df-body p.lead { font-size: 1.0625rem; line-height: 1.65; margin: 0.75em 0 1em; }
+    .df-body p.lead::first-letter { font-family: var(--font-sans); font-weight: 600; float: left; font-size: 2.75rem; line-height: 0.95; padding: 0.1em 0.35em 0 0; color: var(--eternax-navy); }
+    .df-body h2 { font-family: var(--font-sans); font-weight: 600; font-size: 1.5rem; line-height: 1.3; letter-spacing: -0.01em; color: var(--eternax-ink); margin: 1.75rem 0 0.5em; padding-top: 1.75rem; border-top: 1px solid var(--eternax-rule); }
+    .df-body h2 .section-num { font-family: var(--font-cond); font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--eternax-navy); display: block; margin-bottom: 10px; font-weight: 600; }
+
+    /* Callout */
+    .callout { background: var(--eternax-surface); border: 1px solid var(--eternax-border); border-left: 3px solid var(--eternax-navy); padding: 22px 26px; margin: 30px 0; border-radius: 2px; }
+    .callout .callout-label { font-family: var(--font-cond); font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 600; color: var(--eternax-navy); margin-bottom: 10px; }
+    .callout p { font-family: var(--font-sans); font-size: 1rem; line-height: 1.65; margin: 0; color: var(--eternax-ink-soft); }
+
+    /* Pull quote */
+    blockquote.pull { margin: 1em 0; padding: 0 0 0 1em; border-left: 3px solid var(--eternax-navy); font-family: var(--font-sans); font-style: italic; font-size: 1.125rem; line-height: 1.6; font-weight: 400; color: var(--eternax-navy); }
+    blockquote.pull cite { display: block; font-style: normal; font-family: var(--font-cond); font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--eternax-muted); margin-top: 14px; }
+
+    /* SILMARILS spec box */
+    .silmarils-spec { background: var(--eternax-surface); border: 1px solid var(--eternax-border); border-top: 3px solid var(--eternax-navy); padding: 28px 30px; margin: 32px 0; border-radius: 2px; }
+    .silmarils-spec .spec-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--eternax-rule); flex-wrap: wrap; gap: 10px; }
+    .silmarils-spec .spec-name { font-family: var(--font-sans); font-weight: 600; font-size: 1.25rem; color: var(--eternax-navy); letter-spacing: 0.04em; }
+    .silmarils-spec .spec-status { font-family: var(--font-cond); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--eternax-muted); font-weight: 500; }
+    .silmarils-spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .silmarils-spec-item .lbl { font-family: var(--font-cond); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--eternax-muted); margin-bottom: 6px; }
+    .silmarils-spec-item .val { font-family: var(--font-mono); font-size: 0.95rem; color: var(--eternax-navy); font-weight: 500; line-height: 1.3; }
+    .silmarils-spec-item .sub { font-size: 0.8rem; color: var(--eternax-ink-soft); margin-top: 4px; font-family: var(--font-sans); line-height: 1.45; }
+    .silmarils-spec-foot { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--eternax-rule); font-family: var(--font-sans); font-size: 0.9rem; line-height: 1.55; color: var(--eternax-ink-soft); }
+
+    /* What is EternaX — end-of-article note (like standard blog <p><em>…</em></p>, not a full-width callout) */
+    .what-etx { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--eternax-rule); }
+    .what-etx p { font-family: var(--font-sans); margin: 0 0 0.65em; }
+    .what-etx p:last-child { margin-bottom: 0; }
+    .what-etx .what-etx-blurb { font-size: 0.875rem; line-height: 1.6; color: var(--eternax-muted); }
+    .what-etx .what-etx-blurb em { font-style: italic; }
+    .what-etx .what-etx-blurb strong { color: var(--eternax-ink); font-weight: 600; }
+    .what-etx .what-etx-line { font-size: 0.875rem; line-height: 1.5; color: var(--eternax-muted); margin-top: 0.35em; }
+    .what-etx .what-etx-line em { font-style: italic; }
+    .what-etx .what-etx-foot { font-family: var(--font-cond); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--eternax-muted); margin-top: 0.5em; }
+
+    /* Sources */
+    .sources { margin: 40px 0 0; padding: 26px 0 0; border-top: 2px solid var(--eternax-navy); }
+    .sources h3 { font-family: var(--font-cond); font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 600; color: var(--eternax-navy); margin: 0 0 18px; }
+    .sources ol { padding-left: 22px; margin: 0; }
+    .sources ol li { font-family: var(--font-sans); font-size: 14px; line-height: 1.55; color: var(--eternax-ink-soft); margin-bottom: 10px; }
+    .sources a { word-break: break-word; }
+
+    /* Signoff */
+    .signoff { margin: 1.5em 0 0; padding: 1.5em 0 0; border-top: 1px solid var(--eternax-rule); font-family: var(--font-sans); font-size: 1rem; line-height: 1.65; color: var(--eternax-ink-soft); font-style: italic; }
+    .signoff strong { font-style: normal; color: var(--eternax-ink); font-weight: 600; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .fact-strip { grid-template-columns: repeat(2, 1fr); }
+      .fact { border-right: 0; border-bottom: 1px solid var(--eternax-rule); padding: 20px 0; }
+      .fact:nth-last-child(-n+2) { border-bottom: 0; }
+      .silmarils-spec-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+    @media (max-width: 560px) {
+      .article-wrap, .fact-strip-wrap { padding: 0 20px; }
+      .fact-strip { grid-template-columns: 1fr; }
+      .fact { border-bottom: 1px solid var(--eternax-rule); padding: 16px 0; }
+      .fact:last-child { border-bottom: 0; }
+      .df-body p.lead::first-letter { font-size: 2.25rem; }
+      .silmarils-spec { padding: 22px 20px; }
+    }
+  
+    </style>
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://eternax.ai/#organization",
+    "name": "EternaX Labs",
+    "alternateName": ["EternaX", "EternaX Labs Inc"],
+    "url": "https://eternax.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://eternax.ai/assets/logo.png",
+      "width": 400,
+      "height": 80
+    },
+    "description": "EternaX Labs is a post-quantum-native Layer 1 blockchain infrastructure company.",
+    "foundingDate": "2025",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "general",
+      "email": "info@eternax.ai"
+    },
+    "sameAs": [
+      "https://github.com/eternax-ai",
+      "https://www.linkedin.com/company/eternax-labs",
+      "https://x.com/EternaXlabs"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://eternax.ai/#website",
+    "url": "https://eternax.ai",
+    "name": "EternaX Labs",
+    "description": "Post-quantum market infrastructure for stablecoin issuance, RWA tokenization, and institutional settlement. Home of SILMARILS, our novel post-quantum signature scheme.",
+    "publisher": {"@id": "https://eternax.ai/#organization"},
+    "inLanguage": "en-US"
+  }
+  </script>
+
+  <!-- JSON-LD: Person (Dr. Chen Feng) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://eternax.ai/team/chen-feng#person",
+    "name": "Chen Feng",
+    "givenName": "Chen",
+    "familyName": "Feng",
+    "honorificPrefix": "Dr.",
+    "jobTitle": "Chief Scientist",
+    "image": "https://eternax.ai/assets/chen.png",
+    "description": "Dr. Chen Feng is Chief Scientist at EternaX Labs and co-architect of SILMARILS, EternaX's novel post-quantum signature scheme. He is Associate Professor at the School of Engineering, UBC Okanagan, Tier-2 Principal's Research Chair in Blockchain, and Co-Cluster Lead of Blockchain@UBC. His research spans quantum computing, post-quantum cryptography, post-quantum threshold signatures, photonic quantum computing, quantum error correction, information and coding theory, and blockchain systems.",
+    "knowsAbout": [
+      "SILMARILS post-quantum signature scheme",
+      "Post-quantum cryptography",
+      "Post-quantum threshold signatures",
+      "Quantum computing",
+      "Quantum communications",
+      "GKP codes",
+      "Photonic quantum computing",
+      "Quantum error correction",
+      "Random Oracle Proof of Knowledge",
+      "Information theory",
+      "Coding theory",
+      "Blockchain systems",
+      "Byzantine fault tolerance",
+      "Distributed consensus"
+    ],
+    "affiliation": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "University of British Columbia, Okanagan Campus",
+        "url": "https://ok.ubc.ca"
+      },
+      {
+        "@type": "Organization",
+        "name": "Blockchain@UBC",
+        "url": "https://blockchain.ubc.ca"
+      },
+      {
+        "@type": "Organization",
+        "name": "EternaX Labs",
+        "url": "https://eternax.ai"
+      }
+    ],
+    "alumniOf": [
+      {"@type": "CollegeOrUniversity", "name": "University of Toronto"},
+      {"@type": "CollegeOrUniversity", "name": "EPFL (\u00c9cole polytechnique f\u00e9d\u00e9rale de Lausanne)"},
+      {"@type": "CollegeOrUniversity", "name": "Boston University"}
+    ],
+    "worksFor": {"@id": "https://eternax.ai/#organization"},
+    "award": [
+      "NSERC Alliance International Catalyst Quantum Grant, April 2026 (Post-Quantum Weighted Threshold Signatures Based on Random Oracle Proof of Knowledge)",
+      "G7 Countries Alliance International Catalyst Quantum Grant, April 2026 (Efficient Multi-Mode GKP Codes for Photonic Quantum Computing)",
+      "NSERC Alliance Quantum Grant, January 2025 ($165,186 over two years, quantum error-correcting codes with Xanadu)",
+      "Tier-2 Principal's Research Chair in Blockchain, UBC Okanagan"
+    ],
+    "sameAs": [
+      "https://scholar.google.com/citations?user=D8b0l-EAAAAJ",
+      "https://www.linkedin.com/in/chen-feng-75272a37",
+      "https://sites.google.com/view/chenfeng-ubc",
+      "https://blockchain.ubc.ca/people/chen-feng"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: ScholarlyArticle for SILMARILS (pre-index for IACR publication) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "@id": "https://eternax.ai/silmarils#scholarlyarticle",
+    "name": "SILMARILS: EternaX's Post-Quantum Signature Scheme",
+    "alternateName": "SILMARILS",
+    "headline": "SILMARILS: A Post-Quantum Signature Scheme with 160-Byte Signatures and Information-Theoretic Security",
+    "description": "SILMARILS is EternaX's novel post-quantum signature scheme. 160-byte signatures, 64-byte public keys, information-theoretic security with forgery probability approximately 1 in 2 to the 255. Co-authored by Dr. Chen Feng, Dariia Porechna, and collaborators. Pending publication in the IACR Journal of Cryptology.",
+    "author": [
+      {"@id": "https://eternax.ai/team/chen-feng#person"},
+      {
+        "@type": "Person",
+        "name": "Dariia Porechna",
+        "sameAs": "https://www.linkedin.com/in/dariia-porechna"
+      }
+    ],
+    "publisher": {"@id": "https://eternax.ai/#organization"},
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "IACR Journal of Cryptology",
+      "publisher": "International Association for Cryptologic Research"
+    },
+    "creativeWorkStatus": "Accepted, pending publication",
+    "about": [
+      "Post-quantum signature scheme",
+      "Information-theoretic security",
+      "Post-quantum cryptography",
+      "Blockchain cryptography"
+    ],
+    "keywords": "SILMARILS, post-quantum signature, information-theoretic security, IACR Journal of Cryptology, EternaX, Chen Feng, Dariia Porechna",
+    "inLanguage": "en"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://eternax.ai/blogs/dr-chen-feng-chief-scientist/index.html#article",
+    "headline": "Dr. Chen Feng, Chief Scientist at EternaX: SILMARILS, Post-Quantum Cryptography, and the Scientific Foundation of EternaX",
+    "description": "EternaX introduces Dr. Chen Feng, our Chief Scientist. Associate Professor at UBC Okanagan, Tier-2 Principal's Research Chair in Blockchain, recipient of two NSERC Alliance International Catalyst Quantum grants in April 2026, and co-architect of SILMARILS, EternaX's novel post-quantum signature scheme pending publication in the IACR Journal of Cryptology.",
+    "image": "https://eternax.ai/assets/chen.png",
+    "datePublished": "2026-04-22",
+    "dateModified": "2026-04-22",
+    "author": { "@id": "https://eternax.ai/#organization" },
+    "publisher": { "@id": "https://eternax.ai/#organization" },
+    "keywords": "SILMARILS, Dr. Chen Feng, post-quantum cryptography, UBC Okanagan, NSERC, IACR",
+    "isPartOf": {
+      "@type": "Blog",
+      "name": "EternaX Labs Blog",
+      "url": "https://eternax.ai/blogs/index.html"
+    },
+    "mainEntityOfPage": "https://eternax.ai/blogs/dr-chen-feng-chief-scientist/index.html",
+    "about": [
+      {"@type": "Thing", "name": "Dr. Chen Feng"},
+      {"@type": "Thing", "name": "SILMARILS"},
+      {"@type": "Thing", "name": "Post-Quantum Cryptography"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "EternaX",
+        "item": "https://eternax.ai/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blogs",
+        "item": "https://eternax.ai/blogs/index.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Dr. Chen Feng, Chief Scientist at EternaX",
+        "item": "https://eternax.ai/blogs/dr-chen-feng-chief-scientist/index.html"
+      }
+    ]
+  }
+  </script>
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who is the Chief Scientist at EternaX?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dr. Chen Feng is Chief Scientist at EternaX Labs. He is Associate Professor in the School of Engineering at the University of British Columbia, Okanagan Campus, Tier-2 Principal's Research Chair in Blockchain, and Co-Cluster Lead of Blockchain@UBC. He is co-architect of SILMARILS, EternaX's novel post-quantum signature scheme pending publication in the IACR Journal of Cryptology."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is SILMARILS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SILMARILS is EternaX's novel post-quantum signature scheme. It provides 160-byte signatures, 64-byte public keys, and information-theoretic security with forgery probability of approximately 1 in 2 to the 255, which is independent of any computational hardness assumption. The supporting paper, co-authored by Dr. Chen Feng, Dariia Porechna, and collaborators, is pending publication in the IACR Journal of Cryptology. SILMARILS is the cryptographic engine of EternaX's full post-quantum product stack."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is SILMARILS significant compared to other post-quantum signature schemes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SILMARILS delivers 160-byte signatures, which is 8.3 times smaller than Algorand's Falcon-1024 (1,330 bytes), 15.1 times smaller than ML-DSA (2,420 bytes), and 49 times smaller than the SLH-DSA-SHA2-128s scheme chosen for Circle's Arc blockchain (7,856 bytes). Under full post-quantum migration, EternaX using SILMARILS operates at approximately 2 percent throughput loss, compared with 31 percent on Ethereum, 77 percent on Sui, and 90 percent on Solana in live testnet confirmed by Project Eleven and the Solana Foundation in April 2026."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What quantum computing grants has Dr. Chen Feng received?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In April 2026, Dr. Feng received two NSERC Alliance International Catalyst Quantum grants of $25,000 each: Post-Quantum Weighted Threshold Signatures Based on Random Oracle Proof of Knowledge, and Efficient Multi-Mode GKP Codes for Photonic Quantum Computing. He was the only researcher in that national round to receive multiple Alliance Quantum grants. In January 2025, he received $165,186 over two years from NSERC for quantum error-correcting codes in collaboration with the Canadian photonic quantum computing company Xanadu."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Dr. Chen Feng's research peer-reviewed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Dr. Feng has published in Nature Communications, Nature Partner Journal Quantum Information, IEEE Transactions on Information Theory, IEEE Transactions on Dependable and Secure Computing, IEEE Journal on Selected Areas in Communications, and the IEEE Symposium on Security and Privacy, among other top peer-reviewed venues in information theory, cryptography, and quantum communications."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is EternaX?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "EternaX is post-quantum market infrastructure for stablecoin issuance, RWA tokenization, and institutional settlement. It is a PQ-native Layer 1 anchored by SILMARILS, with approximately 120 millisecond finality and approximately 2 percent throughput loss under full post-quantum migration. EternaX Labs is co-founded by Paarrthhh Birla and Dariia Porechna, with Dr. Chen Feng as Chief Scientist."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="font-sans">
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 glass-effect border-b" style="background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-2">
+            <a href="../../index.html" class="text-xl font-bold" style="color: var(--fg)">eternaX</a>
+            <!-- Desktop nav -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="../../why-eternax.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Why EternaX</a>
+                <div class="relative group">
+                    <span class="hover:opacity-70 transition-colors flex items-center gap-1 cursor-default" style="color: var(--fg-70)">Quantum Risk Reports
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-products-dropdown absolute left-0 top-full pt-1">
+                        <div class="glass-effect rounded-lg py-2 min-w-[340px] shadow-lg" style="border: 1px solid var(--border)">
+                            <a href="../../post-quantum-cryptography-risk-framework-for-institutions.html" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b hover:bg-black/5 rounded-t-lg" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Cryptographic Migration Debt Framework</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">April 2026 · Post-quantum exposure framework for institutional digital asset programmes.</span>
+                            </a>
+                            <a href="../../already-broken-quantum-risk-report-q1-2026.html" class="block px-4 py-3.5 hover:opacity-90 transition-colors hover:bg-black/5 rounded-b-lg" style="color: var(--fg)">
+                                <span class="font-semibold text-sm block">Already Broken — Quantum Risk Report Q1 2026</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">Q1 2026 · The case that institutional blockchain infrastructure is already at risk.</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <span class="hover:opacity-70 transition-colors flex items-center gap-1 cursor-default" style="color: var(--fg-70)">Products
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-products-dropdown absolute left-0 top-full pt-1">
+                        <div class="glass-effect rounded-lg py-2 min-w-[380px] max-w-[420px] shadow-lg" style="border: 1px solid var(--border)">
+                            <a href="../../index.html#product-settlement" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b border-transparent hover:bg-black/5 rounded-t-lg" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Post-Quantum Settlement and Execution Layer</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">PQ-native execution and settlement with auditable privacy and fast finality (~120 ms).</span>
+                            </a>
+                            <a href="../../index.html#product-issuance" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b border-transparent hover:bg-black/5" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Post-Quantum Issuance and Tokenization Rails (Stablecoins and RWAs)</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">Day-one PQ-native issuance for stablecoins and RWAs, with issuer-grade mint/burn governance, compliance hooks, and auditable privacy settlement.</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Stablecoin Issuance</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum RWA Tokenization and Issuance</span>
+                            </a>
+                            <a href="../../index.html#product-migration" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b border-transparent hover:bg-black/5" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Post-Quantum Migration and Interoperability Rails</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">Move assets from existing chains into PQ-native settlement paths via vault and bridge infrastructure.</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Vault (Ethereum/EVM)</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Migration Bridge</span>
+                            </a>
+                            <a href="../../index.html#product-wallet" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b border-transparent hover:bg-black/5" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Post-Quantum Wallet, Custody, and Policy Controls</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">PQ signing, wallet policies, custody controls, and agent permissions (KYA-ready).</span>
+                            </a>
+                            <a href="../../index.html#product-venues" class="block px-4 py-3.5 hover:opacity-90 transition-colors hover:bg-black/5 rounded-b-lg" style="color: var(--fg)">
+                                <span class="font-semibold text-sm block">Post-Quantum Market Infrastructure Venues</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">High-velocity trading and information markets powered by PQ-safe collateral and agentic users.</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Perpetuals Exchange (PQ Perps)</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Prediction Markets</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="../../index.html#team" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Team</a>
+                <a href="../index.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Blogs</a>
+                <a href="mailto:info@eternax.ai" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-center text-white">
+                    Contact Us
+                </a>
+            </div>
+            <!-- Mobile hamburger -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2" style="color: var(--fg-70); border-color: var(--border)">
+                    <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
+                        <path d="M3 6h18M3 12h18M3 18h18" />
+                    </svg>
+                    <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 hidden">
+                        <path d="M6 6l12 12M6 18L18 6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden pb-4" role="dialog" aria-modal="true">
+            <div class="mt-2 space-y-3 border-t pt-4" style="border-color: var(--border)">
+                <a href="../../why-eternax.html" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Why EternaX</a>
+                <span class="block px-1 text-sm font-semibold" style="color: var(--fg-70)">Quantum Risk Reports</span>
+        <a href="../../post-quantum-cryptography-risk-framework-for-institutions.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Cryptographic Migration Debt Framework <span class="text-xs opacity-60">Apr 2026</span></a>
+        <a href="../../already-broken-quantum-risk-report-q1-2026.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Already Broken — Q1 2026</a>
+                <span class="block px-1 text-sm font-semibold" style="color: var(--fg-70)">Products</span>
+                <a href="../../index.html#product-settlement" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Settlement and Execution Layer</a>
+                <a href="../../index.html#product-issuance" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Issuance and Tokenization Rails (Stablecoins and RWAs)</a>
+                <a href="../../index.html#product-migration" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Migration and Interoperability Rails</a>
+                <a href="../../index.html#product-wallet" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Wallet, Custody, and Policy Controls</a>
+                <a href="../../index.html#product-venues" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Market Infrastructure Venues</a>
+                <a href="../../index.html#team" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Team</a>
+                <a href="mailto:info@eternax.ai" class="btn-primary block px-4 py-2 rounded-lg text-sm font-semibold text-center text-white">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <main class="pt-24 pb-16 px-4">
+        <article class="blog-body blog-body--longform">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="article-wrap">
+      <span class="kicker">A Note from EternaX / Introducing Our Chief Scientist</span>
+      <h1 class="headline">Dr. Chen Feng, Chief Scientist at EternaX: <em>SILMARILS, Post-Quantum Cryptography, and the Scientific Foundation of EternaX</em></h1>
+      <p class="standfirst">At EternaX, we are building post-quantum market infrastructure for institutional finance. That work rests on a scientific foundation. Today, we are introducing the scientist behind it, and the post-quantum signature scheme that carries his name in the acknowledgements.</p>
+      <div class="byline">
+        <span class="author">EternaX Labs</span>
+        <span class="dot"></span>
+        <span>Published April 22, 2026</span>
+        <span class="dot"></span>
+        <span>8 min read</span>
+      </div>
+    </div>
+
+      <!-- FACT STRIP (full longform width) -->
+    <div class="fact-strip-wrap">
+      <div class="fact-strip" role="group" aria-label="Verified credentials">
+        <div class="fact">
+          <div class="fact-label">SILMARILS</div>
+          <div class="fact-value">160-Byte PQ Signatures, Information-Theoretic Security</div>
+          <div class="fact-note">EternaX's novel post-quantum signature scheme. Pending publication in the IACR Journal of Cryptology.</div>
+        </div>
+        <div class="fact">
+          <div class="fact-label">April 2026</div>
+          <div class="fact-value">2 NSERC Alliance Quantum Grants</div>
+          <div class="fact-note"><a href="https://engineering.ok.ubc.ca/2026/04/16/ubc-okanagan-researcher-awarded-nserc-alliance-quantum-funding/">Only researcher in that national round</a> to receive multiple Alliance Quantum awards.</div>
+        </div>
+        <div class="fact">
+          <div class="fact-label">January 2025</div>
+          <div class="fact-value">$165,186 NSERC Quantum Grant</div>
+          <div class="fact-note"><a href="https://engineering.ok.ubc.ca/2025/01/21/ubc-okanagan-engineering-researcher-among-eight-ubc-experts-to-receive-nserc-quantum-grants/">Two-year award</a> with Xanadu on quantum error-correcting codes.</div>
+        </div>
+        <div class="fact">
+          <div class="fact-label">UBC Okanagan</div>
+          <div class="fact-value">Tier-2 Principal's Research Chair in Blockchain</div>
+          <div class="fact-note">Associate Professor, School of Engineering. Co-Cluster Lead, <a href="https://blockchain.ubc.ca/people/chen-feng">Blockchain@UBC</a>.</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="df-body">
+    <div class="article-wrap">
+
+      <figure class="portrait-figure" aria-label="Portrait of Dr. Chen Feng">
+        <div class="portrait-frame">
+          <img class="portrait-img" src="./portrait.jpeg" alt="Dr. Chen Feng, Chief Scientist at EternaX and Associate Professor at UBC Okanagan" width="1023" height="1028" loading="lazy" decoding="async">
+        </div>
+        <figcaption>Dr. Chen Feng, Chief Scientist at EternaX Labs and Associate Professor in the School of Engineering at UBC Okanagan.</figcaption>
+      </figure>
+
+      <p class="lead">At EternaX, we believe post-quantum market infrastructure must be built on science that is real, peer-reviewed, and durable. When we set out to design a post-quantum signature scheme capable of preserving institutional execution quality, a scheme we named <strong>SILMARILS</strong>, we knew the research had to be led by someone whose work in quantum computing, post-quantum cryptography, and information theory was already recognised at the highest level. That scientist is <strong>Dr. Chen Feng</strong>, our Chief Scientist. He joins our co-founders <a href="https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/">Paarrthhh Birla</a> and <a href="https://www.linkedin.com/in/dariia-porechna">Dariia Porechna</a> as the third signatory on every piece of EternaX institutional research, including <a href="https://eternax.ai/post-quantum-cryptography-risk-framework-for-institutions.html">our April 2026 Cryptographic Migration Debt framework</a> and <a href="https://eternax.ai/already-broken-quantum-risk-report-q1-2026.html">our Q1 2026 Already Broken report</a>. This page is our formal introduction.</p>
+
+      <p>Dr. Chen Feng is Associate Professor in the <a href="https://engineering.ok.ubc.ca/">School of Engineering at UBC Okanagan</a>, Tier-2 Principal's Research Chair in Blockchain, and Co-Cluster Lead of <a href="https://blockchain.ubc.ca/people/chen-feng">Blockchain@UBC</a>. In April 2026, he received two NSERC Alliance International Catalyst Quantum grants, and was the only researcher in that national round to receive multiple Alliance Quantum awards. In January 2025, he received a $165,186 NSERC quantum grant for error-correcting code research in collaboration with <a href="https://www.xanadu.ai/">Xanadu</a>, the Canadian photonic quantum computing company. His <a href="https://scholar.google.com/citations?user=D8b0l-EAAAAJ">publication record</a> spans Nature Communications, npj Quantum Information, IEEE Transactions on Information Theory, and the IEEE Symposium on Security and Privacy. This is the foundation beneath SILMARILS and EternaX.</p>
+
+      <!-- SECTION 1: SILMARILS -->
+      <h2><span class="section-num">Section 1</span>SILMARILS, and the Science Behind It</h2>
+
+      <p>We commissioned SILMARILS because the existing post-quantum signature standards, <a href="https://csrc.nist.gov/pubs/fips/204/final">ML-DSA</a>, <a href="https://csrc.nist.gov/pubs/fips/205/final">SLH-DSA</a>, and FN-DSA (Falcon), all impose signature sizes that are 10 to 122 times larger than current Ed25519 and secp256k1 standards, with proportional throughput losses. <a href="https://www.coindesk.com/tech/2026/04/04/project-eleven-solana-foundation-quantum-testnet">Project Eleven and the Solana Foundation confirmed in live testnet</a> in April 2026 that Solana running quantum-resistant signatures loses approximately <strong>90% of its throughput</strong>. Circle's Arc chose SLH-DSA-SHA2-128s at <strong>7,856 bytes per signature</strong>, which is 49 times larger than SILMARILS. If institutional finance is to be both post-quantum and market-speed, a different construction was required.</p>
+
+      <div class="silmarils-spec" aria-label="SILMARILS specification">
+        <div class="spec-header">
+          <div class="spec-name">SILMARILS</div>
+          <div class="spec-status">Pending publication in IACR Journal of Cryptology</div>
+        </div>
+        <div class="silmarils-spec-grid">
+          <div class="silmarils-spec-item">
+            <div class="lbl">Signature Size</div>
+            <div class="val">160 bytes</div>
+            <div class="sub">49x smaller than SLH-DSA-SHA2-128s, 15x smaller than ML-DSA, 8x smaller than Falcon-1024.</div>
+          </div>
+          <div class="silmarils-spec-item">
+            <div class="lbl">Public Key Size</div>
+            <div class="val">64 bytes</div>
+            <div class="sub">Comparable to classical Ed25519 and secp256k1 public keys.</div>
+          </div>
+          <div class="silmarils-spec-item">
+            <div class="lbl">Security Model</div>
+            <div class="val">Information-theoretic</div>
+            <div class="sub">Forgery probability approximately 1 in 2^255. Independent of any computational hardness assumption.</div>
+          </div>
+        </div>
+        <div class="silmarils-spec-foot">Co-authored by <strong>Dr. Chen Feng</strong>, <strong>Dariia Porechna</strong>, and collaborators. Under full post-quantum migration, EternaX using SILMARILS operates at approximately <strong>2% throughput loss</strong>, against <strong>31%</strong> modelled for Ethereum and <strong>90%</strong> confirmed in live Solana testnet.</div>
+      </div>
+
+      <p>Dr. Feng's academic work sits directly in the research lineage that produced SILMARILS. His 2024 Canadian Workshop on Information Theory paper, <em>NIROPoK-Based Post-Quantum Sidechain Design on Ethereum</em>, with Hassan Khodaiemehr, developed non-interactive random oracle proof of knowledge constructions for post-quantum sidechain design. His April 2026 NSERC grant on <em>Post-Quantum Weighted Threshold Signatures Based on Random Oracle Proof of Knowledge</em> extends that line of work. SILMARILS, his NSERC-funded research, and his peer-reviewed publication record are expressions of one continuous scientific programme.</p>
+
+      <!-- SECTION 2: NSERC -->
+      <h2><span class="section-num">Section 2</span>The April 2026 NSERC Alliance Quantum Double Award</h2>
+
+      <p>On <a href="https://engineering.ok.ubc.ca/2026/04/16/ubc-okanagan-researcher-awarded-nserc-alliance-quantum-funding/">April 16, 2026</a>, UBC Okanagan announced that Dr. Feng had received two NSERC Alliance International Catalyst Quantum grants, valued at $25,000 each. He was one of four UBC researchers funded in that <a href="https://research.ubc.ca/news/april-16-2026/five-ubc-led-projects-advancing-canadas-quantum-ecosystem-through-nserc-support">national competition</a>, and the only researcher in the round to receive multiple Alliance Quantum grants. The two funded projects are <em>Post-Quantum Weighted Threshold Signatures Based on Random Oracle Proof of Knowledge</em>, and <em>Efficient Multi-Mode GKP Codes for Photonic Quantum Computing</em>.</p>
+
+      <p>These project titles matter for EternaX. Post-quantum threshold signatures are a direct design ingredient for institutional-grade custody, multi-party settlement, and regulated digital asset infrastructure, which is precisely the workflow we are built for. GKP codes and fault-tolerant photonic quantum computing define the attack surface that <a href="https://eternax.ai/post-quantum-cryptography-risk-framework-for-institutions.html">our product stack</a> is architected to survive. In Dr. Feng's own words from the UBC announcement:</p>
+
+      <blockquote class="pull">
+        "These projects are about building trust in the next generation of computing systems. By combining rigorous theory with practical design, we aim to make quantum and cryptographic technologies both secure and deployable in real-world settings."
+        <cite>Dr. Chen Feng, UBC Okanagan announcement, April 16, 2026</cite>
+      </blockquote>
+
+      <!-- SECTION 3: Broader record -->
+      <h2><span class="section-num">Section 3</span>The Broader Record</h2>
+
+      <p>The April 2026 double award is not Dr. Feng's first NSERC quantum recognition. In <a href="https://engineering.ok.ubc.ca/2025/01/21/ubc-okanagan-engineering-researcher-among-eight-ubc-experts-to-receive-nserc-quantum-grants/">January 2025</a>, he received $165,186 over two years from NSERC for quantum error-correcting code research with Xanadu. He was the only recipient from the UBC Okanagan campus in that round. Together, the 2025 and 2026 grants span both sides of the post-quantum problem: the hardware trajectory that determines how quickly usable quantum computers arrive, and the cryptographic constructions that must survive them. Very few researchers work on both sides at once.</p>
+
+      <p>His peer-reviewed publication record anchors that research programme. He has published in <a href="https://www.nature.com/articles/ncomms9735">Nature Communications</a> on experimental quantum fingerprinting (2015), in <a href="https://www.nature.com/articles/s41534-018-0070-6">Nature Partner Journal Quantum Information</a> on quasi-cyclic multi-edge LDPC codes for long-distance quantum cryptography (2018), in IEEE Transactions on Information Theory on algebraic physical-layer network coding (2013), in IEEE Transactions on Dependable and Secure Computing on multiple BFT consensus protocols for blockchains, in IEEE Journal on Selected Areas in Communications on coherent-state QKD security (2025), and in the 2025 IEEE Symposium on Security and Privacy on <em>TreePIR</em>, a private retrieval scheme for Merkle proofs accepted at a 14.3% acceptance rate. He received his PhD from the <a href="https://www.utoronto.ca/">University of Toronto</a> under Professors Frank Kschischang and Baochun Li, and held postdoctoral positions at <a href="https://www.epfl.ch/en/">EPFL</a> with Professor Michael Gastpar and at <a href="https://www.bu.edu/">Boston University</a> with Professor Bobak Nazer.</p>
+
+      <!-- SECTION 4: Why this matters -->
+      <h2><span class="section-num">Section 4</span>Why This Matters for Our Partners</h2>
+
+      <p>As we argue in our <a href="https://eternax.ai/post-quantum-cryptography-risk-framework-for-institutions.html">April 2026 Cryptographic Migration Debt framework</a>, after NIST's 2024 finalisation of post-quantum standards, Google's March 30, 2026 paper compressing the qubit threshold for breaking Bitcoin and Ethereum's cryptography by approximately 20-fold, and Project Eleven's April 2026 live testnet confirming a 90% throughput loss on Solana under NIST post-quantum migration, every new issuance of long-duration institutional value on a non-PQ-safe rail is a knowing choice. Institutions evaluating EternaX will ask whether our scientific foundation is real. Dr. Chen Feng's NSERC quantum funding, Tier-2 Principal's Research Chair in Blockchain, and peer-reviewed publication record constitute a foundation that is independently verifiable. SILMARILS is not a marketing claim. It is a scientific construction co-authored by our Chief Scientist, with a peer-reviewed publication pathway into the IACR Journal of Cryptology.</p>
+
+      <p>For researchers, journalists, and students discovering Dr. Feng's work, EternaX is where his research is operationalised into live market infrastructure. Our testnet launched in November 2025 has processed over <strong>1,000,000 transactions</strong> and over <strong>475,000 prediction market bets</strong>, with approximately <strong>120 millisecond finality</strong>. The 160-byte SILMARILS signature scheme is not a slide in a presentation. It is a deployed PQ-native Layer 1 with public traction.</p>
+
+      <div class="callout">
+        <div class="callout-label">The two-way association</div>
+        <p>Dr. Chen Feng's academic authority gives EternaX its scientific foundation. EternaX gives Dr. Feng's research its most consequential applied expression. SILMARILS is what that bridge produces. When the IACR Journal of Cryptology publishes the SILMARILS paper, we expect it to be discovered alongside this page.</p>
+      </div>
+
+      <p class="signoff">We are privileged to have Dr. Feng as our Chief Scientist, and we are proud to publish this introduction. For institutional counterparties, researchers, and partners who would like to discuss SILMARILS, EternaX's product stack, or our institutional research, please reach out at <a href="mailto:info@eternax.ai"><strong>info@eternax.ai</strong></a>. <br><br>&mdash; The EternaX Team</p>
+
+      <!-- SOURCES -->
+      <section class="sources">
+        <h3>Learn More About Dr. Chen Feng's Work</h3>
+        <ol>
+          <li>UBC School of Engineering, <a href="https://engineering.ok.ubc.ca/2026/04/16/ubc-okanagan-researcher-awarded-nserc-alliance-quantum-funding/">UBC Okanagan researcher awarded NSERC Alliance Quantum funding</a>, April 16, 2026.</li>
+          <li>UBC Vice-President Research and Innovation, <a href="https://research.ubc.ca/news/april-16-2026/five-ubc-led-projects-advancing-canadas-quantum-ecosystem-through-nserc-support">Five UBC-led projects supporting Canada's quantum ecosystem funded by NSERC</a>, April 16, 2026.</li>
+          <li>UBC School of Engineering, <a href="https://engineering.ok.ubc.ca/2025/01/21/ubc-okanagan-engineering-researcher-among-eight-ubc-experts-to-receive-nserc-quantum-grants/">UBC Okanagan Engineering researcher among eight UBC experts to receive NSERC Quantum grants</a>, January 21, 2025.</li>
+          <li>Blockchain@UBC, <a href="https://blockchain.ubc.ca/people/chen-feng">Dr. Chen Feng profile</a>.</li>
+          <li>Dr. Chen Feng, <a href="https://sites.google.com/view/chenfeng-ubc/">UBC Okanagan research website</a>.</li>
+          <li>Dr. Chen Feng, <a href="https://scholar.google.com/citations?user=D8b0l-EAAAAJ">Google Scholar profile</a>.</li>
+          <li>EternaX Labs, <a href="https://eternax.ai/post-quantum-cryptography-risk-framework-for-institutions.html">Cryptographic Migration Debt: Post-Quantum Exposure Framework for Institutional Digital Asset Programmes</a>, April 2026.</li>
+          <li>EternaX Labs, <a href="https://eternax.ai/already-broken-quantum-risk-report-q1-2026.html">Already Broken: Quantum Risk Report</a>, Q1 2026.</li>
+        </ol>
+      </section>
+
+      <div class="what-etx" id="what-is-eternax">
+        <p class="what-etx-blurb"><em>What is EternaX? <strong>EternaX</strong> is post-quantum market infrastructure for stablecoin issuance, RWA tokenization, and institutional settlement, operated by <strong>EternaX Labs</strong> as a PQ-native Layer 1 built to stay fast when markets reprice quantum risk. EternaX is co-founded by <strong>Paarrthhh Birla</strong> (formerly VP Growth at Polygon and Head of Partnerships at Subspace) and <strong>Dariia Porechna</strong> (cryptography and protocol engineer, previously at Wolfram and Autonomys), with <strong>Dr. Chen Feng</strong> as <strong>Chief Scientist</strong>, Associate Professor in the School of Engineering at UBC Okanagan, Tier-2 Principal's Research Chair in Blockchain, and Co-Cluster Lead of Blockchain@UBC. EternaX is anchored by <strong>SILMARILS</strong>, our novel post-quantum signature scheme: <strong>160-byte signatures</strong>, <strong>64-byte public keys</strong>, <strong>information-theoretic security</strong>, and approximately <strong>2% TPS loss</strong> under full post-quantum migration against <strong>31% modelled for Ethereum and 90% confirmed on Solana in live testnet</strong> (Project Eleven and the Solana Foundation, April 2026), with the SILMARILS paper co-authored by Dr. Feng and Dariia Porechna pending publication in the <strong>IACR Journal of Cryptology</strong>. Our product stack covers PQ settlement and execution with approximately <strong>120 millisecond finality</strong>, PQ issuance and tokenization rails for stablecoins and real-world assets, PQ migration and interoperability rails including a PQ Vault for ETH and EVM, a KYA-ready PQ wallet with policy controls, and live PQ market infrastructure venues, supported by a testnet launched in November 2025 that has processed over <strong>1,000,000 transactions</strong> and <strong>475,000 prediction market bets</strong>. Our work is indexed at <a href="https://eternax.ai">eternax.ai</a>, with institutional research at <a href="https://eternax.ai/post-quantum-cryptography-risk-framework-for-institutions.html">the Cryptographic Migration Debt framework</a> and <a href="https://eternax.ai/already-broken-quantum-risk-report-q1-2026.html">the Already Broken report</a>, on X as <a href="https://x.com/eternaXLabs">@EternaXlabs</a>, on LinkedIn as <a href="https://www.linkedin.com/company/eternax-labs">EternaX Labs</a>, on GitHub as <a href="https://github.com/eternax-ai">eternax-ai</a>, and on YouTube as <a href="https://www.youtube.com/@eternaXlabs">@eternaXlabs</a>.</em></p>
+        <p class="what-etx-line"><em>Quantum-safe Settlement at Market Speed.</em></p>
+        <p class="what-etx-foot">EternaX Labs &middot; eternax.ai</p>
+      </div>
+
+    </div>
+  </div>
+
+        </article>
+    </main>
+
+  <footer class="py-8 border-t" style="background-color: var(--bg); border-color: var(--border);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-start justify-between gap-6 mb-6">
+            <div>
+                <span class="text-lg font-bold" style="color: var(--fg)">eternaX</span>
+                <p class="text-sm mt-1" style="color: var(--fg-70)">Quantum-safe Settlement at Market Speed</p>
+                <div class="text-xs" style="color: var(--fg-70)">&copy; 2026 EternaX Labs</div>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/eternax-ai" class="text-sm link-muted">GitHub</a>
+                <a href="https://www.youtube.com/@eternaXlabs" class="text-sm link-muted">YouTube</a>
+                <a href="https://t.me/eternax_official" class="text-sm link-muted">Telegram</a>
+                <a href="https://x.com/EternaXlabs" class="text-sm link-muted">X (Twitter)</a>
+                <a href="https://www.linkedin.com/company/eternax-labs" class="text-sm link-muted">LinkedIn</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4 pt-4 border-t" style="border-color: var(--border);">
+            <a href="../../about.html" class="text-sm link-muted">About</a>
+            <a href="../../glossary.html" class="text-sm link-muted">Glossary</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var menuButton = document.getElementById('mobile-menu-button');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var iconMenu = document.getElementById('icon-menu');
+        var iconClose = document.getElementById('icon-close');
+        function closeMenu() {
+            if (!mobileMenu) return;
+            mobileMenu.classList.add('hidden');
+            if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+            if (iconMenu) iconMenu.classList.remove('hidden');
+            if (iconClose) iconClose.classList.add('hidden');
+        }
+        function openMenu() {
+            if (!mobileMenu) return;
+            mobileMenu.classList.remove('hidden');
+            if (menuButton) menuButton.setAttribute('aria-expanded', 'true');
+            if (iconMenu) iconMenu.classList.add('hidden');
+            if (iconClose) iconClose.classList.remove('hidden');
+        }
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', function() {
+                if (mobileMenu.classList.contains('hidden')) openMenu(); else closeMenu();
+            });
+            mobileMenu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+            document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+            window.addEventListener('resize', function() { if (window.innerWidth >= 768) closeMenu(); });
+        }
+    });
+</script>
+
+</body>
+
+</html>
