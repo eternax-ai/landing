@@ -13,7 +13,7 @@ The standard answer is straightforward: replace ECC with NIST-standardized post-
 
 SILMARILS changes that cost curve. It gives post-quantum blockchain architectures a path to a **160-byte permanent authentication record**, information-theoretic long-term security, and per-transaction privacy, while anchoring post-quantum unforgeability in a conservative post-quantum cryptography standard.
 
-The new paper, **"SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures,"** a joint work by UBC and EternaX Labs, gives the formal construction, security model, and proofs behind that claim.
+The new paper, **"SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures,"** a joint work by University of British Columbia (Hassan Khodaiemehr, Khadijeh Bagheri and Chen Feng) and EternaX Labs (Dariia Porechna), gives the formal construction, security model, and proofs behind that claim.
 
 ## Motivation
 
