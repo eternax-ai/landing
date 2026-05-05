@@ -13,6 +13,12 @@ const root = path.resolve(process.cwd());
 const blogPath = path.resolve(root, blogFolder);
 const blogsDir = path.join(root, 'blogs');
 const postMetaMap = {
+  'silmarils-post-quantum-authentication-without-size-tax': {
+    datePublished: '2026-05-05',
+    description: 'How SILMARILS combines SPHINCS+ anchoring with compact, information-theoretic records for post-quantum blockchain authentication.',
+    keywords: 'SILMARILS, post-quantum authentication, designated-verifier signatures, SPHINCS+, information-theoretic security',
+    about: ['SILMARILS', 'Post-Quantum Authentication', 'Designated-Verifier Signatures', 'SPHINCS+', 'Information-Theoretic Security']
+  },
   'hiding-your-public-key-wont-save-your-coins': {
     datePublished: '2026-04-03',
     description: 'Why operational security is not a post-quantum strategy for protecting digital assets.',
