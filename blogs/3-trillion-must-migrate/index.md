@@ -61,7 +61,7 @@ Representative, commonly implemented signature sizes:
 
 - Classical ECC baseline: ~64 bytes
 
-- EternaX novel PQ scheme: 160 bytes
+- [EternaX novel PQ scheme](../silmarils-post-quantum-authentication-without-size-tax/index.html): 160 bytes
 
 - Falcon-512: 666 bytes
 
@@ -113,7 +113,7 @@ The decisive design constraint is simple:
 
 > **Make post-quantum security cheap enough to adopt at market speed.** 
 
-EternaX discloses a novel PQ signature design engineered to stay close to classical economics:
+EternaX discloses a [novel PQ signature design](../silmarils-post-quantum-authentication-without-size-tax/index.html) engineered to stay close to classical economics:
 
 - 160B signatures versus 666B Falcon-class
 
@@ -175,4 +175,4 @@ EternaX gets it for free.
 
 **Connect: [info@eternax.ai](mailto:info@eternax.ai)**
 
-*EternaX is a high-performance, post-quantum secure market infrastructure blockchain built to keep real markets fast while upgrading cryptographic safety at scale. EternaX is PQ-native, not retrofitted, using a novel post-quantum signature scheme (claimed 32B public key, ~160B signature) engineered to avoid the Falcon-class throughput cliff and preserve market-speed execution with a sub-second finality target (approximately 120ms spendable finality). Crucially, stablecoins and RWAs can be minted natively on EternaX as post-quantum safe from day one, with issuers able to choose EternaX as their canonical settlement and payments rail, rather than inheriting legacy signature risk. In parallel, Ethereum assets (ETH and ERC-20s) and Bitcoin liquidity can migrate to EternaX to become post-quantum safe immediately for trading, settlement, and collateral use, without waiting for base-layer upgrades. Combined with EVM compatibility and auditable privacy for selective disclosure, EternaX is designed as the default migration and issuance home where post-quantum security, high throughput, and market structure coexist without compromise.*
+*EternaX is a high-performance, post-quantum secure market infrastructure blockchain built to keep real markets fast while upgrading cryptographic safety at scale. EternaX is PQ-native, not retrofitted, using a [novel post-quantum signature scheme](../silmarils-post-quantum-authentication-without-size-tax/index.html) (64B public key, 160B signature) engineered to avoid the Falcon-class throughput cliff and preserve market-speed execution with a sub-second finality target (approximately 120ms spendable finality). Crucially, stablecoins and RWAs can be minted natively on EternaX as post-quantum safe from day one, with issuers able to choose EternaX as their canonical settlement and payments rail, rather than inheriting legacy signature risk. In parallel, Ethereum assets (ETH and ERC-20s) and Bitcoin liquidity can migrate to EternaX to become post-quantum safe immediately for trading, settlement, and collateral use, without waiting for base-layer upgrades. Combined with EVM compatibility and auditable privacy for selective disclosure, EternaX is designed as the default migration and issuance home where post-quantum security, high throughput, and market structure coexist without compromise.*

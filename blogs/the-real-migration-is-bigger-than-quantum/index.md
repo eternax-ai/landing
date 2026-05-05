@@ -116,7 +116,7 @@ EternaX is not arguing that mainstream post-quantum migration is unnecessary. It
 
 That is where EternaX is fundamentally different.
 
-> Based on EternaX’s stated architecture, the protocol’s novel post-quantum signing design is positioned as **information-theoretic** at the transaction-authentication layer. That is the key distinction. It is not presented as another lattice scheme. It is not presented as another hash-based public signature scheme. It is presented as a different security class for this specific workflow.
+> Based on EternaX’s stated architecture, the protocol’s [novel post-quantum signing design](../silmarils-post-quantum-authentication-without-size-tax/index.html) is positioned as **information-theoretic** at the transaction-authentication layer. That is the key distinction. It is not presented as another lattice scheme. It is not presented as another hash-based public signature scheme. It is presented as a different security class for this specific workflow.
 > 
 
 That changes the threat model.
@@ -146,14 +146,14 @@ That matters not only because of security theory, but because of **size, through
 Your comparison table makes that explicit:
 
 - **ECDSA secp256k1**: **64-byte signature**, **33-byte public key**, security basis: **elliptic curve**, not post-quantum safe
-- **EternaX novel PQ scheme**: **160-byte signature**, **64-byte public key**, security basis: **information-theoretic**
+- **[EternaX novel PQ scheme](../silmarils-post-quantum-authentication-without-size-tax/index.html)**: **160-byte signature**, **64-byte public key**, security basis: **information-theoretic**
 - **Dilithium**: **2,420-byte signature**, **1,312-byte public key**, security basis: **lattice**
 - **Falcon-512**: **666-byte signature**, **897-byte public key**, security basis: **lattice**
 - **SPHINCS+-128s**: **7,856-byte signature**, **32-byte public key**, security basis: **hash-based**
 
 These are not cosmetic differences. They are system-design differences.
 
-The EternaX signature target, as shown in your materials, means:
+The [EternaX signature](../silmarils-post-quantum-authentication-without-size-tax/index.html) target, as shown in our materials, means:
 
 - it is only **2.5 times** the size of ECDSA
 - but about **4.2 times smaller** than Falcon-512

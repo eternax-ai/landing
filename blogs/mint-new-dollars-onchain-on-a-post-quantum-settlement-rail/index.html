@@ -331,7 +331,7 @@ Quantum risk to crypto is not one monolithic event. It is a set of failure modes
 </ul>
 <p><strong>Practical implication:</strong> If your signatures jump from 64B to 666B or 2420B, that is not cosmetic. It changes block propagation economics and validator verification budgets. At scale, that becomes a structural throughput haircut or a decentralization tax.</p>
 <p><img src="Comparison_Chart.png" alt="Comparison Chart"></p>
-<p>Falcon is widely regarded as one of the most size-efficient standardized post-quantum signature families, yet it still carries a large signature footprint for high-throughput blockchains. EternaX’s novel PQ-native signature design targets that exact bottleneck by delivering signatures that are about 4x smaller than Falcon-class, making quantum-safe authorization practical at market speed without a throughput cliff.</p>
+<p>Falcon is widely regarded as one of the most size-efficient standardized post-quantum signature families, yet it still carries a large signature footprint for high-throughput blockchains. <a href="../silmarils-post-quantum-authentication-without-size-tax/index.html">EternaX’s novel PQ-native signature design</a> targets that exact bottleneck by delivering signatures that are about 4x smaller than Falcon-class, making quantum-safe authorization practical at market speed without a throughput cliff.</p>
 <p>Markets do not tolerate permanent performance haircuts. Capital migrates to the rail where PQ safety is “cheap enough” to adopt.</p>
 <h2>Why EternaX: PQ-native market infrastructure, not a retrofit</h2>
 <p>Positioning (the only one that matters): EternaX is a high-performance, post-quantum secure market infrastructure appchain with auditable privacy and sub-second finality (target ~120ms), designed for real markets: prediction markets (live), spot, perps, payments.</p>
@@ -342,12 +342,12 @@ Quantum risk to crypto is not one monolithic event. It is a set of failure modes
 <li><p>1:1 migration: lock-and-mint path for legacy liquidity into PQ-secured settlement without waiting for base-layer upgrades</p>
 </li>
 </ul>
-<p><strong>Decisive wedge:</strong> EternaX discloses a novel PQ signature design engineered to avoid the “Falcon-class throughput cliff.” The claim is not “we support PQC.” The claim is “we make PQC compatible with market-speed throughput.”</p>
+<p><strong>Decisive wedge:</strong> EternaX discloses a <a href="../silmarils-post-quantum-authentication-without-size-tax/index.html">novel PQ signature design</a> engineered to avoid the “Falcon-class throughput cliff.” The claim is not “we support PQC.” The claim is “we make PQC compatible with market-speed throughput.”</p>
 <ul>
 <li>Solana: ~77% modeled TPS loss (Falcon-class assumptions)</li>
 <li>Sui: ~69% modeled TPS loss (Falcon-class assumptions)</li>
 <li>Ethereum: ~31% modeled TPS loss (Falcon-class assumptions)</li>
-<li>EternaX: ~2% modeled TPS loss (EternaX novel scheme)</li>
+<li>EternaX: ~2% modeled TPS loss (<a href="../silmarils-post-quantum-authentication-without-size-tax/index.html">EternaX novel scheme</a>)</li>
 </ul>
 <p>The real moat is structural: retrofit PQC tends to be throughput-expensive and coordination-heavy. PQ-native design avoids the migration cliff.</p>
 <h2>The numbers that quietly force the issuer rule</h2>
@@ -397,7 +397,7 @@ Quantum risk to crypto is not one monolithic event. It is a set of failure modes
 <p>Mint once, correctly, on a PQ-native settlement layer. EternaX is built to be the default home for PQ-native stablecoins and tokenized RWAs because it is PQ-safe from the ground up, engineered for market speed, and designed to avoid the throughput and coordination cliff that retrofits impose.</p>
 <p>Call to action: If you are issuing stablecoins, tokenized treasuries, or tokenized RWAs and you want PQ-native control and settlement without a market-speed penalty, build on EternaX.</p>
 <p><strong>Connect: <a href="mailto:info@eternax.ai">info@eternax.ai</a></strong></p>
-<p><em>EternaX is a high-performance, post-quantum cryptography (PQC) native settlement rail built to become the default home for minting new dollars onchain: stablecoins, tokenized treasuries, and tokenized RWAs. The issuer reality is simple: mint on legacy ECDSA and EdDSA rails and you embed migration debt that gets called under stress through selective key compromise, depegs, collateral haircuts, and liquidity fragmentation. EternaX’s wedge is PQ-native authorization from day one with a novel post-quantum signature design that is engineered for market throughput and delivers signatures about 4x smaller than Falcon-class, avoiding the throughput and ecosystem coordination cliffs of retrofit PQC. With auditable privacy, sub-second finality targets (~120ms), prediction markets live, and spot plus perps next, EternaX unifies issuance and market venues on one PQ-secured rail. Adoption compounds through two paths: canonical PQ-native issuance for new assets and a 1:1 lock-and-mint migration-to-safety route for legacy liquidity into PQ-secured settlement.</em></p>
+<p><em>EternaX is a high-performance, post-quantum cryptography (PQC) native settlement rail built to become the default home for minting new dollars onchain: stablecoins, tokenized treasuries, and tokenized RWAs. The issuer reality is simple: mint on legacy ECDSA and EdDSA rails and you embed migration debt that gets called under stress through selective key compromise, depegs, collateral haircuts, and liquidity fragmentation. EternaX’s wedge is PQ-native authorization from day one with a <a href="../silmarils-post-quantum-authentication-without-size-tax/index.html">novel post-quantum signature design</a> that is engineered for market throughput and delivers signatures about 4x smaller than next best, avoiding the throughput and ecosystem coordination cliffs of retrofit PQC. With auditable privacy, sub-second finality targets (~120ms), prediction markets live, and spot plus perps next, EternaX unifies issuance and market venues on one PQ-secured rail. Adoption compounds through two paths: canonical PQ-native issuance for new assets and a 1:1 lock-and-mint migration-to-safety route for legacy liquidity into PQ-secured settlement.</em></p>
 
         </article>
     </main>

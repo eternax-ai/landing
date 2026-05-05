@@ -48,7 +48,7 @@ We have chosen an information-theoretic signature, because the unforgeability of
 
 The threat landscape, viewed through this lens:
 
-| Threat scenario | ECC | Lattice PQC | Hash-based PQC | EternaX novel PQ scheme |
+| Threat scenario | ECC | Lattice PQC | Hash-based PQC | [EternaX novel PQ scheme](../silmarils-post-quantum-authentication-without-size-tax/index.html) |
 | --- | --- | --- | --- | --- |
 | Known classical algorithms | Safe | Safe | Safe | Safe |
 | AI-discovered classical breakthrough | Breaks | At risk | Safe | Safe |
@@ -63,7 +63,7 @@ Post-quantum migration has a cost problem. The NIST-standardized schemes produce
 | Scheme | Signature size | Public key size | Security basis |
 | --- | --- | --- | --- |
 | ECDSA (secp256k1) | 64 bytes | 33 bytes | Elliptic curve (not PQ-safe) |
-| EternaX PQ novel scheme | 160 bytes | 64 bytes | Information-theoretic |
+| [EternaX PQ novel scheme](../silmarils-post-quantum-authentication-without-size-tax/index.html) | 160 bytes | 64 bytes | Information-theoretic |
 | Dilithium2 | 2,420 bytes | 1,312 bytes | Lattice |
 | Falcon-512 | 666 bytes | 897 bytes | Lattice |
 | SPHINCS+-128s | 7,856 bytes | 32 bytes | Hash-based |
@@ -86,6 +86,6 @@ Post-quantum is a necessary step. It is not the last one.
 
 **Connect: [info@eternax.ai](mailto:info@eternax.ai)**
 
-*EternaX is a high-performance, post-quantum cryptography (PQC) native settlement rail built to become the default home for minting new dollars onchain: stablecoins, tokenized treasuries, and tokenized RWAs. The issuer reality is simple: mint on legacy ECDSA and EdDSA rails and you embed migration debt that gets called under stress through selective key compromise, depegs, collateral haircuts, and liquidity fragmentation. EternaX’s wedge is PQ-native authorization from day one with a novel post-quantum signature design that is engineered for market throughput and delivers signatures about 4x smaller than next best, avoiding the throughput and ecosystem coordination cliffs of retrofit PQC. With auditable privacy, sub-second finality targets (~120ms), prediction markets live, and spot plus perps next, EternaX unifies issuance and market venues on one PQ-secured rail. Adoption compounds through two paths: canonical PQ-native issuance for new assets and a 1:1 lock-and-mint migration-to-safety route for legacy liquidity into PQ-secured settlement.*
+*EternaX is a high-performance, post-quantum cryptography (PQC) native settlement rail built to become the default home for minting new dollars onchain: stablecoins, tokenized treasuries, and tokenized RWAs. The issuer reality is simple: mint on legacy ECDSA and EdDSA rails and you embed migration debt that gets called under stress through selective key compromise, depegs, collateral haircuts, and liquidity fragmentation. EternaX’s wedge is PQ-native authorization from day one with a [novel post-quantum signature design](../silmarils-post-quantum-authentication-without-size-tax/index.html) that is engineered for market throughput and delivers signatures about 4x smaller than next best, avoiding the throughput and ecosystem coordination cliffs of retrofit PQC. With auditable privacy, sub-second finality targets (~120ms), prediction markets live, and spot plus perps next, EternaX unifies issuance and market venues on one PQ-secured rail. Adoption compounds through two paths: canonical PQ-native issuance for new assets and a 1:1 lock-and-mint migration-to-safety route for legacy liquidity into PQ-secured settlement.*
 
-*Full details of the EternaX novel digital signature are currently under NDA pending publication in the IACR Journal on Cryptology.*
+*See full details of the [EternaX novel digital signature](../silmarils-post-quantum-authentication-without-size-tax/index.html).*

@@ -89,7 +89,7 @@ A simple mental model: signature footprint. Below are representative sizes surfa
 
 ![Comparison Chart](Comparison_Chart.png)
 
-Falcon is widely regarded as one of the most size-efficient standardized post-quantum signature families, yet it still carries a large signature footprint for high-throughput blockchains. EternaX’s novel PQ-native signature design targets that exact bottleneck by delivering signatures that are about 4x smaller than Falcon-class, making quantum-safe authorization practical at market speed without a throughput cliff.
+Falcon is widely regarded as one of the most size-efficient standardized post-quantum signature families, yet it still carries a large signature footprint for high-throughput blockchains. [EternaX’s novel PQ-native signature design](../silmarils-post-quantum-authentication-without-size-tax/index.html) targets that exact bottleneck by delivering signatures that are about 4x smaller than Falcon-class, making quantum-safe authorization practical at market speed without a throughput cliff.
 
 Markets do not tolerate permanent performance haircuts. Capital migrates to the rail where PQ safety is “cheap enough” to adopt.
 
@@ -103,12 +103,12 @@ Two capital on-ramps (and why this matters):
 
 - 1:1 migration: lock-and-mint path for legacy liquidity into PQ-secured settlement without waiting for base-layer upgrades
 
-**Decisive wedge:** EternaX discloses a novel PQ signature design engineered to avoid the “Falcon-class throughput cliff.” The claim is not “we support PQC.” The claim is “we make PQC compatible with market-speed throughput.”
+**Decisive wedge:** EternaX discloses a [novel PQ signature design](../silmarils-post-quantum-authentication-without-size-tax/index.html) engineered to avoid the “Falcon-class throughput cliff.” The claim is not “we support PQC.” The claim is “we make PQC compatible with market-speed throughput.”
 
 - Solana: ~77% modeled TPS loss (Falcon-class assumptions)
 - Sui: ~69% modeled TPS loss (Falcon-class assumptions)
 - Ethereum: ~31% modeled TPS loss (Falcon-class assumptions)
-- EternaX: ~2% modeled TPS loss (EternaX novel scheme)
+- EternaX: ~2% modeled TPS loss ([EternaX novel scheme](../silmarils-post-quantum-authentication-without-size-tax/index.html))
 
 The real moat is structural: retrofit PQC tends to be throughput-expensive and coordination-heavy. PQ-native design avoids the migration cliff.
 
@@ -170,4 +170,4 @@ Call to action: If you are issuing stablecoins, tokenized treasuries, or tokeniz
 
 **Connect: [info@eternax.ai](mailto:info@eternax.ai)**
 
-*EternaX is a high-performance, post-quantum cryptography (PQC) native settlement rail built to become the default home for minting new dollars onchain: stablecoins, tokenized treasuries, and tokenized RWAs. The issuer reality is simple: mint on legacy ECDSA and EdDSA rails and you embed migration debt that gets called under stress through selective key compromise, depegs, collateral haircuts, and liquidity fragmentation. EternaX’s wedge is PQ-native authorization from day one with a novel post-quantum signature design that is engineered for market throughput and delivers signatures about 4x smaller than next best, avoiding the throughput and ecosystem coordination cliffs of retrofit PQC. With auditable privacy, sub-second finality targets (~120ms), prediction markets live, and spot plus perps next, EternaX unifies issuance and market venues on one PQ-secured rail. Adoption compounds through two paths: canonical PQ-native issuance for new assets and a 1:1 lock-and-mint migration-to-safety route for legacy liquidity into PQ-secured settlement.*
+*EternaX is a high-performance, post-quantum cryptography (PQC) native settlement rail built to become the default home for minting new dollars onchain: stablecoins, tokenized treasuries, and tokenized RWAs. The issuer reality is simple: mint on legacy ECDSA and EdDSA rails and you embed migration debt that gets called under stress through selective key compromise, depegs, collateral haircuts, and liquidity fragmentation. EternaX’s wedge is PQ-native authorization from day one with a [novel post-quantum signature design](../silmarils-post-quantum-authentication-without-size-tax/index.html) that is engineered for market throughput and delivers signatures about 4x smaller than next best, avoiding the throughput and ecosystem coordination cliffs of retrofit PQC. With auditable privacy, sub-second finality targets (~120ms), prediction markets live, and spot plus perps next, EternaX unifies issuance and market venues on one PQ-secured rail. Adoption compounds through two paths: canonical PQ-native issuance for new assets and a 1:1 lock-and-mint migration-to-safety route for legacy liquidity into PQ-secured settlement.*
