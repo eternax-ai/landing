@@ -346,7 +346,7 @@ margin-bottom: 1.5em;">Author: Paarth Birla, co-founder EternaX, digital assets 
 <p>EternaX is not arguing that mainstream post-quantum migration is unnecessary. It is necessary. The deeper claim is that migration should not stop at replacing one public hardness assumption with another if the transaction path allows a <strong>higher security class</strong>.</p>
 <p>That is where EternaX is fundamentally different.</p>
 <blockquote>
-<p>Based on EternaX’s stated architecture, the protocol’s novel post-quantum signing design is positioned as <strong>information-theoretic</strong> at the transaction-authentication layer. That is the key distinction. It is not presented as another lattice scheme. It is not presented as another hash-based public signature scheme. It is presented as a different security class for this specific workflow.</p>
+<p>Based on EternaX’s stated architecture, the protocol’s <a href="../silmarils-post-quantum-authentication-without-size-tax/index.html">novel post-quantum signing design</a> is positioned as <strong>information-theoretic</strong> at the transaction-authentication layer. That is the key distinction. It is not presented as another lattice scheme. It is not presented as another hash-based public signature scheme. It is presented as a different security class for this specific workflow.</p>
 </blockquote>
 <p>That changes the threat model.</p>
 <p>In the EternaX comparison framework, the scheme is presented as remaining <strong>safe across all listed threat scenarios</strong>:</p>
@@ -370,13 +370,13 @@ margin-bottom: 1.5em;">Author: Paarth Birla, co-founder EternaX, digital assets 
 <p>Your comparison table makes that explicit:</p>
 <ul>
 <li><strong>ECDSA secp256k1</strong>: <strong>64-byte signature</strong>, <strong>33-byte public key</strong>, security basis: <strong>elliptic curve</strong>, not post-quantum safe</li>
-<li><strong>EternaX novel PQ scheme</strong>: <strong>160-byte signature</strong>, <strong>64-byte public key</strong>, security basis: <strong>information-theoretic</strong></li>
+<li><strong><a href="../silmarils-post-quantum-authentication-without-size-tax/index.html">EternaX novel PQ scheme</a></strong>: <strong>160-byte signature</strong>, <strong>64-byte public key</strong>, security basis: <strong>information-theoretic</strong></li>
 <li><strong>Dilithium</strong>: <strong>2,420-byte signature</strong>, <strong>1,312-byte public key</strong>, security basis: <strong>lattice</strong></li>
 <li><strong>Falcon-512</strong>: <strong>666-byte signature</strong>, <strong>897-byte public key</strong>, security basis: <strong>lattice</strong></li>
 <li><strong>SPHINCS+-128s</strong>: <strong>7,856-byte signature</strong>, <strong>32-byte public key</strong>, security basis: <strong>hash-based</strong></li>
 </ul>
 <p>These are not cosmetic differences. They are system-design differences.</p>
-<p>The EternaX signature target, as shown in your materials, means:</p>
+<p>The <a href="../silmarils-post-quantum-authentication-without-size-tax/index.html">EternaX signature</a> target, as shown in our materials, means:</p>
 <ul>
 <li>it is only <strong>2.5 times</strong> the size of ECDSA</li>
 <li>but about <strong>4.2 times smaller</strong> than Falcon-512</li>
