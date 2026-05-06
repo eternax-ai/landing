@@ -132,7 +132,8 @@
         "url": "https://eternax.ai/blogs/index.html"
       },
       "mainEntityOfPage": "https://eternax.ai/blogs/silmarils-post-quantum-authentication-without-size-tax/index.html",
-      "about": [{"@type":"Thing","name":"SILMARILS"},{"@type":"Thing","name":"Post-Quantum Authentication"},{"@type":"Thing","name":"Designated-Verifier Signatures"},{"@type":"Thing","name":"SPHINCS+"},{"@type":"Thing","name":"Information-Theoretic Security"}]
+      "about": [{"@type":"Thing","name":"SILMARILS"},{"@type":"Thing","name":"Post-Quantum Authentication"},{"@type":"Thing","name":"Designated-Verifier Signatures"},{"@type":"Thing","name":"SPHINCS+"},{"@type":"Thing","name":"Information-Theoretic Security"}],
+      "isBasedOn": {"@type":"ScholarlyArticle","name":"SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures","url":"https://arxiv.org/abs/2605.03230","identifier":"arXiv:2605.03230"}
     }
     </script>
     <script type="application/ld+json">
@@ -271,7 +272,7 @@
 <p>Post-quantum migration is usually framed as a key-replacement problem. For blockchains, however, it is more fundamentally an infrastructure problem.</p>
 <p>The standard answer is straightforward: replace ECC with NIST-standardized post-quantum signatures. This approach is cryptographically sound, but it gives the system a permanent size tax that every node and user has to pay.</p>
 <p>SILMARILS changes that cost curve. It gives post-quantum blockchain architectures a path to a <strong>160-byte permanent authentication record</strong>, information-theoretic long-term security, and per-transaction privacy, while anchoring post-quantum unforgeability in a conservative post-quantum cryptography standard.</p>
-<p>The new paper, <strong>&quot;SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures,&quot;</strong> a joint work by University of British Columbia (Hassan Khodaiemehr, Khadijeh Bagheri and Chen Feng) and EternaX Labs (Dariia Porechna), gives the formal construction, security model, and proofs behind that claim.</p>
+<p>The new paper, <strong><a href="https://arxiv.org/abs/2605.03230">SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures</a></strong> (arXiv:2605.03230), a joint work by University of British Columbia (Hassan Khodaiemehr, Khadijeh Bagheri and Chen Feng) and EternaX Labs (Dariia Porechna), gives the formal construction, security model, and proofs behind that claim.</p>
 <h2>Motivation</h2>
 <p>Most blockchains were built around a convenient cryptographic bargain. Elliptic curves, often ECDSA and Ed25519, made identity, authorization, and public verification fit into 64 bytes. That small object became the default shape of a blockchain transaction.</p>
 <p>Post-quantum cryptography changes the price of that bargain. The NIST-standardized post-quantum signature schemes are much larger: ML-DSA signatures are measured in kilobytes, FN-DSA is smaller but still an order of magnitude larger than today&#39;s signatures, and SLH-DSA/SPHINCS+, the most conservative hash-based option, is larger still.</p>
@@ -286,6 +287,7 @@
 </ol>
 <p>Although information-theoretic signatures are known to be possible, existing constructions do not provide efficient, reusable, and simulation-secure signatures in the multi-party, multi-use setting. The central contribution of SILMARILS is achieving information-theoretic security while retaining efficiency, scalability, and practical deployability for modern distributed systems.</p>
 <p>That is why SILMARILS is interesting for blockchains: it is a novel authentication building block for systems where validators sit inside the validity path, records live forever, and size directly impacts infrastructure cost.</p>
+<p>Full paper: <a href="https://arxiv.org/abs/2605.03230">arXiv:2605.03230</a>.</p>
 <h2>The Post-Quantum Security Cost Curve</h2>
 <p>The EternaX L1 blockchain uses SILMARILS inside a dual-layer authentication design. The stack separates what should be conservative from what should be optimized for performance.</p>
 <p><strong>SPHINCS+</strong> provides the post-quantum security anchor. It is standardized by NIST as SLH-DSA, is a conservative hash-based choice, and avoids lattice assumptions, pairings, hidden algebraic structure, and trusted setups.</p>

@@ -13,7 +13,7 @@ The standard answer is straightforward: replace ECC with NIST-standardized post-
 
 SILMARILS changes that cost curve. It gives post-quantum blockchain architectures a path to a **160-byte permanent authentication record**, information-theoretic long-term security, and per-transaction privacy, while anchoring post-quantum unforgeability in a conservative post-quantum cryptography standard.
 
-The new paper, **"SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures,"** a joint work by University of British Columbia (Hassan Khodaiemehr, Khadijeh Bagheri and Chen Feng) and EternaX Labs (Dariia Porechna), gives the formal construction, security model, and proofs behind that claim.
+The new paper, **[SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures](https://arxiv.org/abs/2605.03230)** (arXiv:2605.03230), a joint work by University of British Columbia (Hassan Khodaiemehr, Khadijeh Bagheri and Chen Feng) and EternaX Labs (Dariia Porechna), gives the formal construction, security model, and proofs behind that claim.
 
 ## Motivation
 
@@ -37,6 +37,8 @@ At a high level, SILMARILS is built from a small algebraic core over a finite fi
 Although information-theoretic signatures are known to be possible, existing constructions do not provide efficient, reusable, and simulation-secure signatures in the multi-party, multi-use setting. The central contribution of SILMARILS is achieving information-theoretic security while retaining efficiency, scalability, and practical deployability for modern distributed systems.
 
 That is why SILMARILS is interesting for blockchains: it is a novel authentication building block for systems where validators sit inside the validity path, records live forever, and size directly impacts infrastructure cost.
+
+Full paper: [arXiv:2605.03230](https://arxiv.org/abs/2605.03230).
 
 ## The Post-Quantum Security Cost Curve
 
