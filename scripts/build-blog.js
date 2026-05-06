@@ -13,6 +13,19 @@ const root = path.resolve(process.cwd());
 const blogPath = path.resolve(root, blogFolder);
 const blogsDir = path.join(root, 'blogs');
 const postMetaMap = {
+  'silmarils-post-quantum-authentication-without-size-tax': {
+    datePublished: '2026-05-05',
+    description: 'How SILMARILS combines SPHINCS+ anchoring with compact, information-theoretic records for post-quantum blockchain authentication.',
+    keywords: 'SILMARILS, post-quantum authentication, designated-verifier signatures, SPHINCS+, information-theoretic security',
+    about: ['SILMARILS', 'Post-Quantum Authentication', 'Designated-Verifier Signatures', 'SPHINCS+', 'Information-Theoretic Security'],
+    authorLine: 'Dariia Porechna, cryptographer, co-founder of EternaX',
+    scholarlyArticle: {
+      '@type': 'ScholarlyArticle',
+      name: 'SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures',
+      url: 'https://arxiv.org/abs/2605.03230',
+      identifier: 'arXiv:2605.03230'
+    }
+  },
   'hiding-your-public-key-wont-save-your-coins': {
     datePublished: '2026-04-03',
     description: 'Why operational security is not a post-quantum strategy for protecting digital assets.',
@@ -156,9 +169,15 @@ const publishedDate = new Date(`${postMeta.datePublished}T00:00:00Z`).toLocaleDa
   timeZone: 'UTC'
 });
 
+const authorLine = postMeta.authorLine ? escapeHtml(postMeta.authorLine) : 'EternaX Labs';
 content = content.replace(/<h1>([\s\S]*?)<\/h1>/, (match, h1Content) => {
-  return `<h1>${h1Content}</h1>\n<p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 0.25em;">${escapeHtml(publishedDate)}</p>\n<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: EternaX Labs</p>`;
+  return `<h1>${h1Content}</h1>\n<p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 0.25em;">${escapeHtml(publishedDate)}</p>\n<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: ${authorLine}</p>`;
 });
+
+const blogPostingExtensions =
+  postMeta.scholarlyArticle && typeof postMeta.scholarlyArticle === 'object'
+    ? ',\n      "isBasedOn": ' + JSON.stringify(postMeta.scholarlyArticle)
+    : '';
 
 const templatePath = path.join(__dirname, 'blog-template.html');
 let html = fs.readFileSync(templatePath, 'utf8');
@@ -172,6 +191,7 @@ html = html
   .replace(/\{\{keywords\}\}/g, escapeHtml(postMeta.keywords))
   .replace(/\{\{keywordsJson\}\}/g, JSON.stringify(postMeta.keywords))
   .replace(/\{\{aboutJson\}\}/g, JSON.stringify(postMeta.about.map((name) => ({ '@type': 'Thing', name }))))
+  .replace(/\{\{blogPostingExtensions\}\}/g, blogPostingExtensions)
   .replace(/\{\{content\}\}/, content);
 
 const outPath = path.join(blogPath, 'index.html');
