@@ -1,9 +1,8 @@
 ---
-title: "SILMARILS: Post-Quantum Authentication Without the Size Tax"
-description: "How SILMARILS combines SPHINCS+ anchoring with compact, information-theoretic records for post-quantum blockchain authentication."
+title: "SILMARILS: Compact Post-Quantum Authentication for Blockchain Systems"
+description: "How the SILMARILS designated-verifier signature construction gives EternaX a compact authentication layer for post-quantum, high-throughput blockchain infrastructure."
 ---
-
-# SILMARILS: Post-Quantum Authentication Without the Size Tax
+# SILMARILS: Compact Post-Quantum Authentication for Blockchain Systems 
 
 ![Abstract post-quantum authentication architecture for SILMARILS](Hero_Image.png)
 
@@ -11,9 +10,11 @@ Post-quantum migration is usually framed as a key-replacement problem. For block
 
 The standard answer is straightforward: replace ECC with NIST-standardized post-quantum signatures. This approach is cryptographically sound, but it gives the system a permanent size tax that every node and user has to pay.
 
-SILMARILS changes that cost curve. It gives post-quantum blockchain architectures a path to a **160-byte permanent authentication record**, information-theoretic long-term security, and per-transaction privacy, while anchoring post-quantum unforgeability in a conservative post-quantum cryptography standard.
+Our new primitive, SILMARILS, changes that cost curve. It is a **160-byte designated-verifier signature** with EUF-CMA-style unforgeability against non-designated verifiers in the QROM, plus a complementary three-party mode with simulation-based security and information-theoretic error 1/p in the broadcast model of Fitzi et al.
 
-The new paper, **[SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures](https://arxiv.org/abs/2605.03230)** (arXiv:2605.03230), a joint work by University of British Columbia (Hassan Khodaiemehr, Khadijeh Bagheri and Chen Feng) and EternaX Labs (Dariia Porechna), gives the formal construction, security model, and proofs behind that claim.
+EternaX builds on that primitive at the protocol layer. The blockchain architecture separates three jobs that are usually collapsed into one object: identity, transaction authentication, and public auditability after consensus. SILMARILS gives the authentication layer a compact algebraic record; SPHINCS+ provides the conservative post-quantum anchor in the identity layer.
+
+The new paper, **[SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures](https://arxiv.org/abs/2605.03230)** (arXiv:2605.03230), is joint work by Hassan Khodaiemehr, Khadijeh Bagheri, Chen Feng (University of British Columbia) and Dariia Porechna (EternaX Labs). It gives the formal construction, security model, and proofs. An [open-source Rust reference implementation](https://github.com/eternax-ai/silmarils-paper) is released alongside including benchmarks.
 
 ## Motivation
 
@@ -23,66 +24,66 @@ Post-quantum cryptography changes the price of that bargain. The NIST-standardiz
 
 For many systems, that cost is acceptable. For a high-throughput blockchain, it compounds across bandwidth, storage, validator load, sync time, archive size, and node economics. A testnet can survive large signatures, but it cannot pretend that 10x to 100x authentication growth is invisible at institutional scale.
 
-The motivation behind SILMARILS is demonstrating that information-theoretic techniques can deliver compact verification artifacts, allowing high-performance, post-quantum-safe blockchain architectures without carrying the full on-chain footprint of standardized post-quantum signatures.
+The motivation behind SILMARILS is demonstrating that designated-verifier techniques, analyzed against quantum adversaries, can deliver authentication records small enough to make a high-throughput post-quantum chain practical, without carrying the full on-chain footprint of standardized post-quantum signatures on every transaction.
 
 ## What the Paper Contributes
 
 The paper provides the formal construction, security model, and proofs for SILMARILS.
 
-At a high level, SILMARILS is built from a small algebraic core over a finite field and perfect 2-out-of-2 Shamir secret sharing. It supports two complementary modes:
+At a high level, SILMARILS is built from a minimal algebraic core over a prime field and perfect 2-out-of-2 Shamir secret sharing. It supports two complementary modes:
 
-1. **A two-party transferable designated-verifier mode** with designated-verifier simulatability and EUF-CMA-style unforgeability against non-designated verifiers in the ROM and QROM.
-2. **A three-party information-theoretic mode** in the broadcast model of Fitzi et al., with simulation-based security and error 1/p, extended to quantum adversaries with classical inputs and outputs.
+1. **A two-party transferable designated-verifier mode** with Jakobsson–Sako–Impagliazzo designated-verifier simulatability and EUF-CMA¬DV unforgeability (existential unforgeability under chosen-message attack for all non-designated parties) in both the ROM and the QROM. The QROM bound reduces to PRF security of HMAC, collision resistance of the hash, an algebraic-core 1/p term, and an O(q²/p) measure-and-reprogram loss.
+2. **A three-party information-theoretic mode** in the broadcast model of Fitzi et al., realizing the ideal three-party signature functionality with simulation-based security and error 1/p uniformly across the pure-IT, IT+ROM, and QROM models. The quantum extension is obtained through a trace-distance lift of the Fitzi local-property characterization (Lemma 18.15), using only CPTP contractivity and the triangle inequality, and avoiding the classical ROM techniques (rewinding, forking, oracle programming) that fail in the QROM.
 
-Although information-theoretic signatures are known to be possible, existing constructions do not provide efficient, reusable, and simulation-secure signatures in the multi-party, multi-use setting. The central contribution of SILMARILS is achieving information-theoretic security while retaining efficiency, scalability, and practical deployability for modern distributed systems.
+Although information-theoretic signatures are known to be possible, existing constructions do not provide efficient, reusable, and simulation-secure signatures in the multi-party, multi-use setting. The central contribution of SILMARILS is achieving information-theoretic security in the three-party mode and quantum-secure unforgeability in the two-party mode within a single algebraic framework, while retaining efficiency, scalability, and practical deployability for modern distributed systems.
 
-That is why SILMARILS is interesting for blockchains: it is a novel authentication building block for systems where validators sit inside the validity path, records live forever, and size directly impacts infrastructure cost.
+Full paper: [arXiv:2605.03230](https://arxiv.org/abs/2605.03230). Reference implementation: [github.com/eternax-ai/silmarils-paper](https://github.com/eternax-ai/silmarils-paper).
 
-Full paper: [arXiv:2605.03230](https://arxiv.org/abs/2605.03230).
+## From Primitive to Blockchain
+
+Blockchains are a natural home for designated-verifier authentication because validators already sit inside the validity path. They receive transactions, verify authorization, apply state-transition rules, participate in consensus, and finalize the ledger under protocol rules.
+
+EternaX uses that structure directly. Transaction authorization is checked by protocol participants before finality. Public auditability is produced by the finalized ledger, consensus receipts, and the public verification artifact. The result is a dual-layer authentication stack with separation of concerns:
+
+1. SPHINCS+ provides the post-quantum security anchor. It is standardized by NIST as SLH-DSA, depends only on the security of standard hash functions, and is the most conservative of the NIST-standardized post-quantum signature families.
+
+2. SILMARILS provides the compact authentication record: a 160-byte signature at the 256-bit field level, with a 32-byte receipt published for independent third-party verification after consensus.
+
+The SILMARILS paper proves the primitive. EternaX composes that primitive into a blockchain architecture. The concrete ledger integration is coming in a separate companion publication.
 
 ## The Post-Quantum Security Cost Curve
 
-The EternaX L1 blockchain uses SILMARILS inside a dual-layer authentication design. The stack separates what should be conservative from what should be optimized for performance.
+Post-quantum public signatures are large because they solve a broad problem: any third party can verify the signature forever from public data alone. SILMARILS is optimized for a different but highly relevant setting: validator-mediated authentication inside a protocol that later produces public consensus evidence.
 
-**SPHINCS+** provides the post-quantum security anchor. It is standardized by NIST as SLH-DSA, is a conservative hash-based choice, and avoids lattice assumptions, pairings, hidden algebraic structure, and trusted setups.
+| Object | Verification model | Signature or record size | Role |
+| --- | --- | --- | --- |
+| ECDSA / Ed25519 | Public verifier | ~64 B | Today's compact baseline, not post-quantum |
+| Falcon-512 / FN-DSA  | Public verifier | ~690 B | Smaller standardized PQ signature family |
+| ML-DSA / Dilithium-2  | Public verifier | ~2,420 B | NIST-standardized lattice PQ signature family |
+| SPHINCS+-128s / SLH-DSA | Public verifier | ~7,856 B | Conservative hash-based PQ signature family |
+| SILMARILS TDV | Designated verifier | 160 B | Compact authentication inside the validity path |
 
-**SILMARILS** provides the compact permanent authentication record: **128 bytes**, plus a **32-byte verification artifact**, for **160 bytes total**.
+Because SILMARILS is a designated-verifier construction, his comparison is not meant to suggest equivalence, but to illustrate efficiency in blockchain settings where PQC is more than sufficient but still expensive. SILMARILS is not a drop-in replacement for standardized PQ signatures; it is the authentication layer of a protocol designed from first principles to separate the concerns of identity, message authentication, and public auditability.
 
-That separation changes the cost curve. The system keeps conservative post-quantum assurance where it matters, while the permanent blockchain record becomes compact, information-theoretic, and privacy-preserving.
+The systems result is a different cost curve. Standard post-quantum signatures can fit in a block, but the question is whether a post-quantum chain can keep full nodes practical, validators broadly accessible, and transaction volume at market speed without making authentication overhead the dominant long-term tax.
 
-| Scheme | Signature size | Relative to ECDSA |
-| --- | --- | --- |
-| ECDSA / Ed25519 | ~64 B | 1x |
-| FN-DSA / Falcon-512 | ~666 B | ~10x |
-| ML-DSA-44 | ~1,312 B | ~20x |
-| SLH-DSA / SPHINCS+-128s | ~7,856 B | ~123x |
-| **EternaX dual-layer record** | **160 B** | **2.5x** |
+Post-quantum security that destroys performance is not a complete solution. EternaX keeps conservative post-quantum assurance where it is needed, while avoiding kilobytes of signature data on every transaction record.
 
-Standard post-quantum signatures can fit in a block, but the question is whether a post-quantum chain can keep full nodes practical, validators broadly accessible, and transaction volume institutional-scale without making authentication overhead the dominant long-term tax.
+## Why It Matters
 
-Post-quantum security that destroys performance is not a complete solution.
+For stablecoins, tokenized treasuries, tokenized deposits, exchanges, custodians, and market infrastructure, authentication is not a wallet feature, but a core part of the asset perimeter.
 
-## How Designated Verification Fits in Blockchains
+Issuer keys, mint and burn controls, freeze and compliance controls, custody workflows, and validator authorization all need a post-quantum migration path. If that path increases authentication data by an order of magnitude, the cost appears in bandwidth, throughput, TPS, transaction fees, storage, and ultimately liquidity venue economics.
 
-Designated-verifier signatures are often discussed as if they are unsuitable for blockchains because they are not ordinary public signatures. That objection assumes the wrong target.
+SILMARILS gives EternaX a technical wedge that is difficult to copy by parameter tuning alone. Any chain can adopt standardized PQ signatures. EternaX's advantage is the composition:
+1. a new authentication primitive with formal ROM, QROM, and information-theoretic analysis;
+2. a compact 160-byte record suited to validator-mediated systems;
+3. conservative SPHINCS+ anchoring for post-quantum assurance;
+4. protocol-level integration into consensus and finality.
 
-Blockchains do not need every cryptographic object to be a standalone public signature forever. They need transactions to be authorized, accepted by validators, committed through consensus, and auditable under the rules of the system. Those requirements are related, but they are not identical.
+That path runs from paper to primitive, from primitive to protocol, and from protocol to product: post-quantum settlement rails for assets that cannot afford a late migration or a permanent throughput tax.
 
-This is where SILMARILS fits. Validators are not passive readers of public signatures. They are active participants in the consensus process: they receive transactions, evaluate authorization, apply state-transition rules, and finalize the ledger under protocol rules. The designated-verifier model matches that architecture instead of forcing every authorization artifact to behave like a forever-public standalone signature.
-
-That is also why the paper matters beyond the 160-byte number. It formalizes the security of this model: designated-verifier simulatability, unforgeability against non-designated parties, simulation-based security in the three-party setting, and analysis in both classical and quantum random-oracle models.
-
-## Long-Term Records Need a Different Posture
-
-Standard post-quantum signatures are the right tool for many jobs, and SPHINCS+ is the conservative choice among them. But after security is solved by adopting a standardized post-quantum signature, blockchains as resource-constrained systems have a second problem: records are permanent.
-
-For stablecoins, tokenized treasuries, tokenized deposits, RWAs, exchanges, and market infrastructure, the relevant horizon is the lifetime of the asset, the audit trail, the regulator, the court record, and the archive.
-
-SILMARILS gives the permanent authentication record information-theoretic security. That means the record is not merely relying on a hardness assumption against known quantum algorithms; it has a stronger long-term integrity posture for the part of the system that lives forever.
-
-That is the real meaning of the 160-byte record: it is smaller, but size is not the whole point. It is a strategic allocation of trust, cost, and permanence.
-
-## Privacy Without ZK
+## Privacy Is a Structural Property
 
 Post-quantum migration also forces a privacy decision.
 
@@ -90,7 +91,9 @@ A standard post-quantum chain that publishes the same verification key across ma
 
 The usual answer is zero-knowledge proofs. But post-quantum-compatible ZK generally means larger proofs, heavier proving, and more complex systems prone to more implementation-level vulnerabilities. That may be acceptable for some applications. It is not a free answer for high-throughput settlement.
 
-Dual-layer authentication gives EternaX a different privacy primitive. SILMARILS supports per-transaction unlinkability and auditable selective disclosure as structural properties of the authentication layer. External observers do not get a reusable public key that turns the chain into a permanent account graph. The account owner can disclose what needs to be verified, when it needs to be verified, without making the entire transaction history public by default.
+SILMARILS gives EternaX a different starting point. The 160-byte record authorizes a transaction to the validators who participate in the consensus protocol, rather than acting as a permanent public attestation that any observer can re-verify forever from a reusable account-level public key. The chain therefore does not accumulate the kind of per-account public artifact that turns a transaction history into an account graph for external observers.
+
+At the protocol layer, EternaX builds on this property to give tiered selective disclosure and per-transaction unlinkability against external observers, without zero-knowledge machinery layered on top of a publicly verifiable signature object. The construction belongs to the companion publication; what matters here is that the SILMARILS primitive is the right shape for it.
 
 The institutional requirement for privacy onchain is not secrecy or opacity, but controlled disclosure: confidential to the market, auditable to the right party, and durable under post-quantum threat models.
 
@@ -98,8 +101,6 @@ The institutional requirement for privacy onchain is not secrecy or opacity, but
 
 Quantum computing is a threat to today's blockchain cryptography, but it is also a forcing function. It gives the industry a reason to reassess inherited assumptions: that authentication must look like ECDSA forever, that privacy requires heavy ZK machinery, and that post-quantum security necessarily means accepting a permanent size tax.
 
-**EternaX transactions are backed by SPHINCS+ for conservative post-quantum security and produce a 160-byte permanent authentication record with information-theoretic security and per-transaction privacy.**
+SILMARILS gives EternaX a compact designated-verifier and information-theoretic authentication framework for systems where validators are part of the verification path. The paper establishes the primitive. EternaX turns that primitive into a post-quantum blockchain design with conservative public anchoring, compact transaction authentication, and auditable finality.
 
-With the SILMARILS paper, our contribution is to give the cryptographic construction and proofs for that direction. The concrete ledger architecture integration is coming in a separate companion publication.
-
-The goal is not only to survive the quantum transition. It is to use it to build better rails: native, compact, private, auditable, and fast enough for the next generation of market infrastructure.
+That combination opens a practical research direction for post-quantum finance: stop treating migration as a primitive swap, and redesign authentication around the actual structure of distributed ledgers. The goal is not only to survive the quantum transition. It is to use it to build better rails: native, compact, private, auditable, and fast enough for the next generation of market infrastructure.
