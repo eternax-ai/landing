@@ -355,7 +355,7 @@
                 <div class="grid md:grid-cols-4 gap-6">
                     <div class="glass-effect p-6 rounded-lg">
                         <div class="font-semibold mb-2" style="color: var(--fg)">Post-Quantum Core</div>
-                        <div class="text-sm" style="color: var(--fg-80)">Protocol-native PQ authorization with <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:inherit;">novel ~160B signatures</a></div>
+                        <div class="text-sm" style="color: var(--fg-80)">Dual-layer stack: <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:inherit;">SILMARILS</a> (160-byte designated-verifier transaction auth) and SPHINCS+ (SLH-DSA) as the conservative identity anchor.</div>
                     </div>
                     <div class="glass-effect p-6 rounded-lg">
                         <div class="font-semibold mb-2" style="color: var(--fg)">Privacy</div>
@@ -390,7 +390,7 @@
                     <div class="glass-effect p-6 rounded-lg">
                         <div class="font-semibold text-lg mb-3" style="color: var(--fg)">The constraint markets do not forgive</div>
                         <p class="text-sm" style="color: var(--fg-80)">
-                            Post-quantum is a bytes-and-verification bill. If PQ is expensive, liquidity routes around it. The fastest safe domain wins routing for payments, clearing, and settlement.
+                            Post-quantum is a bytes-and-verification bill: standardized PQ signatures carry a permanent size tax on every transaction. If PQ is expensive, liquidity routes around it. The fastest safe domain wins routing for payments, clearing, and settlement.
                         </p>
                     </div>
                 </div>
@@ -408,7 +408,7 @@
                     EternaX's core thesis is that the institutional problem is not only future key compromise. It is issuing long-duration value onto rails that already embed avoidable control-plane exposure, privacy fragility, and expensive future migration. EternaX is positioned as the alternative: a system built from inception for PQ-native issuance, PQ-safe control planes, migration rails, wallet, custody, and policy infrastructure, auditable-private settlement, and market-speed execution across the full workflow: Issue. Migrate. Custody. Trade. Settle.
                 </p>
                 <p class="text-lg mt-4" style="color: var(--fg-80)">
-                    At the cryptographic core of EternaX is SILMARILS, the <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:inherit;">EternaX post-quantum signature scheme</a>, presented in EternaX's April 2026 framework with 160-byte signatures, 64-byte public keys, and an information-theoretic security model, with the paper available on <a href="https://arxiv.org/abs/2605.03230" style="color:inherit;">arXiv</a>.
+                    At the authentication layer of EternaX is <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:inherit;">SILMARILS</a>: a 160-byte designated-verifier signature primitive (two-party transferable DV mode with QROM analysis; three-party broadcast mode with simulation-based security and information-theoretic error 1/p). EternaX composes it with SPHINCS+ (NIST SLH-DSA) as the conservative post-quantum anchor in the identity layer, while validators verify compact SILMARILS records inside the validity path and a 32-byte receipt can support third-party checks after consensus. The formal construction and proofs are in <a href="https://arxiv.org/abs/2605.03230" style="color:inherit;">SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures</a> (arXiv:2605.03230), joint work by Hassan Khodaiemehr, Khadijeh Bagheri, Chen Feng (University of British Columbia), and Dariia Porechna (EternaX Labs), with an <a href="https://github.com/eternax-ai/silmarils-paper" style="color:inherit;">open-source Rust reference implementation</a>.
                 </p>
                 <p class="text-lg mt-4" style="color: var(--fg-80)">
                     The practical wedge is what makes the positioning credible: EternaX is not claiming post-quantum safety at the cost of unusable performance. Its framework presents a protocol-native post-quantum design benchmarked at ~2% TPS loss, while also citing ~90% throughput loss on Solana in live testnet under quantum-resistant signatures and framing retrofit migration on legacy rails as operationally and commercially unfit for institutional-scale finance.
@@ -425,8 +425,13 @@
         <!-- Research Section -->
         <section class="py-16 border-t" style="background-color: var(--bg); border-color: var(--border);">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-6" style="color: var(--fg)">Featured Research Reports</h2>
-                <div class="grid md:grid-cols-2 gap-6">
+                <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-6" style="color: var(--fg)">Featured Research</h2>
+                <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" class="glass-effect p-6 rounded-lg block hover:opacity-90 transition-opacity">
+                        <p class="text-xs mb-2" style="color: var(--fg-80)">Blog · Cryptography</p>
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--fg)">SILMARILS: Compact Post-Quantum Authentication</h3>
+                        <p class="text-sm" style="color: var(--fg-80)">Designated-verifier authentication without the full on-chain footprint of standardized PQ signatures; links to arXiv:2605.03230 and the reference implementation.</p>
+                    </a>
                     <a href="post-quantum-cryptography-risk-framework-for-institutions.html" class="glass-effect p-6 rounded-lg block hover:opacity-90 transition-opacity">
                         <p class="text-xs mb-2" style="color: var(--fg-80)">Research Report · April 2026</p>
                         <h3 class="text-xl font-semibold mb-2" style="color: var(--fg)">Cryptographic Migration Debt Framework</h3>

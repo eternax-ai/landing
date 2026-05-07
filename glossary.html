@@ -6,8 +6,8 @@
     
     <!-- PAGE-SPECIFIC: Update these for each page -->
     <title>Post-Quantum Cryptography Glossary - EternaX Labs | PQC Terms and Definitions</title>
-    <meta name="description" content="Authoritative definitions of post-quantum cryptography, blockchain security, and cryptographic migration debt terms. Includes: PQ-native, cryptographic migration debt, information-theoretic security, NIST PQC standards, auditable privacy, harvest-now-decrypt-later, and more.">
-    <meta name="keywords" content="quantum-safe settlement, post-quantum cryptography, PQ-native assets, post-quantum glossary, pqc terms, cryptographic migration debt definition, pq-native definition">
+    <meta name="description" content="Authoritative definitions of post-quantum cryptography, blockchain security, and cryptographic migration debt terms. Includes: SILMARILS, designated-verifier signatures, post-quantum size tax, PQ-native, cryptographic migration debt, information-theoretic security, NIST PQC standards, auditable privacy, harvest-now-decrypt-later, and more.">
+    <meta name="keywords" content="quantum-safe settlement, post-quantum cryptography, SILMARILS, designated-verifier signature, post-quantum size tax, PQ-native assets, post-quantum glossary, pqc terms, cryptographic migration debt definition, pq-native definition">
     <link rel="canonical" href="https://eternax.ai/glossary.html">
     
     <!-- Common metadata (same for all pages) -->
@@ -34,7 +34,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eternax.ai/glossary.html">
     <meta property="og:title" content="Post-Quantum Cryptography Glossary - EternaX Labs">
-    <meta property="og:description" content="Authoritative definitions of post-quantum cryptography, blockchain security, and cryptographic migration debt terms. Includes: PQ-native, cryptographic migration debt, information-theoretic security, NIST PQC standards, auditable privacy, harvest-now-decrypt-later, and more.">
+    <meta property="og:description" content="Authoritative definitions of post-quantum cryptography, blockchain security, and cryptographic migration debt terms. Includes: SILMARILS, designated-verifier signatures, post-quantum size tax, PQ-native, cryptographic migration debt, information-theoretic security, NIST PQC standards, auditable privacy, harvest-now-decrypt-later, and more.">
     <meta property="og:image" content="https://eternax.ai/assets/preview.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -46,7 +46,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://eternax.ai/glossary.html">
     <meta property="twitter:title" content="Post-Quantum Cryptography Glossary - EternaX Labs">
-    <meta property="twitter:description" content="Authoritative definitions of post-quantum cryptography, blockchain security, and cryptographic migration debt terms. Includes: PQ-native, cryptographic migration debt, information-theoretic security, NIST PQC standards, auditable privacy, harvest-now-decrypt-later, and more.">
+    <meta property="twitter:description" content="Authoritative definitions of post-quantum cryptography, blockchain security, and cryptographic migration debt terms. Includes: SILMARILS, designated-verifier signatures, post-quantum size tax, PQ-native, cryptographic migration debt, information-theoretic security, NIST PQC standards, auditable privacy, harvest-now-decrypt-later, and more.">
     <meta property="twitter:image" content="https://eternax.ai/assets/preview.png">
     <meta property="twitter:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
     <meta property="twitter:site" content="@EternaXlabs">
@@ -173,7 +173,7 @@
     {
       "@type": "DefinedTerm",
       "name": "Information-Theoretic Security",
-      "description": "Security not based on computational hardness assumptions and resilient regardless of attacker compute power.",
+      "description": "Security not based on computational hardness assumptions and resilient regardless of attacker compute power. Example: SILMARILS three-party broadcast mode with uniform 1/p error across IT, IT+ROM, and QROM.",
       "inDefinedTermSet": "https://eternax.ai/glossary.html"
     },
     {
@@ -221,7 +221,7 @@
     {
       "@type": "DefinedTerm",
       "name": "FN-DSA (Falcon)",
-      "description": "Compact lattice-based post-quantum signature scheme family with ~666 byte signatures at 128-bit security.",
+      "description": "Compact lattice-based post-quantum signature scheme family; representative ~690 byte signatures for Falcon-512 at 128-bit security.",
       "inDefinedTermSet": "https://eternax.ai/glossary.html"
     },
     {
@@ -264,6 +264,24 @@
       "@type": "DefinedTerm",
       "name": "PQ-Safe Vault",
       "description": "Preserve-first controls for treasuries, custodians, and exchanges that reduce cryptographic exposure immediately.",
+      "inDefinedTermSet": "https://eternax.ai/glossary.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SILMARILS",
+      "description": "EternaX designated-verifier signature primitive: 160-byte TDV mode with QROM analysis; three-party IT broadcast mode with simulation security and error 1/p. Composed with SPHINCS+ for conservative PQ identity anchoring. Paper arXiv:2605.03230.",
+      "inDefinedTermSet": "https://eternax.ai/glossary.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Designated-Verifier Signature",
+      "description": "Signature scheme where only the designated verifier confirms validity; can reduce authentication size versus public-verifier PQ in validator-mediated blockchain paths.",
+      "inDefinedTermSet": "https://eternax.ai/glossary.html"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Post-Quantum Size Tax",
+      "description": "Persistent bandwidth, storage, and verification overhead of large NIST-style PQ public signatures on every transaction in high-throughput systems.",
       "inDefinedTermSet": "https://eternax.ai/glossary.html"
     }
   ]
@@ -462,6 +480,7 @@
                         <a href="#institutional-risk" class="text-xs px-3 py-1 rounded-full border hover:opacity-70 transition-opacity" style="border-color: var(--border); color: var(--fg)">Institutional Risk</a>
                         <a href="#attack-taxonomy" class="text-xs px-3 py-1 rounded-full border hover:opacity-70 transition-opacity" style="border-color: var(--border); color: var(--fg)">Attack Taxonomy</a>
                         <a href="#pq-standards" class="text-xs px-3 py-1 rounded-full border hover:opacity-70 transition-opacity" style="border-color: var(--border); color: var(--fg)">PQ Standards</a>
+                        <a href="#silmarils-dv" class="text-xs px-3 py-1 rounded-full border hover:opacity-70 transition-opacity" style="border-color: var(--border); color: var(--fg)">SILMARILS &amp; DV Auth</a>
                         <a href="#infrastructure" class="text-xs px-3 py-1 rounded-full border hover:opacity-70 transition-opacity" style="border-color: var(--border); color: var(--fg)">Infrastructure</a>
                     </div>
                 </div>
@@ -480,7 +499,7 @@
                         </div>
                         <div class="glass-effect p-5 rounded-lg">
                             <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Information-Theoretic Security</h3>
-                            <p class="text-sm" style="color: var(--fg-80)">Security not based on computational hardness assumptions and resilient regardless of attacker compute power. Unlike computational security, information-theoretic security cannot be broken even with unlimited computational resources, including quantum computers.</p>
+                            <p class="text-sm" style="color: var(--fg-80)">Security not based on computational hardness assumptions and resilient regardless of attacker compute power. Unlike computational security, information-theoretic security cannot be broken even with unlimited computational resources, including quantum computers. In multi-party cryptography, constructions such as SILMARILS&rsquo;s three-party broadcast mode can achieve simulation-based security with uniform 1/p error across pure-IT, IT+ROM, and QROM analyses.</p>
                         </div>
                         <div class="glass-effect p-5 rounded-lg">
                             <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Cryptographically Relevant Quantum Computer (CRQC)</h3>
@@ -561,11 +580,11 @@
                         </div>
                         <div class="glass-effect p-5 rounded-lg">
                             <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">FN-DSA (Falcon)</h3>
-                            <p class="text-sm" style="color: var(--fg-80)">Compact lattice-based post-quantum signature scheme family frequently used as a throughput comparison baseline. ~666 byte signatures at 128-bit security. Often referenced in blockchain PQ migration analysis due to smaller signature size than ML-DSA.</p>
+                            <p class="text-sm" style="color: var(--fg-80)">Compact lattice-based post-quantum signature scheme family frequently used as a throughput comparison baseline. Representative sizes are on the order of ~690 bytes for Falcon-512 at 128-bit security (smaller than ML-DSA, still far larger than classical ECDSA/Ed25519). Often referenced in blockchain PQ migration analysis.</p>
                         </div>
                         <div class="glass-effect p-5 rounded-lg">
                             <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">SLH-DSA (SPHINCS+)</h3>
-                            <p class="text-sm" style="color: var(--fg-80)">NIST FIPS 205 stateless hash-based post-quantum signature standard. Security based only on hash function properties. Larger signatures (7,856-49,856 bytes) but conservative security assumptions.</p>
+                            <p class="text-sm" style="color: var(--fg-80)">NIST FIPS 205 stateless hash-based post-quantum signature standard. Security based only on hash function properties. Larger signatures (for example ~7,856 bytes for SPHINCS+-128s-style parameters up through tens of kilobytes at higher parameters) but conservative security assumptions. EternaX uses SPHINCS+ as a conservative post-quantum anchor in the identity layer alongside compact validator-path authentication.</p>
                         </div>
                         <div class="glass-effect p-5 rounded-lg">
                             <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">ML-KEM (Kyber)</h3>
@@ -582,13 +601,37 @@
                     </div>
                 </section>
 
+                <!-- SILMARILS and designated-verifier authentication -->
+                <section id="silmarils-dv" class="mb-12">
+                    <h2 class="text-2xl font-semibold mb-6 pb-2 border-b" style="color: var(--fg); border-color: var(--border)">SILMARILS and Designated-Verifier Authentication</h2>
+                    <p class="text-sm mb-6" style="color: var(--fg-80)">Terms aligned with EternaX&rsquo;s <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color: inherit;">SILMARILS</a> blog and <a href="https://arxiv.org/abs/2605.03230" style="color: inherit;">arXiv:2605.03230</a>.</p>
+                    <div class="space-y-4">
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">SILMARILS</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">EternaX&rsquo;s designated-verifier signature primitive for compact post-quantum transaction authentication: a 160-byte record at the 256-bit field level in the two-party transferable designated-verifier (TDV) mode analyzed in the ROM and QROM, plus a complementary three-party broadcast mode with simulation-based security and information-theoretic error 1/p. It is not a drop-in replacement for NIST-standardized public-verifier PQ signatures; it targets validator-mediated validity paths where consensus later supplies public audit evidence. See the paper &ldquo;SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures&rdquo; (<a href="https://arxiv.org/abs/2605.03230" style="color: inherit;">arXiv:2605.03230</a>) and the <a href="https://github.com/eternax-ai/silmarils-paper" style="color: inherit;">Rust reference implementation</a>.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Designated-Verifier (DV) Signature</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">A signature scheme where only an identified verifier (or set of protocol participants acting in that role) can confirm validity under the definition of the construction. Compared with public-verifier signatures, DV designs can shrink the authentication footprint when third parties are not meant to re-verify every message from public data alone. Blockchain validators already sit on the authorization path, which is a natural fit for analyzing DV constructions in throughput-sensitive post-quantum designs.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Post-Quantum Size Tax</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">The persistent bandwidth, storage, sync, and verification cost of deploying NIST-style post-quantum public signatures on every transaction and archival record. ML-DSA and SLH-DSA signatures are orders of magnitude larger than classical ECDSA/Ed25519; that overhead compounds for high-throughput chains and institutional-scale archives. Mitigations include protocol architectures that separate identity anchoring from per-transaction authentication and use compact records where the trust model allows.</p>
+                        </div>
+                        <div class="glass-effect p-5 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Dual-Layer Post-Quantum Authentication (EternaX)</h3>
+                            <p class="text-sm" style="color: var(--fg-80)">Separation of concerns between long-lived identity anchoring and transaction-time authorization: conservative hash-based signing (SPHINCS+ / SLH-DSA) for the post-quantum anchor where public verification from standard assumptions is required, and SILMARILS for a compact authentication layer inside the validator validity path, with a small published receipt (for example 32 bytes) for independent checks after consensus where the protocol defines it.</p>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Infrastructure Section -->
                 <section id="infrastructure" class="mb-12">
                     <h2 class="text-2xl font-semibold mb-6 pb-2 border-b" style="color: var(--fg); border-color: var(--border)">Infrastructure and Settlement</h2>
                     <div class="space-y-4">
                         <div class="glass-effect p-5 rounded-lg">
                             <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Auditable Privacy</h3>
-                            <p class="text-sm" style="color: var(--fg-80)">Privacy model combining confidential transaction data with selective disclosure and verifiable settlement proofs. Confidential by default, verifiable in settlement, selectively disclosable under policy. Designed for routing that needs confidentiality without losing accountability.</p>
+                            <p class="text-sm" style="color: var(--fg-80)">Privacy model combining confidential transaction data with selective disclosure and verifiable settlement proofs. Confidential by default, verifiable in settlement, selectively disclosable under policy. Designed for routing that needs confidentiality without losing accountability. Where authentication is validator-mediated rather than a permanent public per-account signature object, the ledger can reduce persistent account-graph exposure; EternaX builds tiered selective disclosure and per-transaction unlinkability against external observers on that structure (see the SILMARILS companion discussion).</p>
                         </div>
                         <div class="glass-effect p-5 rounded-lg">
                             <h3 class="text-lg font-semibold mb-2" style="color: var(--fg)">Spendable Finality</h3>
@@ -621,6 +664,10 @@
                 <section class="mt-12 pt-8 border-t" style="border-color: var(--border)">
                     <p class="text-sm mb-4" style="color: var(--fg-80)">For detailed analysis of these concepts in institutional context, see:</p>
                     <div class="flex flex-wrap gap-4">
+                        <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" class="glass-effect px-4 py-3 rounded-lg hover:opacity-90 transition-opacity inline-block">
+                            <span class="text-sm font-semibold block" style="color: var(--fg)">SILMARILS: Compact Post-Quantum Authentication</span>
+                            <span class="text-xs" style="color: var(--fg-80)">Blog · arXiv:2605.03230 · reference implementation</span>
+                        </a>
                         <a href="post-quantum-cryptography-risk-framework-for-institutions.html" class="glass-effect px-4 py-3 rounded-lg hover:opacity-90 transition-opacity inline-block">
                             <span class="text-sm font-semibold block" style="color: var(--fg)">Cryptographic Migration Debt Framework</span>
                             <span class="text-xs" style="color: var(--fg-80)">April 2026 · Institutional post-quantum exposure framework</span>
