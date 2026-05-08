@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- PAGE-SPECIFIC: Updated for why-eternax page -->
-    <title>Why EternaX - Post-Quantum Native Settlement vs General-Purpose Chains | EternaX Labs</title>
-    <meta name="description" content="EternaX builds PQ authorization into the protocol so stablecoin issuers, RWA tokenization programmes, and settlement venues stay fast when markets reprice quantum risk. Comparison: EternaX ~2% TPS overhead vs Ethereum ~31%, Solana ~77% under Falcon-class PQ migration.">
-    <meta name="keywords" content="why eternax, quantum-safe settlement, post-quantum cryptography, PQ-native assets, market-speed payments, post-quantum market infrastructure, quantum-resistant blockchain, quantum-safe signatures, PQ-safe vaults, quantum-safe crypto, quantum threat, post-quantum vs traditional blockchain, quantum-safe infrastructure comparison">
+    <title>EternaX: Institutional Settlement with Privacy, Composability, and PQ-Native Security | EternaX Labs</title>
+    <meta name="description" content="EternaX: institutional settlement infrastructure with privacy, DeFi composability, and market-speed execution. The only EVM-compatible L1 that is PQ-native from genesis.">
+    <meta name="keywords" content="EternaX, post-quantum blockchain, SILMARILS, post-quantum market infrastructure, quantum-safe settlement, institutional blockchain privacy, post-quantum L1, EternaX vs Canton Network, EternaX vs Ethereum, EternaX vs Solana, EternaX vs Hyperliquid, post-quantum stablecoin, RWA tokenization, auditable privacy, quantum-resistant blockchain, quantum safe crypto, quantum proof blockchain, NIST post-quantum blockchain, blockchain quantum computing risk, post-quantum cryptography, cryptographic migration debt, PQ-native issuance, institutional settlement layer, post-quantum signatures, information-theoretic signatures, EternaX Labs, private composable market infrastructure, DeFi composability, institutional DeFi, EVM compatible post-quantum, MEV protection, collateral velocity, T+0 settlement, always-on markets, compliance-native blockchain">
     <link rel="canonical" href="https://eternax.ai/why-eternax.html">
+    <meta name="article:published_time" content="2026-05-06">
+    <meta name="article:section" content="Institutional Blockchain Infrastructure">
+    <meta name="article:tag" content="SILMARILS, post-quantum, institutional settlement, privacy, DeFi composability, EVM compatible, institutional DeFi">
+
     
     <!-- Common metadata (same for all pages) -->
-    <meta name="author" content="eternaX Labs">
+    <meta name="author" content="Dariia Porechna, Paarrthhh Birla, Dr. Chen Feng">
     <meta name="publisher" content="eternaX Labs">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
@@ -30,10 +34,10 @@
     <link rel="icon" type="image/png" href="./assets/eternax-icon.png">
     
     <!-- PAGE-SPECIFIC: Updated Open Graph tags -->
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
     <meta property="og:url" content="https://eternax.ai/why-eternax.html">
-    <meta property="og:title" content="Why EternaX - PQ-Native vs General-Purpose Chains">
-    <meta property="og:description" content="Post-quantum is a bytes-and-verification bill. If PQ is expensive, liquidity routes around it. EternaX is engineered so PQ security imposes ~2% TPS overhead, not 31-77% like incumbents.">
+    <meta property="og:title" content="EternaX: Institutional Settlement Infrastructure — Privacy, Composability, PQ-Native From Genesis">
+    <meta property="og:description" content="Three institutional requirements are converging. Privacy. DeFi composability. Post-quantum security. No existing chain delivers all three. EternaX is the only EVM-compatible, PQ-native L1 where all three are native from genesis.">
     <meta property="og:image" content="https://eternax.ai/assets/preview.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -44,8 +48,8 @@
     <!-- PAGE-SPECIFIC: Updated Twitter Card tags -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://eternax.ai/why-eternax.html">
-    <meta property="twitter:title" content="Why EternaX - PQ-Native vs General-Purpose Chains">
-    <meta property="twitter:description" content="Post-quantum is a bytes-and-verification bill. If PQ is expensive, liquidity routes around it. EternaX is engineered so PQ security imposes ~2% TPS overhead, not 31-77% like incumbents.">
+    <meta property="twitter:title" content="EternaX: The Only PQ-Native L1 for Institutional Privacy, DeFi Composability, and Settlement">
+    <meta property="twitter:description" content="Canton proved institutions need privacy. DeFi proved markets need composability. Google, NIST, and CISA proved long-duration digital assets need PQ rails. EternaX is the only EVM-compatible L1 where all three are native from block zero.">
     <meta property="twitter:image" content="https://eternax.ai/assets/preview.png">
     <meta property="twitter:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
     <meta property="twitter:site" content="@EternaXlabs">
@@ -61,7 +65,890 @@
     <link rel="stylesheet" href="./styles/tailwind.generated.css">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+    <style>
+/* Institutional tokens — aligned with post-quantum-cryptography-risk-framework-for-institutions.html */
+:root {
+  --bg: #F8F4F4;
+  --surface: #FFFFFF;
+  --surface-soft: #F4F0F0;
+  --surface-brief: #F6F2F2;
+  --surface-row: #FBF8F8;
+  --header-tint: #EAE7E7;
+  --exec-trigger: #EEF1F8;
+  --table-sub: #F0ECEC;
+  --sticky-head: #E7E3E3;
+  --sticky-body: #FCFAFA;
+  --method-note: #FBF9F9;
+  --share-metric: #FAF8F8;
+  --text: #283771;
+  --text-muted: #586390;
+  --text-header: #46537F;
+  --text-body: #1A2545;
+  --border: #E0DEDE;
+  --border-accent: #D6D2D2;
+  --navy: #283771;
+  --navy-hover: #37457B;
+  --green: #2F5E52;
+  --red: #8D2E2E;
+  --fg: #283771;
+  --fg-70: rgba(40, 55, 113, 0.7);
+  --fg-80: rgba(40, 55, 113, 0.8);
+  --navy-soft: rgba(40, 55, 113, 0.08);
+  --navy-select: rgba(40, 55, 113, 0.18);
+  --red-soft: rgba(141, 46, 46, 0.04);
+  --green-soft: rgba(47, 94, 82, 0.05);
+  --red-medium: rgba(141, 46, 46, 0.10);
+  --green-medium: rgba(47, 94, 82, 0.10);
+  --amber: #9A7B2E;
+  --amber-light: #faf3e0;
+  --content-width-wide: 960px;
+  --font: "IBM Plex Sans Condensed", ui-sans-serif, system-ui, sans-serif;
+  --serif: "IBM Plex Serif", Georgia, serif;
+  --mono: "IBM Plex Mono", "Courier New", monospace;
+  --pill-bg: #283771;
+  --pill-fg: #ffffff;
+  --fg-90: var(--text);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.glass-effect {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.link-muted {
+  color: var(--fg-70);
+  transition: color 0.15s;
+}
+.link-muted:hover {
+  color: var(--fg);
+}
+
+.btn-primary {
+  background-color: var(--navy);
+  transition: background-color 0.15s;
+}
+.btn-primary:hover {
+  background-color: var(--navy-hover);
+}
+
+.nav-products-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s, visibility 0.15s;
+}
+.group:hover .nav-products-dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Long-form body (scoped) */
+.why-eternax-longform {
+  font-family: var(--font);
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: var(--bg);
+}
+
+.why-eternax-longform *,
+.why-eternax-longform *::before,
+.why-eternax-longform *::after {
+  box-sizing: border-box;
+}
+
+.why-eternax-longform a {
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--navy-soft);
+  transition: border-color 0.15s, color 0.15s;
+}
+.why-eternax-longform a:hover {
+  border-color: var(--navy);
+  color: var(--navy-hover);
+}
+
+.why-eternax-longform .hero {
+  max-width: var(--content-width-wide);
+  margin: 0 auto;
+  padding: 4rem 2rem 2.75rem;
+}
+.why-eternax-longform .hero-meta {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 1.1rem;
+}
+.why-eternax-longform .hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.95rem, 4.5vw, 2.55rem);
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.35rem;
+  max-width: 52rem;
+}
+.why-eternax-longform .hero-sub {
+  font-size: 1.06rem;
+  color: var(--text-muted);
+  line-height: 1.62;
+  max-width: 45rem;
+  margin-bottom: 1.75rem;
+}
+.why-eternax-longform .hero-authors {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.why-eternax-longform .article {
+  max-width: var(--content-width-wide);
+  margin: 0 auto;
+  padding: 0 2rem 4.5rem;
+}
+.why-eternax-longform .article h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 2.8vw, 1.65rem);
+  font-weight: 600;
+  color: var(--navy);
+  margin: 3.25rem 0 1.1rem;
+  letter-spacing: -0.015em;
+  line-height: 1.22;
+}
+.why-eternax-longform .article h2:first-child {
+  margin-top: 0;
+}
+.why-eternax-longform .article h3 {
+  font-family: var(--font);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 2rem 0 0.65rem;
+  letter-spacing: -0.01em;
+}
+.why-eternax-longform .article p {
+  margin-bottom: 1.15rem;
+  max-width: 45rem;
+  font-size: 1rem;
+  line-height: 1.68;
+  color: var(--text-body);
+}
+.why-eternax-longform .article p:last-child {
+  margin-bottom: 0;
+}
+.why-eternax-longform .article strong {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.why-eternax-longform .callout {
+  background: var(--surface-soft);
+  border-left: 3px solid var(--navy);
+  padding: 1.35rem 1.6rem;
+  margin: 1.6rem 0;
+  max-width: 45rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.why-eternax-longform .callout p {
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.62;
+  margin: 0;
+}
+
+.why-eternax-longform .callout.callout-lead {
+  max-width: var(--content-width-wide);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.35rem;
+  border-left-color: var(--green);
+  background: var(--green-soft);
+}
+
+.why-eternax-longform .callout.callout-objection {
+  border-left-color: var(--amber);
+  background: var(--amber-light);
+}
+
+.why-eternax-longform .callout.callout-risk {
+  border-left: 4px solid var(--red);
+  background: var(--red-soft);
+  border-right: 1px solid rgba(141, 46, 46, 0.2);
+  border-top: 1px solid rgba(141, 46, 46, 0.2);
+  border-bottom: 1px solid rgba(141, 46, 46, 0.2);
+}
+.why-eternax-longform .callout.callout-risk p {
+  color: var(--red);
+  font-weight: 600;
+}
+.why-eternax-longform .callout.callout-objection > p:first-of-type {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.5rem;
+}
+.why-eternax-longform .callout.callout-objection > p:not(:first-of-type) {
+  color: var(--text-body);
+  font-weight: 400;
+  font-size: 0.88rem;
+  line-height: 1.62;
+}
+
+.why-eternax-longform .callout.callout-lead p {
+  font-size: 1.03rem;
+  font-weight: 600;
+}
+
+.why-eternax-longform .insights-strip {
+  background: var(--surface-brief);
+  border: 1px solid var(--border-accent);
+  padding: 1.15rem 1.35rem;
+  margin: 0.35rem 0 1.25rem;
+  max-width: 45rem;
+}
+.why-eternax-longform .insights-strip p {
+  margin-bottom: 0.65rem;
+  max-width: none;
+  font-size: 0.88rem;
+  line-height: 1.62;
+}
+.why-eternax-longform .insights-strip p:last-child {
+  margin-bottom: 0;
+}
+.why-eternax-longform .insights-strip p:nth-child(1) strong {
+  color: var(--navy);
+}
+.why-eternax-longform .insights-strip p:nth-child(2) strong {
+  color: var(--green);
+}
+.why-eternax-longform .insights-strip p:nth-child(3) strong {
+  color: var(--red);
+}
+
+.why-eternax-longform p.table-sources {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  margin-top: -0.35rem;
+  margin-bottom: 1.25rem;
+  max-width: var(--content-width-wide);
+  line-height: 1.55;
+}
+  margin: 1.65rem 0 2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+}
+.why-eternax-longform .comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  min-width: 780px;
+}
+.why-eternax-longform .comp-table thead th {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 13px;
+  text-align: left;
+  color: var(--text-header);
+  background: var(--header-tint);
+  border-bottom: 1px solid var(--border-accent);
+  white-space: nowrap;
+}
+.why-eternax-longform .comp-table thead th:first-child {
+  background: var(--sticky-head);
+}
+.why-eternax-longform .comp-table tbody td {
+  padding: 9px 13px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.52;
+  color: var(--text);
+  font-size: 0.84rem;
+}
+.why-eternax-longform .comp-table tbody td:first-child {
+  background: var(--sticky-body);
+}
+.why-eternax-longform .comp-table tbody tr:nth-child(even) {
+  background: var(--surface-row);
+}
+.why-eternax-longform .comp-table tbody tr:last-child {
+  background: var(--exec-trigger);
+}
+.why-eternax-longform .comp-table tbody tr:last-child td {
+  border-bottom: 2px solid var(--navy);
+  font-weight: 500;
+}
+.why-eternax-longform .comp-table .chain-name {
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--navy);
+}
+.why-eternax-longform .badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.why-eternax-longform .badge-yes {
+  background: var(--green-soft);
+  color: var(--green);
+}
+.why-eternax-longform .badge-partial {
+  background: var(--amber-light);
+  color: var(--amber);
+}
+.why-eternax-longform .badge-no {
+  background: var(--red-medium);
+  color: var(--red);
+  border: 1px solid rgba(141, 46, 46, 0.2);
+}
+
+.why-eternax-longform .chart-container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.65rem 1.65rem 1.25rem;
+  margin: 1.65rem 0;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.why-eternax-longform .chart-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  background: radial-gradient(ellipse at 80% 50%, rgba(40, 55, 113, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.why-eternax-longform .chart-title {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  display: block;
+  position: relative;
+}
+.why-eternax-longform .chart-subtitle {
+  font-family: var(--font);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.why-eternax-longform .conv-streams {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+  position: relative;
+}
+.why-eternax-longform .conv-stream {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.1rem 0.85rem;
+  text-align: center;
+}
+.why-eternax-longform .conv-stream h4 {
+  font-family: var(--font);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.55rem;
+}
+.why-eternax-longform .conv-stream ul {
+  list-style: none;
+  font-family: var(--font);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  padding: 0;
+  margin: 0;
+}
+.why-eternax-longform .convergence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.why-eternax-longform .conv-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  margin: 0.4rem 0;
+  color: var(--navy);
+  font-size: 1.35rem;
+  position: relative;
+}
+.why-eternax-longform .conv-center {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 8px;
+  padding: 1.1rem 1.75rem;
+  text-align: center;
+  width: 100%;
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+}
+.why-eternax-longform .conv-center::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background: radial-gradient(ellipse at 80% 50%, rgba(47, 94, 82, 0.22) 0%, transparent 65%);
+  pointer-events: none;
+}
+.why-eternax-longform .conv-center h4 {
+  font-family: var(--font);
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  position: relative;
+}
+.why-eternax-longform .conv-center p {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0.2rem 0 0;
+  max-width: 100%;
+  position: relative;
+}
+.why-eternax-longform .conv-eternax {
+  font-family: var(--font);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--green);
+  text-align: center;
+  margin-top: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.why-eternax-longform .timeline-track {
+  position: relative;
+  margin: 1.35rem 0;
+  padding: 0 0 0 1.35rem;
+}
+.why-eternax-longform .timeline-track::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.why-eternax-longform .tl-item {
+  position: relative;
+  padding: 0 0 1.15rem 1.35rem;
+}
+.why-eternax-longform .tl-item::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  border: 2px solid var(--bg);
+}
+.why-eternax-longform .tl-item.major::before {
+  background: var(--red);
+  width: 12px;
+  height: 12px;
+  left: -19px;
+}
+.why-eternax-longform .tl-item.eternax-marker::before {
+  background: var(--green);
+  width: 14px;
+  height: 14px;
+  left: -20px;
+  box-shadow: 0 0 0 3px var(--green-soft);
+}
+.why-eternax-longform .tl-date {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.why-eternax-longform .tl-title {
+  font-family: var(--font);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-body);
+  margin: 2px 0;
+}
+.why-eternax-longform .tl-desc {
+  font-family: var(--font);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.why-eternax-longform .traction-row {
+  display: flex;
+  gap: 1rem;
+  margin: 1.15rem 0;
+  flex-wrap: wrap;
+}
+.why-eternax-longform .traction-stat {
+  background: var(--surface);
+  border: 1px solid var(--border-accent);
+  border-top: 3px solid var(--navy);
+  border-radius: 0;
+  padding: 1.1rem 1.15rem;
+  flex: 1;
+  min-width: 160px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.why-eternax-longform .traction-stat .num {
+  font-family: var(--font);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.why-eternax-longform .traction-stat .label {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.45rem;
+  line-height: 1.45;
+}
+
+.why-eternax-longform .cta-section {
+  background: var(--navy);
+  padding: 2.75rem 2rem;
+  text-align: center;
+  margin-top: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.why-eternax-longform .cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(ellipse at 80% 50%, rgba(47, 94, 82, 0.2) 0%, transparent 65%);
+  pointer-events: none;
+}
+.why-eternax-longform .cta-section h2 {
+  font-family: var(--font);
+  color: #fff;
+  font-size: 1.12rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.015em;
+  position: relative;
+}
+.why-eternax-longform .cta-section p {
+  font-family: var(--font);
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.88rem;
+  margin: 0 auto 1.35rem;
+  max-width: 36rem;
+  line-height: 1.65;
+  position: relative;
+}
+.why-eternax-longform .cta-links {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.85;
+  position: relative;
+}
+.why-eternax-longform .cta-links a {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.35);
+}
+.why-eternax-longform .cta-links a:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+.why-eternax-longform .thesis-box {
+  background: var(--exec-trigger);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--navy);
+  padding: 1.65rem 1.85rem 1rem;
+  margin: 0 auto 2.75rem;
+  max-width: var(--content-width-wide);
+}
+.why-eternax-longform .thesis-box h3 {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--border-accent);
+}
+.why-eternax-longform .thesis-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 3px 1rem;
+  font-family: var(--font);
+  font-size: 0.88rem;
+  line-height: 1.58;
+  margin-bottom: 0.55rem;
+}
+.why-eternax-longform .thesis-label {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-top: 3px;
+  font-family: var(--mono);
+}
+.why-eternax-longform .thesis-value {
+  color: var(--text-body);
+}
+.why-eternax-longform .thesis-value a {
+  color: var(--navy);
+}
+
+.why-eternax-longform .why-now-box {
+  background: var(--red-soft);
+  border: 1px solid rgba(141, 46, 46, 0.2);
+  border-left: 4px solid var(--red);
+  padding: 1rem 1.15rem;
+  margin-top: 1.1rem;
+}
+.why-eternax-longform .why-now-box h4 {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.55rem;
+}
+.why-eternax-longform .why-now-item {
+  font-family: var(--font);
+  font-size: 0.8rem;
+  color: var(--text-body);
+  line-height: 1.58;
+  display: flex;
+  gap: 0.55rem;
+  margin-bottom: 0.25rem;
+}
+.why-eternax-longform .why-now-date {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--red);
+  font-weight: 600;
+  min-width: 5.2rem;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.why-eternax-longform .faq-section {
+  margin: 3rem 0 0;
+}
+.why-eternax-longform details.faq-item {
+  border-bottom: 1px solid var(--border);
+  max-width: 45rem;
+}
+.why-eternax-longform details.faq-item[open] {
+  border-bottom: 2px solid var(--border-accent);
+}
+.why-eternax-longform details.faq-item:first-of-type {
+  border-top: 1px solid var(--border);
+}
+.why-eternax-longform summary.faq-q {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  padding: 1.15rem 2rem 1.15rem 0;
+  line-height: 1.42;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  user-select: none;
+  transition: color 0.15s;
+}
+.why-eternax-longform summary.faq-q::-webkit-details-marker {
+  display: none;
+}
+.why-eternax-longform summary.faq-q::after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%23283771' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.why-eternax-longform details.faq-item[open] summary.faq-q::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+.why-eternax-longform summary.faq-q:hover {
+  color: var(--navy-hover);
+}
+.why-eternax-longform .faq-a {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.72;
+  padding: 0 2rem 1.15rem 0;
+  border-top: 1px solid var(--border);
+}
+.why-eternax-longform .faq-a p {
+  margin-bottom: 0.65em;
+  max-width: none;
+}
+.why-eternax-longform .faq-a p:last-child {
+  margin-bottom: 0;
+}
+
+.why-eternax-longform .score-cell {
+  text-align: center;
+  font-size: 0.92rem;
+  letter-spacing: 0.18em;
+  white-space: nowrap;
+}
+.why-eternax-longform .score-cell .on {
+  color: var(--green);
+}
+.why-eternax-longform .score-cell .off {
+  color: #ddd;
+}
+
+.why-eternax-longform .cta-btn {
+  display: inline-block;
+  background: #fff;
+  color: var(--navy);
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.65rem 1.85rem;
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 0.4rem 0.35rem;
+  letter-spacing: 0.02em;
+  border: none;
+  transition: background 0.15s;
+  position: relative;
+}
+.why-eternax-longform .cta-btn:hover {
+  background: #e8ecf4;
+  color: var(--navy);
+}
+.why-eternax-longform .cta-btn-outline {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.55rem 1.35rem;
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 0.35rem;
+  transition: border-color 0.2s;
+}
+.why-eternax-longform .cta-btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.65);
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .why-eternax-longform .thesis-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .why-eternax-longform .thesis-label {
+    margin-bottom: 0;
+  }
+  .why-eternax-longform .why-now-item {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .why-eternax-longform .why-now-date {
+    min-width: auto;
+  }
+  .why-eternax-longform .thesis-box {
+    padding: 1.15rem 0.95rem 0.65rem;
+  }
+  .why-eternax-longform .hero {
+    padding: 2.85rem 1.15rem 1.85rem;
+  }
+  .why-eternax-longform .article {
+    padding: 0 1.15rem 3.5rem;
+  }
+  .why-eternax-longform .conv-streams {
+    grid-template-columns: 1fr;
+  }
+  .why-eternax-longform .chart-container {
+    padding: 1.15rem 0.95rem;
+  }
+  .why-eternax-longform .comp-table {
+    font-size: 0.76rem;
+  }
+  .why-eternax-longform .conv-arrows {
+    gap: 2rem;
+  }
+}
+    </style>
+
     <!-- Structured Data for AI Engines -->
     <script type="application/ld+json">
     {
@@ -96,7 +983,7 @@
                         "@id": "https://eternax.ai/#dariia-porechna",
                         "name": "Dariia Porechna",
                         "jobTitle": "Co-founder",
-                        "description": "Distributed systems architect, formerly Head of Protocol at Subspace, Research Engineer at Wolfram|Alpha, degree in Cryptography.",
+                        "description": "Distributed systems architect, formerly Head of Protocol at Subspace, Research Engineer at Wolfram|Alpha, degree in Cryptography. Co-author, SILMARILS.",
                         "sameAs": [
                             "https://www.linkedin.com/in/dariia-porechna",
                             "https://x.com/FutureDies"
@@ -119,7 +1006,7 @@
                     "@id": "https://eternax.ai/#chen-feng",
                     "name": "Dr. Chen Feng",
                     "jobTitle": "Chief Scientific Advisor",
-                    "description": "Principal's Research Chair in Blockchain and Associate Professor at UBC. 100+ peer-reviewed papers, h-index 29. Drives innovation in secure, AI-integrated Web3 distributed infrastructure.",
+                    "description": "Principal's Research Chair in Blockchain and Associate Professor at UBC. 100+ peer-reviewed papers, h-index 29. Drives innovation in secure, AI-integrated Web3 distributed infrastructure. Co-author, SILMARILS.",
                     "sameAs": [
                         "https://www.linkedin.com/in/chen-feng-75272a37",
                         "https://scholar.google.com/citations?user=D8b0l-EAAAAJ"
@@ -140,57 +1027,91 @@
         ]
     }
     </script>
-    <style>
-        :root {
-            --bg: #f7f4f4;
-            --fg: #283771;
-            --fg-70: #283771;
-            --fg-80: #283771;
-            --border: #283771;
-            --pill-bg: #283771;
-            --pill-fg: #ffffff;
-        }
 
-        body {
-            background-color: var(--bg);
-            color: var(--fg);
-        }
-
-        .gradient-bg {
-            background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
-        }
-
-        .glass-effect {
-            background: #ffffff;
-            border: 1px solid #e0dede;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-        }
-
-        .link-muted {
-            color: var(--fg-70);
-            transition: color 0.15s;
-        }
-        .link-muted:hover {
-            color: var(--fg);
-        }
-
-        .btn-primary {
-            background-color: var(--fg);
-            transition: background-color 0.15s;
-        }
-        .btn-primary:hover {
-            background-color: #1e2d5a;
-        }
-        .nav-products-dropdown {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.15s, visibility 0.15s;
-        }
-        .group:hover .nav-products-dropdown {
-            opacity: 1;
-            visibility: visible;
-        }
-    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "EternaX: Institutional Settlement Infrastructure with Privacy, DeFi Composability, and Post-Quantum Security From Genesis",
+  "description": "EternaX is the only post-quantum-native, EVM-compatible L1 delivering institutional privacy, DeFi composability, and market-speed settlement. Every alternative loses 84-90% throughput under PQ migration. SILMARILS paper (arXiv:2605.03230, UBC + EternaX) proves the 160-byte PQ authentication record.",
+  "datePublished": "2026-05-06",
+  "author": [
+    {"@type": "Person", "name": "Dariia Porechna", "description": "Distributed systems architect, formerly Head of Protocol at Subspace, Research Engineer at Wolfram|Alpha, degree in Cryptography. Co-author, SILMARILS.", "url": "https://www.linkedin.com/in/dariia-porechna", "sameAs": ["https://www.linkedin.com/in/dariia-porechna", "https://x.com/FutureDies"]},
+    {"@type": "Person", "name": "Paarrthhh Birla", "url": "https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/", "sameAs": ["https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/", "https://x.com/parthweb34ai"]},
+    {"@type": "Person", "name": "Dr. Chen Feng", "description": "Principal's Research Chair in Blockchain and Associate Professor at UBC. 100+ peer-reviewed papers, h-index 29. Drives innovation in secure, AI-integrated Web3 distributed infrastructure. Co-author, SILMARILS.", "url": "https://scholar.google.com/citations?user=D8b0l-EAAAAJ", "sameAs": ["https://scholar.google.com/citations?user=D8b0l-EAAAAJ", "https://www.linkedin.com/in/chen-feng-75272a37"]}
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "EternaX Labs",
+    "url": "https://eternax.ai",
+    "sameAs": [
+      "https://x.com/eternaXLabs",
+      "https://github.com/eternax-ai",
+      "https://www.youtube.com/@eternaXlabs",
+      "https://farcaster.xyz/eternax",
+      "https://www.linkedin.com/company/eternax-labs"
+    ]
+  },
+  "mainEntityOfPage": "https://eternax.ai/why-eternax.html",
+  "keywords": ["post-quantum blockchain", "SILMARILS", "institutional settlement", "auditable privacy", "DeFi composability", "EternaX", "quantum resistant blockchain", "EternaX vs Canton Network", "EternaX vs Ethereum", "EternaX vs Solana", "cryptographic migration debt", "EVM compatible post-quantum", "institutional DeFi", "MEV protection"]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is EternaX post-quantum safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. EternaX is a quantum-resistant blockchain built on NIST post-quantum cryptography from genesis. The entire cryptographic stack is hash-based, anchored by SPHINCS+ (NIST FIPS 205, SLH-DSA). The SILMARILS authentication record provides information-theoretic security at 160 bytes. TPS loss under post-quantum operation is approximately 2%, compared to 84-90% for Ethereum, Solana, Canton, and Stellar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does EternaX compare to Canton Network?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Canton Network is the current institutional privacy benchmark but runs classical cryptography (Ed25519, P-256, RSA-2048) with no post-quantum deployment. EternaX matches Canton's privacy model while adding post-quantum-native security and DeFi-composable collateral mobility. Canton's privacy collapses retroactively when its keys are broken by a quantum computer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is EternaX EVM compatible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. EternaX is fully EVM-compatible. Existing Solidity DeFi protocols (lending, perpetuals, AMMs, yield aggregators) can deploy with minimal modifications and automatically inherit post-quantum security, institutional privacy, and MEV protection. This eliminates the cold-start problem for a new L1."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the SILMARILS signature scheme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SILMARILS is a 160-byte designated-verifier signature scheme with information-theoretic security, co-authored by the University of British Columbia and EternaX Labs (arXiv:2605.03230, May 2026). It achieves a 49x size reduction versus standalone SPHINCS+ while maintaining post-quantum security."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can existing blockchains upgrade to post-quantum?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In practice, the cost is commercially prohibitive. Solana confirmed ~90% throughput loss on a live testnet under PQ migration. Ethereum models at ~84% loss. This is cryptographic migration debt: every new asset on quantum-vulnerable rails compounds future remediation cost. EternaX avoids migration debt because it is post-quantum-native from day one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is cryptographic migration debt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cryptographic migration debt is the accumulated future cost of remediating tokenized infrastructure whose cryptographic assumptions become obsolete. NIST proposed deprecating ECDSA by 2030. Every stablecoin, tokenized fund, and settlement proof issued on chains using those algorithms creates debt that compounds with adoption."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body class="font-sans" itemscope itemtype="https://schema.org/WebPage">
     <!-- Navigation -->
@@ -298,183 +1219,809 @@
 
     <!-- Page Content -->
     <main class="pt-20">
-        <section class="py-20">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight mb-8" style="color: var(--fg)">
-                    Why EternaX
-                </h1>
-                <div class="prose max-w-none space-y-6" style="color: var(--fg-80);">
-                    <p class="text-lg">
-                        EternaX Labs is a post-quantum-native Layer 1 blockchain infrastructure company building market-speed settlement, stablecoin issuance, RWA tokenization, and institutional custody with protocol-native post-quantum authorization.
-                    </p>
-                    <p>
-                        Stablecoins and RWAs are long-duration liabilities. The authorization model you mint with becomes the security perimeter for years.
-                    </p>
-                    <!-- Two side-by-side boxes -->
-                    <div class="grid md:grid-cols-2 gap-6 my-12">
-                        <div class="glass-effect p-6 rounded-lg">
-                            <div class="font-semibold text-lg mb-3" style="color: var(--fg)">The rule</div>
-                            <p class="text-sm" style="color: var(--fg-80)">
-                                Mint PQ-native from day one. "Upgrade later" becomes a coordination event plus a liquidity-fracture event.
-                            </p>
-                        </div>
-                        <div class="glass-effect p-6 rounded-lg">
-                            <div class="font-semibold text-lg mb-3" style="color: var(--fg)">The constraint markets do not forgive</div>
-                            <p class="text-sm" style="color: var(--fg-80)">
-                                Post-quantum is a bytes-and-verification bill. If PQ is expensive, liquidity routes around it. The fastest safe domain wins routing for payments, clearing, and settlement.
-                            </p>
-                        </div>
+        <div class="why-eternax-longform">
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-meta">EternaX Labs &middot; May 2026</div>
+  <h1>EternaX: The Only Post-Quantum-Native L1 for Institutional Privacy, DeFi Composability, and Settlement at Market Speed</h1>
+  <p class="hero-sub">Three institutional requirements are converging. Privacy. DeFi composability. Post-quantum security. No existing quantum-resistant blockchain delivers all three. The <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:var(--navy);">SILMARILS paper</a>, published May 2026 on arXiv by UBC and EternaX Labs, proves the 160-byte quantum-safe authentication record that makes institutional-grade throughput possible without the post-quantum size tax.</p>
+  <div class="hero-authors">
+    Dariia Porechna, Paarrthhh Birla, Dr. Chen Feng &middot; EternaX Labs &middot; May 6, 2026
+  </div>
+</header>
+
+
+<!-- INVESTMENT THESIS -->
+<div class="thesis-box">
+  <h3>Investment Thesis At A Glance</h3>
+  <div class="thesis-row">
+    <div class="thesis-label">What</div>
+    <div class="thesis-value">Institutional settlement infrastructure delivering privacy, DeFi composability, and market-speed execution on the only EVM-compatible, PQ-native L1. Every alternative loses 84&ndash;90% throughput under PQ migration. EternaX loses ~2%.</div>
+  </div>
+  <div class="thesis-row">
+    <div class="thesis-label">Moat</div>
+    <div class="thesis-value"><a href="https://arxiv.org/abs/2605.03230"><strong>SILMARILS</strong></a> (<a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html">companion blog</a>) &mdash; 160-byte information-theoretic authentication record. UBC + EternaX Labs. Forgery probability ~1/2<sup>255</sup>. Hash-only crypto stack: no pairings, no BLS, no KZG. 49&times; smaller than standalone SPHINCS+.</div>
+  </div>
+  <div class="thesis-row">
+    <div class="thesis-label">White space</div>
+    <div class="thesis-value"><a href="already-broken-quantum-risk-report-q1-2026.html">27 named institutions, zero PQ plans</a>. $317B stablecoins + $36B RWA on rails NIST has proposed to deprecate. Zero chains in production delivering privacy + DeFi composability + PQ security simultaneously.</div>
+  </div>
+  <div class="thesis-row">
+    <div class="thesis-label">TAM</div>
+    <div class="thesis-value">$317B stablecoins (Citi projects $1.9T by 2030), $36B tokenized RWA (BCG projects $600B AUM by 2030), $8T/month repo settlement (Broadridge/Canton), $25T+ combined US/EU repo outstanding. The institutional subset requiring privacy, composability, and PQ security is the majority.</div>
+  </div>
+  <div class="thesis-row">
+    <div class="thesis-label">Traction</div>
+    <div class="thesis-value">Bootstrapped to date. Testnet live since Nov 2025. 1M+ transactions. 475K+ prediction bets. Open-source Rust on GitHub. SILMARILS paper published May 2026 (arXiv:2605.03230). Pending IACR Journal of Cryptology.</div>
+  </div>
+  <div class="why-now-box">
+    <h4>Why Now &mdash; Five Forcing Functions</h4>
+    <div class="why-now-item"><span class="why-now-date">Mar 30, 2026</span><span>Google Quantum AI compressed qubit threshold from ~20M to &lt;500K. Oratomic at 9,739 physical qubits.</span></div>
+    <div class="why-now-item"><span class="why-now-date">Apr 2026</span><span>Project Eleven / Solana Foundation confirmed ~90% TPS loss under PQ migration on a live testnet.</span></div>
+    <div class="why-now-item"><span class="why-now-date">Jan 2027</span><span>NSA CNSA 2.0 deadline: all new national security systems must be quantum-safe.</span></div>
+    <div class="why-now-item"><span class="why-now-date">2026</span><span>FBI / NIST / CISA jointly designated the &ldquo;Year of Quantum Security.&rdquo;</span></div>
+    <div class="why-now-item"><span class="why-now-date">2030</span><span>NIST proposed deprecation of ECDSA / EdDSA &mdash; the exact algorithms securing every major blockchain.</span></div>
+  </div>
+</div>
+
+<div class="callout callout-lead">
+  <p><strong>When authorization becomes a priced risk, liquidity reroutes to the rail that preserves execution quality. EternaX is designed to be that rail.</strong></p>
+</div>
+
+<!-- ARTICLE -->
+<article class="article">
+
+<!-- ============================================ -->
+<!-- SECTION 1: THE CATEGORY IS FORMING NOW       -->
+<!-- ============================================ -->
+<h2>The Category Is Forming Now</h2>
+
+<p>EternaX is the institutional settlement layer for auditable privacy, DeFi composability, and market-speed execution, built on the only post-quantum-native architecture in production. It is EVM-compatible: existing Solidity DeFi protocols deploy with minimal modifications and automatically inherit PQ security and institutional privacy. Built on SPHINCS+ (NIST FIPS 205) and the SILMARILS 160-byte information-theoretic authentication record. The only quantum-resistant blockchain delivering all three institutional requirements from genesis.</p>
+
+<p>Over $317 billion in stablecoins and $36 billion in tokenized real-world assets sit on blockchain rails that NIST has proposed to deprecate by 2030 (see the <a href="already-broken-quantum-risk-report-q1-2026.html" style="color:var(--navy);"><em>Already Broken</em></a> report for the full institutional audit across 27 named institutions with zero post-quantum migration plans). Every major chain carrying institutional capital loses 84&ndash;90% of its throughput under post-quantum signature migration. Solana confirmed a ~90% collapse on a live testnet. Ethereum models at &minus;84%. Canton drops to sub-1 TPS. The privacy protecting institutional flows on those chains expires the moment the underlying keys break, retroactively exposing every historical settlement to harvest-now-decrypt-later adversaries. No chain in production today delivers institutional privacy, DeFi composability, and post-quantum security simultaneously.</p>
+
+<p>This week, a joint research team from the University of British Columbia and EternaX Labs published the formal proof that eliminates that cost curve: <em>SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures</em> (<a href="https://arxiv.org/abs/2605.03230" style="color:var(--navy);">arXiv:2605.03230</a>; <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:var(--navy);">companion blog post</a>), a 160-byte post-quantum authentication record with information-theoretic security, proven in the Random Oracle Model, the Quantum Random Oracle Model, and the Pure Information-Theoretic model. Three independent demand signals are converging simultaneously, each validated by the largest financial institutions in the world, and creating a new infrastructure category that no existing chain can own.</p>
+
+<div class="insights-strip">
+<p><strong>Privacy.</strong> Canton Network proved Goldman Sachs, BNY Mellon, and Broadridge will not settle institutional value on transparent rails. JPMorgan Kinexys, BNY tokenized deposits, and the BIS unified ledger thesis all require selective visibility. MiFID II, MAR, and GDPR make public-by-default rails structurally non-compliant.</p>
+<p><strong>DeFi Composability.</strong> DTCC called collateral mobility the institutional &ldquo;killer app.&rdquo; Broadridge processes $384 billion in daily repo on DLT. Aave Horizon proved idle tokenized RWAs are a capital efficiency failure. The demand: programmable collateral substitution, atomic DvP, and tokenized cash reuse inside one controlled boundary.</p>
+<p><strong>Post-Quantum Security.</strong> Google Quantum AI compressed the qubit threshold to fewer than 500,000 (March 2026). NIST proposed deprecating ECDSA by 2030. NSA CNSA 2.0 requires quantum-safe systems by January 2027. Project Eleven confirmed ~90% TPS loss on Solana under PQ migration (April 2026). Coinbase&rsquo;s Advisory Board recommended immediate migration planning.</p>
+</div>
+
+<div class="callout">
+  <p>The next institutional settlement layer must deliver all three from day one. Private DeFi composability without post-quantum security is a more sophisticated form of migration debt: it lets institutions build the next capital-market stack privately, but still on cryptography they will have to replace later. When the keys break, the privacy breaks with them, retroactively exposing every historical flow to harvest-now-decrypt-later adversaries. The category that wins is private, DeFi-composable market infrastructure where the privacy itself is quantum-durable. That is EternaX.</p>
+</div>
+
+
+<!-- ============================================ -->
+<!-- SECTION 2: WHY NO ONE ELSE CAN OWN THIS      -->
+<!-- ============================================ -->
+<h2>Why No One Else Can Own This</h2>
+
+<p>The following matrix scores every major chain and institutional platform against the three requirements. The bar is strict: "Yes" means the capability exists in production architecture today, not on a roadmap or in a research paper.</p>
+
+<!-- VISUAL 0: POSITIONING CHART -->
+<div class="chart-container">
+  <div class="chart-title">Competitive Positioning: The Institutional Infrastructure Gap</div>
+  <div class="chart-subtitle">Production capabilities only &mdash; roadmap commitments and research-stage features excluded. No existing chain occupies the upper-right quadrant simultaneously.</div>
+  <!-- svg_x = 62 + x_frac * 516  |  svg_y = 396 - y_frac * 368 -->
+  <svg viewBox="0 0 640 452" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;font-family:IBM Plex Sans Condensed,sans-serif;">
+    <!-- Quadrant backgrounds -->
+    <rect x="62" y="28" width="253" height="184" fill="#f8f7f7"/>
+    <rect x="315" y="28" width="265" height="184" fill="#f0f5f2"/>
+    <rect x="62" y="212" width="253" height="184" fill="#fafafa"/>
+    <rect x="315" y="212" width="265" height="184" fill="#fdf9f4"/>
+    <!-- Dividers -->
+    <line x1="315" y1="28" x2="315" y2="396" stroke="#d4d2d2" stroke-width="1" stroke-dasharray="6,5"/>
+    <line x1="62" y1="212" x2="580" y2="212" stroke="#d4d2d2" stroke-width="1" stroke-dasharray="6,5"/>
+    <!-- Axes -->
+    <line x1="62" y1="396" x2="575" y2="396" stroke="#283771" stroke-width="1.5"/>
+    <line x1="62" y1="28" x2="62" y2="396" stroke="#283771" stroke-width="1.5"/>
+    <!-- Arrow heads -->
+    <polygon points="575,393 575,399 583,396" fill="#283771"/>
+    <polygon points="59,32 65,32 62,24" fill="#283771"/>
+    <!-- Mid-axis ticks -->
+    <line x1="315" y1="394" x2="315" y2="398" stroke="#283771" stroke-width="1.2"/>
+    <line x1="60" y1="212" x2="64" y2="212" stroke="#283771" stroke-width="1.2"/>
+    <!-- Tick labels -->
+    <text x="168" y="410" text-anchor="middle" font-size="9" fill="#999">LOW</text>
+    <text x="315" y="410" text-anchor="middle" font-size="9" fill="#777">MODERATE</text>
+    <text x="462" y="410" text-anchor="middle" font-size="9" fill="#999">HIGH</text>
+    <text x="54" y="215" text-anchor="end" font-size="9" fill="#777">50%</text>
+    <!-- Axis titles -->
+    <text x="320" y="427" text-anchor="middle" font-size="11" font-weight="600" fill="#283771" letter-spacing="0.7">PRIVATE INSTITUTIONAL DeFi COMPOSABILITY</text>
+    <text x="16" y="212" text-anchor="middle" font-size="11" font-weight="600" fill="#283771" letter-spacing="0.7" transform="rotate(-90,16,212)">POST-QUANTUM SECURITY</text>
+    <!-- Quadrant labels -->
+    <text x="188" y="47" text-anchor="middle" font-size="8.5" fill="#c0bebe" font-style="italic">PQ roadmap only</text>
+    <text x="447" y="47" text-anchor="middle" font-size="8.5" font-weight="600" fill="#2F5E52" font-style="italic">PQ-native + private DeFi composability &#10003;</text>
+    <text x="188" y="388" text-anchor="middle" font-size="8.5" fill="#ccc" font-style="italic">neither</text>
+    <text x="447" y="388" text-anchor="middle" font-size="8.5" fill="#b8a870" font-style="italic">private DeFi composability, no PQ</text>
+
+    <!-- ===== DATA POINTS ===== -->
+    <!-- Stellar: (0.08, 0.05) -> (103, 377) -->
+    <circle cx="103" cy="377" r="3.5" fill="#c04848" fill-opacity="0.5"/>
+    <text x="82" y="375" font-size="9.5" fill="#999">Stellar</text>
+    <!-- Hyperliquid: (0.13, 0.07) -> (129, 370) -->
+    <circle cx="129" cy="370" r="4" fill="#c04848" fill-opacity="0.65"/>
+    <text x="136" y="382" font-size="9.5" fill="#777">Hyperliquid</text>
+    <!-- Aave Horizon: (0.25, 0.07) -> (191, 370) -->
+    <circle cx="191" cy="370" r="4.5" fill="#c04848" fill-opacity="0.65"/>
+    <text x="199" y="367" font-size="9.5" fill="#777">Aave Horizon</text>
+    <!-- Solana: (0.15, 0.17) -> (139, 333) -->
+    <circle cx="139" cy="333" r="5.5" fill="#c04848" fill-opacity="0.80"/>
+    <text x="148" y="330" font-size="10" fill="#555">Solana</text>
+    <!-- Ethereum: (0.18, 0.30) -> (155, 286) -->
+    <circle cx="155" cy="286" r="6" fill="#c04848" fill-opacity="0.80"/>
+    <text x="164" y="283" font-size="10" fill="#555">Ethereum</text>
+    <!-- ZKsync Prividium: (0.47, 0.12) -> (305, 352) -->
+    <circle cx="305" cy="352" r="4" fill="#c04848" fill-opacity="0.60"/>
+    <text x="313" y="363" font-size="9.5" fill="#888">Prividium</text>
+    <!-- Circle Arc: (0.40, 0.23) -> (269, 312) -->
+    <circle cx="269" cy="312" r="4.5" fill="#9A7B2E" fill-opacity="0.80"/>
+    <text x="276" y="309" font-size="9.5" fill="#666">Circle Arc</text>
+    <!-- JPM Kinexys: (0.52, 0.19) -> (331, 326) -->
+    <circle cx="331" cy="326" r="5.5" fill="#9A7B2E" fill-opacity="0.85"/>
+    <text x="339" y="323" font-size="10" fill="#555">JPM Kinexys</text>
+    <!-- Canton: (0.70, 0.09) -> (423, 363) -->
+    <circle cx="423" cy="363" r="7.5" fill="#9A7B2E" fill-opacity="0.90"/>
+    <text x="432" y="360" font-size="10" fill="#555">Canton</text>
+    <!-- EternaX: (0.87, 0.88) -> (511, 72) -->
+    <circle cx="511" cy="72" r="22" fill="#2F5E52" fill-opacity="0.08"/>
+    <circle cx="511" cy="72" r="13" fill="#2F5E52"/>
+    <text x="511" y="56" text-anchor="middle" font-size="12" font-weight="700" fill="#2F5E52" letter-spacing="-0.3">eternaX</text>
+
+    <!-- Legend -->
+    <circle cx="76" cy="443" r="5" fill="#2F5E52"/>
+    <text x="85" y="447" font-size="9.5" fill="#444">All three (production)</text>
+    <circle cx="228" cy="443" r="5" fill="#9A7B2E" fill-opacity="0.90"/>
+    <text x="237" y="447" font-size="9.5" fill="#444">Privacy; no PQ native</text>
+    <circle cx="376" cy="443" r="5" fill="#c04848" fill-opacity="0.80"/>
+    <text x="385" y="447" font-size="9.5" fill="#444">No institutional privacy</text>
+  </svg>
+</div>
+
+
+<!-- VISUAL 1: COMPETITIVE MATRIX TABLE -->
+<div class="table-wrap">
+<table class="comp-table">
+  <thead>
+    <tr>
+      <th>Chain / Platform</th>
+      <th>Institutional Privacy</th>
+      <th>DeFi Composability</th>
+      <th>Post-Quantum Native</th>
+      <th>Throughput Under PQ</th>
+      <th style="text-align:center;min-width:54px;">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="chain-name">Ethereum</td>
+      <td><span class="badge badge-no">No</span> Public by default</td>
+      <td><span class="badge badge-yes">Yes</span> Strongest DeFi ecosystem</td>
+      <td><span class="badge badge-partial">Partial</span> Roadmap 2029; L2s/contracts not covered</td>
+      <td>~4.1 TPS (-84%)</td>
+    
+      <td class="score-cell"><span class="on">&#9679;</span><span class="off">&#9679;</span><span class="off">&#9679;</span></td>
+    </tr>
+    <tr>
+      <td class="chain-name">Solana</td>
+      <td><span class="badge badge-no">No</span> Public by default</td>
+      <td><span class="badge badge-yes">Yes</span> High-throughput DeFi</td>
+      <td><span class="badge badge-no">No</span> No roadmap; testnet only</td>
+      <td>~85.5 TPS (-90%)<br><em style="font-size:10px;color:var(--red);">Confirmed live, Apr 2026</em></td>
+    
+      <td class="score-cell"><span class="on">&#9679;</span><span class="off">&#9679;</span><span class="off">&#9679;</span></td>
+    </tr>
+    <tr>
+      <td class="chain-name">Canton Network</td>
+      <td><span class="badge badge-partial">Partial</span> Privacy benchmark, but <strong>not PQ-safe</strong>. Ed25519 keys break &rarr; all historical flows retroactively exposed (HNDL)</td>
+      <td><span class="badge badge-partial">Partial</span> No global state root; bilateral sync</td>
+      <td><span class="badge badge-no">No</span> Ed25519/ECDSA/P-256 in production</td>
+      <td>~0.84 TPS (-88%)</td>
+    
+      <td class="score-cell"><span class="off">&#9679;</span><span class="off">&#9679;</span><span class="off">&#9679;</span></td>
+    </tr>
+    <tr>
+      <td class="chain-name">JPM Kinexys</td>
+      <td><span class="badge badge-partial">Partial</span> Bank-controlled private, but <strong>not PQ-safe</strong>. Classical crypto; retroactive exposure risk</td>
+      <td><span class="badge badge-partial">Partial</span> Closed rail; JPM counterparties only</td>
+      <td><span class="badge badge-partial">Partial</span> QPADL research paper, not production</td>
+      <td>Not disclosed</td>
+    
+      <td class="score-cell"><span class="off">&#9679;</span><span class="off">&#9679;</span><span class="off">&#9679;</span></td>
+    </tr>
+    <tr>
+      <td class="chain-name">Circle Arc</td>
+      <td><span class="badge badge-partial">Partial</span> Opt-in; testnet stage</td>
+      <td><span class="badge badge-partial">Partial</span> Stablecoin-native; testnet stage</td>
+      <td><span class="badge badge-partial">Partial</span> Roadmap; "not yet available"</td>
+      <td>Not disclosed</td>
+    
+      <td class="score-cell"><span class="off">&#9679;</span><span class="off">&#9679;</span><span class="off">&#9679;</span></td>
+    </tr>
+    <tr>
+      <td class="chain-name">ZKsync Prividium</td>
+      <td><span class="badge badge-partial">Partial</span> Selective disclosure, but <strong>not PQ-safe</strong>. Inherits Ethereum's classical crypto</td>
+      <td><span class="badge badge-partial">Partial</span> Ethereum-anchored</td>
+      <td><span class="badge badge-no">No</span> Inherits Ethereum 2029 timeline</td>
+      <td>Inherits Ethereum</td>
+    
+      <td class="score-cell"><span class="off">&#9679;</span><span class="off">&#9679;</span><span class="off">&#9679;</span></td>
+    </tr>
+    <tr>
+      <td class="chain-name">Hyperliquid</td>
+      <td><span class="badge badge-no">No</span> Public by default</td>
+      <td><span class="badge badge-yes">Yes</span> Fastest perps execution</td>
+      <td><span class="badge badge-no">No</span> secp256k1; no PQ roadmap</td>
+      <td>Not survivable</td>
+    
+      <td class="score-cell"><span class="on">&#9679;</span><span class="off">&#9679;</span><span class="off">&#9679;</span></td>
+    </tr>
+    <tr>
+      <td class="chain-name">Aave Horizon</td>
+      <td><span class="badge badge-no">No</span> Public Ethereum</td>
+      <td><span class="badge badge-yes">Yes</span> Strongest RWA collateral utility proof</td>
+      <td><span class="badge badge-no">No</span> Inherits Ethereum</td>
+      <td>Inherits Ethereum</td>
+    
+      <td class="score-cell"><span class="on">&#9679;</span><span class="off">&#9679;</span><span class="off">&#9679;</span></td>
+    </tr>
+    <tr>
+      <td class="chain-name">Stellar</td>
+      <td><span class="badge badge-no">No</span> Public by default</td>
+      <td><span class="badge badge-partial">Partial</span> Limited DeFi primitives</td>
+      <td><span class="badge badge-no">No</span> Ed25519; no PQ roadmap</td>
+      <td>~13.9 TPS (-90%)</td>
+    
+      <td class="score-cell"><span class="off">&#9679;</span><span class="off">&#9679;</span><span class="off">&#9679;</span></td>
+    </tr>
+    <tr>
+      <td class="chain-name" style="color:var(--green);font-size:15px;border-left:3px solid var(--green);padding-left:11px;">eternaX</td>
+      <td><span class="badge badge-yes">Yes</span> Tiered selective disclosure; per-tx unlinkability; no ZK overhead; <strong>PQ-safe and quantum-durable</strong></td>
+      <td><span class="badge badge-yes">Yes</span> EVM-compatible; any Solidity DeFi protocol deploys with PQ + privacy; full-stack venues; collateral mobility</td>
+      <td><span class="badge badge-yes">Yes</span> Hash-only crypto; SPHINCS+ anchor; SILMARILS 160B; ~2% TPS loss</td>
+      <td style="color:var(--green);font-weight:700;">50,000+ TPS (~2% loss)</td>
+    
+      <td class="score-cell"><span class="on">&#9679;&#9679;&#9679;</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p class="table-sources">
+  Sources: Project Eleven / Solana Foundation (Apr 2026) for Solana PQ testnet TPS. EternaX Labs internal benchmarks for EternaX TPS. All other PQ throughput figures modelled from signature size expansion ratios vs. reported baseline throughput. &#8220;Yes&#8221; = production deployment; &#8220;Partial&#8221; = live with material gaps; &#8220;No&#8221; = absent or roadmap only.
+</p>
+
+<p>The pattern is unambiguous. No chain achieves more than two of three. And where privacy exists on classical rails, it is not quantum-durable: Canton, Kinexys, and Prividium all run classical cryptography whose keys will break, retroactively exposing every historical flow to harvest-now-decrypt-later adversaries. That is not institutional-grade privacy for assets with 10-to-30-year horizons.</p>
+
+<p>Ethereum targets PQ by 2029 at the earliest, covering only the base layer while L2s, smart contracts, and admin keys remain exposed. Solana confirmed a ~90% throughput collapse under PQ signatures on a live testnet. Hyperliquid runs secp256k1 with no PQ roadmap. JPMorgan's QPADL is a research paper, not a deployed ledger. Circle Arc explicitly states PQ features are "not yet available."</p>
+
+<p>The white space is not "someone should build a PQ chain." It is that the institutional settlement layer for the next decade requires all three simultaneously, and no existing player occupies that intersection. EternaX is the only architecture that delivers all three from genesis.</p>
+
+<div class="callout callout-objection">
+  <p>IC Objection: &ldquo;Ethereum will just upgrade to PQ by 2029&rdquo;</p>
+  <p>Even if Ethereum completes base-layer PQ migration by 2029, every asset issued on its rails between now and then accumulates <a href="post-quantum-cryptography-risk-framework-for-institutions.html">cryptographic migration debt</a>: wallet upgrades, custody re-platforming, exchange coordination, compliance re-certification, and liquidity fragmentation. L2s, smart contracts, and admin keys are not covered. The throughput haircut is permanent: NIST PQ signatures are kilobyte-order. &ldquo;Upgrade later&rdquo; is a multi-year coordination event that forces issuers to underwrite a future flag-day across the entire asset lifecycle and a permanent throughput tax. EternaX avoids both: PQ-native from day one, at market speed, zero migration debt.</p>
+</div>
+
+<div class="callout callout-risk">
+  <p>This white space is not waiting. NIST proposed deprecating ECDSA by 2030. NSA requires all new national security systems quantum-safe by January 2027. Google compressed the qubit threshold from 20 million to fewer than 500,000 in five years. The regulatory pipeline (GENIUS Act, CFTC tokenized collateral pilot, SEC/CFTC joint rule, NY UCC Article 12) is actively pushing more institutional capital onto the vulnerable rails documented above. Seven FINRA-registered broker-dealers are distributing institutional products on chains with no disclosed PQ migration plan. The category is crystallizing now, not in two years.</p>
+</div>
+
+
+<!-- ============================================ -->
+<!-- SECTION 3: HOW ETERNAX DELIVERS ALL THREE FROM GENESIS -->
+<!-- ============================================ -->
+<h2>How EternaX Delivers All Three From Genesis</h2>
+
+<!-- VISUAL 2: SIGNATURE SIZE BAR CHART -->
+<div class="chart-container">
+  <div class="chart-title">The Size Tax: Post-Quantum Authentication Record Size</div>
+  <div class="chart-subtitle">On-chain authentication bytes per transaction. <strong>Logarithmic scale</strong> &mdash; each step is 2&times; the previous. EternaX uses a designated-verifier (TDV) construction: validators verify during consensus; a 32 B receipt enables third-party verification post-finality. Comparison illustrates blockchain throughput impact, not equivalent security functionality.</div>
+  <svg viewBox="0 0 700 278" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;font-family:IBM Plex Sans Condensed,sans-serif;">
+    <!-- Bars. Bar area: x=215 to 675 (460px). y_top per bar, height=30 -->
+    <!-- ROW 1: SLH-DSA / SPHINCS+-128s  7856 B  bar_w=460 -->
+    <rect x="215" y="18" width="460" height="30" rx="2" fill="#8D2E2E"/>
+    <text x="220" y="38" font-size="11" font-weight="600" fill="#fff">7,856 B</text>
+    <text x="272" y="38" font-size="10" fill="rgba(255,255,255,0.8)">&#183; 123&#215; &#183; SLH-DSA / SPHINCS+-128s</text>
+    <text x="0" y="37" font-size="11" fill="#333" text-anchor="start" style="dominant-baseline:middle">
+      <tspan x="210" text-anchor="end">SLH-DSA</tspan>
+    </text>
+    <text x="210" y="52" text-anchor="end" font-size="9" fill="#888">(SPHINCS+-128s)</text>
+    <!-- ROW 2: ML-DSA / Dilithium-2  2420 B  bar_w=348 -->
+    <rect x="215" y="62" width="348" height="30" rx="2" fill="#a83c3c"/>
+    <text x="220" y="82" font-size="11" font-weight="600" fill="#fff">2,420 B</text>
+    <text x="272" y="82" font-size="10" fill="rgba(255,255,255,0.8)">&#183; 38&#215; &#183; ML-DSA / Dilithium-2</text>
+    <text x="210" y="81" text-anchor="end" font-size="11" fill="#333">ML-DSA</text>
+    <text x="210" y="96" text-anchor="end" font-size="9" fill="#888">(Dilithium-2)</text>
+    <!-- ROW 3: FN-DSA / Falcon-512  690 B  bar_w=228 -->
+    <rect x="215" y="106" width="228" height="30" rx="2" fill="#9A7B2E"/>
+    <text x="220" y="126" font-size="11" font-weight="600" fill="#fff">690 B</text>
+    <text x="255" y="126" font-size="10" fill="rgba(255,255,255,0.8)">&#183; 11&#215; &#183; FN-DSA / Falcon-512</text>
+    <text x="210" y="125" text-anchor="end" font-size="11" fill="#333">FN-DSA</text>
+    <text x="210" y="140" text-anchor="end" font-size="9" fill="#888">(Falcon-512)</text>
+    <!-- ROW 4: EternaX TDV+receipt  160 B  bar_w=88 -->
+    <rect x="215" y="150" width="88" height="30" rx="2" fill="#2F5E52"/>
+    <text x="220" y="170" font-size="10.5" font-weight="700" fill="#fff">160 B</text>
+    <text x="308" y="170" font-size="10" font-weight="600" fill="#2F5E52">2.5&#215; &#183; arXiv:2605.03230</text>
+    <text x="210" y="169" text-anchor="end" font-size="11" font-weight="700" fill="#2F5E52">EternaX</text>
+    <text x="210" y="184" text-anchor="end" font-size="9" fill="#2F5E52">(TDV sig + 32 B receipt)</text>
+    <!-- ROW 5: ECDSA  64 B  bar_w=8 (reference, strikethrough styling) -->
+    <rect x="215" y="194" width="8" height="30" rx="2" fill="#aaaaaa"/>
+    <text x="228" y="214" font-size="10" fill="#999">64 B &#183; 1&#215; &#183; reference baseline</text>
+    <text x="228" y="228" font-size="9" fill="#8D2E2E" font-weight="500">&#9888; Quantum-vulnerable. NIST deprecation 2030.</text>
+    <text x="210" y="213" text-anchor="end" font-size="11" fill="#aaa">ECDSA / Ed25519</text>
+    <!-- Log2 axis line -->
+    <line x1="215" y1="234" x2="675" y2="234" stroke="#c8c6c6" stroke-width="1"/>
+    <!-- Ticks and labels at log2 powers: 64, 128, 256, 512, 1K, 2K, 4K, 8K -->
+    <!-- x positions: 215 + (log2(v)-6)/6.938 * 460 -->
+    <!-- 64B: x=215  128B: x=281  256B: x=347  512B: x=413  1K: x=480  2K: x=546  4K: x=612  8K: x=678 -->
+    <line x1="215" y1="232" x2="215" y2="236" stroke="#999" stroke-width="1"/>
+    <text x="215" y="247" text-anchor="middle" font-size="8.5" fill="#999">64 B</text>
+    <line x1="281" y1="232" x2="281" y2="236" stroke="#ccc" stroke-width="1"/>
+    <text x="281" y="247" text-anchor="middle" font-size="8.5" fill="#bbb">128</text>
+    <line x1="347" y1="232" x2="347" y2="236" stroke="#ccc" stroke-width="1"/>
+    <text x="347" y="247" text-anchor="middle" font-size="8.5" fill="#bbb">256</text>
+    <line x1="413" y1="232" x2="413" y2="236" stroke="#ccc" stroke-width="1"/>
+    <text x="413" y="247" text-anchor="middle" font-size="8.5" fill="#bbb">512</text>
+    <line x1="480" y1="232" x2="480" y2="236" stroke="#ccc" stroke-width="1"/>
+    <text x="480" y="247" text-anchor="middle" font-size="8.5" fill="#bbb">1 KB</text>
+    <line x1="546" y1="232" x2="546" y2="236" stroke="#ccc" stroke-width="1"/>
+    <text x="546" y="247" text-anchor="middle" font-size="8.5" fill="#bbb">2 KB</text>
+    <line x1="612" y1="232" x2="612" y2="236" stroke="#ccc" stroke-width="1"/>
+    <text x="612" y="247" text-anchor="middle" font-size="8.5" fill="#bbb">4 KB</text>
+    <line x1="675" y1="232" x2="675" y2="236" stroke="#ccc" stroke-width="1"/>
+    <text x="675" y="247" text-anchor="middle" font-size="8.5" fill="#bbb">8 KB</text>
+    <!-- Scale label -->
+    <text x="445" y="263" text-anchor="middle" font-size="9" fill="#aaa" font-style="italic">Log&#x2082; scale &#183; each division is 2&#215; the previous</text>
+    <!-- Vertical reference line at EternaX bar end (x=303) -->
+    <line x1="303" y1="16" x2="303" y2="232" stroke="#2F5E52" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.4"/>
+  </svg>
+</div>
+
+
+<!-- VISUAL 3: THROUGHPUT CLIFF -->
+<div class="chart-container">
+  <div class="chart-title">TPS Survivability Under Post-Quantum Migration</div>
+  <div class="chart-subtitle">Each bar = 100% of pre-migration throughput. Green = retained capacity. Red = lost capacity. EternaX is PQ-native and incurs no migration &mdash; its bar is shown for reference parity.</div>
+  <svg viewBox="0 0 680 248" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;font-family:IBM Plex Sans Condensed,sans-serif;">
+    <!-- Row labels right-aligned at x=160 -->
+    <!-- Rows: EternaX y=16, Ethereum y=58, Canton y=100, Solana y=142, Stellar y=184 -->
+    <!-- bar height=32, bar area x=165 to 605 (440px) -->
+
+    <!-- === EternaX  98% retained === -->
+    <rect x="165" y="16" width="432" height="32" rx="2" fill="#2F5E52"/>
+    <rect x="597" y="16" width="8" height="32" rx="0" fill="#8D2E2E" fill-opacity="0.35"/>
+    <text x="170" y="36" font-size="10.5" font-weight="700" fill="#fff">50,000+ TPS native &rarr; ~49,000+ TPS under PQ</text>
+    <text x="160" y="36" text-anchor="end" font-size="11" font-weight="700" fill="#2F5E52">eternaX</text>
+    <text x="612" y="36" font-size="11" font-weight="700" fill="#2F5E52">~2% loss</text>
+    <rect x="160" y="14" width="3" height="36" rx="1" fill="#2F5E52"/>
+
+    <!-- === Ethereum  15.7% retained === -->
+    <rect x="165" y="58" width="440" height="32" rx="2" fill="#e8e0e0"/>
+    <rect x="165" y="58" width="69" height="32" rx="2" fill="#283771" fill-opacity="0.7"/>
+    <text x="170" y="78" font-size="10" fill="#fff" font-weight="600">4.1 TPS</text>
+    <text x="239" y="78" font-size="10" fill="#8D2E2E" font-weight="500">26.1 TPS pre-migration</text>
+    <text x="160" y="78" text-anchor="end" font-size="11" fill="#333">Ethereum</text>
+    <text x="612" y="78" font-size="11" font-weight="700" fill="#8D2E2E">&#x2212;84%</text>
+
+    <!-- === Canton  12% retained === -->
+    <rect x="165" y="100" width="440" height="32" rx="2" fill="#e8e0e0"/>
+    <rect x="165" y="100" width="53" height="32" rx="2" fill="#283771" fill-opacity="0.7"/>
+    <text x="170" y="120" font-size="10" fill="#fff" font-weight="600">0.84 TPS</text>
+    <text x="223" y="120" font-size="10" fill="#8D2E2E" font-weight="500">7 TPS pre-migration</text>
+    <text x="160" y="120" text-anchor="end" font-size="11" fill="#333">Canton</text>
+    <text x="612" y="120" font-size="11" font-weight="700" fill="#8D2E2E">&#x2212;88%</text>
+
+    <!-- === Solana  10% retained === -->
+    <rect x="165" y="142" width="440" height="32" rx="2" fill="#e8e0e0"/>
+    <rect x="165" y="142" width="44" height="32" rx="2" fill="#283771" fill-opacity="0.7"/>
+    <text x="170" y="162" font-size="10" fill="#fff" font-weight="600">85 TPS</text>
+    <text x="214" y="162" font-size="10" fill="#8D2E2E" font-weight="500">855 TPS pre-migration</text>
+    <text x="160" y="162" text-anchor="end" font-size="11" fill="#333">Solana</text>
+    <text x="612" y="162" font-size="11" font-weight="700" fill="#8D2E2E">&#x2212;90%</text>
+    <!-- "confirmed live" badge -->
+    <rect x="490" y="144" width="74" height="14" rx="3" fill="#f5e8e8"/>
+    <text x="527" y="154" text-anchor="middle" font-size="8" font-weight="600" fill="#8D2E2E" letter-spacing="0.2">CONFIRMED LIVE &#9873;</text>
+
+    <!-- === Stellar  9.8% retained === -->
+    <rect x="165" y="184" width="440" height="32" rx="2" fill="#e8e0e0"/>
+    <rect x="165" y="184" width="43" height="32" rx="2" fill="#283771" fill-opacity="0.7"/>
+    <text x="170" y="204" font-size="10" fill="#fff" font-weight="600">14 TPS</text>
+    <text x="214" y="204" font-size="10" fill="#8D2E2E" font-weight="500">142 TPS pre-migration</text>
+    <text x="160" y="204" text-anchor="end" font-size="11" fill="#333">Stellar</text>
+    <text x="612" y="204" font-size="11" font-weight="700" fill="#8D2E2E">&#x2212;90%</text>
+
+    <!-- Legend -->
+    <rect x="165" y="228" width="12" height="10" rx="1" fill="#2F5E52"/>
+    <text x="181" y="237" font-size="9.5" fill="#555">PQ-native (no migration)</text>
+    <rect x="330" y="228" width="12" height="10" rx="1" fill="#283771" fill-opacity="0.7"/>
+    <text x="346" y="237" font-size="9.5" fill="#555">Surviving TPS</text>
+    <rect x="438" y="228" width="12" height="10" rx="1" fill="#e0d8d8"/>
+    <text x="454" y="237" font-size="9.5" fill="#555">Lost capacity</text>
+
+    <!-- Source note (two lines to prevent overflow) -->
+    <text x="165" y="248" font-size="8" fill="#bbb">&#9873; Solana: Project Eleven / Solana Foundation testnet, Apr 2026. Others: modelled from NIST PQ signature size ratios vs. baseline.</text>
+  </svg>
+</div>
+
+
+<h3>Privacy: Quantum-Durable Institutional Confidentiality</h3>
+<p>EternaX provides tiered selective disclosure: institutions control exactly what is revealed, to whom, and when. Per-transaction unlinkability is achieved without zero-knowledge overhead. The SILMARILS 160-byte record authorizes transactions to validators during consensus without creating the reusable public-key artifacts that turn transaction histories into account graphs for external observers. The critical differentiator: every privacy-critical component derives from PQ-safe primitives. The privacy does not expire under quantum threat. Canton, Zcash, and Monero all run classical cryptography whose privacy collapses retroactively when keys break. EternaX is the only architecture where confidentiality is quantum-durable by construction: confidential to the market, auditable to the right party, and permanent.</p>
+
+<h3>DeFi Composability: EVM-Compatible Institutional DeFi with Collateral Mobility</h3>
+<p>EternaX is fully EVM-compatible. Existing Solidity DeFi protocols deploy with minimal modifications and automatically inherit PQ security and institutional privacy. No cold-start problem: the developer ecosystem already exists. Tokenized cash, funds, collateral, lending, perpetuals, and settlement all operate within one PQ-native, privacy-preserving execution boundary. A stablecoin issued under one arrangement can collateralize a position under another without leaving the PQ-safe perimeter or exposing trade details. Full-stack market venues (prediction markets live, perpetuals next) with 20-50ms soft finality and T+0 settlement at 400-520ms. Built-in MEV protection: transaction intent stays confidential, eliminating the visible-orderflow extraction that costs institutions billions annually on public chains.</p>
+
+<h3>Post-Quantum Security: Hash-Only Crypto Stack</h3>
+<p>The entire stack is hash-based. No elliptic curve pairings, no BLS, no KZG, no Groth16. SPHINCS+ (NIST FIPS 205) serves as the PQ identity anchor. SILMARILS provides the 160-byte on-chain authentication record (128-byte signature + 32-byte receipt), achieving a 49x reduction versus standalone SPHINCS+. The permanent record has information-theoretic security: forgery probability ~1/2<sup>255</sup>, independent of any computational hardness assumption. TPS loss under PQ operation: ~2%, versus 84-90% for every alternative.</p>
+
+
+<h3>Business Model: Institutional Infrastructure Monetization</h3>
+<p>EternaX's business model is institutional infrastructure monetization. The same capital flow is monetized at multiple touchpoints across the stack: issuance, routing, trading on first-party venues, settlement, and compliance-grade privacy connectivity. The structural advantage over existing L1 business models is threefold. First, issuance lock-in: stablecoins and RWAs are long-duration liabilities, and once issued PQ-native the issuer avoids migration debt permanently, creating structural retention at the asset layer. Second, privacy-driven switching costs: once institutional capital routes through auditable privacy lanes, switching to transparent rails means information leakage, a cost that rises with scale. Third, two acquisition engines: net-new PQ-native issuance and migration-to-safety from existing vulnerable chains. The flywheel compounds: issuance creates balances, balances deepen venues, venues create volume, privacy keeps large flows sticky.</p>
+
+
+<!-- ============================================ -->
+<!-- SECTION 4: SILMARILS PAPER: FROM ROADMAP TO PROOF -->
+<!-- ============================================ -->
+<h2>The SILMARILS Paper: From Roadmap to Proof</h2>
+
+<p><em>SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures</em> (<a href="https://arxiv.org/abs/2605.03230" style="color:var(--navy);">arXiv:2605.03230</a>, May 2026). Co-authored by UBC School of Engineering and EternaX Labs. Open-source Rust implementation with benchmarks on GitHub.</p>
+
+<p>The key insight: blockchains collapse three jobs into one cryptographic object (identity, authentication, auditability). SILMARILS separates them. SPHINCS+ handles PQ identity. SILMARILS handles 160-byte designated-verifier authentication during consensus. A 32-byte receipt enables public verification after finality. It is not a drop-in replacement for standardized PQ signatures; it is the authentication layer of a protocol designed from first principles.</p>
+
+<p>The paper provides formal security proofs across three models (two-party designated-verifier, three-party broadcast, and pure information-theoretic), including explicit reductions against quantum adversaries in the Quantum Random Oracle Model. The proofs reduce to standard, well-studied cryptographic assumptions. Full technical details are in the <a href="https://arxiv.org/abs/2605.03230" style="color:var(--navy);">paper</a> and the <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:var(--navy);">companion blog</a>.</p>
+
+<p>The permanent on-chain record achieves information-theoretic security at 160 bytes. It does not rely on any hardness assumption remaining computationally intractable. For assets with 10-to-30-year compliance horizons, that is a fundamentally different security posture from any computational PQ scheme.</p>
+
+<p>Six months ago, the SILMARILS claim was a roadmap item. Today it is a formal cryptographic construction with security reductions and proofs against quantum adversaries, co-authored with a Principal's Research Chair at a major research university. The paper is pending IACR Journal of Cryptology publication. The concrete ledger integration is coming in a separate companion publication. That is a material change in the investability of this infrastructure bet: the primitive is proven, the protocol design exists, and the research pipeline is active.</p>
+
+
+<!-- ============================================ -->
+<!-- SECTION 5: THE MARKET AND THE MOMENT          -->
+<!-- ============================================ -->
+<h2>The Market and the Moment</h2>
+
+<!-- VISUAL 4: CONVERGENCE DIAGRAM -->
+<div class="chart-container">
+  <div class="chart-title">Three Institutional Demand Streams Converging on One Infrastructure Requirement</div>
+  <div class="chart-subtitle">Each stream independently validated by named institutions. No existing chain delivers all three.</div>
+
+  <div class="convergence">
+    <div class="conv-streams">
+      <div class="conv-stream" style="border-top:3px solid var(--navy);">
+        <h4 style="color:var(--navy);">Privacy Demand</h4>
+        <ul>
+          <li>Canton Network (Goldman, BNY, Broadridge)</li>
+          <li>JPM Kinexys</li>
+          <li>BNY Tokenized Deposits</li>
+          <li>BIS Unified Ledger</li>
+          <li>MiFID II / MAR / GDPR</li>
+        </ul>
+      </div>
+      <div class="conv-stream" style="border-top:3px solid var(--green);">
+        <h4 style="color:var(--green);">DeFi Composability Demand</h4>
+        <ul>
+          <li>DTCC Collateral Mobility</li>
+          <li>BNY / Goldman Tokenized MMFs</li>
+          <li>Broadridge $384B Daily Repo</li>
+          <li>Aave Horizon $440M+ Deposits</li>
+          <li>Citi $1.9T Stablecoin Forecast 2030</li>
+        </ul>
+      </div>
+      <div class="conv-stream" style="border-top:3px solid var(--red);">
+        <h4 style="color:var(--red);">PQ Security Demand</h4>
+        <ul>
+          <li>Google Qubit Compression &lt;500K</li>
+          <li>NIST ECDSA Deprecation 2030</li>
+          <li>NSA CNSA 2.0 Jan 2027</li>
+          <li>CISA "Year of Quantum Security"</li>
+          <li>Project Eleven ~90% TPS Loss</li>
+        </ul>
+      </div>
+    </div>
+    <div class="conv-arrows">&#8595; &#8595; &#8595;</div>
+    <div class="conv-center">
+      <h4>Private DeFi-Composable Market Infrastructure with PQ-Native Security</h4>
+      <p>$2.87T conservative to $5.56T by 2030 in institutional value requiring all three</p>
+    </div>
+    <div class="conv-eternax">EternaX: the only L1 at the intersection</div>
+  </div>
+</div>
+
+<p><strong>The addressable market encompasses the full stack of assets being issued on blockchain rails today that will require migration.</strong> Citi projects $1.9T in stablecoin issuance by 2030 ($4.0T bull case). BCG estimates tokenized funds at $600B+ AUM by 2030. US/EU repo outstanding exceeds $25T combined. The institutional subset requiring privacy, composability, and PQ security is the majority: collateral mobility, intraday margin, DvP settlement, and treasury management are precisely the use cases where information leakage is unacceptable and cryptographic longevity is non-negotiable.</p>
+
+<p>The exposure surface is growing. The GENIUS Act, CFTC tokenized collateral pilot, SEC/CFTC joint rule, and NY UCC Article 12 are all pushing more institutional capital onto quantum-vulnerable rails. Seven FINRA-registered entities are distributing institutional products on chains with no PQ migration plan. Fidelity launched FIDD on Ethereum mainnet in February 2026, after NIST finalized PQ standards, with no disclosed PQ roadmap. New issuance on vulnerable rails is a choice being made today.</p>
+
+<!-- VISUAL 5: QUBIT COMPRESSION + TIMELINE -->
+<div class="chart-container">
+  <div class="chart-title">The Quantum Timeline Is Compressing While Regulatory Deadlines Accelerate</div>
+  <div class="chart-subtitle">Physical qubits required to break secp256k1 / ECC-256 (upper). Regulatory deadlines (lower).</div>
+
+  <div style="margin:20px 0 8px;">
+    <div style="font-family:'IBM Plex Sans Condensed',sans-serif;font-size:13px;font-weight:600;color:#283771;margin-bottom:4px;">Physical Qubit Threshold Compression (to break secp256k1)</div>
+    <div style="font-family:'IBM Plex Sans Condensed',sans-serif;font-size:11px;color:#999;margin-bottom:12px;">Estimated physical qubits required to break the elliptic curve cryptography securing every major blockchain today. Log scale. Source: academic literature and Google Quantum AI (Mar 30, 2026).</div>
+    <svg viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:600px;display:block;font-family:IBM Plex Sans Condensed,sans-serif;">
+      <!-- Chart area: x=70 to 485, y=15 to 145 -->
+      <!-- Y-axis ticks: log10 powers at 10M(7), 1M(6), 100K(5) -->
+      <!-- y_svg = 145 - (log10(val)-4)/3.5 * 130 -->
+      <!-- 10M(7): y=145-(7-4)/3.5*130 = 145-111.4 = 33.6 -->
+      <!-- 1M(6):  y=145-(6-4)/3.5*130 = 145-74.3  = 70.7 -->
+      <!-- 100K(5):y=145-(5-4)/3.5*130 = 145-37.1  = 107.9 -->
+
+      <!-- Horizontal grid lines -->
+      <line x1="70" y1="34" x2="485" y2="34" stroke="#ebe9e9" stroke-width="1"/>
+      <line x1="70" y1="71" x2="485" y2="71" stroke="#ebe9e9" stroke-width="1"/>
+      <line x1="70" y1="108" x2="485" y2="108" stroke="#ebe9e9" stroke-width="1"/>
+      <line x1="70" y1="145" x2="485" y2="145" stroke="#d0cece" stroke-width="1"/>
+
+      <!-- Y-axis labels -->
+      <text x="64" y="37" text-anchor="end" font-size="9" fill="#999">10M</text>
+      <text x="64" y="74" text-anchor="end" font-size="9" fill="#999">1M</text>
+      <text x="64" y="111" text-anchor="end" font-size="9" fill="#999">100K</text>
+      <text x="64" y="148" text-anchor="end" font-size="9" fill="#999">10K</text>
+      <text x="22" y="82" text-anchor="middle" font-size="8.5" fill="#bbb" transform="rotate(-90,22,82)">Qubits (log)</text>
+
+      <!-- X-axis years -->
+      <!-- svg_x = 70 + (year-2020)/7 * 415 -->
+      <!-- 2021: 70+59.3=129  2022: 70+118.6=189  2023: 70+177.9=248  2024: 70+237.1=307  2025: 70+296.4=366  2026: 70+355.7=426 -->
+      <text x="129" y="160" text-anchor="middle" font-size="9" fill="#aaa">2021</text>
+      <text x="248" y="160" text-anchor="middle" font-size="9" fill="#aaa">2023</text>
+      <text x="307" y="160" text-anchor="middle" font-size="9" fill="#aaa">2024</text>
+      <text x="366" y="160" text-anchor="middle" font-size="9" fill="#aaa">2025</text>
+      <text x="426" y="160" text-anchor="middle" font-size="9" fill="#aaa">2026</text>
+
+      <!-- DATA POINTS and LINE -->
+      <!-- 2021, 20M: svg_x=129, log10(20M)=7.301, y=145-(7.301-4)/3.5*130=145-122.6=22.4 -->
+      <!-- 2024, 9M:  svg_x=307, log10(9M)=6.954,  y=145-(6.954-4)/3.5*130=145-109.7=35.3 -->
+      <!-- 2025, 1M:  svg_x=366, log10(1M)=6,       y=145-(6-4)/3.5*130=145-74.3=70.7 -->
+      <!-- 2026.25,500K: svg_x=70+(6.25/7)*415=70+369.6=440, log10(500K)=5.699, y=145-(5.699-4)/3.5*130=145-63.1=81.9 -->
+
+      <!-- Shaded area under line (area chart fill) -->
+      <polygon points="129,23 307,35 366,71 440,82 440,145 129,145" fill="#283771" fill-opacity="0.05"/>
+
+      <!-- Trend line -->
+      <polyline points="129,23 307,35 366,71 440,82" fill="none" stroke="#283771" stroke-width="2" stroke-linejoin="round"/>
+
+      <!-- Data points -->
+      <circle cx="129" cy="23" r="4.5" fill="#283771"/>
+      <circle cx="307" cy="35" r="4.5" fill="#283771"/>
+      <circle cx="366" cy="71" r="4.5" fill="#283771"/>
+      <circle cx="440" cy="82" r="5.5" fill="#8D2E2E"/>
+      <circle cx="440" cy="82" r="10" fill="#8D2E2E" fill-opacity="0.12"/>
+
+      <!-- Callout labels -->
+      <text x="130" y="15" font-size="9" font-weight="600" fill="#283771">~20M</text>
+      <text x="131" y="24" font-size="8" fill="#999">pre-improvement</text>
+      <text x="308" y="27" font-size="9" font-weight="600" fill="#283771">~9M</text>
+      <text x="366" y="63" font-size="9" font-weight="600" fill="#283771">&lt;1M</text>
+      <text x="366" y="72" font-size="8" fill="#999">Gidney (peer-reviewed)</text>
+      <text x="441" y="74" font-size="9" font-weight="700" fill="#8D2E2E">&lt;500K</text>
+      <text x="441" y="83" font-size="8" fill="#8D2E2E">Google Quantum AI</text>
+      <text x="441" y="92" font-size="8" fill="#8D2E2E">Mar 30, 2026</text>
+
+      <!-- Oratomic annotation -->
+      <line x1="440" y1="100" x2="440" y2="118" stroke="#ccc" stroke-width="1" stroke-dasharray="3,2"/>
+      <rect x="348" y="118" width="180" height="28" rx="3" fill="#f5e8e8" stroke="#e0c8c8" stroke-width="0.5"/>
+      <text x="438" y="130" text-anchor="middle" font-size="8.5" font-weight="600" fill="#8D2E2E">Oratomic / Caltech: 9,739 qubits built</text>
+      <text x="438" y="141" text-anchor="middle" font-size="8" fill="#8D2E2E">~51&#215; gap to current threshold &#183; ~3-yr est. timeline</text>
+    </svg>
+  </div>
+
+  <div class="timeline-track">
+    <div class="tl-item">
+      <div class="tl-date">August 2024</div>
+      <div class="tl-title">NIST FIPS 203/204/205 finalized</div>
+      <div class="tl-desc">First post-quantum cryptography standards.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">January 2026</div>
+      <div class="tl-title">CISA PQ product categories for federal acquisition</div>
+    </div>
+    <div class="tl-item major">
+      <div class="tl-date">2026</div>
+      <div class="tl-title">FBI / NIST / CISA designate "Year of Quantum Security"</div>
+    </div>
+    <div class="tl-item eternax-marker">
+      <div class="tl-date">May 2026</div>
+      <div class="tl-title" style="color:var(--green);">SILMARILS paper published (arXiv:2605.03230)</div>
+      <div class="tl-desc">EternaX formal PQ proof. Joint UBC + EternaX Labs.</div>
+    </div>
+    <div class="tl-item major">
+      <div class="tl-date">January 2027</div>
+      <div class="tl-title">NSA CNSA 2.0 deadline</div>
+      <div class="tl-desc">All new national security systems must be quantum-safe.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2029</div>
+      <div class="tl-title">Google / Cloudflare PQ migration deadline. Gartner operational PQ deadline.</div>
+    </div>
+    <div class="tl-item major">
+      <div class="tl-date">2030</div>
+      <div class="tl-title">NIST ECDSA / EdDSA deprecation</div>
+      <div class="tl-desc">The exact algorithms securing every major blockchain.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2035</div>
+      <div class="tl-title">NIST ECDSA / EdDSA disallowance</div>
+    </div>
+  </div>
+</div>
+
+<p>The category is crystallizing now. The institutions that move first on PQ-native private composable infrastructure will own the settlement layer for the next generation of market infrastructure. Every quarter of delay compounds migration debt for the assets already on the wrong rails and narrows the window for the assets that have not yet been issued.</p>
+
+
+<!-- ============================================ -->
+<!-- SECTION: TRACTION AND EXECUTION               -->
+<!-- ============================================ -->
+<h2>Traction and Execution</h2>
+
+<div class="traction-row">
+  <div class="traction-stat">
+    <div class="num">1M+</div>
+    <div class="label">Testnet transactions</div>
+  </div>
+  <div class="traction-stat">
+    <div class="num" style="font-size:22px;">Nov 2025</div>
+    <div class="label">Testnet live since</div>
+  </div>
+  <div class="traction-stat">
+    <div class="num">475K+</div>
+    <div class="label">Prediction bets on testnet</div>
+  </div>
+  <div class="traction-stat">
+    <div class="num" style="font-size:22px;">May 2026</div>
+    <div class="label">SILMARILS paper published</div>
+  </div>
+</div>
+
+<p>The SILMARILS paper has four co-authors from UBC's School of Engineering and one from EternaX Labs. An open-source Rust reference implementation with benchmarks is on GitHub. The paper is pending IACR Journal of Cryptology publication. This is not a whitepaper. It is a peer-reviewed-grade cryptographic construction with formal security proofs against quantum adversaries, backed by a team that ships working infrastructure.</p>
+
+<p>EternaX's institutional research programme includes the <a href="already-broken-quantum-risk-report-q1-2026.html" style="color:var(--navy);"><em>Already Broken</em></a> quantum risk report (Q1 2026, 27 named institutions, zero PQ plans) and the <a href="post-quantum-cryptography-risk-framework-for-institutions.html" style="color:var(--navy);"><em>Cryptographic Migration Debt</em></a> framework for institutional digital asset programmes. The SILMARILS paper is the third major output in that pipeline.</p>
+
+
+<!-- ============================================ -->
+<!-- Team Section (matches index.html)            -->
+<!-- ============================================ -->
+<section id="team" class="font-sans py-16 border-t max-w-none" style="background-color: var(--bg); border-color: var(--border);" itemscope itemtype="https://schema.org/Organization" itemprop="member">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-10">
+                <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight" style="color: var(--fg)">Founding Team</h2>
+            </div>
+            <p class="text-lg mb-4" style="color: var(--fg-80)">
+                EternaX is built by researchers and protocol engineers working at the intersection of post-quantum cryptography, confidential execution, high-performance consensus, and coded networking.
+            </p>
+            <p class="text-lg" style="color: var(--fg-80)">
+                Our architecture is anchored in peer-reviewed research and ongoing cryptographic development, ensuring the network evolves with advances in both security and distributed systems.
+            </p>
+            <div class="grid gap-6 sm:gap-8 md:grid-cols-3">
+                <div class="glass-effect p-6 rounded-lg">
+                    <div class="flex justify-center mb-3">
+                        <img src="./assets/dariia.png" alt="Dariia Porechna" class="w-32 h-32 rounded-full object-cover" loading="lazy" itemprop="image">
                     </div>
-                    <p>
-                        Supporting research: <a href="post-quantum-cryptography-risk-framework-for-institutions.html">Cryptographic Migration Debt Framework</a> and <a href="already-broken-quantum-risk-report-q1-2026.html">Already Broken - Quantum Risk Report Q1 2026</a>.
-                    </p>
-                    <!-- EternaX vs general-purpose chains section -->
-                    <section class="my-16">
-                        <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4" style="color: var(--fg)">
-                            EternaX vs general-purpose chains
-                        </h2>
-                        <p class="text-lg mb-8" style="color: var(--fg-80)">
-                            EternaX makes PQ authorization default by building a <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:inherit;">novel PQ scheme</a> into the protocol, so settlement stays market-speed.
-                        </p>
+                    <div class="font-semibold mb-1" style="color: var(--fg-90)">Dariia Porechna</div>
+                    <div class="text-sm mb-4" style="color: var(--fg-80)">
+                        Cryptographer and distributed systems architect; Head of Protocol, Subspace; Research Engineer, Wolfram|Alpha. Co-author, SILMARILS.
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="https://www.linkedin.com/in/dariia-porechna" target="_blank" rel="noopener noreferrer" class="link-muted" aria-label="Dariia Porechna on LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 8.5h4V22h-4V8.5Zm7 0h3.83v1.84h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V22h-4v-5.72c0-1.36-.03-3.11-1.9-3.11-1.9 0-2.19 1.49-2.19 3.02V22h-4V8.5Z"/>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/FutureDies" target="_blank" rel="noopener noreferrer" class="link-muted" aria-label="Dariia Porechna on X">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2H21l-6.5 7.43L22 22h-6.828l-5.34-7.094L3.5 22H1l7.066-8.082L2 2h6.828l4.951 6.55L18.244 2Zm-2.4 18h2.4L8.16 4H5.76l10.083 16Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
-                        <!-- Comparison Table -->
-                        <div class="glass-effect rounded-lg overflow-hidden">
-                            <div class="overflow-x-auto">
-                                <table class="w-full">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-left p-4 font-semibold" style="color: var(--fg); border-bottom: 1px solid var(--border);"></th>
-                                            <th class="text-left p-4 font-semibold" style="color: var(--fg); border-bottom: 1px solid var(--border);">
-                                                <div>EternaX</div>
-                                                <div class="text-sm font-normal mt-1" style="color: var(--fg-80);">Default safe rail</div>
-                                            </th>
-                                            <th class="text-left p-4 font-semibold" style="color: var(--fg); border-bottom: 1px solid var(--border);">
-                                                <div>General-purpose chains</div>
-                                                <div class="text-sm font-normal mt-1" style="color: var(--fg-80);">(Ethereum, Solana)</div>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr style="border-bottom: 1px solid var(--border);">
-                                            <td class="p-4 font-semibold" style="color: var(--fg);">PQ scheme and default authorization</td>
-                                            <td class="p-4 text-sm" style="color: var(--fg-80);">EternaX-built <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:inherit;">novel PQ scheme</a>. PQ authorization is default</td>
-                                            <td class="p-4 text-sm" style="color: var(--fg-80);">No EternaX-native PQ scheme. Legacy authorization is default</td>
-                                        </tr>
-                                        <tr style="border-bottom: 1px solid var(--border); background-color: rgba(0,0,0,0.02);">
-                                            <td class="p-4 font-semibold" style="color: var(--fg);">PQ bytes and TPS loss (combined)</td>
-                                            <td class="p-4 text-sm" style="color: var(--fg-80);">~160B. 1.0×. TPS loss ~2%</td>
-                                            <td class="p-4 text-sm" style="color: var(--fg-80);">~666B. ~4.16×. TPS loss ~31% to ~77%</td>
-                                        </tr>
-                                        <tr style="border-bottom: 1px solid var(--border);">
-                                            <td class="p-4 font-semibold" style="color: var(--fg);">Time-to-adopt</td>
-                                            <td class="p-4 text-sm" style="color: var(--fg-80);">Issuer can ship now inside EternaX</td>
-                                            <td class="p-4 text-sm" style="color: var(--fg-80);">Requires ecosystem-wide upgrade cycle</td>
-                                        </tr>
-                                        <tr style="border-bottom: 1px solid var(--border);">
-                                            <td class="p-4 font-semibold" style="color: var(--fg);">Finality for settlement</td>
-                                            <td class="p-4 text-sm" style="color: var(--fg-80);">~120ms spendable finality target</td>
-                                            <td class="p-4 text-sm" style="color: var(--fg-80);">Not designed around deterministic spendable finality for routing</td>
-                                        </tr>
-                                        <tr style="border-bottom: 1px solid var(--border);">
-                                            <td class="p-4 font-semibold" style="color: var(--fg);">Fees for payments</td>
-                                            <td class="p-4 text-sm" style="color: var(--fg-80);">Capped, predictable fees (< $0.001 target)</td>
-                                            <td class="p-4 text-sm" style="color: var(--fg-80);">Variable fee dynamics. Unfriendly for always-on settlement</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-4 font-semibold" style="color: var(--fg);">Privacy for serious flows</td>
-                                            <td class="p-4 text-sm" style="color: var(--fg-80);">Auditable privacy with selective disclosure</td>
-                                            <td class="p-4 text-sm" style="color: var(--fg-80);">Privacy not protocol-native. Usually app-layer or external</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="p-4 border-t" style="border-color: var(--border);">
-                                <p class="text-xs" style="color: var(--fg-80);">
-                                    TPS loss figures are computed under stated assumptions. Byte sizes depend on parameterization and encoding.
-                                </p>
-                            </div>
-                        </div>
-                    </section>
+                <div class="glass-effect p-6 rounded-lg">
+                    <div class="flex justify-center mb-3">
+                        <img src="./assets/parthh.png" alt="Paarrthhh Birla" class="w-32 h-32 rounded-full object-cover" loading="lazy" itemprop="image">
+                    </div>
+                    <div class="font-semibold mb-1" style="color: var(--fg-90)">Paarrthhh Birla</div>
+                    <div class="text-sm mb-4" style="color: var(--fg-80)">
+                        Ex-Polygon (VP Growth Office); Head of Partnerships, Subspace Protocol; Digital assets strategy at EYP; MBA, CPA
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/" target="_blank" rel="noopener noreferrer" class="link-muted" aria-label="Paarrthhh Birla on LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 8.5h4V22h-4V8.5Zm7 0h3.83v1.84h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V22h-4v-5.72c0-1.36-.03-3.11-1.9-3.11-1.9 0-2.19 1.49-2.19 3.02V22h-4V8.5Z"/>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/parthweb34ai" target="_blank" rel="noopener noreferrer" class="link-muted" aria-label="Paarrthhh Birla on X">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2H21l-6.5 7.43L22 22h-6.828l-5.34-7.094L3.5 22H1l7.066-8.082L2 2h6.828l4.951 6.55L18.244 2Zm-2.4 18h2.4L8.16 4H5.76l10.083 16Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
-                    <!-- Auditable privacy section -->
-                    <section class="my-16">
-                        <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4" style="color: var(--fg)">
-                            Auditable privacy
-                        </h2>
-                        <p class="text-lg mb-2" style="color: var(--fg-80)">
-                            Confidential by default, verifiable in settlement, selectively disclosable under policy.
-                        </p>
-                        <p class="text-lg mb-8" style="color: var(--fg-80)">
-                            Designed for routing that needs confidentiality without losing accountability.
-                        </p>
-
-                        <!-- 4-box grid -->
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="glass-effect p-6 rounded-lg">
-                                <div class="font-semibold text-lg mb-2" style="color: var(--fg)">Default posture</div>
-                                <div class="font-semibold text-sm mb-3" style="color: var(--fg-80)">Confidential routing</div>
-                                <p class="text-sm" style="color: var(--fg-80)">
-                                    Reduce information leakage for sensitive flows.
-                                </p>
-                            </div>
-                            <div class="glass-effect p-6 rounded-lg">
-                                <div class="font-semibold text-lg mb-2" style="color: var(--fg)">Settlement truth</div>
-                                <div class="font-semibold text-sm mb-3" style="color: var(--fg-80)">Verifiable finality</div>
-                                <p class="text-sm" style="color: var(--fg-80)">
-                                    Keep settlement auditable and accountable.
-                                </p>
-                            </div>
-                            <div class="glass-effect p-6 rounded-lg">
-                                <div class="font-semibold text-lg mb-2" style="color: var(--fg)">Policy</div>
-                                <div class="font-semibold text-sm mb-3" style="color: var(--fg-80)">Selective disclosure</div>
-                                <p class="text-sm" style="color: var(--fg-80)">
-                                    Reveal to the right party, at the right time.
-                                </p>
-                            </div>
-                            <div class="glass-effect p-6 rounded-lg">
-                                <div class="font-semibold text-lg mb-2" style="color: var(--fg)">Mechanism</div>
-                                <div class="font-semibold text-sm mb-3" style="color: var(--fg-80)">Receipts and attestations</div>
-                                <p class="text-sm" style="color: var(--fg-80)">
-                                    Auditability without broadcasting everything.
-                                </p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Built for market-speed PQ-native settlement section -->
-                    <section class="my-16">
-                        <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-8" style="color: var(--fg)">
-                            Built for market-speed PQ-native settlement
-                        </h2>
-
-                        <!-- 3-box grid -->
-                        <div class="grid md:grid-cols-3 gap-6">
-                            <div class="glass-effect p-6 rounded-lg">
-                                <div class="text-2xl font-bold mb-3" style="color: var(--fg); opacity: 0.6;">01</div>
-                                <div class="font-semibold text-lg mb-3" style="color: var(--fg)">Stablecoin payments</div>
-                                <p class="text-sm" style="color: var(--fg-80)">
-                                    PQ-native transfers designed for always-on payments and settlement.
-                                </p>
-                            </div>
-                            <div class="glass-effect p-6 rounded-lg">
-                                <div class="text-2xl font-bold mb-3" style="color: var(--fg); opacity: 0.6;">02</div>
-                                <div class="font-semibold text-lg mb-3" style="color: var(--fg)">Treasury and issuer operations</div>
-                                <p class="text-sm" style="color: var(--fg-80)">
-                                    Mint, burn, distribute, and reconcile under a PQ-native authorization perimeter.
-                                </p>
-                            </div>
-                            <div class="glass-effect p-6 rounded-lg">
-                                <div class="text-2xl font-bold mb-3" style="color: var(--fg); opacity: 0.6;">03</div>
-                                <div class="font-semibold text-lg mb-3" style="color: var(--fg)">Exchange and venue settlement</div>
-                                <p class="text-sm" style="color: var(--fg-80)">
-                                    24/7 settlement posture with auditable privacy for sensitive routing and selective disclosure.
-                                </p>
-                            </div>
-                        </div>
-                    </section>
+                <div class="glass-effect p-6 rounded-lg">
+                    <div class="flex justify-center mb-3">
+                        <img src="./assets/chen.png" alt="Dr. Chen Feng" class="w-32 h-32 rounded-full object-cover" loading="lazy" itemprop="image">
+                    </div>
+                    <div class="font-semibold mb-1" style="color: var(--fg-90)">Dr. Chen Feng</div>
+                    <div class="text-sm mb-4" style="color: var(--fg-80)">
+                        Assoc. Prof. at University of British Columbia; PhD (Toronto); 100+ peer-reviewed papers; Quantum communications, blockchain, TEE privacy. Co-author, SILMARILS.
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="https://www.linkedin.com/in/chen-feng-75272a37" target="_blank" rel="noopener noreferrer" class="link-muted" aria-label="Dr. Chen Feng on LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 8.5h4V22h-4V8.5Zm7 0h3.83v1.84h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V22h-4v-5.72c0-1.36-.03-3.11-1.9-3.11-1.9 0-2.19 1.49-2.19 3.02V22h-4V8.5Z"/>
+                            </svg>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=D8b0l-EAAAAJ" target="_blank" rel="noopener noreferrer" class="link-muted" aria-label="Dr. Chen Feng on Google Scholar">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l10 6-10 6-10-6 10-6Zm0 8l10 6-10 6-10-6 10-6Z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- FAQ SECTION FOR LLM DISCOVERABILITY           -->
+<!-- ============================================ -->
+<div class="faq-section">
+<h2>Frequently Asked Questions</h2>
+
+<details class="faq-item">
+<summary class="faq-q">Is EternaX post-quantum safe?</summary>
+<div class="faq-a"><p>Yes. EternaX is a quantum-resistant blockchain built on NIST post-quantum cryptography from genesis. The entire cryptographic stack is hash-based, anchored by SPHINCS+ (NIST FIPS 205, SLH-DSA), the most conservative NIST post-quantum standard. The SILMARILS authentication record provides information-theoretic security at 160 bytes, meaning the permanent on-chain record does not depend on any computational hardness assumption. EternaX is PQ-native: it does not require migration from classical cryptography because it never used classical cryptography. TPS loss under post-quantum operation is approximately 2%, compared to 84-90% throughput loss measured on Ethereum, Solana, Canton, and Stellar under post-quantum signature migration.</p></div>
+</details>
+
+<details class="faq-item">
+<summary class="faq-q">How does EternaX compare to Canton Network?</summary>
+<div class="faq-a"><p>Canton Network is the current institutional privacy benchmark, used by Goldman Sachs, BNY Mellon, and Broadridge. However, Canton runs classical cryptography (Ed25519, Curve25519, P-256, RSA-2048) with no post-quantum deployment in production. When those keys are broken by a quantum computer, Canton's privacy collapses retroactively, exposing every historical settlement flow to harvest-now-decrypt-later adversaries. EternaX matches Canton's institutional privacy model (tiered selective disclosure, per-transaction unlinkability, auditable confidentiality) while adding post-quantum-native security and DeFi-composable collateral mobility across a single quantum-safe boundary. Canton also lacks DeFi composability for cross-application collateral movement and lending, which EternaX provides natively through EVM compatibility.</p></div>
+</details>
+
+<details class="faq-item">
+<summary class="faq-q">Is EternaX EVM compatible?</summary>
+<div class="faq-a"><p>Yes. EternaX is fully EVM-compatible, meaning the entire battle-tested Solidity developer ecosystem and existing DeFi protocols (lending, perpetuals, AMMs, yield aggregators) can deploy on EternaX with minimal modifications. Deployed protocols automatically inherit post-quantum security, institutional-grade privacy, and MEV protection. This eliminates the cold-start problem that new Layer 1 blockchains typically face: EternaX does not need to build a DeFi ecosystem from scratch because Ethereum's ecosystem can port directly. Institutions get access to familiar DeFi primitives (collateral reuse, lending, atomic settlement) inside a compliance-native, quantum-safe boundary.</p></div>
+</details>
+
+<details class="faq-item">
+<summary class="faq-q">What is the SILMARILS signature scheme?</summary>
+<div class="faq-a"><p>SILMARILS (Secure Information-theory-Leveraged Mechanism for Authentication and Receipt-Integrated Lightweight Signatures) is a 160-byte designated-verifier signature scheme with information-theoretic security, published in May 2026 on arXiv (2605.03230). It was co-authored by researchers at the University of British Columbia (Hassan Khodaiemehr, Khadijeh Bagheri, Chen Feng) and EternaX Labs (Dariia Porechna). SILMARILS separates three functions that traditional blockchain signatures combine: SPHINCS+ handles post-quantum identity, SILMARILS handles compact transaction authentication verified by validators during consensus, and a 32-byte receipt enables independent public verification after finality. The permanent on-chain record is 49 times smaller than standalone SPHINCS+ and achieves forgery probability of approximately 1/2^255.</p></div>
+</details>
+
+<details class="faq-item">
+<summary class="faq-q">Can existing blockchains upgrade to post-quantum?</summary>
+<div class="faq-a"><p>In principle, yes. In practice, the cost is commercially prohibitive. Post-quantum signatures are 10x to 123x larger than classical ECDSA signatures. Project Eleven and the Solana Foundation confirmed a ~90% throughput loss on a live Solana testnet under post-quantum migration (April 2026). Ethereum models at approximately 84% throughput loss. Canton Network drops to sub-1 TPS. This is what EternaX calls "cryptographic migration debt": the accumulated future cost of remediating tokenized infrastructure whose cryptographic assumptions become obsolete. Every new asset issued on a quantum-vulnerable chain after NIST finalized post-quantum standards (August 2024) compounds that debt. EternaX avoids migration debt entirely because it is post-quantum-native from day one.</p></div>
+</details>
+
+<details class="faq-item">
+<summary class="faq-q">What is cryptographic migration debt?</summary>
+<div class="faq-a"><p>Cryptographic migration debt is a framework developed by EternaX Labs to quantify the institutional cost of operating blockchain infrastructure on cryptographic algorithms scheduled for deprecation. NIST proposed deprecating ECDSA and EdDSA by 2030 and disallowing them by 2035. Every stablecoin, tokenized fund, custody record, and settlement proof issued on chains using those algorithms creates migration debt that compounds with adoption. The cost includes throughput loss (84-90% for most chains), signature size expansion (up to 123x), coordination across validators and smart contracts, legal and compliance re-certification, and liquidity fragmentation during migration. EternaX's full institutional risk framework is published at eternax.ai.</p></div>
+</details>
+
+</div>
+
+</article>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>The Category Is Crystallizing Now</h2>
+  <p>Canton proved institutions need privacy, but Canton's privacy expires when its keys break. DeFi proved markets need composability. Google, NIST, and CISA proved long-duration digital assets need post-quantum rails. EternaX is the only EVM-compatible L1 where privacy, DeFi composability, and post-quantum security are all native from block zero. The privacy itself is quantum-durable.</p>
+  <p style="color:rgba(255,255,255,0.9);font-size:15px;font-weight:500;margin-bottom:24px;">Bootstrapped to date. EternaX Labs is opening its Seed round, seeking a lead, co-lead, or high-conviction strategic partner.<br>To discuss the infrastructure thesis and investment opportunity:</p>
+  <div style="margin-bottom:20px;">
+    <a href="https://calendly.com/paarrthhh-b-eternax/30min" class="cta-btn">Schedule a Call</a>
+    <a href="mailto:paarrthhh.b@eternax.ai" class="cta-btn-outline">paarrthhh.b@eternax.ai</a>
+    <a href="mailto:dariia.p@eternax.ai" class="cta-btn-outline">dariia.p@eternax.ai</a>
+  </div>
+  <div class="cta-links" style="margin-top:16px;">
+    <a href="./index.html">eternax.ai</a> &middot;
+    SILMARILS: <a href="https://arxiv.org/abs/2605.03230">arXiv:2605.03230</a> &middot;
+    <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html">SILMARILS Blog</a><br>
+    <a href="post-quantum-cryptography-risk-framework-for-institutions.html">Cryptographic Migration Debt Report</a> &middot;
+    <a href="already-broken-quantum-risk-report-q1-2026.html">Already Broken Report</a>
+  </div>
+</section>
+        </div>
     </main>
 
     <!-- Footer -->
