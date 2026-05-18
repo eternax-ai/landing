@@ -155,6 +155,7 @@
     .toc,
     .content,
     .faq-section { max-width: var(--content-width); margin: 0 auto; }
+    .masthead-inner { max-width: 780px; }
 
     .masthead-label,
     .section-num,
@@ -185,16 +186,19 @@
     .masthead-label {
       font-size: 0.7rem;
       font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 1.2rem;
+      font-family: 'IBM Plex Sans', sans-serif;
+      letter-spacing: 1.8px;
+      color: var(--green);
+      margin-bottom: 16px;
     }
     .masthead-title {
-      font-family: 'IBM Plex Serif', serif;
-      font-size: 3.2rem;
-      line-height: 1.08;
-      letter-spacing: -0.025em;
-      color: var(--text-bright);
-      margin-bottom: 0.65rem;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 700;
+      line-height: 1.22;
+      letter-spacing: -0.3px;
+      color: #1A2550;
+      margin-bottom: 18px;
     }
     .masthead-kicker {
       font-family: 'IBM Plex Mono', monospace;
@@ -207,8 +211,10 @@
       margin-bottom: 1rem;
     }
     .masthead-subtitle {
+      font-family: 'IBM Plex Serif', serif;
       font-size: 1.08rem;
-      color: var(--text-muted);
+      color: #4A4A4A;
+      font-style: italic;
       line-height: 1.6;
       max-width: 760px;
     }
@@ -1199,7 +1205,7 @@
       .toc,
       .content,
       .faq-section { padding-left: 1rem; padding-right: 1rem; }
-      .masthead-title { font-size: 2.15rem; }
+      .masthead-title { font-size: 1.75rem; }
       .toc-list { grid-template-columns: 1fr; }
       .section h2 { font-size: 1.38rem; }
       .section p { font-size: 0.97rem; }
@@ -1460,7 +1466,11 @@
                 </span>
                 <div class="nav-products-dropdown absolute left-0 top-full pt-1">
                     <div class="glass-effect rounded-lg py-2 min-w-[340px] shadow-lg" style="border: 1px solid var(--border)">
-                        <a href="post-quantum-cryptography-risk-framework-for-institutions.html" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b hover:bg-black/5 rounded-t-lg" style="color: var(--fg); border-color: var(--border)">
+                        <a href="post-quantum-signature-security-ranking-2026.html" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b hover:bg-black/5 rounded-t-lg" style="color: var(--fg); border-color: var(--border)">
+                            <span class="font-semibold text-sm block">Post-Quantum Signature Security Ranking 2026</span>
+                            <span class="text-xs block mt-0.5" style="color: var(--fg-80)">May 2026 · Comparative ranking of NIST post-quantum signature schemes for institutional deployment.</span>
+                        </a>
+                        <a href="post-quantum-cryptography-risk-framework-for-institutions.html" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b hover:bg-black/5" style="color: var(--fg); border-color: var(--border)">
                             <span class="font-semibold text-sm block">Cryptographic Migration Debt Framework</span>
                             <span class="text-xs block mt-0.5" style="color: var(--fg-80)">April 2026 · Post-quantum exposure framework for institutional digital asset programmes.</span>
                         </a>
@@ -1529,6 +1539,7 @@
             <div class="mt-2 space-y-3 border-t pt-4" style="border-color: var(--border)">
               <a href="why-eternax.html" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Why EternaX</a>
               <span class="block px-1 text-sm font-semibold" style="color: var(--fg-70)">Quantum Risk Reports</span>
+            <a href="post-quantum-signature-security-ranking-2026.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Signature Security Ranking 2026 <span class="text-xs opacity-60">May 2026</span></a>
             <a href="post-quantum-cryptography-risk-framework-for-institutions.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Cryptographic Migration Debt Framework <span class="text-xs opacity-60">Apr 2026</span></a>
             <a href="already-broken-quantum-risk-report-q1-2026.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Already Broken — Q1 2026</a>
                 <span class="block px-1 text-sm font-semibold" style="color: var(--fg-70)">Products</span>
@@ -1548,7 +1559,7 @@
   <header class="masthead">
     <div class="masthead-inner">
       <div class="masthead-label">EternaX Research | Post-Quantum Financial Infrastructure</div>
-      <h1 class="masthead-title">ALREADY BROKEN</h1>
+      <h1 class="masthead-title">Already Broken</h1>
       <p class="masthead-kicker">The Post-Quantum Threat to Stablecoins, Tokenized Finance, Privacy Chains, and Cryptographic Migration Debt</p>
       <p class="masthead-subtitle">The quantum threat is no longer theoretical. Institutions issuing on classical cryptographic rails in 2026 are creating cryptographic migration debt inside a live pre-upgrade window. This report explains why that matters - and why Post-Quantum Native Day One with EternaX is both a debt escape and a distribution advantage.</p>
         <a href="eternax-report-already-broken-quantum-risk-report-q1-2026.pdf" target="_blank" rel="noopener" class="connect-btn primary no-print">

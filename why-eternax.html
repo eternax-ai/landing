@@ -177,34 +177,36 @@ body {
 }
 
 .why-eternax-longform .hero {
-  max-width: var(--content-width-wide);
+  max-width: 780px;
   margin: 0 auto;
-  padding: 4rem 2rem 2.75rem;
+  padding: 4rem 1.5rem 2.75rem;
 }
 .why-eternax-longform .hero-meta {
-  font-family: var(--mono);
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
   color: var(--green);
-  margin-bottom: 1.1rem;
+  margin-bottom: 16px;
 }
 .why-eternax-longform .hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(1.95rem, 4.5vw, 2.55rem);
-  font-weight: 600;
-  color: var(--navy);
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  margin-bottom: 1.35rem;
-  max-width: 52rem;
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 2.35rem;
+  font-weight: 700;
+  color: #1A2550;
+  line-height: 1.22;
+  letter-spacing: -0.3px;
+  margin-bottom: 18px;
+  max-width: 100%;
 }
 .why-eternax-longform .hero-sub {
+  font-family: var(--serif);
   font-size: 1.06rem;
-  color: var(--text-muted);
-  line-height: 1.62;
-  max-width: 45rem;
+  color: #4A4A4A;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 760px;
   margin-bottom: 1.75rem;
 }
 .why-eternax-longform .hero-authors {
@@ -931,6 +933,9 @@ body {
   .why-eternax-longform .hero {
     padding: 2.85rem 1.15rem 1.85rem;
   }
+  .why-eternax-longform .hero h1 {
+    font-size: 1.75rem;
+  }
   .why-eternax-longform .article {
     padding: 0 1.15rem 3.5rem;
   }
@@ -1130,7 +1135,11 @@ body {
                         </span>
                         <div class="nav-products-dropdown absolute left-0 top-full pt-1">
                             <div class="glass-effect rounded-lg py-2 min-w-[340px] shadow-lg" style="border: 1px solid var(--border)">
-                                <a href="post-quantum-cryptography-risk-framework-for-institutions.html" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b hover:bg-black/5 rounded-t-lg" style="color: var(--fg); border-color: var(--border)">
+                                <a href="post-quantum-signature-security-ranking-2026.html" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b hover:bg-black/5 rounded-t-lg" style="color: var(--fg); border-color: var(--border)">
+                                    <span class="font-semibold text-sm block">Post-Quantum Signature Security Ranking 2026</span>
+                                    <span class="text-xs block mt-0.5" style="color: var(--fg-80)">May 2026 · Comparative ranking of NIST post-quantum signature schemes for institutional deployment.</span>
+                                </a>
+                                <a href="post-quantum-cryptography-risk-framework-for-institutions.html" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b hover:bg-black/5" style="color: var(--fg); border-color: var(--border)">
                                     <span class="font-semibold text-sm block">Cryptographic Migration Debt Framework</span>
                                     <span class="text-xs block mt-0.5" style="color: var(--fg-80)">April 2026 · Post-quantum exposure framework for institutional digital asset programmes.</span>
                                 </a>
@@ -1199,6 +1208,7 @@ body {
                 <div class="mt-2 space-y-3 border-t pt-4" style="border-color: var(--border)">
                     <a href="why-eternax.html" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Why EternaX</a>
                     <span class="block px-1 text-sm font-semibold" style="color: var(--fg-70)">Quantum Risk Reports</span>
+                    <a href="post-quantum-signature-security-ranking-2026.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Signature Security Ranking 2026 <span class="text-xs opacity-60">May 2026</span></a>
                     <a href="post-quantum-cryptography-risk-framework-for-institutions.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Cryptographic Migration Debt Framework <span class="text-xs opacity-60">Apr 2026</span></a>
                     <a href="already-broken-quantum-risk-report-q1-2026.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Already Broken — Q1 2026</a>
                     <a href="blogs/index.html" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Blogs</a>
