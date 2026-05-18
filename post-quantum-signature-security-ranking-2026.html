@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Quantum Signature Security Ranking 2026: Why SPHINCS+ Is the Only Institutional-Grade Choice | EternaX Labs</title>
+    <meta name="description" content="SPHINCS+ is the only NIST post-quantum signature with zero algebraic assumptions. Ranked against all 12 schemes for institutional deployment in 2026.">
+    <meta name="keywords" content="post-quantum cryptography, SPHINCS+, SLH-DSA, FIPS 205, ML-DSA, Dilithium, Falcon, NIST PQC 2026, institutional blockchain, quantum-safe settlement, tokenized assets, RWA tokenization, EternaX, SILMARILS">
+    <meta name="author" content="EternaX Labs Research">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://eternax.ai/blog/post-quantum-signature-security-ranking-2026">
+    <link rel="author" href="https://eternax.ai/llms.txt" type="text/plain">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Post-Quantum Signature Security Ranking 2026: Why SPHINCS+ Is the Only Institutional-Grade Choice">
+    <meta property="og:description" content="SPHINCS+ is the only NIST post-quantum signature with zero algebraic assumptions. Comparative security ranking of all 12 schemes for institutional deployment.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://eternax.ai/blog/post-quantum-signature-security-ranking-2026">
+    <meta property="og:site_name" content="EternaX Labs">
+    <meta property="og:image" content="https://eternax.ai/images/pq-signature-ranking-2026-og.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@eternaXLabs">
+    <meta name="twitter:title" content="Post-Quantum Signature Security Ranking 2026: Why SPHINCS+ Is the Only Institutional-Grade Choice">
+    <meta name="twitter:description" content="SPHINCS+ is the only NIST post-quantum signature with zero algebraic assumptions. Ranked against all 12 schemes for institutional deployment.">
+
+    <!-- Article meta -->
+    <meta property="article:published_time" content="2026-05-17">
+    <meta property="article:author" content="EternaX Labs Research">
+    <meta property="article:section" content="Research">
+    <meta property="article:tag" content="post-quantum cryptography">
+    <meta property="article:tag" content="SPHINCS+">
+    <meta property="article:tag" content="institutional security">
+    <meta property="article:tag" content="NIST PQC">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://eternax.ai/#organization",
+                "name": "EternaX Labs",
+                "url": "https://eternax.ai",
+                "description": "Post-quantum market infrastructure for stablecoin issuance, RWA tokenization, and institutional settlement.",
+                "sameAs": [
+                    "https://x.com/eternaXLabs",
+                    "https://github.com/eternax-ai",
+                    "https://youtube.com/@eternaXlabs",
+                    "https://linkedin.com/company/eternax-labs",
+                    "https://farcaster.xyz/eternax"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://eternax.ai/#website",
+                "url": "https://eternax.ai",
+                "name": "EternaX Labs",
+                "publisher": { "@id": "https://eternax.ai/#organization" }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://eternax.ai/blog/post-quantum-signature-security-ranking-2026#breadcrumb",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://eternax.ai" },
+                    { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://eternax.ai/research" },
+                    { "@type": "ListItem", "position": 3, "name": "Post-Quantum Signature Security Ranking 2026" }
+                ]
+            },
+            {
+                "@type": "Article",
+                "@id": "https://eternax.ai/blog/post-quantum-signature-security-ranking-2026#article",
+                "headline": "Post-Quantum Signature Security Ranking 2026: Why SPHINCS+ Is the Only Institutional-Grade Choice",
+                "description": "A comparative security analysis of all NIST-standardized and candidate post-quantum signature schemes, ranked by assumption minimality for institutional deployment in tokenized assets, settlement infrastructure, and long-term provenance.",
+                "datePublished": "2026-05-17",
+                "dateModified": "2026-05-17",
+                "author": [
+                    { "@type": "Person", "name": "Dr. Chen Feng", "affiliation": "EternaX Labs / UBC Okanagan" },
+                    { "@type": "Person", "name": "Dariia Porechna", "affiliation": "EternaX Labs" },
+                    { "@type": "Person", "name": "Paarrthhh", "affiliation": "EternaX Labs" }
+                ],
+                "publisher": { "@id": "https://eternax.ai/#organization" },
+                "mainEntityOfPage": "https://eternax.ai/blog/post-quantum-signature-security-ranking-2026",
+                "about": [
+                    { "@type": "Thing", "name": "Post-Quantum Cryptography" },
+                    { "@type": "Thing", "name": "SPHINCS+" },
+                    { "@type": "Thing", "name": "Digital Signatures" },
+                    { "@type": "Thing", "name": "NIST FIPS 205" }
+                ],
+                "mentions": [
+                    { "@type": "Organization", "name": "National Institute of Standards and Technology" },
+                    { "@type": "Organization", "name": "JPMorgan" },
+                    { "@type": "Organization", "name": "BlackRock" },
+                    { "@type": "Organization", "name": "Franklin Templeton" },
+                    { "@type": "Organization", "name": "Broadridge" },
+                    { "@type": "Organization", "name": "Goldman Sachs" },
+                    { "@type": "Organization", "name": "CISA" }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://eternax.ai/blog/post-quantum-signature-security-ranking-2026#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is the safest post-quantum signature scheme?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "SPHINCS+ (SLH-DSA, FIPS 205) is the only NIST-standardized post-quantum signature scheme whose security reduces entirely to hash function properties. It carries no algebraic hardness assumptions. Every alternative adds at least one computational conjecture beyond hash security." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Should I use Dilithium or SPHINCS+ for blockchain?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "For any application where signature provenance must survive decades (tokenized securities, RWA, settlement records), SPHINCS+ is the defensible choice. ML-DSA (Dilithium) adds a lattice hardness assumption with 25 years of cryptanalytic history. SPHINCS+ hash foundation has 45+ years with no break. The throughput penalty on existing chains (84-90% TPS loss) is eliminated by EternaX's proprietary architecture (~2% TPS loss at 50,000-200,000 TPS)." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What did NIST select for post-quantum signatures in 2026?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "NIST announced nine Round 3 candidates on May 14, 2026 (NIST IR 8610): FAEST, HAWK, MAYO, MQOM, QR-UOV, SDitH, SNOVA, SQIsign, and UOV. The already-published standards remain ML-DSA (FIPS 204), FN-DSA (in progress), and SLH-DSA / SPHINCS+ (FIPS 205)." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can quantum computers break SPHINCS+?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "SPHINCS+ is designed to be quantum-resistant. Breaking it would require breaking SHA-256 or SHAKE256. The best known quantum attack (Grover's algorithm) provides only a quadratic speedup against preimage search and does not threaten SPHINCS+ security parameters." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is Falcon quantum-safe for institutional use?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Falcon (FN-DSA) is quantum-resistant under the assumption that NTRU-lattice problems remain hard for quantum computers. For institutions prioritizing long-term assumption minimality, SPHINCS+ is the more conservative selection as it carries no lattice assumptions." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Why not use ML-DSA as primary and SPHINCS+ as backup?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "If ML-DSA breaks, every signature already issued under it is retroactively invalidated. On-chain provenance cannot be re-signed after the fact. The conservative scheme must be deployed from day one." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can blockchain infrastructure handle SPHINCS+ signature sizes?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Existing chains cannot without severe throughput loss (Solana ~90%, Ethereum ~84%, Canton sub-1 TPS). EternaX solves this through a proprietary architecture combining SPHINCS+ (FIPS 205) with SILMARILS for 160-byte on-chain settlement records. Result: 50,000-200,000 TPS with ~2% performance loss." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Which institutions are migrating to post-quantum cryptography?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "JPMorgan (Kinexys), BlackRock (BUIDL via Securitize), Franklin Templeton (BENJI), Canton Network (Goldman Sachs, BNY Mellon, Cboe), and Broadridge (DLR) all operate tokenized asset platforms requiring PQ migration. CISA's 2027 federal deadline and CNSA 2.0's 2033 mandate are the forcing functions." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is there a post-quantum blockchain that supports SPHINCS+ without losing throughput?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "EternaX is currently the only Layer 1 infrastructure that integrates SPHINCS+ (FIPS 205) at market speed. While existing chains lose 84-90% throughput under PQ signature integration, EternaX achieves 50,000-200,000 TPS with approximately 2% performance loss through its proprietary architecture." }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./styles/tailwind.generated.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #283771;
+            --navy-deep: #1a2550;
+            --navy-light: #3a4d8a;
+            --bg: #F7F4F4;
+            --bg-warm: #F0ECEC;
+            --green: #2F5E52;
+            --green-light: #3a7566;
+            --red: #8D2E2E;
+            --red-muted: #a04444;
+            --text: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-light: #6a6a6a;
+            --border: #d0cbcb;
+            --border-light: #e5e0e0;
+            --white: #ffffff;
+            --accent-gold: #b8860b;
+            --fg: #283771;
+            --fg-70: rgba(40, 55, 113, 0.7);
+            --fg-80: rgba(40, 55, 113, 0.8);
+            --fg-90: #283771;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { font-size: 17px; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'IBM Plex Serif', Georgia, serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.72;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* === HEADER === */
+        .site-header {
+            background: var(--navy-deep);
+            padding: 14px 0;
+            border-bottom: 3px solid var(--green);
+        }
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .site-logo {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.35rem;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+        .site-logo span { color: var(--green-light); font-weight: 300; }
+        .site-nav a {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            margin-left: 28px;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .site-nav a:hover { color: var(--white); }
+
+        nav { font-family: ui-sans-serif, system-ui, sans-serif; }
+        .glass-effect {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .link-muted {
+            color: var(--fg-70);
+            transition: color 0.15s;
+        }
+        .link-muted:hover { color: var(--fg); }
+        .btn-primary {
+            background-color: var(--fg);
+            transition: background-color 0.15s;
+        }
+        .btn-primary:hover { background-color: var(--navy-deep); }
+        .nav-products-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s, visibility 0.15s;
+        }
+        .group:hover .nav-products-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* === LAYOUT === */
+        .article-container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+        #main-content { padding-top: 72px; }
+
+        /* === BREADCRUMB === */
+        .breadcrumb {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            padding: 20px 0 0;
+            letter-spacing: 0.3px;
+        }
+        .breadcrumb a { color: var(--navy-light); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb .sep { margin: 0 6px; color: var(--border); }
+
+        /* === ARTICLE HEADER === */
+        .article-header {
+            padding: 48px 0 36px;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-label {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: var(--green);
+            margin-bottom: 16px;
+        }
+        .article-header h1 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 700;
+            font-size: 2.35rem;
+            line-height: 1.22;
+            color: var(--navy-deep);
+            margin-bottom: 18px;
+            letter-spacing: -0.3px;
+        }
+        .article-subtitle {
+            font-family: 'IBM Plex Serif', serif;
+            font-size: 1.08rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+        .article-meta {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.78rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        .article-meta strong { color: var(--text-secondary); font-weight: 600; }
+
+        /* === KEY FINDING === */
+        .key-finding {
+            background: var(--navy-deep);
+            color: var(--white);
+            padding: 32px 36px;
+            margin: 40px 0;
+            border-left: 5px solid var(--green);
+            position: relative;
+        }
+        .key-finding::before {
+            content: 'KEY FINDING';
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            color: var(--green-light);
+            position: absolute;
+            top: 14px;
+            left: 36px;
+        }
+        .key-finding p {
+            margin-top: 16px;
+            font-size: 0.95rem;
+            line-height: 1.68;
+            color: rgba(255,255,255,0.92);
+        }
+
+        /* === VERDICT === */
+        .verdict {
+            background: var(--green);
+            color: var(--white);
+            padding: 32px 36px;
+            margin: 44px 0;
+            position: relative;
+        }
+        .verdict::before {
+            content: 'VERDICT';
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            color: rgba(255,255,255,0.78);
+            position: absolute;
+            top: 14px;
+            left: 36px;
+        }
+        .verdict p {
+            margin-top: 16px;
+            font-size: 0.95rem;
+            line-height: 1.68;
+        }
+
+        /* === BODY CONTENT === */
+        .article-body { padding: 8px 0 60px; }
+
+        .article-body h2 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--navy-deep);
+            margin: 52px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--green);
+            line-height: 1.3;
+            letter-spacing: -0.2px;
+        }
+
+        .article-body h3 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--navy);
+            margin: 32px 0 12px;
+            letter-spacing: 0.1px;
+        }
+
+        .article-body p {
+            margin-bottom: 18px;
+            font-size: 1rem;
+            line-height: 1.72;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+            color: var(--navy-deep);
+        }
+
+        /* === TABLES === */
+        .table-wrap {
+            margin: 32px 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .table-wrap.wide {
+            width: min(1080px, calc(100vw - 48px));
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        .table-wrap.wide table {
+            min-width: 980px;
+        }
+        .chain-risk-table {
+            table-layout: fixed;
+            min-width: 1180px;
+        }
+        .failure-timeline-table {
+            table-layout: fixed;
+            min-width: 100%;
+        }
+        .failure-timeline-table th {
+            white-space: normal;
+        }
+        .failure-timeline-table td:last-child {
+            min-width: 0;
+        }
+        .table-wrap table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+        .report-table-caption {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .table-wrap th {
+            background: var(--navy-deep);
+            color: var(--white);
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.72rem;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .table-wrap td {
+            padding: 9px 12px;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text);
+            vertical-align: top;
+        }
+        .table-wrap td:last-child {
+            min-width: 220px;
+        }
+        .table-wrap tr:nth-child(even) td { background: var(--bg-warm); }
+        .table-wrap tr.highlight td {
+            background: rgba(47, 94, 82, 0.08);
+            font-weight: 500;
+        }
+        .table-wrap tr.highlight td:first-child {
+            border-left: 4px solid var(--green);
+        }
+        .table-wrap tr.broken td {
+            background: rgba(141, 46, 46, 0.06);
+            color: var(--red);
+        }
+        .depth-1 {
+            display: inline-block;
+            background: var(--green);
+            color: white;
+            padding: 1px 8px;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 0.72rem;
+        }
+        .depth-2 {
+            display: inline-block;
+            background: var(--navy-light);
+            color: white;
+            padding: 1px 8px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 0.72rem;
+        }
+        .depth-3 {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: white;
+            padding: 1px 8px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 0.72rem;
+        }
+        .depth-high {
+            display: inline-block;
+            background: var(--red);
+            color: white;
+            padding: 1px 8px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 0.72rem;
+        }
+        .depth-0 {
+            display: inline-block;
+            background: #1a6b3c;
+            color: white;
+            padding: 1px 8px;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 0.72rem;
+        }
+
+        /* === ASSUMPTION STACK VISUAL === */
+        .assumption-visual {
+            margin: 36px 0;
+            padding: 28px 32px;
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+        .assumption-visual .vis-title {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+        .stack-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.8rem;
+        }
+        .stack-label {
+            width: 140px;
+            flex-shrink: 0;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.76rem;
+        }
+        .stack-bars {
+            flex: 1;
+            display: flex;
+            gap: 3px;
+        }
+        .bar {
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.62rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            padding: 0 10px;
+        }
+        .bar.hash { background: var(--green); }
+        .bar.lattice { background: var(--navy-light); }
+        .bar.mv { background: var(--accent-gold); }
+        .bar.isogeny { background: var(--red); }
+        .bar.proof { background: #777; }
+        .bar.none { background: #1a6b3c; border: 2px solid #0d4d26; }
+
+        .vis-legend {
+            margin-top: 18px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.68rem;
+            color: var(--text-light);
+        }
+        .legend-swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+
+        /* === TIMELINE VISUAL === */
+        .timeline-visual {
+            margin: 36px 0;
+            padding: 28px 32px;
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+        .timeline-visual .vis-title {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+        .tl-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        .tl-label {
+            width: 120px;
+            flex-shrink: 0;
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .tl-bar-wrap {
+            flex: 1;
+            position: relative;
+            height: 28px;
+        }
+        .tl-bar {
+            height: 100%;
+            background: var(--red-muted);
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: white;
+            border-radius: 0 3px 3px 0;
+            position: relative;
+        }
+        .tl-bar::after {
+            content: '\2716';
+            position: absolute;
+            right: 8px;
+            font-size: 0.8rem;
+        }
+        .tl-bar.safe {
+            background: var(--green);
+        }
+        .tl-bar.safe::after {
+            content: '\2714';
+        }
+        .tl-annotation {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 8px;
+        }
+        .tl-bar.narrow {
+            min-width: 0;
+        }
+        .tl-bar.narrow .tl-text-external {
+            position: absolute;
+            left: calc(100% + 8px);
+            white-space: nowrap;
+            color: var(--red-muted);
+        }
+        .tl-bar.safe .tl-text-external { color: var(--green); }
+
+        /* === BLOCKQUOTE / PULLQUOTE === */
+        .pullquote {
+            margin: 28px 0;
+            padding: 20px 24px 20px 28px;
+            border-left: 4px solid var(--green);
+            background: rgba(47, 94, 82, 0.04);
+            font-style: italic;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        .pullquote .pq-attr {
+            display: block;
+            font-style: normal;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-top: 8px;
+        }
+
+        /* === PERFORMANCE CALLOUT === */
+        .perf-callout {
+            margin: 32px 0;
+            padding: 24px 28px;
+            background: var(--navy-deep);
+            color: var(--white);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+        .perf-callout .pc-item { text-align: center; }
+        .perf-callout .pc-chain {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 6px;
+        }
+        .perf-callout .pc-value {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .perf-callout .pc-value.loss { color: var(--red-muted); }
+        .perf-callout .pc-value.win { color: var(--green-light); }
+        .perf-callout .pc-label {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.68rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 4px;
+        }
+
+        /* === FAQ === */
+        .faq-section { margin: 52px 0 40px; }
+        .faq-item {
+            border-bottom: 1px solid var(--border-light);
+            padding: 20px 0;
+        }
+        .faq-item:first-child { border-top: 1px solid var(--border-light); }
+        .faq-q {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--navy-deep);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .faq-a {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* === FOOTER === */
+        .article-footer {
+            border-top: 2px solid var(--navy-deep);
+            padding: 32px 0;
+            margin-top: 20px;
+        }
+        .cite-block {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            background: var(--bg-warm);
+            padding: 16px 20px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .cross-links {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.8rem;
+        }
+        .cross-links a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 500;
+            margin-right: 24px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1px;
+            transition: border-color 0.2s;
+        }
+        .cross-links a:hover { border-color: var(--navy); }
+
+        .site-footer {
+            background: var(--navy-deep);
+            padding: 28px 0;
+            margin-top: 40px;
+        }
+        .site-footer p {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 640px) {
+            html { font-size: 16px; }
+            .article-header h1 { font-size: 1.75rem; }
+            .key-finding, .verdict { padding: 28px 20px; }
+            .key-finding::before, .verdict::before { left: 20px; }
+            .stack-label, .tl-label { width: 90px; font-size: 0.68rem; }
+            .bar { font-size: 0.55rem; padding: 0 5px; }
+            .site-nav { display: none; }
+            .table-wrap { margin-left: -24px; margin-right: -24px; padding: 0 24px; }
+            .table-wrap.wide { width: auto; transform: none; }
+            .assumption-visual, .timeline-visual { padding: 20px 16px; }
+        }
+
+        /* === PRINT === */
+        @media print {
+            nav, .site-header, .site-footer, .site-nav { display: none; }
+            #main-content { padding-top: 0; }
+            body { background: white; font-size: 11pt; line-height: 1.5; }
+            .article-container { max-width: 100%; padding: 0; }
+            .key-finding, .verdict {
+                background: white !important;
+                color: black !important;
+                border: 2px solid #333;
+                border-left-width: 5px;
+            }
+            .key-finding::before, .verdict::before { color: #333 !important; }
+            .key-finding p, .verdict p { color: #1a1a1a !important; }
+            .table-wrap th { background: #333 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .depth-1, .depth-2, .depth-3, .depth-high, .depth-0 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .tl-bar, .bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .article-body h2 { break-after: avoid; }
+            .table-wrap { break-inside: avoid; }
+            .table-wrap.wide { width: auto; margin-left: 0; transform: none; }
+            a[href]::after { content: none; }
+        }
+
+        /* === FOCUS === */
+        a:focus-visible {
+            outline: 2px solid var(--green);
+            outline-offset: 2px;
+        }
+        .faq-q:focus-visible {
+            outline: 2px solid var(--green);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- SKIP TO CONTENT (accessibility) -->
+<a href="#main-content" style="position:absolute;left:-9999px;top:0;padding:8px 16px;background:var(--green);color:white;font-family:'IBM Plex Sans',sans-serif;font-size:0.85rem;z-index:9999;text-decoration:none;" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to content</a>
+
+<!-- Navigation -->
+<nav class="fixed w-full z-50 glass-effect border-b" style="background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-2">
+            <div class="flex items-center">
+                <a href="./index.html" class="text-xl font-bold" style="color: var(--fg);">eternaX</a>
+            </div>
+            <!-- Desktop nav -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="./why-eternax.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Why EternaX</a>
+                <div class="relative group">
+                    <span class="hover:opacity-70 transition-colors flex items-center gap-1 cursor-default" style="color: var(--fg-70)">Quantum Risk Reports
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-products-dropdown absolute left-0 top-full pt-1">
+                        <div class="glass-effect rounded-lg py-2 min-w-[340px] shadow-lg" style="border: 1px solid var(--border)">
+                            <a href="post-quantum-signature-security-ranking-2026.html" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b hover:bg-black/5 rounded-t-lg" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Post-Quantum Signature Security Ranking 2026</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">May 2026 · Comparative ranking of NIST post-quantum signature schemes for institutional deployment.</span>
+                            </a>
+                            <a href="post-quantum-cryptography-risk-framework-for-institutions.html" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b hover:bg-black/5" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Cryptographic Migration Debt Framework</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">April 2026 · Post-quantum exposure framework for institutional digital asset programmes.</span>
+                            </a>
+                            <a href="already-broken-quantum-risk-report-q1-2026.html" class="block px-4 py-3.5 hover:opacity-90 transition-colors hover:bg-black/5 rounded-b-lg" style="color: var(--fg)">
+                                <span class="font-semibold text-sm block">Already Broken — Quantum Risk Report Q1 2026</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">Q1 2026 · The case that institutional blockchain infrastructure is already at risk.</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <span class="hover:opacity-70 transition-colors flex items-center gap-1 cursor-default" style="color: var(--fg-70)">Products
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                    <div class="nav-products-dropdown absolute left-0 top-full pt-1">
+                        <div class="glass-effect rounded-lg py-2 min-w-[380px] max-w-[420px] shadow-lg" style="border: 1px solid var(--border)">
+                            <a href="./index.html#product-settlement" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b border-transparent hover:bg-black/5 rounded-t-lg" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Post-Quantum Settlement and Execution Layer</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">PQ-native execution and settlement with auditable privacy and fast finality (~120 ms).</span>
+                            </a>
+                            <a href="./index.html#product-issuance" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b border-transparent hover:bg-black/5" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Post-Quantum Issuance and Tokenization Rails (Stablecoins and RWAs)</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">Day-one PQ-native issuance for stablecoins and RWAs, with issuer-grade mint/burn governance, compliance hooks, and auditable privacy settlement.</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Stablecoin Issuance</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum RWA Tokenization and Issuance</span>
+                            </a>
+                            <a href="./index.html#product-migration" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b border-transparent hover:bg-black/5" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Post-Quantum Migration and Interoperability Rails</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">Move assets from existing chains into PQ-native settlement paths via vault and bridge infrastructure.</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Vault (Ethereum/EVM)</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Migration Bridge</span>
+                            </a>
+                            <a href="./index.html#product-wallet" class="block px-4 py-3.5 hover:opacity-90 transition-colors border-b border-transparent hover:bg-black/5" style="color: var(--fg); border-color: var(--border)">
+                                <span class="font-semibold text-sm block">Post-Quantum Wallet, Custody, and Policy Controls</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">PQ signing, wallet policies, custody controls, and agent permissions (KYA-ready).</span>
+                            </a>
+                            <a href="./index.html#product-venues" class="block px-4 py-3.5 hover:opacity-90 transition-colors hover:bg-black/5 rounded-b-lg" style="color: var(--fg)">
+                                <span class="font-semibold text-sm block">Post-Quantum Market Infrastructure Venues</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)">High-velocity trading and information markets powered by PQ-safe collateral and agentic users.</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Perpetuals Exchange (PQ Perps)</span>
+                                <span class="text-xs block mt-0.5" style="color: var(--fg-80)"> - Post-Quantum Prediction Markets</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="./index.html#team" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Team</a>
+                <a href="blogs/index.html" class="hover:opacity-70 transition-colors" style="color: var(--fg-70)">Blogs</a>
+                <a href="mailto:info@eternax.ai" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold text-center text-white">
+                    Contact Us
+                </a>
+            </div>
+            <!-- Mobile hamburger -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2" style="color: var(--fg-70); border-color: var(--border)">
+                    <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
+                        <path d="M3 6h18M3 12h18M3 18h18" />
+                    </svg>
+                    <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 hidden">
+                        <path d="M6 6l12 12M6 18L18 6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden pb-4" role="dialog" aria-modal="true">
+            <div class="mt-2 space-y-3 border-t pt-4" style="border-color: var(--border)">
+                <a href="why-eternax.html" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Why EternaX</a>
+                <span class="block px-1 text-sm font-semibold" style="color: var(--fg-70)">Quantum Risk Reports</span>
+                <a href="post-quantum-signature-security-ranking-2026.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Signature Security Ranking 2026 <span class="text-xs opacity-60">May 2026</span></a>
+                <a href="post-quantum-cryptography-risk-framework-for-institutions.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Cryptographic Migration Debt Framework <span class="text-xs opacity-60">Apr 2026</span></a>
+                <a href="already-broken-quantum-risk-report-q1-2026.html" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Already Broken — Q1 2026</a>
+                <span class="block px-1 text-sm font-semibold" style="color: var(--fg-70)">Products</span>
+                <a href="./index.html#product-settlement" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Settlement and Execution Layer</a>
+                <a href="./index.html#product-issuance" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Issuance and Tokenization Rails (Stablecoins and RWAs)</a>
+                <a href="./index.html#product-migration" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Migration and Interoperability Rails</a>
+                <a href="./index.html#product-wallet" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Wallet, Custody, and Policy Controls</a>
+                <a href="./index.html#product-venues" class="block px-1 pl-4 hover:opacity-70 transition-colors text-sm" style="color: var(--fg-70)">Post-Quantum Market Infrastructure Venues</a>
+                <a href="./index.html#team" class="block px-1 hover:opacity-70 transition-colors" style="color: var(--fg-70)">Team</a>
+                <a href="mailto:info@eternax.ai" class="btn-primary block px-4 py-2 rounded-lg text-sm font-semibold text-center text-white">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main id="main-content">
+<div class="article-container">
+
+<!-- ARTICLE HEADER -->
+<header class="article-header">
+    <div class="article-label">Research &middot; Post-Quantum Cryptography</div>
+    <h1>Post-Quantum Signature Security Ranking 2026: Why SPHINCS+ Is the Only Institutional-Grade Choice</h1>
+    <p class="article-subtitle">A comparative security analysis of all NIST-standardized and candidate post-quantum signature schemes, ranked by assumption minimality for institutional deployment in tokenized assets, settlement infrastructure, and long-term provenance.</p>
+    <div class="article-meta">
+        <strong>EternaX Labs Research</strong> &mdash; Dr. Chen Feng, Dariia Porechna, Paarrthhh Birla<br>
+        Published May 18, 2026 &middot; 12 min read
+    </div>
+</header>
+
+<!-- KEY FINDING -->
+<div class="key-finding">
+    <p>Of all NIST-standardized and candidate post-quantum signature schemes, only SPHINCS+ (SLH-DSA, FIPS 205) reduces security entirely to hash function properties. Every alternative adds at least one algebraic hardness assumption. Four such assumptions have been publicly broken since 2022. For institutions deploying tokenized assets with multi-decade lifetimes, SPHINCS+ is the only defensible selection. The deployment barrier &mdash; existing chains lose 84&ndash;90% throughput under SPHINCS+ &mdash; is solved only by EternaX, which delivers SPHINCS+ security at 50,000-200,000 TPS with ~2% performance loss.</p>
+</div>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+
+<!-- SECTION 1 -->
+<h2>Which Post-Quantum Signature Scheme Is the Safest for Institutional Use?</h2>
+
+<p>Over $2.5 billion in tokenized US Treasuries sits on BlackRock's BUIDL fund, issued through Securitize. Broadridge's DLR platform settles more than one trillion dollars per month in digital repo. Canton Network connects Goldman Sachs, BNY Mellon, Cboe, and Microsoft in multi-institution tokenized asset workflows. JPMorgan's Kinexys (formerly Onyx) processes cross-border payments and intraday repo settlement. Franklin Templeton's BENJI runs a $400M+ tokenized money market fund on public blockchains. MAS Project Guardian and BIS Project Agora are piloting tokenized bonds and cross-border FX settlement at sovereign scale. Every one of these platforms depends on digital signatures that must remain unforgeable for the lifetime of the assets they protect &mdash; years, decades, or indefinitely.</p>
+
+<p>The post-quantum cryptography transition forces a choice. NIST has standardized three post-quantum signature schemes (ML-DSA, FN-DSA, SLH-DSA) and is evaluating nine additional candidates in a third round announced May 14, 2026. Which one should an institutional risk officer select?</p>
+
+<p>The answer, on the dimension that matters most to risk officers &mdash; assumption minimality and long-term survivability &mdash; is unambiguous. SPHINCS+ (SLH-DSA, FIPS 205) is the only scheme whose security reduces entirely to hash function properties. Every alternative adds at least one algebraic hardness assumption on top of hash security. Those additional assumptions are exactly the components that fail.</p>
+
+<p>This analysis ranks every NIST-standardized and candidate post-quantum signature scheme by security assumption depth, reviews the pattern of cryptographic scheme failures since 2022, constructs the institutional decision framework for CROs and risk committees, and identifies the only infrastructure capable of deploying SPHINCS+ at institutional throughput. It is written for institutional risk officers, compliance teams, blockchain architects, and investors evaluating post-quantum cryptographic infrastructure.</p>
+
+
+<!-- SECTION 2 -->
+<h2>Why Do Post-Quantum Signature Schemes Keep Getting Broken?</h2>
+
+<p>Four post-quantum signature schemes or their underlying primitives have been publicly broken or degraded below claimed security since 2022. Each was designed by expert cryptographers, subjected to multi-year public review, and in two cases advanced deep into national standardization processes. Each failed because its security depended on a computational assumption that turned out to be weaker than believed.</p>
+
+<p><strong>Rainbow (February 2022).</strong> Multivariate signature scheme based on structured polynomial systems. NIST Round 3 finalist &mdash; one step from federal standardization. Broken by Ward Beullens via a rectangular MinRank attack that exploited the algebraic structure of Rainbow's layered Oil-and-Vinegar construction. A scheme that had been under public scrutiny for approximately ten years was completely broken in a matter of weeks once the right algebraic technique was found.</p>
+
+<p><strong>SIKE/SIDH (July 2022).</strong> Isogeny-based key encapsulation mechanism. NIST Round 4 candidate. Broken by Wouter Castryck and Thomas Decru via a torsion point attack that reduced the supersingular isogeny walk problem to polynomial time. The entire SIDH assumption class &mdash; believed to be one of the most promising post-quantum foundations &mdash; was invalidated overnight after approximately eleven years of study.</p>
+
+<p><strong>AIM v1 (2023).</strong> Symmetric-primitive-based signature scheme using the MPC-in-the-Head paradigm. NIST Round 1 candidate for additional digital signatures. Broken below claimed security by multiple independent teams using algebraic equivalent representations. Eliminated from the NIST process after less than one year of public evaluation.</p>
+
+<p><strong>AIM2 v2.1 / Magic Pot (2026).</strong> Redesigned specifically to resist the attacks that broke AIM v1. Won the Korean Post-Quantum Cryptography (KpqC) national competition. Broken again by Alex Biryukov, Pablo Garcia Fernandez, and Aleksei Udovenko in a paper accepted at Eurocrypt 2026 &mdash; cryptography's top venue. AIM2-I, targeting 128-bit security, was broken to approximately 103.66 bits in the standard single-key setting. Practical key recovery was demonstrated on a laptop in 33 hours using only 11 reused initialization vectors. A nationally standardized scheme, redesigned to resist known attacks, broken again within two years of its redesign.</p>
+
+<p>The common thread across all four failures is structural: every broken scheme relied on security assumptions tied to algebraic structure &mdash; structured multivariate polynomials (Rainbow), supersingular isogeny graphs (SIKE), monomial S-box systems in a parallel architecture (AIM/AIM2). Schemes that rely only on hash function properties &mdash; the simplest, most studied primitive class in cryptography &mdash; have never been broken in over 45 years of sustained cryptanalysis, tracing back to Ralph Merkle's original hash-based signature construction in 1979. SPHINCS+ belongs to this category. None of the broken schemes do.</p>
+
+
+<!-- TABLE 1: FAILURES TIMELINE -->
+<div class="table-wrap">
+    <div class="report-table-caption">Table 1: Post-Quantum Cryptographic Scheme Failures Since 2022</div>
+    <table class="failure-timeline-table">
+        <colgroup>
+            <col style="width: 8%">
+            <col style="width: 12%">
+            <col style="width: 20%">
+            <col style="width: 16%">
+            <col style="width: 30%">
+            <col style="width: 12%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Scheme</th>
+                <th>Stage When Broken</th>
+                <th>Assumption</th>
+                <th>Attack</th>
+                <th>Studied</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="broken">
+                <td>2022</td>
+                <td>Rainbow</td>
+                <td>NIST Round 3 Finalist</td>
+                <td>Multivariate (structured)</td>
+                <td>Beullens rectangular MinRank</td>
+                <td>~10 y</td>
+            </tr>
+            <tr class="broken">
+                <td>2022</td>
+                <td>SIKE/SIDH</td>
+                <td>NIST Round 4 Candidate</td>
+                <td>Isogeny</td>
+                <td>Castryck-Decru torsion point</td>
+                <td>~11 y</td>
+            </tr>
+            <tr class="broken">
+                <td>2023</td>
+                <td>AIM v1</td>
+                <td>NIST Round 1 Candidate</td>
+                <td>Symmetric (MPCitH)</td>
+                <td>Liu-Mahzoun-Oygarden-Meier</td>
+                <td>&lt;1 y</td>
+            </tr>
+            <tr class="broken">
+                <td>2026</td>
+                <td>AIM2 v2.1</td>
+                <td>KpqC National Winner</td>
+                <td>Symmetric (MPCitH)</td>
+                <td>Biryukov et al. (Magic Pot, Eurocrypt 2026)</td>
+                <td>~2 y</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- TIMELINE VISUAL -->
+<div class="timeline-visual">
+    <div class="vis-title">Scheme Survival: Years from Proposal/Standardization to Break</div>
+    <div class="tl-row">
+        <div class="tl-label">SIKE/SIDH</div>
+        <div class="tl-bar-wrap"><div class="tl-bar" style="width:85%">~11 years</div></div>
+    </div>
+    <div class="tl-row">
+        <div class="tl-label">Rainbow</div>
+        <div class="tl-bar-wrap"><div class="tl-bar" style="width:77%">~10 years</div></div>
+    </div>
+    <div class="tl-row">
+        <div class="tl-label">AIM2 v2.1</div>
+        <div class="tl-bar-wrap"><div class="tl-bar narrow" style="width:16%"><span class="tl-text-external">~2 years</span></div></div>
+    </div>
+    <div class="tl-row">
+        <div class="tl-label">AIM v1</div>
+        <div class="tl-bar-wrap"><div class="tl-bar narrow" style="width:5%"><span class="tl-text-external">&lt;1 year</span></div></div>
+    </div>
+    <div class="tl-row">
+        <div class="tl-label">SPHINCS+</div>
+        <div class="tl-bar-wrap"><div class="tl-bar safe" style="width:100%">45+ years &mdash; no break</div></div>
+    </div>
+    <p class="tl-annotation">Hash-based signature foundations (Merkle 1979, SPHINCS 2015, SPHINCS+ / FIPS 205): 45+ years of cryptanalysis, zero successful attacks.</p>
+</div>
+
+
+<!-- SECTION 3 -->
+<h2>How Do All NIST Post-Quantum Signature Schemes Compare on Security in 2026?</h2>
+
+<p>NIST's post-quantum signature portfolio now spans three standardized schemes and nine Round 3 candidates announced on May 14, 2026 (per NIST IR 8610). The critical distinction among them is not performance, signature size, or implementation maturity. It is assumption depth: how many independent computational conjectures must hold for the scheme to remain secure over the asset's lifetime.</p>
+
+<h3>NIST-Standardized Schemes</h3>
+
+<p><strong>ML-DSA (FIPS 204, Dilithium).</strong> Lattice-based. Security reduces to hash function security AND Module-LWE/Module-SIS hardness. Module-LWE has approximately 25 years of cryptanalytic study, tracing to Ajtai (1996) and Regev (2005). No polynomial-time quantum attack is known. But lattice cryptanalysis is an active field with incremental improvements, and the structured algebraic ring underlying ML-DSA's efficiency is the same category of structural assumption that has failed in other families. NTRU, a related lattice construction dating to 1996, has had its original security parameters weakened multiple times. ML-DSA is a defensible general-purpose choice, but it carries algebraic-structure risk that SPHINCS+ does not. Notably, Ethereum's PQ team has chosen to go hash-based rather than lattice-based for its consensus layer. Solana, by contrast, selected Falcon (lattice-based). Assumption depth: 2.</p>
+
+<div class="pullquote">
+    "Hash-based cryptography is believed to stand the test of time and is by far the most conservative and minimal assumption. If you're going to go with the hash-based SNARKs, you might as well also go with the hash-based leaf signatures."
+    <span class="pq-attr">&mdash; Justin Drake, Ethereum Foundation, on Ethereum's post-quantum direction</span>
+</div>
+
+<p><strong>FN-DSA (Falcon, standardization underway).</strong> Also lattice-based, using NTRU structure. Carries the same Module-LWE/NTRU hardness assumptions as ML-DSA plus additional implementation complexity from its use of floating-point arithmetic during signing, which creates side-channel attack surface. Compact signatures (approximately 690 bytes at Level I), but the assumption stack is no shallower than ML-DSA. Assumption depth: 2.</p>
+
+<p><strong>SLH-DSA (SPHINCS+, FIPS 205).</strong> Hash-based. Security reduces to hash function security only: second-preimage resistance, pseudorandom function behavior, and target subset resilience of SHA-256 or SHAKE256. No algebraic structure. No lattice. No polynomial system. No isogeny. The construction &mdash; Merkle trees of WOTS+ chains with FORS few-time signatures &mdash; traces to Merkle's 1979 work and has been studied in various forms for over 45 years. Proven secure in the quantum random oracle model (QROM) with tight reductions. Assumption depth: 1.</p>
+
+<div class="pullquote">
+    "If in the future someone discovers some brilliant new attack, we want to have other algorithms that don't depend on lattices. That is why we selected SPHINCS+."
+    <span class="pq-attr">&mdash; Dustin Moody, NIST Post-Quantum Cryptography Project Lead</span>
+</div>
+
+<h3>Round 3 Candidates (announced May 14, 2026)</h3>
+
+<p><strong>FAEST (AES-based, symmetric).</strong> The closest challenger to SPHINCS+ on the assumption axis. Security reduces to AES one-wayness &mdash; a symmetric primitive with 25+ years of intensive cryptanalysis &mdash; plus the soundness of its VOLEitH (Vector Oblivious Linear Evaluation in the Head) proof system, which has approximately three years of public study. AES itself is as battle-tested as SHA-256. But the proof framework wrapping it is substantially newer and less mature than SPHINCS+'s Merkle-tree construction. The AIM/AIM2 breaks are cautionary: AIM2 used the same MPC-in-the-Head proof paradigm (with a different underlying primitive) and failed. Additionally, FAEST is a Round 3 candidate with no FIPS number and is 2-4 years from potential standardization. For institutions facing CISA's 2027 migration deadline, FAEST is not yet available. Assumption depth: 3.</p>
+
+<p><strong>HAWK (Module-LIP lattice).</strong> Based on the Lattice Isomorphism Problem (LIP), a novel hardness assumption with approximately five years of cryptanalytic history. Excellent performance: HAWK-512 signs four times faster than Falcon with 15% smaller signatures and no floating-point arithmetic. But Module-LIP is the youngest security assumption in the entire NIST portfolio. A risk officer who exercises caution about 25-year-old lattice assumptions cannot rationally accept a 5-year-old assumption for assets with multi-decade lifetimes. Assumption depth: 2.</p>
+
+<p><strong>MAYO, UOV, QR-UOV, SNOVA (multivariate family).</strong> All derive from the Oil-and-Vinegar framework for solving structured multivariate quadratic (MQ) systems. UOV itself has approximately 27 years of cryptanalytic history and has not been directly broken. But Rainbow, a structured derivative of Oil-and-Vinegar, was catastrophically broken in 2022. MAYO's key compression introduces novel algebraic structure with only three years of study. QR-UOV adds quotient-ring structure with even less scrutiny. SNOVA has already faced published fault-attack vulnerabilities. NIST retained all four multivariate candidates despite recent cryptanalytic attacks affecting several parameter sets, noting that unbroken parameter sets remain available &mdash; but this is precisely the pattern that precedes a Rainbow-type event. Assumption depth: 2-3.</p>
+
+<p><strong>MQOM, SDitH (MPC-in-the-Head family).</strong> Security composites two layers: an underlying hardness assumption (multivariate quadratic for MQOM, syndrome decoding for SDitH) plus the soundness of the MPCitH proof compilation. Syndrome decoding has approximately 45 years of study and well-characterized quantum resistance. But the composite construction adds proof-system risk. The AIM/AIM2 breaks &mdash; which used the same MPC-in-the-Head paradigm with a different primitive &mdash; demonstrate that the composite assumption surface is wider than the individual components suggest. Assumption depth: 3.</p>
+
+<p><strong>SQIsign (isogeny-based).</strong> The smallest combined signature and public key size of any candidate (approximately 177 + 64 bytes). But security reduces to the hardness of computing endomorphism rings on supersingular elliptic curves &mdash; the same broad mathematical family that produced the SIKE/SIDH catastrophe of 2022. SQIsign's specific construction differs from SIDH, but the Castryck-Decru break demonstrated that isogeny-class assumptions can fail suddenly and completely after years of sustained study. Verification is computationally expensive, and timing side-channel resistance remains an open problem. Assumption depth: 3+.</p>
+
+<p>Five additional schemes were eliminated between Round 2 and Round 3: CROSS and LESS (code-based), Mirath (MinRank-based, a merger of MIRA and MiRitH), PERK, and RYDE. Their elimination further narrows the non-lattice signature pipeline and reinforces the attrition pattern: 50 submissions entered in 2023, 40 were accepted, 14 survived Round 1, and only 9 survived Round 2. The survival rate for computational assumptions under sustained public review is 22.5%.</p>
+
+<h3>Can a Future NIST Round Change This Conclusion?</h3>
+
+<p>No. SPHINCS+ already occupies the theoretical minimum for assumption depth in digital signature design. Hash function security is the irreducible foundation of all digital signature schemes, including classical ones. Any new scheme either matches SPHINCS+ on assumptions (producing a redundant hash-based standard) or introduces additional assumptions (making it strictly weaker on the risk officer's decision axis). FAEST is the only pipeline candidate that approaches SPHINCS+ on assumption conservatism, trading hash-based security for AES-based security. If FAEST achieves FIPS standardization in 2028-2030, it would become a credible complement to SPHINCS+, but not a replacement, because its proof framework is less mature than SPHINCS+'s 45-year Merkle-tree foundation. The security ranking cannot change. Hash-only will always be the minimal assumption surface.</p>
+
+<!-- TABLE 1: SECURITY COMPARISON -->
+<div class="table-wrap wide">
+    <div class="report-table-caption">Table 2: Post-Quantum Signature Scheme Security Comparison (2026)</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Scheme</th>
+                <th>NIST Status</th>
+                <th>Assumption Class</th>
+                <th>Security Reduces To</th>
+                <th>Depth</th>
+                <th>Cryptanalytic History</th>
+                <th>Broken Precedent in Family</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="highlight">
+                <td><strong>SLH-DSA (SPHINCS+)</strong></td>
+                <td>FIPS 205 (Final)</td>
+                <td>Hash-based</td>
+                <td>Hash function security only</td>
+                <td><span class="depth-1">1</span></td>
+                <td>45 years (Merkle 1979)</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>ML-DSA (Dilithium)</td>
+                <td>FIPS 204 (Final)</td>
+                <td>Structured lattice</td>
+                <td>Hash + Module-LWE/SIS</td>
+                <td><span class="depth-2">2</span></td>
+                <td>25 years (lattice)</td>
+                <td>NTRU params weakened</td>
+            </tr>
+            <tr>
+                <td>FN-DSA (Falcon)</td>
+                <td>Standardization in progress</td>
+                <td>Structured lattice (NTRU)</td>
+                <td>Hash + NTRU + short vector</td>
+                <td><span class="depth-2">2</span></td>
+                <td>25 years (NTRU 1996)</td>
+                <td>NTRU params weakened</td>
+            </tr>
+            <tr>
+                <td>FAEST</td>
+                <td>Round 3 Candidate</td>
+                <td>Symmetric (AES)</td>
+                <td>Hash + AES OWF + VOLEitH</td>
+                <td><span class="depth-3">3</span></td>
+                <td>AES: 25yr, VOLEitH: 3yr</td>
+                <td>AIM/AIM2 (same paradigm)</td>
+            </tr>
+            <tr>
+                <td>HAWK</td>
+                <td>Round 3 Candidate</td>
+                <td>Novel lattice (LIP)</td>
+                <td>Hash + Module-LIP</td>
+                <td><span class="depth-2">2</span></td>
+                <td>5 years</td>
+                <td>None (too new)</td>
+            </tr>
+            <tr>
+                <td>MAYO</td>
+                <td>Round 3 Candidate</td>
+                <td>Multivariate (MQ)</td>
+                <td>Hash + structured MQ</td>
+                <td><span class="depth-2">2</span></td>
+                <td>UOV: 27yr, MAYO: 3yr</td>
+                <td>Rainbow (2022)</td>
+            </tr>
+            <tr>
+                <td>UOV</td>
+                <td>Round 3 Candidate</td>
+                <td>Multivariate (MQ)</td>
+                <td>Hash + MQ + Oil subspace</td>
+                <td><span class="depth-2">2</span></td>
+                <td>27 years</td>
+                <td>Rainbow (2022)</td>
+            </tr>
+            <tr>
+                <td>MQOM</td>
+                <td>Round 3 Candidate</td>
+                <td>MPCitH (MQ)</td>
+                <td>Hash + MQ + MPCitH</td>
+                <td><span class="depth-3">3</span></td>
+                <td>MQ: 25yr, MPCitH: 18yr</td>
+                <td>AIM/AIM2 (same paradigm)</td>
+            </tr>
+            <tr>
+                <td>SDitH</td>
+                <td>Round 3 Candidate</td>
+                <td>MPCitH (code)</td>
+                <td>Hash + Syndrome Decoding + MPCitH</td>
+                <td><span class="depth-3">3</span></td>
+                <td>SD: 45yr, MPCitH: 18yr</td>
+                <td>AIM/AIM2 (same paradigm)</td>
+            </tr>
+            <tr>
+                <td>SNOVA</td>
+                <td>Round 3 Candidate</td>
+                <td>Multivariate (structured)</td>
+                <td>Hash + structured MQ + ring</td>
+                <td><span class="depth-3">3</span></td>
+                <td>3 years</td>
+                <td>Rainbow; fault attacks (2025)</td>
+            </tr>
+            <tr>
+                <td>QR-UOV</td>
+                <td>Round 3 Candidate</td>
+                <td>Multivariate (structured)</td>
+                <td>Hash + MQ + quotient ring</td>
+                <td><span class="depth-3">3</span></td>
+                <td>3 years</td>
+                <td>Rainbow (2022)</td>
+            </tr>
+            <tr>
+                <td>SQIsign</td>
+                <td>Round 3 Candidate</td>
+                <td>Isogeny</td>
+                <td>Hash + endomorphism ring</td>
+                <td><span class="depth-high">3+</span></td>
+                <td>10 years</td>
+                <td>SIKE/SIDH (2022)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ASSUMPTION STACK VISUAL -->
+<div class="assumption-visual">
+    <div class="vis-title">Assumption Stack: Each Layer Is a Point of Failure</div>
+
+    <div class="stack-row">
+        <div class="stack-label">SILMARILS</div>
+        <div class="stack-bars"><div class="bar none" style="flex:2">No computational assumption</div></div>
+    </div>
+    <div class="stack-row">
+        <div class="stack-label">SPHINCS+</div>
+        <div class="stack-bars"><div class="bar hash" style="flex:2">Hash function</div></div>
+    </div>
+    <div class="stack-row">
+        <div class="stack-label">ML-DSA</div>
+        <div class="stack-bars"><div class="bar hash" style="flex:1">Hash</div><div class="bar lattice" style="flex:1">Lattice (M-LWE)</div></div>
+    </div>
+    <div class="stack-row">
+        <div class="stack-label">FN-DSA</div>
+        <div class="stack-bars"><div class="bar hash" style="flex:1">Hash</div><div class="bar lattice" style="flex:1">Lattice (NTRU)</div></div>
+    </div>
+    <div class="stack-row">
+        <div class="stack-label">HAWK</div>
+        <div class="stack-bars"><div class="bar hash" style="flex:1">Hash</div><div class="bar lattice" style="flex:1">Lattice (LIP) &mdash; 5yr</div></div>
+    </div>
+    <div class="stack-row">
+        <div class="stack-label">MAYO</div>
+        <div class="stack-bars"><div class="bar hash" style="flex:1">Hash</div><div class="bar mv" style="flex:1">Multivariate (MQ)</div></div>
+    </div>
+    <div class="stack-row">
+        <div class="stack-label">FAEST</div>
+        <div class="stack-bars"><div class="bar hash" style="flex:1">Hash</div><div class="bar hash" style="flex:1">AES OWF</div><div class="bar proof" style="flex:1">VOLEitH proof</div></div>
+    </div>
+    <div class="stack-row">
+        <div class="stack-label">SDitH</div>
+        <div class="stack-bars"><div class="bar hash" style="flex:1">Hash</div><div class="bar lattice" style="flex:1">Syndrome Dec.</div><div class="bar proof" style="flex:1">MPCitH proof</div></div>
+    </div>
+    <div class="stack-row">
+        <div class="stack-label">SQIsign</div>
+        <div class="stack-bars"><div class="bar hash" style="flex:0.7">Hash</div><div class="bar isogeny" style="flex:0.8">Isogeny</div><div class="bar isogeny" style="flex:0.8">Endo. ring</div><div class="bar proof" style="flex:0.7">Heuristic est.</div></div>
+    </div>
+
+    <div class="vis-legend">
+        <div class="legend-item"><div class="legend-swatch" style="background:#1a6b3c"></div> Information-theoretic</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:var(--green)"></div> Hash / symmetric</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:var(--navy-light)"></div> Lattice / code</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:var(--accent-gold)"></div> Multivariate</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:var(--red)"></div> Isogeny</div>
+        <div class="legend-item"><div class="legend-swatch" style="background:#777"></div> Proof system</div>
+    </div>
+</div>
+
+
+<!-- SECTION 4 -->
+<h2>Why Should Institutions Choose SPHINCS+ Over Dilithium or Falcon?</h2>
+
+<h3>Asset lifetime versus assumption lifetime</h3>
+
+<p>The assets on institutional tokenization platforms are not ephemeral. BlackRock's BUIDL holds US Treasuries with maturities extending decades. Broadridge's DLR settles over a trillion dollars per month in repo with counterparty obligations spanning years. Canton Network's multi-institution workflows produce settlement records that must remain verifiable for the life of the underlying asset. Franklin Templeton's BENJI operates a tokenized fund with indefinite duration. JPMorgan Kinexys processes cross-border payments where settlement finality is permanent and irrevocable.</p>
+
+<p>The signature scheme protecting these assets must outlive the longest-dated instrument on the platform. If the scheme's underlying assumption is broken in year 15 of a 30-year bond, every signature issued under that scheme is retroactively invalidated. There is no post-hoc remediation for on-chain provenance. The original signature is the provenance record, and it cannot be re-signed after the fact.</p>
+
+<p>This means the risk officer is not selecting for today's security margin. The risk officer is selecting for the probability of assumption survival over 20, 30, or 50 years. On that dimension, the ranking is clear: hash functions (45+ years, no break) versus structured lattices (25 years, parameter erosions) versus multivariate systems (27 years for UOV, but Rainbow broken) versus isogenies (11 years, then catastrophic failure). SPHINCS+ inherits the entire track record of hash-based cryptography. No other post-quantum scheme comes close.</p>
+
+<h3>Correlated risk versus idiosyncratic risk</h3>
+
+<p>If an institution deploys ML-DSA and a lattice breakthrough occurs in 2035, that institution is uniquely exposed. Its tokenized assets have invalid provenance. Its counterparties and competitors who chose SPHINCS+ are unaffected. The institution faces counterparty litigation, regulatory scrutiny, and the question every plaintiff's attorney will ask: why did you choose a scheme with additional algebraic assumptions when a hash-only alternative was available as a published FIPS standard?</p>
+
+<p>If the same institution deploys SPHINCS+ and SPHINCS+ is broken, it means SHA-256 or SHAKE256 is broken. That simultaneously invalidates TLS, Bitcoin, every certificate authority, every digital signature in the global financial system. The institution's choice was not the proximate cause. This is correlated risk versus idiosyncratic risk &mdash; a distinction every risk officer understands intuitively. Correlated failures are systemic events. Idiosyncratic failures are attributable decisions. SPHINCS+ is the only post-quantum signature scheme where scheme failure implies universal infrastructure failure, making the institution's selection non-attributable.</p>
+
+<h3>Regulatory readiness</h3>
+
+<p>FIPS 205 (SLH-DSA / SPHINCS+) is published and in force. CISA's federal post-quantum migration deadline targets 2027. NSA's CNSA 2.0 mandates post-quantum migration for national security systems by 2033. The EU Cyber Resilience Act requires demonstrable quantum resistance for critical infrastructure. Financial regulators including the SEC, FINRA, OCC, MAS, and ADGM are incorporating post-quantum readiness into supervisory expectations.</p>
+
+<div class="pullquote">
+    "We encourage system administrators to start integrating them into their systems immediately, because full integration will take time."
+    <span class="pq-attr">&mdash; Dustin Moody, NIST, on the release of FIPS 203, 204, and 205 (August 2024)</span>
+</div>
+
+<p>SPHINCS+ satisfies every current and anticipated regulatory requirement today. No Round 3 candidate will receive a FIPS number before 2028-2029 at the earliest. An institution that deploys a non-standardized scheme must justify to auditors and regulators why it selected an unstandardized algorithm when a published FIPS standard was available. For regulated financial institutions &mdash; including FINRA member firms such as Securitize, Fidelity, JPMorgan Securities, and DTCC &mdash; the signature scheme underlying tokenized securities settlement will be subject to supervisory examination. FIPS 205 is the examination-proof answer.</p>
+
+<h3>Portfolio risk for investors</h3>
+
+<p>For venture capital firms and institutional investors in blockchain infrastructure, the post-quantum signature choice of a portfolio company is a material risk factor. A Layer 1 chain built on ML-DSA or Falcon carries lattice-assumption risk that could render its entire signature history invalid in a single cryptanalytic event. Investor due diligence should include three questions: which post-quantum scheme does the chain use, what is its assumption depth, and can the chain deploy SPHINCS+ without catastrophic throughput loss? If the answer to the third question is no &mdash; and for most incumbent chains it is, given 84-90% TPS loss under SPHINCS+ integration &mdash; the chain carries both cryptographic risk and migration risk simultaneously.</p>
+
+
+<!-- VERDICT -->
+<div class="verdict">
+    <p>SPHINCS+ is the only post-quantum signature scheme that meets institutional security requirements for multi-decade assets: minimal assumptions, 45+ years of cryptanalytic foundation, published FIPS standard, and regulatory readiness across all major jurisdictions. The security question is settled. But security without deployability is academic. Existing chains lose 84&ndash;90% throughput under SPHINCS+ integration. The question every institution should now be asking: which infrastructure can deliver SPHINCS+ security at market speed?</p>
+</div>
+
+
+<!-- SECTION 5 -->
+<h2>Can Any Infrastructure Actually Deploy SPHINCS+ at Institutional Speed?</h2>
+
+<p>SPHINCS+ signatures range from 7,856 bytes (SPHINCS+-128s) to 49,856 bytes (SPHINCS+-256f). For on-chain applications &mdash; stablecoin settlement, RWA tokenization, derivatives clearing, cross-border payments &mdash; every transaction carries at least one signature. When existing Layer 1 chains integrate SPHINCS+-grade post-quantum signatures, throughput collapses. Live testnet data and modelled projections confirm the losses: Solana loses approximately 90% of its TPS (confirmed on a live testnet by Project Eleven and the Solana Foundation, April 2026). Ethereum models at approximately 84% throughput loss. Canton Network drops to sub-1 TPS (approximately 88% loss). Stellar loses approximately 90%. These are not acceptable performance envelopes for institutional settlement infrastructure operating at market speed.</p>
+
+<p>This throughput penalty explains why no major institutional chain has deployed SPHINCS+ in production despite it being the clearly correct security choice since FIPS 205 was published. Ethereum has identified hash-based signatures as the right direction but cannot deliver until 2029 and adds SNARK aggregation assumptions. Solana chose Falcon (lattice-based), prioritizing compact signatures over security conservatism. Canton, Stellar, Bitcoin, and Hyperliquid have no PQ roadmap at all. Institutions are trapped: the scheme they should use (SPHINCS+) is not deployable on any chain they currently operate on. "Migrate later" is itself a risk position: every day of delay extends the harvest-now-decrypt-later exposure window for on-chain assets. As Alex Pruden, CEO of Project Eleven, stated in April 2026: "This is a tomorrow problem &mdash; until it is today's problem. And then it takes four years to fix."</p>
+
+<p>EternaX is post-quantum market infrastructure purpose-built to eliminate this tradeoff. The performance targets: <strong>50,000-200,000 TPS</strong> for post-quantum market infrastructure workloads. <strong>20-50ms soft finality</strong> for fast institutional execution. <strong>400-520ms hard-finality settlement</strong> for final execution assurance. The TPS loss under full post-quantum signature integration is <strong>approximately 2%</strong> &mdash; compared to 84-90% for every incumbent chain. This is not incremental improvement. It is a categorical difference. <strong>EternaX is the only infrastructure where SPHINCS+-grade security does not come at the cost of market-speed execution.</strong></p>
+
+<!-- PERFORMANCE COMPARISON CALLOUT -->
+<div class="perf-callout">
+    <div class="pc-item">
+        <div class="pc-chain">Solana</div>
+        <div class="pc-value loss">-90%</div>
+        <div class="pc-label">TPS loss under PQ</div>
+    </div>
+    <div class="pc-item">
+        <div class="pc-chain">Ethereum</div>
+        <div class="pc-value loss">-84%</div>
+        <div class="pc-label">TPS loss under PQ</div>
+    </div>
+    <div class="pc-item">
+        <div class="pc-chain">Canton</div>
+        <div class="pc-value loss">-88%</div>
+        <div class="pc-label">TPS loss under PQ</div>
+    </div>
+    <div class="pc-item">
+        <div class="pc-chain">EternaX</div>
+        <div class="pc-value win">-2%</div>
+        <div class="pc-label">TPS loss under PQ</div>
+    </div>
+</div>
+
+<p>The architectural innovation that makes this possible is a proprietary signature design built on <strong>SPHINCS+ (NIST FIPS 205)</strong> for full post-quantum security, combined with <strong>SILMARILS</strong> (arXiv:2605.03230, Khodaiemehr, Bagheri, Feng, Porechna) for compact on-chain settlement records at <strong>160 bytes</strong>. SILMARILS is EternaX's novel post-quantum authentication scheme, providing <strong>information-theoretic security with a forgery probability of approximately 1/2<sup>255</sup></strong> &mdash; a mathematical guarantee that holds unconditionally, with no computational assumptions whatsoever. No hash function dependency. No algebraic structure to attack. <strong>The security guarantee is a theorem, not a conjecture.</strong> The net result: SPHINCS+-grade security with an on-chain footprint <strong>49 times smaller</strong> than standalone SPHINCS+, preserving market-speed throughput.</p>
+
+<p>The result: SPHINCS+ security at the speed operations teams need &mdash; 50,000-200,000 TPS target, 20-50ms soft finality, 400-520ms hard-finality settlement &mdash; with settlement state that survives any future computational breakthrough, including breakthroughs against hash functions themselves. No pairings, no BLS, no Groth16, no PLONK-KZG. Hash-only cryptography plus information-theoretic authentication. The minimal assumption surface, deployed at market speed.</p>
+
+<p>Post-quantum security alone is necessary but not sufficient for institutional settlement. Canton Network proved Goldman Sachs, BNY Mellon, and Broadridge will not settle institutional value on transparent rails. MiFID II, MAR, and GDPR make public-by-default chains structurally non-compliant for regulated finance. DTCC called collateral mobility the institutional "killer app." Aave Horizon proved that idle tokenized RWAs without programmable collateral reuse are a capital efficiency failure. Institutions need three capabilities simultaneously: <strong>privacy that is quantum-durable</strong> (not privacy that expires when classical keys break), <strong>DeFi composability</strong> for programmable collateral substitution and atomic DvP, and <strong>post-quantum security from genesis</strong>. No existing chain delivers all three. <strong>EternaX is EVM-compatible</strong> &mdash; existing Solidity DeFi protocols deploy with minimal modifications and automatically inherit PQ security and institutional-grade auditable privacy with tiered selective disclosure, per-transaction unlinkability, and zero ZK overhead. <strong>It is the only infrastructure where institutional privacy, DeFi composability, and post-quantum security are native from block zero.</strong></p>
+
+<h3>Where Every Major Chain Stands Today</h3>
+
+<p>Institutions do not choose signature schemes in a vacuum. They inherit the PQ posture of the chain they deploy on. The following table maps the current or announced PQ signature selection of every major institutional chain, the assumption risk that selection carries, and the throughput cost of migration. For any institution running tokenized assets on these rails, this is the risk they are carrying today.</p>
+
+<!-- TABLE 3: CHAIN PQ SCHEME SELECTION AND INSTITUTIONAL RISK -->
+<div class="table-wrap wide">
+    <div class="report-table-caption">Table 3: Institutional Chain PQ Scheme Selection and Risk Exposure (May 2026)</div>
+    <table class="chain-risk-table">
+        <colgroup>
+            <col style="width: 8%">
+            <col style="width: 10%">
+            <col style="width: 14%">
+            <col style="width: 6%">
+            <col style="width: 9%">
+            <col style="width: 17%">
+            <col style="width: 36%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Chain</th>
+                <th>Current</th>
+                <th>PQ Selected</th>
+                <th>Depth</th>
+                <th>TPS With PQ</th>
+                <th>Programmes at Risk</th>
+                <th>Institutional Consequence</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Ethereum</strong></td>
+                <td>ECDSA + BLS + KZG</td>
+                <td>Hash-based sigs + SNARK aggregation (Drake et al., ePrint 2025/055); leanVM; targets 2029</td>
+                <td><span class="depth-1">1</span>+SNARK</td>
+                <td>~4.1 TPS (-84%)</td>
+                <td>BlackRock BUIDL ($2.85B), JPMorgan MONY, Fidelity FIDD/FYOXX, DTCC</td>
+                <td>Right security direction (hash-based), but 3+ years away. SNARK aggregation layer adds Poseidon + proof-system assumptions on top of leaf sigs. Three PQ-vulnerable primitives today (ECDSA, BLS, KZG) need independent migration. L2s, contracts, admin keys not covered. 84% TPS loss unsolved. Every asset issued now through 2029 accumulates irremediable migration debt.</td>
+            </tr>
+            <tr>
+                <td><strong>Solana</strong></td>
+                <td>Ed25519</td>
+                <td>Falcon (FN-DSA); phased roadmap</td>
+                <td><span class="depth-2">2</span></td>
+                <td>~85 TPS (-90%)</td>
+                <td>Visa ($3.5B stablecoin), PayPal PYUSD</td>
+                <td>Wrong security choice. Falcon = NTRU-lattice assumptions (depth 2). Selected for compact signatures, not for security. Lattice break invalidates every Visa settlement and PYUSD tx retroactively. 100% of addresses quantum-vulnerable today. 90% TPS loss confirmed live (Project Eleven, Apr 2026): commercially non-viable under PQ. Ethereum chose hash-based. Solana chose lattice. Attributable scheme-selection risk.</td>
+            </tr>
+            <tr>
+                <td><strong>Canton</strong></td>
+                <td>Ed25519 / ECDSA / P-256</td>
+                <td>None. No PQ roadmap.</td>
+                <td>N/A</td>
+                <td>~0.84 TPS (-88%)</td>
+                <td>Goldman Sachs, BNY Mellon, Broadridge ($1T+/mo repo)</td>
+                <td>Zero PQ plan. Canton's entire value proposition is privacy. That privacy expires on Q-day: Ed25519 breaks, retroactively exposing every historical repo settlement and counterparty relationship to HNDL adversaries. Sub-1 TPS under any PQ migration makes settlement operationally impossible. Goldman, BNY, Broadridge face simultaneous privacy breach + signature invalidation.</td>
+            </tr>
+            <tr>
+                <td><strong>Stellar</strong></td>
+                <td>Ed25519</td>
+                <td>None. No PQ roadmap.</td>
+                <td>N/A</td>
+                <td>~13.9 TPS (-90%)</td>
+                <td>Franklin Templeton BENJI ($400M+), WisdomTree</td>
+                <td>Zero PQ plan. Zero migration timeline. Ed25519 fully quantum-vulnerable. BENJI's entire tokenized money market fund faces complete signature invalidation with no fallback. 90% TPS loss makes chain non-viable under any PQ migration.</td>
+            </tr>
+            <tr>
+                <td><strong>Bitcoin</strong></td>
+                <td>secp256k1</td>
+                <td>None. No formal roadmap.</td>
+                <td>N/A</td>
+                <td>Not modelled</td>
+                <td>BlackRock IBIT, Fidelity FBTC, all BTC ETFs</td>
+                <td>Zero PQ plan. ~30% of supply in quantum-vulnerable addresses. Decentralized governance makes protocol change a 10-15 year coordination event. secp256k1 break = custodial wallets directly attackable. ETF custodians carry custody-level quantum exposure with no disclosed mitigation.</td>
+            </tr>
+            <tr>
+                <td><strong>Hyperliquid</strong></td>
+                <td>secp256k1</td>
+                <td>None. No PQ roadmap.</td>
+                <td>N/A</td>
+                <td>Not survivable</td>
+                <td>S&amp;P Global partnership, institutional perps</td>
+                <td>Zero PQ plan. Zero migration path. S&amp;P Global perpetuals partnership places institutional index products on rails with zero quantum resistance. Validator signatures forgeable under quantum attack. Total infrastructure risk, no mitigation timeline.</td>
+            </tr>
+            <tr>
+                <td><strong>Algorand</strong></td>
+                <td>Ed25519 + Falcon (State Proofs)</td>
+                <td>Falcon for State Proofs only (Sep 2022)</td>
+                <td><span class="depth-2">2</span> (partial)</td>
+                <td>Not tested</td>
+                <td>Lofty (RWA), Folks Finance</td>
+                <td>Partial PQ: cross-chain State Proofs use Falcon (lattice risk), but user accounts, consensus, and on-chain tx remain Ed25519 (fully quantum-vulnerable). Split exposure. Lattice assumption on the protected layer.</td>
+            </tr>
+            <tr class="highlight">
+                <td><strong>EternaX</strong></td>
+                <td>SPHINCS+ + SILMARILS</td>
+                <td>SPHINCS+ (FIPS 205) from genesis; SILMARILS 160B info-theoretic</td>
+                <td><span class="depth-1">1</span> / <span class="depth-0">0</span></td>
+                <td>50K-200K TPS (-2%)</td>
+                <td>PQ-native issuance; zero migration debt</td>
+                <td>Hash-only + information-theoretic. No lattice. No SNARK aggregation layer. EVM-compatible: Solidity DeFi deploys with PQ + auditable privacy inherited automatically. Quantum-durable privacy with tiered selective disclosure. DeFi composability for programmable collateral and atomic DvP. Available now, not 2029. The only chain delivering all three &mdash; privacy, composability, PQ security &mdash; from genesis.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p>The pattern is unambiguous. Ethereum has identified the right security direction (hash-based) but cannot deliver it until 2029, adds SNARK aggregation assumptions, and faces 84% TPS loss. Solana chose lattice (Falcon) over hash-based, prioritizing performance over security conservatism. Canton has institutional privacy but it is not quantum-durable and has no PQ roadmap. Every other major chain has no PQ plan at all. No incumbent chain delivers institutional privacy, DeFi composability, and SPHINCS+-grade post-quantum security simultaneously. <strong>EternaX is the only infrastructure where all three are native from genesis, at market speed, without SNARK-layer assumptions, and without throughput collapse.</strong></p>
+
+<p>For stablecoin issuance, RWA tokenization, intraday repo settlement, derivatives clearing, and cross-border payments, EternaX provides the infrastructure layer where the SPHINCS+ security conclusion can actually be operationalized &mdash; with the privacy and composability that institutional finance requires. <strong>The question is no longer which signature scheme. The question is no longer which infrastructure. The question is: why would any institution issue another dollar of long-duration value onto rails that do not deliver all three?</strong></p>
+
+
+<!-- FAQ -->
+<h2>Frequently Asked Questions About Post-Quantum Signature Selection</h2>
+
+<div class="faq-section">
+
+<div class="faq-item">
+    <div class="faq-q">What is the safest post-quantum signature scheme?</div>
+    <div class="faq-a">SPHINCS+ (SLH-DSA, FIPS 205) is the only NIST-standardized post-quantum signature scheme whose security reduces entirely to hash function properties. It carries no algebraic hardness assumptions. Every alternative &mdash; ML-DSA (lattice), FN-DSA (lattice), and all nine NIST Round 3 candidates &mdash; adds at least one computational conjecture beyond hash security.</div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-q">Should I use Dilithium or SPHINCS+ for blockchain?</div>
+    <div class="faq-a">For any application where signature provenance must survive decades &mdash; tokenized securities, RWA, settlement records &mdash; SPHINCS+ is the defensible choice. ML-DSA (Dilithium) adds a lattice hardness assumption with 25 years of cryptanalytic history. SPHINCS+'s hash foundation has 45+ years with no break. The throughput penalty of SPHINCS+ on existing chains (84-90% TPS loss) is eliminated by EternaX's proprietary architecture, which delivers SPHINCS+ security at 50,000-200,000 TPS with approximately 2% performance loss.</div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-q">What did NIST select for post-quantum signatures in 2026?</div>
+    <div class="faq-a">NIST announced nine Round 3 candidates on May 14, 2026 (NIST IR 8610): FAEST, HAWK, MAYO, MQOM, QR-UOV, SDitH, SNOVA, SQIsign, and UOV. These are under evaluation for potential future standardization. The already-published standards remain ML-DSA (FIPS 204), FN-DSA (in progress), and SLH-DSA / SPHINCS+ (FIPS 205).</div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-q">Can quantum computers break SPHINCS+?</div>
+    <div class="faq-a">SPHINCS+ is designed to be quantum-resistant. Breaking it would require breaking the underlying hash function (SHA-256 or SHAKE256). The best known quantum attack against these hash functions is Grover's algorithm, which provides only a quadratic speedup against preimage search and does not threaten SPHINCS+'s security parameters. No meaningful quantum attack vector against SPHINCS+ exists.</div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-q">Is Falcon quantum-safe for institutional use?</div>
+    <div class="faq-a">Falcon (FN-DSA) is quantum-resistant under the assumption that NTRU-lattice problems remain hard for quantum computers. This is a reasonable assumption, but it is an additional assumption beyond hash security. For institutions prioritizing long-term assumption minimality, SPHINCS+ is the more conservative selection.</div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-q">Why not use ML-DSA as primary and SPHINCS+ as backup?</div>
+    <div class="faq-a">Because "backup" implies switching after the primary breaks. If ML-DSA breaks, every signature already issued under it is retroactively invalidated. On-chain provenance cannot be re-signed after the fact. The conservative scheme must be deployed from day one, not held in reserve.</div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-q">Can blockchain infrastructure handle SPHINCS+ signature sizes?</div>
+    <div class="faq-a">Existing chains cannot without severe throughput loss: Solana loses approximately 90% TPS (confirmed on live testnet, April 2026), Ethereum models at approximately 84% loss, and Canton drops to sub-1 TPS under post-quantum signature integration. EternaX solves this through a proprietary architecture combining SPHINCS+ (FIPS 205) with SILMARILS for 160-byte information-theoretically secure on-chain settlement records. The result is 50,000-200,000 TPS with approximately 2% performance loss.</div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-q">Which institutions are migrating to post-quantum cryptography?</div>
+    <div class="faq-a">JPMorgan (Kinexys), BlackRock (BUIDL via Securitize), Franklin Templeton (BENJI), Canton Network (Goldman Sachs, BNY Mellon, Cboe), and Broadridge (DLR) all operate tokenized asset platforms that will require post-quantum signature migration. CISA's 2027 federal deadline and CNSA 2.0's 2033 mandate are the forcing functions. SPHINCS+ (FIPS 205) is the examination-proof answer for regulated financial institutions.</div>
+</div>
+
+<div class="faq-item">
+    <div class="faq-q">Is there a post-quantum blockchain that supports SPHINCS+ without losing throughput?</div>
+    <div class="faq-a">EternaX is currently the only Layer 1 infrastructure that integrates SPHINCS+ (FIPS 205) at market speed. While existing chains lose 84-90% throughput under post-quantum signature integration, EternaX achieves 50,000-200,000 TPS with approximately 2% performance loss through a proprietary architecture combining SPHINCS+ with SILMARILS for 160-byte on-chain settlement records.</div>
+</div>
+
+</div><!-- .faq-section -->
+
+</article>
+
+<!-- FOOTER -->
+<footer class="article-footer">
+    <div class="cite-block">
+        Cite this article: EternaX Labs Research. "Post-Quantum Signature Security Ranking 2026: Why SPHINCS+ Is the Only Institutional-Grade Choice." EternaX Labs, May 2026. https://eternax.ai/blog/post-quantum-signature-security-ranking-2026
+    </div>
+    <div class="cross-links">
+        <a href="https://eternax.ai/post-quantum-cryptography-risk-framework-for-institutions.html">Cryptographic Migration Debt Report</a>
+        <a href="https://arxiv.org/abs/2605.03230">SILMARILS Paper (arXiv)</a>
+        <a href="https://eternax.ai/why-eternax.html">Why EternaX</a>
+        <a href="https://eternax.ai">EternaX Institutional Overview</a>
+    </div>
+</footer>
+
+</div><!-- .article-container -->
+</main>
+
+<!-- Team Section -->
+<section id="team" class="font-sans py-16 border-t max-w-none" style="background-color: var(--bg); border-color: var(--border);" itemscope itemtype="https://schema.org/Organization" itemprop="member">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-10">
+            <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight" style="color: var(--fg)">Founding Team</h2>
+        </div>
+        <p class="text-lg mb-4" style="color: var(--fg-80)">
+            EternaX is built by researchers and protocol engineers working at the intersection of post-quantum cryptography, confidential execution, high-performance consensus, and coded networking.
+        </p>
+        <p class="text-lg" style="color: var(--fg-80)">
+            Our architecture is anchored in peer-reviewed research and ongoing cryptographic development, ensuring the network evolves with advances in both security and distributed systems.
+        </p>
+        <div class="grid gap-6 sm:gap-8 md:grid-cols-3">
+            <div class="glass-effect p-6 rounded-lg">
+                <div class="flex justify-center mb-3">
+                    <img src="./assets/dariia.png" alt="Dariia Porechna" class="w-32 h-32 rounded-full object-cover" loading="lazy" itemprop="image">
+                </div>
+                <div class="font-semibold mb-1" style="color: var(--fg-90)">Dariia Porechna</div>
+                <div class="text-sm mb-4" style="color: var(--fg-80)">
+                    Cryptographer and distributed systems architect; Head of Protocol, Subspace; Research Engineer, Wolfram|Alpha. Co-author, SILMARILS.
+                </div>
+                <div class="flex gap-2">
+                    <a href="https://www.linkedin.com/in/dariia-porechna" target="_blank" rel="noopener noreferrer" class="link-muted" aria-label="Dariia Porechna on LinkedIn">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 8.5h4V22h-4V8.5Zm7 0h3.83v1.84h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V22h-4v-5.72c0-1.36-.03-3.11-1.9-3.11-1.9 0-2.19 1.49-2.19 3.02V22h-4V8.5Z"/>
+                        </svg>
+                    </a>
+                    <a href="https://x.com/FutureDies" target="_blank" rel="noopener noreferrer" class="link-muted" aria-label="Dariia Porechna on X">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.244 2H21l-6.5 7.43L22 22h-6.828l-5.34-7.094L3.5 22H1l7.066-8.082L2 2h6.828l4.951 6.55L18.244 2Zm-2.4 18h2.4L8.16 4H5.76l10.083 16Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="glass-effect p-6 rounded-lg">
+                <div class="flex justify-center mb-3">
+                    <img src="./assets/parthh.png" alt="Paarrthhh Birla" class="w-32 h-32 rounded-full object-cover" loading="lazy" itemprop="image">
+                </div>
+                <div class="font-semibold mb-1" style="color: var(--fg-90)">Paarrthhh Birla</div>
+                <div class="text-sm mb-4" style="color: var(--fg-80)">
+                    Ex-Polygon (VP Growth Office); Head of Partnerships, Subspace Protocol; Digital assets strategy at EYP; MBA, CPA
+                </div>
+                <div class="flex gap-2">
+                    <a href="https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/" target="_blank" rel="noopener noreferrer" class="link-muted" aria-label="Paarrthhh Birla on LinkedIn">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 8.5h4V22h-4V8.5Zm7 0h3.83v1.84h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V22h-4v-5.72c0-1.36-.03-3.11-1.9-3.11-1.9 0-2.19 1.49-2.19 3.02V22h-4V8.5Z"/>
+                        </svg>
+                    </a>
+                    <a href="https://x.com/parthweb34ai" target="_blank" rel="noopener noreferrer" class="link-muted" aria-label="Paarrthhh Birla on X">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.244 2H21l-6.5 7.43L22 22h-6.828l-5.34-7.094L3.5 22H1l7.066-8.082L2 2h6.828l4.951 6.55L18.244 2Zm-2.4 18h2.4L8.16 4H5.76l10.083 16Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="glass-effect p-6 rounded-lg">
+                <div class="flex justify-center mb-3">
+                    <img src="./assets/chen.png" alt="Dr. Chen Feng" class="w-32 h-32 rounded-full object-cover" loading="lazy" itemprop="image">
+                </div>
+                <div class="font-semibold mb-1" style="color: var(--fg-90)">Dr. Chen Feng</div>
+                <div class="text-sm mb-4" style="color: var(--fg-80)">
+                    Assoc. Prof. at University of British Columbia; PhD (Toronto); 100+ peer-reviewed papers; Quantum communications, blockchain, TEE privacy. Co-author, SILMARILS.
+                </div>
+                <div class="flex gap-2">
+                    <a href="https://www.linkedin.com/in/chen-feng-75272a37" target="_blank" rel="noopener noreferrer" class="link-muted" aria-label="Dr. Chen Feng on LinkedIn">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 8.5h4V22h-4V8.5Zm7 0h3.83v1.84h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V22h-4v-5.72c0-1.36-.03-3.11-1.9-3.11-1.9 0-2.19 1.49-2.19 3.02V22h-4V8.5Z"/>
+                        </svg>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=D8b0l-EAAAAJ" target="_blank" rel="noopener noreferrer" class="link-muted" aria-label="Dr. Chen Feng on Google Scholar">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l10 6-10 6-10-6 10-6Zm0 8l10 6-10 6-10-6 10-6Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="font-sans py-12 border-t" style="background-color: var(--bg); border-color: var(--border);" itemscope itemtype="https://schema.org/WPFooter">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-start justify-between gap-6 mb-6">
+            <div>
+                <span class="text-lg font-bold" style="color: var(--fg)">eternaX</span>
+                <p class="text-sm mt-1" style="color: var(--fg-70)">Quantum-safe Settlement at Market Speed</p>
+                <div class="text-xs" style="color: var(--fg-70)">&copy; 2026 EternaX Labs</div>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/eternax-ai" class="text-sm link-muted" itemprop="sameAs">GitHub</a>
+                <a href="https://www.youtube.com/@eternaXlabs" class="text-sm link-muted">YouTube</a>
+                <a href="https://t.me/eternax_official" class="text-sm link-muted" itemprop="sameAs">Telegram</a>
+                <a href="https://x.com/EternaXlabs" class="text-sm link-muted" itemprop="sameAs">X (Twitter)</a>
+                <a href="https://www.linkedin.com/company/eternax-labs" class="text-sm link-muted" itemprop="sameAs">LinkedIn</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4 pt-4 border-t" style="border-color: var(--border);">
+            <a href="about.html" class="text-sm link-muted">About</a>
+            <a href="glossary.html" class="text-sm link-muted">Glossary</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconMenu = document.getElementById('icon-menu');
+    const iconClose = document.getElementById('icon-close');
+
+    function closeMobileMenu() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.add('hidden');
+        if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+        if (iconMenu) iconMenu.classList.remove('hidden');
+        if (iconClose) iconClose.classList.add('hidden');
+    }
+
+    function openMobileMenu() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.remove('hidden');
+        if (menuButton) menuButton.setAttribute('aria-expanded', 'true');
+        if (iconMenu) iconMenu.classList.add('hidden');
+        if (iconClose) iconClose.classList.remove('hidden');
+    }
+
+    if (menuButton && mobileMenu) {
+        menuButton.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) openMobileMenu();
+            else closeMobileMenu();
+        });
+
+        mobileMenu.querySelectorAll('a').forEach((a) => {
+            a.addEventListener('click', () => closeMobileMenu());
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMobileMenu();
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) closeMobileMenu();
+        });
+    }
+});
+</script>
+
+</body>
+</html>
