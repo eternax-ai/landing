@@ -1,7 +1,3 @@
----
-title: "SILMARILS: Compact Post-Quantum Authentication for Blockchain Systems"
-description: "How the SILMARILS designated-verifier signature construction gives EternaX a compact authentication layer for post-quantum, high-throughput blockchain infrastructure."
----
 # SILMARILS: Compact Post-Quantum Authentication for Blockchain Systems 
 
 ![Abstract post-quantum authentication architecture for SILMARILS](Hero_Image.png)
