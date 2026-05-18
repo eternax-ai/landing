@@ -155,6 +155,7 @@
     .toc,
     .content,
     .faq-section { max-width: var(--content-width); margin: 0 auto; }
+    .masthead-inner { max-width: 780px; }
 
     .masthead-label,
     .section-num,
@@ -185,16 +186,19 @@
     .masthead-label {
       font-size: 0.7rem;
       font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 1.2rem;
+      font-family: 'IBM Plex Sans', sans-serif;
+      letter-spacing: 1.8px;
+      color: var(--green);
+      margin-bottom: 16px;
     }
     .masthead-title {
-      font-family: 'IBM Plex Serif', serif;
-      font-size: 3.2rem;
-      line-height: 1.08;
-      letter-spacing: -0.025em;
-      color: var(--text-bright);
-      margin-bottom: 0.65rem;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 700;
+      line-height: 1.22;
+      letter-spacing: -0.3px;
+      color: #1A2550;
+      margin-bottom: 18px;
     }
     .masthead-kicker {
       font-family: 'IBM Plex Mono', monospace;
@@ -207,8 +211,10 @@
       margin-bottom: 1rem;
     }
     .masthead-subtitle {
+      font-family: 'IBM Plex Serif', serif;
       font-size: 1.08rem;
-      color: var(--text-muted);
+      color: #4A4A4A;
+      font-style: italic;
       line-height: 1.6;
       max-width: 760px;
     }
@@ -1199,7 +1205,7 @@
       .toc,
       .content,
       .faq-section { padding-left: 1rem; padding-right: 1rem; }
-      .masthead-title { font-size: 2.15rem; }
+      .masthead-title { font-size: 1.75rem; }
       .toc-list { grid-template-columns: 1fr; }
       .section h2 { font-size: 1.38rem; }
       .section p { font-size: 0.97rem; }
@@ -1548,7 +1554,7 @@
   <header class="masthead">
     <div class="masthead-inner">
       <div class="masthead-label">EternaX Research | Post-Quantum Financial Infrastructure</div>
-      <h1 class="masthead-title">ALREADY BROKEN</h1>
+      <h1 class="masthead-title">Already Broken</h1>
       <p class="masthead-kicker">The Post-Quantum Threat to Stablecoins, Tokenized Finance, Privacy Chains, and Cryptographic Migration Debt</p>
       <p class="masthead-subtitle">The quantum threat is no longer theoretical. Institutions issuing on classical cryptographic rails in 2026 are creating cryptographic migration debt inside a live pre-upgrade window. This report explains why that matters - and why Post-Quantum Native Day One with EternaX is both a debt escape and a distribution advantage.</p>
         <a href="eternax-report-already-broken-quantum-risk-report-q1-2026.pdf" target="_blank" rel="noopener" class="connect-btn primary no-print">

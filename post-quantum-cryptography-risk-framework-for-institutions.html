@@ -188,20 +188,20 @@ nav{font-family:ui-sans-serif,system-ui,sans-serif;--fg-70:var(--fg);--fg-80:var
 .cover::after{
   content:none
 }
-.cover-inner{max-width:880px;margin:0 auto;padding:0 40px;position:relative}
+.cover-inner{max-width:780px;margin:0 auto;padding:0 24px;position:relative}
 .cover-eyebrow{
-  font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--navy);margin-bottom:1.2rem;display:block
+  font-family:var(--font);font-size:.7rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--green);margin-bottom:16px;display:block
 }
 .cover-eyebrow::before{content:none}
 .cover-title{
-  font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:600;line-height:1.08;
-  letter-spacing:-.025em;color:var(--text);margin-bottom:.65rem
+  font-family:var(--font);font-size:2.35rem;font-weight:700;line-height:1.22;
+  letter-spacing:-.3px;color:#1A2550;margin-bottom:18px
 }
-.cover-title em{font-style:italic;font-weight:400;color:var(--text-muted)}
+.cover-title em{font-style:normal;font-weight:700;color:#1A2550}
 .cover-subtitle{
-  font-size:1.08rem;font-weight:400;color:var(--text-muted);
-  max-width:760px;margin-bottom:1rem;line-height:1.6
+  font-family:var(--serif);font-size:1.08rem;font-weight:400;font-style:italic;color:#4A4A4A;
+  max-width:760px;margin-bottom:24px;line-height:1.6
 }
 .cover-meta{margin-top:1.5rem;display:flex;gap:1.2rem;flex-wrap:wrap}
 .cover-meta-item{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted)}
@@ -710,7 +710,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
   /* Page layout */
   .content,.content-wide,.fastpath-inner,.cover-inner{padding:0 20px}
   .content > .content-wide{margin-left:0;margin-right:0}
-  .cover-title{font-size:1.9rem}
+  .cover-title{font-size:1.75rem}
   .cover-meta{gap:20px}
   /* Grids */
   .stat-grid{grid-template-columns:1fr 1fr}
@@ -888,7 +888,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
 <header class="cover" role="banner">
 <div class="cover-inner">
   <div class="cover-eyebrow">EternaX Research · Institutional Post-Quantum Framework · Updated May 2026</div>
-  <h1 class="cover-title">Cryptographic Migration Debt<br><em>The Post-Quantum Risk Framework for Institutional Digital Asset Programmes</em></h1>
+  <h1 class="cover-title">Cryptographic Migration Debt: The Post-Quantum Risk Framework for Institutional Digital Asset Programmes</h1>
   <p class="cover-subtitle">Post-quantum blockchain risk is no longer a distant wallet-theft scenario. It is a present issuance, privacy, MEV, and control-plane liability for stablecoins, tokenized funds, RWAs, and institutional digital asset infrastructure.</p>
   <div class="cover-meta">
     <div class="cover-meta-item"><div class="cover-meta-label">Published</div><div class="cover-meta-value">April 2026</div></div>

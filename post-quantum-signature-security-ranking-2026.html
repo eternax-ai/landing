@@ -229,9 +229,7 @@
         }
         .site-nav a:hover { color: var(--white); }
 
-        .font-sans {
-            font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
-        }
+        nav { font-family: ui-sans-serif, system-ui, sans-serif; }
         .glass-effect {
             background: #ffffff;
             border: 1px solid var(--border-light);
@@ -290,7 +288,7 @@
         .article-header h1 {
             font-family: 'IBM Plex Sans', sans-serif;
             font-weight: 700;
-            font-size: 2.1rem;
+            font-size: 2.35rem;
             line-height: 1.22;
             color: var(--navy-deep);
             margin-bottom: 18px;
@@ -404,6 +402,28 @@
             margin: 32px 0;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
+        }
+        .table-wrap.wide {
+            width: min(1080px, calc(100vw - 48px));
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        .table-wrap.wide table {
+            min-width: 980px;
+        }
+        .chain-risk-table {
+            table-layout: fixed;
+            min-width: 1180px;
+        }
+        .failure-timeline-table {
+            table-layout: fixed;
+            min-width: 100%;
+        }
+        .failure-timeline-table th {
+            white-space: normal;
+        }
+        .failure-timeline-table td:last-child {
+            min-width: 0;
         }
         .table-wrap table {
             width: 100%;
@@ -773,13 +793,14 @@
         /* === RESPONSIVE === */
         @media (max-width: 640px) {
             html { font-size: 16px; }
-            .article-header h1 { font-size: 1.55rem; }
+            .article-header h1 { font-size: 1.75rem; }
             .key-finding, .verdict { padding: 28px 20px; }
             .key-finding::before, .verdict::before { left: 20px; }
             .stack-label, .tl-label { width: 90px; font-size: 0.68rem; }
             .bar { font-size: 0.55rem; padding: 0 5px; }
             .site-nav { display: none; }
             .table-wrap { margin-left: -24px; margin-right: -24px; padding: 0 24px; }
+            .table-wrap.wide { width: auto; transform: none; }
             .assumption-visual, .timeline-visual { padding: 20px 16px; }
         }
 
@@ -802,6 +823,7 @@
             .tl-bar, .bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .article-body h2 { break-after: avoid; }
             .table-wrap { break-inside: avoid; }
+            .table-wrap.wide { width: auto; margin-left: 0; transform: none; }
             a[href]::after { content: none; }
         }
 
@@ -822,7 +844,7 @@
 <a href="#main-content" style="position:absolute;left:-9999px;top:0;padding:8px 16px;background:var(--green);color:white;font-family:'IBM Plex Sans',sans-serif;font-size:0.85rem;z-index:9999;text-decoration:none;" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to content</a>
 
 <!-- Navigation -->
-<nav class="font-sans fixed w-full z-50 glass-effect border-b" style="background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px);">
+<nav class="fixed w-full z-50 glass-effect border-b" style="background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center py-2">
             <div class="flex items-center">
@@ -973,18 +995,26 @@
 <p>The common thread across all four failures is structural: every broken scheme relied on security assumptions tied to algebraic structure &mdash; structured multivariate polynomials (Rainbow), supersingular isogeny graphs (SIKE), monomial S-box systems in a parallel architecture (AIM/AIM2). Schemes that rely only on hash function properties &mdash; the simplest, most studied primitive class in cryptography &mdash; have never been broken in over 45 years of sustained cryptanalysis, tracing back to Ralph Merkle's original hash-based signature construction in 1979. SPHINCS+ belongs to this category. None of the broken schemes do.</p>
 
 
-<!-- TABLE 2: FAILURES TIMELINE -->
+<!-- TABLE 1: FAILURES TIMELINE -->
 <div class="table-wrap">
     <div class="report-table-caption">Table 1: Post-Quantum Cryptographic Scheme Failures Since 2022</div>
-    <table>
+    <table class="failure-timeline-table">
+        <colgroup>
+            <col style="width: 8%">
+            <col style="width: 12%">
+            <col style="width: 20%">
+            <col style="width: 16%">
+            <col style="width: 30%">
+            <col style="width: 12%">
+        </colgroup>
         <thead>
             <tr>
                 <th>Year</th>
                 <th>Scheme</th>
                 <th>Stage When Broken</th>
-                <th>Assumption Class</th>
+                <th>Assumption</th>
                 <th>Attack</th>
-                <th>Years Studied</th>
+                <th>Studied</th>
             </tr>
         </thead>
         <tbody>
@@ -994,7 +1024,7 @@
                 <td>NIST Round 3 Finalist</td>
                 <td>Multivariate (structured)</td>
                 <td>Beullens rectangular MinRank</td>
-                <td>~10</td>
+                <td>~10 y</td>
             </tr>
             <tr class="broken">
                 <td>2022</td>
@@ -1002,7 +1032,7 @@
                 <td>NIST Round 4 Candidate</td>
                 <td>Isogeny</td>
                 <td>Castryck-Decru torsion point</td>
-                <td>~11</td>
+                <td>~11 y</td>
             </tr>
             <tr class="broken">
                 <td>2023</td>
@@ -1010,7 +1040,7 @@
                 <td>NIST Round 1 Candidate</td>
                 <td>Symmetric (MPCitH)</td>
                 <td>Liu-Mahzoun-Oygarden-Meier</td>
-                <td>&lt;1</td>
+                <td>&lt;1 y</td>
             </tr>
             <tr class="broken">
                 <td>2026</td>
@@ -1018,7 +1048,7 @@
                 <td>KpqC National Winner</td>
                 <td>Symmetric (MPCitH)</td>
                 <td>Biryukov et al. (Magic Pot, Eurocrypt 2026)</td>
-                <td>~2</td>
+                <td>~2 y</td>
             </tr>
         </tbody>
     </table>
@@ -1094,7 +1124,7 @@
 <p>No. SPHINCS+ already occupies the theoretical minimum for assumption depth in digital signature design. Hash function security is the irreducible foundation of all digital signature schemes, including classical ones. Any new scheme either matches SPHINCS+ on assumptions (producing a redundant hash-based standard) or introduces additional assumptions (making it strictly weaker on the risk officer's decision axis). FAEST is the only pipeline candidate that approaches SPHINCS+ on assumption conservatism, trading hash-based security for AES-based security. If FAEST achieves FIPS standardization in 2028-2030, it would become a credible complement to SPHINCS+, but not a replacement, because its proof framework is less mature than SPHINCS+'s 45-year Merkle-tree foundation. The security ranking cannot change. Hash-only will always be the minimal assumption surface.</p>
 
 <!-- TABLE 1: SECURITY COMPARISON -->
-<div class="table-wrap">
+<div class="table-wrap wide">
     <div class="report-table-caption">Table 2: Post-Quantum Signature Scheme Security Comparison (2026)</div>
     <table>
         <thead>
@@ -1356,16 +1386,25 @@
 <p>Institutions do not choose signature schemes in a vacuum. They inherit the PQ posture of the chain they deploy on. The following table maps the current or announced PQ signature selection of every major institutional chain, the assumption risk that selection carries, and the throughput cost of migration. For any institution running tokenized assets on these rails, this is the risk they are carrying today.</p>
 
 <!-- TABLE 3: CHAIN PQ SCHEME SELECTION AND INSTITUTIONAL RISK -->
-<div class="table-wrap">
+<div class="table-wrap wide">
     <div class="report-table-caption">Table 3: Institutional Chain PQ Scheme Selection and Risk Exposure (May 2026)</div>
-    <table>
+    <table class="chain-risk-table">
+        <colgroup>
+            <col style="width: 8%">
+            <col style="width: 10%">
+            <col style="width: 14%">
+            <col style="width: 6%">
+            <col style="width: 9%">
+            <col style="width: 17%">
+            <col style="width: 36%">
+        </colgroup>
         <thead>
             <tr>
                 <th>Chain</th>
-                <th>Current Crypto</th>
-                <th>PQ Scheme Selected</th>
+                <th>Current</th>
+                <th>PQ Selected</th>
                 <th>Depth</th>
-                <th>TPS Under PQ</th>
+                <th>TPS With PQ</th>
                 <th>Programmes at Risk</th>
                 <th>Institutional Consequence</th>
             </tr>
