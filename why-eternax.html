@@ -177,34 +177,36 @@ body {
 }
 
 .why-eternax-longform .hero {
-  max-width: var(--content-width-wide);
+  max-width: 780px;
   margin: 0 auto;
-  padding: 4rem 2rem 2.75rem;
+  padding: 4rem 1.5rem 2.75rem;
 }
 .why-eternax-longform .hero-meta {
-  font-family: var(--mono);
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
   color: var(--green);
-  margin-bottom: 1.1rem;
+  margin-bottom: 16px;
 }
 .why-eternax-longform .hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(1.95rem, 4.5vw, 2.55rem);
-  font-weight: 600;
-  color: var(--navy);
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  margin-bottom: 1.35rem;
-  max-width: 52rem;
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 2.35rem;
+  font-weight: 700;
+  color: #1A2550;
+  line-height: 1.22;
+  letter-spacing: -0.3px;
+  margin-bottom: 18px;
+  max-width: 100%;
 }
 .why-eternax-longform .hero-sub {
+  font-family: var(--serif);
   font-size: 1.06rem;
-  color: var(--text-muted);
-  line-height: 1.62;
-  max-width: 45rem;
+  color: #4A4A4A;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 760px;
   margin-bottom: 1.75rem;
 }
 .why-eternax-longform .hero-authors {
@@ -930,6 +932,9 @@ body {
   }
   .why-eternax-longform .hero {
     padding: 2.85rem 1.15rem 1.85rem;
+  }
+  .why-eternax-longform .hero h1 {
+    font-size: 1.75rem;
   }
   .why-eternax-longform .article {
     padding: 0 1.15rem 3.5rem;
