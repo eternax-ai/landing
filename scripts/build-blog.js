@@ -13,6 +13,19 @@ const root = path.resolve(process.cwd());
 const blogPath = path.resolve(root, blogFolder);
 const blogsDir = path.join(root, 'blogs');
 const postMetaMap = {
+  'unbundling-transaction-signature': {
+    datePublished: '2026-05-19',
+    description: 'Why BFT finality, not the per-transaction signature, was always the trust anchor for a blockchain — and what that means for post-quantum migration.',
+    keywords: 'post-quantum blockchain, BFT finality, transaction signature, designated-verifier signatures, SILMARILS, consensus',
+    about: ['Post-Quantum Blockchain', 'BFT Finality', 'Transaction Signatures', 'Designated-Verifier Signatures', 'SILMARILS'],
+    authorLine: 'Dariia Porechna, cryptographer, co-founder of EternaX',
+    scholarlyArticle: {
+      '@type': 'ScholarlyArticle',
+      name: 'SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures',
+      url: 'https://arxiv.org/abs/2605.03230',
+      identifier: 'arXiv:2605.03230'
+    }
+  },
   'silmarils-post-quantum-authentication-without-size-tax': {
     datePublished: '2026-05-05',
     description: 'How SILMARILS combines SPHINCS+ anchoring with compact, information-theoretic records for post-quantum blockchain authentication.',

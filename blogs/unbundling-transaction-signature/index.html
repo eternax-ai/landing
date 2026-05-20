@@ -1,0 +1,332 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unbundling the Transaction Signature: Finality Was Always the Anchor | EternaX Labs Blog</title>
+    <meta name="description" content="Why BFT finality, not the per-transaction signature, was always the trust anchor for a blockchain — and what that means for post-quantum migration.">
+    <meta name="keywords" content="post-quantum blockchain, post-quantum cryptography, quantum-safe settlement, stablecoin issuance, rwa tokenization, EternaX, post-quantum blockchain, BFT finality, transaction signature, designated-verifier signatures, SILMARILS, consensus">
+    <meta name="author" content="EternaX Labs">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="article:publisher" content="https://www.linkedin.com/company/eternax-labs">
+    <link rel="canonical" href="https://eternax.ai/blogs/unbundling-transaction-signature/index.html">
+    <meta name="theme-color" content="#e2e2e2">
+    <link rel="icon" type="image/svg+xml" href="../../assets/eternax-icon.svg">
+    <link rel="icon" type="image/png" href="../../assets/eternax-icon.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Unbundling the Transaction Signature: Finality Was Always the Anchor">
+    <meta property="og:description" content="Why BFT finality, not the per-transaction signature, was always the trust anchor for a blockchain — and what that means for post-quantum migration.">
+    <meta property="og:site_name" content="EternaX Labs">
+    <meta property="og:url" content="https://eternax.ai/blogs/unbundling-transaction-signature/index.html">
+    <meta property="og:image" content="https://eternax.ai/assets/preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Unbundling the Transaction Signature: Finality Was Always the Anchor">
+    <meta property="twitter:description" content="Why BFT finality, not the per-transaction signature, was always the trust anchor for a blockchain — and what that means for post-quantum migration.">
+    <meta property="twitter:url" content="https://eternax.ai/blogs/unbundling-transaction-signature/index.html">
+    <meta property="twitter:site" content="@EternaXlabs">
+    <meta property="twitter:creator" content="@EternaXlabs">
+    <meta property="twitter:image" content="https://eternax.ai/assets/preview.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../styles/tailwind.generated.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --bg: #f7f4f4;
+            --fg: #283771;
+            --fg-70: #283771;
+            --fg-80: #283771;
+            --border: #283771;
+            --pill-bg: #283771;
+            --pill-fg: #ffffff;
+        }
+        body { background-color: var(--bg); color: var(--fg); }
+        .glass-effect {
+            background: #ffffff;
+            border: 1px solid #e0dede;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .link-muted { color: var(--fg-70); transition: color 0.15s; }
+        .link-muted:hover { color: var(--fg); }
+        .btn-primary {
+            background-color: var(--fg);
+            transition: background-color 0.15s;
+        }
+        .btn-primary:hover { background-color: #1e2d5a; }
+        .nav-products-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s, visibility 0.15s;
+        }
+        .group:hover .nav-products-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        .blog-body { max-width: 720px; margin: 0 auto; }
+        .blog-body h1 { font-size: 2rem; font-weight: 600; margin-top: 0; margin-bottom: 0.75em; letter-spacing: -0.01em; line-height: 1.2; }
+        .blog-body h2 { font-size: 1.5rem; font-weight: 600; margin-top: 1.75rem; margin-bottom: 0.5em; letter-spacing: -0.01em; line-height: 1.3; }
+        .blog-body h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.4em; line-height: 1.3; }
+        .blog-body p { margin-top: 0.75em; margin-bottom: 0.75em; line-height: 1.65; }
+        .blog-body ul, .blog-body ol { margin: 0.75em 0; padding-left: 1.5em; }
+        .blog-body li { margin: 0.35em 0; line-height: 1.6; }
+        .blog-body blockquote { margin: 1em 0; padding-left: 1em; border-left: 3px solid var(--fg); opacity: 0.9; font-style: italic; }
+        .blog-body code { background: rgba(40,55,113,0.1); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.9em; }
+        .blog-body pre { background: rgba(40,55,113,0.08); padding: 1em; border-radius: 6px; overflow-x: auto; margin: 1em 0; }
+        .blog-body pre code { background: none; padding: 0; }
+        .blog-body a { color: var(--fg); text-decoration: underline; }
+        .blog-body a:hover { opacity: 0.8; }
+        .blog-body img { max-width: 100%; height: auto; border-radius: 4px; }
+        .blog-body figure { margin: 1.5em 0; }
+        .blog-body figcaption { margin-top: 0.5em; font-size: 0.9rem; color: var(--fg-70); text-align: center; font-style: italic; }
+        .blog-body hr { border: none; border-top: 1px solid rgba(40,55,113,0.2); margin: 1.5em 0; }
+        .blog-body table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 1em 0; font-size: 0.95em; }
+        .blog-body th, .blog-body td { padding: 0.5em 0.75em; border: 1px solid rgba(40,55,113,0.2); text-align: left; vertical-align: top; }
+        .blog-body th { font-weight: 600; background: rgba(40,55,113,0.06); }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://eternax.ai/#organization",
+      "name": "EternaX Labs",
+      "alternateName": ["EternaX", "EternaX Labs Inc"],
+      "url": "https://eternax.ai",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://eternax.ai/assets/logo.png",
+        "width": 400,
+        "height": 80
+      },
+      "description": "EternaX Labs is a post-quantum-native Layer 1 blockchain infrastructure company.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "general",
+        "email": "info@eternax.ai"
+      },
+      "sameAs": [
+        "https://github.com/eternax-ai",
+        "https://www.linkedin.com/company/eternax-labs",
+        "https://x.com/EternaXlabs"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://eternax.ai/blogs/unbundling-transaction-signature/index.html#article",
+      "headline": "Unbundling the Transaction Signature: Finality Was Always the Anchor",
+      "description": "Why BFT finality, not the per-transaction signature, was always the trust anchor for a blockchain — and what that means for post-quantum migration.",
+      "datePublished": "2026-05-19",
+      "dateModified": "2026-05-19",
+      "author": { "@id": "https://eternax.ai/#organization" },
+      "publisher": { "@id": "https://eternax.ai/#organization" },
+      "keywords": "post-quantum blockchain, BFT finality, transaction signature, designated-verifier signatures, SILMARILS, consensus",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "EternaX Labs Blog",
+        "url": "https://eternax.ai/blogs/index.html"
+      },
+      "mainEntityOfPage": "https://eternax.ai/blogs/unbundling-transaction-signature/index.html",
+      "about": [{"@type":"Thing","name":"Post-Quantum Blockchain"},{"@type":"Thing","name":"BFT Finality"},{"@type":"Thing","name":"Transaction Signatures"},{"@type":"Thing","name":"Designated-Verifier Signatures"},{"@type":"Thing","name":"SILMARILS"}],
+      "isBasedOn": {"@type":"ScholarlyArticle","name":"SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures","url":"https://arxiv.org/abs/2605.03230","identifier":"arXiv:2605.03230"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "EternaX",
+          "item": "https://eternax.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blogs",
+          "item": "https://eternax.ai/blogs/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Unbundling the Transaction Signature: Finality Was Always the Anchor",
+          "item": "https://eternax.ai/blogs/unbundling-transaction-signature/index.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="font-sans">
+    {% include navbar.html %}
+
+    <main class="pt-24 pb-16 px-4">
+        <article class="blog-body">
+            <h1>Unbundling the Transaction Signature: Finality Was Always the Anchor</h1>
+<p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 0.25em;">May 19, 2026</p>
+<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: Dariia Porechna, cryptographer, co-founder of EternaX</p>
+<p><img src="unbundled-signature-hero.png" alt="Unbundled transaction signature architecture"></p>
+<p>Every blockchain in production today rests on a tiny per-transaction signature that is doing several jobs at once. It admits the transaction, it pins it to one value, becomes the permanent on-chain record, and lets a future auditor verify the transaction long after the fact. ECDSA is small enough that bundling all of those jobs into one object is essentially free.</p>
+<p>Post-quantum cryptography breaks that bargain. The NIST-standardized post-quantum signatures are an order of magnitude larger than ECDSA at the cheap end and roughly two orders of magnitude larger at the conservative end. SPHINCS+ at 50,000 transactions per second is tens of terabytes of signature material per day that have to be stored, served to nodes, and verified by light clients forever.</p>
+<p>Instead of paying that size tax on every transaction, we designed a specialized architecture for BFT blockchains that does not bundle every signature job into a single per-transaction object. We call it the <em>unbundled protocol</em>: the four jobs that an ECDSA signature collapses into one object are split across two different verifier models, with three of the four jobs discharged in consensus and one carried by a small permanent receipt. That receipt is the <a href="https://arxiv.org/abs/2605.03230">SILMARILS primitive</a> we published in May 2026: a 160-byte designated-verifier signature suited to validator-mediated authentication.</p>
+<p>That is the bigger architectural point. Post-quantum migration is not a wallet upgrade or a signature swap. For stablecoins, tokenized treasuries, tokenized deposits, exchanges, custodians, and market infrastructure, authorization is part of the asset perimeter. If every transfer has to carry kilobytes of permanent authentication data, the system may become quantum-safe in theory while becoming slower, more expensive, more linkable, and harder to operate in practice.</p>
+<p>Unbundling the transaction signature is how EternaX avoids that tradeoff. Conservative post-quantum signatures stay where universal public verification is actually needed: account setup, delegation, key rotation, withdrawal, and other session-level operations. The hot transaction path uses validator-mediated authentication, BFT finality as the public trust anchor, and a compact finality-anchored receipt for later audit. The result is not only smaller signatures. It is the architecture that lets post-quantum security, auditable privacy, and market-speed settlement coexist.</p>
+<p>As far as we are aware, this is the first concrete framework that makes the decomposition explicit and assigns each signature job to the verifier model best suited to it.</p>
+<h2>A 64-byte signature does four things at once</h2>
+<p>ECDSA on a public chain is doing four jobs simultaneously, on every transaction:</p>
+<ol>
+<li><strong>Admission.</strong> Convincing a validator that the transaction is authorized for the named account so it can be included in a block.</li>
+<li><strong>Anti-equivocation.</strong> Binding the included transaction to a single user-authored value: a malicious relay node sitting between the user and the validator cannot substitute a different message for the same nonce without producing a fresh signature.</li>
+<li><strong>Finality binding.</strong> Once published, the signature is on chain forever and any third party can confirm that the named public key signed the transaction bytes.</li>
+<li><strong>Auditability.</strong> A future regulator, exchange, or counterparty can verify, at any later time, that this specific historical transaction was authorized by the named account, with no help from the chain operator.</li>
+</ol>
+<p>The compactness of ECDSA made it cheap for one primitive to serve all four jobs at once. A post-quantum migration cannot afford that bundling, and the question becomes which of the four a permanent per-transaction signature still has to do.</p>
+<h2>What BFT finality anchors</h2>
+<p>In any BFT blockchain, a transaction is &quot;valid&quot; not because it carries a valid signature, but because the committee finalized it under the protocol&#39;s validity rules. Whether the bytes had a correct nonce, sufficient balance, valid policy, valid execution, and inclusion in canonical history is already a consensus-state claim, even in the ECDSA world. The signature was only ever proving the first job: admission. The remaining three are consensus-dependent.</p>
+<p>BFT finality is not a side effect of the chain. <em>It is the trust anchor, the artifact a third party ultimately relies on when treating the chain as authoritative.</em> A signed finality certificate from at least 2f+1 validators, under the standard f &lt; N/3 honest-majority threshold, is the statement &quot;this transaction was admitted by the committee.&quot; That statement is what a third party actually relies on when they treat the chain as authoritative.</p>
+<p>This is the structural observation behind the unbundled-signature pattern. Once finality is named as the trust anchor, the per-transaction signature only has to do whatever finality cannot.</p>
+<h2>Three of the four jobs move into consensus</h2>
+<p>Of the four jobs above, three can be discharged before or at finality without any permanent public-key signature material:</p>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Who discharges it in the unbundled pattern</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Admission</td>
+<td>The committee&#39;s validity rule. A finalized transaction is one the committee admitted under the protocol&#39;s identity, shared-state, and execution checks.</td>
+</tr>
+<tr>
+<td>Anti-equivocation</td>
+<td>A consensus-time information-checking layer evaluated by the committee at admission time. BFT agreement prevents two conflicting finalized values; the information-checking layer binds the value being finalized to the user-authored transaction the validator received.</td>
+</tr>
+<tr>
+<td>Finality binding</td>
+<td>The finality certificate itself. A signed certificate from 2f+1 validators is the public proof that the committee admitted the transaction; a light client does not need the user to re-prove anything.</td>
+</tr>
+<tr>
+<td>Auditability</td>
+<td>A small finality-anchored designated-verifier receipt, verifiable at arbitrary later time by a third party who accepts the chain&#39;s finality as authoritative. This is the only job that genuinely needs a permanent primitive surviving the consensus event.</td>
+</tr>
+</tbody></table>
+<p>The SILMARILS primitive is what fills the auditability slot: a 160-byte receipt, selectively openable per transaction, with no public account-level key on chain to serve as a long-lived correlation handle. The cryptographic core is in the paper.</p>
+<h2>A principled substitution</h2>
+<p>The trust anchor of the unbundled protocol is BFT finality plus a small verifiable receipt. The ECDSA-on-a-public-chain equivalent is the public-key infrastructure plus the chain, since a third party has always had to consult both to know whether a transaction was valid and finalized. The trust assumption is identical to any other BFT chain, f &lt; N/3, plus standard binding and channel assumptions on the session setup. The corruption threshold is the same; the artifact that carries each guarantee is different.</p>
+<p>For a post-quantum chain this is the right place to put the cost. Conservative PQ public-key signature (SPHINCS+, or any standardized PQ scheme) is retained at the session level, at account creation, delegation, key rotation, and withdrawal, where they earn their size on operations that genuinely need universal third-party verifiability and where the cost is paid once per session rather than once per transaction.</p>
+<h2>What this buys</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>ECDSA-style PQ migration</th>
+<th>Unbundled-signature pattern</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Per-transaction permanent record</td>
+<td>666 B – 17 KB</td>
+<td>~160 B</td>
+</tr>
+<tr>
+<td>Storage at 50,000 transactions per second</td>
+<td>2.9 TB/day (Falcon) to 33 TB/day (SPHINCS+)</td>
+<td>~691 GB/day</td>
+</tr>
+<tr>
+<td>Address-to-history linkability for outside observers</td>
+<td>Public, automatic</td>
+<td>None without disclosure</td>
+</tr>
+<tr>
+<td>Selective disclosure for an auditor</td>
+<td>Requires zero-knowledge machinery</td>
+<td>A small reveal per transaction</td>
+</tr>
+<tr>
+<td>Public trust anchor</td>
+<td>Per-tx public-key verifiability + finality</td>
+<td>BFT finality</td>
+</tr>
+</tbody></table>
+<p>The structural gain is that the pattern recovers selective-disclosure privacy from external observers, audit on demand, and a smaller permanent record without stacking a SNARK on top of every transaction. Zero-knowledge proofs remain useful for statements that are inherently about hidden data; they are just no longer required only to recover the per-transaction auditability that the bundled signature used to give for free.</p>
+<p>This architecture is not a replacement for post-quantum public-key signatures: SPHINCS+ remains the right primitive for session-level operations. And it is not a claim about consensus efficiency: the throughput improvement comes from storage and bandwidth compaction, not from changes to the consensus path itself.</p>
+<h2>Why this matters for market infrastructure</h2>
+<p>The strategic issue is whether post-quantum security can become production market infrastructure without turning authentication into a permanent throughput tax.</p>
+<p>For stablecoin issuers and RWA platforms, the signature layer is not an implementation detail. It protects mint and burn controls, custody instructions, compliance actions, treasury movements, collateral transfers, settlement workflows, and user transactions. If the migration path bloats each transaction by kilobytes, the cost shows up where markets are most sensitive: fees, latency, validator requirements, archive size, exchange integration, and liquidity venue economics.</p>
+<p>It also shows up as migration debt. Assets issued on classical rails inherit future coordination work: wallet upgrades, custody re-platforming, exchange support, compliance re-certification, bridge handling, and liquidity fragmentation. &quot;Upgrade later&quot; is a multi-year market-structure event, not a backend switch.</p>
+<p>The unbundled pattern changes the choice. Issuers can get a post-quantum-native authorization perimeter without forcing every transaction to become a public, reusable, kilobyte-scale signature object. Validators can verify authorization inside the protocol path. Finality can remain the public settlement anchor. Auditors can still receive transaction-specific evidence when disclosure is required. External observers do not automatically get a permanent account-level linkability handle on every transaction.</p>
+<p>That is the same category-level &quot;so what&quot; behind EternaX: the next institutional settlement rail has to be private where markets require confidentiality, auditable where regulators and counterparties require evidence, composable enough for DeFi-style collateral mobility, and post-quantum from genesis. A chain that solves only the cryptography problem but loses market speed does not solve the infrastructure problem. A chain that delivers privacy on classical keys leaves historical flows exposed when those keys break. The architecture has to solve the bundle.</p>
+<h2>Outlook</h2>
+<p>The cryptographic core of this pattern at the audit layer is in the SILMARILS paper. The full integration of the consensus-time information-checking layer evaluated by the validators, the session-state binding, the per-transaction parameter derivation, and the operational details, is the subject of a forthcoming companion paper, expected later this year.</p>
+<p>The point we want to make is the architectural one. Post-quantum migration for blockchains is not a primitive-substitution problem. It is an opportunity to recognize that the four jobs a classical signature was bundling never had to live in the same object, and that for a BFT chain, three of those four already belonged in consensus.</p>
+<p>The unbundled-signature pattern: BFT finality as the public trust anchor; conservative PQ public-key signatures retained at session level; a consensus-time information-checking layer for relay integrity; a small finality-anchored designated-verifier receipt as the permanent record; is, as far as we are aware, the first concrete framework that names the decomposition and assigns each job to the verifier model best suited to it.</p>
+<p>That is what makes a high-throughput post-quantum settlement layer possible without paying kilobytes of signature data on every transaction, without giving up auditability, and without taking on the implementation surface area of a ZK system on the hot path. The bigger claim is that the winning post-quantum chain will not be the one that simply swaps ECDSA for a larger public signature. It will be the one that preserves the properties institutions actually need at the same time: durable authorization security, controlled disclosure, public finality, composable settlement, and execution quality under real market volume.</p>
+
+        </article>
+    </main>
+
+    <footer class="py-8 border-t" style="background-color: var(--bg); border-color: var(--border);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-start justify-between gap-6 mb-6">
+                <div>
+                    <span class="text-lg font-bold" style="color: var(--fg)">eternaX</span>
+                    <p class="text-sm mt-1" style="color: var(--fg-70)">Quantum-safe Settlement at Market Speed</p>
+                    <div class="text-xs" style="color: var(--fg-70)">&copy; 2026 EternaX Labs</div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/eternax-ai" class="text-sm link-muted">GitHub</a>
+                    <a href="https://www.youtube.com/@eternaXlabs" class="text-sm link-muted">YouTube</a>
+                    <a href="https://t.me/eternax_official" class="text-sm link-muted">Telegram</a>
+                    <a href="https://x.com/EternaXlabs" class="text-sm link-muted">X (Twitter)</a>
+                    <a href="https://www.linkedin.com/company/eternax-labs" class="text-sm link-muted">LinkedIn</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 pt-4 border-t" style="border-color: var(--border);">
+                <a href="../../about.html" class="text-sm link-muted">About</a>
+                <a href="../../glossary.html" class="text-sm link-muted">Glossary</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuButton = document.getElementById('mobile-menu-button');
+            var mobileMenu = document.getElementById('mobile-menu');
+            var iconMenu = document.getElementById('icon-menu');
+            var iconClose = document.getElementById('icon-close');
+            function closeMenu() {
+                if (!mobileMenu) return;
+                mobileMenu.classList.add('hidden');
+                if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+                if (iconMenu) iconMenu.classList.remove('hidden');
+                if (iconClose) iconClose.classList.add('hidden');
+            }
+            function openMenu() {
+                if (!mobileMenu) return;
+                mobileMenu.classList.remove('hidden');
+                if (menuButton) menuButton.setAttribute('aria-expanded', 'true');
+                if (iconMenu) iconMenu.classList.add('hidden');
+                if (iconClose) iconClose.classList.remove('hidden');
+            }
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() {
+                    if (mobileMenu.classList.contains('hidden')) openMenu(); else closeMenu();
+                });
+                mobileMenu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+                document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+                window.addEventListener('resize', function() { if (window.innerWidth >= 768) closeMenu(); });
+            }
+        });
+    </script>
+</body>
+</html>
