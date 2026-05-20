@@ -15,7 +15,7 @@ const blogsDir = path.join(root, 'blogs');
 const postMetaMap = {
   'unbundling-transaction-signature': {
     datePublished: '2026-05-19',
-    description: 'Why BFT finality, not the per-transaction signature, was always the trust anchor for a blockchain — and what that means for post-quantum migration.',
+    description: 'How decomposing the four jobs bundled into a transaction signature makes post-quantum settlement practical without a permanent per-transaction size tax.',
     keywords: 'post-quantum blockchain, BFT finality, transaction signature, designated-verifier signatures, SILMARILS, consensus',
     about: ['Post-Quantum Blockchain', 'BFT Finality', 'Transaction Signatures', 'Designated-Verifier Signatures', 'SILMARILS'],
     authorLine: 'Dariia Porechna, cryptographer, co-founder of EternaX',
