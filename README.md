@@ -112,4 +112,4 @@ For support and questions:
 
 ---
 
-Built with ❤️ for the autonomous agent economy. 
+Built with ❤️ 
