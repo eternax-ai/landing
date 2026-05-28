@@ -441,6 +441,8 @@ tbody tr:last-child td { border-bottom: none; }
 .risk-5 { color: var(--red); font-weight: 700; }
 .risk-4 { color: #9c4a1a; font-weight: 600; }
 .risk-3 { color: #7c6a1f; font-weight: 600; }
+.risk-2 { color: #2f5e52; font-weight: 600; }
+.risk-1 { color: #2f7a68; font-weight: 600; }
 
 /* CALLOUT BLOCKS */
 .callout {
@@ -630,8 +632,9 @@ tbody tr:last-child td { border-bottom: none; }
 }
 .inst-card-header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: flex-start;
+  gap: 0.35rem;
   margin-bottom: 0.6rem;
 }
 .inst-card-name {
@@ -665,9 +668,12 @@ tbody tr:last-child td { border-bottom: none; }
   border-radius: 3px;
   margin-left: 0.25rem;
 }
+.inst-card-header .risk-badge { margin-left: 0; }
 .risk-badge-5 { background: var(--red); color: #fff; }
 .risk-badge-4 { background: #9c4a1a; color: #fff; }
 .risk-badge-3 { background: #7c6a1f; color: #fff; }
+.risk-badge-2 { background: #2f5e52; color: #fff; }
+.risk-badge-1 { background: #2f7a68; color: #fff; }
 
 /* SECTION DIVIDER */
 .section-divider {
@@ -1125,33 +1131,33 @@ tbody tr:last-child td { border-bottom: none; }
 <div class="table-wrap">
 <table class="compact-table">
 <thead>
-<tr><th>Institution</th><th>Product</th><th>Value</th><th>Chain</th><th>Q Risk</th><th>Verdict</th></tr>
+<tr><th>Institution</th><th>Product</th><th>Value</th><th>Chain</th><th>Quantum Risk</th><th>Verdict</th></tr>
 </thead>
 <tbody>
-<tr><td class="inst-name">BlackRock / Securitize</td><td>BUIDL</td><td>~$2.5B</td><td>Ethereum, multichain</td><td><span class="risk-badge risk-badge-5">5/5</span></td><td>Largest single PQ dependency cluster. Reserve asset for OUSG, USDtb.</td></tr>
-<tr><td class="inst-name">Circle / Hashnote</td><td>USYC</td><td>$313M</td><td>Base, Canton, Ethereum, NEAR, Solana</td><td><span class="risk-badge risk-badge-5">5/5</span></td><td>Five-chain exposure. Two-token model amplifies bridge and oracle risk.</td></tr>
-<tr><td class="inst-name">Franklin Templeton</td><td>BENJI / FOBXX</td><td>$825M</td><td>9 chains: Stellar, Polygon, Arbitrum, Avalanche, Aptos, Base, Ethereum, Solana, BNB</td><td><span class="risk-badge risk-badge-5">5/5</span></td><td>Nine public chains. Ed25519 + secp256k1. Centralized TA override.</td></tr>
-<tr><td class="inst-name">Franklin Templeton</td><td>iBENJI</td><td>$1.56B</td><td>Public blockchain</td><td><span class="risk-badge risk-badge-4">4/5</span></td><td>Largest Franklin product. Chain-specific risk not fully disclosed.</td></tr>
-<tr><td class="inst-name">WisdomTree</td><td>WTGXX</td><td>$951M</td><td>Stellar, Ethereum</td><td><span class="risk-badge risk-badge-4">4/5</span></td><td>Ed25519 + secp256k1. Migration requires fund admin coordination.</td></tr>
-<tr><td class="inst-name">Superstate</td><td>USTB + USCC</td><td>$988M + $269M</td><td>Ethereum, Solana, Plume</td><td><span class="risk-badge risk-badge-5">5/5</span></td><td>Regulated fund integrated into DeFi lending. Compounds issuance + lending risk.</td></tr>
-<tr><td class="inst-name">Ondo</td><td>OUSG / USDY</td><td>Backed by BUIDL</td><td>Ethereum, XRPL</td><td><span class="risk-badge risk-badge-5">5/5</span></td><td>Stacked tokenization: OUSG backed by BUIDL, used as sole collateral on Flux.</td></tr>
-<tr><td class="inst-name">VanEck / Securitize</td><td>VBILL</td><td>$59M</td><td>Securitize multichain, Wormhole</td><td><span class="risk-badge risk-badge-5">5/5</span></td><td>Bridge-first risk. Wormhole attestation is the weakest link.</td></tr>
-<tr><td class="inst-name">Janus Henderson</td><td>JTRSY</td><td>$970M</td><td>Centrifuge, LayerZero</td><td><span class="risk-badge risk-badge-5">5/5</span></td><td>Bridge-layer risk via LayerZero cross-chain expansion.</td></tr>
-<tr><td class="inst-name">Apollo / Securitize</td><td>ACRED</td><td>Not disclosed</td><td>6 chains: Aptos, Avalanche, Ethereum, Ink, Polygon, Solana</td><td><span class="risk-badge risk-badge-5">5/5</span></td><td>Six-chain exposure. Leveraged RWA strategy on Morpho.</td></tr>
-<tr><td class="inst-name">UBS</td><td>uMINT</td><td>Not disclosed</td><td>Ethereum</td><td><span class="risk-badge risk-badge-4">4/5</span></td><td>G-SIB on public chain. Bank-grade migration coordination required.</td></tr>
-<tr><td class="inst-name">SG-FORGE</td><td>EURCV</td><td>Not disclosed</td><td>Ethereum, Solana, XRPL, Stellar</td><td><span class="risk-badge risk-badge-5">5/5</span></td><td>MiCA stablecoin on four vulnerable chains.</td></tr>
-<tr><td class="inst-name">State Street / Galaxy</td><td>SWEEP</td><td>Launching May 2026</td><td>Solana, Stellar, Ethereum planned</td><td><span class="risk-badge risk-badge-4">4/5</span></td><td>Brand-new product on rails with 90% PQ throughput loss.</td></tr>
-<tr><td class="inst-name">Ripple</td><td>RLUSD</td><td>Live</td><td>XRPL, Ethereum, Wormhole NTT</td><td><span class="risk-badge risk-badge-5">5/5</span></td><td>Stablecoin + prime brokerage + bridge expansion.</td></tr>
-<tr><td class="inst-name">PayPal / Paxos</td><td>PYUSD</td><td>Live</td><td>Ethereum, Solana, Arbitrum</td><td><span class="risk-badge risk-badge-4">4/5</span></td><td>Consumer stablecoin on classical rails.</td></tr>
-<tr><td class="inst-name">Anchorage</td><td>USDtb reserves</td><td>Reserves in BUIDL</td><td>Bank + BUIDL chain</td><td><span class="risk-badge risk-badge-5">5/5</span></td><td>Stacked: stablecoin admin keys on top of BUIDL reserve dependency.</td></tr>
-<tr><td class="inst-name">J.P. Morgan</td><td>Kinexys</td><td>&gt;$1.5T processed</td><td>Private DLT</td><td><span class="risk-badge risk-badge-3">3/5</span></td><td>Not public-chain theft. Control-plane and KMS migration risk.</td></tr>
-<tr><td class="inst-name">Goldman / BNY</td><td>GS DAP mirrors</td><td>Not disclosed</td><td>Private permissioned</td><td><span class="risk-badge risk-badge-3">3/5</span></td><td>Heaviest migration/legal debt. Opacity in cryptographic stack.</td></tr>
-<tr><td class="inst-name">Std Chartered / OKX</td><td>BUIDL collateral</td><td>Not disclosed</td><td>Off-exchange custody</td><td><span class="risk-badge risk-badge-4">4/5</span></td><td>First G-SIB-backed tokenized collateral. Concentrated admin keys.</td></tr>
-<tr><td class="inst-name">Binance / Ceffu</td><td>BUIDL off-exchange</td><td>Not disclosed</td><td>Off-exchange, BNB Chain</td><td><span class="risk-badge risk-badge-4">4/5</span></td><td>Off-exchange custody keys on classical rails.</td></tr>
-<tr><td class="inst-name">Deribit</td><td>USYC margin</td><td>Not disclosed</td><td>Venue system</td><td><span class="risk-badge risk-badge-4">4/5</span></td><td>Yield-bearing derivatives collateral. Haircut widening risk.</td></tr>
-<tr><td class="inst-name">DTCC</td><td>Collateral AppChain</td><td>Pilot Q4 2026</td><td>AppChain</td><td><span class="risk-badge risk-badge-4">4/5</span></td><td>Pilot on vulnerable rails becomes production default.</td></tr>
-<tr><td class="inst-name">Broadridge</td><td>DLT Repo</td><td>$362B ADV</td><td>DLT / Canton</td><td><span class="risk-badge risk-badge-4">4/5</span></td><td>Hundreds of billions daily. Migration debt at infrastructure scale.</td></tr>
-<tr><td class="inst-name">Aave</td><td>Horizon RWA</td><td>TVL $604M</td><td>Ethereum</td><td><span class="risk-badge risk-badge-5">5/5</span></td><td>Oracle/NAV risk. Liquidation on public chain. Permissioned collateral, public rails.</td></tr>
+<tr><td class="inst-name">BlackRock / Securitize</td><td>BUIDL</td><td>~$2.5B</td><td>Ethereum, multichain</td><td><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></td><td>Largest single PQ dependency cluster. Reserve asset for OUSG, USDtb.</td></tr>
+<tr><td class="inst-name">Circle / Hashnote</td><td>USYC</td><td>$313M</td><td>Base, Canton, Ethereum, NEAR, Solana</td><td><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></td><td>Five-chain exposure. Two-token model amplifies bridge and oracle risk.</td></tr>
+<tr><td class="inst-name">Franklin Templeton</td><td>BENJI / FOBXX</td><td>$825M</td><td>9 chains: Stellar, Polygon, Arbitrum, Avalanche, Aptos, Base, Ethereum, Solana, BNB</td><td><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></td><td>Nine public chains. Ed25519 + secp256k1. Centralized TA override.</td></tr>
+<tr><td class="inst-name">Franklin Templeton</td><td>iBENJI</td><td>$1.56B</td><td>Public blockchain</td><td><span class="risk-badge risk-badge-4">Critical Quantum Risk 4/5</span></td><td>Largest Franklin product. Chain-specific risk not fully disclosed.</td></tr>
+<tr><td class="inst-name">WisdomTree</td><td>WTGXX</td><td>$951M</td><td>Stellar, Ethereum</td><td><span class="risk-badge risk-badge-4">Critical Quantum Risk 4/5</span></td><td>Ed25519 + secp256k1. Migration requires fund admin coordination.</td></tr>
+<tr><td class="inst-name">Superstate</td><td>USTB + USCC</td><td>$988M + $269M</td><td>Ethereum, Solana, Plume</td><td><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></td><td>Regulated fund integrated into DeFi lending. Compounds issuance + lending risk.</td></tr>
+<tr><td class="inst-name">Ondo</td><td>OUSG / USDY</td><td>Backed by BUIDL</td><td>Ethereum, XRPL</td><td><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></td><td>Stacked tokenization: OUSG backed by BUIDL, used as sole collateral on Flux.</td></tr>
+<tr><td class="inst-name">VanEck / Securitize</td><td>VBILL</td><td>$59M</td><td>Securitize multichain, Wormhole</td><td><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></td><td>Bridge-first risk. Wormhole attestation is the weakest link.</td></tr>
+<tr><td class="inst-name">Janus Henderson</td><td>JTRSY</td><td>$970M</td><td>Centrifuge, LayerZero</td><td><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></td><td>Bridge-layer risk via LayerZero cross-chain expansion.</td></tr>
+<tr><td class="inst-name">Apollo / Securitize</td><td>ACRED</td><td>Not disclosed</td><td>6 chains: Aptos, Avalanche, Ethereum, Ink, Polygon, Solana</td><td><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></td><td>Six-chain exposure. Leveraged RWA strategy on Morpho.</td></tr>
+<tr><td class="inst-name">UBS</td><td>uMINT</td><td>Not disclosed</td><td>Ethereum</td><td><span class="risk-badge risk-badge-4">Critical Quantum Risk 4/5</span></td><td>G-SIB on public chain. Bank-grade migration coordination required.</td></tr>
+<tr><td class="inst-name">SG-FORGE</td><td>EURCV</td><td>Not disclosed</td><td>Ethereum, Solana, XRPL, Stellar</td><td><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></td><td>MiCA stablecoin on four vulnerable chains.</td></tr>
+<tr><td class="inst-name">State Street / Galaxy</td><td>SWEEP</td><td>Launching May 2026</td><td>Solana, Stellar, Ethereum planned</td><td><span class="risk-badge risk-badge-4">Critical Quantum Risk 4/5</span></td><td>Brand-new product on rails with 90% PQ throughput loss.</td></tr>
+<tr><td class="inst-name">Ripple</td><td>RLUSD</td><td>Live</td><td>XRPL, Ethereum, Wormhole NTT</td><td><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></td><td>Stablecoin + prime brokerage + bridge expansion.</td></tr>
+<tr><td class="inst-name">PayPal / Paxos</td><td>PYUSD</td><td>Live</td><td>Ethereum, Solana, Arbitrum</td><td><span class="risk-badge risk-badge-4">Critical Quantum Risk 4/5</span></td><td>Consumer stablecoin on classical rails.</td></tr>
+<tr><td class="inst-name">Anchorage</td><td>USDtb reserves</td><td>Reserves in BUIDL</td><td>Bank + BUIDL chain</td><td><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></td><td>Stacked: stablecoin admin keys on top of BUIDL reserve dependency.</td></tr>
+<tr><td class="inst-name">J.P. Morgan</td><td>Kinexys</td><td>&gt;$1.5T processed</td><td>Private DLT</td><td><span class="risk-badge risk-badge-3">High Quantum Risk 3/5</span></td><td>Not public-chain theft. Control-plane and KMS migration risk.</td></tr>
+<tr><td class="inst-name">Goldman / BNY</td><td>GS DAP mirrors</td><td>Not disclosed</td><td>Private permissioned</td><td><span class="risk-badge risk-badge-3">High Quantum Risk 3/5</span></td><td>Heaviest migration/legal debt. Opacity in cryptographic stack.</td></tr>
+<tr><td class="inst-name">Std Chartered / OKX</td><td>BUIDL collateral</td><td>Not disclosed</td><td>Off-exchange custody</td><td><span class="risk-badge risk-badge-4">Critical Quantum Risk 4/5</span></td><td>First G-SIB-backed tokenized collateral. Concentrated admin keys.</td></tr>
+<tr><td class="inst-name">Binance / Ceffu</td><td>BUIDL off-exchange</td><td>Not disclosed</td><td>Off-exchange, BNB Chain</td><td><span class="risk-badge risk-badge-4">Critical Quantum Risk 4/5</span></td><td>Off-exchange custody keys on classical rails.</td></tr>
+<tr><td class="inst-name">Deribit</td><td>USYC margin</td><td>Not disclosed</td><td>Venue system</td><td><span class="risk-badge risk-badge-4">Critical Quantum Risk 4/5</span></td><td>Yield-bearing derivatives collateral. Haircut widening risk.</td></tr>
+<tr><td class="inst-name">DTCC</td><td>Collateral AppChain</td><td>Pilot Q4 2026</td><td>AppChain</td><td><span class="risk-badge risk-badge-4">Critical Quantum Risk 4/5</span></td><td>Pilot on vulnerable rails becomes production default.</td></tr>
+<tr><td class="inst-name">Broadridge</td><td>DLT Repo</td><td>$362B ADV</td><td>DLT / Canton</td><td><span class="risk-badge risk-badge-4">Critical Quantum Risk 4/5</span></td><td>Hundreds of billions daily. Migration debt at infrastructure scale.</td></tr>
+<tr><td class="inst-name">Aave</td><td>Horizon RWA</td><td>TVL $604M</td><td>Ethereum</td><td><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></td><td>Oracle/NAV risk. Liquidation on public chain. Permissioned collateral, public rails.</td></tr>
 </tbody>
 </table>
 </div>
@@ -1160,56 +1166,56 @@ tbody tr:last-child td { border-bottom: none; }
 <div class="inst-grid">
 
 <div class="inst-card">
-<div class="inst-card-header"><span class="inst-card-name">BlackRock / Securitize</span><span class="risk-badge risk-badge-5">PQ 5/5</span></div>
+<div class="inst-card-header"><span class="inst-card-name">BlackRock / Securitize</span><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></div>
 <div class="inst-card-product">BUIDL tokenized Treasury/MMF &middot; ~$2.5B</div>
 <div class="inst-card-meta"><strong>Chain:</strong> Ethereum + multichain via Securitize &middot; <strong>Primitives:</strong> secp256k1 &middot; <strong>Partners:</strong> OKX, Binance, Hidden Road, Komainu, Ondo, Anchorage</div>
 <div class="inst-card-risk"><strong>Why exposed:</strong> Concentrated admin/TA keys at Securitize control mint, burn, whitelist across all share classes. Downstream reserve asset for OUSG and USDtb means a control-plane compromise propagates across products and venues. No PQ migration disclosed. <strong>New issuance:</strong> Future share classes should evaluate PQ-native rails.</div>
 </div>
 
 <div class="inst-card">
-<div class="inst-card-header"><span class="inst-card-name">Circle / Hashnote</span><span class="risk-badge risk-badge-5">PQ 5/5</span></div>
+<div class="inst-card-header"><span class="inst-card-name">Circle / Hashnote</span><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></div>
 <div class="inst-card-product">USYC tokenized MMF &middot; $313M</div>
 <div class="inst-card-meta"><strong>Chain:</strong> Base, Canton, Ethereum, NEAR, Solana &middot; <strong>Primitives:</strong> secp256k1, Ed25519 &middot; <strong>Collateral:</strong> Deribit cross-margin</div>
 <div class="inst-card-risk"><strong>Why exposed:</strong> Five chains, each using classical signatures. Two-token model (USYC + USDC redemption) creates interoperability dependencies on Circle attestation services. <strong>New issuance:</strong> New collateral rails and chain expansions should be PQ-native.</div>
 </div>
 
 <div class="inst-card">
-<div class="inst-card-header"><span class="inst-card-name">Franklin Templeton</span><span class="risk-badge risk-badge-5">PQ 5/5</span></div>
+<div class="inst-card-header"><span class="inst-card-name">Franklin Templeton</span><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></div>
 <div class="inst-card-product">BENJI / FOBXX &middot; $825M</div>
 <div class="inst-card-meta"><strong>Chain:</strong> 9 networks (Stellar, Polygon, Arbitrum, Avalanche, Aptos, Base, Ethereum, Solana, BNB) &middot; <strong>Primitives:</strong> Ed25519, secp256k1</div>
 <div class="inst-card-risk"><strong>Why exposed:</strong> Transfer agent maintains centralized override across nine public chains. Each new chain deployment compounds migration debt. Textbook case of public-chain contact + centralized administrative control. <strong>New issuance:</strong> Treat each chain expansion as a new issuance decision.</div>
 </div>
 
 <div class="inst-card">
-<div class="inst-card-header"><span class="inst-card-name">Ondo</span><span class="risk-badge risk-badge-5">PQ 5/5</span></div>
+<div class="inst-card-header"><span class="inst-card-name">Ondo</span><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></div>
 <div class="inst-card-product">OUSG / Flux &middot; Backed by BUIDL</div>
 <div class="inst-card-meta"><strong>Chain:</strong> Ethereum, XRPL &middot; <strong>Primitives:</strong> secp256k1, Ed25519 &middot; <strong>Collateral:</strong> Sole collateral on Flux</div>
 <div class="inst-card-risk"><strong>Why exposed:</strong> Stacked tokenization: OUSG is backed by BUIDL, then used as sole collateral on Flux. One classical control-plane layer secures another. Breaking the base layer breaks the borrowing layer. <strong>New issuance:</strong> Stacked tokenization demands PQ-native rails at the base.</div>
 </div>
 
 <div class="inst-card">
-<div class="inst-card-header"><span class="inst-card-name">Superstate</span><span class="risk-badge risk-badge-5">PQ 5/5</span></div>
+<div class="inst-card-header"><span class="inst-card-name">Superstate</span><span class="risk-badge risk-badge-5">Highly Critical Quantum Risk 5/5</span></div>
 <div class="inst-card-product">USTB ($988M) + USCC ($269M)</div>
 <div class="inst-card-meta"><strong>Chain:</strong> Ethereum, Solana, Plume &middot; <strong>DeFi:</strong> Aave Horizon integration ($66.5M USTB)</div>
 <div class="inst-card-risk"><strong>Why exposed:</strong> Sits at the boundary of regulated fund and DeFi-collateral primitive. Combines public-chain issuance risk with onchain borrowing interface risk. <strong>New issuance:</strong> DeFi collateral integrations on classical rails multiply migration debt.</div>
 </div>
 
 <div class="inst-card">
-<div class="inst-card-header"><span class="inst-card-name">J.P. Morgan</span><span class="risk-badge risk-badge-3">PQ 3/5</span></div>
+<div class="inst-card-header"><span class="inst-card-name">J.P. Morgan</span><span class="risk-badge risk-badge-3">High Quantum Risk 3/5</span></div>
 <div class="inst-card-product">Kinexys &middot; &gt;$1.5T processed</div>
 <div class="inst-card-meta"><strong>Chain:</strong> Private bank-led DLT &middot; <strong>Primitives:</strong> Classical enterprise crypto (not disclosed)</div>
 <div class="inst-card-risk"><strong>Why exposed:</strong> Not public-chain theft risk. Control-plane-heavy: bank admin keys, KMS, legal continuity across tokenized deposits, GBP blockchain accounts, and interoperability. <strong>New issuance:</strong> New settlement corridors should test PQ-native rails.</div>
 </div>
 
 <div class="inst-card">
-<div class="inst-card-header"><span class="inst-card-name">Goldman / BNY</span><span class="risk-badge risk-badge-3">PQ 3/5</span></div>
+<div class="inst-card-header"><span class="inst-card-name">Goldman / BNY</span><span class="risk-badge risk-badge-3">High Quantum Risk 3/5</span></div>
 <div class="inst-card-product">GS DAP tokenized MMF mirrors</div>
 <div class="inst-card-meta"><strong>Chain:</strong> GS DAP private permissioned &middot; <strong>Partner:</strong> BNY Digital Assets</div>
 <div class="inst-card-risk"><strong>Why exposed:</strong> Private mirror ledger. Lower public-chain theft, but heaviest migration/legal debt: re-papering across banks, funds, client books, custody, and legacy systems. Exact crypto primitives not disclosed. <strong>New issuance:</strong> Private-ledger modernization can start with PQ-native pilots.</div>
 </div>
 
 <div class="inst-card">
-<div class="inst-card-header"><span class="inst-card-name">Std Chartered / OKX</span><span class="risk-badge risk-badge-4">PQ 4/5</span></div>
+<div class="inst-card-header"><span class="inst-card-name">Std Chartered / OKX</span><span class="risk-badge risk-badge-4">Critical Quantum Risk 4/5</span></div>
 <div class="inst-card-product">BUIDL yield-bearing collateral framework</div>
 <div class="inst-card-meta"><strong>Chain:</strong> Off-exchange SC custody, OKX venue &middot; <strong>Partners:</strong> BlackRock, Brevan Howard</div>
 <div class="inst-card-risk"><strong>Why exposed:</strong> First G-SIB-backed off-exchange tokenized collateral. Market choosing credit/legal structure first, composability second. Concentrated admin/custody keys and legal close-out complexity. <strong>New issuance:</strong> New collateral programs should test PQ-native custody and signing.</div>
@@ -1244,16 +1250,16 @@ tbody tr:last-child td { border-bottom: none; }
 <table>
 <thead><tr><th>Product Archetype</th><th>PQ Risk</th><th>Verdict</th></tr></thead>
 <tbody>
-<tr><td>Public-chain tokenized MMF on Ethereum/EVM</td><td><span class="risk-5">5/5</span></td><td>Full classical stack: wallet, admin, contract, consensus, bridge, oracle, collateral, migration. Highest combined exposure.</td></tr>
-<tr><td>Public-chain MMF on Solana/Stellar</td><td><span class="risk-4">4/5</span></td><td>Ed25519 quantum-vulnerable. Simpler contract surface than EVM, but admin concentration unchanged.</td></tr>
-<tr><td>Multichain fund with bridge layer</td><td><span class="risk-5">5/5</span></td><td>Bridge and messaging risk becomes first-order. Cross-chain attestation is the weakest link.</td></tr>
-<tr><td>Permissioned DeFi RWA lending</td><td><span class="risk-5">5/5</span></td><td>Liquidation depends on oracle/NAV freshness. Smart-contract risk plus permissioned collateral.</td></tr>
-<tr><td>CeFi off-exchange collateral / triparty</td><td><span class="risk-4">4/5</span></td><td>Lower base-chain code risk, but concentrated admin/custody keys and legal close-out complexity.</td></tr>
-<tr><td>Stablecoin backed by tokenized MMFs</td><td><span class="risk-5">5/5</span></td><td>Stacked dependency: stablecoin admin keys plus reserve-asset admin/oracle/bridge dependence.</td></tr>
-<tr><td>Private permissioned mirrors</td><td><span class="risk-3">3/5</span></td><td>Less public-holder theft, but concentrated operator/admin/KMS and legal migration debt dominate.</td></tr>
-<tr><td>Tokenized deposits / payments rails</td><td><span class="risk-3">3/5</span></td><td>Control-plane-heavy and dependent on KMS, bank admin keys, and legal continuity.</td></tr>
-<tr><td>Private DLT with selective privacy</td><td><span class="risk-3">3/5</span></td><td>PQ migration complicated by permissioned memberships, custom crypto stacks, contractual governance.</td></tr>
-<tr><td>Settlement / collateral infrastructure</td><td><span class="risk-4">4/5</span></td><td>Less about user wallets, more about institutional concentration and migration/legal debt at infrastructure scale.</td></tr>
+<tr><td>Public-chain tokenized MMF on Ethereum/EVM</td><td><span class="risk-5">Highly Critical Quantum Risk 5/5</span></td><td>Full classical stack: wallet, admin, contract, consensus, bridge, oracle, collateral, migration. Highest combined exposure.</td></tr>
+<tr><td>Public-chain MMF on Solana/Stellar</td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td>Ed25519 quantum-vulnerable. Simpler contract surface than EVM, but admin concentration unchanged.</td></tr>
+<tr><td>Multichain fund with bridge layer</td><td><span class="risk-5">Highly Critical Quantum Risk 5/5</span></td><td>Bridge and messaging risk becomes first-order. Cross-chain attestation is the weakest link.</td></tr>
+<tr><td>Permissioned DeFi RWA lending</td><td><span class="risk-5">Highly Critical Quantum Risk 5/5</span></td><td>Liquidation depends on oracle/NAV freshness. Smart-contract risk plus permissioned collateral.</td></tr>
+<tr><td>CeFi off-exchange collateral / triparty</td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td>Lower base-chain code risk, but concentrated admin/custody keys and legal close-out complexity.</td></tr>
+<tr><td>Stablecoin backed by tokenized MMFs</td><td><span class="risk-5">Highly Critical Quantum Risk 5/5</span></td><td>Stacked dependency: stablecoin admin keys plus reserve-asset admin/oracle/bridge dependence.</td></tr>
+<tr><td>Private permissioned mirrors</td><td><span class="risk-3">High Quantum Risk 3/5</span></td><td>Less public-holder theft, but concentrated operator/admin/KMS and legal migration debt dominate.</td></tr>
+<tr><td>Tokenized deposits / payments rails</td><td><span class="risk-3">High Quantum Risk 3/5</span></td><td>Control-plane-heavy and dependent on KMS, bank admin keys, and legal continuity.</td></tr>
+<tr><td>Private DLT with selective privacy</td><td><span class="risk-3">High Quantum Risk 3/5</span></td><td>PQ migration complicated by permissioned memberships, custom crypto stacks, contractual governance.</td></tr>
+<tr><td>Settlement / collateral infrastructure</td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td>Less about user wallets, more about institutional concentration and migration/legal debt at infrastructure scale.</td></tr>
 </tbody>
 </table>
 </div>
@@ -1263,14 +1269,14 @@ tbody tr:last-child td { border-bottom: none; }
 <table>
 <thead><tr><th>Product Archetype</th><th>Privacy Risk</th><th>Verdict</th></tr></thead>
 <tbody>
-<tr><td>Public Ethereum/EVM tokenized funds</td><td><span class="risk-5">5/5</span></td><td>Transfers, collateral postings, liquidations widely visible. MEV and order-flow leakage around collateral adjustments.</td></tr>
-<tr><td>Public Solana/Stellar/XRPL stablecoin rails</td><td><span class="risk-4">4/5</span></td><td>Lower MEV intensity in some cases, but transparency and future decryption/graphing risk remain strong.</td></tr>
-<tr><td>Permissioned DeFi RWA markets</td><td><span class="risk-4">4/5</span></td><td>Borrowers may be permissioned, but positions, contracts, and liquidation flows remain inspectable on public chains.</td></tr>
-<tr><td>CeFi triparty / off-exchange collateral</td><td><span class="risk-3">3/5</span></td><td>Lower public leakage, but institutions overestimate confidentiality when custodian, exchange, and regulator visibility remains extensive.</td></tr>
-<tr><td>Private token mirrors and bank ledgers</td><td><span class="risk-3">3/5</span></td><td>The danger is assuming permissioned privacy equals cryptographic privacy. It usually does not.</td></tr>
-<tr><td>Canton-style selective privacy</td><td><span class="risk-4">4/5</span></td><td>Privacy depends on classical encryption, not quantum-durable cryptography. When keys break, all historical flows become retroactively visible. Divulgence documented. HNDL active.</td></tr>
-<tr><td>Stablecoin reserve stacks</td><td><span class="risk-4">4/5</span></td><td>Reserve movements reveal strategic treasury behavior. Store-now-decrypt-later creates latent future disclosure risk.</td></tr>
-<tr><td>Payments / tokenized deposit systems</td><td>2/5</td><td>Better operational confidentiality, but privacy depends on operator trust and eventual cryptographic migration.</td></tr>
+<tr><td>Public Ethereum/EVM tokenized funds</td><td><span class="risk-5">Highly Critical Quantum Risk 5/5</span></td><td>Transfers, collateral postings, liquidations widely visible. MEV and order-flow leakage around collateral adjustments.</td></tr>
+<tr><td>Public Solana/Stellar/XRPL stablecoin rails</td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td>Lower MEV intensity in some cases, but transparency and future decryption/graphing risk remain strong.</td></tr>
+<tr><td>Permissioned DeFi RWA markets</td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td>Borrowers may be permissioned, but positions, contracts, and liquidation flows remain inspectable on public chains.</td></tr>
+<tr><td>CeFi triparty / off-exchange collateral</td><td><span class="risk-3">High Quantum Risk 3/5</span></td><td>Lower public leakage, but institutions overestimate confidentiality when custodian, exchange, and regulator visibility remains extensive.</td></tr>
+<tr><td>Private token mirrors and bank ledgers</td><td><span class="risk-3">High Quantum Risk 3/5</span></td><td>The danger is assuming permissioned privacy equals cryptographic privacy. It usually does not.</td></tr>
+<tr><td>Canton-style selective privacy</td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td>Privacy depends on classical encryption, not quantum-durable cryptography. When keys break, all historical flows become retroactively visible. Divulgence documented. HNDL active.</td></tr>
+<tr><td>Stablecoin reserve stacks</td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td>Reserve movements reveal strategic treasury behavior. Store-now-decrypt-later creates latent future disclosure risk.</td></tr>
+<tr><td>Payments / tokenized deposit systems</td><td><span class="risk-2">Medium Quantum Risk 2/5</span></td><td>Better operational confidentiality, but privacy depends on operator trust and eventual cryptographic migration.</td></tr>
 </tbody>
 </table>
 </div>
@@ -1291,16 +1297,16 @@ tbody tr:last-child td { border-bottom: none; }
 <tr><th>Chain / Ledger</th><th>Institutions / Products</th><th>Value Exposed</th><th>Signature Primitives</th><th>PQ Migration</th><th>PQ Risk</th><th>Privacy Risk</th><th>Verdict</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>Ethereum</strong></td><td>BUIDL, USYC, BENJI, USTB, USCC, OUSG, ACRED, RLUSD, PYUSD, EURCV, uMINT, SWEEP</td><td>&gt;$5B</td><td>secp256k1 (EOA), BLS (consensus), KZG (roadmap)</td><td>Active research, multi-year roadmap, no production migration. ~84% TPS loss modeled.</td><td><span class="risk-5">5/5</span></td><td><span class="risk-5">5/5</span></td><td>Highest-value exposure. ~84% throughput loss under PQ. Rich metadata leakage. Active research does not equal institutional readiness.</td></tr>
-<tr><td><strong>Canton</strong></td><td>USYC, Broadridge DLR ($362B ADV), Goldman/BNY institutional workflows</td><td>Significant institutional workflow exposure</td><td>Configurable crypto (classical by default), external KMS/HSM</td><td>None disclosed. ~88% TPS loss modeled under Dilithium-class PQ migration.</td><td><span class="risk-4">4/5</span></td><td><span class="risk-4">4/5</span></td><td>Privacy collapses when keys break. All historical flows become retroactively visible. Divulgence to non-stakeholders explicitly documented. HNDL attacks already active. Privacy-by-policy is not privacy-by-cryptography.</td></tr>
-<tr><td><strong>Solana</strong></td><td>USYC, USTB, USCC, PYUSD, EURCV, SWEEP</td><td>~$2.57B RWA</td><td>Ed25519</td><td>No mature PQ migration. 90% TPS loss confirmed live.</td><td><span class="risk-4">4/5</span></td><td><span class="risk-4">4/5</span></td><td>Ed25519 quantum-vulnerable. 90% throughput loss confirmed. Commercially unviable under PQ at current architecture.</td></tr>
-<tr><td><strong>Stellar</strong></td><td>BENJI, WTGXX, EURCV</td><td>~$1.8B products</td><td>Ed25519</td><td>No public PQ roadmap. ~90% TPS loss modeled.</td><td><span class="risk-4">4/5</span></td><td><span class="risk-3">3/5</span></td><td>Ed25519 quantum-vulnerable. ~90% throughput loss modeled. $1.8B+ in products with no disclosed migration path.</td></tr>
-<tr><td><strong>XRPL</strong></td><td>RLUSD, OUSG, EURCV</td><td>Not fully disclosed</td><td>Ed25519 or secp256k1</td><td>No public PQ roadmap</td><td><span class="risk-4">4/5</span></td><td><span class="risk-4">4/5</span></td><td>Public ledger with native DEX creating visible order/flow metadata. Growing institutional relevance.</td></tr>
-<tr><td><strong>Base / Arbitrum / BNB Chain / EVM L2s</strong></td><td>USYC, BENJI, VBILL, BUIDL classes, SWEEP</td><td>Material</td><td>Inherit secp256k1 from Ethereum</td><td>Optimism published PQ roadmap; broader L2 migration early</td><td><span class="risk-5">5/5</span></td><td><span class="risk-5">5/5</span></td><td>Inherit Ethereum's settlement assumptions plus sequencer/bridge metadata risk.</td></tr>
-<tr><td><strong>Aptos</strong></td><td>BENJI, ACRED</td><td>Not disclosed</td><td>Ed25519, secp256k1, passkeys/multikey</td><td>Flexible auth helps future options, no complete PQ posture</td><td><span class="risk-4">4/5</span></td><td><span class="risk-4">4/5</span></td><td>Account flexibility aids future migration, but no PQ deployment disclosed.</td></tr>
-<tr><td><strong>Avalanche</strong></td><td>BENJI, ACRED, KKR SKHC</td><td>Not disclosed</td><td>secp256k1 (AVM/EVM)</td><td>No public PQ path</td><td><span class="risk-4">4/5</span></td><td><span class="risk-4">4/5</span></td><td>Public chain. Cross-chain integrations matter more than base-layer privacy.</td></tr>
-<tr><td><strong>GS DAP</strong></td><td>BNY/Goldman tokenized MMF mirrors</td><td>Not public</td><td>Private permissioned, exact algorithms not disclosed</td><td>Lower public-chain risk, higher migration/legal debt</td><td><span class="risk-3">3/5</span></td><td><span class="risk-3">3/5</span></td><td>Classical encryption protects inter-node privacy. When those keys break, historical flows become retroactively visible. Same HNDL exposure as Canton. Concentrated operator control.</td></tr>
-<tr><td><strong>Swift shared ledger</strong></td><td>Tokenized deposits, interoperability</td><td>Flow-scale</td><td>Standards stack, crypto not fully exposed</td><td>Migration burden high: multi-party standardization</td><td><span class="risk-3">3/5</span></td><td><span class="risk-3">3/5</span></td><td>Classical encryption protects inter-bank messaging. HNDL applies. PQ migration requires coordination across 11,000+ institutions.</td></tr>
+<tr><td><strong>Ethereum</strong></td><td>BUIDL, USYC, BENJI, USTB, USCC, OUSG, ACRED, RLUSD, PYUSD, EURCV, uMINT, SWEEP</td><td>&gt;$5B</td><td>secp256k1 (EOA), BLS (consensus), KZG (roadmap)</td><td>Active research, multi-year roadmap, no production migration. ~84% TPS loss modeled.</td><td><span class="risk-5">Highly Critical Quantum Risk 5/5</span></td><td><span class="risk-5">Highly Critical Quantum Risk 5/5</span></td><td>Highest-value exposure. ~84% throughput loss under PQ. Rich metadata leakage. Active research does not equal institutional readiness.</td></tr>
+<tr><td><strong>Canton</strong></td><td>USYC, Broadridge DLR ($362B ADV), Goldman/BNY institutional workflows</td><td>Significant institutional workflow exposure</td><td>Configurable crypto (classical by default), external KMS/HSM</td><td>None disclosed. ~88% TPS loss modeled under Dilithium-class PQ migration.</td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td>Privacy collapses when keys break. All historical flows become retroactively visible. Divulgence to non-stakeholders explicitly documented. HNDL attacks already active. Privacy-by-policy is not privacy-by-cryptography.</td></tr>
+<tr><td><strong>Solana</strong></td><td>USYC, USTB, USCC, PYUSD, EURCV, SWEEP</td><td>~$2.57B RWA</td><td>Ed25519</td><td>No mature PQ migration. 90% TPS loss confirmed live.</td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td>Ed25519 quantum-vulnerable. 90% throughput loss confirmed. Commercially unviable under PQ at current architecture.</td></tr>
+<tr><td><strong>Stellar</strong></td><td>BENJI, WTGXX, EURCV</td><td>~$1.8B products</td><td>Ed25519</td><td>No public PQ roadmap. ~90% TPS loss modeled.</td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td><span class="risk-3">High Quantum Risk 3/5</span></td><td>Ed25519 quantum-vulnerable. ~90% throughput loss modeled. $1.8B+ in products with no disclosed migration path.</td></tr>
+<tr><td><strong>XRPL</strong></td><td>RLUSD, OUSG, EURCV</td><td>Not fully disclosed</td><td>Ed25519 or secp256k1</td><td>No public PQ roadmap</td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td>Public ledger with native DEX creating visible order/flow metadata. Growing institutional relevance.</td></tr>
+<tr><td><strong>Base / Arbitrum / BNB Chain / EVM L2s</strong></td><td>USYC, BENJI, VBILL, BUIDL classes, SWEEP</td><td>Material</td><td>Inherit secp256k1 from Ethereum</td><td>Optimism published PQ roadmap; broader L2 migration early</td><td><span class="risk-5">Highly Critical Quantum Risk 5/5</span></td><td><span class="risk-5">Highly Critical Quantum Risk 5/5</span></td><td>Inherit Ethereum's settlement assumptions plus sequencer/bridge metadata risk.</td></tr>
+<tr><td><strong>Aptos</strong></td><td>BENJI, ACRED</td><td>Not disclosed</td><td>Ed25519, secp256k1, passkeys/multikey</td><td>Flexible auth helps future options, no complete PQ posture</td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td>Account flexibility aids future migration, but no PQ deployment disclosed.</td></tr>
+<tr><td><strong>Avalanche</strong></td><td>BENJI, ACRED, KKR SKHC</td><td>Not disclosed</td><td>secp256k1 (AVM/EVM)</td><td>No public PQ path</td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td><span class="risk-4">Critical Quantum Risk 4/5</span></td><td>Public chain. Cross-chain integrations matter more than base-layer privacy.</td></tr>
+<tr><td><strong>GS DAP</strong></td><td>BNY/Goldman tokenized MMF mirrors</td><td>Not public</td><td>Private permissioned, exact algorithms not disclosed</td><td>Lower public-chain risk, higher migration/legal debt</td><td><span class="risk-3">High Quantum Risk 3/5</span></td><td><span class="risk-3">High Quantum Risk 3/5</span></td><td>Classical encryption protects inter-node privacy. When those keys break, historical flows become retroactively visible. Same HNDL exposure as Canton. Concentrated operator control.</td></tr>
+<tr><td><strong>Swift shared ledger</strong></td><td>Tokenized deposits, interoperability</td><td>Flow-scale</td><td>Standards stack, crypto not fully exposed</td><td>Migration burden high: multi-party standardization</td><td><span class="risk-3">High Quantum Risk 3/5</span></td><td><span class="risk-3">High Quantum Risk 3/5</span></td><td>Classical encryption protects inter-bank messaging. HNDL applies. PQ migration requires coordination across 11,000+ institutions.</td></tr>
 <tr class="row-green"><td><strong>EternaX</strong></td><td>PQ-native issuance: stablecoins, RWAs, tokenized funds, collateral, settlement</td><td>Testnet live. Institutional pilots.</td><td>SPHINCS+ (NIST FIPS 205) + SILMARILS 160-byte. Hash-only. No pairings, no BLS, no KZG.</td><td>PQ-native from genesis. Zero migration debt. ~2% TPS loss. 50,000+ TPS, ~120ms finality.</td><td><span class="risk-0">0/5</span></td><td><span class="risk-0">0/5</span></td><td>The only EVM-compatible PQ-native L1. Auditable privacy. Validator-blind confidentiality. MEV-zero. No classical primitives to migrate. New issuance starts here.</td></tr>
 </tbody>
 </table>
