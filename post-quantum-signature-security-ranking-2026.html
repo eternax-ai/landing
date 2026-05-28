@@ -236,12 +236,9 @@
             --fg-70: var(--fg);
             --fg-80: var(--fg);
         }
-        nav.glass-effect {
-            border: 1px solid var(--border);
-        }
         .glass-effect {
             background: #ffffff;
-            border: 1px solid var(--border-light);
+            border: 1px solid var(--border);
             box-shadow: 0 1px 3px rgba(0,0,0,0.06);
         }
         .link-muted {
@@ -252,8 +249,9 @@
         .btn-primary {
             background-color: var(--fg);
             transition: background-color 0.15s;
+            color: #fff;
         }
-        .btn-primary:hover { background-color: var(--navy-deep); }
+        .btn-primary:hover { background-color: var(--navy-light); }
         .nav-products-dropdown {
             opacity: 0;
             visibility: hidden;
@@ -263,6 +261,11 @@
             opacity: 1;
             visibility: visible;
         }
+        /* Normalize shared navbar size on this page (base html font-size is 17px here). */
+        nav .text-xl { font-size: 20px; line-height: 28px; }
+        nav .text-sm { font-size: 14px; line-height: 20px; }
+        nav .text-xs { font-size: 12px; line-height: 16px; }
+        nav .py-2 { padding-top: 8px; padding-bottom: 8px; }
 
         /* === LAYOUT === */
         .article-container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
