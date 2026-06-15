@@ -1,0 +1,293 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Quantum MPC Custody, On-Chain: Thresholding Authorization with Hash-Based Signatures | EternaX Labs Blog</title>
+    <meta name="description" content="How custody providers can preserve distributed approval on-chain without threshold-signing hash-based signatures: dual gates with SLH-DSA member authentication and SILMARILS affine threshold authorization.">
+    <meta name="keywords" content="post-quantum blockchain, post-quantum cryptography, quantum-safe settlement, stablecoin issuance, rwa tokenization, EternaX, post-quantum custody, MPC custody, threshold authorization, SLH-DSA, SPHINCS+, SILMARILS, hash-based signatures, institutional custody">
+    <meta name="author" content="EternaX Labs">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="article:publisher" content="https://www.linkedin.com/company/eternax-labs">
+    <link rel="canonical" href="https://eternax.ai/blogs/post-quantum-mpc-custody-on-chain/index.html">
+    <meta name="theme-color" content="#e2e2e2">
+    <link rel="icon" type="image/svg+xml" href="../../assets/eternax-icon.svg">
+    <link rel="icon" type="image/png" href="../../assets/eternax-icon.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Post-Quantum MPC Custody, On-Chain: Thresholding Authorization with Hash-Based Signatures">
+    <meta property="og:description" content="How custody providers can preserve distributed approval on-chain without threshold-signing hash-based signatures: dual gates with SLH-DSA member authentication and SILMARILS affine threshold authorization.">
+    <meta property="og:site_name" content="EternaX Labs">
+    <meta property="og:url" content="https://eternax.ai/blogs/post-quantum-mpc-custody-on-chain/index.html">
+    <meta property="og:image" content="https://eternax.ai/assets/preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Post-Quantum MPC Custody, On-Chain: Thresholding Authorization with Hash-Based Signatures">
+    <meta property="twitter:description" content="How custody providers can preserve distributed approval on-chain without threshold-signing hash-based signatures: dual gates with SLH-DSA member authentication and SILMARILS affine threshold authorization.">
+    <meta property="twitter:url" content="https://eternax.ai/blogs/post-quantum-mpc-custody-on-chain/index.html">
+    <meta property="twitter:site" content="@EternaXlabs">
+    <meta property="twitter:creator" content="@EternaXlabs">
+    <meta property="twitter:image" content="https://eternax.ai/assets/preview.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../styles/tailwind.generated.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --bg: #f7f4f4;
+            --fg: #283771;
+            --fg-70: #283771;
+            --fg-80: #283771;
+            --border: #283771;
+            --pill-bg: #283771;
+            --pill-fg: #ffffff;
+        }
+        body { background-color: var(--bg); color: var(--fg); }
+        .glass-effect {
+            background: #ffffff;
+            border: 1px solid #e0dede;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .link-muted { color: var(--fg-70); transition: color 0.15s; }
+        .link-muted:hover { color: var(--fg); }
+        .btn-primary {
+            background-color: var(--fg);
+            transition: background-color 0.15s;
+        }
+        .btn-primary:hover { background-color: #1e2d5a; }
+        .nav-products-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s, visibility 0.15s;
+        }
+        .group:hover .nav-products-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        .blog-body { max-width: 720px; margin: 0 auto; }
+        .blog-body h1 { font-size: 2rem; font-weight: 600; margin-top: 0; margin-bottom: 0.75em; letter-spacing: -0.01em; line-height: 1.2; }
+        .blog-body h2 { font-size: 1.5rem; font-weight: 600; margin-top: 1.75rem; margin-bottom: 0.5em; letter-spacing: -0.01em; line-height: 1.3; }
+        .blog-body h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.4em; line-height: 1.3; }
+        .blog-body p { margin-top: 0.75em; margin-bottom: 0.75em; line-height: 1.65; }
+        .blog-body ul, .blog-body ol { margin: 0.75em 0; padding-left: 1.5em; }
+        .blog-body li { margin: 0.35em 0; line-height: 1.6; }
+        .blog-body blockquote { margin: 1em 0; padding-left: 1em; border-left: 3px solid var(--fg); opacity: 0.9; font-style: italic; }
+        .blog-body code { background: rgba(40,55,113,0.1); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.9em; }
+        .blog-body pre { background: rgba(40,55,113,0.08); padding: 1em; border-radius: 6px; overflow-x: auto; margin: 1em 0; }
+        .blog-body pre code { background: none; padding: 0; }
+        .blog-body a { color: var(--fg); text-decoration: underline; }
+        .blog-body a:hover { opacity: 0.8; }
+        .blog-body img { max-width: 100%; height: auto; border-radius: 4px; }
+        .blog-body figure { margin: 1.5em 0; }
+        .blog-body figcaption { margin-top: 0.5em; font-size: 0.9rem; color: var(--fg-70); text-align: center; font-style: italic; }
+        .blog-body hr { border: none; border-top: 1px solid rgba(40,55,113,0.2); margin: 1.5em 0; }
+        .blog-body table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 1em 0; font-size: 0.95em; }
+        .blog-body th, .blog-body td { padding: 0.5em 0.75em; border: 1px solid rgba(40,55,113,0.2); text-align: left; vertical-align: top; }
+        .blog-body th { font-weight: 600; background: rgba(40,55,113,0.06); }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://eternax.ai/#organization",
+      "name": "EternaX Labs",
+      "alternateName": ["EternaX", "EternaX Labs Inc"],
+      "url": "https://eternax.ai",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://eternax.ai/assets/logo.png",
+        "width": 400,
+        "height": 80
+      },
+      "description": "EternaX Labs is a post-quantum-native Layer 1 blockchain infrastructure company.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "general",
+        "email": "info@eternax.ai"
+      },
+      "sameAs": [
+        "https://github.com/eternax-ai",
+        "https://www.linkedin.com/company/eternax-labs",
+        "https://x.com/EternaXlabs"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://eternax.ai/blogs/post-quantum-mpc-custody-on-chain/index.html#article",
+      "headline": "Post-Quantum MPC Custody, On-Chain: Thresholding Authorization with Hash-Based Signatures",
+      "description": "How custody providers can preserve distributed approval on-chain without threshold-signing hash-based signatures: dual gates with SLH-DSA member authentication and SILMARILS affine threshold authorization.",
+      "datePublished": "2026-06-15",
+      "dateModified": "2026-06-15",
+      "author": { "@id": "https://eternax.ai/#organization" },
+      "publisher": { "@id": "https://eternax.ai/#organization" },
+      "keywords": "post-quantum custody, MPC custody, threshold authorization, SLH-DSA, SPHINCS+, SILMARILS, hash-based signatures, institutional custody",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "EternaX Labs Blog",
+        "url": "https://eternax.ai/blogs/index.html"
+      },
+      "mainEntityOfPage": "https://eternax.ai/blogs/post-quantum-mpc-custody-on-chain/index.html",
+      "about": [{"@type":"Thing","name":"Post-Quantum Custody"},{"@type":"Thing","name":"MPC Custody"},{"@type":"Thing","name":"Threshold Authorization"},{"@type":"Thing","name":"SLH-DSA"},{"@type":"Thing","name":"SILMARILS"}],
+      "isBasedOn": {"@type":"ScholarlyArticle","name":"SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures","url":"https://arxiv.org/abs/2605.03230","identifier":"arXiv:2605.03230"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "EternaX",
+          "item": "https://eternax.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blogs",
+          "item": "https://eternax.ai/blogs/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Post-Quantum MPC Custody, On-Chain: Thresholding Authorization with Hash-Based Signatures",
+          "item": "https://eternax.ai/blogs/post-quantum-mpc-custody-on-chain/index.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="font-sans">
+    {% include navbar.html %}
+
+    <main class="pt-24 pb-16 px-4">
+        <article class="blog-body">
+            <h1>Post-Quantum MPC Custody, On-Chain: Thresholding Authorization with Hash-Based Signatures</h1>
+<p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 0.25em;">June 15, 2026</p>
+<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: Dariia Porechna, cryptographer, co-founder of EternaX</p>
+<p><img src="Hero_Image.png" alt="Post-quantum MPC custody with dual on-chain authorization gates"></p>
+<p>The clearest recent statement of a real problem in post-quantum custody comes from Taurus. Their June 2026 report, <em><a href="https://www.taurushq.com/reports/quantum-computing-risk-in-digital-asset-custody-hsm-vs-mpc/">Quantum Computing Risk in Digital Asset Custody: HSM vs. MPC</a></em>, makes a point that is easy to miss in the broader post-quantum conversation and that we think is right: MPC custody has a structural problem in the post-quantum transition, and for the most conservative signature family the problem is not just engineering maturity.</p>
+<p>For the market-level version of the problem, see our companion analysis, <em><a href="https://eternax.ai/post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html">The Post-Quantum Institutional MPC Custody Crisis 2026</a></em>. This note is a technical approach to what a custody provider can do if its product depends on distributed approval today, but the post-quantum signature family it trusts most cannot be threshold-signed like ECDSA.</p>
+<p>Hash-based signatures (SLH-DSA/SPHINCS+, LMS/HSS) do not have the algebraic structure that makes threshold ECDSA possible. To threshold-sign them, a protocol has to evaluate the hash-based signing computation inside MPC. The MPTS 2026 result of Kondi, Kumar, and Vanegas, <em><a href="https://csrc.nist.gov/csrc/media/presentations/2026/mpts2026-4b4/images-media/mpts2026-4b4-slides-bbts-hbs-kumar.pdf">Black-Box Threshold Signing of Hash-Based Signatures is Expensive</a></em>, makes the black-box version of that barrier precise. What remains is either non-black-box MPC for a large hash-based computation, or setup assumptions that reintroduce a party everyone has to trust. Neither is an obvious product path for an institutional custodian whose core promise is no single point of compromise.</p>
+<p>We agree with that conclusion. The useful question is what we can do once we accept it: preserve distributed custody authorization without asking custody providers to become cryptography labs trying to threshold SPHINCS+.</p>
+<h2>The Solution: Do Not Threshold The Signature</h2>
+<p>Given the signature cannot be thresholded cleanly, we do not make the signature carry the threshold.</p>
+<p>Instead, we make custody authorization an on-chain validity rule with two coupled gates over the same canonical operation. On a native post-quantum rail, this can be a consensus rule. On Ethereum-like systems, it can be an account, vault, token-control, bridge, or issuer-module rule for assets whose control path is moved into that contract.</p>
+<ol>
+<li><strong>Member authentication.</strong> Each approving custody member signs its own contribution envelope with a registered SLH-DSA key. This is not a threshold hash-based signature, but a per-member attribution for the share that member submitted.</li>
+<li><strong>Threshold authorization.</strong> The chain reconstructs a SILMARILS-style (<a href="https://arxiv.org/abs/2605.03230">arXiv:2605.03230</a>) affine authorization value from the authenticated shares of a quorum of custody members. This is the distributed gate that says enough custody parties approved this exact operation.</li>
+</ol>
+<p>Funds move only when both gates pass. The member signatures bind the message, policy, nonce, member identity, authorization commitment, and affine evaluation share. The threshold gate then checks that the signed shares decode into one authorization value for the same operation.</p>
+<p>The core point of this design: the hash-based signatures authenticate custody-member contributions, while the threshold property lives in a parallel algebraic authorization layer. The design does not challenge the impossibility of thresholding hash-based signatures. It routes around it by thresholding authorization instead.</p>
+<h2>Why Not Just “Collect enough signatures”</h2>
+<p>A plain t-of-n SLH-DSA multisig would be straightforward, but it would also be a fairly boring endpoint: collect large post-quantum signatures and count them. That may be useful, but it does not give custody providers much of an MPC analogue beyond quorum counting.</p>
+<p>The more interesting path is to keep the quorum as an affine authorization state. Each custody member holds a share of per-operation coefficients generated through VSS, AVSS, or joint random secret sharing. For a given operation, the member computes one field evaluation locally:</p>
+<p><code>share = k1_share * x + k2_share</code></p>
+<p>where <code>x</code> is derived from the operation and, in the richer profile, from a SILMARILS linear-extract view over member approvals. The chain verifies the member’s SLH-DSA envelope, checks or robustly decodes the evaluation shares, reconstructs the authorization value, and consumes the coefficient id so the same affine state is never evaluated twice.</p>
+<p>This preserves the custody property people actually turn to MPC for: below threshold, shares reveal nothing useful about the authorization secret. At threshold, the operation can be authorized. Validators can verify the result, but they never hold custody shares and cannot produce the gate themselves.</p>
+<h2>What Custodians Can Use It For</h2>
+<p>The first useful surfaces are rare, high-value operations where custody policy already dominates:</p>
+<ul>
+<li>stablecoin mint and burn authorization;</li>
+<li>tokenized fund or treasury movements;</li>
+<li>bridge and settlement-venue admin controls;</li>
+<li>institutional vault withdrawals;</li>
+<li>custody-set rotation, key rotation, and policy changes;</li>
+<li>post-quantum account control for assets issued on a PQ-native rail.</li>
+</ul>
+<p>These are the operations where large admission-time post-quantum signatures are acceptable, audit evidence matters, and preserving a distributed approval boundary is more important than minimizing every byte of permanent ledger state.</p>
+<h2>Authorization Layer Design</h2>
+<p>SILMARILS is useful here for its information-checking core being linear over a prime field. The conservative profile uses that as an affine authorization check: all approving members evaluate shares against the same operation-derived scalar, and the chain reconstructs the result.</p>
+<p>The richer profile is the interesting research direction. Full SILMARILS approvals are per-member objects, not pieces of one common signature tuple. A <code>LinExtract</code> profile can first verify each member’s SILMARILS approval, extract a field element from each, and then combine those field elements with public weights into a linear view. That derived view becomes part of the custody scalar <code>x</code>.</p>
+<p>There is an important boundary: SILMARILS designated-verifier transcripts are intentionally simulatable. They are not the member-level non-repudiation layer. Member attribution comes from the SLH-DSA envelope that signs the SILMARILS object hash and the affine share. SLH-DSA supplies per-member attribution; SILMARILS supplies the algebraic authorization machinery and compact linear receipts.</p>
+<p>The security claim is correspondingly scoped. The affine forgery bound is information-theoretic; the deployed system also relies on SLH-DSA unforgeability, BFT finality, authenticated setup channels, and the selected VSS/AVSS/JRSS assumptions.</p>
+<h2>Evidence And Storage</h2>
+<p>Custody operations are rare and high value: withdrawals, mint/burn controls, key rotation, delegation, treasury moves. They can afford large admission-time SLH-DSA checks. </p>
+<p>The intended model separates validation from evidence retention:</p>
+<ul>
+<li>verify member SLH-DSA signatures and affine shares during admission;</li>
+<li>finalize the operation under BFT consensus;</li>
+<li>keep a compact on-chain custody receipt: policy id, nonce, coefficient id, profile id, member bitmap or count, transcript hash, reconstructed authorization value, and finality evidence;</li>
+<li>let the custodian, auditor, or issuer choose the evidence-retention profile: full admission transcript, raw member signatures, SILMARILS objects, openings, Merkle-rooted archive, or compact receipt only.</li>
+</ul>
+<p>For regulated custody, retaining the full admission transcript may be the right default. For lighter deployments, the permanent public ledger can keep only the compact receipt and transcript hash, with third parties relying on finality for gate acceptance unless the archive is disclosed. That is an evidence-policy choice.</p>
+<h2>Rail, Not Custodian</h2>
+<p>EternaX is not a custodian and does not presently intend to become one. The custodian still runs the regulated custody business: member operations, policy engines, recovery, key rotation, audits, customer relationships, and compliance workflows.</p>
+<p>The point is to give those custodians an enforcement rail where their distributed-approval model can survive the post-quantum transition without pretending that hash-based signatures can be threshold-signed like elliptic curves. This does not require the custodian to become an L1, abandon its policy engine, or replace its customer-facing custody workflow. The rail or contract layer enforces the post-quantum authorization gate.</p>
+<p>The native EternaX deployment makes both gates: SLH-DSA member authentication and affine threshold authorization, become consensus-level block validity conditions. Validators reject custody operations that fail either gate. That is the cleanest version of the design: no contract gas accounting, no account-abstraction indirection, and no dependence on a host chain exposing the right post-quantum verification primitives.</p>
+<p>While it is not a transparent retrofit onto Ethereum&#39;s native account validity, Bitcoin&#39;s script validity, or arbitrary existing accounts, a version can be enforced by smart-contract wallets, vaults, token issuer modules, stablecoin mint/burn controllers, bridge controllers, or ERC-4337-style smart accounts for assets whose control path is moved into that contract.</p>
+<p>If Ethereum or another L1 adds post-quantum EOA authentication, PQ signature precompiles, or an account-abstraction path with usable PQ verification, gate 1 becomes much easier to implement in-contract or through native sender authentication. Gate 2 is naturally contract-shaped for small custody quorums: field arithmetic, share checking or robust decoding, reconstruction, and coefficient-id consumption. The hard parts are signature verification cost, calldata, evidence retention, and a concrete VSS/AVSS/JRSS profile acceptable to regulated custodians.</p>
+<p>The boundaries are important. This is not a threshold SLH-DSA signature and not a transparent retrofit to arbitrary existing protocols. It is also not just &quot;count t signatures&quot;: the long-term direction is a custody authorization layer that keeps the algebraic shape of MPC approval flows with shares, refresh, transcript roots, policy-bound nonces, and compact receipts; while using standardized hash-based signatures.</p>
+<h2>Outlook</h2>
+<p>The HSM-versus-MPC framing assumes custody has to choose between a hardware boundary that is hard to distribute and a threshold-signature model that loses its cleanest path in the post-quantum world. A native dual gate gives a third shape: conservative post-quantum member authentication next to distributed authorization that the chain can enforce.</p>
+<p>That is the opening for custody providers. They do not need to become cryptography labs trying to threshold SPHINCS+. They can bring their operating model with distributed approvals, recovery, policy controls, audit, and regulated workflows; to assets issued on a post-quantum-native rail or to contract-controlled assets where the custody gate can be enforced.</p>
+<p>We are designing the authorization gate against how custodians operate in practice: small thresholds, share refresh, evidence retention, policy rotation, and provider-grade audit views. We are looking for custody, HSM, MPC, issuer teams to pressure-test three things: workflow fit, evidence-retention requirements, and the minimal VSS/AVSS/JRSS profile acceptable for regulated operations. If you want a post-quantum custody path that keeps distributed authorization without threshold-signing hash-based signatures, we should talk.</p>
+<p><strong>Connect: <a href="mailto:info@eternax.ai">info@eternax.ai</a></strong></p>
+<p><em>EternaX is a high-performance, post-quantum cryptography (PQC) native settlement rail built to become the default home for minting new dollars onchain: stablecoins, tokenized treasuries, and tokenized RWAs. The issuer reality is simple: mint on legacy ECDSA and EdDSA rails and you embed migration debt that gets called under stress through selective key compromise, depegs, collateral haircuts, and liquidity fragmentation. EternaX&#39;s wedge is PQ-native authorization from day one with a <a href="../silmarils-post-quantum-authentication-without-size-tax/index.html">novel post-quantum signature design</a> that is engineered for market throughput and delivers signatures about 4x smaller than next best at &gt;50 000 TPS, avoiding the throughput and ecosystem coordination cliffs of retrofit PQC. With auditable privacy, sub-second finality targets, prediction markets live, and spot plus perps next, EternaX unifies issuance and market venues on one PQ-secured rail.</em> </p>
+
+        </article>
+    </main>
+
+    <footer class="py-8 border-t" style="background-color: var(--bg); border-color: var(--border);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-start justify-between gap-6 mb-6">
+                <div>
+                    <span class="text-lg font-bold" style="color: var(--fg)">eternaX</span>
+                    <p class="text-sm mt-1" style="color: var(--fg-70)">Quantum-safe Settlement at Market Speed</p>
+                    <div class="text-xs" style="color: var(--fg-70)">&copy; 2026 EternaX Labs</div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/eternax-ai" class="text-sm link-muted">GitHub</a>
+                    <a href="https://www.youtube.com/@eternaXlabs" class="text-sm link-muted">YouTube</a>
+                    <a href="https://t.me/eternax_official" class="text-sm link-muted">Telegram</a>
+                    <a href="https://x.com/EternaXlabs" class="text-sm link-muted">X (Twitter)</a>
+                    <a href="https://www.linkedin.com/company/eternax-labs" class="text-sm link-muted">LinkedIn</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 pt-4 border-t" style="border-color: var(--border);">
+                <a href="../../about.html" class="text-sm link-muted">About</a>
+                <a href="../../glossary.html" class="text-sm link-muted">Glossary</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuButton = document.getElementById('mobile-menu-button');
+            var mobileMenu = document.getElementById('mobile-menu');
+            var iconMenu = document.getElementById('icon-menu');
+            var iconClose = document.getElementById('icon-close');
+            function closeMenu() {
+                if (!mobileMenu) return;
+                mobileMenu.classList.add('hidden');
+                if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+                if (iconMenu) iconMenu.classList.remove('hidden');
+                if (iconClose) iconClose.classList.add('hidden');
+            }
+            function openMenu() {
+                if (!mobileMenu) return;
+                mobileMenu.classList.remove('hidden');
+                if (menuButton) menuButton.setAttribute('aria-expanded', 'true');
+                if (iconMenu) iconMenu.classList.add('hidden');
+                if (iconClose) iconClose.classList.remove('hidden');
+            }
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() {
+                    if (mobileMenu.classList.contains('hidden')) openMenu(); else closeMenu();
+                });
+                mobileMenu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+                document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+                window.addEventListener('resize', function() { if (window.innerWidth >= 768) closeMenu(); });
+            }
+        });
+    </script>
+</body>
+</html>

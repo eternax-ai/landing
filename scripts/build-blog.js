@@ -13,6 +13,19 @@ const root = path.resolve(process.cwd());
 const blogPath = path.resolve(root, blogFolder);
 const blogsDir = path.join(root, 'blogs');
 const postMetaMap = {
+  'post-quantum-mpc-custody-on-chain': {
+    datePublished: '2026-06-15',
+    description: 'How custody providers can preserve distributed approval on-chain without threshold-signing hash-based signatures: dual gates with SLH-DSA member authentication and SILMARILS affine threshold authorization.',
+    keywords: 'post-quantum custody, MPC custody, threshold authorization, SLH-DSA, SPHINCS+, SILMARILS, hash-based signatures, institutional custody',
+    about: ['Post-Quantum Custody', 'MPC Custody', 'Threshold Authorization', 'SLH-DSA', 'SILMARILS'],
+    authorLine: 'Dariia Porechna, cryptographer, co-founder of EternaX',
+    scholarlyArticle: {
+      '@type': 'ScholarlyArticle',
+      name: 'SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures',
+      url: 'https://arxiv.org/abs/2605.03230',
+      identifier: 'arXiv:2605.03230'
+    }
+  },
   'unbundling-transaction-signature': {
     datePublished: '2026-05-19',
     description: 'How decomposing the four jobs bundled into a transaction signature makes post-quantum settlement practical without a permanent per-transaction size tax.',
