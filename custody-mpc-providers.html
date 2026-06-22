@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Post-Quantum Custody &amp; MPC Authorization - EternaX</title>
-    <meta name="description" content="Keep distributed custody approval with post-quantum security. Dual-gate authorization gives custodians PQ-safe distributed control without rebuilding MPC for every new signature scheme.">
+    <title>Post-Quantum Custody Without Rebuilding Your Product - EternaX</title>
+    <meta name="description" content="Keep your custody API, approval workflow, and MPC security model through the post-quantum transition. Dual-gate authorization: same Setup / Approve / Authorize / Verify / Maintain — swap member keys to SLH-DSA when ready.">
     <meta name="keywords" content="post-quantum custody, MPC custody, threshold ECDSA migration, post-quantum MPC, dual-gate custody, custody authorization, institutional custody, HSM post-quantum, distributed approval, custody migration">
     <link rel="canonical" href="https://eternax.ai/custody-mpc-providers.html">
     
@@ -30,8 +30,8 @@
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eternax.ai/custody-mpc-providers.html">
-    <meta property="og:title" content="Post-Quantum Custody &amp; MPC Authorization - EternaX">
-    <meta property="og:description" content="Preserve distributed custody approval through the PQ transition with dual-gate authorization.">
+    <meta property="og:title" content="Post-Quantum Custody Without Rebuilding Your Product - EternaX">
+    <meta property="og:description" content="Same custody API and approval workflow. PQ-safe distributed authorization without threshold-signing hash-based signatures.">
     <meta property="og:image" content="https://eternax.ai/assets/preview.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -41,8 +41,8 @@
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://eternax.ai/custody-mpc-providers.html">
-    <meta property="twitter:title" content="Post-Quantum Custody &amp; MPC Authorization - EternaX">
-    <meta property="twitter:description" content="Preserve distributed custody approval through the PQ transition with dual-gate authorization.">
+    <meta property="twitter:title" content="Post-Quantum Custody Without Rebuilding Your Product - EternaX">
+    <meta property="twitter:description" content="Same custody API and approval workflow. PQ-safe distributed authorization without threshold-signing hash-based signatures.">
     <meta property="twitter:image" content="https://eternax.ai/assets/preview.png">
     <meta property="twitter:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
     <meta property="twitter:site" content="@eternaXLabs">
@@ -84,10 +84,13 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: #2F5E52;">For Custodians &amp; MPC Providers</p>
                 <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight mb-6" style="color: var(--fg);">
-                    Preserve Distributed Approval With Post-Quantum Security
+                    Post-Quantum Safe Without Rebuilding Your Business
                 </h1>
-                <p class="text-lg mb-8 max-w-3xl" style="color: var(--fg-80); line-height: 1.75;">
-                    Your clients bought distributed approval. They expect to keep it. EternaX's dual-gate model gives custodians post-quantum-safe distributed control that works with any NIST-approved signature scheme &mdash; today and when the next standard lands.
+                <p class="text-lg mb-4 max-w-3xl" style="color: var(--fg-80); line-height: 1.75;">
+                    Your clients bought distributed approval. They expect multiple independent parties to approve a withdrawal, mint, or rotation and to keep that guarantee through the post-quantum transition. EternaX preserves it: same custody API, same async approver workflow, same presign discipline. You swap member authentication keys when ready; the authorization layer stays put.
+                </p>
+                <p class="text-base mb-8 max-w-3xl" style="color: var(--fg-70); line-height: 1.75;">
+                    EternaX is the enforcement rail, not a custodian. You keep policy engines, customer workflows, boundaries, and compliance. We give you a path to PQ that does not require becoming a cryptography lab or falling back to HSM-only control.
                 </p>
             </div>
         </section>
@@ -95,15 +98,10 @@
         <!-- Problem -->
         <section class="py-16 border-t" style="background-color: #ffffff; border-color: #e0dede;">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">Why This Matters Now</h2>
+                <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">The Problem Is Architectural, Not Operational</h2>
                 <div class="space-y-4 text-sm" style="color: var(--fg-80); line-height: 1.65;">
-                    <p>Threshold ECDSA bundled two things into one object: distributed authorization and native signature production. The post-quantum transition breaks that bundle &mdash; hash-based signatures are not naturally threshold-signable, and no major MPC provider has disclosed a PQ-safe custody solution.</p>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>15 major institutional MPC providers, $10T+ in assets, zero PQ-safe custody disclosed</li>
-                        <li>Falling back to HSM centralization reclaims the single-point-of-compromise problem MPC solved</li>
-                        <li>Plain post-quantum multisig loses the custody programmability clients depend on: shares, refresh, policy binding, transcript roots</li>
-                        <li>Every new custody deployment on classical MPC is fresh migration debt</li>
-                    </ul>
+                    <p>Threshold signing fuses two jobs into one cryptographic object: <strong>member authentication</strong> (who approved) and <strong>threshold authorization</strong> (did enough parties approve). Post-quantum breaks that fusion: hash-based signatures (SLH-DSA / SPHINCS+) have no algebraic structure for black-box threshold signing.</p>
+                    <p>The wrong response is to rebuild your entire custody product every time NIST moves, or to downgrade to plain multisig and lose what you sell.</p>
                 </div>
             </div>
         </section>
@@ -111,50 +109,107 @@
         <!-- Solution: Dual-Gate -->
         <section class="py-16 border-t" style="border-color: #e0dede;">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">How It Works</h2>
+                <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">Keep the Same Authorization Shape</h2>
+                <p class="text-sm mb-8" style="color: var(--fg-80); line-height: 1.65;">EternaX's dual-gate implements the same operations threshold signing provides to a custody operator: member authentication, threshold authorization, and enforcement.</p>
                 <div class="grid sm:grid-cols-2 gap-6 mb-8">
                     <div class="glass-effect p-6 rounded-lg">
                         <h3 class="font-semibold mb-2" style="color: var(--fg);">Gate 1: Member Authentication</h3>
-                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Each custody member signs an approval envelope with a PQ signature scheme (e.g. SLH-DSA). Every approval is individually attributable: who approved what, when.</p>
+                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Each custody member signs its contribution envelope with a registered key (start with ECDSA; migrate to SLH-DSA). Per-member attribution: who approved what, bound to the exact operation.</p>
                     </div>
                     <div class="glass-effect p-6 rounded-lg">
                         <h3 class="font-semibold mb-2" style="color: var(--fg);">Gate 2: Threshold Authorization</h3>
-                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">A separate threshold layer verifies that a quorum contributed valid authorization shares for the same operation. Signature-scheme-agnostic. Distributed control without distributed signing.</p>
+                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Affine secret sharing over a prime field. Each member evaluates one local share; at quorum the rail reconstructs an authorization value. Zero coupling to gate 1&rsquo;s signature scheme.</p>
                     </div>
                 </div>
-                <div class="text-sm" style="color: var(--fg-80); line-height: 1.65;">
-                    <p>Funds move only when both gates pass. The authorization layer is independent of the signature scheme &mdash; swap to a future NIST standard without redesigning the custody protocol.</p>
+                <div class="text-sm space-y-3" style="color: var(--fg-80); line-height: 1.65;">
+                    <p>Funds move only when both gates pass over the same canonical operation. Gate 2 uses the same presign cost model you already run: one fresh coefficient slot per operation, batchable like Beaver triples or threshold-ECDSA presignatures.</p>
+                    <p><strong style="color: var(--fg);">This is not threshold SLH-DSA.</strong> It is threshold authorization with authenticated member contributions &mdash; the abstraction your product actually sells.</p>
+                </div>
+                <div class="glass-effect p-6 rounded-lg">
+                    <h3 class="font-semibold mb-2" style="color: var(--fg);">What you keep</h3>
+                    <ul class="text-sm list-disc pl-5 space-y-1" style="color: var(--fg-80); line-height: 1.65;">
+                        <li>Proposer + async approver flow</li>
+                        <li>Policy engine, allowlists, human approval</li>
+                        <li>Presignature / single-use slot discipline</li>
+                        <li>Below-threshold secrecy and share refresh</li>
+                        <li>Customer-facing request &rarr; quorum &rarr; execute</li>
+                        <li>Audit pipeline and compliance workflows</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- How EternaX Fits -->
+        <!-- Migration -->
         <section class="py-16 border-t" style="background-color: #ffffff; border-color: #e0dede;">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">What You Get</h2>
-                <div class="grid sm:grid-cols-2 gap-6">
-                    <div class="glass-effect p-6 rounded-lg">
-                        <h3 class="font-semibold mb-2" style="color: var(--fg);">Distributed Approval, Preserved</h3>
-                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Withdrawals, mint/burn, rotation, and policy changes still require multiple independent approvals. No collapse to single-HSM control.</p>
+                <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">De-risked Post-Quantum Migration</h2>
+                <div class="space-y-4">
+                    <div class="glass-effect p-5 rounded-lg flex gap-4">
+                        <div class="text-xs font-bold uppercase tracking-wider shrink-0 pt-0.5" style="color: #2F5E52; white-space: nowrap; min-width: 4.75rem;">Phase 0</div>
+                        <div>
+                            <div class="font-semibold text-sm mb-1" style="color: var(--fg);">Today</div>
+                            <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Threshold ECDSA. Business as usual.</p>
+                        </div>
                     </div>
-                    <div class="glass-effect p-6 rounded-lg">
-                        <h3 class="font-semibold mb-2" style="color: var(--fg);">Future-Proof by Design</h3>
-                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">The authorization layer is independent of the signature scheme. When NIST approves the next standard, swap the authentication layer &mdash; the custody protocol stays the same.</p>
+                    <div class="glass-effect p-5 rounded-lg flex gap-4">
+                        <div class="text-xs font-bold uppercase tracking-wider shrink-0 pt-0.5" style="color: #2F5E52; white-space: nowrap; min-width: 4.75rem;">Phase 1</div>
+                        <div>
+                            <div class="font-semibold text-sm mb-1" style="color: var(--fg);">Dual-gate with ECDSA gate 1</div>
+                            <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Same workflow, prove authorization layer on your rail. Zero PQ commitment. Validate API mapping with your integration team.</p>
+                        </div>
                     </div>
-                    <div class="glass-effect p-6 rounded-lg">
-                        <h3 class="font-semibold mb-2" style="color: var(--fg);">Verifiable Audit Trail</h3>
-                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Every operation produces receipts: who approved, quorum composition, policy binding, nonce consumption. Auditors can verify without holding custody material.</p>
+                    <div class="glass-effect p-5 rounded-lg flex gap-4">
+                        <div class="text-xs font-bold uppercase tracking-wider shrink-0 pt-0.5" style="color: #2F5E52; white-space: nowrap; min-width: 4.75rem;">Phase 2</div>
+                        <div>
+                            <div class="font-semibold text-sm mb-1" style="color: var(--fg);">Swap gate 1 to SLH-DSA</div>
+                            <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Authorization layer, VSS, policy engine, and audit pipeline unchanged. Member-authentication verification updates only.</p>
+                        </div>
                     </div>
-                    <div class="glass-effect p-6 rounded-lg">
-                        <h3 class="font-semibold mb-2" style="color: var(--fg);">Key and Policy Rotation Built In</h3>
-                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Key rotation, custody-set rotation, and policy changes are normal operations under dual-gate enforcement. Same quorum discipline as asset movement.</p>
-                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- vs Alternatives -->
+        <section class="py-16 border-t" style="border-color: #e0dede;">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">Versus the Paths You Are Already Weighing</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm border-collapse" style="color: var(--fg-80);">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #e0dede;">
+                                <th class="text-left py-3 pr-4 font-semibold" style="color: var(--fg);">Path</th>
+                                <th class="text-left py-3 font-semibold" style="color: var(--fg);">Custodian cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #e0dede;">
+                                <td class="py-3 pr-4 font-semibold" style="color: var(--fg);">Wait for threshold ML-DSA</td>
+                                <td class="py-3">Unknown timeline; full rebuild when it lands</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0dede;">
+                                <td class="py-3 pr-4 font-semibold" style="color: var(--fg);">MPC-over-hash (non-black-box)</td>
+                                <td class="py-3">Research lab; not a shipping product</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0dede;">
+                                <td class="py-3 pr-4 font-semibold" style="color: var(--fg);">Plain t-of-n SLH-DSA multisig</td>
+                                <td class="py-3">Downgrade: no below-threshold secrecy, no share refresh</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e0dede;">
+                                <td class="py-3 pr-4 font-semibold" style="color: var(--fg);">HSM-only</td>
+                                <td class="py-3">Single point of compromise; lose distributed custody story</td>
+                            </tr>
+                            <tr style="background: rgba(47, 94, 82, 0.07);">
+                                <td class="py-3 pr-4 font-semibold" style="color: #2F5E52; border-left: 3px solid #2F5E52; padding-left: 0.65rem;">EternaX dual-gate</td>
+                                <td class="py-3 font-medium" style="color: var(--fg);">Same MPC custody semantics; PQ via swappable gate 1</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
 
         <!-- Use Cases -->
-        <section class="py-16 border-t" style="border-color: #e0dede;">
+        <section class="py-16 border-t" style="border-color: #e0dede; background-color: #ffffff;">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">Target Workflows</h2>
                 <div class="grid sm:grid-cols-2 gap-4 text-sm" style="color: var(--fg-80);">
@@ -169,7 +224,7 @@
         </section>
 
         <!-- Evidence -->
-        <section class="py-16 border-t" style="background-color: #ffffff; border-color: #e0dede;">
+        <section class="py-16 border-t" style=" border-color: #e0dede;">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">Evidence</h2>
                 <div class="grid sm:grid-cols-2 gap-4">
@@ -186,10 +241,10 @@
         </section>
 
         <!-- CTA -->
-        <section class="py-16 border-t text-center" style="border-color: #e0dede;">
+        <section class="py-16 border-t text-center" style="background-color: #ffffff;border-color: #e0dede;">
             <div class="max-w-3xl mx-auto px-4">
-                <p class="text-xl sm:text-2xl font-semibold mb-4" style="color: var(--fg);">Your clients bought distributed approval. Keep it.</p>
-                <p class="text-sm mb-8" style="color: var(--fg-80);">Pressure-test the dual-gate workflow: approval UX, evidence retention, policy rotation, and minimum setup for regulated operations.</p>
+                <p class="text-xl sm:text-2xl font-semibold mb-4" style="color: var(--fg);">Keep selling distributed custody. Fix the PQ blocker.</p>
+                <p class="text-sm mb-4" style="color: var(--fg-80);">Book a pilot to pressure-test three things together: workflow fit with your approval UX, evidence retention for auditors, and the minimum VSS profile for regulated operations.</p>
                 <a href="pilot.html" class="btn-primary inline-block px-8 py-4 rounded-lg text-base font-semibold text-white hover:opacity-90 transition-opacity">Book a Pilot Call</a>
             </div>
         </section>
