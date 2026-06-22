@@ -1,115 +1,78 @@
-# eternaX Landing Page
+# eternaX Landing Site
 
 ## Tech Stack
 
-- **HTML5**: Semantic markup
-- **Tailwind CSS**: Utility-first CSS framework
-- **JavaScript**: Vanilla JS for interactions
-- **GitHub Pages**: Static site hosting
-- **GitHub Actions**: Automated deployment
-
-## Getting Started
-
-### Prerequisites
-
-- A GitHub account
-- Git installed on your machine
-
-### Installation
-
-1. Clone this repository:
-```bash
-git clone https://github.com/eternax-ai/landing.git
-cd landing
-```
-
-2. Open `index.html` in your browser to view the site locally.
-
-## Deployment
-
-### GitHub Pages
-
-1. Push your changes to the `main` branch
-2. Go to your repository settings
-3. Navigate to "Pages" in the sidebar
-4. Select "GitHub Actions" as the source
-5. The site will automatically deploy when you push to main
-
-### Manual Deployment
-
-If you prefer manual deployment:
-
-1. Enable GitHub Pages in your repository settings
-2. Select the branch you want to deploy from
-3. Your site will be available at `https://eternax-ai.github.io/landing`
+- **HTML5** + **Tailwind CSS** (utility-first, built via `npm run build:css`)
+- **Jekyll** on GitHub Pages (static site hosting, `{% include %}` for shared partials)
+- **GitHub Actions** for automated deployment
+- **Marked** (Node.js) for blog Markdown-to-HTML generation
 
 ## Project Structure
 
 ```
 landing/
-├── index.html              # Main HTML file
-├── .github/
-│   └── workflows/
-│       └── deploy.yml      # GitHub Actions deployment config
-├── README.md               # Project documentation
-└── .gitignore             # Git ignore file
+├── index.html                          # Homepage
+├── pilot.html                          # Pilot programme (primary conversion page)
+├── why-eternax.html                    # Architecture and investment thesis
+├── stablecoin-issuers.html             # Solution: stablecoin issuers
+├── tokenized-funds-rwas.html           # Solution: tokenized funds / RWA platforms
+├── custody-mpc-providers.html          # Solution: custody and MPC providers
+├── testnet.html                        # Testnet access and developer proof
+├── about.html                          # Company and founders
+├── glossary.html                       # PQ terminology
+├── post_quantum_mpc_custody_crisis_*   # Report: MPC Custody Crisis 2026
+├── post_quantum_exposure_map_*         # Report: Exposure Map 2026
+├── post-quantum-signature-security-*   # Report: Signature Security Ranking
+├── post-quantum-cryptography-risk-*    # Report: Migration Debt Framework
+├── already-broken-*                    # Report: Already Broken Q1 2026
+├── blogs/
+│   ├── index.html                      # Blog index (manually curated)
+│   └── <slug>/index.md + index.html    # Individual blog posts
+├── scripts/
+│   ├── build-blog.js                   # Markdown → HTML blog generator
+│   └── blog-template.html              # Shared blog HTML template
+├── _includes/
+│   └── navbar.html                     # Shared navigation partial
+├── page-template.html                  # Template for new static pages
+├── styles/
+│   ├── tailwind.css                    # Tailwind input
+│   ├── tailwind.generated.css          # Built CSS (committed)
+│   └── tailwind.config.js
+├── assets/                             # Images, icons, fonts
+├── sitemap.xml                         # XML sitemap
+├── sitemap-blogs.xml                   # Blog-specific sitemap
+├── llms.txt                            # AI/LLM discovery file
+├── robots.txt
+├── _config.yml                         # Jekyll config
+├── CNAME                               # Custom domain
+└── .github/workflows/deploy.yml        # CI/CD
 ```
 
-## Customization Guide
+## Common Commands
 
-### Adding New Sections
+```bash
+# Build Tailwind CSS (run after adding/changing utility classes)
+npm run build:css
 
-1. Create a new `<section>` element in `index.html`
-2. Add corresponding navigation link in the nav bar
-3. Style using Tailwind classes
-4. Add smooth scrolling behavior in the JavaScript section
+# Generate or regenerate a blog post from Markdown
+npm run build-blog blogs/<slug>
+```
 
-### Modifying Styling
+## Adding Pages
 
-- Use Tailwind utility classes for styling
-- Custom colors are defined in the Tailwind config
-- Glass effects use CSS custom properties
-- Animations are defined in the `<style>` section
+1. Copy `page-template.html` and rename it.
+2. Replace placeholder metadata and content.
+3. Keep shared nav/footer/styles intact.
+4. Add to `sitemap.xml` and `llms.txt`.
+5. Regenerate CSS if new Tailwind classes are used: `npm run build:css`.
 
-### Adding Interactivity
+## Blog Workflow
 
-- JavaScript is included at the bottom of `index.html`
-- Smooth scrolling is already implemented
-- Add more interactive features as needed
+1. Create `blogs/<slug>/index.md` with content.
+2. Register metadata in `scripts/build-blog.js` `postMetaMap`.
+3. Run `node scripts/build-blog.js blogs/<slug>`.
+4. Add the post to `blogs/index.html` manually.
 
-## Browser Support
+## Deployment
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Performance
-
-- Optimized for fast loading
-- Minimal external dependencies
-- Compressed images and assets
-- Efficient CSS with Tailwind
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test locally
-5. Submit a pull request
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## Support
-
-For support and questions:
-- Create an issue in this repository
-- Check the documentation
-- Review the whitepaper for technical details
-
----
-
-Built with ❤️ 
+Push to `main` branch. GitHub Actions builds via Jekyll and deploys to GitHub Pages at `https://eternax.ai`.

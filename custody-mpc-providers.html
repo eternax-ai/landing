@@ -1,0 +1,238 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Post-Quantum Custody &amp; MPC Authorization - EternaX</title>
+    <meta name="description" content="Keep distributed custody approval with post-quantum security. Dual-gate authorization gives custodians PQ-safe distributed control without rebuilding MPC for every new signature scheme.">
+    <meta name="keywords" content="post-quantum custody, MPC custody, threshold ECDSA migration, post-quantum MPC, dual-gate custody, custody authorization, institutional custody, HSM post-quantum, distributed approval, custody migration">
+    <link rel="canonical" href="https://eternax.ai/custody-mpc-providers.html">
+    
+    <meta name="author" content="eternaX Labs">
+    <meta name="publisher" content="eternaX Labs">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="theme-color" content="#e2e2e2">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <link rel="icon" type="image/svg+xml" href="./assets/eternax-icon.svg">
+    <link rel="icon" type="image/png" href="./assets/eternax-icon.png">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eternax.ai/custody-mpc-providers.html">
+    <meta property="og:title" content="Post-Quantum Custody &amp; MPC Authorization - EternaX">
+    <meta property="og:description" content="Preserve distributed custody approval through the PQ transition with dual-gate authorization.">
+    <meta property="og:image" content="https://eternax.ai/assets/preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+    <meta property="og:site_name" content="EternaX">
+    <meta property="og:locale" content="en_US">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://eternax.ai/custody-mpc-providers.html">
+    <meta property="twitter:title" content="Post-Quantum Custody &amp; MPC Authorization - EternaX">
+    <meta property="twitter:description" content="Preserve distributed custody approval through the PQ transition with dual-gate authorization.">
+    <meta property="twitter:image" content="https://eternax.ai/assets/preview.png">
+    <meta property="twitter:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+    <meta property="twitter:site" content="@eternaXLabs">
+    <meta property="twitter:creator" content="@eternaXLabs">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="stylesheet" href="./styles/tailwind.generated.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    
+    <style>
+        :root {
+            --bg: #f7f4f4;
+            --fg: #283771;
+            --fg-70: #283771;
+            --fg-80: #283771;
+            --border: #283771;
+            --pill-bg: #283771;
+            --pill-fg: #ffffff;
+        }
+        body { background-color: var(--bg); color: var(--fg); }
+        .glass-effect { background: #ffffff; border: 1px solid #e0dede; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+        .link-muted { color: var(--fg-70); transition: color 0.15s; }
+        .link-muted:hover { color: var(--fg); }
+        .btn-primary { background-color: var(--fg); transition: background-color 0.15s; }
+        .btn-primary:hover { background-color: #1e2d5a; }
+        .nav-products-dropdown { opacity: 0; visibility: hidden; transition: opacity 0.15s, visibility 0.15s; }
+        .group:hover .nav-products-dropdown { opacity: 1; visibility: visible; }
+    </style>
+</head>
+<body class="font-sans">
+    {% include navbar.html %}
+
+    <main class="pt-20">
+        <section class="py-16 lg:py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: #2F5E52;">For Custodians &amp; MPC Providers</p>
+                <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight mb-6" style="color: var(--fg);">
+                    Preserve Distributed Approval With Post-Quantum Security
+                </h1>
+                <p class="text-lg mb-8 max-w-3xl" style="color: var(--fg-80); line-height: 1.75;">
+                    Your clients bought distributed approval. They expect to keep it. EternaX's dual-gate model gives custodians post-quantum-safe distributed control that works with any NIST-approved signature scheme &mdash; today and when the next standard lands.
+                </p>
+            </div>
+        </section>
+
+        <!-- Problem -->
+        <section class="py-16 border-t" style="background-color: #ffffff; border-color: #e0dede;">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">Why This Matters Now</h2>
+                <div class="space-y-4 text-sm" style="color: var(--fg-80); line-height: 1.65;">
+                    <p>Threshold ECDSA bundled two things into one object: distributed authorization and native signature production. The post-quantum transition breaks that bundle &mdash; hash-based signatures are not naturally threshold-signable, and no major MPC provider has disclosed a PQ-safe custody solution.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>15 major institutional MPC providers, $10T+ in assets, zero PQ-safe custody disclosed</li>
+                        <li>Falling back to HSM centralization reclaims the single-point-of-compromise problem MPC solved</li>
+                        <li>Plain post-quantum multisig loses the custody programmability clients depend on: shares, refresh, policy binding, transcript roots</li>
+                        <li>Every new custody deployment on classical MPC is fresh migration debt</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution: Dual-Gate -->
+        <section class="py-16 border-t" style="border-color: #e0dede;">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">How It Works</h2>
+                <div class="grid sm:grid-cols-2 gap-6 mb-8">
+                    <div class="glass-effect p-6 rounded-lg">
+                        <h3 class="font-semibold mb-2" style="color: var(--fg);">Gate 1: Member Authentication</h3>
+                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Each custody member signs an approval envelope with a PQ signature scheme (e.g. SLH-DSA). Every approval is individually attributable: who approved what, when.</p>
+                    </div>
+                    <div class="glass-effect p-6 rounded-lg">
+                        <h3 class="font-semibold mb-2" style="color: var(--fg);">Gate 2: Threshold Authorization</h3>
+                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">A separate threshold layer verifies that a quorum contributed valid authorization shares for the same operation. Signature-scheme-agnostic. Distributed control without distributed signing.</p>
+                    </div>
+                </div>
+                <div class="text-sm" style="color: var(--fg-80); line-height: 1.65;">
+                    <p>Funds move only when both gates pass. The authorization layer is independent of the signature scheme &mdash; swap to a future NIST standard without redesigning the custody protocol.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How EternaX Fits -->
+        <section class="py-16 border-t" style="background-color: #ffffff; border-color: #e0dede;">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">What You Get</h2>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="glass-effect p-6 rounded-lg">
+                        <h3 class="font-semibold mb-2" style="color: var(--fg);">Distributed Approval, Preserved</h3>
+                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Withdrawals, mint/burn, rotation, and policy changes still require multiple independent approvals. No collapse to single-HSM control.</p>
+                    </div>
+                    <div class="glass-effect p-6 rounded-lg">
+                        <h3 class="font-semibold mb-2" style="color: var(--fg);">Future-Proof by Design</h3>
+                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">The authorization layer is independent of the signature scheme. When NIST approves the next standard, swap the authentication layer &mdash; the custody protocol stays the same.</p>
+                    </div>
+                    <div class="glass-effect p-6 rounded-lg">
+                        <h3 class="font-semibold mb-2" style="color: var(--fg);">Verifiable Audit Trail</h3>
+                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Every operation produces receipts: who approved, quorum composition, policy binding, nonce consumption. Auditors can verify without holding custody material.</p>
+                    </div>
+                    <div class="glass-effect p-6 rounded-lg">
+                        <h3 class="font-semibold mb-2" style="color: var(--fg);">Key and Policy Rotation Built In</h3>
+                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Key rotation, custody-set rotation, and policy changes are normal operations under dual-gate enforcement. Same quorum discipline as asset movement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section class="py-16 border-t" style="border-color: #e0dede;">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">Target Workflows</h2>
+                <div class="grid sm:grid-cols-2 gap-4 text-sm" style="color: var(--fg-80);">
+                    <div class="glass-effect p-4 rounded-lg">Stablecoin mint/burn authorization</div>
+                    <div class="glass-effect p-4 rounded-lg">Tokenized treasury and fund movements</div>
+                    <div class="glass-effect p-4 rounded-lg">Institutional vault withdrawals</div>
+                    <div class="glass-effect p-4 rounded-lg">Bridge and settlement-venue admin controls</div>
+                    <div class="glass-effect p-4 rounded-lg">Custody-set rotation and key rotation</div>
+                    <div class="glass-effect p-4 rounded-lg">Policy changes under same approval discipline</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Evidence -->
+        <section class="py-16 border-t" style="background-color: #ffffff; border-color: #e0dede;">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-semibold tracking-tight mb-6" style="color: var(--fg);">Evidence</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html" class="glass-effect p-4 rounded-lg block hover:opacity-90 transition-opacity">
+                        <div class="text-sm font-semibold mb-1" style="color: var(--fg);">Post-Quantum MPC Custody Crisis 2026</div>
+                        <div class="text-xs" style="color: var(--fg-80);">15 providers, $10T+ assets, zero PQ-safe custody.</div>
+                    </a>
+                    <a href="blogs/post-quantum-mpc-custody-on-chain/index.html" class="glass-effect p-4 rounded-lg block hover:opacity-90 transition-opacity">
+                        <div class="text-sm font-semibold mb-1" style="color: var(--fg);">Post-Quantum MPC Custody, On-Chain</div>
+                        <div class="text-xs" style="color: var(--fg-80);">Dual-gate design: signature-agnostic distributed approval.</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 border-t text-center" style="border-color: #e0dede;">
+            <div class="max-w-3xl mx-auto px-4">
+                <p class="text-xl sm:text-2xl font-semibold mb-4" style="color: var(--fg);">Your clients bought distributed approval. Keep it.</p>
+                <p class="text-sm mb-8" style="color: var(--fg-80);">Pressure-test the dual-gate workflow: approval UX, evidence retention, policy rotation, and minimum setup for regulated operations.</p>
+                <a href="pilot.html" class="btn-primary inline-block px-8 py-4 rounded-lg text-base font-semibold text-white hover:opacity-90 transition-opacity">Book a Pilot Call</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 border-t" style="background-color: var(--bg); border-color: var(--border);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-start justify-between gap-6 mb-6">
+                <div>
+                    {% include footer-brand.html %}
+                    <p class="text-sm mt-1" style="color: var(--fg-70)">Quantum-safe Settlement at Market Speed</p>
+                    <div class="text-xs" style="color: var(--fg-70)">&copy; 2026 EternaX Labs</div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/eternax-ai" class="text-sm link-muted">GitHub</a>
+                    <a href="https://www.youtube.com/@eternaXlabs" class="text-sm link-muted">YouTube</a>
+                    <a href="https://t.me/eternax_official" class="text-sm link-muted">Telegram</a>
+                    <a href="https://x.com/EternaXlabs" class="text-sm link-muted">X (Twitter)</a>
+                    <a href="https://www.linkedin.com/company/eternax-labs" class="text-sm link-muted">LinkedIn</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 pt-4 border-t" style="border-color: var(--border);">
+                <a href="about.html" class="text-sm link-muted">About</a>
+                <a href="glossary.html" class="text-sm link-muted">Glossary</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuButton = document.getElementById('mobile-menu-button');
+            var mobileMenu = document.getElementById('mobile-menu');
+            var iconMenu = document.getElementById('icon-menu');
+            var iconClose = document.getElementById('icon-close');
+            function closeMenu() { if (!mobileMenu) return; mobileMenu.classList.add('hidden'); if (menuButton) menuButton.setAttribute('aria-expanded', 'false'); if (iconMenu) iconMenu.classList.remove('hidden'); if (iconClose) iconClose.classList.add('hidden'); }
+            function openMenu() { if (!mobileMenu) return; mobileMenu.classList.remove('hidden'); if (menuButton) menuButton.setAttribute('aria-expanded', 'true'); if (iconMenu) iconMenu.classList.add('hidden'); if (iconClose) iconClose.classList.remove('hidden'); }
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() { if (mobileMenu.classList.contains('hidden')) openMenu(); else closeMenu(); });
+                mobileMenu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+                document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+                window.addEventListener('resize', function() { if (window.innerWidth >= 768) closeMenu(); });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -364,8 +364,18 @@
 
         .evidence-reports {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(5, minmax(0, 1fr));
             gap: 12px;
+        }
+        @media (max-width: 1024px) {
+            .evidence-reports {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 640px) {
+            .evidence-reports {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
         }
 
         .cta-steps {
@@ -455,7 +465,7 @@
                 <span>KYC/AML-compatible governance</span>
             </div>
             <div>
-                <a href="mailto:paarrthhh.b@eternax.ai" class="btn-primary inline-block px-8 py-4 rounded-lg text-base font-semibold text-white hover:opacity-90 transition-opacity">Book a Pilot Call</a>
+                <a href="pilot.html" class="btn-primary inline-block px-8 py-4 rounded-lg text-base font-semibold text-white hover:opacity-90 transition-opacity">Book a Pilot Call</a>
             </div>
         </div>
     </section>
@@ -607,10 +617,10 @@
                     <ol class="cta-steps">
                         <li><span class="num">01</span><span><a href="post_quantum_exposure_map_institutional_crypto_tokenized_assets.html" class="font-semibold" style="color: #2F5E52;">Find your institution</a> in the Post-Quantum Exposure Map</span></li>
                         <li><span class="num">02</span><span>Forward the findings to your risk committee and CTO</span></li>
-                        <li><span class="num">03</span><span><a href="mailto:paarrthhh.b@eternax.ai" class="font-semibold" style="color: #2F5E52;">Schedule a pilot call</a> to evaluate PQ-native issuance</span></li>
+                        <li><span class="num">03</span><span><a href="pilot.html" class="font-semibold" style="color: #2F5E52;">Schedule a pilot call</a> to evaluate PQ-native issuance</span></li>
                     </ol>
                     <div class="cta-links">
-                        <a href="mailto:paarrthhh.b@eternax.ai" class="btn-cta btn-primary text-white">Book a Pilot Call</a>
+                        <a href="pilot.html" class="btn-cta btn-primary text-white">Book a Pilot Call</a>
                         <a href="why-eternax.html" class="btn-cta btn-cta-secondary">Architecture Overview</a>
                     </div>
                 </div>
@@ -618,12 +628,12 @@
                     <h3 class="text-lg font-semibold mb-3" style="color: var(--fg);">For Investors</h3>
                     <p class="text-sm mb-6" style="color: var(--fg-80); line-height: 1.65;">Seed round open. Bootstrapped to date. Category-defining infrastructure thesis backed by published science and four institutional research reports.</p>
                     <div class="cta-links mb-6">
-                        <a href="mailto:paarrthhh.b@eternax.ai" class="btn-cta btn-primary text-white">Schedule a Call</a>
+                        <a href="mailto:info@eternax.ai?subject=EternaX%20Investor%20Inquiry" class="btn-cta btn-primary text-white">Schedule a Call</a>
                         <a href="https://arxiv.org/abs/2605.03230" class="btn-cta btn-cta-secondary">SILMARILS Paper</a>
                         <a href="why-eternax.html" class="btn-cta btn-cta-secondary">Investment Thesis</a>
                     </div>
                     <p class="text-xs mb-3 font-mono" style="color: var(--fg-80); line-height: 1.55;">Capital deploys to: mainnet launch, institutional pilot programme, first PQ-native stablecoin issuance.</p>
-                    <p class="text-xs" style="color: var(--fg-80);"><a href="mailto:paarrthhh.b@eternax.ai" class="link-muted">paarrthhh.b@eternax.ai</a>&ensp;&ensp;<a href="mailto:dariia.p@eternax.ai" class="link-muted">dariia.p@eternax.ai</a></p>
+                    <p class="text-xs" style="color: var(--fg-80);"><a href="mailto:info@eternax.ai" class="link-muted">info@eternax.ai</a></p>
                 </div>
             </div>
         </div>
@@ -648,7 +658,12 @@
                 <div class="use-cases-item">
                     <h3 class="font-semibold mb-3" style="color: var(--fg);">Collateral and Settlement</h3>
                     <p class="text-sm mb-4" style="color: var(--fg-80);">PQ-native collateral tokenization, movement, and settlement. T+0 at 400-520ms hard finality. No classical key dependency at any layer.</p>
-                    <a href="mailto:paarrthhh.b@eternax.ai" class="text-xs font-semibold" style="color: #2F5E52;">Discuss a pilot &rarr;</a>
+                    <a href="pilot.html" class="text-xs font-semibold" style="color: #2F5E52;">Discuss a pilot &rarr;</a>
+                </div>
+                <div class="use-cases-item">
+                    <h3 class="font-semibold mb-3" style="color: var(--fg);">Custody and MPC Authorization</h3>
+                    <p class="text-sm mb-4" style="color: var(--fg-80);">Dual-gate post-quantum custody. Preserve distributed approval without threshold SLH-DSA. Signature-agnostic authorization enforcement.</p>
+                    <a href="custody-mpc-providers.html" class="text-xs font-semibold" style="color: #2F5E52;">Custody Solution &rarr;</a>
                 </div>
                 <div class="use-cases-item">
                     <h3 class="font-semibold mb-3" style="color: var(--fg);">Migration from Existing Chains</h3>
@@ -677,6 +692,11 @@
                 </div>
             </div>
             <div class="evidence-reports mb-8">
+                <a href="post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html" class="glass-effect p-4 rounded-lg block hover:opacity-90 transition-opacity">
+                    <div class="text-sm font-semibold mb-1" style="color: var(--fg);">PQ MPC Custody Crisis 2026</div>
+                    <div class="text-xs" style="color: var(--fg-80);">Jun 2026 &middot; 15 providers, $10T+ assets</div>
+                    <span class="text-xs font-semibold mt-3 inline-block" style="color: #2F5E52;">&rarr;</span>
+                </a>
                 <a href="post_quantum_exposure_map_institutional_crypto_tokenized_assets.html" class="glass-effect p-4 rounded-lg block hover:opacity-90 transition-opacity">
                     <div class="text-sm font-semibold mb-1" style="color: var(--fg);">Post-Quantum Exposure Map 2026</div>
                     <div class="text-xs" style="color: var(--fg-80);">May 2026 &middot; 20+ institutions</div>
@@ -716,10 +736,10 @@
                     <div class="hero-metrics-label">Hard-finality settlement</div>
                 </div>
             </div>
-            <div class="glass-effect p-4 rounded-lg flex items-center gap-4">
+            <a href="testnet.html" class="glass-effect p-4 rounded-lg flex items-center gap-4 hover:opacity-90 transition-opacity">
                 <span class="w-2 h-2 rounded-full flex-shrink-0" style="background-color: #2F5E52;"></span>
-                <span class="text-sm flex-1" style="color: var(--fg-80);">Testnet live since November 2025. 1M+ transactions. 475K+ prediction market bets.</span>
-            </div>
+                <span class="text-sm flex-1" style="color: var(--fg-80);">Testnet live since November 2025. 1M+ transactions. 475K+ prediction market bets. <span class="font-semibold" style="color: #2F5E52;">Explore testnet &rarr;</span></span>
+            </a>
         </div>
     </section>
 
@@ -758,7 +778,7 @@
     <section class="py-16 border-t border-b text-center" style="border-color: #e0dede;">
         <div class="max-w-3xl mx-auto px-4">
             <p class="text-xl sm:text-2xl font-semibold mb-8" style="color: var(--fg);">Ready to evaluate PQ-native issuance for your institution?</p>
-            <a href="mailto:paarrthhh.b@eternax.ai" class="btn-primary inline-block px-8 py-4 rounded-lg text-base font-semibold text-white hover:opacity-90 transition-opacity">Book a Pilot Call</a>
+            <a href="pilot.html" class="btn-primary inline-block px-8 py-4 rounded-lg text-base font-semibold text-white hover:opacity-90 transition-opacity">Book a Pilot Call</a>
         </div>
     </section>
 
@@ -1049,7 +1069,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row items-start justify-between gap-6 mb-6">
                 <div>
-                    <span class="text-lg font-bold" style="color: var(--fg)">eternaX</span>
+                    {% include footer-brand.html %}
                     <p class="text-sm mt-1" style="color: var(--fg-70)">Quantum-safe Settlement at Market Speed</p>
                     <div class="text-xs" style="color: var(--fg-70)">&copy; 2026 EternaX Labs. All rights reserved.</div>
                 </div>

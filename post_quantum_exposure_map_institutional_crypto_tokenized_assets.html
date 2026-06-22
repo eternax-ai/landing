@@ -48,7 +48,7 @@
 <link rel="icon" type="image/png" href="./assets/eternax-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles/tailwind.generated.css">
 <script type="application/ld+json">
 {
@@ -1685,11 +1685,25 @@ tbody tr:last-child td { border-bottom: none; }
 <p style="margin-top: 1.5rem; font-size: 0.75rem;">&copy; 2026 EternaX Labs. All rights reserved. <a href="https://eternax.ai">eternax.ai</a> &middot; <a href="https://x.com/eternaXLabs">@EternaXlabs</a> &middot; <a href="https://www.linkedin.com/company/eternax-labs">LinkedIn</a> &middot; <a href="https://github.com/eternax-ai">GitHub</a></p>
 </div>
 </footer>
+
+<!-- Commercial CTA -->
+<section style="padding: 3rem 1rem; text-align: center; border-top: 1px solid #e0dede;">
+    <div style="max-width: 640px; margin: 0 auto;">
+        <p style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5em; color: var(--fg);">Your institution appears in this report?</p>
+        <p style="font-size: 0.9rem; color: var(--fg-80); margin-bottom: 1.5em;">Evaluate PQ-native issuance and settlement on EternaX testnet before your next rail decision hardens.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+            <a href="pilot.html" style="display: inline-block; background-color: var(--fg); color: #fff; padding: 0.7em 1.5em; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none;">Book a Pilot Call</a>
+            <a href="stablecoin-issuers.html" style="display: inline-block; border: 1px solid var(--fg); color: var(--fg); padding: 0.7em 1.5em; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none;">Stablecoin Issuers</a>
+            <a href="testnet.html" style="display: inline-block; border: 1px solid var(--fg); color: var(--fg); padding: 0.7em 1.5em; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none;">Explore Testnet</a>
+        </div>
+    </div>
+</section>
+
 <footer class="py-12 border-t" style="background-color: var(--bg); border-color: var(--border);" itemscope itemtype="https://schema.org/WPFooter">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col sm:flex-row items-start justify-between gap-6 mb-6">
           <div>
-              <span class="text-lg font-bold" style="color: var(--fg)">eternaX</span>
+              {% include footer-brand.html %}
               <p class="text-sm mt-1" style="color: var(--fg-70)">Quantum-safe Settlement at Market Speed</p>
               <div class="text-xs" style="color: var(--fg-70)">&copy; 2026 EternaX Labs</div>
           </div>

@@ -4,16 +4,27 @@
 
 ## Core Pages
 
-- [Homepage](https://eternax.ai/): EternaX overview, product stack, FAQ, and traction.
+- [Homepage](https://eternax.ai/): EternaX overview, institutional use cases, FAQ, and traction.
 - [Why EternaX](https://eternax.ai/why-eternax.html): PQ-native rationale, performance comparison, and institutional positioning.
+- [Pilot Programme](https://eternax.ai/pilot.html): Three enterprise pilot paths — stablecoin issuance, tokenized funds/RWAs, and post-quantum custody/MPC authorization.
+- [Testnet](https://eternax.ai/testnet.html): Pluto testnet access — web wallet, block explorer, CLI tools, RPC endpoints.
 - [About EternaX Labs](https://eternax.ai/about.html): Canonical entity page for founders, mission, and company profile.
 - [Glossary](https://eternax.ai/glossary.html): Definitions for post-quantum cryptography and migration terminology.
 - [Blog Index](https://eternax.ai/blogs/index.html): Research reports and blog archive.
 
+## Solutions
+
+- [Stablecoin Issuers](https://eternax.ai/stablecoin-issuers.html): PQ-native mint/burn from day one. For stablecoin issuers, payment networks, and banks.
+- [Tokenized Funds & RWAs](https://eternax.ai/tokenized-funds-rwas.html): One PQ-native chain replacing multi-chain classical deployments. For asset managers and RWA platforms.
+- [Custody & MPC Providers](https://eternax.ai/custody-mpc-providers.html): Dual-gate post-quantum custody authorization. Preserve distributed approval without threshold SLH-DSA.
+
 ## Research Reports
 
-- [Cryptographic Migration Debt Framework for Institutions](https://eternax.ai/post-quantum-cryptography-risk-framework-for-institutions.html)
-- [Already Broken — Quantum Risk Report Q1 2026](https://eternax.ai/already-broken-quantum-risk-report-q1-2026.html)
+- [Post-Quantum MPC Custody Crisis 2026](https://eternax.ai/post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html): 15 institutional MPC providers, $10T+ in assets, zero post-quantum safe custody.
+- [Post-Quantum Exposure Map 2026](https://eternax.ai/post_quantum_exposure_map_institutional_crypto_tokenized_assets.html): Institutional exposure map for 20+ institutions, tokenized assets, stablecoins, RWAs, collateral, and privacy.
+- [Post-Quantum Signature Security Ranking 2026](https://eternax.ai/post-quantum-signature-security-ranking-2026.html): Comparative ranking of all 12 NIST post-quantum signature schemes for institutional deployment.
+- [Cryptographic Migration Debt Framework for Institutions](https://eternax.ai/post-quantum-cryptography-risk-framework-for-institutions.html): Post-quantum exposure framework quantifying migration costs.
+- [Already Broken — Quantum Risk Report Q1 2026](https://eternax.ai/already-broken-quantum-risk-report-q1-2026.html): The case that institutional blockchain infrastructure is already at risk.
 
 ## Contact
 
