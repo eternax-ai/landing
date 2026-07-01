@@ -2015,7 +2015,6 @@ tbody tr:last-child td { border-bottom: none; }
   .pdf-download-row,
   .save-pdf-button,
   .no-print,
-  .faq-section,
   .cta-row,
   footer.py-12,
   section[style*="text-align: center"] {
@@ -2128,8 +2127,10 @@ tbody tr:last-child td { border-bottom: none; }
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-  details { break-inside: avoid; }
-  details .faq-answer { display: block !important; }
+  .faq-section details { break-inside: avoid; }
+  .faq-section summary::after { display: none !important; }
+  .faq-section details:not([open]) .faq-answer { display: block !important; }
+  .faq-section details .faq-answer { display: block !important; }
   .report-table-wrapper {
     overflow: visible !important;
     width: 100% !important;
@@ -3677,6 +3678,18 @@ tbody tr:last-child td { border-bottom: none; }
   </div>
 </footer>
 <script>
+(function () {
+  function expandFaqDetails() {
+    document.querySelectorAll('.faq-section details').forEach((d) => d.setAttribute('open', ''));
+  }
+  try {
+    if (window.matchMedia && window.matchMedia('print').matches) expandFaqDetails();
+    window.addEventListener('beforeprint', expandFaqDetails);
+  } catch (e) {
+    // Ignore environments that lack matchMedia/beforeprint.
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
   const menuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');

@@ -108,7 +108,7 @@ def build_node_script(chrome_path: str, html_path: pathlib.Path, out_pdf: pathli
         await page.goto('file://' + htmlPath, {{ waitUntil: 'networkidle', timeout: 30000 }});
 
         await page.evaluate(async () => {{
-          document.querySelectorAll('details.faq-item').forEach((d) => d.setAttribute('open', ''));
+          document.querySelectorAll('details.faq-item, .faq-section details').forEach((d) => d.setAttribute('open', ''));
           if (document.fonts && document.fonts.ready) await document.fonts.ready;
           const imgs = Array.from(document.images);
           const waitForImage = (img) =>
