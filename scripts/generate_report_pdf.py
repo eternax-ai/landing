@@ -24,21 +24,64 @@ ANY_PADDING_TOP_CALC_PATTERN = re.compile(
 )
 
 
-def prepare_html(input_path: pathlib.Path, remove_fixed_nav: bool) -> str:
-    html = input_path.read_text(encoding="utf-8")
+INCLUDE_PATTERN = re.compile(
+    r"\{%\s*include\s+([^\s%]+)\s*%\}",
+    re.IGNORECASE,
+)
 
-    if remove_fixed_nav:
-        html, removed_count = FIXED_NAV_PATTERN.subn("", html, count=1)
-        if removed_count != 1:
-            raise RuntimeError(
-                f"Expected to remove 1 fixed nav block, removed {removed_count}"
-            )
 
+def resolve_jekyll_includes(html: str, repo_root: pathlib.Path) -> str:
+    includes_dir = repo_root / "_includes"
+    if not includes_dir.is_dir():
+        return html
+
+    def replace_include(match: re.Match[str]) -> str:
+        include_name = match.group(1).strip()
+        include_path = includes_dir / include_name
+        if not include_path.is_file():
+            return match.group(0)
+        return include_path.read_text(encoding="utf-8")
+
+    prev = None
+    while prev != html:
+        prev = html
+        html = INCLUDE_PATTERN.sub(replace_include, html)
+    return html
+
+
+def remove_fixed_nav(html: str) -> str:
+    html, removed_count = FIXED_NAV_PATTERN.subn("", html, count=1)
+    if removed_count == 1:
         html, n = PADDING_TOP_PATTERN.subn("padding-top: 2.5rem;", html, count=1)
         if n != 1:
             html = ANY_PADDING_TOP_CALC_PATTERN.sub(
                 "padding-top: 2.5rem;", html, count=1
             )
+        return html
+
+    # Jekyll include placeholder left in source HTML (nav not inlined yet).
+    html, removed_count = INCLUDE_PATTERN.subn("", html, count=1)
+    if removed_count:
+        html, n = PADDING_TOP_PATTERN.subn("padding-top: 2.5rem;", html, count=1)
+        if n != 1:
+            html = ANY_PADDING_TOP_CALC_PATTERN.sub(
+                "padding-top: 2.5rem;", html, count=1
+            )
+        return html
+
+    print(
+        "Warning: no fixed navbar or {% include navbar.html %} found; continuing.",
+        file=sys.stderr,
+    )
+    return html
+
+
+def prepare_html(input_path: pathlib.Path, remove_fixed_nav_flag: bool) -> str:
+    html = input_path.read_text(encoding="utf-8")
+    html = resolve_jekyll_includes(html, input_path.parent)
+
+    if remove_fixed_nav_flag:
+        html = remove_fixed_nav(html)
 
     return html
 
@@ -116,7 +159,7 @@ def main() -> int:
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    transformed_html = prepare_html(input_path, remove_fixed_nav=not args.keep_fixed_navbar)
+    transformed_html = prepare_html(input_path, remove_fixed_nav_flag=not args.keep_fixed_navbar)
 
     with tempfile.TemporaryDirectory(prefix="report-pdf-") as tmp_dir:
         tmp_dir_path = pathlib.Path(tmp_dir)
@@ -126,6 +169,10 @@ def main() -> int:
         assets_src = input_path.parent / "assets"
         if assets_src.exists():
             (tmp_dir_path / "assets").symlink_to(assets_src)
+
+        styles_src = input_path.parent / "styles"
+        if styles_src.exists():
+            (tmp_dir_path / "styles").symlink_to(styles_src)
 
         node_script = build_node_script(args.chrome_path, tmp_html, output_path)
         subprocess.run(
