@@ -11,6 +11,7 @@
 - [About EternaX Labs](https://eternax.ai/about.html): Canonical entity page for founders, mission, and company profile.
 - [Glossary](https://eternax.ai/glossary.html): Definitions for post-quantum cryptography and migration terminology.
 - [Blog Index](https://eternax.ai/blogs/index.html): Research reports and blog archive.
+- [Reports Index](https://eternax.ai/reports/index.html): Institutional post-quantum research reports archive.
 
 ## Solutions
 
@@ -20,6 +21,8 @@
 
 ## Research Reports
 
+- [Reports Index](https://eternax.ai/reports/index.html): All institutional post-quantum research reports.
+- [Non-Upgradeable Chains & DeFi Exposure Report](https://eternax.ai/post-quantum-non-upgradeable-chains-defi-exposure-report.html): Why chain upgrades cannot fix immutable contracts, frozen standards, and DeFi liquidity on Ethereum, Solana, and Canton.
 - [Post-Quantum MPC Custody Crisis 2026](https://eternax.ai/post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html): 15 institutional MPC providers, $10T+ in assets, zero post-quantum safe custody.
 - [Post-Quantum Exposure Map 2026](https://eternax.ai/post_quantum_exposure_map_institutional_crypto_tokenized_assets.html): Institutional exposure map for 20+ institutions, tokenized assets, stablecoins, RWAs, collateral, and privacy.
 - [Post-Quantum Signature Security Ranking 2026](https://eternax.ai/post-quantum-signature-security-ranking-2026.html): Comparative ranking of all 12 NIST post-quantum signature schemes for institutional deployment.
