@@ -50,8 +50,7 @@ nav {
   line-height: 1.5;
 }
 
-h1,
-h1[class] {
+h1 {
   color: var(--brand);
   font-family: var(--font-condensed);
   font-size: clamp(2.1rem, 4vw, 4.2rem);
@@ -60,8 +59,7 @@ h1[class] {
   line-height: 0.98;
 }
 
-h2,
-h2[class] {
+h2 {
   color: #17203d;
   font-family: var(--font-condensed);
   font-size: clamp(1.55rem, 2.6vw, 2.35rem);
@@ -70,8 +68,7 @@ h2[class] {
   line-height: 1.08;
 }
 
-h3,
-h3[class] {
+h3 {
   color: #17203d;
   font-family: var(--font-condensed);
   font-weight: 600;
@@ -83,29 +80,6 @@ p {
 
 strong {
   font-weight: 600;
-}
-
-main.pt-20 {
-  padding-top: calc(3rem + 64px);
-}
-
-section,
-section[class],
-section.py-16,
-section.lg\:py-20 {
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 4.5rem;
-  padding-top: 4.5rem;
-}
-
-section:last-of-type {
-  border-bottom: none;
-}
-
-.container,
-.max-w-4xl,
-.max-w-3xl {
-  max-width: 1120px;
 }
 
 .link-muted {
@@ -154,8 +128,7 @@ nav.glass-effect {
   visibility: visible;
 }
 
-.section-label,
-.text-xs.font-semibold.uppercase.tracking-widest {
+.section-label {
   color: var(--green);
   font-family: var(--font-condensed);
   font-size: 0.72rem;
@@ -181,22 +154,34 @@ nav.glass-effect {
   margin-bottom: 0.4rem;
 }
 
-.cover {
+.cover,
+.cover-flat {
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: calc(2.5rem + 64px) 0 2rem;
+}
+
+.cover-inner,
+.cover-flat .cover-inner {
+  display: block;
+  margin: 0 auto;
+  max-width: 780px;
+  padding: 0 24px;
+}
+
+.cover-two-column {
   background:
     radial-gradient(circle at 82% 18%, rgba(47,94,82,0.12), transparent 30%),
     linear-gradient(135deg, #ffffff 0%, #f7f4f4 52%, #ece9e9 100%);
-  border-bottom: 1px solid var(--border);
   padding: calc(3rem + 64px) 0 2.75rem;
 }
 
-.cover-inner {
+.cover-two-column .cover-inner {
   align-items: start;
   display: grid;
   gap: 2.25rem;
   grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
-  margin: 0 auto;
   max-width: 1180px;
-  padding: 0 24px;
 }
 
 .cover-eyebrow {
@@ -957,6 +942,7 @@ tbody tr:last-child td {
 
 @media (max-width: 980px) {
   .cover-inner,
+  .cover-two-column .cover-inner,
   .provider-universe,
   .stack-map,
   .solution-grid,
@@ -982,22 +968,12 @@ tbody tr:last-child td {
 }
 
 @media (max-width: 768px) {
-  h1,
-  h1[class] {
+  h1 {
     font-size: 1.75rem;
   }
 
-  h2,
-  h2[class] {
+  h2 {
     font-size: 1.35rem;
-  }
-
-  section,
-  section[class],
-  section.py-16,
-  section.lg\:py-20 {
-    padding-bottom: 2.5rem;
-    padding-top: 2.5rem;
   }
 
   .container {
@@ -1011,11 +987,12 @@ tbody tr:last-child td {
 }
 
 @media (max-width: 640px) {
-  .cover {
+  .cover-two-column {
     padding-top: calc(2rem + 64px);
   }
 
-  .cover-inner {
+  .cover-inner,
+  .cover-two-column .cover-inner {
     padding: 0 16px;
   }
 
