@@ -5,9 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post-Quantum MPC Custody, On-Chain: Signature-Agnostic Distributed Approval | EternaX Labs Blog</title>
-    <meta name="description" content="How custody providers can keep distributed approval with signature-agnostic threshold authorization instead of threshold-signing each post-quantum signature scheme.">
-    <meta name="keywords" content="post-quantum blockchain, post-quantum cryptography, quantum-safe settlement, stablecoin issuance, rwa tokenization, EternaX, post-quantum institutional custody, post-quantum MPC custody, signature-agnostic custody, signature-scheme agnostic authorization, quantum-safe custody, institutional digital asset custody, MPC custody, threshold authorization, distributed custody approval, SLH-DSA custody, SPHINCS+ custody, hash-based signatures">
+    <title>Post-Quantum Custody On-Chain: Signature-Agnostic Distributed Approval | EternaX Labs Blog</title>
+    <meta name="description" content="How custody providers can preserve distributed approval on-chain without threshold-signing hash-based signatures: dual gates with SLH-DSA member authentication and SILMARILS affine threshold authorization.">
+    <meta name="keywords" content="post-quantum blockchain, post-quantum cryptography, quantum-safe settlement, stablecoin issuance, rwa tokenization, EternaX, post-quantum custody, MPC custody, threshold authorization, SLH-DSA, SPHINCS+, SILMARILS, hash-based signatures, institutional custody">
     <meta name="author" content="EternaX Labs">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="article:publisher" content="https://www.linkedin.com/company/eternax-labs">
@@ -16,8 +16,8 @@
     <link rel="icon" type="image/svg+xml" href="../../assets/eternax-icon.svg">
     <link rel="icon" type="image/png" href="../../assets/eternax-icon.png">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Post-Quantum MPC Custody, On-Chain: Signature-Agnostic Distributed Approval">
-    <meta property="og:description" content="How custody providers can preserve distributed approval on-chain without threshold-signing hash-based signatures: signature-scheme-agnostic dual gates with SLH-DSA member authentication and affine threshold authorization.">
+    <meta property="og:title" content="Post-Quantum Custody On-Chain: Signature-Agnostic Distributed Approval">
+    <meta property="og:description" content="How custody providers can preserve distributed approval on-chain without threshold-signing hash-based signatures: dual gates with SLH-DSA member authentication and SILMARILS affine threshold authorization.">
     <meta property="og:site_name" content="EternaX Labs">
     <meta property="og:url" content="https://eternax.ai/blogs/post-quantum-mpc-custody-on-chain/index.html">
     <meta property="og:image" content="https://eternax.ai/assets/preview.png">
@@ -25,8 +25,8 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Post-Quantum MPC Custody, On-Chain: Signature-Agnostic Distributed Approval">
-    <meta property="twitter:description" content="How custody providers can preserve distributed approval on-chain without threshold-signing hash-based signatures: signature-scheme-agnostic dual gates with SLH-DSA member authentication and affine threshold authorization.">
+    <meta property="twitter:title" content="Post-Quantum Custody On-Chain: Signature-Agnostic Distributed Approval">
+    <meta property="twitter:description" content="How custody providers can preserve distributed approval on-chain without threshold-signing hash-based signatures: dual gates with SLH-DSA member authentication and SILMARILS affine threshold authorization.">
     <meta property="twitter:url" content="https://eternax.ai/blogs/post-quantum-mpc-custody-on-chain/index.html">
     <meta property="twitter:site" content="@EternaXlabs">
     <meta property="twitter:creator" content="@EternaXlabs">
@@ -121,20 +121,21 @@
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "@id": "https://eternax.ai/blogs/post-quantum-mpc-custody-on-chain/index.html#article",
-      "headline": "Post-Quantum MPC Custody, On-Chain: Signature-Agnostic Distributed Approval",
-      "description": "How custody providers can preserve distributed approval on-chain without threshold-signing hash-based signatures: signature-scheme-agnostic dual gates with SLH-DSA member authentication and affine threshold authorization.",
+      "headline": "Post-Quantum Custody On-Chain: Signature-Agnostic Distributed Approval",
+      "description": "How custody providers can preserve distributed approval on-chain without threshold-signing hash-based signatures: dual gates with SLH-DSA member authentication and SILMARILS affine threshold authorization.",
       "datePublished": "2026-06-15",
-      "dateModified": "2026-06-22",
+      "dateModified": "2026-07-08",
       "author": { "@id": "https://eternax.ai/#organization" },
       "publisher": { "@id": "https://eternax.ai/#organization" },
-      "keywords": "post-quantum institutional custody, post-quantum MPC custody, signature-agnostic custody, signature-scheme agnostic authorization, quantum-safe custody, institutional digital asset custody, MPC custody, threshold authorization, distributed custody approval, SLH-DSA custody, SPHINCS+ custody, hash-based signatures",
+      "keywords": "post-quantum custody, MPC custody, threshold authorization, SLH-DSA, SPHINCS+, SILMARILS, hash-based signatures, institutional custody",
       "isPartOf": {
         "@type": "Blog",
         "name": "EternaX Labs Blog",
         "url": "https://eternax.ai/blogs/index.html"
       },
       "mainEntityOfPage": "https://eternax.ai/blogs/post-quantum-mpc-custody-on-chain/index.html",
-      "about": [{"@type":"Thing","name":"Post-Quantum Custody"},{"@type":"Thing","name":"MPC Custody"},{"@type":"Thing","name":"Signature-Agnostic Custody"},{"@type":"Thing","name":"Institutional Custody"},{"@type":"Thing","name":"Threshold Authorization"},{"@type":"Thing","name":"Distributed Approval"}]
+      "about": [{"@type":"Thing","name":"Post-Quantum Custody"},{"@type":"Thing","name":"MPC Custody"},{"@type":"Thing","name":"Threshold Authorization"},{"@type":"Thing","name":"SLH-DSA"},{"@type":"Thing","name":"SILMARILS"}],
+      "isBasedOn": {"@type":"ScholarlyArticle","name":"SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures","url":"https://arxiv.org/abs/2605.03230","identifier":"arXiv:2605.03230"}
     }
     </script>
     <script type="application/ld+json">
@@ -157,7 +158,7 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Post-Quantum MPC Custody, On-Chain: Signature-Agnostic Distributed Approval",
+          "name": "Post-Quantum Custody On-Chain: Signature-Agnostic Distributed Approval",
           "item": "https://eternax.ai/blogs/post-quantum-mpc-custody-on-chain/index.html"
         }
       ]
@@ -169,15 +170,15 @@
 
     <main class="pt-24 pb-16 px-4">
         <article class="blog-body">
-            <h1>Post-Quantum MPC Custody, On-Chain: Signature-Agnostic Distributed Approval</h1>
+            <h1>Post-Quantum Custody On-Chain: Signature-Agnostic Distributed Approval</h1>
 <p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 0.25em;">June 15, 2026</p>
-<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Authors: Dariia Porechna, cryptographer, co-founder of EternaX, and Dr. Chen Feng, Assoc. Prof UBC, Chief Scientist at EternaX</p>
+<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: Dariia Porechna, cryptographer, co-founder of EternaX</p>
 <p><img src="Hero_Image.png" alt="Post-quantum MPC custody with dual on-chain authorization gates"></p>
 <p>A protocol-level post-quantum upgrade does not solve custody. Even if a chain adds PQ signatures, the custodian still has to preserve its own control model: who can approve, how quorum is enforced, how recovery works, what auditors can inspect, and what happens when one operator or key is compromised.</p>
 <p>This distinction matters because MPC custody was never valuable only because it produced ECDSA signatures. It was valuable because it removed a single point of compromise from asset control while preserving an operational workflow institutions could use. Threshold ECDSA happened to be a convenient primitive that made this model compatible with existing chains, because it bundled distributed authorization and native signature production into one object.</p>
 <p>The post-quantum transition breaks that bundle. Taurus stated the issue clearly in its June 2026 report, <em><a href="https://www.taurushq.com/reports/quantum-computing-risk-in-digital-asset-custody-hsm-vs-mpc/">Quantum Computing Risk in Digital Asset Custody: HSM vs. MPC</a></em>: MPC custody faces a structural disadvantage when the market moves beyond elliptic-curve signatures.</p>
 <p>For the market-level version of the problem, see our companion analysis, <em><a href="https://eternax.ai/post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html">The Post-Quantum Institutional MPC Custody Crisis 2026</a></em>.</p>
-<p>The short version is that the most conservative post-quantum signature families, including SLH-DSA/SPHINCS+ and LMS/HSS, are not naturally threshold-signable like ECDSA. For hash-based signatures, the MPTS work of Kondi, Kumar, and Vanegas *<a href="https://csrc.nist.gov/csrc/media/presentations/2026/mpts2026-4b4/images-media/mpts2026-4b4-slides-bbts-hbs-kumar.pdf">Black-Box Threshold Signing of Hash-Based Signatures is Expensive*</a>, points to a deeper black-box barrier. Making these schemes work inside MPC means evaluating a large hash-based signing computation inside a distributed protocol practically blocking the product migration path for a regulated custodian.</p>
+<p>The short version is that the most conservative post-quantum signature families, including SLH-DSA/SPHINCS+ and LMS/HSS, are not naturally threshold-signable like ECDSA. For hash-based signatures, the MPTS work of Kondi, Kumar, and Vanegas <em><a href="https://csrc.nist.gov/csrc/media/presentations/2026/mpts2026-4b4/images-media/mpts2026-4b4-slides-bbts-hbs-kumar.pdf">Black-Box Threshold Signing of Hash-Based Signatures is Expensive</a></em>, points to a deeper black-box barrier. Making these schemes work inside MPC means evaluating a large hash-based signing computation inside a distributed protocol practically blocking the product migration path for a regulated custodian.</p>
 <p>The mistake is to treat this as a search for &quot;the post-quantum threshold signature.&quot; The custody problem is broader and more specific: how can a custodian preserve distributed approval without making its control layer depend on a threshold protocol for every signature scheme?</p>
 <h2>The Wrong Abstraction</h2>
 <p>Custodians sell a control model:</p>
@@ -197,7 +198,7 @@
 <p>Gate 2 asks whether enough custody members authorized the same operation. A separate threshold authorization layer verifies that a quorum contributed valid authorization shares for the same message, policy, nonce, and custody action.</p>
 <p>Funds move only when both gates pass.</p>
 <p>This is not a threshold SLH-DSA signature and not an attempt to make hash-based signatures behave like elliptic curves. It is a different boundary: keep signatures for member authentication, and move threshold authorization into an enforcement layer that is independent of the signature scheme.</p>
-<p>On a post-quantum-native EternaX rail, both gates are consensus validity rules. On existing ecosystems, the same authorization shape can be enforced by smart-contract wallets, vaults, stablecoin issuer modules, but post-quantum Gate 1 should be enforced natively by the host chain.</p>
+<p>On a post-quantum-native EternaX rail, both gates are consensus validity rules. On existing ecosystems, the same authorization shape can be enforced wherever the asset-control path can run programmable verification logic: smart-contract wallets, vaults, stablecoin issuer modules, bridge controllers, account-abstraction smart accounts, or an HSM guarding a master key.</p>
 <h2>Where It Matters</h2>
 <p>The target use cases are high-value operations where custody policy already matters more than transaction size:</p>
 <ul>
@@ -210,19 +211,25 @@
 </ul>
 <p>These are the workflows where a custodian can afford stronger admission-time checks but cannot afford to lose distributed approval.</p>
 <p>For a stablecoin issuer, mint authority should not collapse back to one hardware boundary just because the signature layer changes. For a tokenized fund, treasury movement should keep the same quorum discipline clients already expect. For a custodian, recovery, rotation, and policy updates should remain normal custody operations.</p>
-<h2>Why This Is Different From Multisig</h2>
-<p>A plain t-of-n post-quantum multisig is easy to understand: collect enough signatures and count them. That may be sufficient for some products.</p>
-<p>Institutional custody usually needs more than a count. It needs shares, refresh, policy-bound approvals, transcript roots, evidence retention, and a verifier that can accept an operation without ever holding custody material.</p>
-<p>The dual-gate design keeps that shape. Member signatures provide attribution. The threshold gate provides distributed authorization. The enforcement layer verifies the result, consumes the operation nonce, and leaves behind a receipt for audit.</p>
-<p>The technical construction can use affine secret sharing and setup-bound share checks. The consequence is simpler: a below-threshold set cannot move funds, validators or contract verifiers do not become custodians, and the member-authentication signature scheme can change without redesigning the authorization layer.</p>
+<h2>Beyond Multisig: Second Factor, Agility, HSMs</h2>
+<p>A plain t-of-n post-quantum multisig is easy to understand: collect enough signatures and count them. That may be sufficient for some products, but institutional custody usually needs more than a count: shares, refresh, policy-bound approvals, transcript roots, evidence retention, and a verifier that can accept an operation without ever holding custody material.</p>
+<p>The dual-gate design keeps that shape and adds a second authorization factor a signature count cannot offer. Member signatures provide attribution; the threshold gate provides distributed authorization from separate share material with information-theoretic below-threshold secrecy. In multisig, compromising t signing keys is total compromise. In the dual gate, an adversary holding t stolen member keys still passes only the signature count and cannot produce the authorization seal, a below-threshold set cannot move funds, and validators or contract verifiers never become custodians.</p>
+<p>The member-signature scheme appears only in Gate 1, so it is a deployment parameter, not a protocol parameter. Migrating a member from ECDSA to SLH-DSA or ML-DSA is a key rotation: register the new public key, retire the old. The threshold layer, policy engine, and audit pipeline are untouched, and mixed-scheme quorums allow a staged migration without a flag day. Compare that with changing the signature scheme under a threshold signature protocol, which means a new distributed key generation, a new presignature lifecycle, a new combination algorithm, and a new security analysis.</p>
+<p>The same property makes the construction compose with HSM custody rather than compete with it:</p>
+<ul>
+<li><strong>Member keys in commodity HSMs.</strong> The protocol requires only an ordinary signature over the approval envelope, so any device exposing a standard sign API participates directly. As vendor firmware ships FIPS 204/205 support, HSM-resident post-quantum member keys work without protocol changes. Threshold signing cannot say the same: each member&#39;s contribution there is a scheme-specific partial-signature computation that commodity HSM firmware does not implement.</li>
+<li><strong>The HSM as enforcement layer.</strong> The enforcement layer needs signature verification, field arithmetic, and a hash, but no secret key material, so it can itself be an HSM-hosted policy module.</li>
+<li><strong>Master-key custody.</strong> Production dual-control stacks already keep an asset master key inside one HSM, unlocked when a rule engine counts enough approver signatures. There, the HSM is the enforcement layer: it checks both gates and releases the master-key signature only when the threshold seal verifies. That upgrades the unlock condition from &quot;count t approver signatures&quot; to the two-factor quorum above, and the output is a native signature, recovering drop-in compatibility with legacy chains at the cost of the master key&#39;s hardware trust anchor.</li>
+</ul>
+<p>The practical consequence for the HSM-versus-MPC framing: distributed t-of-n authorization with below-threshold secrecy no longer requires giving up HSM-resident, standardized signature keys.</p>
 <h2>Rail, Not Custodian</h2>
 <p>EternaX is not a custodian and does not presently intend to become one. Custodians still run the regulated custody business: onboarding, policy engines, recovery, approvals, audits, client reporting, and compliance.</p>
 <p>The rail gives those custodians an enforcement surface where their distributed approval model can survive the post-quantum transition.</p>
 <p>The cleanest deployment is native EternaX custody enforcement, where post-quantum member authentication and threshold authorization are part of block validity. A custody operation that fails either gate is invalid.</p>
-<p>For non-native deployments, the design is not a transparent retrofit onto arbitrary existing EOAs or Bitcoin scripts. It applies where an asset&#39;s control path can be moved into an enforcement layer that checks both gates: a vault, issuer module, bridge controller, smart account, or token-control contract. The target use cases are not every wallet on every chain, rather issuers, custodians, and infrastructure teams controlling high-value operational permissions where the enforcement layer can be designed deliberately.</p>
+<p>The same construction deploys on Ethereum and similar ecosystems today through a smart-account or account-abstraction path. It is not a transparent retrofit onto arbitrary existing EOAs or Bitcoin scripts; it applies where an asset&#39;s control path can be moved into an enforcement layer that checks both gates: a vault, issuer module, bridge controller, token-control contract, smart account, or an HSM guarding a master key. Gate 2 is naturally contract-shaped and cheap: field arithmetic, hashing, share checks, and reconstruction. Gate 1 means verifying post-quantum member signatures in-contract until signature precompiles ship, so gas cost and signature size are the practical boundary. That buys cryptographic agility — the custody authorization layer becomes post-quantum ready ahead of, and independently of, the chain&#39;s own signature migration — but not full post-quantum safety: native transaction signatures and the keys controlling contract upgrades or account recovery remain classical until the host chain completes its own transition.</p>
 <h2>The Practical Consequence</h2>
 <p>The HSM-versus-MPC debate can make post-quantum custody sound like a forced choice: centralize around hardware, or rebuild MPC custody around a new threshold protocol for each signature primitive.</p>
-<p>Dual-gate custody gives a third path. Use conservative post-quantum signatures to authenticate custody members. Use a separate, signature-agnostic threshold authorization gate to preserve distributed control. Put the check where assets actually move: the rail, vault, issuer module, bridge controller, or account.</p>
+<p>Dual-gate custody gives a third path. Use conservative post-quantum signatures to authenticate custody members, from HSM-resident keys if that is the operating model. Use a separate, signature-agnostic threshold authorization gate to preserve distributed control. Put the check where assets actually move: the rail, vault, issuer module, bridge controller, smart account, or the HSM that holds the master key.</p>
 <p>This is the practical consequence: custodians can keep the approval model their clients bought while moving toward post-quantum security, without pretending hash-based signatures are threshold ECDSA and without tying custody architecture to one signature scheme.</p>
 <p>We are looking for custody, HSM, MPC, issuer, and bridge teams to pressure-test the workflow: approval UX, evidence retention, audit requirements, policy rotation, and the minimum setup profile acceptable for regulated operations. If you need post-quantum custody without giving up distributed authorization, we should talk.</p>
 <p><strong>Connect: <a href="mailto:info@eternax.ai">info@eternax.ai</a></strong></p>
@@ -232,11 +239,11 @@
 
         <!-- Commercial CTA -->
         <div class="blog-body" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(40,55,113,0.15);">
-            <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75em; color: var(--fg);">Evaluate PQ-native custody infrastructure</p>
+            <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75em; color: var(--fg);">Evaluate PQ-native infrastructure for your institution</p>
             <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 1em;">
                 <a href="../../pilot.html" style="display: inline-block; background-color: var(--fg); color: #fff; padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Book a Pilot Call</a>
-                <a href="../../custody-mpc-providers.html" style="display: inline-block; border: 1px solid var(--fg); color: var(--fg); padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Custody Solution</a>
-                <a href="../../testnet.html" style="display: inline-block; border: 1px solid var(--fg); color: var(--fg); padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Explore Testnet</a>
+                <a href="../../post_quantum_exposure_map_institutional_crypto_tokenized_assets.html" style="display: inline-block; border: 1px solid var(--fg); color: var(--fg); padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Exposure Map</a>
+                <!--<a href="../../testnet.html" style="display: inline-block; border: 1px solid var(--fg); color: var(--fg); padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Explore Testnet</a>-->
             </div>
         </div>
     </main>
