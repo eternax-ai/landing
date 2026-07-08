@@ -1,4 +1,4 @@
-# Post-Quantum MPC Custody, On-Chain: Signature-Agnostic Distributed Approval
+# Post-Quantum Custody On-Chain: Signature-Agnostic Distributed Approval
 
 ![Post-quantum MPC custody with dual on-chain authorization gates](Hero_Image.png)
 
@@ -10,7 +10,7 @@ The post-quantum transition breaks that bundle. Taurus stated the issue clearly 
 
 For the market-level version of the problem, see our companion analysis, *[The Post-Quantum Institutional MPC Custody Crisis 2026](https://eternax.ai/post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html)*.
 
-The short version is that the most conservative post-quantum signature families, including SLH-DSA/SPHINCS+ and LMS/HSS, are not naturally threshold-signable like ECDSA. For hash-based signatures, the MPTS work of Kondi, Kumar, and Vanegas *[Black-Box Threshold Signing of Hash-Based Signatures is Expensive*](https://csrc.nist.gov/csrc/media/presentations/2026/mpts2026-4b4/images-media/mpts2026-4b4-slides-bbts-hbs-kumar.pdf), points to a deeper black-box barrier. Making these schemes work inside MPC means evaluating a large hash-based signing computation inside a distributed protocol practically blocking the product migration path for a regulated custodian.
+The short version is that the most conservative post-quantum signature families, including SLH-DSA/SPHINCS+ and LMS/HSS, are not naturally threshold-signable like ECDSA. For hash-based signatures, the MPTS work of Kondi, Kumar, and Vanegas *[Black-Box Threshold Signing of Hash-Based Signatures is Expensive](https://csrc.nist.gov/csrc/media/presentations/2026/mpts2026-4b4/images-media/mpts2026-4b4-slides-bbts-hbs-kumar.pdf)*, points to a deeper black-box barrier. Making these schemes work inside MPC means evaluating a large hash-based signing computation inside a distributed protocol practically blocking the product migration path for a regulated custodian.
 
 The mistake is to treat this as a search for "the post-quantum threshold signature." The custody problem is broader and more specific: how can a custodian preserve distributed approval without making its control layer depend on a threshold protocol for every signature scheme?
 
@@ -42,7 +42,7 @@ Funds move only when both gates pass.
 
 This is not a threshold SLH-DSA signature and not an attempt to make hash-based signatures behave like elliptic curves. It is a different boundary: keep signatures for member authentication, and move threshold authorization into an enforcement layer that is independent of the signature scheme.
 
-On a post-quantum-native EternaX rail, both gates are consensus validity rules. On existing ecosystems, the same authorization shape can be enforced by smart-contract wallets, vaults, stablecoin issuer modules, but post-quantum Gate 1 should be enforced natively by the host chain.
+On a post-quantum-native EternaX rail, both gates are consensus validity rules. On existing ecosystems, the same authorization shape can be enforced wherever the asset-control path can run programmable verification logic: smart-contract wallets, vaults, stablecoin issuer modules, bridge controllers, account-abstraction smart accounts, or an HSM guarding a master key.
 
 ## Where It Matters
 
@@ -59,15 +59,21 @@ These are the workflows where a custodian can afford stronger admission-time che
 
 For a stablecoin issuer, mint authority should not collapse back to one hardware boundary just because the signature layer changes. For a tokenized fund, treasury movement should keep the same quorum discipline clients already expect. For a custodian, recovery, rotation, and policy updates should remain normal custody operations.
 
-## Why This Is Different From Multisig
+## Beyond Multisig: Second Factor, Agility, HSMs
 
-A plain t-of-n post-quantum multisig is easy to understand: collect enough signatures and count them. That may be sufficient for some products.
+A plain t-of-n post-quantum multisig is easy to understand: collect enough signatures and count them. That may be sufficient for some products, but institutional custody usually needs more than a count: shares, refresh, policy-bound approvals, transcript roots, evidence retention, and a verifier that can accept an operation without ever holding custody material.
 
-Institutional custody usually needs more than a count. It needs shares, refresh, policy-bound approvals, transcript roots, evidence retention, and a verifier that can accept an operation without ever holding custody material.
+The dual-gate design keeps that shape and adds a second authorization factor a signature count cannot offer. Member signatures provide attribution; the threshold gate provides distributed authorization from separate share material with information-theoretic below-threshold secrecy. In multisig, compromising t signing keys is total compromise. In the dual gate, an adversary holding t stolen member keys still passes only the signature count and cannot produce the authorization seal, a below-threshold set cannot move funds, and validators or contract verifiers never become custodians.
 
-The dual-gate design keeps that shape. Member signatures provide attribution. The threshold gate provides distributed authorization. The enforcement layer verifies the result, consumes the operation nonce, and leaves behind a receipt for audit.
+The member-signature scheme appears only in Gate 1, so it is a deployment parameter, not a protocol parameter. Migrating a member from ECDSA to SLH-DSA or ML-DSA is a key rotation: register the new public key, retire the old. The threshold layer, policy engine, and audit pipeline are untouched, and mixed-scheme quorums allow a staged migration without a flag day. Compare that with changing the signature scheme under a threshold signature protocol, which means a new distributed key generation, a new presignature lifecycle, a new combination algorithm, and a new security analysis.
 
-The technical construction can use affine secret sharing and setup-bound share checks. The consequence is simpler: a below-threshold set cannot move funds, validators or contract verifiers do not become custodians, and the member-authentication signature scheme can change without redesigning the authorization layer.
+The same property makes the construction compose with HSM custody rather than compete with it:
+
+- **Member keys in commodity HSMs.** The protocol requires only an ordinary signature over the approval envelope, so any device exposing a standard sign API participates directly. As vendor firmware ships FIPS 204/205 support, HSM-resident post-quantum member keys work without protocol changes. Threshold signing cannot say the same: each member's contribution there is a scheme-specific partial-signature computation that commodity HSM firmware does not implement.
+- **The HSM as enforcement layer.** The enforcement layer needs signature verification, field arithmetic, and a hash, but no secret key material, so it can itself be an HSM-hosted policy module.
+- **Master-key custody.** Production dual-control stacks already keep an asset master key inside one HSM, unlocked when a rule engine counts enough approver signatures. There, the HSM is the enforcement layer: it checks both gates and releases the master-key signature only when the threshold seal verifies. That upgrades the unlock condition from "count t approver signatures" to the two-factor quorum above, and the output is a native signature, recovering drop-in compatibility with legacy chains at the cost of the master key's hardware trust anchor.
+
+The practical consequence for the HSM-versus-MPC framing: distributed t-of-n authorization with below-threshold secrecy no longer requires giving up HSM-resident, standardized signature keys.
 
 ## Rail, Not Custodian
 
@@ -77,13 +83,13 @@ The rail gives those custodians an enforcement surface where their distributed a
 
 The cleanest deployment is native EternaX custody enforcement, where post-quantum member authentication and threshold authorization are part of block validity. A custody operation that fails either gate is invalid.
 
-For non-native deployments, the design is not a transparent retrofit onto arbitrary existing EOAs or Bitcoin scripts. It applies where an asset's control path can be moved into an enforcement layer that checks both gates: a vault, issuer module, bridge controller, smart account, or token-control contract. The target use cases are not every wallet on every chain, rather issuers, custodians, and infrastructure teams controlling high-value operational permissions where the enforcement layer can be designed deliberately.
+The same construction deploys on Ethereum and similar ecosystems today through a smart-account or account-abstraction path. It is not a transparent retrofit onto arbitrary existing EOAs or Bitcoin scripts; it applies where an asset's control path can be moved into an enforcement layer that checks both gates: a vault, issuer module, bridge controller, token-control contract, smart account, or an HSM guarding a master key. Gate 2 is naturally contract-shaped and cheap: field arithmetic, hashing, share checks, and reconstruction. Gate 1 means verifying post-quantum member signatures in-contract until signature precompiles ship, so gas cost and signature size are the practical boundary. That buys cryptographic agility — the custody authorization layer becomes post-quantum ready ahead of, and independently of, the chain's own signature migration — but not full post-quantum safety: native transaction signatures and the keys controlling contract upgrades or account recovery remain classical until the host chain completes its own transition.
 
 ## The Practical Consequence
 
 The HSM-versus-MPC debate can make post-quantum custody sound like a forced choice: centralize around hardware, or rebuild MPC custody around a new threshold protocol for each signature primitive.
 
-Dual-gate custody gives a third path. Use conservative post-quantum signatures to authenticate custody members. Use a separate, signature-agnostic threshold authorization gate to preserve distributed control. Put the check where assets actually move: the rail, vault, issuer module, bridge controller, or account.
+Dual-gate custody gives a third path. Use conservative post-quantum signatures to authenticate custody members, from HSM-resident keys if that is the operating model. Use a separate, signature-agnostic threshold authorization gate to preserve distributed control. Put the check where assets actually move: the rail, vault, issuer module, bridge controller, smart account, or the HSM that holds the master key.
 
 This is the practical consequence: custodians can keep the approval model their clients bought while moving toward post-quantum security, without pretending hash-based signatures are threshold ECDSA and without tying custody architecture to one signature scheme.
 
