@@ -262,12 +262,25 @@ body {
 }
 
 .why-eternax-longform .callout {
-  background: var(--surface-soft);
-  border-left: 3px solid var(--navy);
-  padding: 1.35rem 1.6rem;
+  background: linear-gradient(135deg, #fff 0%, #fff 72%, rgba(40, 55, 113, 0.045) 100%);
+  border: 1px solid rgba(40, 55, 113, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(24, 33, 63, 0.05);
   margin: 1.6rem 0;
   max-width: 45rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  padding: 1.35rem 1.6rem;
+  position: relative;
+}
+.why-eternax-longform .callout::before {
+  background: rgba(40, 55, 113, 0.28);
+  border-radius: 999px;
+  content: '';
+  height: 0.52rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 0.52rem;
 }
 .why-eternax-longform .callout p {
   font-family: var(--font);
@@ -283,21 +296,25 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2.35rem;
-  border-left-color: var(--green);
-  background: var(--green-soft);
+  background: linear-gradient(135deg, #fff 0%, #fff 72%, rgba(47, 94, 82, 0.055) 100%);
+}
+.why-eternax-longform .callout.callout-lead::before {
+  background: rgba(47, 94, 82, 0.36);
 }
 
 .why-eternax-longform .callout.callout-objection {
-  border-left-color: var(--amber);
-  background: var(--amber-light);
+  background: linear-gradient(135deg, #fff 0%, #fff 72%, rgba(154, 123, 46, 0.07) 100%);
+}
+.why-eternax-longform .callout.callout-objection::before {
+  background: rgba(154, 123, 46, 0.4);
 }
 
 .why-eternax-longform .callout.callout-risk {
-  border-left: 4px solid var(--red);
-  background: var(--red-soft);
-  border-right: 1px solid rgba(141, 46, 46, 0.2);
-  border-top: 1px solid rgba(141, 46, 46, 0.2);
-  border-bottom: 1px solid rgba(141, 46, 46, 0.2);
+  background: linear-gradient(135deg, #fff 0%, #fff 72%, rgba(141, 46, 46, 0.055) 100%);
+  border-color: rgba(141, 46, 46, 0.18);
+}
+.why-eternax-longform .callout.callout-risk::before {
+  background: rgba(141, 46, 46, 0.42);
 }
 .why-eternax-longform .callout.callout-risk p {
   color: var(--red);
@@ -721,12 +738,25 @@ body {
 }
 
 .why-eternax-longform .thesis-box {
-  background: var(--exec-trigger);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--navy);
-  padding: 1.65rem 1.85rem 1rem;
+  background: linear-gradient(135deg, #fff 0%, #fff 72%, rgba(40, 55, 113, 0.045) 100%);
+  border: 1px solid rgba(40, 55, 113, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(24, 33, 63, 0.05);
   margin: 0 auto 2.75rem;
   max-width: var(--content-width-wide);
+  overflow: hidden;
+  padding: 1.65rem 1.85rem 1rem;
+  position: relative;
+}
+.why-eternax-longform .thesis-box::before {
+  background: rgba(40, 55, 113, 0.28);
+  border-radius: 999px;
+  content: '';
+  height: 0.52rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 0.52rem;
 }
 .why-eternax-longform .thesis-box h3 {
   font-family: var(--mono);
@@ -765,11 +795,24 @@ body {
 }
 
 .why-eternax-longform .why-now-box {
-  background: var(--red-soft);
-  border: 1px solid rgba(141, 46, 46, 0.2);
-  border-left: 4px solid var(--red);
-  padding: 1rem 1.15rem;
+  background: linear-gradient(135deg, #fff 0%, #fff 72%, rgba(141, 46, 46, 0.055) 100%);
+  border: 1px solid rgba(141, 46, 46, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(24, 33, 63, 0.05);
   margin-top: 1.1rem;
+  overflow: hidden;
+  padding: 1rem 1.15rem;
+  position: relative;
+}
+.why-eternax-longform .why-now-box::before {
+  background: rgba(141, 46, 46, 0.42);
+  border-radius: 999px;
+  content: '';
+  height: 0.52rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 0.52rem;
 }
 .why-eternax-longform .why-now-box h4 {
   font-family: var(--mono);
