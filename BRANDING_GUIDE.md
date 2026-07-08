@@ -28,6 +28,22 @@ Use this as the canonical brand context for generating marketing copy, product d
 - **Typography family:** IBM Plex system (`IBM Plex Sans`, `IBM Plex Sans Condensed`, `IBM Plex Serif`, `IBM Plex Mono`)
 - **Visual style:** Light institutional palette, clean cards, subtle borders, restrained glass effect, high readability.
 
+## Institutional Solution Page Style
+
+Use this style for custody, risk, compliance, issuer, and infrastructure solution pages where the buyer is an institutional operator, custodian, bank, asset manager, issuer, or risk committee.
+
+- **Overall feel:** Institutional risk memo, not generic SaaS landing page. The page should feel like a board-ready custody brief with a clear conversion path.
+- **Hero layout:** Prefer a split hero: left side for positioning, short summary, primary CTA, and evidence line; right side for a compact status/control panel.
+- **Hero typography:** Use `IBM Plex Sans` for ordinary page text and `IBM Plex Sans Condensed` only when a tighter institutional headline or label treatment is intentional.
+- **Font loading:** Load both `IBM Plex Sans` and `IBM Plex Sans Condensed` in Google Fonts requests so Tailwind `font-sans` and condensed headings render consistently.
+- **Cards and notes:** Use neutral cards with subtle borders, soft shadows, small corner indicators, and light surface tint. Avoid the overused AI-report pattern of thick left accent bars or colored top rules.
+- **Highlights:** Preserve accent meaning with quiet signals: tinted header pills, small corner dots, muted background gradients, and status labels. Do not rely on full-width colored bars unless the block is a primary CTA.
+- **Risk language:** Provider/logo lists must include the current cryptographic exposure, for example `threshold ECDSA`, `EdDSA`, `Schnorr`, `ECDSA multisig`, and whether the current path is not PQ-safe.
+- **Diagrams:** Favor simple stack maps and status panels over decorative illustrations. Label the existing stack, the EternaX control layer, and the protected authorization path.
+- **Tables:** Make diligence tables calm and readable: neutral headers, compact status notes, clear green/red risk labels, and restrained highlighted cells.
+- **CTA treatment:** Use one strong navy conversion block near the bottom with a specific institutional action such as readiness map, pilot, assessment, or risk review.
+- **Copy rhythm:** Use fewer “Title Case With Period.” headings. Prefer concise institutional headings such as `Institutional Exposure`, `Outcomes by Stakeholder`, and `De-risked migration path`.
+
 ## Channels and Brand Handles
 
 - Website: `https://eternax.ai`
