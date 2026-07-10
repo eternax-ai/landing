@@ -1519,52 +1519,138 @@ h3 {
   background: #17203d;
 }
 
+.integration-overview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+  align-items: center;
+  margin: 2.5rem 0;
+}
+
+.integration-copy {
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--green);
+  color: var(--text-secondary);
+}
+
+.integration-copy p:last-child {
+  margin-bottom: 0;
+}
+
 .stack-map {
   display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
-  gap: 0.9rem;
-  align-items: center;
-  margin: 2rem 0;
+  grid-template-columns: 1fr;
+  margin: 0;
 }
 
 .stack-node {
-  min-height: 128px;
-  padding: 1.2rem;
+  display: grid;
+  grid-template-columns: minmax(150px, 0.7fr) 1.5fr;
+  gap: 1.5rem;
+  align-items: center;
+  min-height: 112px;
+  padding: 1.35rem 1.5rem;
   background: #fff;
   border: 1px solid rgba(40,55,113,0.12);
   border-radius: 10px;
   box-shadow: 0 10px 28px rgba(24,33,63,0.05);
 }
 
-.stack-node span {
+.stack-node-label {
   display: block;
-  color: var(--text-muted);
-  font-size: 0.66rem;
+  color: var(--brand);
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 0.55rem;
 }
 
 .stack-node strong {
   display: block;
   color: #17203d;
-  font-size: 1rem;
+  font-size: 1.08rem;
   line-height: 1.35;
 }
 
+.stack-node-source {
+  border-left: 4px solid rgba(40,55,113,0.45);
+}
+
 .stack-node-core {
-  border-color: rgba(47,94,82,0.35);
-  background: linear-gradient(180deg, #fff 0%, rgba(47,94,82,0.08) 100%);
+  color: #fff;
+  border-color: var(--green);
+  background: linear-gradient(135deg, #244b42 0%, var(--green) 100%);
+  box-shadow: 0 16px 36px rgba(47,94,82,0.2);
+}
+
+.stack-node-core .stack-node-label,
+.stack-node-core strong {
+  color: #fff;
+}
+
+.stack-assurances {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.stack-assurances span {
+  padding: 0.28rem 0.55rem;
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.stack-node-target {
+  border-left: 4px solid var(--brand);
+  background: rgba(40,55,113,0.06);
 }
 
 .stack-connector {
-  color: var(--text-muted);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  color: var(--green);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: center;
+}
+
+.stack-connector::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 50%;
+  width: 2px;
+  background: rgba(47,94,82,0.35);
+  transform: translateX(-50%);
+}
+
+.stack-connector::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  border: 5px solid transparent;
+  border-top: 7px solid var(--green);
+  transform: translateX(-50%);
+}
+
+.stack-connector span {
+  position: relative;
+  z-index: 1;
+  padding: 0.3rem 0.7rem;
+  background: var(--bg);
+  border: 1px solid rgba(47,94,82,0.18);
+  border-radius: 999px;
 }
 
 .solution-grid {
@@ -1861,6 +1947,7 @@ tbody td,
 @media (max-width: 980px) {
   .cover-two-column .cover-inner,
   .provider-universe,
+  .integration-overview,
   .stack-map,
   .solution-grid,
   .outcome-grid {
@@ -1875,8 +1962,8 @@ tbody td,
     margin-top: 0;
   }
 
-  .stack-connector {
-    text-align: left;
+  .integration-overview {
+    gap: 2rem;
   }
 
   .solution-card-large {
@@ -1917,6 +2004,11 @@ tbody td,
   .outcome-card,
   .stack-node {
     padding: 1.1rem;
+  }
+
+  .stack-node {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
   }
 }
 
@@ -2023,25 +2115,32 @@ tbody td,
 <div class="container">
 <div class="section-label">What EternaX Enables</div>
 <h2>A post-quantum control layer for the custody stack you already use</h2>
-<p>EternaX is not a custodian. It is designed to integrate underneath existing MPC, HSM, and Safe-style EVM custody to make authorization post-quantum safe using SLH-DSA / SPHINCS+ (NIST FIPS 205), without custody re-platforming, chain migration, or asset movement. Custody providers integrate the PQ Custody SDK into their stack; institutions gain PQ-safe custody authorization without changing providers, workflows, or asset venues. Built for banks, asset managers, tokenization platforms, stablecoin issuers, protocol foundations, and regulated custodians.</p>
-<p>Hash-based threshold signatures are not a practical drop-in path for institutional custody. EternaX avoids thresholding SLH-DSA / SPHINCS+ entirely. Members sign ordinary SLH-DSA / SPHINCS+ approval envelopes; threshold authorization is enforced separately through a Shamir-shared seal. <a href="https://arxiv.org/abs/2607.08226" rel="noopener" style="color:var(--brand);font-weight:600;" target="_blank">Formal specification (arXiv)</a>.</p>
-
-<div class="stack-map" aria-label="EternaX custody integration model">
+<div class="integration-overview">
+<div class="stack-map" role="group" aria-label="EternaX custody integration model">
 <div class="stack-node stack-node-source">
-<span>Existing custody stack</span>
+<span class="stack-node-label">Existing custody stack</span>
 <strong>MPC, HSM, Safe, policy engine</strong>
 </div>
-<div class="stack-connector">Integrates underneath</div>
+<div class="stack-connector"><span>Approval request</span></div>
 <div class="stack-node stack-node-core">
-<span>EternaX authorization layer</span>
+<span class="stack-node-label">EternaX PQ authorization layer</span>
+<div>
 <strong>PQ Custody SDK + SLH-DSA approvals</strong>
+<div class="stack-assurances"><span>No re-platforming</span><span>No asset migration</span></div>
 </div>
-<div class="stack-connector">Controls movement</div>
+</div>
+<div class="stack-connector"><span>Authorized execution</span></div>
 <div class="stack-node stack-node-target">
-<span>Asset authorization</span>
-<strong>PQ Vault for EVM, custody controls across chains</strong>
+<span class="stack-node-label">Protected asset movement</span>
+<strong>PQ Vault for EVM + cross-chain custody controls</strong>
 </div>
 </div>
+<div class="integration-copy">
+<p>EternaX is not a custodian. It is designed to integrate underneath existing MPC, HSM, and Safe-style EVM custody to make authorization post-quantum safe using SLH-DSA / SPHINCS+ (NIST FIPS 205), without custody re-platforming, chain migration, or asset movement. Custody providers integrate the PQ Custody SDK into their stack; institutions gain PQ-safe custody authorization without changing providers, workflows, or asset venues. Built for banks, asset managers, tokenization platforms, stablecoin issuers, protocol foundations, and regulated custodians.</p>
+</div>
+</div>
+
+<p>Hash-based threshold signatures are not a practical drop-in path for institutional custody. EternaX avoids thresholding SLH-DSA / SPHINCS+ entirely. Members sign ordinary SLH-DSA / SPHINCS+ approval envelopes; threshold authorization is enforced separately through a Shamir-shared seal. <a href="https://arxiv.org/abs/2607.08226" rel="noopener" style="color:var(--brand);font-weight:600;" target="_blank">Formal specification (arXiv)</a>.</p>
 
 <div class="solution-grid">
 <div class="solution-card solution-card-large">
