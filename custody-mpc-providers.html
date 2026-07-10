@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://eternax.ai/assets/preview.png">
 <meta property="og:site_name" content="EternaX Labs">
 <meta property="og:locale" content="en_US">
-<meta property="article:modified_time" content="2026-07-08">
+<meta property="article:modified_time" content="2026-07-10">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@EternaXlabs">
 <meta name="twitter:title" content="SLH-DSA / SPHINCS+ Custody for Institutional MPC, HSM and Safe | EternaX">
@@ -76,7 +76,7 @@
   "url": "https://eternax.ai/custody-mpc-providers.html",
   "name": "SLH-DSA Post-Quantum Custody for Existing MPC, HSM and Safe Stacks",
   "description": "EternaX makes existing institutional MPC, HSM, and Safe-style custody PQ-safe using conservative NIST hash-based SLH-DSA / SPHINCS+ (NIST FIPS 205) authorization without replacing providers, changing workflows, moving assets, or changing chains.",
-  "dateModified": "2026-07-08",
+  "dateModified": "2026-07-10",
   "isPartOf": {
     "@type": "WebSite",
     "@id": "https://eternax.ai/#website",
@@ -289,7 +289,7 @@
       "name": "Can my existing custody provider add SLH-DSA / SPHINCS+ (NIST FIPS 205) support without EternaX?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, a custody provider can eventually add ordinary SLH-DSA / SPHINCS+ (NIST FIPS 205) signing support. But ordinary SLH-DSA / SPHINCS+ (NIST FIPS 205) support does not automatically solve MPC-style threshold custody, because hash-based threshold signatures are not a practical drop-in replacement for threshold ECDSA in institutional custody (see the Post-Quantum MPC Custody Crisis 2026 report for the full analysis across 15 providers). EternaX solves the harder authorization problem by not thresholding SLH-DSA at all. Members sign ordinary SLH-DSA / SPHINCS+ approval envelopes, while threshold authorization is enforced separately through a Shamir-shared seal. That is the difference between adding a post-quantum signature primitive and making distributed custody authorization post-quantum safe."
+        "text": "Yes, a custody provider can eventually add ordinary SLH-DSA / SPHINCS+ (NIST FIPS 205) signing support. But ordinary SLH-DSA / SPHINCS+ (NIST FIPS 205) support does not automatically solve MPC-style threshold custody, because hash-based threshold signatures are not a practical drop-in replacement for threshold ECDSA in institutional custody (see the Post-Quantum MPC Custody Crisis 2026 report for the full analysis across 15 providers, and the dual-gate architecture paper at arXiv:2607.08226 for the formal specification). EternaX solves the harder authorization problem by not thresholding SLH-DSA at all. Members sign ordinary SLH-DSA / SPHINCS+ approval envelopes, while threshold authorization is enforced separately through a Shamir-shared seal. That is the difference between adding a post-quantum signature primitive and making distributed custody authorization post-quantum safe."
       }
     },
     {
@@ -1519,52 +1519,138 @@ h3 {
   background: #17203d;
 }
 
+.integration-overview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+  align-items: center;
+  margin: 2.5rem 0;
+}
+
+.integration-copy {
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--green);
+  color: var(--text-secondary);
+}
+
+.integration-copy p:last-child {
+  margin-bottom: 0;
+}
+
 .stack-map {
   display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
-  gap: 0.9rem;
-  align-items: center;
-  margin: 2rem 0;
+  grid-template-columns: 1fr;
+  margin: 0;
 }
 
 .stack-node {
-  min-height: 128px;
-  padding: 1.2rem;
+  display: grid;
+  grid-template-columns: minmax(150px, 0.7fr) 1.5fr;
+  gap: 1.5rem;
+  align-items: center;
+  min-height: 112px;
+  padding: 1.35rem 1.5rem;
   background: #fff;
   border: 1px solid rgba(40,55,113,0.12);
   border-radius: 10px;
   box-shadow: 0 10px 28px rgba(24,33,63,0.05);
 }
 
-.stack-node span {
+.stack-node-label {
   display: block;
-  color: var(--text-muted);
-  font-size: 0.66rem;
+  color: var(--brand);
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 0.55rem;
 }
 
 .stack-node strong {
   display: block;
   color: #17203d;
-  font-size: 1rem;
+  font-size: 1.08rem;
   line-height: 1.35;
 }
 
+.stack-node-source {
+  border-left: 4px solid rgba(40,55,113,0.45);
+}
+
 .stack-node-core {
-  border-color: rgba(47,94,82,0.35);
-  background: linear-gradient(180deg, #fff 0%, rgba(47,94,82,0.08) 100%);
+  color: #fff;
+  border-color: var(--green);
+  background: linear-gradient(135deg, #244b42 0%, var(--green) 100%);
+  box-shadow: 0 16px 36px rgba(47,94,82,0.2);
+}
+
+.stack-node-core .stack-node-label,
+.stack-node-core strong {
+  color: #fff;
+}
+
+.stack-assurances {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.stack-assurances span {
+  padding: 0.28rem 0.55rem;
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.stack-node-target {
+  border-left: 4px solid var(--brand);
+  background: rgba(40,55,113,0.06);
 }
 
 .stack-connector {
-  color: var(--text-muted);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  color: var(--green);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: center;
+}
+
+.stack-connector::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 50%;
+  width: 2px;
+  background: rgba(47,94,82,0.35);
+  transform: translateX(-50%);
+}
+
+.stack-connector::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  border: 5px solid transparent;
+  border-top: 7px solid var(--green);
+  transform: translateX(-50%);
+}
+
+.stack-connector span {
+  position: relative;
+  z-index: 1;
+  padding: 0.3rem 0.7rem;
+  background: var(--bg);
+  border: 1px solid rgba(47,94,82,0.18);
+  border-radius: 999px;
 }
 
 .solution-grid {
@@ -1607,6 +1693,16 @@ h3 {
 .solution-card.solution-card-large h3,
 .solution-card.solution-card-large p {
   color: #fff;
+}
+
+.solution-card-large a {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.solution-card-large a:hover {
+  opacity: 0.85;
 }
 
 .solution-list {
@@ -1851,6 +1947,7 @@ tbody td,
 @media (max-width: 980px) {
   .cover-two-column .cover-inner,
   .provider-universe,
+  .integration-overview,
   .stack-map,
   .solution-grid,
   .outcome-grid {
@@ -1865,8 +1962,8 @@ tbody td,
     margin-top: 0;
   }
 
-  .stack-connector {
-    text-align: left;
+  .integration-overview {
+    gap: 2rem;
   }
 
   .solution-card-large {
@@ -1908,6 +2005,11 @@ tbody td,
   .stack-node {
     padding: 1.1rem;
   }
+
+  .stack-node {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
 }
 
 </style>
@@ -1923,7 +2025,6 @@ tbody td,
 <p class="hero-summary">EternaX is built for custody providers and institutional stacks that need SLH-DSA / SPHINCS+ authorization under existing MPC, HSM, and Safe-style workflows. The custodian, chain, asset venue, and operating model stay in place.</p>
 <div class="hero-actions">
 <a class="hero-cta" href="mailto:info@eternax.ai?subject=PQ%20Custody%20Readiness%20Pilot">Request a custody readiness map</a>
-<a class="hero-link" href="post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html" rel="noopener" target="_blank">Read the MPC custody report</a>
 </div>
 </div>
 
@@ -2006,6 +2107,7 @@ tbody td,
 <p>BlackRock (BUIDL via Securitize/Fireblocks), Franklin Templeton (BENJI), Hamilton Lane (via Securitize), JPMorgan (Onyx), Standard Chartered (via Zodia Custody), HSBC (Orion), Citi (Token Services), BNY Mellon, Goldman Sachs (DAP), DBS, Circle (USDC), Tether (USDT), Paxos, PayPal (PYUSD), Visa, Fidelity, Apollo, KKR. Our public-source review did not identify a disclosed end-to-end post-quantum custody migration roadmap. See the <a href="already-broken-quantum-risk-report-q1-2026.html" style="color:var(--brand);font-weight:600;">Already Broken report</a> and <a href="post_quantum_exposure_map_institutional_crypto_tokenized_assets.html" style="color:var(--brand);font-weight:600;">Post-Quantum Exposure Map</a>.</p>
 </div>
 <div class="eo-banner">EO 14412 accelerates the PQC clock: 2030 for key establishment and FIPS compliance, 2031 for authentication/signatures, and CBOM minimum elements due within 270 days.</div>
+<div class="paper-link" style="margin-top:1.5rem;"><a href="post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html" rel="noopener" target="_blank">Read the MPC custody report</a><span class="status-note">15 MPC custody providers mapped. $10T+ institutional custody exposure assessed. Why hash-based threshold signing is impractical and why dual-gate architecture is the production path.</span></div>
 </div>
 </section>
 
@@ -2013,25 +2115,32 @@ tbody td,
 <div class="container">
 <div class="section-label">What EternaX Enables</div>
 <h2>A post-quantum control layer for the custody stack you already use</h2>
-<p>EternaX is not a custodian. It is designed to integrate underneath existing MPC, HSM, and Safe-style EVM custody to make authorization post-quantum safe using SLH-DSA / SPHINCS+ (NIST FIPS 205), without custody re-platforming, chain migration, or asset movement. Custody providers integrate the PQ Custody SDK into their stack; institutions gain PQ-safe custody authorization without changing providers, workflows, or asset venues. Built for banks, asset managers, tokenization platforms, stablecoin issuers, protocol foundations, and regulated custodians.</p>
-<p>Hash-based threshold signatures are not a practical drop-in path for institutional custody. EternaX avoids thresholding SLH-DSA / SPHINCS+ entirely. Members sign ordinary SLH-DSA / SPHINCS+ approval envelopes; threshold authorization is enforced separately through a Shamir-shared seal.</p>
-
-<div class="stack-map" aria-label="EternaX custody integration model">
+<div class="integration-overview">
+<div class="stack-map" role="group" aria-label="EternaX custody integration model">
 <div class="stack-node stack-node-source">
-<span>Existing custody stack</span>
+<span class="stack-node-label">Existing custody stack</span>
 <strong>MPC, HSM, Safe, policy engine</strong>
 </div>
-<div class="stack-connector">Integrates underneath</div>
+<div class="stack-connector"><span>Approval request</span></div>
 <div class="stack-node stack-node-core">
-<span>EternaX authorization layer</span>
+<span class="stack-node-label">EternaX PQ authorization layer</span>
+<div>
 <strong>PQ Custody SDK + SLH-DSA approvals</strong>
+<div class="stack-assurances"><span>No re-platforming</span><span>No asset migration</span></div>
 </div>
-<div class="stack-connector">Controls movement</div>
+</div>
+<div class="stack-connector"><span>Authorized execution</span></div>
 <div class="stack-node stack-node-target">
-<span>Asset authorization</span>
-<strong>PQ Vault for EVM, custody controls across chains</strong>
+<span class="stack-node-label">Protected asset movement</span>
+<strong>PQ Vault for EVM + cross-chain custody controls</strong>
 </div>
 </div>
+<div class="integration-copy">
+<p>EternaX is not a custodian. It is designed to integrate underneath existing MPC, HSM, and Safe-style EVM custody to make authorization post-quantum safe using SLH-DSA / SPHINCS+ (NIST FIPS 205), without custody re-platforming, chain migration, or asset movement. Custody providers integrate the PQ Custody SDK into their stack; institutions gain PQ-safe custody authorization without changing providers, workflows, or asset venues. Built for banks, asset managers, tokenization platforms, stablecoin issuers, protocol foundations, and regulated custodians.</p>
+</div>
+</div>
+
+<p>Hash-based threshold signatures are not a practical drop-in path for institutional custody. EternaX avoids thresholding SLH-DSA / SPHINCS+ entirely. Members sign ordinary SLH-DSA / SPHINCS+ approval envelopes; threshold authorization is enforced separately through a Shamir-shared seal. <a href="https://arxiv.org/abs/2607.08226" rel="noopener" style="color:var(--brand);font-weight:600;" target="_blank">Formal specification (arXiv)</a>.</p>
 
 <div class="solution-grid">
 <div class="solution-card solution-card-large">
@@ -2042,6 +2151,7 @@ tbody td,
 <li>Extends to Safe-style EVM smart accounts without custody provider replacement or vendor lock-in.</li>
 <li>Custody providers integrate the SDK; institutions benefit without changing workflows.</li>
 </ul>
+<p class="meta-line" style="margin-top:1rem;margin-bottom:0;"><a href="https://arxiv.org/abs/2607.08226" rel="noopener" target="_blank">Dual-gate architecture paper (arXiv)</a> · <a href="https://github.com/eternax-ai/dual-gate-mpc" rel="noopener" target="_blank">GitHub</a></p>
 </div>
 <div class="solution-card">
 <h3>Key Rotation, Not Rebuild</h3>
@@ -2095,7 +2205,7 @@ tbody td,
 </div>
 <div class="phase-card phase-1">
 <div class="phase-label">Phase 1: Validate with ECDSA</div>
-<p><strong>MPC:</strong> Integrate dual-gate authorization with existing ECDSA signing. Zero PQ commitment yet. Prove the authorization layer.</p>
+<p><strong>MPC:</strong> Integrate dual-gate authorization with existing ECDSA signing. Zero PQ commitment yet. Prove the authorization layer. <a href="https://arxiv.org/abs/2607.08226" rel="noopener" style="color:var(--brand);font-weight:600;" target="_blank">See paper</a>.</p>
 <p><strong>HSM:</strong> Validate SLH-DSA compatibility through the standard sign API. Test with existing ECDSA keys first.</p>
 <p><strong>Safe:</strong> Integrate PQ verifier guard and ERC-1271 contract. Validate PQ policy coverage across execution paths.</p>
 </div>
@@ -2121,7 +2231,7 @@ tbody td,
 </table>
 </div>
 
-<div class="paper-link" style="margin-top:1.5rem;">Technical basis: <a href="blogs/post-quantum-mpc-custody-on-chain/index.html" rel="noopener" target="_blank">Post-Quantum MPC Custody, On-Chain</a>. Signature-agnostic distributed approval, ordinary member signatures, and a Shamir-shared threshold seal.</div>
+<div class="paper-link" style="margin-top:1.5rem;">Technical basis: <a href="https://arxiv.org/abs/2607.08226" rel="noopener" target="_blank">Threshold Authorization Without Threshold Signatures (arXiv)</a>, <a href="blogs/post-quantum-mpc-custody-on-chain/index.html" rel="noopener" target="_blank">Post-Quantum MPC Custody, On-Chain</a>. Signature-agnostic distributed approval, ordinary member signatures, and a Shamir-shared threshold seal.</div>
 </div>
 </section>
 
@@ -2238,11 +2348,18 @@ tbody td,
 
 <section id="research">
 <div class="container">
-<div class="section-label">EternaX Institutional Research</div>
+<div class="section-label">EternaX Research</div>
 <h2>Further reading for risk committees and technical diligence</h2>
+
+<h3 style="margin-top:1.5rem;">Published Papers</h3>
+<div class="research-grid">
+<div class="paper-link"><a href="https://arxiv.org/abs/2607.08226" rel="noopener" target="_blank">Threshold Authorization Without Threshold Signatures: Signature-Agnostic MPC Custody</a><span class="status-note">Formal specification of the dual-gate architecture. arXiv:2607.08226, July 2026. <a href="https://github.com/eternax-ai/dual-gate-mpc" rel="noopener" target="_blank">Open-source implementation</a>.</span></div>
+<div class="paper-link"><a href="blogs/post-quantum-mpc-custody-on-chain/index.html" rel="noopener" target="_blank">Post-Quantum MPC Custody, On-Chain</a><span class="status-note">Signature-agnostic distributed approval for post-quantum custody. Gate 1 authenticates custody members; Gate 2 enforces threshold authorization where assets actually move.</span></div>
+</div>
+
+<h3 style="margin-top:2rem;">Institutional Reports</h3>
 <div class="research-grid">
 <div class="paper-link"><a href="post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html" rel="noopener" target="_blank">Post-Quantum MPC Custody Crisis 2026</a><span class="status-note">15 MPC custody providers mapped. $10T+ institutional custody exposure assessed. Why hash-based threshold signing is impractical and why dual-gate architecture is the production path.</span></div>
-<div class="paper-link"><a href="blogs/post-quantum-mpc-custody-on-chain/index.html" rel="noopener" target="_blank">Post-Quantum MPC Custody, On-Chain</a><span class="status-note">Signature-agnostic distributed approval for post-quantum custody. Gate 1 authenticates custody members; Gate 2 enforces threshold authorization where assets actually move.</span></div>
 <div class="paper-link"><a href="post-quantum-signature-security-ranking-2026.html" rel="noopener" target="_blank">Post-Quantum Signature Security Ranking 2026</a><span class="status-note">Full NIST PQ signature scheme comparison. SLH-DSA, ML-DSA, and FN-DSA ranked across security assumptions, implementation risk, and institutional custody fit.</span></div>
 <div class="paper-link"><a href="post-quantum-non-upgradeable-chains-defi-exposure-report.html" rel="noopener" target="_blank">Non-Upgradeable Chains and DeFi Exposure Report</a><span class="status-note">Why Ethereum's immutable contracts (Permit, WETH9, Uniswap, Aave), Solana's Ed25519 runtime, and Canton's Synchronizer architecture cannot be PQ-upgraded.</span></div>
 </div>
@@ -2311,7 +2428,7 @@ tbody td,
 </details>
 <details class="faq-item">
 <summary><h3>Can my existing custody provider add SLH-DSA / SPHINCS+ (NIST FIPS 205) support without EternaX?</h3></summary>
-<div class="faq-answer"><p>Yes, a custody provider can eventually add ordinary SLH-DSA / SPHINCS+ (NIST FIPS 205) signing support. But ordinary SLH-DSA / SPHINCS+ (NIST FIPS 205) support does not automatically solve MPC-style threshold custody, because hash-based threshold signatures are not a practical drop-in replacement for threshold ECDSA in institutional custody (see the <a href="https://eternax.ai/post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html" rel="noopener" style="color:var(--brand);font-weight:500;" target="_blank">Post-Quantum MPC Custody Crisis 2026</a> report for the full analysis across 15 providers). EternaX solves the harder authorization problem by not thresholding SLH-DSA at all. Members sign ordinary SLH-DSA / SPHINCS+ approval envelopes, while threshold authorization is enforced separately through a Shamir-shared seal. That is the difference between adding a post-quantum signature primitive and making distributed custody authorization post-quantum safe.</p></div>
+<div class="faq-answer"><p>Yes, a custody provider can eventually add ordinary SLH-DSA / SPHINCS+ (NIST FIPS 205) signing support. But ordinary SLH-DSA / SPHINCS+ (NIST FIPS 205) support does not automatically solve MPC-style threshold custody, because hash-based threshold signatures are not a practical drop-in replacement for threshold ECDSA in institutional custody (see the <a href="https://eternax.ai/post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html" rel="noopener" style="color:var(--brand);font-weight:500;" target="_blank">Post-Quantum MPC Custody Crisis 2026</a> report for the full analysis across 15 providers, and the <a href="https://arxiv.org/abs/2607.08226" rel="noopener" style="color:var(--brand);font-weight:500;" target="_blank">dual-gate architecture paper (arXiv)</a> for the formal specification). EternaX solves the harder authorization problem by not thresholding SLH-DSA at all. Members sign ordinary SLH-DSA / SPHINCS+ approval envelopes, while threshold authorization is enforced separately through a Shamir-shared seal. That is the difference between adding a post-quantum signature primitive and making distributed custody authorization post-quantum safe.</p></div>
 </details>
 <details class="faq-item">
 <summary><h3>What is EO 14412 and what does it mean for institutional custody?</h3></summary>
