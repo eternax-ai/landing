@@ -1,0 +1,51 @@
+<footer class="py-12 border-t" style="background-color: var(--bg); border-color: var(--border);" itemscope itemtype="https://schema.org/WPFooter">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-6 mb-10">
+            <div class="lg:col-span-2">
+                {% include footer-brand.html %}
+                <p class="text-sm mt-1" style="color: var(--fg-70)">Quantum-safe Settlement at Market Speed</p>
+                <a href="{{ '/pilot.html' | relative_url }}" class="btn-primary inline-block px-4 py-2 rounded-lg text-sm font-semibold text-center text-white">Book a Pilot Call</a>
+            </div>
+
+            <nav aria-label="Footer solutions">
+                <h2 class="text-sm font-semibold mb-3" style="color: var(--fg)">Solutions</h2>
+                <div class="flex flex-col items-start gap-2">
+                    <a href="{{ '/post-quantum-stablecoins-and-tokenization.html' | relative_url }}" class="text-sm link-muted">Stablecoin Issuers</a>
+                    <a href="{{ '/post-quantum-stablecoins-and-tokenization.html' | relative_url }}" class="text-sm link-muted">Tokenized Funds &amp; RWAs</a>
+                    <a href="{{ '/custody-mpc-providers.html' | relative_url }}" class="text-sm link-muted">Custody &amp; MPC Providers</a>
+                </div>
+            </nav>
+
+            <nav aria-label="Footer research">
+                <h2 class="text-sm font-semibold mb-3" style="color: var(--fg)">Research</h2>
+                <div class="flex flex-col items-start gap-2">
+                    <a href="{{ '/reports/index.html' | relative_url }}" class="text-sm link-muted">Reports</a>
+                    <a href="{{ '/blogs/index.html' | relative_url }}" class="text-sm link-muted">Blogs</a>
+                    <a href="{{ '/glossary.html' | relative_url }}" class="text-sm link-muted">Glossary</a>
+                </div>
+            </nav>
+
+            <nav aria-label="Footer company">
+                <h2 class="text-sm font-semibold mb-3" style="color: var(--fg)">Company</h2>
+                <div class="flex flex-col items-start gap-2">
+                    <a href="{{ '/why-eternax.html' | relative_url }}" class="text-sm link-muted">Why EternaX</a>
+                    <a href="{{ '/about.html' | relative_url }}" class="text-sm link-muted">About</a>
+                    <a href="mailto:info@eternax.ai" class="text-sm link-muted">Contact</a>
+                </div>
+            </nav>
+
+            <nav aria-label="EternaX social media">
+                <h2 class="text-sm font-semibold mb-3" style="color: var(--fg)">Social</h2>
+                <div class="flex flex-col items-start gap-2">
+                    <a href="https://github.com/eternax-ai" class="text-sm link-muted" itemprop="sameAs">GitHub</a>
+                    <a href="https://www.youtube.com/@eternaXlabs" class="text-sm link-muted" itemprop="sameAs">YouTube</a>
+                    <a href="https://t.me/eternax_official" class="text-sm link-muted" itemprop="sameAs">Telegram</a>
+                    <a href="https://x.com/EternaXlabs" class="text-sm link-muted" itemprop="sameAs">X (Twitter)</a>
+                    <a href="https://www.linkedin.com/company/eternax-labs" class="text-sm link-muted" itemprop="sameAs">LinkedIn</a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="text-xs" style="color: var(--fg-70)">&copy; {{ 'now' | date: '%Y' }} EternaX Labs</div>
+    </div>
+</footer>
