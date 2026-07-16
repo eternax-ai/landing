@@ -412,14 +412,18 @@ h3 { font-size:1.1rem; line-height:1.3; margin-bottom:.55rem; }
 .card-kicker { color:var(--green); font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-bottom:.6rem; }
 .card p { color:var(--muted); font-size:.95rem; line-height:1.65; }
 .card p:last-child { margin-bottom:0; }
-.path-grid,.audience-grid,.step-grid,.boundary-grid,.research-grid { display:grid; gap:1rem; }
+.path-grid,.audience-stack,.step-grid,.boundary-grid,.research-grid { display:grid; gap:1rem; }
 .path-grid { grid-template-columns:repeat(2,1fr); }
 .path-card ul { list-style:none; margin-top:1rem; }
 .path-card li { position:relative; padding:.65rem 0 .65rem 1.1rem; border-top:1px solid var(--border); color:var(--muted); font-size:.95rem; line-height:1.6; }
 .path-card li::before { content:''; position:absolute; left:0; top:1.2rem; width:.35rem; height:.35rem; border-radius:50%; background:var(--green); }
-.audience-grid { grid-template-columns:repeat(4,1fr); }
+.audience-stack { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
 .audience-card { box-shadow:none; }
-.audience-card p { font-size:.95rem; }
+.audience-card p { font-size:.95rem; margin-bottom:0; }
+.audience-card-wide { grid-column:1 / -1; }
+.name-row { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+.name-row-label { font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--light); width:100%; margin-bottom:.15rem; }
+.name-pill { display:inline-block; font-size:.82rem; font-weight:500; color:var(--brand); background:rgba(40,55,113,.05); border:1px solid rgba(40,55,113,.15); padding:.35rem .75rem; border-radius:999px; white-space:nowrap; }
 .step-grid { grid-template-columns:repeat(3,1fr); counter-reset:steps; }
 .step-card { counter-increment:steps; }
 .step-card::before { content:'0' counter(steps); display:block; color:var(--green); font-size:.7rem; font-weight:700; letter-spacing:.12em; margin-bottom:.8rem; }
@@ -454,16 +458,16 @@ h3 { font-size:1.1rem; line-height:1.3; margin-bottom:.55rem; }
 .faq-group-desc { max-width:760px; margin-bottom:1rem; color:var(--muted); font-size:.92rem; line-height:1.6; }
 
 @media (max-width:980px) {
-  .cover-inner,.module-grid,.audience-grid,.research-grid { grid-template-columns:1fr 1fr; }
+  .cover-inner,.module-grid,.audience-stack,.research-grid { grid-template-columns:1fr 1fr; }
   .integration-overview { grid-template-columns:1fr; gap:2rem; }
   .module-card,.module-card:nth-child(-n+2) { grid-column:span 1; }
-  .audience-grid { grid-template-columns:1fr 1fr; }
+  .audience-stack { grid-template-columns:1fr; }
 }
 @media (max-width:700px) {
   .container,.cover-inner { padding-left:1rem; padding-right:1rem; }
   section { padding:3.5rem 0; }
   .product-cover { padding-top:calc(2rem + 64px); }
-  .cover-inner,.module-grid,.path-grid,.audience-grid,.step-grid,.boundary-grid,.research-grid { grid-template-columns:1fr; }
+  .cover-inner,.module-grid,.path-grid,.audience-stack,.step-grid,.boundary-grid,.research-grid { grid-template-columns:1fr; }
   .stack-node { grid-template-columns:1fr; gap:.35rem; }
   .integration-copy { padding-left:1rem; }
   .status-row { grid-template-columns:1fr; gap:.12rem; }
@@ -593,22 +597,85 @@ h3 { font-size:1.1rem; line-height:1.3; margin-bottom:.55rem; }
   <div class="container">
     <p class="section-label">Audience solutions</p>
     <h2>Institutional tokenization outcomes by operating model</h2>
-    <div class="audience-grid">
+    <div class="audience-stack">
       <article class="card audience-card">
-        <h3>Stablecoin issuers</h3>
-        <p>Protect mint, burn, freeze, treasury, upgrade, and permit controls across supported deployments while retaining current issuance operations.</p>
+        <p class="card-kicker">For Tokenization Platforms</p>
+        <h3>Harden your platform's compliance layer before any competitor does</h3>
+        <p>Add PQ-safe compliance verification and governance without replacing the tokenization platform. EternaX maps the existing exposure, integrates PQ-gated custody controls, and supports PQ-native authorization for new or upgradeable deployments.</p>
+        <div class="name-row">
+          <span class="name-row-label">Architectural compatibility</span>
+          <span class="name-pill">Securitize</span>
+          <span class="name-pill">Tokeny</span>
+          <span class="name-pill">Ondo</span>
+          <span class="name-pill">Centrifuge</span>
+          <span class="name-pill">Maple</span>
+          <span class="name-pill">Republic</span>
+          <span class="name-pill">Backed Finance</span>
+          <span class="name-pill">Ctrl Alt</span>
+        </div>
       </article>
       <article class="card audience-card">
-        <h3>Tokenization platforms</h3>
-        <p>Add post-quantum investor claims and authorization modules beneath existing issuance, transfer-agent, and compliance workflows.</p>
+        <p class="card-kicker">For Stablecoin Issuers</p>
+        <h3>Make your mint/burn/freeze authority and multi-chain deployment PQ-safe</h3>
+        <p>Multi-chain stablecoin programmes multiply classical mint, burn, freeze, upgrade, and permit dependencies. PQ Custody SDK adds a PQ gate to institutional signing, PQ Vault protects EVM authority, and PQ-Permit provides SLH-DSA permit-style authorization for supported deployments.</p>
+        <div class="name-row">
+          <span class="name-row-label">Relevant for</span>
+          <span class="name-pill">Circle (USDC)</span>
+          <span class="name-pill">Paxos (PYUSD, USDP, USDG)</span>
+          <span class="name-pill">Sky (USDS)</span>
+          <span class="name-pill">Ripple (RLUSD)</span>
+          <span class="name-pill">Tether (USDT)</span>
+        </div>
       </article>
-      <article class="card audience-card">
-        <h3>Asset managers</h3>
-        <p>Secure tokenized funds and ERC-4626 governance, including administrator, strategy, approval, and custody control paths.</p>
+      <article class="card audience-card audience-card-wide">
+        <p class="card-kicker">For Banks with Tokenized Deposit Infrastructure</p>
+        <h3>Make your tokenized deposit stack PQ-safe before supervisory transmission arrives</h3>
+        <p>Tokenized deposits combine long-lived regulated liabilities with two distinct migration problems: quantum forgery of classical authorization and harvest-now-decrypt-later exposure for confidential data. EternaX addresses signature and authorization controls through PQ Custody SDK, PQ Vault, and supported tokenization modules; encryption migration remains a separate workstream.</p>
+        <div class="name-row">
+          <span class="name-row-label">Bank-issued tokenized deposits</span>
+          <span class="name-pill">JPMorgan (Kinexys)</span>
+          <span class="name-pill">HSBC (HKD deposits)</span>
+          <span class="name-pill">Citi (Token Services)</span>
+        </div>
+        <div class="name-row">
+          <span class="name-row-label">Bank-affiliated tokenization platforms</span>
+          <span class="name-pill">BNP Paribas (Neobonds)</span>
+          <span class="name-pill">Standard Chartered (Libeara)</span>
+          <span class="name-pill">MUFG (Progmat)</span>
+          <span class="name-pill">DBS (DDEx)</span>
+        </div>
+        <div class="name-row">
+          <span class="name-row-label">Institutional settlement infrastructure</span>
+          <span class="name-pill">Fnality</span>
+          <span class="name-pill">Partior</span>
+        </div>
       </article>
-      <article class="card audience-card">
-        <h3>Banks</h3>
-        <p>Harden signature-based controls for tokenized deposits. Confidential-data encryption migration remains a separate, coordinated workstream.</p>
+      <article class="card audience-card audience-card-wide">
+        <p class="card-kicker">For Asset Managers and Fund Administrators</p>
+        <h3>Make your tokenized fund lifecycle PQ-hardened with minimal workflow disruption</h3>
+        <p>PQ Custody SDK protects institutional key-use workflows, while PQ-4626 secures supported vault governance and approval paths. A phased deployment minimizes operational disruption and creates a documented migration plan for risk, procurement, and compliance committees.</p>
+        <div class="name-row">
+          <span class="name-row-label">Relevant for</span>
+          <span class="name-pill">Franklin Templeton (BENJI)</span>
+          <span class="name-pill">Hamilton Lane (SCOPE, HLPIF)</span>
+          <span class="name-pill">Apollo (ACRED)</span>
+          <span class="name-pill">KKR</span>
+          <span class="name-pill">Superstate</span>
+          <span class="name-pill">VanEck (VBILL)</span>
+          <span class="name-pill">Wellington</span>
+          <span class="name-pill">Nomura Laser Digital</span>
+        </div>
+        <div class="name-row">
+          <span class="name-row-label">DeFi vault and yield infrastructure (ERC-4626)</span>
+          <span class="name-pill">Morpho</span>
+          <span class="name-pill">Aave</span>
+          <span class="name-pill">Pendle</span>
+          <span class="name-pill">EigenLayer</span>
+          <span class="name-pill">Lido</span>
+          <span class="name-pill">Maple Finance</span>
+          <span class="name-pill">Yearn</span>
+          <span class="name-pill">Euler</span>
+        </div>
       </article>
     </div>
   </div>
