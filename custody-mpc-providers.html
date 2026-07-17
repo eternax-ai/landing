@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#e2e2e2">
 <title>SLH-DSA / SPHINCS+ Post-Quantum Custody for MPC, HSM and Safe | EternaX</title>
-<meta name="description" content="EternaX makes existing MPC, HSM, and Safe-style custody PQ-safe using conservative NIST hash-based SLH-DSA / SPHINCS+ (NIST FIPS 205) authorization, without replacing providers, moving assets, or changing chains.">
-<meta name="keywords" content="post-quantum custody, MPC custody, HSM custody, Safe multisig, SLH-DSA, SPHINCS+, PQ Custody SDK, PQ Vault, institutional custody, EO 14412">
+<meta name="description" content="EternaX makes existing MPC, HSM, and Safe-style custody PQ-safe using conservative NIST hash-based SLH-DSA / SPHINCS+ (NIST FIPS 205) authorization, without replacing providers, moving assets, or changing chains. Dual-gate design preserves cryptographic agility for future PQ schemes.">
+<meta name="keywords" content="post-quantum custody, MPC custody, HSM custody, Safe multisig, SLH-DSA, SPHINCS+, PQ Custody SDK, PQ Vault, institutional custody, EO 14412, crypto-agility, cryptographic agility, signature-agnostic custody">
 <link rel="canonical" href="https://eternax.ai/custody-mpc-providers.html">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="EternaX Labs">
@@ -75,7 +75,7 @@
   "@id": "https://eternax.ai/custody-mpc-providers.html#webpage",
   "url": "https://eternax.ai/custody-mpc-providers.html",
   "name": "SLH-DSA Post-Quantum Custody for Existing MPC, HSM and Safe Stacks",
-  "description": "EternaX makes existing institutional MPC, HSM, and Safe-style custody PQ-safe using conservative NIST hash-based SLH-DSA / SPHINCS+ (NIST FIPS 205) authorization without replacing providers, changing workflows, moving assets, or changing chains.",
+  "description": "EternaX makes existing institutional MPC, HSM, and Safe-style custody PQ-safe using conservative NIST hash-based SLH-DSA / SPHINCS+ (NIST FIPS 205) authorization without replacing providers, changing workflows, moving assets, or changing chains. Signature-agnostic dual-gate authorization preserves cryptographic agility for future NIST-approved schemes.",
   "dateModified": "2026-07-10",
   "isPartOf": {
     "@type": "WebSite",
@@ -106,7 +106,7 @@
     "@id": "https://eternax.ai/#organization"
   },
   "areaServed": "Global",
-  "description": "EternaX makes existing institutional custody control layers PQ-safe across MPC, HSM, and Safe-style EVM smart-account custody using conservative NIST hash-based SLH-DSA / SPHINCS+ (NIST FIPS 205) authorization. The custody provider, workflow, asset venue, and chain stay in place.",
+  "description": "EternaX makes existing institutional custody control layers PQ-safe across MPC, HSM, and Safe-style EVM smart-account custody using conservative NIST hash-based SLH-DSA / SPHINCS+ (NIST FIPS 205) authorization. The custody provider, workflow, asset venue, and chain stay in place. Crypto-agility is preserved through signature-agnostic dual-gate authorization.",
   "audience": [
     {
       "@type": "Audience",
@@ -281,7 +281,15 @@
       "name": "What is the best post-quantum signature scheme for institutional custody?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For rare, high-value institutional custody authorization, EternaX treats SLH-DSA / SPHINCS+ as the conservative choice. SLH-DSA / SPHINCS+ (NIST FIPS 205) is NIST's stateless hash-based digital signature standard, so its security rests on hash-function assumptions rather than lattice assumptions or floating-point implementation complexity. ML-DSA / CRYSTALS-Dilithium (NIST FIPS 204) is a strong general-purpose NIST standard and may be appropriate where speed and compactness matter more. FN-DSA / Falcon (NIST FIPS 206 draft) is compact but more implementation-sensitive and remains a draft standard. For custody, where operations are lower-frequency but high-value, conservative hash-based assurance is the better risk-adjusted profile."
+        "text": "For rare, high-value institutional custody authorization, EternaX treats SLH-DSA / SPHINCS+ as the conservative choice. SLH-DSA / SPHINCS+ (NIST FIPS 205) is NIST's stateless hash-based digital signature standard, so its security rests on hash-function assumptions rather than lattice assumptions or floating-point implementation complexity. ML-DSA / CRYSTALS-Dilithium (NIST FIPS 204) is a strong general-purpose NIST standard and may be appropriate where speed and compactness matter more. FN-DSA / Falcon (NIST FIPS 206 draft) is compact but more implementation-sensitive and remains a draft standard. For custody, where operations are lower-frequency but high-value, conservative hash-based assurance is the better risk-adjusted profile. Dual-gate custody preserves crypto-agility so future NIST-approved schemes can be adopted as Gate 1 member authentication without redesigning threshold authorization."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is cryptographic agility in post-quantum custody?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cryptographic agility — also called crypto-agility — is the ability to replace signature algorithms, parameters, keys, and modules without rebuilding the custody platform. In EternaX dual-gate custody, members authenticate with ordinary SLH-DSA / SPHINCS+ signatures at Gate 1, while Gate 2 enforces threshold authorization through a signature-agnostic seal. That separation lets institutions anchor on the most conservative NIST standard today and rotate Gate 1 to future approved schemes later without another MPC protocol redesign."
       }
     },
     {
@@ -2138,7 +2146,7 @@ tbody td,
 </div>
 </div>
 
-<p>Hash-based threshold signatures are not a practical drop-in path for institutional custody. EternaX avoids thresholding SLH-DSA / SPHINCS+ entirely. Members sign ordinary SLH-DSA / SPHINCS+ approval envelopes; threshold authorization is enforced separately through a Shamir-shared seal. <a href="https://arxiv.org/abs/2607.08226" rel="noopener" style="color:var(--brand);font-weight:600;" target="_blank">Formal specification (arXiv)</a>.</p>
+<p>Hash-based threshold signatures are not a practical drop-in path for institutional custody. EternaX avoids thresholding SLH-DSA / SPHINCS+ entirely. Members sign ordinary SLH-DSA / SPHINCS+ approval envelopes; threshold authorization is enforced separately through a Shamir-shared seal. That separation is cryptographic agility for custody: Gate 1 can rotate to a future NIST-approved signature scheme without redesigning the threshold layer. <a href="https://arxiv.org/abs/2607.08226" rel="noopener" style="color:var(--brand);font-weight:600;" target="_blank">Formal specification (arXiv)</a>.</p>
 
 <div class="solution-grid">
 <div class="solution-card solution-card-large">
@@ -2153,7 +2161,7 @@ tbody td,
 </div>
 <div class="solution-card">
 <h3>Key Rotation, Not Rebuild</h3>
-<p>ECDSA to SLH-DSA / SPHINCS+ becomes key rotation, not custody-stack redesign. Mixed ECDSA/PQ quorums support staged migration. No flag day required.</p>
+<p>ECDSA to SLH-DSA / SPHINCS+ becomes key rotation, not custody-stack redesign. Mixed ECDSA/PQ quorums support staged migration. Crypto-agility means future scheme changes stay key-rotation events, not platform rebuilds. No flag day required.</p>
 </div>
 <div class="solution-card">
 <h3>SDK + Vault Bundle</h3>
@@ -2192,7 +2200,7 @@ tbody td,
 <div class="container">
 <div class="section-label">How Integration Works</div>
 <h2>De-risked migration path for custody providers</h2>
-<p>Integration is phased and incremental across all three custody types. Start with existing ECDSA signing to validate the authorization layer, then rotate to SLH-DSA when ready. No big-bang migration. No flag day. No custody-stack redesign.</p>
+<p>Integration is phased and incremental across all three custody types. Start with existing ECDSA signing to validate the authorization layer, then rotate to SLH-DSA when ready. No big-bang migration. No flag day. No custody-stack redesign. The same cryptographic agility that enables staged ECDSA-to-SLH-DSA rotation also keeps a path open for later NIST-approved schemes.</p>
 
 <div class="phase-grid">
 <div class="phase-card">
@@ -2422,7 +2430,11 @@ tbody td,
 </details>
 <details class="faq-item">
 <summary><h3>What is the best post-quantum signature scheme for institutional custody?</h3></summary>
-<div class="faq-answer"><p>For rare, high-value institutional custody authorization, EternaX treats SLH-DSA / SPHINCS+ as the conservative choice. SLH-DSA / SPHINCS+ (NIST FIPS 205) is NIST's stateless hash-based digital signature standard, so its security rests on hash-function assumptions rather than lattice assumptions or floating-point implementation complexity. ML-DSA / CRYSTALS-Dilithium (NIST FIPS 204) is a strong general-purpose NIST standard and may be appropriate where speed and compactness matter more. FN-DSA / Falcon (NIST FIPS 206 draft) is compact but more implementation-sensitive and remains a draft standard. For custody, where operations are lower-frequency but high-value, conservative hash-based assurance is the better risk-adjusted profile.</p></div>
+<div class="faq-answer"><p>For rare, high-value institutional custody authorization, EternaX treats SLH-DSA / SPHINCS+ as the conservative choice. SLH-DSA / SPHINCS+ (NIST FIPS 205) is NIST's stateless hash-based digital signature standard, so its security rests on hash-function assumptions rather than lattice assumptions or floating-point implementation complexity. ML-DSA / CRYSTALS-Dilithium (NIST FIPS 204) is a strong general-purpose NIST standard and may be appropriate where speed and compactness matter more. FN-DSA / Falcon (NIST FIPS 206 draft) is compact but more implementation-sensitive and remains a draft standard. For custody, where operations are lower-frequency but high-value, conservative hash-based assurance is the better risk-adjusted profile. Dual-gate custody preserves crypto-agility so future NIST-approved schemes can be adopted as Gate 1 member authentication without redesigning threshold authorization.</p></div>
+</details>
+<details class="faq-item">
+<summary><h3>What is cryptographic agility in post-quantum custody?</h3></summary>
+<div class="faq-answer"><p>Cryptographic agility — also called crypto-agility — is the ability to replace signature algorithms, parameters, keys, and modules without rebuilding the custody platform. In EternaX dual-gate custody, members authenticate with ordinary SLH-DSA / SPHINCS+ signatures at Gate 1, while Gate 2 enforces threshold authorization through a signature-agnostic seal. That separation lets institutions anchor on the most conservative NIST standard today and rotate Gate 1 to future approved schemes later without another MPC protocol redesign.</p></div>
 </details>
 <details class="faq-item">
 <summary><h3>Can my existing custody provider add SLH-DSA / SPHINCS+ (NIST FIPS 205) support without EternaX?</h3></summary>
