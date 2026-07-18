@@ -878,6 +878,113 @@ tbody tr:last-child td {
   text-decoration: none;
 }
 
+.cta-link-ghost {
+  background: transparent;
+  border: 1px solid rgba(247, 244, 244, 0.35);
+  border-radius: 4px;
+  color: #fff;
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  text-decoration: none;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin: 2.5rem 0;
+}
+
+.stat-card {
+  background: var(--stat-bg);
+  border-radius: 6px;
+  color: var(--stat-text);
+  padding: 1.5rem 1.25rem;
+}
+
+.stat-number {
+  font-family: var(--font-condensed);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
+.advantage-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin: 2rem 0;
+}
+
+.advantage-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.advantage-card h3,
+.advantage-card strong {
+  color: var(--brand);
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+.advantage-card p,
+.advantage-card span {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.callout-title {
+  color: var(--brand);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.callout-gold {
+  background: #faf6eb;
+  border-left: 3px solid #92742e;
+}
+
+.row-red td {
+  background: rgba(141, 46, 46, 0.06);
+}
+
+.row-red td:first-child {
+  border-left: 3px solid var(--red);
+}
+
+.fw-code {
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
 .research-grid {
   align-items: stretch;
   display: grid;
