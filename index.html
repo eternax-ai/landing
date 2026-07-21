@@ -376,18 +376,65 @@
 
         .use-cases-strip {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            row-gap: 2.5rem;
         }
         .use-cases-item {
+            grid-column: span 2;
             padding: 0 1.25rem;
             border-right: 1px solid #e0dede;
         }
-        .use-cases-item:first-child {
+        .use-cases-item:first-child,
+        .use-cases-item:nth-child(4) {
             padding-left: 0;
         }
+        .use-cases-item:nth-child(3),
         .use-cases-item:last-child {
             border-right: none;
             padding-right: 0;
+        }
+        .use-cases-item:nth-child(n + 4) {
+            grid-column: span 3;
+            border-top: 1px solid #e0dede;
+            padding-top: 2.5rem;
+        }
+        @media (max-width: 1023px) {
+            .use-cases-strip {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                row-gap: 2rem;
+            }
+            .use-cases-item,
+            .use-cases-item:nth-child(n + 4) {
+                grid-column: span 1;
+                border-top: none;
+                padding: 0 1.25rem;
+            }
+            .use-cases-item:nth-child(odd) {
+                border-right: 1px solid #e0dede;
+                padding-left: 0;
+                padding-right: 1.25rem;
+            }
+            .use-cases-item:nth-child(even) {
+                border-right: none;
+                padding-left: 1.25rem;
+                padding-right: 0;
+            }
+        }
+        @media (max-width: 639px) {
+            .use-cases-strip {
+                grid-template-columns: 1fr;
+            }
+            .use-cases-item,
+            .use-cases-item:nth-child(n + 4) {
+                grid-column: span 1;
+                border-right: none;
+                border-bottom: 1px solid #e0dede;
+                padding: 0 0 2rem;
+            }
+            .use-cases-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
         }
 
         .evidence-reports {
@@ -466,6 +513,38 @@
             border-color: #2F5E52;
             background: rgba(47, 94, 82, 0.04);
         }
+        .btn-hero-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border: 1px solid rgba(40, 55, 113, 0.25);
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--fg);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: border-color 0.15s, background-color 0.15s;
+        }
+        .btn-hero-secondary:hover {
+            border-color: #2F5E52;
+            background: #ffffff;
+        }
+        .stat-signature-table thead th {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+        }
+        .stat-signature-table tbody td {
+            border-color: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+        }
+        .stat-signature-table tbody tr:hover {
+            background: transparent;
+        }
+        .stat-signature-table span {
+            color: #ffffff;
+        }
     </style>
 </head>
 <body class="font-sans" itemscope itemtype="https://schema.org/WebPage">
@@ -491,8 +570,9 @@
                 <span>Institutional custody integration</span>
                 <span>KYC/AML-compatible governance</span>
             </div>
-            <div>
+            <div class="flex flex-col sm:flex-row items-start gap-3">
                 <a href="pilot.html" class="btn-primary inline-block px-8 py-4 rounded-lg text-base font-semibold text-white hover:opacity-90 transition-opacity">Book a Pilot Call</a>
+                <a href="pluto-testnet.html" class="btn-hero-secondary">Explore Live Testnet <span class="ml-2" aria-hidden="true">&rarr;</span></a>
             </div>
         </div>
     </section>
@@ -602,17 +682,17 @@
                 <div>
                     <h3 class="text-xs font-semibold uppercase tracking-widest mb-6 text-center" style="color: rgba(255,255,255,0.7);">The PQC Signature Size Problem</h3>
                     <div class="overflow-x-auto">
-                        <table class="w-full text-sm">
-                            <thead><tr class="text-xs uppercase tracking-wide" style="color: rgba(255,255,255,0.55);"><th class="text-left pb-3">Scheme</th><th class="text-right pb-3">Size</th><th class="text-right pb-3">vs Classical</th></tr></thead>
-                            <tbody style="color: #fff;">
-                                <tr><td colspan="3" class="pt-4 pb-2 text-xs uppercase" style="color: rgba(255,255,255,0.55);">Classical (what blockchains use today)</td></tr>
-                                <tr class="border-b" style="border-color: rgba(255,255,255,0.08);"><td class="py-2">ECDSA <span class="text-xs" style="color: rgba(255,255,255,0.55);">Ethereum</span></td><td class="py-2 text-right font-semibold">64 B</td><td class="py-2 text-right font-semibold">1x</td></tr>
-                                <tr class="border-b" style="border-color: rgba(255,255,255,0.08);"><td class="py-2">Ed25519 <span class="text-xs" style="color: rgba(255,255,255,0.55);">Solana</span></td><td class="py-2 text-right font-semibold">64 B</td><td class="py-2 text-right font-semibold">1x</td></tr>
-                                <tr><td colspan="3" class="pt-4 pb-2 text-xs uppercase" style="color: rgba(255,255,255,0.55);">Post-quantum alternatives</td></tr>
-                                <tr class="border-b" style="border-color: rgba(255,255,255,0.08);"><td class="py-2">FN-DSA <span class="text-xs" style="color: rgba(255,255,255,0.55);">Falcon</span></td><td class="py-2 text-right font-semibold">666 B</td><td class="py-2 text-right font-semibold">10x</td></tr>
-                                <tr class="border-b" style="border-color: rgba(255,255,255,0.08);"><td class="py-2">ML-DSA <span class="text-xs" style="color: rgba(255,255,255,0.55);">Dilithium</span></td><td class="py-2 text-right font-semibold">2,420 B</td><td class="py-2 text-right font-semibold">38x</td></tr>
-                                <tr><td colspan="3" class="pt-4 pb-2 text-xs uppercase" style="color: rgba(255,255,255,0.55);">Most conservative NIST standard</td></tr>
-                                <tr><td class="py-2">SLH-DSA <span class="text-xs" style="color: rgba(255,255,255,0.55);">SPHINCS+</span></td><td class="py-2 text-right font-semibold">7,856 B</td><td class="py-2 text-right font-semibold">123x</td></tr>
+                        <table class="stat-signature-table w-full text-sm">
+                            <thead><tr class="text-xs uppercase tracking-wide"><th class="text-left pb-3">Scheme</th><th class="text-right pb-3">Size</th><th class="text-right pb-3">vs Classical</th></tr></thead>
+                            <tbody>
+                                <tr><td colspan="3" class="pt-4 pb-2 text-xs uppercase">Classical (what blockchains use today)</td></tr>
+                                <tr><td class="py-2">ECDSA <span class="text-xs">Ethereum</span></td><td class="py-2 text-right font-semibold">64 B</td><td class="py-2 text-right font-semibold">1x</td></tr>
+                                <tr><td class="py-2">Ed25519 <span class="text-xs">Solana</span></td><td class="py-2 text-right font-semibold">64 B</td><td class="py-2 text-right font-semibold">1x</td></tr>
+                                <tr><td colspan="3" class="pt-4 pb-2 text-xs uppercase">Post-quantum alternatives</td></tr>
+                                <tr><td class="py-2">FN-DSA <span class="text-xs">Falcon</span></td><td class="py-2 text-right font-semibold">666 B</td><td class="py-2 text-right font-semibold">10x</td></tr>
+                                <tr><td class="py-2">ML-DSA <span class="text-xs">Dilithium</span></td><td class="py-2 text-right font-semibold">2,420 B</td><td class="py-2 text-right font-semibold">38x</td></tr>
+                                <tr><td colspan="3" class="pt-4 pb-2 text-xs uppercase">Most conservative NIST standard</td></tr>
+                                <tr><td class="py-2">SLH-DSA <span class="text-xs">SPHINCS+</span></td><td class="py-2 text-right font-semibold">7,856 B</td><td class="py-2 text-right font-semibold">123x</td></tr>
                             </tbody>
                         </table>
                     </div>

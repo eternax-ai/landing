@@ -7,7 +7,7 @@
 - [Homepage](https://eternax.ai/): EternaX overview, institutional use cases, FAQ, and traction.
 - [Why EternaX](https://eternax.ai/why-eternax.html): PQ-native rationale, performance comparison, and institutional positioning.
 - [Pilot Programme](https://eternax.ai/pilot.html): Three enterprise pilot paths — stablecoin issuance, tokenized funds/RWAs, and post-quantum custody/MPC authorization.
-- [Testnet](https://eternax.ai/testnet.html): Pluto testnet access — web wallet, block explorer, CLI tools, RPC endpoints.
+- [Testnet](https://eternax.ai/pluto-testnet.html): Pluto testnet access — web wallet, block explorer, CLI tools, RPC endpoints.
 - [About EternaX Labs](https://eternax.ai/about.html): Canonical entity page for founders, mission, and company profile.
 - [Glossary](https://eternax.ai/glossary.html): Definitions for post-quantum cryptography and migration terminology.
 - [Blog Index](https://eternax.ai/blogs/index.html): Research reports and blog archive.
