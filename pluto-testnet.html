@@ -306,7 +306,7 @@
                         Most EVM chains still depend on ECDSA at the account or application layer. Pluto replaces that dependency where authority is established.
                     </p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-6">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <article class="pluto-card rounded-xl p-6">
                         <p class="pluto-number text-sm font-semibold mb-5">01</p>
                         <h3 class="text-lg font-semibold mb-3" style="color: var(--fg);">PQ-native accounts</h3>
@@ -328,6 +328,13 @@
                             PQ-ONCHAINID replaces the ECDSA-based ClaimIssuer while keeping Token, Identity Registry, and Trusted Issuers ERC-3643-shaped.
                         </p>
                     </article>
+                    <article class="pluto-card rounded-xl p-6">
+                        <p class="pluto-number text-sm font-semibold mb-5">04</p>
+                        <h3 class="text-lg font-semibold mb-3" style="color: var(--fg);">Threshold custody</h3>
+                        <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">
+                            Dual-gate custody applies the threshold to authorization, not signature generation, enabling signature-agnostic t-of-n control for post-quantum accounts.
+                        </p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -340,11 +347,16 @@
                         <p class="pluto-label text-xs font-semibold uppercase mb-4">Test surface</p>
                         <h2 class="text-3xl font-semibold tracking-tight mb-5" style="color: var(--fg);">One network, from keys to regulated assets</h2>
                         <p class="text-base mb-6" style="color: var(--fg-80); line-height: 1.7;">
-                            Start in the browser or use the CLI to exercise the full path: create a post-quantum account, fund it, transact, deploy contracts, and validate claims.
+                            Start in the browser or use the CLI to exercise the full path: create a post-quantum account, fund it, transact, deploy contracts, validate claims, test threshold custody, and exercise crypto-agility.
                         </p>
-                        <a href="https://github.com/eternax-ai/pq-onchainid" target="_blank" rel="noopener" class="text-sm font-semibold inline-flex items-center" style="color: var(--pluto-accent);">
-                            Explore PQ-ONCHAINID <span class="ml-2" aria-hidden="true">&rarr;</span>
-                        </a>
+                        <div class="flex flex-col items-start gap-3">
+                            <a href="https://github.com/eternax-ai/pq-onchainid" target="_blank" rel="noopener" class="text-sm font-semibold inline-flex items-center" style="color: var(--pluto-accent);">
+                                Explore PQ-ONCHAINID <span class="ml-2" aria-hidden="true">&rarr;</span>
+                            </a>
+                            <a href="https://pluto-testnet.eternax.ai/web-wallet/custody.html" target="_blank" rel="noopener" class="text-sm font-semibold inline-flex items-center" style="color: var(--pluto-accent);">
+                                Try dual-gate custody demo <span class="ml-2" aria-hidden="true">&rarr;</span>
+                            </a>
+                        </div>
                     </div>
                     <div class="lg:col-span-3 grid sm:grid-cols-2 gap-x-8 gap-y-8">
                         <div>
@@ -370,6 +382,14 @@
                         <div>
                             <h3 class="text-base font-semibold mb-2" style="color: var(--fg);">Browser wallet and faucet</h3>
                             <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Generate SLH-DSA keys in-browser and request test ETX from the faucet.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-semibold mb-2" style="color: var(--fg);">Dual-gate custody</h3>
+                            <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Run a threshold approval where authenticated member contributions and on-chain authorization must both pass.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-semibold mb-2" style="color: var(--fg);">Crypto-agility</h3>
+                            <p class="text-sm" style="color: var(--fg-80); line-height: 1.65;">Exercise application-level crypto-agility by switching between SLH-DSA and ML-DSA verification paths.</p>
                         </div>
                     </div>
                 </div>
