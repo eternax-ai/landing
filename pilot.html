@@ -24,7 +24,6 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="ai-content-declaration" content="Human-authored institutional infrastructure page with AI-assisted editing; primary-source citations and technical claims should be independently reviewed.">
     <meta property="article:modified_time" content="2026-07-30">
 
     <link rel="icon" type="image/svg+xml" href="./assets/eternax-icon.svg">
@@ -364,7 +363,6 @@
         <span>EVM-compatible</span>
         <span>Testnet live</span>
       </div>
-      <p class="share-note"><strong>Built for internal review.</strong> For CTO, CISO, digital-asset, custody, and infrastructure teams.</p>
     </div>
     <aside class="status-panel status-map" aria-label="Pilot outcome map">
       <div class="status-panel-header">
@@ -408,41 +406,40 @@
       <div class="exposure-row" role="row">
         <div role="cell">Stablecoin issuer authority</div>
         <div role="cell">Circle USDC, Paxos PYUSD / USDP / USDG, Ripple RLUSD, Tether USDT, Sky USDS</div>
-        <div role="cell">Classical mint, burn, freeze, blacklist, treasury, permit, and upgrade authority across each chain deployment</div>
+        <div role="cell">Classical issuer, treasury, emergency, and upgrade authority</div>
         <div role="cell"><span class="risk-label bad">Not PQ-safe</span></div>
       </div>
       <div class="exposure-row" role="row">
         <div role="cell">Tokenized funds and RWA controls</div>
         <div role="cell">BlackRock BUIDL via Securitize, Franklin Templeton BENJI, Hamilton Lane SCOPE / HLPIF, Apollo ACRED, Ondo OUSG, Superstate, VanEck VBILL</div>
-        <div role="cell">ECDSA or EdDSA issuer roles, ERC-4626 governance, compliance claims, delegated approvals, recovery and upgrade paths</div>
+        <div role="cell">Classical issuer, governance, compliance, recovery, and upgrade controls</div>
         <div role="cell"><span class="risk-label bad">Not PQ-safe</span></div>
       </div>
       <div class="exposure-row" role="row">
         <div role="cell">Custody and institutional wallets</div>
         <div role="cell">Fireblocks, BitGo, Copper, Anchorage Digital, Zodia Custody, Hex Trust, Safe and comparable stacks</div>
-        <div role="cell">Threshold ECDSA, EdDSA, ECDSA multisig, HSM-backed classical signing, or chain-native classical signatures, depending on product and chain</div>
+        <div role="cell">Threshold, multisig, HSM, and chain-native classical signing</div>
         <div role="cell"><span class="risk-label bad">Not PQ-safe</span></div>
       </div>
       <div class="exposure-row" role="row">
         <div role="cell">Tokenized deposits and bank rails</div>
         <div role="cell">JPMorgan Kinexys, HSBC Tokenised Deposit Service / Orion, Citi Token Services, Standard Chartered Libeara and comparable programmes</div>
-        <div role="cell">Classical authorization remains embedded across issuer, custody, identity, governance, messaging, and underlying settlement dependencies</div>
+        <div role="cell">Classical issuer, custody, identity, governance, and settlement dependencies</div>
         <div role="cell"><span class="risk-label bad">Not PQ-safe</span></div>
       </div>
       <div class="exposure-row" role="row">
         <div role="cell">Existing public-chain settlement</div>
         <div role="cell">Ethereum and EVM networks, Bitcoin, Solana, Stellar and related application ecosystems</div>
-        <div role="cell">secp256k1 ECDSA or Schnorr, Ed25519, classical validators, bridges, oracles, and immutable contract authorization paths</div>
+        <div role="cell">Classical signatures, validators, bridges, oracles, and immutable controls</div>
         <div role="cell"><span class="risk-label partial">Residual PQ exposure</span></div>
       </div>
       <div class="exposure-row" role="row">
         <div role="cell">EternaX control and settlement layer</div>
         <div role="cell">PQ Vault, PQ-ONCHAINID, PQ-Permit, PQ-4626, PQ Custody SDK, and EternaX PQ-native settlement</div>
-        <div role="cell">SLH-DSA authorization with crypto-agile signature rotation to ML-DSA and future NIST-approved schemes, explicit residual-risk mapping, and a native settlement path</div>
+        <div role="cell">SLH-DSA authorization, governed signature rotation, and residual-risk mapping</div>
         <div role="cell"><span class="risk-label good">PQ-enforced, crypto-agile</span></div>
       </div>
     </div>
-    <p class="exposure-note">Names are recognition references, not customer claims. Exposure varies by product, chain, signer policy, recovery, contract version, and operating model, and is verified during the pilot.</p>
   </div>
 </section>
 
@@ -462,16 +459,13 @@
         <p class="path-audience">Asset managers, tokenization platforms, fund administrators, RWA issuers</p>
         <div class="path-programmes">
           <strong>Relevant programmes and peer architectures</strong>
-          <div class="name-row">
-            <span class="name-pill">BlackRock BUIDL</span><span class="name-pill">Franklin Templeton BENJI</span><span class="name-pill">Hamilton Lane SCOPE</span><span class="name-pill">Apollo ACRED</span><span class="name-pill">Ondo OUSG</span><span class="name-pill">Superstate</span><span class="name-pill">VanEck VBILL</span><span class="name-pill">Securitize</span><span class="name-pill">Tokeny</span><span class="name-pill">Centrifuge</span><span class="name-pill">Maple Finance</span>
-          </div>
+          <p class="programme-list">BlackRock BUIDL · Franklin Templeton BENJI · Hamilton Lane SCOPE · Apollo ACRED · Ondo OUSG · Superstate · VanEck VBILL · Securitize · Tokeny · Centrifuge · Maple Finance</p>
         </div>
         <div class="path-logic">
-          <div class="logic-row"><span class="logic-label">What EternaX changes</span><p>Add SLH-DSA controls to issuer, compliance, permit, vault, recovery, upgrade, and custody workflows without replacing the platform, custodian, or chain.</p></div>
-          <div class="logic-row"><span class="logic-label">Why the current path is exposed</span><p>Issuer roles, ERC-4626 governance, ONCHAINID-style claims, permits, admin keys, and recovery can still accept ECDSA or EdDSA. Custody hardening does not close these application-layer bypasses.</p></div>
-          <div class="logic-row"><span class="logic-label">So what</span><p>A compromised classical key could mint, burn, freeze, upgrade, or alter governance. The pilot defines a crypto-agile protection boundary before further issuance compounds migration debt.</p></div>
+          <div class="logic-row"><span class="logic-label">Exposure</span><p>Issuer roles, ERC-4626 governance, compliance claims, permits, admin keys, and recovery can still accept classical authorization.</p></div>
+          <div class="logic-row"><span class="logic-label">Pilot outcome</span><p>SLH-DSA controls for issuer, compliance, vault, recovery, upgrade, and custody workflows, with a defined protection boundary.</p></div>
         </div>
-        <div class="path-output"><strong>90-day outputs</strong><span>Authority map · Module compatibility · Crypto-agility assessment · Representative deployment · Residual-risk register · Integration roadmap</span></div>
+        <div class="path-output"><strong>90-day outputs</strong><span>Authority map · Module compatibility · Representative deployment · Integration roadmap</span></div>
         <a class="path-arrow" href="post-quantum-stablecoins-and-tokenization.html">Review the tokenization architecture →</a>
       </article>
 
@@ -481,16 +475,13 @@
         <p class="path-audience">Custodians, MPC providers, HSM vendors, institutional wallet and treasury teams</p>
         <div class="path-programmes">
           <strong>Relevant programmes and peer architectures</strong>
-          <div class="name-row">
-            <span class="name-pill">Fireblocks</span><span class="name-pill">BitGo</span><span class="name-pill">Copper</span><span class="name-pill">Anchorage Digital</span><span class="name-pill">Zodia Custody</span><span class="name-pill">Hex Trust</span><span class="name-pill">Fordefi</span><span class="name-pill">Safe</span><span class="name-pill">Thales Luna</span><span class="name-pill">Utimaco</span><span class="name-pill">Securosys</span><span class="name-pill">Futurex</span>
-          </div>
+          <p class="programme-list">Fireblocks · BitGo · Copper · Anchorage Digital · Zodia Custody · Hex Trust · Fordefi · Safe · Thales Luna · Utimaco · Securosys · Futurex</p>
         </div>
         <div class="path-logic">
-          <div class="logic-row"><span class="logic-label">What EternaX changes</span><p>Add a post-quantum authorization gate to existing MPC, HSM, and smart-account custody without replacing the custodian, chain, or operating workflow.</p></div>
-          <div class="logic-row"><span class="logic-label">Why the current path is exposed</span><p>Threshold ECDSA is not made post-quantum by swapping algorithms. The migration challenge spans approvals, recovery, audit, and chain acceptance.</p></div>
-          <div class="logic-row"><span class="logic-label">So what</span><p>EternaX tests its published dual-gate model: SLH-DSA member approvals plus separate threshold authorization. Gate 1 can rotate to ML-DSA or future NIST-approved schemes without rebuilding the threshold layer.</p></div>
+          <div class="logic-row"><span class="logic-label">Exposure</span><p>Threshold ECDSA, recovery, audit, and chain acceptance remain classical dependencies.</p></div>
+          <div class="logic-row"><span class="logic-label">Pilot outcome</span><p>A dual-gate design combining SLH-DSA member approvals with threshold authorization and a governed rotation path.</p></div>
         </div>
-        <div class="path-output"><strong>90-day outputs</strong><span>Dual-gate design · Crypto-agility rotation path · Custody API map · Signer policy · Recovery validation · Integration plan</span></div>
+        <div class="path-output"><strong>90-day outputs</strong><span>Dual-gate design · Custody API map · Recovery validation · Integration plan</span></div>
         <a class="path-arrow" href="custody-mpc-providers.html">Review the custody architecture →</a>
       </article>
 
@@ -500,16 +491,13 @@
         <p class="path-audience">Stablecoin issuers, payment networks, banks, treasury and reserve operators</p>
         <div class="path-programmes">
           <strong>Relevant programmes and peer architectures</strong>
-          <div class="name-row">
-            <span class="name-pill">Circle USDC</span><span class="name-pill">Paxos PYUSD / USDP</span><span class="name-pill">Ripple RLUSD</span><span class="name-pill">Tether USDT</span><span class="name-pill">Sky USDS</span><span class="name-pill">JPMorgan Kinexys</span><span class="name-pill">HSBC Tokenised Deposits</span><span class="name-pill">Citi Token Services</span><span class="name-pill">Standard Chartered Libeara</span><span class="name-pill">BNP Paribas</span><span class="name-pill">MUFG Progmat</span><span class="name-pill">DBS DDEx</span><span class="name-pill">Fnality</span><span class="name-pill">Partior</span><span class="name-pill neutral">HKMA-supervised banks (QPI 2.3/10)</span>
-          </div>
+          <p class="programme-list">Circle USDC · Paxos PYUSD / USDP · Ripple RLUSD · Tether USDT · Sky USDS · JPMorgan Kinexys · HSBC Tokenised Deposits · Citi Token Services · Standard Chartered Libeara · BNP Paribas · MUFG Progmat · DBS DDEx · Fnality · Partior · HKMA-supervised banks</p>
         </div>
         <div class="path-logic">
-          <div class="logic-row"><span class="logic-label">What EternaX changes</span><p>Protect mint, burn, freeze, blacklist, treasury, permit, upgrade, recovery, and governance across existing deployments, or validate PQ-native issuance for a new programme.</p></div>
-          <div class="logic-row"><span class="logic-label">Why the current path is exposed</span><p>Each chain deployment adds classical authority across contracts, custody, treasury, bridges, policy engines, and emergency controls.</p></div>
-          <div class="logic-row"><span class="logic-label">So what</span><p>A forged mint, freeze, or upgrade can become a systemic event. The pilot tests custody and application controls together, with governed signature rotation built in.</p></div>
+          <div class="logic-row"><span class="logic-label">Exposure</span><p>Each chain deployment adds classical authority across contracts, custody, treasury, bridges, and emergency controls.</p></div>
+          <div class="logic-row"><span class="logic-label">Pilot outcome</span><p>Post-quantum protection for issuer authority across existing deployments, or validation of PQ-native issuance.</p></div>
         </div>
-        <div class="path-output"><strong>90-day outputs</strong><span>Issuer authority map · Policy and recovery design · Multi-chain exposure register · Testnet validation · Deployment decision</span></div>
+        <div class="path-output"><strong>90-day outputs</strong><span>Issuer authority map · Policy and recovery design · Testnet validation · Deployment decision</span></div>
         <a class="path-arrow" href="post-quantum-stablecoins-and-tokenization.html">Review the stablecoin architecture →</a>
       </article>
 
@@ -519,16 +507,13 @@
         <p class="path-audience">Banks, settlement operators, prime brokers, exchanges and market infrastructure teams</p>
         <div class="path-programmes">
           <strong>Relevant programmes and peer architectures</strong>
-          <div class="name-row">
-            <span class="name-pill neutral">Fnality</span><span class="name-pill neutral">Partior</span><span class="name-pill">Ethereum / Besu</span><span class="name-pill">Canton</span><span class="name-pill">Solana</span><span class="name-pill">Stellar</span><span class="name-pill neutral">Tokenized deposit rails</span><span class="name-pill neutral">Canonical issuance programmes</span>
-          </div>
+          <p class="programme-list">Fnality · Partior · Ethereum / Besu · Canton · Solana · Stellar · Tokenized deposit rails · Canonical issuance programmes</p>
         </div>
         <div class="path-logic">
-          <div class="logic-row"><span class="logic-label">What EternaX changes</span><p>Evaluate EternaX as the canonical rail for tokenized money, assets, and collateral, with PQ authorization, EVM compatibility, auditable privacy, deterministic finality, and atomic DvP / PvP.</p></div>
-          <div class="logic-row"><span class="logic-label">Why the current path is exposed</span><p>An overlay can protect selected controls, but not the underlying chain's consensus, privacy, bridges, or immutable authorization paths.</p></div>
-          <div class="logic-row"><span class="logic-label">So what</span><p>Compare hardening the current rail with issuing natively on EternaX, where crypto-agility is a protocol primitive rather than a retrofit.</p></div>
+          <div class="logic-row"><span class="logic-label">Exposure</span><p>An overlay can protect selected controls, but not chain consensus, privacy, bridges, or immutable authorization paths.</p></div>
+          <div class="logic-row"><span class="logic-label">Pilot outcome</span><p>A comparison of hardening the current rail with issuing natively on EternaX.</p></div>
         </div>
-        <div class="path-output"><strong>90-day outputs</strong><span>Rail comparison · Five-layer risk assessment · Performance evidence · Privacy and finality evaluation · Production-readiness roadmap</span></div>
+        <div class="path-output"><strong>90-day outputs</strong><span>Rail comparison · Risk assessment · Performance evidence · Production-readiness roadmap</span></div>
         <a class="path-arrow" href="pq-native-settlement.html">Review the settlement architecture →</a>
       </article>
 
@@ -538,20 +523,16 @@
         <p class="path-audience">Boards, risk committees, CTO and CISO teams, digital-asset and procurement leaders</p>
         <div class="path-programmes">
           <strong>Relevant programmes and peer architectures</strong>
-          <div class="name-row">
-            <span class="name-pill neutral">Banks</span><span class="name-pill neutral">G-SIBs</span><span class="name-pill neutral">Asset managers</span><span class="name-pill neutral">Exchanges</span><span class="name-pill neutral">Prime brokers</span><span class="name-pill neutral">Custodians</span><span class="name-pill neutral">Tokenization platforms</span><span class="name-pill neutral">Stablecoin issuers</span><span class="name-pill neutral">Settlement operators</span><span class="name-pill neutral">Institutional DeFi</span>
-          </div>
+          <p class="programme-list">Banks · G-SIBs · Asset managers · Exchanges · Prime brokers · Custodians · Tokenization platforms · Stablecoin issuers · Settlement operators · Institutional DeFi</p>
         </div>
         <div class="path-logic">
-          <div class="logic-row"><span class="logic-label">What EternaX changes</span><p>Inventory issuance, custody, governance, settlement, recovery, bridges, oracles, identity, and suppliers. Quantify migration debt and assign ownership.</p></div>
-          <div class="logic-row"><span class="logic-label">Why the current path is exposed</span><p>Most programmes lack a complete map of every signature, role, key, API, and dependency that can change state. Without it, migration planning is guesswork.</p></div>
-          <div class="logic-row"><span class="logic-label">So what</span><p>EO 14412, EU and UK milestones, and procurement pressure make cryptographic visibility an operating requirement. The assessment identifies what can rotate by policy and what requires re-integration.</p></div>
+          <div class="logic-row"><span class="logic-label">Exposure</span><p>Most programmes lack a complete map of the signatures, roles, keys, APIs, and dependencies that can change state.</p></div>
+          <div class="logic-row"><span class="logic-label">Pilot outcome</span><p>An ownership-assigned inventory and migration plan identifying what can rotate by policy and what needs re-integration.</p></div>
         </div>
-        <div class="path-output"><strong>90-day outputs</strong><span>Executive exposure report · CBOM-ready inventory · Crypto-agility evaluation · Residual-risk register · Control ownership · Prioritized phased roadmap</span></div>
+        <div class="path-output"><strong>90-day outputs</strong><span>Executive exposure report · CBOM-ready inventory · Control ownership · Prioritized roadmap</span></div>
         <a class="path-arrow" href="post-quantum-non-upgradeable-chains-defi-exposure-report.html">Review the exposure framework →</a>
       </article>
     </div>
-    <p class="recognition-note">Names provide operating context, not customer, partnership, endorsement, or deployment claims.</p>
   </div>
 </section>
 
@@ -565,17 +546,12 @@
       <p class="section-intro">A decision package tied to the institution's assets, contracts, custodians, approval policies, and regulatory obligations.</p>
     </div>
     <div class="deliverable-grid">
-      <article class="deliverable"><span class="deliverable-num">01</span><h3>Cryptographic inventory</h3><p>Every relevant authorization, governance, custody, recovery, bridge, oracle, and chain dependency mapped.</p></article>
-      <article class="deliverable"><span class="deliverable-num">02</span><h3>Compatibility assessment</h3><p>EternaX modules tested against existing contracts, custody workflows, governance, and infrastructure constraints.</p></article>
-      <article class="deliverable"><span class="deliverable-num">03</span><h3>Testnet deployment</h3><p>A representative institutional workflow deployed with policy logic, controls, and measurable outcomes.</p></article>
-      <article class="deliverable"><span class="deliverable-num">04</span><h3>Protection boundary</h3><p>Control-by-control classification of what is enforced, gated, partially mitigated, or still exposed.</p></article>
-      <article class="deliverable"><span class="deliverable-num">05</span><h3>Integration roadmap</h3><p>Sequenced custody, contract, role, recovery, compliance, and production-readiness milestones.</p></article>
-      <article class="deliverable"><span class="deliverable-num">06</span><h3>Crypto-agility and CBOM plan</h3><p>Signature rotation path from SLH-DSA to future NIST-approved schemes without re-platforming, plus CBOM inputs aligned to EO 14412 and institutional governance.</p></article>
-    </div>
-    <div class="commitment-strip">
-      <div><strong>Institution brings</strong><span>Accountable sponsor, architecture and governance documentation, contract or workflow inventory, technical and risk owners.</span></div>
-      <div><strong>EternaX brings</strong><span>Crypto-agile PQ control modules, integration engineering, test environment, risk mapping, standards analysis, and deliverable production.</span></div>
-      <div><strong>Security boundary</strong><span>No production credentials, live signing authority, or sensitive key material are required for the initial assessment.</span></div>
+      <article class="deliverable"><span class="deliverable-num">01</span><h3>Cryptographic inventory</h3><p>Map every authorization and dependency that can change state.</p></article>
+      <article class="deliverable"><span class="deliverable-num">02</span><h3>Compatibility assessment</h3><p>Test EternaX controls against the existing stack.</p></article>
+      <article class="deliverable"><span class="deliverable-num">03</span><h3>Testnet deployment</h3><p>Deploy and test a representative institutional workflow.</p></article>
+      <article class="deliverable"><span class="deliverable-num">04</span><h3>Protection boundary</h3><p>Classify each control as enforced, gated, or exposed.</p></article>
+      <article class="deliverable"><span class="deliverable-num">05</span><h3>Integration roadmap</h3><p>Set the milestones for production integration.</p></article>
+      <article class="deliverable"><span class="deliverable-num">06</span><h3>Crypto-agility and CBOM plan</h3><p>Define signature rotation and CBOM inputs.</p></article>
     </div>
   </div>
 </section>
@@ -587,13 +563,7 @@
         <div>
           <p class="section-label">Technical evidence</p>
           <h2>Research-backed. Testnet-proven.</h2>
-          <p>A live post-quantum test environment, published research, and institutional risk analysis applied to the institution's actual workflow.</p>
-        </div>
-        <div class="metrics">
-          <div class="metric"><strong>Live</strong><span>PQ MPC/HSM custody demo on EternaX testnet</span></div>
-          <div class="metric"><strong>2</strong><span>Published EternaX research papers on arXiv</span></div>
-          <div class="metric"><strong>FIPS 205</strong><span>SLH-DSA, the NIST stateless hash-based signature standard</span></div>
-          <div class="metric"><strong>5</strong><span>Institutional pilot paths covering issuance, custody, money, settlement, and readiness</span></div>
+          <p>Published research and a live post-quantum test environment for institutional workflows.</p>
         </div>
       </div>
       <div class="research-grid">
@@ -613,14 +583,14 @@
         <p class="section-label">Migration timing</p>
         <h2>The migration clock is now an operating constraint</h2>
       </div>
-      <p class="section-intro">The constraint is execution time. Contracts, suppliers, custody integrations, recovery, and governance can take years to inventory, test, approve, and migrate.</p>
+      <p class="section-intro">Contracts, suppliers, custody integrations, recovery, and governance take time to migrate.</p>
     </div>
     <div class="timeline">
-      <div class="timeline-item"><strong>By 31 Dec 2026</strong><span>EU Member States should start transitioning to post-quantum cryptography.</span></div>
-      <div class="timeline-item"><strong>By 19 Mar 2027</strong><span>EO 14412 directs CISA and NIST to publish minimum elements for a cryptographic bill of materials.</span></div>
-      <div class="timeline-item"><strong>By 31 Dec 2030</strong><span>U.S. federal high-value systems: PQ key establishment. EU critical infrastructure: transition by end-2030. HKMA: banking-sector QPI target of 10/10.</span></div>
-      <div class="timeline-item"><strong>By 31 Dec 2031</strong><span>U.S. federal high-value systems: PQ digital signatures. UK: highest-priority migration and a refined roadmap.</span></div>
-      <div class="timeline-item"><strong>By 2035</strong><span>UK target to complete PQC migration across systems, services, and products.</span></div>
+      <div class="timeline-item"><strong>By 31 Dec 2026</strong><span>EU Member States begin the PQC transition.</span></div>
+      <div class="timeline-item"><strong>By 19 Mar 2027</strong><span>U.S. CBOM guidance due from CISA and NIST.</span></div>
+      <div class="timeline-item"><strong>By 31 Dec 2030</strong><span>U.S. PQ key establishment; EU critical infrastructure transition; HKMA QPI target.</span></div>
+      <div class="timeline-item"><strong>By 31 Dec 2031</strong><span>U.S. PQ digital signatures and UK priority migration.</span></div>
+      <div class="timeline-item"><strong>By 2035</strong><span>UK target for broad PQC migration completion.</span></div>
     </div>
     <div class="source-links" aria-label="Primary regulatory and standards sources">
       <a class="source-link" href="https://www.whitehouse.gov/presidential-actions/2026/06/securing-the-nation-against-advanced-cryptographic-attacks/"><strong>Executive Order 14412</strong><span>U.S. high-value systems, CBOM, and procurement milestones.</span></a>
@@ -637,7 +607,7 @@
     <div class="cta-block">
       <p class="section-label">90-day institutional pilot</p>
       <h2>Start with the workflow that can move value or change state</h2>
-      <p>Share the asset, contracts, chain, custodian, approval workflow, and regulatory driver. EternaX will scope the material control surfaces and define a board-governable protection boundary.</p>
+      <p>Share the asset, chain, custodian, approval workflow, and regulatory driver to scope the pilot.</p>
       <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
         <a class="hero-cta" href="mailto:paarrthhh.b@eternax.ai?subject=EternaX%20Institutional%20Pilot%20Scope%20%7C%20%5BInstitution%5D&amp;body=Institution%3A%0ARole%20/%20team%3A%0A%0APilot%20path%28s%29%20of%20interest%3A%0A%E2%96%A1%20Tokenized%20Funds%20%26%20RWA%20Issuance%0A%E2%96%A1%20Custody%20%26%20MPC%20Authorization%0A%E2%96%A1%20Stablecoins%20%26%20Tokenized%20Deposits%0A%E2%96%A1%20PQ-Native%20Settlement%0A%E2%96%A1%20Tailored%20PQ%20Migration%20Readiness%0A%0AAsset%20or%20workflow%3A%0ACurrent%20platform%20/%20tokenization%20provider%3A%0ACurrent%20custodian%20/%20wallet%20infrastructure%3A%0ACurrent%20chain%20or%20settlement%20rail%3A%0APrimary%20risk%2C%20regulatory%20driver%2C%20or%20architecture%20decision%3A%0ATarget%20timeline%3A%0A">Request a Pilot Scope <span aria-hidden="true">↗</span></a>
         <a class="hero-cta-secondary" href="mailto:paarrthhh.b@eternax.ai">paarrthhh.b@eternax.ai</a>
@@ -653,15 +623,12 @@
         <p class="section-label">Before the scoping call</p>
         <h2>Use the relevant diligence material first</h2>
       </div>
-      <p class="section-intro">Technical diligence for teams reviewing the architecture, exposure model, and migration assumptions.</p>
+      <p class="section-intro">Technical diligence for architecture, exposure, and migration planning.</p>
     </div>
     <div class="research-grid">
       <a class="research-link" href="post_quantum_exposure_map_institutional_crypto_tokenized_assets.html"><span class="mono-label">Exposure</span><strong>Post-Quantum Exposure Map 2026</strong><span>Locate authorization risk across custody, tokenization, stablecoins, and settlement.</span></a>
       <a class="research-link" href="post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html"><span class="mono-label">Custody</span><strong>Post-Quantum MPC Custody Crisis</strong><span>Why threshold ECDSA migration is an architecture problem, not an algorithm swap.</span></a>
-      <a class="research-link" href="post-quantum-non-upgradeable-chains-defi-exposure-report.html"><span class="mono-label">Contracts</span><strong>Non-Upgradeable Chains and DeFi Exposure</strong><span>Why immutable application authority can remain exposed after chain-level plans change.</span></a>
       <a class="research-link" href="post-quantum-cryptography-risk-framework-for-institutions.html"><span class="mono-label">Migration</span><strong>Cryptographic Migration Debt Framework</strong><span>Quantify the cost of new dependencies added before a protection boundary is defined.</span></a>
-      <a class="research-link" href="https://arxiv.org/abs/2605.03230"><span class="mono-label">arXiv</span><strong>SILMARILS</strong><span>Post-quantum designated-verifier authentication with formal security analysis.</span></a>
-      <a class="research-link" href="https://arxiv.org/abs/2607.08226"><span class="mono-label">arXiv</strong><strong>Threshold Authorization Without Threshold Signatures</strong><span>The formal dual-gate architecture used to frame custody authorization pilots.</span></a>
     </div>
   </div>
 </section>
