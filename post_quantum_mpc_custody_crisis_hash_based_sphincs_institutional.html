@@ -506,26 +506,6 @@ a:hover{border-color:var(--navy);color:var(--navy-hover)}
 }
 .discontinuity cite{font-family:var(--mono);font-size:.62rem;color:rgba(255,255,255,.4);letter-spacing:.06em;font-style:normal;line-height:1.55;display:block}
 
-/* ── EXEC SUMMARY ── */
-.exec-summary{background:var(--exec-trigger);border-left:3px solid var(--navy);padding:36px 40px;margin:44px 0}
-.exec-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin-bottom:18px;display:block;font-weight:500}
-.exec-summary p{font-size:1rem;line-height:1.7;color:var(--text-body)}
-.exec-summary p+p{margin-top:14px}
-
-/* ── THESIS BOX ── */
-.thesis-box{border:1.5px solid var(--navy);padding:32px 36px;margin:36px 0;position:relative;background:var(--navy-soft)}
-.thesis-box::before{
-  content:'Central Thesis';position:absolute;top:-9px;left:20px;
-  background:var(--bg);padding:0 10px;font-family:var(--mono);
-  font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);font-weight:500
-}
-.thesis-box p{font-size:1.05rem;font-weight:500;font-style:italic;line-height:1.65;color:var(--navy);margin:0}
-
-/* ── EXECUTIVE QUOTE ── */
-.exec-quote{border-left:2px solid var(--green);padding:14px 20px;margin:22px 0;background:var(--green-soft)}
-.exec-quote p{font-size:.97rem;font-style:italic;line-height:1.6;color:var(--text-body);margin-bottom:6px}
-.exec-quote cite{font-family:var(--mono);font-size:.62rem;color:var(--text-muted);letter-spacing:.07em;font-style:normal}
-
 /* ── STAT GRID ── */
 .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin:36px 0;background:var(--border-accent);border:1px solid var(--border-accent)}
 .stat-cell{background:var(--surface);padding:26px 22px 22px;border-top:3px solid var(--navy)}
@@ -535,9 +515,6 @@ a:hover{border-color:var(--navy);color:var(--navy-hover)}
 .stat-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);line-height:1.6}
 
 /* ── TABLES (aligned with existing report style) ── */
-.table-wrap{margin:28px 0 36px;overflow-x:auto;border:1px solid var(--border)}
-.table-wrap.wide{margin-left:-110px;margin-right:-110px}
-.table-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:10px;display:block;font-weight:500}
 table{width:100%;border-collapse:collapse;font-size:.84rem;line-height:1.5}
 thead{background:var(--header-tint)}
 thead th{
@@ -594,39 +571,6 @@ tbody td:first-child{background:var(--sticky-body)}
 .trace-node-name{font-family:var(--mono);font-size:.67rem;color:var(--navy);display:block;line-height:1.4;font-weight:500}
 .trace p{font-size:.9rem;line-height:1.65;color:var(--text-body)}
 
-/* ── CONCLUSION CTA BLOCK ── */
-
-.conviction-box{
-  background:var(--navy);
-  padding:32px 36px;margin:36px 0;position:relative;overflow:hidden
-}
-.conviction-box::before{
-  content:'';position:absolute;top:0;right:0;width:40%;height:100%;
-  background:radial-gradient(ellipse at 80% 50%,rgba(47,94,82,.2) 0%,transparent 65%);
-  pointer-events:none
-}
-.conviction-label{
-  font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(255,255,255,.45);margin-bottom:14px;display:block;position:relative
-}
-.conviction-box p{
-  font-size:.97rem;font-weight:400;line-height:1.75;color:rgba(255,255,255,.85);
-  margin:0;position:relative
-}
-.conviction-box strong{color:#fff;font-weight:700}
-
-/* ── VERDICT BOX GREEN (Section 15 verdict) ── */
-.verdict-box-green{border:1px solid rgba(47,94,82,.35);border-left:4px solid var(--green);padding:28px 32px;margin:36px 0;background:var(--green-soft)}
-.verdict-box-green .verdict-label{color:var(--green)}
-.verdict-box-green p{font-size:1rem;font-weight:600;line-height:1.7;color:var(--text-body);margin:0}
-
-/* ── ANSWERS BOX (LLM retrieval) ── */
-.answers-box{border:1px solid var(--border);border-left:4px solid var(--navy);padding:22px 28px;margin:32px 0;background:var(--surface)}
-.answers-box-title{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:14px;display:block}
-.answers-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px}
-.answers-item{font-size:.82rem;color:var(--text-muted);line-height:1.5;padding:3px 0}
-.answers-item::before{content:"→ ";color:var(--navy);font-weight:700}
-@media(max-width:700px){.answers-grid{grid-template-columns:1fr}}
 
 /* ── SELF-IDENTIFICATION MATRIX ── */
 .self-id-section{margin:36px 0}
@@ -655,7 +599,6 @@ tbody td:first-child{background:var(--sticky-body)}
 .moat-tag{font-family:var(--mono);font-size:.62rem;color:var(--green);background:var(--green-soft);padding:4px 10px;display:inline-block;border:1px solid rgba(47,94,82,.2);font-weight:500}
 .moat-cell.moat-primary .moat-tag{background:rgba(47,94,82,.15);border-color:rgba(47,94,82,.35)}
 
-/* ── PDF BUTTON ── */
 /* ── TAM STRIP ── */
 .tam-strip{background:var(--surface);border:1px solid var(--border);margin:32px 0}
 .tam-inner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
@@ -668,8 +611,6 @@ tbody td:first-child{background:var(--sticky-body)}
 .tam-cell:last-child .tam-number{color:var(--green)}
 .tam-label{font-family:var(--mono);font-size:.6rem;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase;line-height:1.58}
 
-.share-panel-num{font-size:2.2rem;font-weight:700;color:#fff;letter-spacing:-.025em;margin-bottom:10px;display:block;line-height:1}
-.share-panel-desc{font-family:var(--font);font-size:.72rem;color:#fff;line-height:1.62;letter-spacing:.01em}
 
 /* ── PRINT / PDF EXPORT (aligned with already-broken-quantum-risk-report-q1-2026: @page top/bottom only; no extra .content horizontal padding; wide breakout zeroed in print) ── */
 @media print{
@@ -850,14 +791,6 @@ tbody td:first-child{background:var(--sticky-body)}
 /* Stop indicator */
 .stop-ind{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(141,46,46,.12);border:1.5px solid rgba(141,46,46,.4);font-family:var(--mono);font-size:.6rem;font-weight:700;color:var(--red);flex-shrink:0}
 
-/* Shareable panel CSS classes */
-.share-panel{background:var(--navy);color:#fff;padding:40px 0;border-bottom:3px solid rgba(255,255,255,.08)}
-.share-panel-label{font-family:var(--font);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;margin-bottom:24px;display:block}
-.share-panel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.1)}
-.share-panel-cell{background:var(--navy);padding:22px 20px}
-.share-panel-cell.green-top{border-top:2px solid var(--green)}
-.share-panel-cell.red-top{border-top:2px solid rgba(141,46,46,.7)}
-
 @media(max-width:700px){
   /* Charts */
   .tps-bar-label{min-width:80px;font-size:.6rem}
@@ -968,9 +901,6 @@ tbody td:first-child{background:var(--sticky-body)}
 @media(max-width:700px){.comparison-grid{grid-template-columns:1fr}.cta-section{padding:28px 20px}.cta-buttons{flex-direction:column}}
 .link-muted{color:var(--fg-70);text-decoration:none;border-bottom:none}
 .link-muted:hover{color:var(--fg)}
-.pull-quote:not(:has(p)){font-size:1.25rem;font-style:italic;font-weight:500;line-height:1.55;color:var(--navy);letter-spacing:-.015em;padding-left:28px}
-.pull-quote.pull-quote-green{border-top-color:var(--green)}
-.pull-quote.pull-quote-green:not(:has(p)){color:var(--green)}
 
 </style>
 </head>

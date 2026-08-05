@@ -2096,6 +2096,16 @@ tbody tr:last-child td {
 .report-page {
   --serif: 'IBM Plex Serif', Georgia, serif;
   --mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --navy-hover: #37457b;
+  --navy-soft: rgba(40, 55, 113, 0.08);
+  --surface-soft: #f4f0f0;
+  --header-tint: #eae7e7;
+  --border-accent: #d6d2d2;
+  --text-body: #1a2545;
+  --green-soft: rgba(47, 94, 82, 0.05);
+  --red-soft: rgba(141, 46, 46, 0.04);
+  --content-width: 860px;
+  --content-width-wide: 1080px;
   background: var(--bg);
   color: var(--text);
 }
@@ -2712,6 +2722,108 @@ tbody tr:last-child td {
   text-transform: uppercase;
 }
 
+.report-page .verdict-box-green {
+  background: var(--green-soft);
+  border: 1px solid rgba(47, 94, 82, 0.35);
+  border-left: 4px solid var(--green);
+  margin: 2.25rem 0;
+  padding: 1.75rem 2rem;
+}
+
+.report-page .verdict-box-green .verdict-label {
+  color: var(--green);
+}
+
+.report-page .verdict-box-green p {
+  color: var(--text-body);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.report-page .answers-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--navy);
+  margin: 2rem 0;
+  padding: 1.35rem 1.75rem;
+}
+
+.report-page .answers-box-title {
+  color: var(--navy);
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.9rem;
+  text-transform: uppercase;
+}
+
+.report-page .answers-grid {
+  display: grid;
+  gap: 0.25rem 1.5rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.report-page .answers-item {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  padding: 0.2rem 0;
+}
+
+.report-page .answers-item::before {
+  color: var(--navy);
+  content: '→ ';
+  font-weight: 700;
+}
+
+.report-page .exec-summary {
+  background: var(--exec-trigger, #eef1f8);
+  border-left: 3px solid var(--navy);
+  margin: 2.75rem 0;
+  padding: 2.25rem 2.5rem;
+}
+
+.report-page .exec-label {
+  color: var(--navy);
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.1rem;
+  text-transform: uppercase;
+}
+
+.report-page .exec-summary p {
+  color: var(--text-body);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.report-page .exec-summary p + p {
+  margin-top: 0.9rem;
+}
+
+.report-page .table-label {
+  color: var(--navy);
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+}
+
+.report-page .pull-quote.pull-quote-green {
+  border-top-color: var(--green);
+  color: var(--green);
+}
+
 /* Navy conviction / conclusion CTA */
 .report-page .conviction-box,
 .report-page .conclusion-cta,
@@ -2724,6 +2836,19 @@ tbody tr:last-child td {
   position: relative;
 }
 
+.report-page .conviction-box::before,
+.report-page .conclusion-cta::before,
+.report-page .cta-section::before {
+  background: radial-gradient(ellipse at 80% 50%, rgba(47, 94, 82, 0.2) 0%, transparent 65%);
+  content: '';
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
+}
+
 .report-page .conclusion-cta-eyebrow,
 .report-page .conviction-label {
   color: rgba(255, 255, 255, 0.4);
@@ -2732,7 +2857,22 @@ tbody tr:last-child td {
   font-size: 0.58rem;
   letter-spacing: 0.2em;
   margin-bottom: 0.75rem;
+  position: relative;
   text-transform: uppercase;
+}
+
+.report-page .conviction-box p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.97rem;
+  font-weight: 400;
+  line-height: 1.75;
+  margin: 0;
+  position: relative;
+}
+
+.report-page .conviction-box strong {
+  color: #fff;
+  font-weight: 700;
 }
 
 .report-page .conclusion-cta-heading {
@@ -3142,6 +3282,136 @@ tbody tr:last-child td {
   }
 }
 
+/* Framework-style thesis callout (border label) */
+.report-page .thesis-box {
+  background: var(--navy-soft);
+  border: 1.5px solid var(--navy);
+  margin: 2.25rem 0;
+  padding: 2rem 2.25rem;
+  position: relative;
+}
+
+.report-page .thesis-box::before {
+  background: var(--bg);
+  color: var(--navy);
+  content: 'Central Thesis';
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  left: 1.25rem;
+  letter-spacing: 0.18em;
+  padding: 0 0.65rem;
+  position: absolute;
+  text-transform: uppercase;
+  top: -0.55rem;
+}
+
+.report-page .thesis-box p {
+  color: var(--navy);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Executive quote */
+.report-page .exec-quote {
+  background: var(--green-soft);
+  border-left: 2px solid var(--green);
+  margin: 1.4rem 0;
+  padding: 0.9rem 1.25rem;
+}
+
+.report-page .exec-quote p {
+  color: var(--text-body);
+  font-size: 0.97rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 0.4rem;
+}
+
+.report-page .exec-quote cite {
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-style: normal;
+  letter-spacing: 0.07em;
+}
+
+/* Share / key-metric navy strip (framework + mpc) */
+.report-page .share-panel {
+  background: var(--navy);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  padding: 2.5rem 0;
+}
+
+.report-page .share-panel-label {
+  color: #fff;
+  display: block;
+  font-family: var(--font);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.report-page .share-panel-grid {
+  background: rgba(255, 255, 255, 0.1);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.report-page .share-panel-cell {
+  background: var(--navy);
+  padding: 1.35rem 1.25rem;
+}
+
+.report-page .share-panel-cell.green-top {
+  border-top: 2px solid var(--green);
+}
+
+.report-page .share-panel-cell.red-top {
+  border-top: 2px solid rgba(141, 46, 46, 0.7);
+}
+
+.report-page .share-panel-num {
+  color: #fff;
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  margin-bottom: 0.65rem;
+}
+
+.report-page .share-panel-desc {
+  color: #fff;
+  font-family: var(--font);
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+  line-height: 1.62;
+}
+
+/* Manual page break helper used by printable reports */
+.report-page .manual-page-break {
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@media print {
+  .report-page .manual-page-break {
+    break-before: page;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    page-break-before: always;
+  }
+}
+
 @media (max-width: 900px) {
   .report-page .content-wide,
   .report-page .table-wrap.wide,
@@ -3220,6 +3490,14 @@ tbody tr:last-child td {
 
   .report-page .conclusion-cta-contacts {
     flex-direction: column;
+  }
+
+  .report-page .share-panel-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .report-page .answers-grid {
+    grid-template-columns: 1fr;
   }
 }
 

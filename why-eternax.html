@@ -69,45 +69,28 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
     <style>
-/* Institutional tokens — aligned with post-quantum-cryptography-risk-framework-for-institutions.html */
+/* Page tokens — shared report-page palette + why-eternax specifics */
 :root {
   --bg: #F8F4F4;
-  --surface: #FFFFFF;
-  --surface-soft: #F4F0F0;
   --surface-brief: #F6F2F2;
   --surface-row: #FBF8F8;
-  --header-tint: #EAE7E7;
   --exec-trigger: #EEF1F8;
   --table-sub: #F0ECEC;
   --sticky-head: #E7E3E3;
   --sticky-body: #FCFAFA;
   --method-note: #FBF9F9;
   --share-metric: #FAF8F8;
-  --text: #283771;
-  --text-muted: #586390;
   --text-header: #46537F;
-  --text-body: #1A2545;
-  --border: #E0DEDE;
-  --border-accent: #D6D2D2;
-  --navy: #283771;
-  --navy-hover: #37457B;
-  --green: #2F5E52;
-  --red: #8D2E2E;
   --fg: #283771;
   --fg-70: rgba(40, 55, 113, 0.7);
   --fg-80: rgba(40, 55, 113, 0.8);
-  --navy-soft: rgba(40, 55, 113, 0.08);
   --navy-select: rgba(40, 55, 113, 0.18);
-  --red-soft: rgba(141, 46, 46, 0.04);
-  --green-soft: rgba(47, 94, 82, 0.05);
   --red-medium: rgba(141, 46, 46, 0.10);
   --green-medium: rgba(47, 94, 82, 0.10);
   --amber: #9A7B2E;
   --amber-light: #faf3e0;
   --content-width-wide: 960px;
   --font: "IBM Plex Sans Condensed", ui-sans-serif, system-ui, sans-serif;
-  --serif: "IBM Plex Serif", Georgia, serif;
-  --mono: "IBM Plex Mono", "Courier New", monospace;
   --pill-bg: #283771;
   --pill-fg: #ffffff;
   --fg-90: var(--text);
@@ -116,38 +99,6 @@
 body {
   background-color: var(--bg);
   color: var(--fg);
-}
-
-.glass-effect {
-  background: #ffffff;
-  border: 1px solid var(--border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-
-.link-muted {
-  color: var(--fg-70);
-  transition: color 0.15s;
-}
-.link-muted:hover {
-  color: var(--fg);
-}
-
-.btn-primary {
-  background-color: var(--navy);
-  transition: background-color 0.15s;
-}
-.btn-primary:hover {
-  background-color: var(--navy-hover);
-}
-
-.nav-products-dropdown {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.15s, visibility 0.15s;
-}
-.group:hover .nav-products-dropdown {
-  opacity: 1;
-  visibility: visible;
 }
 
 /* Long-form body (scoped) */
@@ -686,40 +637,23 @@ body {
 }
 
 .why-eternax-longform .cta-section {
-  background: var(--navy);
-  padding: 2.75rem 2rem;
   text-align: center;
   margin-top: 2.5rem;
-  position: relative;
-  overflow: hidden;
-}
-.why-eternax-longform .cta-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40%;
-  height: 100%;
-  background: radial-gradient(ellipse at 80% 50%, rgba(47, 94, 82, 0.2) 0%, transparent 65%);
-  pointer-events: none;
+  padding: 2.75rem 2rem;
 }
 .why-eternax-longform .cta-section h2 {
-  font-family: var(--font);
   color: #fff;
   font-size: 1.12rem;
   font-weight: 600;
-  margin: 0 0 0.4rem;
   letter-spacing: -0.015em;
-  position: relative;
+  margin: 0 0 0.4rem;
 }
-.why-eternax-longform .cta-section p {
-  font-family: var(--font);
+.why-eternax-longform .cta-section > p {
   color: rgba(255, 255, 255, 0.68);
   font-size: 0.88rem;
+  line-height: 1.65;
   margin: 0 auto 1.35rem;
   max-width: 36rem;
-  line-height: 1.65;
-  position: relative;
 }
 .why-eternax-longform .cta-links {
   font-family: var(--mono);
@@ -844,66 +778,14 @@ body {
 
 .why-eternax-longform .faq-section {
   margin: 3rem 0 0;
-}
-.why-eternax-longform details.faq-item {
-  border-bottom: 1px solid var(--border);
   max-width: 45rem;
 }
-.why-eternax-longform details.faq-item[open] {
-  border-bottom: 2px solid var(--border-accent);
-}
-.why-eternax-longform details.faq-item:first-of-type {
-  border-top: 1px solid var(--border);
-}
-.why-eternax-longform summary.faq-q {
-  font-size: 0.95rem;
-  font-weight: 600;
+.why-eternax-longform .faq-section h2 {
   color: var(--navy);
-  padding: 1.15rem 2rem 1.15rem 0;
-  line-height: 1.42;
-  letter-spacing: -0.01em;
-  cursor: pointer;
-  list-style: none;
-  position: relative;
-  user-select: none;
-  transition: color 0.15s;
-}
-.why-eternax-longform summary.faq-q::-webkit-details-marker {
-  display: none;
-}
-.why-eternax-longform summary.faq-q::after {
-  content: "";
-  position: absolute;
-  right: 2px;
-  top: 50%;
-  transform: translateY(-50%) rotate(0deg);
-  width: 16px;
-  height: 16px;
-  transition: transform 0.2s ease;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%23283771' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-.why-eternax-longform details.faq-item[open] summary.faq-q::after {
-  transform: translateY(-50%) rotate(180deg);
-}
-.why-eternax-longform summary.faq-q:hover {
-  color: var(--navy-hover);
-}
-.why-eternax-longform .faq-a {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.72;
-  padding: 0 2rem 1.15rem 0;
-  border-top: 1px solid var(--border);
-}
-.why-eternax-longform .faq-a p {
-  margin-bottom: 0.65em;
-  max-width: none;
-}
-.why-eternax-longform .faq-a p:last-child {
-  margin-bottom: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
 }
 
 .why-eternax-longform .score-cell {
@@ -1171,7 +1053,7 @@ body {
 }
 </script>
 </head>
-<body class="font-sans" itemscope itemtype="https://schema.org/WebPage">
+<body class="font-sans report-page" itemscope itemtype="https://schema.org/WebPage">
     <!-- Navigation -->
     {% include navbar.html %}
 
