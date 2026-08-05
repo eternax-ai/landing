@@ -145,108 +145,7 @@
 }
 </script>
 <style>
-:root {
-  --brand: #283771;
-  --bg: #F7F4F4;
-  --surface: #FFFFFF;
-  --border: #E0DEDE;
-  --green: #2F5E52;
-  --red: #8D2E2E;
-  --text: #283771;
-  --text-secondary: #4a5568;
-  --text-muted: #6b7280;
-  --accent-bg: #EBE8E8;
-  --highlight: #f0eeed;
-  --stat-bg: #283771;
-  --stat-text: #F7F4F4;
-  --font: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
-  --serif: 'IBM Plex Serif', serif;
-  --mono: 'IBM Plex Mono', 'Courier New', monospace;
-  --fg: #283771;
-  --fg-70: rgba(40, 55, 113, 0.7);
-  --fg-80: rgba(40, 55, 113, 0.8);
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; font-size: 16px; }
-
-body {
-  font-family: var(--font);
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.72;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-nav { font-family: ui-sans-serif, system-ui, sans-serif; --fg-70: var(--fg); --fg-80: var(--fg); }
-
-.btn-primary { background-color: var(--brand); transition: background-color .15s; color: #fff; }
-.btn-primary:hover { background-color: #37457B; }
-.glass-effect { background: #fff; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,.06); }
-.nav-products-dropdown { opacity: 0; visibility: hidden; transition: opacity .15s, visibility .15s; }
-.group:hover .nav-products-dropdown { opacity: 1; visibility: visible; }
-
-/* COVER */
-.cover {
-  border-bottom: 1px solid var(--border);
-  padding: calc(2.5rem + 64px) 0 2rem;
-  background: linear-gradient(180deg, #FFFFFF 0%, var(--bg) 100%);
-}
-.cover-inner {
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-.cover-eyebrow {
-  font-family: var(--font);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: var(--green);
-  margin-bottom: 1rem;
-}
-.cover-title {
-  font-family: var(--font);
-  font-size: 2.35rem;
-  font-weight: 700;
-  line-height: 1.22;
-  letter-spacing: -0.3px;
-  color: #1A2550;
-  margin-bottom: 1rem;
-}
-.cover-subtitle {
-  font-family: var(--serif);
-  font-size: 1.08rem;
-  font-weight: 400;
-  font-style: italic;
-  color: #4A4A4A;
-  line-height: 1.6;
-  margin-bottom: 1.25rem;
-}
-.cover-meta {
-  margin-top: 1.25rem;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.cover-meta-item {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-.cover-meta-label {
-  margin-bottom: 0.3rem;
-}
-.cover-meta-value {
-  color: var(--text);
-}
-
-/* LAYOUT */
+/* Layout override: exposure map uses a wider section container than product pages */
 .container {
   max-width: 1080px;
   margin: 0 auto;
@@ -965,7 +864,7 @@ tbody tr:last-child td { border-bottom: none; }
 }
 </style>
 </head>
-<body>
+<body class="report-page">
 
 {% include navbar.html %}
 

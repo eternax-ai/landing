@@ -108,32 +108,6 @@
     a { color: inherit; }
     nav { font-family: ui-sans-serif, system-ui, sans-serif; }
 
-    .btn-primary {
-      background-color: var(--accent);
-      transition: background-color 0.15s;
-      color: #ffffff;
-    }
-    .btn-primary:hover {
-      background-color: var(--accent-blue);
-    }
-
-    .glass-effect {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-    }
-
-    .nav-products-dropdown {
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.15s, visibility 0.15s;
-    }
-
-    .group:hover .nav-products-dropdown {
-      opacity: 1;
-      visibility: visible;
-    }
-
     .masthead,
     .disclaimer-bar,
     .source-strip,
@@ -1169,25 +1143,6 @@
       line-height: 1.6;
     }
 
-    .report-footer {
-      border-top: 1px solid var(--border);
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-      margin-top: 1rem;
-    }
-    .report-footer h3 {
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-    .report-footer p {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      line-height: 1.72;
-      margin-bottom: 0.8rem;
-    }
-
     @media (max-width: 1120px) {
       .table-wrapper.wide { margin-left: 0; margin-right: 0; }
     }
@@ -1451,7 +1406,7 @@
   }
   </script>
 </head>
-<body>
+<body class="report-page">
   <!-- Navigation -->
   {% include navbar.html %}
   <header class="masthead">

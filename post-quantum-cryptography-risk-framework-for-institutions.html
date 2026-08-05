@@ -150,27 +150,6 @@ html{font-size:16px;scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.72;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 nav{font-family:ui-sans-serif,system-ui,sans-serif;--fg-70:var(--fg);--fg-80:var(--fg)}
 
-.btn-primary{background-color:var(--navy);transition:background-color .15s;color:#fff}
-.btn-primary:hover{background-color:var(--navy-hover)}
-.glass-effect{background:#fff;border:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.nav-products-dropdown{opacity:0;visibility:hidden;transition:opacity .15s,visibility .15s}
-.group:hover .nav-products-dropdown{opacity:1;visibility:visible}
-
-/* ── NAVIGATION ── */
-.site-nav{
-  background:rgba(255,255,255,0.5);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
-  position:sticky;top:0;z-index:100
-}
-.nav-inner{max-width:1100px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:56px}
-.nav-logo{font-family:var(--font);font-size:.9rem;font-weight:700;color:var(--navy);text-decoration:none;letter-spacing:-.01em}
-.nav-logo span{color:var(--red)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{font-family:var(--font);font-size:.74rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .15s}
-.nav-links a:hover,.nav-links .nav-active{color:var(--navy)}
-
 /* ── LAYOUT ── */
 .content{max-width:var(--content-width);margin:0 auto;padding:0 2rem 4.75rem}
 .content-wide{max-width:var(--content-width-wide);margin:0 auto;padding:0 2rem}
@@ -505,7 +484,7 @@ tbody td:first-child{background:var(--sticky-body)}
   }
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   body{background:#fff}
-  .site-nav,.pdf-btn,.author-photo-slot,.connect-actions,.no-print{display:none!important}
+  nav,.pdf-btn,.author-photo-slot,.connect-actions,.no-print{display:none!important}
   .manual-page-break{break-before:page;page-break-before:always;height:0!important;margin:0!important;padding:0!important}
   .cover,.fastpath,.team-section,.connect-section,.report-footer,.case-study,.verdict-box,.verdict-box-green{
     box-shadow:none!important;background:#fff!important
@@ -782,7 +761,7 @@ summary.faq-q:hover{color:var(--navy-hover)}
 }
 </style>
 </head>
-<body>
+<body class="report-page">
 
 <!-- ═══ NAVIGATION -->
 {% include navbar.html %}

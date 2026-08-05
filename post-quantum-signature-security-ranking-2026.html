@@ -198,69 +198,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* === HEADER === */
-        .site-header {
-            background: var(--navy-deep);
-            padding: 14px 0;
-            border-bottom: 3px solid var(--green);
-        }
-        .site-header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .site-logo {
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-weight: 700;
-            font-size: 1.35rem;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: 0.5px;
-        }
-        .site-logo span { color: var(--green-light); font-weight: 300; }
-        .site-nav a {
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            margin-left: 28px;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .site-nav a:hover { color: var(--white); }
-
-        nav {
-            font-family: ui-sans-serif, system-ui, sans-serif;
-            --fg-70: var(--fg);
-            --fg-80: var(--fg);
-        }
-        .glass-effect {
-            background: #ffffff;
-            border: 1px solid var(--border);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-        }
-        .link-muted {
-            color: var(--fg-70);
-            transition: color 0.15s;
-        }
-        .link-muted:hover { color: var(--fg); }
-        .btn-primary {
-            background-color: var(--fg);
-            transition: background-color 0.15s;
-            color: #fff;
-        }
-        .btn-primary:hover { background-color: var(--navy-light); }
-        .nav-products-dropdown {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.15s, visibility 0.15s;
-        }
-        .group:hover .nav-products-dropdown {
-            opacity: 1;
-            visibility: visible;
-        }
         /* Normalize shared navbar size on this page (base html font-size is 17px here). */
         nav .text-xl { font-size: 20px; line-height: 28px; }
         nav .text-sm { font-size: 14px; line-height: 20px; }
@@ -789,19 +726,6 @@
         }
         .cross-links a:hover { border-color: var(--navy); }
 
-        .site-footer {
-            background: var(--navy-deep);
-            padding: 28px 0;
-            margin-top: 40px;
-        }
-        .site-footer p {
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 0.72rem;
-            color: rgba(255,255,255,0.5);
-            text-align: center;
-            letter-spacing: 0.3px;
-        }
-
         /* === RESPONSIVE === */
         @media (max-width: 640px) {
             html { font-size: 16px; }
@@ -810,7 +734,6 @@
             .key-finding::before, .verdict::before { left: 20px; }
             .stack-label, .tl-label { width: 90px; font-size: 0.68rem; }
             .bar { font-size: 0.55rem; padding: 0 5px; }
-            .site-nav { display: none; }
             .table-wrap { margin-left: -24px; margin-right: -24px; padding: 0 24px; }
             .table-wrap.wide { width: auto; transform: none; }
             .assumption-visual, .timeline-visual { padding: 20px 16px; }
@@ -818,7 +741,7 @@
 
         /* === PRINT === */
         @media print {
-            nav, .site-header, .site-footer, .site-nav { display: none; }
+            nav { display: none; }
             #main-content { padding-top: 0; }
             body { background: white; font-size: 11pt; line-height: 1.5; }
             .article-container { max-width: 100%; padding: 0; }
@@ -850,7 +773,7 @@
         }
     </style>
 </head>
-<body>
+<body class="report-page">
 
 <!-- SKIP TO CONTENT (accessibility) -->
 <a href="#main-content" style="position:absolute;left:-9999px;top:0;padding:8px 16px;background:var(--green);color:white;font-family:'IBM Plex Sans',sans-serif;font-size:0.85rem;z-index:9999;text-decoration:none;" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to content</a>
