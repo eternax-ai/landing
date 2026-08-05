@@ -336,12 +336,12 @@ tbody td:first-child{background:var(--sticky-body)}
   }
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   body{background:#fff}
-  nav,.pdf-btn,.author-photo-slot,.connect-actions,.no-print{display:none!important}
+  nav,.report-btn,.author-photo-slot,.connect-actions,.no-print{display:none!important}
   .manual-page-break{break-before:page;page-break-before:always;height:0!important;margin:0!important;padding:0!important}
   .cover,.fastpath,.team-section,.connect-section,.report-footer,.case-study,.verdict-box,.verdict-box-green{
     box-shadow:none!important;background:#fff!important
   }
-  .chart-wrap,.exec-quote,.verdict-box,.callout-box,.faq-item{page-break-inside:avoid}
+  .chart-wrap,.exec-quote,.verdict-box,.callout,.faq-item{page-break-inside:avoid}
   /* Fill the full available print width — prevents max-width + margin:auto from centering at viewport width */
   .content{max-width:none!important;margin-left:0!important;margin-right:0!important}
   .cover-inner,.fastpath-inner{max-width:none!important;margin-left:0!important;margin-right:0!important;padding-left:2rem!important;padding-right:2rem!important}
@@ -354,7 +354,7 @@ tbody td:first-child{background:var(--sticky-body)}
   .table-wrap table th:first-child,.table-wrap table td:first-child{position:static!important;box-shadow:none!important}
   .faq-item{border-color:#d9d9d9!important}
   .faq-item summary::after{display:none!important}
-  .faq-item:not([open]) .faq-a{display:block!important}
+  .faq-item:not([open]) .faq-answer{display:block!important}
   .stat-grid,.taxonomy,.moat-grid,.framework-grid,.fastpath-grid,.toc-grid{break-inside:avoid}
   h2{break-after:avoid}
   .part-header{padding-top:32px}
@@ -534,7 +534,7 @@ tbody td:first-child{background:var(--sticky-body)}
 {% include navbar.html %}
 
 <!-- ═══ COVER -->
-<header class="cover cover-flat" role="banner">
+<header class="cover" role="banner">
 <div class="cover-inner">
   <div class="cover-eyebrow">EternaX Research · Institutional Post-Quantum Framework · Updated May 2026</div>
   <h1 class="cover-title">Cryptographic Migration Debt: The Post-Quantum Risk Framework for Institutional Digital Asset Programmes</h1>
@@ -545,7 +545,7 @@ tbody td:first-child{background:var(--sticky-body)}
     <div class="cover-meta-item"><div class="cover-meta-label">Audience</div><div class="cover-meta-value">Boards · Risk Committees · Tokenization Teams · Stablecoin Issuers · Custodians · Enterprise Digital Asset Programmes</div></div>
   </div>
   <p class="cover-disclaimer">Not investment advice. <strong>Updated May 2026</strong> with SILMARILS: EternaX's authentication primitive published as arXiv:2605.03230, with formal proofs and an open-source Rust reference implementation. <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:inherit;">Read the SILMARILS paper</a>. This version adds the named SILMARILS paper, the SPHINCS+ plus SILMARILS dual-layer architecture, designated-verifier precision, privacy-failure mechanics, institutional MEV exposure, and expanded LLM-search metadata. Sections 1–14 present independent analysis sourced from public records, federal standards, peer-reviewed research, and published statements. EternaX architecture and positioning are presented in Section 15. All market data as of April 2026 unless otherwise noted.</p>
-  <a class="pdf-btn" href="eternax-report-post-quantum-cryptography-risk-framework-for-institutions.pdf" download aria-label="Save report as PDF">
+  <a class="report-btn" href="eternax-report-post-quantum-cryptography-risk-framework-for-institutions.pdf" download aria-label="Save report as PDF">
     <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     Save as PDF
   </a>
@@ -1039,7 +1039,7 @@ tbody td:first-child{background:var(--sticky-body)}
   </table>
 </div>
 
-<div class="callout-box">
+<div class="callout">
   <p><strong>What the signature size table means for throughput and institutional viability.</strong> Signature size is the primary driver of per-transaction bandwidth and block capacity. A chain using SLH-DSA-SHA2-128s signatures (Circle Arc's chosen scheme) must process 122× more bytes per signature than a chain using Ed25519 — or 49× more than <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:inherit;">EternaX's protocol-native scheme</a>. At constant block sizes and validation throughput, this directly translates to proportional transaction-capacity reduction before any other computational overhead is considered. Circle's Arc blog confirms this is why validator hardening is deferred to a "long-term" phase: the performance implications of applying large-signature PQ schemes to the validator layer remain unresolved. <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:inherit;">EternaX's 160-byte scheme</a> sits below the minimum 10× deterioration floor that Nic Carter cited as the industry's unavoidable cost of any NIST-compliant migration — and 49× smaller than the specific scheme the most credible institutional blockchain issuer just publicly chose.</p>
 </div>
 
@@ -1370,7 +1370,7 @@ tbody td:first-child{background:var(--sticky-body)}
   <p>"PQ-safe auditable privacy is not a feature. It is the only architecture where long-duration institutional capital can be held on-chain with confidentiality that does not expire and compliance that is built in — not traded against each other."</p>
 </div>
 
-<div class="callout-box">
+<div class="callout">
   <p><strong>The critical distinction institutions miss: signing-layer PQ and privacy-layer PQ are not the same thing.</strong> Most discussions of post-quantum migration focus exclusively on replacing ECDSA and Ed25519 signatures with quantum-resistant alternatives. This addresses the authorization layer — who can move assets. It does not address the privacy layer — what adversaries can observe and decode from the permanent on-chain record.</p>
   <p>A chain that migrates its signing keys to NIST post-quantum standards but continues to record transaction flows, balances, and counterparty relationships under computationally-secure privacy assumptions has solved half the problem. An adversary running Shor's algorithm on historically collected transaction data does not need to forge a signature. They need only to break the cryptographic assumptions protecting the privacy of what was already recorded. On Ethereum and Solana, transactions are public-by-default — no privacy to break. On Zcash, the Sapling trusted setup is itself vulnerable to an on-setup quantum attack, retroactively compromising all shielded transactions. On Monero, ring signatures use Ed25519 — quantum-vulnerable. Circle's Arc has deferred privacy to a "near-term" post-mainnet roadmap item.</p>
   <p>The only architecture with quantum-durable privacy at both layers requires information-theoretic or post-quantum cryptographic foundations applied to the privacy model itself — not just applied to signing keys. That architecture is the final row of Table 8.1. It is the architecture that matters for long-duration institutional finance, where harvested data from 2026 may be decrypted in 2031, 2035, or 2040.</p>
@@ -1467,8 +1467,8 @@ tbody td:first-child{background:var(--sticky-body)}
   </div>
 </div>
 
-<div class="conviction-box">
-  <span class="conviction-label">The New-Issuance Conviction Statement · April 2026 Onwards</span>
+<div class="cta-section">
+  <span class="cta-eyebrow">The New-Issuance Conviction Statement · April 2026 Onwards</span>
   <p>After April 2026, every new issuance on a non-PQ-safe blockchain rail is a <strong>knowing decision</strong>. The evidentiary record is complete and public. NIST post-quantum standards were finalized in August 2024. The European Commission mandated national PQC strategies for EU member states by 2026 and quantum-resistant encryption for critical infrastructure by 2030. Google's whitepaper is in the public record as of March 30, 2026, with its authors explicitly stating that the correct planning assumption is a threshold model — meaning no significant notice period before a CRQC exists. The Ethereum Foundation has acknowledged urgency and published a roadmap. Project Eleven and the Solana Foundation have confirmed in live testnet that quantum-safe migration imposes ~90% throughput loss. Cloudflare has already migrated. Android 17 will ship ML-DSA post-quantum signatures natively. The US government has set a 2030–2035 critical infrastructure deadline. The institutional blockchain stack is the only major financial infrastructure that has not begun. <strong>Fidelity launched FIDD — a new institutional stablecoin on Ethereum mainnet — in February 2026, after all of this was in the public record.</strong> That is the precise definition of a knowing choice. There is no defensible claim of ignorance remaining. Any institution that issues new long-duration stablecoins, tokenized securities, tokenized deposits, or RWAs on quantum-vulnerable rails after this date is making an informed choice to create avoidable migration debt, privacy contamination, and rail-induced liability for assets whose underlying value has nothing to do with blockchain cryptography. That is the board question. Not "when will quantum computers arrive?" — but "can we justify this choice, in writing, to our investors, regulators, and risk committee in 2030, knowing what we know today?"</p>
 </div>
 
@@ -1780,16 +1780,16 @@ tbody td:first-child{background:var(--sticky-body)}
   <p>"The only serious remaining question is not whether institutions should address this. It is whether they will be positioned as the architects of the next institutional standard — or as the subjects of an expensive and avoidable migration."</p>
 </div>
 
-<div class="conclusion-cta">
-  <span class="conclusion-cta-eyebrow">Next Step</span>
-  <h3 class="conclusion-cta-heading">Discuss Your Institution's Post-Quantum Exposure with EternaX</h3>
-  <p class="conclusion-cta-desc">For institutional diligence on post-quantum financial infrastructure, stablecoin architecture, tokenized finance risk, cryptographic migration debt, or EternaX's PQ-native issuance and migration rails.</p>
-  <div class="conclusion-cta-contacts">
-    <a href="mailto:paarrthhh.b@eternax.ai" class="conclusion-cta-contact">
+<div class="cta-section">
+  <span class="cta-eyebrow">Next Step</span>
+  <h3 class="cta-heading">Discuss Your Institution's Post-Quantum Exposure with EternaX</h3>
+  <p class="cta-desc">For institutional diligence on post-quantum financial infrastructure, stablecoin architecture, tokenized finance risk, cryptographic migration debt, or EternaX's PQ-native issuance and migration rails.</p>
+  <div class="cta-contacts">
+    <a href="mailto:paarrthhh.b@eternax.ai" class="cta-contact">
       <span>Paarrthhh Birla · Co-Founder</span>
       <span>paarrthhh.b@eternax.ai →</span>
     </a>
-    <a href="mailto:dariia.p@eternax.ai" class="conclusion-cta-contact">
+    <a href="mailto:dariia.p@eternax.ai" class="cta-contact">
       <span>Dariia Porechna · Co-Founder</span>
       <span>dariia.p@eternax.ai →</span>
     </a>
@@ -1824,7 +1824,7 @@ tbody td:first-child{background:var(--sticky-body)}
   </table>
 </div>
 
-<div class="callout-box">
+<div class="callout">
   <p>For questions, institutional diligence, or partnership enquiries related to either report, contact <a href="mailto:info@eternax.ai">info@eternax.ai</a>. For the EternaX technical architecture and product documentation, visit <a href="https://eternax.ai">eternax.ai</a>.</p>
 </div>
 
@@ -1839,91 +1839,91 @@ tbody td:first-child{background:var(--sticky-body)}
 <div class="faq-section">
   <details class="faq-item">
     <summary class="faq-q">1. What is cryptographic migration debt in the context of post-quantum risk?</summary>
-    <div class="faq-a">The future operational, legal, liquidity, privacy, and vendor cost created when long-duration value is issued on quantum-vulnerable rails. It starts at issuance, not at Q-Day.</div>
+    <div class="faq-answer">The future operational, legal, liquidity, privacy, and vendor cost created when long-duration value is issued on quantum-vulnerable rails. It starts at issuance, not at Q-Day.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">2. What did Google's March 2026 quantum whitepaper change?</summary>
-    <div class="faq-a">It moved quantum risk from theory to board agenda. The paper extended the issue beyond Bitcoin into Ethereum smart contracts, validators, stablecoins, RWAs, Layer 2s, and privacy systems.</div>
+    <div class="faq-answer">It moved quantum risk from theory to board agenda. The paper extended the issue beyond Bitcoin into Ethereum smart contracts, validators, stablecoins, RWAs, Layer 2s, and privacy systems.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">3. Why is post-quantum risk particularly severe for stablecoins and tokenized RWAs?</summary>
-    <div class="faq-a">Because the underlying asset may be sound while the rail creates avoidable cryptographic liability. A dollar reserve or Treasury bill should not inherit blockchain migration risk.</div>
+    <div class="faq-answer">Because the underlying asset may be sound while the rail creates avoidable cryptographic liability. A dollar reserve or Treasury bill should not inherit blockchain migration risk.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">4. Why does new issuance matter more than legacy exposure?</summary>
-    <div class="faq-a">Legacy exposure must be managed. New issuance is optional. After PQ risk is documented, issuing new value on vulnerable rails becomes a knowing decision.</div>
+    <div class="faq-answer">Legacy exposure must be managed. New issuance is optional. After PQ risk is documented, issuing new value on vulnerable rails becomes a knowing decision.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">5. Why are admin keys and control-plane keys critical?</summary>
-    <div class="faq-a">They govern minting, burning, freezing, upgrades, bridges, oracles, and custody. A CRQC does not need every user key if it can compromise the few keys that control the asset.</div>
+    <div class="faq-answer">They govern minting, burning, freezing, upgrades, bridges, oracles, and custody. A CRQC does not need every user key if it can compromise the few keys that control the asset.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">6. Why are public blockchains not institutionally private?</summary>
-    <div class="faq-a">Balances, timing, routes, counterparties, and transaction intent are visible by default. That is useful transparency for public audit, but unacceptable exposure for treasury, trading, settlement, and client flows.</div>
+    <div class="faq-answer">Balances, timing, routes, counterparties, and transaction intent are visible by default. That is useful transparency for public audit, but unacceptable exposure for treasury, trading, settlement, and client flows.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">7. Why is Canton not automatically post-quantum private?</summary>
-    <div class="faq-a">Canton provides policy-level visibility control, but its documented cryptographic surface includes classical signing and encryption such as Ed25519, ECDSA/P-256-family configurations, ECIES/P-256, and RSA-2048. Unless those signing, encryption, session-key, sequencer, namespace, custody, and synchronization perimeters are PQ-migrated, HNDL risk remains for captured traffic, encrypted session material, and historical transaction-view metadata.</div>
+    <div class="faq-answer">Canton provides policy-level visibility control, but its documented cryptographic surface includes classical signing and encryption such as Ed25519, ECDSA/P-256-family configurations, ECIES/P-256, and RSA-2048. Unless those signing, encryption, session-key, sequencer, namespace, custody, and synchronization perimeters are PQ-migrated, HNDL risk remains for captured traffic, encrypted session material, and historical transaction-view metadata.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">8. Why are Zcash and Monero not enough for institutions?</summary>
-    <div class="faq-a">Zcash uses curve-based proof/key systems such as BLS12-381, Jubjub, and Pallas/Vesta across Sapling/Orchard; Monero uses Edwards25519-based ring signatures, stealth addresses, key images, RingCT commitments, and range proofs. Their histories are permanent public archives. If the classical assumptions fail, HNDL adversaries can reprocess old data; institutions still lack native selective disclosure and compliance-grade audit controls.</div>
+    <div class="faq-answer">Zcash uses curve-based proof/key systems such as BLS12-381, Jubjub, and Pallas/Vesta across Sapling/Orchard; Monero uses Edwards25519-based ring signatures, stealth addresses, key images, RingCT commitments, and range proofs. Their histories are permanent public archives. If the classical assumptions fail, HNDL adversaries can reprocess old data; institutions still lack native selective disclosure and compliance-grade audit controls.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">9. Why is MEV an institutional problem?</summary>
-    <div class="faq-a">MEV proves that public order flow is extractable before settlement. For institutions, that means front-running, sandwiching, settlement-timing leakage, validator/builder extraction, and strategic intelligence loss.</div>
+    <div class="faq-answer">MEV proves that public order flow is extractable before settlement. For institutions, that means front-running, sandwiching, settlement-timing leakage, validator/builder extraction, and strategic intelligence loss.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">10. Why is SPHINCS+ / SLH-DSA important?</summary>
-    <div class="faq-a">SPHINCS+ is the only NIST-standardized post-quantum signature scheme that does not depend on lattice mathematics. Its security rests entirely on hash functions — SHA-256, SHAKE-256, SHA-3 — the most analyzed and battle-tested cryptographic primitives in production. ML-DSA and FN-DSA both depend on the hardness of lattice problems. A lattice breakthrough breaks both simultaneously but does not touch SPHINCS+. For institutional digital assets with multi-decade lifespans, SPHINCS+ is the only PQ identity anchor that eliminates correlated lattice-failure risk. The tradeoff is signature size (7,856 bytes), which is solved at the authentication layer by constructions like <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:inherit;">SILMARILS</a>.</div>
+    <div class="faq-answer">SPHINCS+ is the only NIST-standardized post-quantum signature scheme that does not depend on lattice mathematics. Its security rests entirely on hash functions — SHA-256, SHAKE-256, SHA-3 — the most analyzed and battle-tested cryptographic primitives in production. ML-DSA and FN-DSA both depend on the hardness of lattice problems. A lattice breakthrough breaks both simultaneously but does not touch SPHINCS+. For institutional digital assets with multi-decade lifespans, SPHINCS+ is the only PQ identity anchor that eliminates correlated lattice-failure risk. The tradeoff is signature size (7,856 bytes), which is solved at the authentication layer by constructions like <a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:inherit;">SILMARILS</a>.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">10a. What is correlated lattice-failure risk in post-quantum cryptography?</summary>
-    <div class="faq-a">Two of the three NIST PQ signature standards — ML-DSA (FIPS 204) and FN-DSA — depend on the hardness of problems over algebraic lattices. A fundamental advance in lattice cryptanalysis threatens both simultaneously. Choosing between ML-DSA and FN-DSA does not diversify cryptographic risk — it concentrates it. SPHINCS+ (FIPS 205) is the only NIST PQ signature scheme that provides genuine mathematical diversification, because it relies on hash functions rather than lattice structures.</div>
+    <div class="faq-answer">Two of the three NIST PQ signature standards — ML-DSA (FIPS 204) and FN-DSA — depend on the hardness of problems over algebraic lattices. A fundamental advance in lattice cryptanalysis threatens both simultaneously. Choosing between ML-DSA and FN-DSA does not diversify cryptographic risk — it concentrates it. SPHINCS+ (FIPS 205) is the only NIST PQ signature scheme that provides genuine mathematical diversification, because it relies on hash functions rather than lattice structures.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">10b. What happens if lattice-based PQ cryptography is broken?</summary>
-    <div class="faq-a">Institutions that migrated from classical ECDSA/Ed25519 to ML-DSA or FN-DSA would face a second forced migration — from lattice-PQ to hash-PQ — with all the coordination, contract, liquidity, vendor, and reputation debt that entails. That is migration debt compounded on migration debt: the exact failure mode this report warns against, except self-inflicted at the PQ scheme selection stage. Institutions anchored on SPHINCS+ from day one do not face this scenario.</div>
+    <div class="faq-answer">Institutions that migrated from classical ECDSA/Ed25519 to ML-DSA or FN-DSA would face a second forced migration — from lattice-PQ to hash-PQ — with all the coordination, contract, liquidity, vendor, and reputation debt that entails. That is migration debt compounded on migration debt: the exact failure mode this report warns against, except self-inflicted at the PQ scheme selection stage. Institutions anchored on SPHINCS+ from day one do not face this scenario.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">10c. Why did NIST standardize SPHINCS+ alongside the lattice schemes?</summary>
-    <div class="faq-a">NIST has stated publicly that SPHINCS+ / SLH-DSA exists as a conservative hedge against the possibility that lattice assumptions may not hold. It is the backstop built into the standard itself. The institutional question is whether a backstop should remain the fallback — or become the foundation for long-duration value.</div>
+    <div class="faq-answer">NIST has stated publicly that SPHINCS+ / SLH-DSA exists as a conservative hedge against the possibility that lattice assumptions may not hold. It is the backstop built into the standard itself. The institutional question is whether a backstop should remain the fallback — or become the foundation for long-duration value.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">11. What does SILMARILS add?</summary>
-    <div class="faq-a"><a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:inherit;">SILMARILS</a> adds compact 160-byte designated-verifier authentication with a 32-byte public receipt. It lets validators authenticate transactions without forcing every transaction to carry the full SPHINCS+ signature-size tax.</div>
+    <div class="faq-answer"><a href="blogs/silmarils-post-quantum-authentication-without-size-tax/index.html" style="color:inherit;">SILMARILS</a> adds compact 160-byte designated-verifier authentication with a 32-byte public receipt. It lets validators authenticate transactions without forcing every transaction to carry the full SPHINCS+ signature-size tax.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">12. Is SILMARILS a normal public-verifier signature?</summary>
-    <div class="faq-a">No. It is a transferable designated-verifier construction. That distinction matters in functionality. In blockchain context, validators already sit inside the validity path, making the model architecturally natural.</div>
+    <div class="faq-answer">No. It is a transferable designated-verifier construction. That distinction matters in functionality. In blockchain context, validators already sit inside the validity path, making the model architecturally natural.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">13. What makes EternaX structurally different?</summary>
-    <div class="faq-a">EternaX combines SPHINCS+ / SLH-DSA identity anchoring, SILMARILS compact authentication, auditable privacy, private ordering, and PQ-native issuance in one architecture targeting 50,000-200,000 TPS, 20-50ms soft finality, and 400-520ms hard-finality settlement.</div>
+    <div class="faq-answer">EternaX combines SPHINCS+ / SLH-DSA identity anchoring, SILMARILS compact authentication, auditable privacy, private ordering, and PQ-native issuance in one architecture targeting 50,000-200,000 TPS, 20-50ms soft finality, and 400-520ms hard-finality settlement.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">14. What is auditable privacy?</summary>
-    <div class="faq-a">Confidentiality from the market plus selective disclosure to authorized parties. It is neither public-by-default nor opaque-by-default. It is privacy built for regulated finance.</div>
+    <div class="faq-answer">Confidentiality from the market plus selective disclosure to authorized parties. It is neither public-by-default nor opaque-by-default. It is privacy built for regulated finance.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">15. What should institutions stop doing now?</summary>
-    <div class="faq-a">Stop issuing new long-duration assets on vulnerable rails without a PQ roadmap. Stop adding chains by default. Stop renewing critical vendors that cannot explain their PQ transition.</div>
+    <div class="faq-answer">Stop issuing new long-duration assets on vulnerable rails without a PQ roadmap. Stop adding chains by default. Stop renewing critical vendors that cannot explain their PQ transition.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">16. What should boards ask first?</summary>
-    <div class="faq-a">Which keys control value? Which are exposed on-chain? Which vendors are critical path? What breaks if the base chain migrates but our contracts, custody, bridges, or privacy model do not?</div>
+    <div class="faq-answer">Which keys control value? Which are exposed on-chain? Which vendors are critical path? What breaks if the base chain migrates but our contracts, custody, bridges, or privacy model do not?</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">17. Is this only a future quantum-computer problem?</summary>
-    <div class="faq-a">No. Migration debt, privacy exposure, MEV, procurement risk, and collateral repricing can appear before any public cryptographic break.</div>
+    <div class="faq-answer">No. Migration debt, privacy exposure, MEV, procurement risk, and collateral repricing can appear before any public cryptographic break.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">18. What is the cleanest institutional rule?</summary>
-    <div class="faq-a">Manage legacy exposure, but do not create new exposure. New issuance should start PQ-native wherever long-duration value, institutional flows, or regulated assets are involved.</div>
+    <div class="faq-answer">Manage legacy exposure, but do not create new exposure. New issuance should start PQ-native wherever long-duration value, institutional flows, or regulated assets are involved.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">19. What is the final board question?</summary>
-    <div class="faq-a">If we are issuing new institutional value today, why are we choosing a rail that already guarantees a future migration event?</div>
+    <div class="faq-answer">If we are issuing new institutional value today, why are we choosing a rail that already guarantees a future migration event?</div>
   </details>
 </div>
 </main><!-- /content -->
@@ -1974,11 +1974,11 @@ tbody td:first-child{background:var(--sticky-body)}
       <div class="connect-person"><span class="name">Dariia Porechna</span><span class="connect-sep">-</span><span class="role">Co-Founder</span><span class="connect-sep">-</span><a href="mailto:dariia.p@eternax.ai" class="email">dariia.p@eternax.ai</a></div>
     </div>
     <div class="connect-actions">
-      <a href="eternax-report-post-quantum-cryptography-risk-framework-for-institutions.pdf" target="_blank" rel="noopener" class="connect-btn primary no-print">
+      <a href="eternax-report-post-quantum-cryptography-risk-framework-for-institutions.pdf" target="_blank" rel="noopener" class="report-btn primary no-print">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Save as PDF
       </a>
-      <a href="https://eternax.ai" target="_blank" rel="noopener" class="connect-btn secondary">eternax.ai</a>
+      <a href="https://eternax.ai" target="_blank" rel="noopener" class="report-btn secondary">eternax.ai</a>
 
     </div>
   </div>

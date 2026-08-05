@@ -2119,8 +2119,7 @@ tbody tr:last-child td {
 }
 
 /* Report cover: keep shared .cover geometry, tighten title scale for long headlines */
-.report-page .cover .cover-title,
-.report-page .cover-flat .cover-title {
+.report-page .cover .cover-title {
   font-family: var(--font-condensed);
   font-size: clamp(1.9rem, 3.4vw, 2.6rem);
   font-weight: 700;
@@ -2175,16 +2174,13 @@ tbody tr:last-child td {
 }
 
 /* Content column */
-.report-content,
-.report-page .content-wrap,
-.report-page .article-container {
+.report-page .content-wrap {
   margin: 0 auto;
   max-width: 860px;
   padding: 3rem 2rem 5rem;
 }
 
-.report-page .content-wrap h2,
-.report-page .article-container h2 {
+.report-page .content-wrap h2 {
   color: var(--navy);
   font-family: var(--serif);
   font-size: clamp(1.45rem, 2.8vw, 1.65rem);
@@ -2194,13 +2190,11 @@ tbody tr:last-child td {
   margin: 3.25rem 0 1.1rem;
 }
 
-.report-page .content-wrap h2:first-child,
-.report-page .article-container h2:first-child {
+.report-page .content-wrap h2:first-child {
   margin-top: 0;
 }
 
-.report-page .content-wrap h3,
-.report-page .article-container h3 {
+.report-page .content-wrap h3 {
   color: var(--navy);
   font-family: var(--font-condensed), var(--font);
   font-size: 1.05rem;
@@ -2209,8 +2203,7 @@ tbody tr:last-child td {
   margin: 2rem 0 0.65rem;
 }
 
-.report-page .content-wrap > p,
-.report-page .article-container > p {
+.report-page .content-wrap > p {
   color: var(--text-body);
   font-size: 1rem;
   line-height: 1.68;
@@ -2218,20 +2211,17 @@ tbody tr:last-child td {
   max-width: 45rem;
 }
 
-.report-page .content-wrap > p:last-child,
-.report-page .article-container > p:last-child {
+.report-page .content-wrap > p:last-child {
   margin-bottom: 0;
 }
 
-.report-page .content-wrap strong,
-.report-page .article-container strong {
+.report-page .content-wrap strong {
   color: var(--navy);
   font-weight: 600;
 }
 
 .report-page .content-wide,
-.report-page .table-wrap.wide,
-.report-page .table-wrapper.wide {
+.report-page .table-wrap.wide {
   margin-left: -110px;
   margin-right: -110px;
   max-width: none;
@@ -2239,9 +2229,7 @@ tbody tr:last-child td {
 }
 
 /* Institutional tables */
-.report-page .table-wrap,
-.report-page .table-wrapper,
-.report-page .report-table-wrapper {
+.report-page .table-wrap {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 6px;
@@ -2251,8 +2239,6 @@ tbody tr:last-child td {
 }
 
 .report-page .table-wrap table,
-.report-page .table-wrapper table,
-.report-page .report-table-wrapper table,
 .report-page table {
   border-collapse: collapse;
   font-size: 0.85rem;
@@ -2294,8 +2280,7 @@ tbody tr:last-child td {
 }
 
 /* Severity pills */
-.report-page .severity,
-.report-severity {
+.report-page .severity {
   border-radius: 3px;
   display: inline-block;
   font-family: var(--font-condensed);
@@ -2307,47 +2292,19 @@ tbody tr:last-child td {
   text-transform: uppercase;
 }
 
-.report-page .severity-critical,
-.report-severity-critical {
+.report-page .severity-critical {
   background: #f3e0e0;
   color: var(--red);
 }
 
-.report-page .severity-high,
-.report-severity-high {
+.report-page .severity-high {
   background: #f5ecd4;
   color: var(--amber);
 }
 
-.report-page .severity-structural,
-.report-severity-structural {
+.report-page .severity-structural {
   background: #dde5f4;
   color: var(--navy);
-}
-
-/* Callouts — left-border notes, not product cards */
-.report-page .card,
-.report-callout {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  margin-bottom: 1.25rem;
-  padding: 1.5rem;
-}
-
-.report-page .card-critical,
-.report-callout-critical {
-  border-left: 3px solid var(--red);
-}
-
-.report-page .card-warning,
-.report-callout-warning {
-  border-left: 3px solid var(--amber);
-}
-
-.report-page .card-info,
-.report-callout-info {
-  border-left: 3px solid var(--navy);
 }
 
 /* FAQ accordion — default hairline (majority of reports); .faq-card for bordered */
@@ -2369,8 +2326,7 @@ tbody tr:last-child td {
   border-bottom: none;
 }
 
-.report-page .faq-item summary,
-.report-page .faq-q {
+.report-page .faq-item summary {
   align-items: center;
   color: var(--navy);
   cursor: pointer;
@@ -2394,13 +2350,11 @@ tbody tr:last-child td {
   margin: 0;
 }
 
-.report-page .faq-item summary::-webkit-details-marker,
-.report-page .faq-q::-webkit-details-marker {
+.report-page .faq-item summary::-webkit-details-marker {
   display: none;
 }
 
-.report-page .faq-item summary::after,
-.report-page .faq-q::after {
+.report-page .faq-item summary::after {
   color: var(--text-muted);
   content: '+';
   flex-shrink: 0;
@@ -2411,19 +2365,16 @@ tbody tr:last-child td {
   margin-left: 1rem;
 }
 
-.report-page .faq-item[open] summary::after,
-.report-page .faq-item[open] .faq-q::after {
+.report-page .faq-item[open] summary::after {
   content: '\2212';
 }
 
-.report-page .faq-item summary:hover,
-.report-page .faq-q:hover {
+.report-page .faq-item summary:hover {
   background: transparent;
   color: var(--navy);
 }
 
-.report-page .faq-answer,
-.report-page .faq-a {
+.report-page .faq-answer {
   border-top: none;
   color: var(--text-secondary);
   font-size: 0.9rem;
@@ -2439,14 +2390,12 @@ tbody tr:last-child td {
   overflow: hidden;
 }
 
-.report-page .faq-item.faq-card summary,
-.report-page .faq-item.faq-card .faq-q {
+.report-page .faq-item.faq-card summary {
   display: block;
   padding: 1.15rem 3.5rem 1.15rem 1.5rem;
 }
 
-.report-page .faq-item.faq-card summary::after,
-.report-page .faq-item.faq-card .faq-q::after {
+.report-page .faq-item.faq-card summary::after {
   color: var(--navy);
   font-size: 1.35rem;
   font-weight: 400;
@@ -2456,32 +2405,27 @@ tbody tr:last-child td {
   transform: translateY(-50%);
 }
 
-.report-page .faq-item.faq-card summary:hover,
-.report-page .faq-item.faq-card .faq-q:hover {
+.report-page .faq-item.faq-card summary:hover {
   background: #faf9f9;
 }
 
-.report-page .faq-item.faq-card .faq-answer,
-.report-page .faq-item.faq-card .faq-a {
+.report-page .faq-item.faq-card .faq-answer {
   border-top: 1px solid var(--border);
   padding: 1rem 1.5rem 1.25rem;
 }
 
 /* Inverse navy hero (Besu-style) */
-.report-page .hero.report-hero-inverse,
-.report-page .report-hero-inverse {
+.report-page .hero.report-hero-inverse {
   background: var(--navy);
   color: #fff;
   padding: calc(4.5rem + 64px) 2rem 4rem;
 }
 
-.report-page .report-hero-inverse .hero-inner,
 .report-page .hero.report-hero-inverse .hero-inner {
   margin: 0 auto;
   max-width: 860px;
 }
 
-.report-page .report-hero-inverse .hero-eyebrow,
 .report-page .hero.report-hero-inverse .hero-eyebrow {
   color: rgba(255, 255, 255, 0.55);
   font-family: var(--font-condensed);
@@ -2492,7 +2436,6 @@ tbody tr:last-child td {
   text-transform: uppercase;
 }
 
-.report-page .report-hero-inverse h1,
 .report-page .hero.report-hero-inverse h1 {
   color: #fff;
   font-family: var(--font-condensed);
@@ -2503,7 +2446,6 @@ tbody tr:last-child td {
   margin-bottom: 1.5rem;
 }
 
-.report-page .report-hero-inverse .hero-sub,
 .report-page .hero.report-hero-inverse .hero-sub {
   color: rgba(255, 255, 255, 0.8);
   font-size: 1.1rem;
@@ -2511,7 +2453,6 @@ tbody tr:last-child td {
   max-width: 700px;
 }
 
-.report-page .report-hero-inverse .hero-meta,
 .report-page .hero.report-hero-inverse .hero-meta {
   color: rgba(255, 255, 255, 0.5);
   display: flex;
@@ -2521,13 +2462,11 @@ tbody tr:last-child td {
   margin-top: 2rem;
 }
 
-.report-page .report-hero-inverse .hero-meta strong,
 .report-page .hero.report-hero-inverse .hero-meta strong {
   color: rgba(255, 255, 255, 0.75);
   font-weight: 500;
 }
 
-.report-page .report-hero-inverse .hero-authors,
 .report-page .hero.report-hero-inverse .hero-authors {
   align-items: baseline;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
@@ -2540,7 +2479,6 @@ tbody tr:last-child td {
   padding-top: 1.15rem;
 }
 
-.report-page .report-hero-inverse .hero-authors-label,
 .report-page .hero.report-hero-inverse .hero-authors-label {
   color: rgba(255, 255, 255, 0.52);
   font-family: var(--font-condensed);
@@ -2550,7 +2488,6 @@ tbody tr:last-child td {
   text-transform: uppercase;
 }
 
-.report-page .report-hero-inverse .hero-authors a,
 .report-page .hero.report-hero-inverse .hero-authors a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.32);
   color: rgba(255, 255, 255, 0.9);
@@ -2558,8 +2495,6 @@ tbody tr:last-child td {
   text-decoration: none;
 }
 
-.report-page .report-hero-inverse .hero-authors a:hover,
-.report-page .report-hero-inverse .hero-authors a:focus-visible,
 .report-page .hero.report-hero-inverse .hero-authors a:hover,
 .report-page .hero.report-hero-inverse .hero-authors a:focus-visible {
   border-bottom-color: #fff;
@@ -2571,8 +2506,7 @@ tbody tr:last-child td {
 }
 
 /* Report CTA panel */
-.report-page .cta-block,
-.report-cta {
+.report-page .cta-block {
   background: var(--navy);
   border-radius: 8px;
   color: #fff;
@@ -2581,21 +2515,18 @@ tbody tr:last-child td {
   text-align: center;
 }
 
-.report-page .cta-block h2,
-.report-cta h2 {
+.report-page .cta-block h2 {
   color: #fff;
   margin-bottom: 1rem;
 }
 
-.report-page .cta-block p,
-.report-cta p {
+.report-page .cta-block p {
   color: rgba(255, 255, 255, 0.8);
   margin: 0 auto 1.5rem;
   max-width: 600px;
 }
 
-.report-page .cta-btn,
-.report-cta-btn {
+.report-page .cta-btn {
   background: #fff;
   border-radius: 5px;
   color: var(--navy);
@@ -2610,8 +2541,7 @@ tbody tr:last-child td {
   text-decoration: none;
 }
 
-.report-page .cta-btn:hover,
-.report-cta-btn:hover {
+.report-page .cta-btn:hover {
   background: #e8ecf4;
   color: var(--navy);
 }
@@ -2684,9 +2614,8 @@ tbody tr:last-child td {
   color: var(--text-secondary);
 }
 
-/* Cover aliases: masthead / article-header → cover system */
-.report-page .masthead,
-.report-page .article-header {
+/* Masthead */
+.report-page .masthead {
   background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
   border-bottom: 1px solid var(--border);
   padding: calc(2.5rem + 64px) 0 2rem;
@@ -2698,15 +2627,7 @@ tbody tr:last-child td {
   padding: 0 1.5rem;
 }
 
-.report-page .article-header {
-  margin: 0 auto;
-  max-width: 780px;
-  padding: calc(2.5rem + 64px) 1.5rem 2rem;
-}
-
-.report-page .masthead-label,
-.report-page .masthead-title,
-.report-page .article-header h1 {
+.report-page .masthead-title {
   color: var(--brand);
   font-family: var(--font-condensed);
   font-size: clamp(1.9rem, 3.4vw, 2.6rem);
@@ -2719,6 +2640,7 @@ tbody tr:last-child td {
 .report-page .masthead-label {
   color: var(--green);
   display: block;
+  font-family: var(--font-condensed);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -2726,9 +2648,7 @@ tbody tr:last-child td {
   text-transform: uppercase;
 }
 
-.report-page .masthead-kicker,
-.report-page .masthead-subtitle,
-.report-page .article-header .subtitle {
+.report-page .masthead-subtitle {
   color: #4a4a4a;
   font-family: var(--serif);
   font-size: 1.08rem;
@@ -2752,9 +2672,8 @@ tbody tr:last-child td {
   text-transform: uppercase;
 }
 
-/* Callout aliases */
-.report-page .callout,
-.report-page .callout-box {
+/* Callouts — left-border notes */
+.report-page .callout {
   background: var(--surface);
   border: 1px solid var(--border);
   border-left: 3px solid var(--red);
@@ -2764,20 +2683,25 @@ tbody tr:last-child td {
   padding: 1.25rem 1.5rem;
 }
 
-.report-page .callout-green,
+.report-page .callout.callout-critical {
+  border-left-color: var(--red);
+}
+
+.report-page .callout.callout-warning {
+  border-left-color: var(--amber);
+}
+
+.report-page .callout.callout-info,
+.report-page .callout.callout-navy {
+  border-left-color: var(--navy);
+}
+
 .report-page .callout.callout-green {
   border-left-color: var(--green);
 }
 
-.report-page .callout-amber,
-.report-page .callout.callout-amber,
-.report-page .callout.callout-objection {
+.report-page .callout.callout-amber {
   border-left-color: #9a7b2e;
-}
-
-.report-page .callout-navy,
-.report-page .callout.callout-navy {
-  border-left-color: var(--navy);
 }
 
 .report-page .callout-title {
@@ -2787,7 +2711,7 @@ tbody tr:last-child td {
   margin-bottom: 0.4rem;
 }
 
-.report-page .callout.callout-objection .callout-title {
+.report-page .callout.callout-amber .callout-title {
   color: #9a7b2e;
   font-family: var(--mono);
   font-size: 0.58rem;
@@ -2796,16 +2720,14 @@ tbody tr:last-child td {
   text-transform: uppercase;
 }
 
-.report-page .callout p,
-.report-page .callout-box p {
+.report-page .callout p {
   color: var(--text-secondary);
   font-size: 0.9rem;
   line-height: 1.66;
   margin-bottom: 0.7em;
 }
 
-.report-page .callout p:last-child,
-.report-page .callout-box p:last-child {
+.report-page .callout p:last-child {
   margin-bottom: 0;
 }
 
@@ -2941,8 +2863,6 @@ tbody tr:last-child td {
 }
 
 /* Navy conviction / conclusion CTA */
-.report-page .conviction-box,
-.report-page .conclusion-cta,
 .report-page .cta-section {
   background: var(--navy);
   color: #fff;
@@ -2950,10 +2870,18 @@ tbody tr:last-child td {
   overflow: hidden;
   padding: 2rem 2.25rem;
   position: relative;
+  text-align: center;
 }
 
-.report-page .cta-section {
-  text-align: center;
+.report-page .cta-section::before {
+  background: radial-gradient(ellipse at 80% 50%, rgba(47, 94, 82, 0.2) 0%, transparent 65%);
+  content: '';
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
 }
 
 .report-page .cta-section h2 {
@@ -2966,12 +2894,18 @@ tbody tr:last-child td {
 }
 
 .report-page .cta-section > p {
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 0.88rem;
-  line-height: 1.65;
-  margin: 0 auto 1.35rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.7;
+  margin: 0 auto 1.15rem;
   max-width: 36rem;
   position: relative;
+}
+
+.report-page .cta-section strong {
+  color: #fff;
+  font-weight: 700;
 }
 
 .report-page .cta-links {
@@ -2992,21 +2926,7 @@ tbody tr:last-child td {
   color: #fff;
 }
 
-.report-page .conviction-box::before,
-.report-page .conclusion-cta::before,
-.report-page .cta-section::before {
-  background: radial-gradient(ellipse at 80% 50%, rgba(47, 94, 82, 0.2) 0%, transparent 65%);
-  content: '';
-  height: 100%;
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 40%;
-}
-
-.report-page .conclusion-cta-eyebrow,
-.report-page .conviction-label {
+.report-page .cta-eyebrow {
   color: rgba(255, 255, 255, 0.4);
   display: block;
   font-family: var(--mono);
@@ -3017,21 +2937,7 @@ tbody tr:last-child td {
   text-transform: uppercase;
 }
 
-.report-page .conviction-box p {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.97rem;
-  font-weight: 400;
-  line-height: 1.75;
-  margin: 0;
-  position: relative;
-}
-
-.report-page .conviction-box strong {
-  color: #fff;
-  font-weight: 700;
-}
-
-.report-page .conclusion-cta-heading {
+.report-page .cta-heading {
   color: #fff;
   font-size: 1.15rem;
   font-weight: 600;
@@ -3040,7 +2946,7 @@ tbody tr:last-child td {
   margin-bottom: 0.6rem;
 }
 
-.report-page .conclusion-cta-desc {
+.report-page .cta-desc {
   color: rgba(255, 255, 255, 0.65);
   font-size: 0.9rem;
   line-height: 1.68;
@@ -3048,13 +2954,13 @@ tbody tr:last-child td {
   max-width: 580px;
 }
 
-.report-page .conclusion-cta-contacts {
+.report-page .cta-contacts {
   display: flex;
   flex-wrap: wrap;
   gap: 1.25rem;
 }
 
-.report-page .conclusion-cta-contact {
+.report-page .cta-contact {
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.9);
   display: flex;
@@ -3067,7 +2973,7 @@ tbody tr:last-child td {
   text-decoration: none;
 }
 
-.report-page .conclusion-cta-contact:hover {
+.report-page .cta-contact:hover {
   border-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -3140,8 +3046,7 @@ tbody tr:last-child td {
 }
 
 /* Light institutional metric grid (framework / mpc / why traction) */
-.report-page .stat-grid,
-.report-page .traction-row {
+.report-page .stat-grid {
   background: var(--border-accent);
   border: 1px solid var(--border-accent);
   display: grid;
@@ -3150,13 +3055,11 @@ tbody tr:last-child td {
   margin: 2.25rem 0;
 }
 
-.report-page .stat-grid.stat-grid-4,
-.report-page .traction-row {
+.report-page .stat-grid.stat-grid-4 {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.report-page .stat-cell,
-.report-page .traction-stat {
+.report-page .stat-cell {
   background: var(--surface);
   border-top: 3px solid var(--navy);
   padding: 1.6rem 1.35rem 1.35rem;
@@ -3166,9 +3069,7 @@ tbody tr:last-child td {
   border-top-color: var(--red);
 }
 
-.report-page .stat-cell .stat-number,
-.report-page .traction-stat .stat-number,
-.report-page .traction-stat .num {
+.report-page .stat-cell .stat-number {
   color: var(--navy);
   display: block;
   font-family: var(--font-condensed), var(--font);
@@ -3179,9 +3080,7 @@ tbody tr:last-child td {
   margin-bottom: 0.45rem;
 }
 
-.report-page .stat-cell .stat-label,
-.report-page .traction-stat .stat-label,
-.report-page .traction-stat .label {
+.report-page .stat-cell .stat-label {
   color: var(--text-muted);
   display: block;
   font-family: var(--mono);
@@ -3428,9 +3327,7 @@ tbody tr:last-child td {
   margin-bottom: 0;
 }
 
-.report-page .connect-btn,
-.report-page .pdf-btn,
-.report-page .save-pdf-button {
+.report-page .report-btn {
   align-items: center;
   background: var(--navy);
   border: 1px solid var(--navy);
@@ -3449,54 +3346,49 @@ tbody tr:last-child td {
   transition: background-color 0.15s, border-color 0.15s;
 }
 
-.report-page .connect-btn:hover,
-.report-page .pdf-btn:hover,
-.report-page .save-pdf-button:hover {
+.report-page .report-btn:hover {
   background: #37457b;
   border-color: #37457b;
   color: #fff;
 }
 
-.report-page .connect-btn.primary {
+.report-page .report-btn.primary {
   background: var(--navy);
   border-color: var(--navy);
   color: #fff;
 }
 
-.report-page .connect-btn.primary:hover {
+.report-page .report-btn.primary:hover {
   background: #37457b;
   border-color: #37457b;
 }
 
-.report-page .connect-btn.secondary {
+.report-page .report-btn.secondary {
   background: transparent;
   border: 1px solid var(--border);
   color: var(--text);
 }
 
-.report-page .connect-btn.secondary:hover {
+.report-page .report-btn.secondary:hover {
   border-color: var(--navy);
   color: var(--navy);
 }
 
-.report-page .connect-btn svg,
-.report-page .pdf-btn svg,
-.report-page .save-pdf-button svg {
+.report-page .report-btn svg {
   flex-shrink: 0;
   height: 14px;
   opacity: 0.85;
   width: 14px;
 }
 
-.report-page .pdf-btn {
+.report-page .pdf-download-row .report-btn,
+.report-page .hero-pdf-download-row .report-btn {
   margin-top: 1.5rem;
 }
 
 @media print {
-  .report-page .pdf-btn,
-  .report-page .save-pdf-button,
+  .report-page .report-btn.no-print,
   .report-page .pdf-download-row,
-  .report-page .connect-btn.no-print,
   .report-page .no-print {
     display: none !important;
   }
@@ -3634,8 +3526,7 @@ tbody tr:last-child td {
 
 @media (max-width: 900px) {
   .report-page .content-wide,
-  .report-page .table-wrap.wide,
-  .report-page .table-wrapper.wide {
+.report-page .table-wrap.wide {
     margin-left: 0;
     margin-right: 0;
     width: 100%;
@@ -3643,24 +3534,19 @@ tbody tr:last-child td {
 }
 
 @media (max-width: 768px) {
-  .report-content,
-  .report-page .content-wrap,
-  .report-page .article-container {
+  .report-page .content-wrap {
     padding: 2rem 1.25rem 3rem;
   }
 
-  .report-page .report-hero-inverse,
   .report-page .hero.report-hero-inverse {
     padding: calc(3rem + 64px) 1.25rem 2.5rem;
   }
 
-  .report-page .report-hero-inverse h1,
   .report-page .hero.report-hero-inverse h1 {
     font-size: 1.8rem;
   }
 
-  .report-page .cta-block,
-  .report-cta {
+  .report-page .cta-block {
     padding: 2rem 1.5rem;
   }
 
@@ -3698,8 +3584,7 @@ tbody tr:last-child td {
     grid-template-columns: 1fr;
   }
 
-  .report-page .stat-grid,
-  .report-page .traction-row {
+  .report-page .stat-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -3707,13 +3592,11 @@ tbody tr:last-child td {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .report-page .conclusion-cta,
-  .report-page .conviction-box,
   .report-page .cta-section {
     padding: 1.75rem 1.25rem;
   }
 
-  .report-page .conclusion-cta-contacts {
+  .report-page .cta-contacts {
     flex-direction: column;
   }
 

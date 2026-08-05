@@ -527,7 +527,7 @@
 <div class="stat-label">SLH-DSA-128s vs 65-byte ECDSA signature size</div>
 </div>
 </div>
-<div class="card card-info report-map">
+<div class="callout callout-info report-map">
 <p style="margin:0; font-size:0.9rem;"><strong>Report path:</strong> <a href="#institutional-besu-deployments">institutional exposure</a>, <a href="#global-pqc-regulatory-deadlines-besu-institutions">global urgency</a>, <a href="#dtcc-besu-tokenization-pq-risk">the DTCC case</a>, <a href="#besu-post-quantum-attack-surfaces">five technical surfaces</a>, the <a href="#besu-pq-vulnerability-index">48-point control map</a>, and <a href="#besu-post-quantum-migration">a credible migration path</a>.</p>
 </div>
 </section>
@@ -657,7 +657,7 @@
 <div class="section-label">Regulatory, Supervisory and Procurement Urgency</div>
 <h2>Why Besu Institutions Must Act Now: Global Post-Quantum Deadlines</h2>
 <p>The issue is not one universal prohibition date. It is whether a multi-year Besu migration can finish before the earliest applicable federal, critical-infrastructure, procurement, supervisory or counterparty deadline across a cross-border transaction path.</p>
-<div class="card card-critical">
+<div class="callout callout-critical">
 <p style="margin:0; font-size:0.9rem;"><strong>Completion targets are not start dates.</strong> Migration can require cryptographic discovery, transaction and validator redesign, privacy and contract changes, HSM/KMS upgrades, procurement, testing, governance and coordinated activation. Long-lived ciphertext is exposed from the moment it is captured.</p>
 </div>
 <h3>Jurisdiction-to-Institution Mapping</h3>
@@ -754,7 +754,7 @@
 </tbody>
 </table>
 </div>
-<div class="card card-warning">
+<div class="callout callout-warning">
 <p style="margin:0; font-size:0.9rem;"><strong>Shared-path rule:</strong> the earliest applicable requirement can govern the path. Operators, validators, custodians, cloud providers, HSM vendors and software suppliers may sit in different jurisdictions; one classical-only participant can block end-to-end assurance.</p>
 </div>
 <p>For DTCC, Swift, Citi, Fnality, JSCC and similar systems, the question is whether a coordinated, auditable migration can finish before procurement, critical-infrastructure, supervisory and counterparty timelines converge around 2030–2035.</p>
@@ -769,7 +769,7 @@
 <h2>Is DTCC's Tokenization Architecture Post-Quantum Safe Across Besu, Canton and Stellar?</h2>
 <p><strong>It is not publicly documented as end-to-end post-quantum safe.</strong> On 15 July 2026, more than 30 firms used DTC-tokenized assets in production transactions, with digital conversions occurring on DTCC's private LFDT Besu network and Canton. DTCC expects its Tokenization Service to launch in October 2026 and DTC-tokenized assets to become available on Stellar in the first half of 2027.</p>
 <p>This creates a single asset lifecycle governed across several cryptographic domains: DTC custody and conversion, ComposerX lifecycle management, CATF policy enforcement, participant wallets and custodians, Besu execution, Canton identity and synchronization, and planned Stellar issuance and transfer. The central post-quantum question is therefore not whether any one network is resilient. It is whether the authority controlling the same DTC-backed asset can migrate consistently across every network, role and recovery path.</p>
-<div class="card card-critical">
+<div class="callout callout-critical">
 <h3 style="margin-top:0;">The DTCC control gap: policy compliance is not post-quantum authentication</h3>
 <p style="margin-bottom:0;">CATF can determine whether a transaction satisfies configured regulatory and transactional rules. It does not, by itself, protect the private key behind the participant, issuer, administrator, custodian or infrastructure role requesting that transaction. If a classical key were compromised, the request could still arrive under a valid role and satisfy valid business policy. End-to-end assurance therefore requires both <strong>policy correctness</strong> and <strong>post-quantum-safe authority</strong>.</p>
 </div>
@@ -865,10 +865,10 @@
 </tbody>
 </table>
 </div>
-<div class="card card-info">
+<div class="callout callout-info">
 <p style="margin:0; font-size:0.9rem;"><strong>A credible DTCC pilot:</strong> select one DTC-tokenized workflow and trace every authority from DTC instruction through ComposerX and CATF, participant custody, network execution, servicing and recovery. EternaX can use its <a href="https://eternax.ai/pluto-testnet.html" rel="noopener noreferrer" target="_blank">live dual-gate custody authorization demo</a> as the technical starting point for a controlled Besu pilot: post-quantum member authentication and signature-agnostic threshold authorization across a selected participant approval or asset-control path, with measured integration and performance impact and an explicit dependency plan for native Besu, Canton and Stellar changes requiring broader coordination.</p>
 </div>
-<div class="card card-warning">
+<div class="callout callout-warning">
 <p style="margin:0; font-size:0.9rem;"><strong>Evidence-bounded conclusion:</strong> DTCC has institutionalized tokenization, lifecycle controls and multi-network distribution. Public materials do not establish one end-to-end PQ authority profile across DTC instructions, ComposerX and CATF roles, participant wallets, custody, Besu, Canton, Stellar, recovery and cross-network orchestration. This assessment makes no assumption about undisclosed DTCC or participant controls.</p>
 </div>
 <p><strong>The strategic distinction:</strong> DTCC has modernized the asset lifecycle across Besu, Canton and Stellar. The next requirement is to ensure that the authority governing that lifecycle can migrate consistently across every network, participant and custody path before classical cryptography becomes the weakest link.</p>
@@ -986,24 +986,24 @@
 </tbody>
 </table>
 </div>
-<div class="card card-warning">
+<div class="callout callout-warning">
 <p style="margin:0; font-size:0.9rem;"><strong>Critical disclosure gap:</strong> most major Besu-linked systems do not publicly identify their privacy engine. Private, permissioned or secure labels cannot establish PQ privacy; the operator must disclose or inventory the actual cryptographic path.</p>
 </div>
-<div class="card card-critical">
+<div class="callout callout-critical">
 <h3 style="margin-top:0;">1. Legacy Tessera confidentiality depends on quantum-vulnerable key agreement</h3>
 <p style="margin-bottom:0;">Tessera used Curve25519 to protect symmetric payload keys. Shor's algorithm targets that key-agreement layer, not primarily XSalsa20-Poly1305. Recorded ciphertext and public material could therefore become decryptable later.</p>
 </div>
-<div class="card card-critical">
+<div class="callout callout-critical">
 <h3 style="margin-top:0;">2. Migration protects future payloads, not ciphertext already copied</h3>
 <p style="margin-bottom:0;">A PQ KEM protects new payloads, not data already copied. Re-encryption is possible only for controlled archives where keys, recipient mappings and legal authority remain. Backups, replicas, databases, queues, telemetry and third-party archives are inside the risk boundary.</p>
 </div>
-<div class="card card-critical">
+<div class="callout callout-critical">
 <h3 style="margin-top:0;">3. Paladin is not an end-to-end post-quantum privacy stack</h3>
 <p>Paladin is a modular EVM privacy sidecar; the base ledger still orders and finalizes transactions. It therefore does not replace Besu transaction authentication, validator consensus, node identity, RLPx or finality.</p>
 <p>Its domains require separate assessment: Pente provides private EVM execution, Noto notary-backed flows and Zeto zero-knowledge token implementations. Public materials do not define an end-to-end NIST-standardized profile for every authorization, endorsement, data-distribution and communications path.</p>
 <p style="margin-bottom:0;">The public Zeto stack includes Circom, BabyJubjub and Groth16 verifier contracts. BabyJubjub and pairing-based Groth16 verification are classical elliptic-curve systems, not NIST PQ standards. An isolated encrypted component therefore does not secure ownership, proofs, endorsements, finality, transport, vaults, backups or recovery end to end.</p>
 </div>
-<div class="card card-info">
+<div class="callout callout-info">
 <h3 style="margin-top:0;">4. Encryption does not eliminate metadata exposure</h3>
 <p style="margin-bottom:0;">Encryption may still expose timing, frequency, gas-payer activity, commitments, access patterns and links between public and private state. PQ encryption protects content, not metadata, governance or authorization.</p>
 </div>
@@ -1046,7 +1046,7 @@
 </tbody>
 </table>
 </div>
-<div class="card card-critical">
+<div class="callout callout-critical">
 <p style="margin:0; font-size:0.9rem;"><strong>Institutional conclusion:</strong> replacing Tessera with Paladin changes the architecture but does not itself deliver PQ privacy. Privacy needs its own CBOM, retained-ciphertext treatment and validation of every domain and operational dependency.</p>
 </div>
 <p class="secondary" style="font-size:0.82rem;">Sources: <a href="https://www.dtcc.com/news/2025/april/02/dtcc-announces-new-platform-for-tokenized-real-time-collateral-management" rel="noopener noreferrer" target="_blank">DTCC</a>, <a href="https://www.swift.com/news-events/news/swifts-blockchain-based-shared-ledger-progresses-mvp-implementation" rel="noopener noreferrer" target="_blank">Swift</a>, <a href="https://www.citigroup.com/global/news/perspectives/2024/introducing-citi-integrated-digital-assets-platform" rel="noopener noreferrer" target="_blank">Citi</a>, <a href="https://fnality.com/how-it-works" rel="noopener noreferrer" target="_blank">Fnality</a>, <a href="https://www.lfdecentralizedtrust.org/learn/webinars/jscc-besu-production-launch-and-its-next-steps" rel="noopener noreferrer" target="_blank">JSCC</a>, <a href="https://lacnet.com/gas-distribution-overview/" rel="noopener noreferrer" target="_blank">LACNet</a>, the <a href="https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu" rel="noopener noreferrer" target="_blank">Tessera sunset</a>, <a href="https://lfdt-paladin.github.io/paladin/head/" rel="noopener noreferrer" target="_blank">Paladin</a>, <a href="https://lfdt-paladin.github.io/zeto/latest/" rel="noopener noreferrer" target="_blank">Zeto</a> and NIST <a href="https://csrc.nist.gov/pubs/fips/203/final" rel="noopener noreferrer" target="_blank">FIPS 203</a>.</p>
@@ -1187,7 +1187,7 @@
 </tbody>
 </table>
 </div>
-<div class="card card-critical">
+<div class="callout callout-critical">
 <p style="margin:0; font-size:0.9rem;"><strong>Illustrative throughput loss:</strong> at a 1,000 TPS baseline, SLH-DSA-128s loses approximately <strong>75%–97%</strong>, SLH-DSA-192s <strong>85%–98.5%</strong>, ML-DSA-44 <strong>20%–40%</strong>, and ML-DSA-65 <strong>35%–55%</strong>. Results vary by implementation and deployment.</p>
 </div>
 <h3>Illustrative Block-Level Impact at 1,000 TPS (6-Second Blocks)</h3>
@@ -1285,7 +1285,7 @@
 </table>
 </div>
 <p class="secondary" style="font-size:0.82rem;">Loss equals (baseline TPS − PQ TPS) / baseline TPS. Range rows show the arithmetic envelope, not a benchmark confidence interval.</p>
-<div class="card card-warning">
+<div class="callout callout-warning">
 <p style="margin:0; font-size:0.9rem;">Bandwidth may bind before CPU. A 48 MB block takes roughly 3.8 seconds to transmit at 100 Mbps or 0.4 seconds at 1 Gbps before overhead, fanout, latency and consensus messaging. Deployment benchmarks remain essential.</p>
 </div>
 <h3>Additional Operational Constraints</h3>
@@ -1358,7 +1358,7 @@
 <h2>Make Critical Besu Workflows Post-Quantum Safe Without Rebuilding Your Stack</h2>
 <p>Institutions should not need to abandon Besu, rewrite compatible applications, move asset records or replace custody to address PQ risk. EternaX upgrades selected authorization and confidentiality paths while preserving compatible contracts, assets, APIs, integrations, governance and workflows.</p>
 <p>The goal is not one PQ signature before an otherwise vulnerable stack. It is to secure a selected workflow, including issuance, approval, transfer, recovery, administration, disclosure and settlement, while isolating native Besu changes for a coordinated phase.</p>
-<div class="card card-critical">
+<div class="callout callout-critical">
 <h3 style="margin-top:0;">The operating principle: upgrade the trust boundary, not the business workflow</h3>
 <p style="margin-bottom:0;">EternaX maps one priority workflow and defines its lowest-friction protection boundary. Compatible components stay; exposed authorization, identity, custody, privacy and verification controls are upgraded, wrapped or re-authorized. Protocol-native dependencies are governed separately.</p>
 </div>
@@ -1392,19 +1392,19 @@
 </tbody>
 </table>
 </div>
-<div class="card card-critical" id="live-pq-custody-demo">
+<div class="callout callout-critical" id="live-pq-custody-demo">
 <h3 style="margin-top:0;">Live Technical Proof: Post-Quantum Distributed Custody Authorization</h3>
 <p>EternaX's live Pluto testnet demo implements a dual-gate custody model. Gate 1 uses post-quantum member signatures to authenticate each approval. Gate 2 separately enforces that the required threshold authorized the same operation. Assets move only when both gates pass.</p>
 <p style="margin-bottom:0;">This preserves distributed MPC-style approval without claiming a threshold SLH-DSA signature or replacing the custodian. It applies where the Besu asset-control path can enforce programmable verification, such as a smart account, vault, issuer module, bridge controller or HSM-controlled execution gate. Native Besu transactions, QBFT, node identity and RLPx remain outside the demo's protection boundary. <a href="https://eternax.ai/pluto-testnet.html" rel="noopener noreferrer" target="_blank"><strong>Try dual-gate custody on the live testnet.</strong></a> <a href="https://eternax.ai/custody-mpc-providers.html" rel="noopener noreferrer" target="_blank">Review the institutional custody architecture.</a></p>
 </div>
-<div class="card card-info" id="besu-crypto-agility">
+<div class="callout callout-info" id="besu-crypto-agility">
 <p style="margin:0; font-size:0.9rem;"><strong>Shared capability: crypto agility.</strong> A signature-agnostic model lets approved algorithms, parameters, providers and policies change without rebuilding the protected workflow. Policy can vary by asset, role, transaction type, jurisdiction, performance and assurance horizon, with downgrade controls.</p>
 </div>
-<div class="card card-warning">
+<div class="callout callout-warning">
 <p style="margin:0; font-size:0.9rem;"><strong>Scope boundary:</strong> these products harden workflows around an existing Besu deployment. Classical native transactions, QBFT signatures, node identity and RLPx remain separately mapped and require the relevant client, validator or network phase.</p>
 </div>
 <h3>Example: An Existing ERC-3643 Asset on Besu</h3>
-<div class="card">
+<div class="callout">
 <p style="margin:0;">A regulated ERC-3643 asset can retain compatible contracts, identity structures, records, transfer rules, reporting, custody and operations. EternaX can move issuer, agent, compliance, claim, custody, recovery and other privileged actions behind PQ authorization, including PQ-ONCHAINID-compatible controls. Immutable verification and native Besu dependencies remain a separate wrapper, upgrade or network phase.</p>
 </div>
 <h3>Why This Migration Path Is Credible</h3>
@@ -1420,7 +1420,7 @@
 <div class="finding-num">3</div>
 <div class="finding-text"><strong>Measured migration:</strong> a controlled pilot shows what can be protected around the existing stack, measures performance and integration impact, and isolates protocol-native dependencies requiring a coordinated later phase.</div>
 </div>
-<div class="card card-info">
+<div class="callout callout-info">
 <p style="margin:0; font-size:0.9rem;"><strong>Current technical status:</strong> Pluto validates PQ verification precompiles, PQ-ONCHAINID for ERC-3643-compatible identity and PQ privacy capabilities. Production still requires workflow integration, HSM/KMS validation, governance, interoperability, assurance and performance testing, with migration state evidenced across keys, roles, contracts, providers, validators and residual dependencies.</p>
 </div>
 <h3 id="besu-post-quantum-pilot">Prove the Migration Path Before Production Change</h3>
@@ -1453,7 +1453,7 @@
 </tbody>
 </table>
 </div>
-<div class="card card-critical">
+<div class="callout callout-critical">
 <p style="margin:0; font-size:0.9rem;"><strong>Pilot outcome:</strong> a working path, measured integration and performance evidence, and a production roadmap before new contracts, validator settings, custody or interoperability dependencies increase migration debt. <a href="https://eternax.ai/pilot.html" rel="noopener noreferrer" target="_blank">Review the pilot framework.</a></p>
 </div>
 <h3>Continue the Technical Review</h3>
@@ -1476,75 +1476,75 @@
 <p class="secondary">Direct answers to high-intent institutional questions about Hyperledger Besu quantum risk, QBFT, Tessera, Paladin, institutional privacy architectures, DTCC tokenization, NIST post-quantum standards, crypto agility, migration performance, and EternaX's Besu-specific tokenization, custody, and privacy products.</p>
 <details class="faq-item faq-card" id="is-hyperledger-besu-quantum-safe">
 <summary class="faq-q">Is Hyperledger Besu quantum-safe?</summary>
-<div class="faq-a">No. Mainline Hyperledger Besu is not end-to-end quantum-safe. Common deployments use secp256k1 ECDSA for transactions, elliptic-curve keys for QBFT validator authentication, Curve25519 in legacy Tessera privacy, <code>ecRecover</code> in many smart contracts, and elliptic-curve node identity and key agreement in devp2p/RLPx. These public-key dependencies are vulnerable to Shor's algorithm. <a href="#besu-post-quantum-attack-surfaces">See the five attack surfaces.</a></div>
+<div class="faq-answer">No. Mainline Hyperledger Besu is not end-to-end quantum-safe. Common deployments use secp256k1 ECDSA for transactions, elliptic-curve keys for QBFT validator authentication, Curve25519 in legacy Tessera privacy, <code>ecRecover</code> in many smart contracts, and elliptic-curve node identity and key agreement in devp2p/RLPx. These public-key dependencies are vulnerable to Shor's algorithm. <a href="#besu-post-quantum-attack-surfaces">See the five attack surfaces.</a></div>
 </details>
 <details class="faq-item faq-card" id="why-is-besu-vulnerable-to-quantum-computers">
 <summary class="faq-q">Why is Hyperledger Besu vulnerable to quantum computers?</summary>
-<div class="faq-a">Quantum risk sits across several load-bearing Besu layers, not only wallets. A cryptographically relevant quantum computer could recover exposed elliptic-curve private keys, forge transactions or privileged actions, impersonate validators or nodes, and decrypt recorded Tessera-era ciphertext. A credible migration must therefore cover transactions, consensus, privacy, contracts, custody, recovery, and P2P trust. <a href="#besu-post-quantum-attack-surfaces">See the technical analysis.</a></div>
+<div class="faq-answer">Quantum risk sits across several load-bearing Besu layers, not only wallets. A cryptographically relevant quantum computer could recover exposed elliptic-curve private keys, forge transactions or privileged actions, impersonate validators or nodes, and decrypt recorded Tessera-era ciphertext. A credible migration must therefore cover transactions, consensus, privacy, contracts, custody, recovery, and P2P trust. <a href="#besu-post-quantum-attack-surfaces">See the technical analysis.</a></div>
 </details>
 <details class="faq-item faq-card" id="which-institutions-use-hyperledger-besu">
 <summary class="faq-q">Which institutions and financial-market systems use Hyperledger Besu?</summary>
-<div class="faq-a">Publicly documented Besu use includes DTCC AppChain and its tokenization service, Swift's shared-ledger architecture, Citi's internal digital-asset platform, Fnality, JSCC, and LACChain or LACNet. Besu is also used as an execution component in systems such as Linea and Hedera, but component use is not the same as operating a Besu network. mBridge uses the purpose-built mBridge Ledger, and eNaira's official design paper identifies Hyperledger Fabric, so neither should be counted as a current Besu deployment. <a href="#institutional-besu-deployments">See the institutional exposure map.</a></div>
+<div class="faq-answer">Publicly documented Besu use includes DTCC AppChain and its tokenization service, Swift's shared-ledger architecture, Citi's internal digital-asset platform, Fnality, JSCC, and LACChain or LACNet. Besu is also used as an execution component in systems such as Linea and Hedera, but component use is not the same as operating a Besu network. mBridge uses the purpose-built mBridge Ledger, and eNaira's official design paper identifies Hyperledger Fabric, so neither should be counted as a current Besu deployment. <a href="#institutional-besu-deployments">See the institutional exposure map.</a></div>
 </details>
 <details class="faq-item faq-card" id="is-dtcc-besu-tokenization-post-quantum-safe">
 <summary class="faq-q">Is DTCC's tokenization architecture across Besu, Canton and Stellar post-quantum safe?</summary>
-<div class="faq-a">It is not publicly documented as end-to-end post-quantum safe. DTCC's July 2026 production conversions used its private LFDT Besu network and Canton, and DTC-tokenized assets are planned for Stellar in the first half of 2027. Public materials do not establish a single post-quantum authority profile across DTC lifecycle instructions, ComposerX and CATF roles, participant wallets and custody, Besu transactions and QBFT, Canton topology, signing and encryption, Stellar account and validator authentication, recovery, and cross-network orchestration. This assessment does not assume undisclosed DTCC or participant controls. <a href="#dtcc-besu-tokenization-pq-risk">See the DTCC architecture analysis.</a></div>
+<div class="faq-answer">It is not publicly documented as end-to-end post-quantum safe. DTCC's July 2026 production conversions used its private LFDT Besu network and Canton, and DTC-tokenized assets are planned for Stellar in the first half of 2027. Public materials do not establish a single post-quantum authority profile across DTC lifecycle instructions, ComposerX and CATF roles, participant wallets and custody, Besu transactions and QBFT, Canton topology, signing and encryption, Stellar account and validator authentication, recovery, and cross-network orchestration. This assessment does not assume undisclosed DTCC or participant controls. <a href="#dtcc-besu-tokenization-pq-risk">See the DTCC architecture analysis.</a></div>
 </details>
 <details class="faq-item faq-card" id="is-besu-qbft-consensus-quantum-safe">
 <summary class="faq-q">Is Besu QBFT consensus quantum-safe?</summary>
-<div class="faq-a">Not in common current configurations. Besu QBFT networks typically authenticate validator messages and commit seals with elliptic-curve signing keys. A future quantum adversary that recovered enough validator keys could impersonate validators, authorize malicious consensus messages, or prevent the honest network from reaching quorum. Migration requires changes to consensus signatures, seal encoding, signing infrastructure, governance, and coordinated network activation below the smart-contract layer. <a href="#besu-qbft-quantum-risk">See the QBFT analysis.</a></div>
+<div class="faq-answer">Not in common current configurations. Besu QBFT networks typically authenticate validator messages and commit seals with elliptic-curve signing keys. A future quantum adversary that recovered enough validator keys could impersonate validators, authorize malicious consensus messages, or prevent the honest network from reaching quorum. Migration requires changes to consensus signatures, seal encoding, signing infrastructure, governance, and coordinated network activation below the smart-contract layer. <a href="#besu-qbft-quantum-risk">See the QBFT analysis.</a></div>
 </details>
 <details class="faq-item faq-card" id="is-besu-tessera-privacy-quantum-safe">
 <summary class="faq-q">Is Besu privacy with Tessera quantum-safe?</summary>
-<div class="faq-a">No. Legacy Tessera deployments used Curve25519-based public-key cryptography to protect the symmetric keys used for private-payload encryption. Curve25519 is vulnerable to Shor's algorithm. If an adversary records ciphertext and the relevant key-agreement material, a future cryptographically relevant quantum computer could compromise confidentiality. Re-encryption can protect controlled retained data, but it cannot revoke ciphertext already copied by an adversary. <a href="#besu-post-quantum-privacy">See the dedicated privacy analysis.</a></div>
+<div class="faq-answer">No. Legacy Tessera deployments used Curve25519-based public-key cryptography to protect the symmetric keys used for private-payload encryption. Curve25519 is vulnerable to Shor's algorithm. If an adversary records ciphertext and the relevant key-agreement material, a future cryptographically relevant quantum computer could compromise confidentiality. Re-encryption can protect controlled retained data, but it cannot revoke ciphertext already copied by an adversary. <a href="#besu-post-quantum-privacy">See the dedicated privacy analysis.</a></div>
 </details>
 <details class="faq-item faq-card" id="which-privacy-technologies-major-besu-deployments-use">
 <summary class="faq-q">Which privacy technologies do major Hyperledger Besu deployments use today?</summary>
-<div class="faq-a">There is no single publicly documented privacy architecture across major Besu deployments. Legacy networks may retain Tessera-era components; Paladin is the emerging programmable-privacy framework for EVM deployments; and systems such as DTCC, Swift, Citi, Fnality, and JSCC disclose private or permissioned operation without publicly identifying a complete transaction-confidentiality engine. CATF is a compliance framework, not a privacy manager. mBridge, Canton, and eNaira use non-Besu architectures. Privacy technology and post-quantum status must therefore be verified deployment by deployment. <a href="#besu-post-quantum-privacy">See the institutional privacy map.</a></div>
+<div class="faq-answer">There is no single publicly documented privacy architecture across major Besu deployments. Legacy networks may retain Tessera-era components; Paladin is the emerging programmable-privacy framework for EVM deployments; and systems such as DTCC, Swift, Citi, Fnality, and JSCC disclose private or permissioned operation without publicly identifying a complete transaction-confidentiality engine. CATF is a compliance framework, not a privacy manager. mBridge, Canton, and eNaira use non-Besu architectures. Privacy technology and post-quantum status must therefore be verified deployment by deployment. <a href="#besu-post-quantum-privacy">See the institutional privacy map.</a></div>
 </details>
 <details class="faq-item faq-card" id="does-paladin-make-besu-post-quantum-safe">
 <summary class="faq-q">Does Paladin make Besu post-quantum safe?</summary>
-<div class="faq-a">No, not by itself. Paladin is a programmable-privacy framework whose public architecture still uses the base EVM ledger for order and finality. It does not replace Besu transaction authentication, QBFT where used, node identity, RLPx transport, or base-ledger finality. The public Zeto reference stack also includes Circom circuits, BabyJubjub keys, and Groth16 verifier contracts, which are classical rather than NIST post-quantum components. Public documentation does not describe an end-to-end ML-DSA, SLH-DSA, and ML-KEM profile across Pente, Noto, Zeto, secure channels, KMS, backups, and recovery. <a href="#besu-post-quantum-privacy">See the Paladin and privacy analysis.</a></div>
+<div class="faq-answer">No, not by itself. Paladin is a programmable-privacy framework whose public architecture still uses the base EVM ledger for order and finality. It does not replace Besu transaction authentication, QBFT where used, node identity, RLPx transport, or base-ledger finality. The public Zeto reference stack also includes Circom circuits, BabyJubjub keys, and Groth16 verifier contracts, which are classical rather than NIST post-quantum components. Public documentation does not describe an end-to-end ML-DSA, SLH-DSA, and ML-KEM profile across Pente, Noto, Zeto, secure channels, KMS, backups, and recovery. <a href="#besu-post-quantum-privacy">See the Paladin and privacy analysis.</a></div>
 </details>
 <details class="faq-item faq-card" id="does-besu-support-nist-post-quantum-algorithms">
 <summary class="faq-q">Does Besu support ML-DSA, SLH-DSA, or ML-KEM?</summary>
-<div class="faq-a">Not as a native end-to-end stack. Mainline Besu does not provide generally deployed ML-DSA, SLH-DSA, or ML-KEM protection across transactions, QBFT, privacy, contracts, and P2P transport. EIP-8051 proposes ML-DSA verification and EIP-8052 proposes Falcon verification, but both remain draft Ethereum proposals as of August 2026. Application-specific integrations or private forks can add post-quantum primitives, but that is not equivalent to an upstream full-stack migration. <a href="#besu-post-quantum-attack-surfaces">See the full-stack migration surfaces.</a></div>
+<div class="faq-answer">Not as a native end-to-end stack. Mainline Besu does not provide generally deployed ML-DSA, SLH-DSA, or ML-KEM protection across transactions, QBFT, privacy, contracts, and P2P transport. EIP-8051 proposes ML-DSA verification and EIP-8052 proposes Falcon verification, but both remain draft Ethereum proposals as of August 2026. Application-specific integrations or private forks can add post-quantum primitives, but that is not equivalent to an upstream full-stack migration. <a href="#besu-post-quantum-attack-surfaces">See the full-stack migration surfaces.</a></div>
 </details>
 <details class="faq-item faq-card" id="can-besu-simply-adopt-nist-pq-algorithms">
 <summary class="faq-q">Can Besu simply adopt NIST-approved post-quantum algorithms?</summary>
-<div class="faq-a">No. NIST FIPS 203, FIPS 204, and FIPS 205 define cryptographic primitives, not a complete Besu migration architecture. Institutions must separately address transaction authorization, QBFT validator authentication where used, privacy and historical ciphertext, contracts tied to <code>ecRecover</code>, node identity and RLPx transport, custody, HSM/KMS systems, privileged roles, recovery, and coordinated activation. Crypto agility is also required so the next algorithm, parameter, or provider change does not become another full-stack rebuild. <a href="#besu-post-quantum-migration">See what a credible Besu migration must deliver.</a></div>
+<div class="faq-answer">No. NIST FIPS 203, FIPS 204, and FIPS 205 define cryptographic primitives, not a complete Besu migration architecture. Institutions must separately address transaction authorization, QBFT validator authentication where used, privacy and historical ciphertext, contracts tied to <code>ecRecover</code>, node identity and RLPx transport, custody, HSM/KMS systems, privileged roles, recovery, and coordinated activation. Crypto agility is also required so the next algorithm, parameter, or provider change does not become another full-stack rebuild. <a href="#besu-post-quantum-migration">See what a credible Besu migration must deliver.</a></div>
 </details>
 <details class="faq-item faq-card" id="what-does-crypto-agility-mean-for-besu">
 <summary class="faq-q">What does crypto agility mean for a Hyperledger Besu deployment?</summary>
-<div class="faq-a">Crypto agility is the capability to change approved algorithms, parameters, policies, and cryptographic providers across a Besu deployment without rebuilding the asset or business workflow. It requires cryptographic inventory, abstraction, policy-driven selection, controlled hybrid operation, key and identity re-binding, downgrade prevention, and auditable lifecycle governance. Crypto agility is not the end product; it is the control that keeps a post-quantum-safe deployment adaptable as standards, risks, providers, and institutional requirements change. <a href="#besu-crypto-agility">See how crypto agility fits inside the EternaX solution.</a></div>
+<div class="faq-answer">Crypto agility is the capability to change approved algorithms, parameters, policies, and cryptographic providers across a Besu deployment without rebuilding the asset or business workflow. It requires cryptographic inventory, abstraction, policy-driven selection, controlled hybrid operation, key and identity re-binding, downgrade prevention, and auditable lifecycle governance. Crypto agility is not the end product; it is the control that keeps a post-quantum-safe deployment adaptable as standards, risks, providers, and institutional requirements change. <a href="#besu-crypto-agility">See how crypto agility fits inside the EternaX solution.</a></div>
 </details>
 <details class="faq-item faq-card" id="can-existing-besu-smart-contracts-remain">
 <summary class="faq-q">Can existing Besu smart contracts remain in place during migration?</summary>
-<div class="faq-a">Some can, but every contract needs an authorization and upgrade review. Cryptographically neutral contracts may remain compatible if their controlling accounts and surrounding infrastructure are migrated safely. Contracts that directly use <code>ecRecover</code>, ECDSA permits, immutable classical-key authorities, non-upgradeable verifiers, or fixed address assumptions may need an upgrade, wrapper, compatibility layer, or replacement. <a href="#besu-erc-post-quantum-risk">See the smart-contract and ERC analysis.</a></div>
+<div class="faq-answer">Some can, but every contract needs an authorization and upgrade review. Cryptographically neutral contracts may remain compatible if their controlling accounts and surrounding infrastructure are migrated safely. Contracts that directly use <code>ecRecover</code>, ECDSA permits, immutable classical-key authorities, non-upgradeable verifiers, or fixed address assumptions may need an upgrade, wrapper, compatibility layer, or replacement. <a href="#besu-erc-post-quantum-risk">See the smart-contract and ERC analysis.</a></div>
 </details>
 <details class="faq-item faq-card" id="is-erc-3643-quantum-safe-on-besu">
 <summary class="faq-q">Is ERC-3643 quantum-safe on Besu?</summary>
-<div class="faq-a">Not automatically. ERC-3643 does not mandate ECDSA, but conventional deployments remain materially exposed when investors, owners, agents, identity registries, trusted issuers, claim signers, compliance controllers, and upgrade authorities are controlled through elliptic-curve accounts. Remediation requires post-quantum-safe application authorization plus migration of the transaction, validator, node-authentication, custody, and recovery layers used by the deployment. <a href="#besu-erc-post-quantum-risk">See the ERC-3643 analysis.</a></div>
+<div class="faq-answer">Not automatically. ERC-3643 does not mandate ECDSA, but conventional deployments remain materially exposed when investors, owners, agents, identity registries, trusted issuers, claim signers, compliance controllers, and upgrade authorities are controlled through elliptic-curve accounts. Remediation requires post-quantum-safe application authorization plus migration of the transaction, validator, node-authentication, custody, and recovery layers used by the deployment. <a href="#besu-erc-post-quantum-risk">See the ERC-3643 analysis.</a></div>
 </details>
 <details class="faq-item faq-card" id="besu-performance-under-post-quantum-signatures">
 <summary class="faq-q">What happens to Besu performance under post-quantum signatures?</summary>
-<div class="faq-a">There is no universal post-quantum Besu TPS result. Throughput depends on the algorithm, implementation, hardware, validator count, transaction mix, batching, block period, and network topology. In EternaX's illustrative 1,000 TPS scenario, ML-DSA-44 retains about 600 to 800 TPS, a 20% to 40% loss; SLH-DSA-128s retains about 30 to 250 TPS, a 75% to 97% loss; and SLH-DSA-192s retains about 15 to 150 TPS, an 85% to 98.5% loss. These are scenario calculations, not production Besu benchmarks. Deployment-specific testing is required before setting capacity or gas assumptions. <a href="#besu-pq-performance">See the performance model.</a></div>
+<div class="faq-answer">There is no universal post-quantum Besu TPS result. Throughput depends on the algorithm, implementation, hardware, validator count, transaction mix, batching, block period, and network topology. In EternaX's illustrative 1,000 TPS scenario, ML-DSA-44 retains about 600 to 800 TPS, a 20% to 40% loss; SLH-DSA-128s retains about 30 to 250 TPS, a 75% to 97% loss; and SLH-DSA-192s retains about 15 to 150 TPS, an 85% to 98.5% loss. These are scenario calculations, not production Besu benchmarks. Deployment-specific testing is required before setting capacity or gas assumptions. <a href="#besu-pq-performance">See the performance model.</a></div>
 </details>
 <details class="faq-item faq-card" id="how-to-make-existing-besu-post-quantum-safe">
 <summary class="faq-q">How can an institution make critical workflows in an existing Besu deployment post-quantum safe?</summary>
-<div class="faq-a">Use a phased, workflow-first migration. First inventory the cryptographic dependencies; then select one high-value tokenization, custody, or privacy path; protect its authorization and confidentiality boundary; test HSM/KMS compatibility, performance, governance, and interoperability; and expand in controlled phases. Compatible Besu applications, records, providers, and APIs can remain where technically possible. Native transaction authentication, QBFT validator signatures, node identity, and RLPx remain separately governed wherever they still use quantum-vulnerable cryptography. <a href="#besu-post-quantum-migration">See the EternaX Besu migration approach.</a></div>
+<div class="faq-answer">Use a phased, workflow-first migration. First inventory the cryptographic dependencies; then select one high-value tokenization, custody, or privacy path; protect its authorization and confidentiality boundary; test HSM/KMS compatibility, performance, governance, and interoperability; and expand in controlled phases. Compatible Besu applications, records, providers, and APIs can remain where technically possible. Native transaction authentication, QBFT validator signatures, node identity, and RLPx remain separately governed wherever they still use quantum-vulnerable cryptography. <a href="#besu-post-quantum-migration">See the EternaX Besu migration approach.</a></div>
 </details>
 <details class="faq-item faq-card" id="how-eternax-makes-besu-post-quantum-safe">
 <summary class="faq-q">How does EternaX protect critical Hyperledger Besu workflows against post-quantum risk?</summary>
-<div class="faq-a">EternaX uses three Besu-specific products: Post-Quantum Tokenization for Besu protects supported issuer, identity, compliance, permit, vault, recovery, and administrative controls; Post-Quantum Custody Hardening for Besu protects custody and treasury approval paths without replacing the custodian; and Post-Quantum Privacy Manager for Besu protects private-payload encryption, privacy-group authority, recovery, and controlled disclosure. Crypto agility is embedded across all three. Native Besu transaction authentication, QBFT, node identity, and RLPx remain separately governed where they are still quantum-vulnerable. <a href="#how-eternax-addresses-besu-migration-gap">See the EternaX product architecture.</a></div>
+<div class="faq-answer">EternaX uses three Besu-specific products: Post-Quantum Tokenization for Besu protects supported issuer, identity, compliance, permit, vault, recovery, and administrative controls; Post-Quantum Custody Hardening for Besu protects custody and treasury approval paths without replacing the custodian; and Post-Quantum Privacy Manager for Besu protects private-payload encryption, privacy-group authority, recovery, and controlled disclosure. Crypto agility is embedded across all three. Native Besu transaction authentication, QBFT, node identity, and RLPx remain separately governed where they are still quantum-vulnerable. <a href="#how-eternax-addresses-besu-migration-gap">See the EternaX product architecture.</a></div>
 </details>
 <details class="faq-item faq-card" id="can-dtcc-begin-pq-migration-before-native-network-pq">
 <summary class="faq-q">Can DTCC begin post-quantum migration before Besu, Canton and Stellar support native post-quantum cryptography?</summary>
-<div class="faq-a">Yes. DTCC can begin by inventorying cryptographic dependencies and protecting DTC lifecycle instructions, ComposerX and CATF privileged roles, participant and custody approvals, recovery, and cross-network authorization. Native Besu transaction, QBFT and RLPx migration, Canton protocol and encryption migration, and Stellar classic-account and validator migration require broader network coordination. Application-level protection can therefore begin now, but it should not be represented as complete network-level migration. <a href="#dtcc-besu-tokenization-pq-risk">See what DTCC can upgrade now and what requires coordination.</a></div>
+<div class="faq-answer">Yes. DTCC can begin by inventorying cryptographic dependencies and protecting DTC lifecycle instructions, ComposerX and CATF privileged roles, participant and custody approvals, recovery, and cross-network authorization. Native Besu transaction, QBFT and RLPx migration, Canton protocol and encryption migration, and Stellar classic-account and validator migration require broader network coordination. Application-level protection can therefore begin now, but it should not be represented as complete network-level migration. <a href="#dtcc-besu-tokenization-pq-risk">See what DTCC can upgrade now and what requires coordination.</a></div>
 </details>
 <details class="faq-item faq-card" id="why-eternax-is-different-from-wallet-only-pq-solutions">
 <summary class="faq-q">Why is EternaX different from wallet-only or smart-account post-quantum solutions?</summary>
-<div class="faq-a">Wallet-only and smart-account approaches protect one user-authorization path. They do not by themselves secure issuer and token-agent authority, investor identity, custody approvals, privacy-group governance, private-payload encryption, recovery, QBFT validators, node identity, or RLPx transport. EternaX combines Besu-specific tokenization, custody-hardening, and privacy products while preserving compatible applications, providers, and operating workflows. EternaX is not a custody provider, and residual protocol-native dependencies remain explicit. <a href="#besu-post-quantum-migration">Compare the EternaX protection layers.</a></div>
+<div class="faq-answer">Wallet-only and smart-account approaches protect one user-authorization path. They do not by themselves secure issuer and token-agent authority, investor identity, custody approvals, privacy-group governance, private-payload encryption, recovery, QBFT validators, node identity, or RLPx transport. EternaX combines Besu-specific tokenization, custody-hardening, and privacy products while preserving compatible applications, providers, and operating workflows. EternaX is not a custody provider, and residual protocol-native dependencies remain explicit. <a href="#besu-post-quantum-migration">Compare the EternaX protection layers.</a></div>
 </details>
 </section>
 </main>

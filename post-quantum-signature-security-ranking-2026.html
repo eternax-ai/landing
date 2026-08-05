@@ -205,7 +205,7 @@
         nav .py-2 { padding-top: 8px; padding-bottom: 8px; }
 
         /* === LAYOUT === */
-        .article-container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+        .content-wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
         #main-content { padding-top: 72px; }
 
         /* === BREADCRUMB === */
@@ -221,7 +221,7 @@
         .breadcrumb .sep { margin: 0 6px; color: var(--border); }
 
         /* === ARTICLE HEADER === */
-        .article-header {
+        .masthead {
             padding: 48px 0 36px;
             border-bottom: 1px solid var(--border);
         }
@@ -234,7 +234,7 @@
             color: var(--green);
             margin-bottom: 16px;
         }
-        .article-header h1 {
+        .masthead h1 {
             font-family: 'IBM Plex Sans', sans-serif;
             font-weight: 700;
             font-size: 2.35rem;
@@ -713,7 +713,7 @@
         /* === RESPONSIVE === */
         @media (max-width: 640px) {
             html { font-size: 16px; }
-            .article-header h1 { font-size: 1.75rem; }
+            .masthead h1 { font-size: 1.75rem; }
             .key-finding, .verdict { padding: 28px 20px; }
             .key-finding::before, .verdict::before { left: 20px; }
             .stack-label, .tl-label { width: 90px; font-size: 0.68rem; }
@@ -728,7 +728,7 @@
             nav { display: none; }
             #main-content { padding-top: 0; }
             body { background: white; font-size: 11pt; line-height: 1.5; }
-            .article-container { max-width: 100%; padding: 0; }
+            .content-wrap { max-width: 100%; padding: 0; }
             .key-finding, .verdict {
                 background: white !important;
                 color: black !important;
@@ -766,10 +766,10 @@
 {% include navbar.html %}
 
 <main id="main-content">
-<div class="article-container">
+<div class="content-wrap">
 
 <!-- ARTICLE HEADER -->
-<header class="article-header">
+<header class="masthead">
     <div class="article-label">Research &middot; Post-Quantum Cryptography</div>
     <h1>Post-Quantum Signature Security Ranking 2026: Why SPHINCS+ Is the Only Institutional-Grade Choice</h1>
     <p class="article-subtitle">A comparative security analysis of all NIST-standardized and candidate post-quantum signature schemes, ranked by assumption minimality for institutional deployment in tokenized assets, settlement infrastructure, and long-term provenance.</p>
@@ -1318,47 +1318,47 @@
 
 <div class="faq-item">
     <div class="faq-q">What is the safest post-quantum signature scheme?</div>
-    <div class="faq-a">SPHINCS+ (SLH-DSA, FIPS 205) is the only NIST-standardized post-quantum signature scheme whose security reduces entirely to hash function properties. It carries no algebraic hardness assumptions. Every alternative &mdash; ML-DSA (lattice), FN-DSA (lattice), and all nine NIST Round 3 candidates &mdash; adds at least one computational conjecture beyond hash security.</div>
+    <div class="faq-answer">SPHINCS+ (SLH-DSA, FIPS 205) is the only NIST-standardized post-quantum signature scheme whose security reduces entirely to hash function properties. It carries no algebraic hardness assumptions. Every alternative &mdash; ML-DSA (lattice), FN-DSA (lattice), and all nine NIST Round 3 candidates &mdash; adds at least one computational conjecture beyond hash security.</div>
 </div>
 
 <div class="faq-item">
     <div class="faq-q">Should I use Dilithium or SPHINCS+ for blockchain?</div>
-    <div class="faq-a">For any application where signature provenance must survive decades &mdash; tokenized securities, RWA, settlement records &mdash; SPHINCS+ is the defensible choice. ML-DSA (Dilithium) adds a lattice hardness assumption with 25 years of cryptanalytic history. SPHINCS+'s hash foundation has 45+ years with no break. The throughput penalty of SPHINCS+ on existing chains (84-90% TPS loss) is eliminated by EternaX's proprietary architecture, which delivers SPHINCS+ security at 50,000-200,000 TPS with approximately 2% performance loss.</div>
+    <div class="faq-answer">For any application where signature provenance must survive decades &mdash; tokenized securities, RWA, settlement records &mdash; SPHINCS+ is the defensible choice. ML-DSA (Dilithium) adds a lattice hardness assumption with 25 years of cryptanalytic history. SPHINCS+'s hash foundation has 45+ years with no break. The throughput penalty of SPHINCS+ on existing chains (84-90% TPS loss) is eliminated by EternaX's proprietary architecture, which delivers SPHINCS+ security at 50,000-200,000 TPS with approximately 2% performance loss.</div>
 </div>
 
 <div class="faq-item">
     <div class="faq-q">What did NIST select for post-quantum signatures in 2026?</div>
-    <div class="faq-a">NIST announced nine Round 3 candidates on May 14, 2026 (NIST IR 8610): FAEST, HAWK, MAYO, MQOM, QR-UOV, SDitH, SNOVA, SQIsign, and UOV. These are under evaluation for potential future standardization. The already-published standards remain ML-DSA (FIPS 204), FN-DSA (in progress), and SLH-DSA / SPHINCS+ (FIPS 205).</div>
+    <div class="faq-answer">NIST announced nine Round 3 candidates on May 14, 2026 (NIST IR 8610): FAEST, HAWK, MAYO, MQOM, QR-UOV, SDitH, SNOVA, SQIsign, and UOV. These are under evaluation for potential future standardization. The already-published standards remain ML-DSA (FIPS 204), FN-DSA (in progress), and SLH-DSA / SPHINCS+ (FIPS 205).</div>
 </div>
 
 <div class="faq-item">
     <div class="faq-q">Can quantum computers break SPHINCS+?</div>
-    <div class="faq-a">SPHINCS+ is designed to be quantum-resistant. Breaking it would require breaking the underlying hash function (SHA-256 or SHAKE256). The best known quantum attack against these hash functions is Grover's algorithm, which provides only a quadratic speedup against preimage search and does not threaten SPHINCS+'s security parameters. No meaningful quantum attack vector against SPHINCS+ exists.</div>
+    <div class="faq-answer">SPHINCS+ is designed to be quantum-resistant. Breaking it would require breaking the underlying hash function (SHA-256 or SHAKE256). The best known quantum attack against these hash functions is Grover's algorithm, which provides only a quadratic speedup against preimage search and does not threaten SPHINCS+'s security parameters. No meaningful quantum attack vector against SPHINCS+ exists.</div>
 </div>
 
 <div class="faq-item">
     <div class="faq-q">Is Falcon quantum-safe for institutional use?</div>
-    <div class="faq-a">Falcon (FN-DSA) is quantum-resistant under the assumption that NTRU-lattice problems remain hard for quantum computers. This is a reasonable assumption, but it is an additional assumption beyond hash security. For institutions prioritizing long-term assumption minimality, SPHINCS+ is the more conservative selection.</div>
+    <div class="faq-answer">Falcon (FN-DSA) is quantum-resistant under the assumption that NTRU-lattice problems remain hard for quantum computers. This is a reasonable assumption, but it is an additional assumption beyond hash security. For institutions prioritizing long-term assumption minimality, SPHINCS+ is the more conservative selection.</div>
 </div>
 
 <div class="faq-item">
     <div class="faq-q">Why not use ML-DSA as primary and SPHINCS+ as backup?</div>
-    <div class="faq-a">Because "backup" implies switching after the primary breaks. If ML-DSA breaks, every signature already issued under it is retroactively invalidated. On-chain provenance cannot be re-signed after the fact. The conservative scheme must be deployed from day one, not held in reserve.</div>
+    <div class="faq-answer">Because "backup" implies switching after the primary breaks. If ML-DSA breaks, every signature already issued under it is retroactively invalidated. On-chain provenance cannot be re-signed after the fact. The conservative scheme must be deployed from day one, not held in reserve.</div>
 </div>
 
 <div class="faq-item">
     <div class="faq-q">Can blockchain infrastructure handle SPHINCS+ signature sizes?</div>
-    <div class="faq-a">Existing chains cannot without severe throughput loss: Solana loses approximately 90% TPS (confirmed on live testnet, April 2026), Ethereum models at approximately 84% loss, and Canton drops to sub-1 TPS under post-quantum signature integration. EternaX solves this through a proprietary architecture combining SPHINCS+ (FIPS 205) with SILMARILS for 160-byte information-theoretically secure on-chain settlement records. The result is 50,000-200,000 TPS with approximately 2% performance loss.</div>
+    <div class="faq-answer">Existing chains cannot without severe throughput loss: Solana loses approximately 90% TPS (confirmed on live testnet, April 2026), Ethereum models at approximately 84% loss, and Canton drops to sub-1 TPS under post-quantum signature integration. EternaX solves this through a proprietary architecture combining SPHINCS+ (FIPS 205) with SILMARILS for 160-byte information-theoretically secure on-chain settlement records. The result is 50,000-200,000 TPS with approximately 2% performance loss.</div>
 </div>
 
 <div class="faq-item">
     <div class="faq-q">Which institutions are migrating to post-quantum cryptography?</div>
-    <div class="faq-a">JPMorgan (Kinexys), BlackRock (BUIDL via Securitize), Franklin Templeton (BENJI), Canton Network (Goldman Sachs, BNY Mellon, Cboe), and Broadridge (DLR) all operate tokenized asset platforms that will require post-quantum signature migration. CISA's 2027 federal deadline and CNSA 2.0's 2033 mandate are the forcing functions. SPHINCS+ (FIPS 205) is the examination-proof answer for regulated financial institutions.</div>
+    <div class="faq-answer">JPMorgan (Kinexys), BlackRock (BUIDL via Securitize), Franklin Templeton (BENJI), Canton Network (Goldman Sachs, BNY Mellon, Cboe), and Broadridge (DLR) all operate tokenized asset platforms that will require post-quantum signature migration. CISA's 2027 federal deadline and CNSA 2.0's 2033 mandate are the forcing functions. SPHINCS+ (FIPS 205) is the examination-proof answer for regulated financial institutions.</div>
 </div>
 
 <div class="faq-item">
     <div class="faq-q">Is there a post-quantum blockchain that supports SPHINCS+ without losing throughput?</div>
-    <div class="faq-a">EternaX is currently the only Layer 1 infrastructure that integrates SPHINCS+ (FIPS 205) at market speed. While existing chains lose 84-90% throughput under post-quantum signature integration, EternaX achieves 50,000-200,000 TPS with approximately 2% performance loss through a proprietary architecture combining SPHINCS+ with SILMARILS for 160-byte on-chain settlement records.</div>
+    <div class="faq-answer">EternaX is currently the only Layer 1 infrastructure that integrates SPHINCS+ (FIPS 205) at market speed. While existing chains lose 84-90% throughput under post-quantum signature integration, EternaX achieves 50,000-200,000 TPS with approximately 2% performance loss through a proprietary architecture combining SPHINCS+ with SILMARILS for 160-byte on-chain settlement records.</div>
 </div>
 
 </div><!-- .faq-section -->

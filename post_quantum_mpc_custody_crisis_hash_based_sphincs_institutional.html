@@ -625,12 +625,12 @@ tbody td:first-child{background:var(--sticky-body)}
   }
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   body{background:#fff}
-  nav,.pdf-btn,.author-photo-slot,.connect-actions,.no-print{display:none!important}
+  nav,.report-btn,.author-photo-slot,.connect-actions,.no-print{display:none!important}
   .manual-page-break{break-before:page;page-break-before:always;height:0!important;margin:0!important;padding:0!important}
   .cover,.fastpath,.team-section,.connect-section,.report-footer,.case-study,.verdict-box,.verdict-box-green{
     box-shadow:none!important;background:#fff!important
   }
-  .chart-wrap,.exec-quote,.verdict-box,.callout-box,.faq-item{page-break-inside:avoid}
+  .chart-wrap,.exec-quote,.verdict-box,.callout,.faq-item{page-break-inside:avoid}
   /* Fill the full available print width — prevents max-width + margin:auto from centering at viewport width */
   .content{max-width:none!important;margin-left:0!important;margin-right:0!important}
   .cover-inner,.fastpath-inner{max-width:none!important;margin-left:0!important;margin-right:0!important;padding-left:2rem!important;padding-right:2rem!important}
@@ -643,7 +643,7 @@ tbody td:first-child{background:var(--sticky-body)}
   .table-wrap table th:first-child,.table-wrap table td:first-child{position:static!important;box-shadow:none!important}
   .faq-item{border-color:#d9d9d9!important}
   .faq-item summary::after{display:none!important}
-  .faq-item:not([open]) .faq-a{display:block!important}
+  .faq-item:not([open]) .faq-answer{display:block!important}
   .stat-grid,.taxonomy,.moat-grid,.framework-grid,.fastpath-grid,.toc-grid{break-inside:avoid}
   h2{break-after:avoid}
   .part-header{padding-top:32px}
@@ -830,7 +830,7 @@ tbody td:first-child{background:var(--sticky-body)}
 .audience-block .audience-title{font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
 .audience-block p{font-size:.9rem;line-height:1.68;color:var(--text-body);margin-bottom:.6rem}
 .methodology{font-family:var(--mono);font-size:.65rem;color:var(--text-muted);line-height:1.6;margin-top:1.2rem;padding-top:.8rem;border-top:1px solid var(--border)}
-.table-wrapper{margin:28px 0 36px;overflow-x:auto;border:1px solid var(--border)}
+.table-wrap{margin:28px 0 36px;overflow-x:auto;border:1px solid var(--border)}
 .table-caption{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:10px;display:block;font-weight:500}
 .data-table{width:100%;border-collapse:collapse;font-size:.84rem;line-height:1.5}
 .data-table thead{background:var(--header-tint)}
@@ -902,7 +902,7 @@ tbody td:first-child{background:var(--sticky-body)}
 
 
 <!-- ═══ COVER -->
-<header class="cover cover-flat" role="banner">
+<header class="cover" role="banner">
 <div class="cover-inner">
   <div class="cover-eyebrow">EternaX Research · Institutional MPC Custody Risk Map · 12 June 2026</div>
   <h1 class="cover-title">The Post-Quantum Institutional MPC Custody Crisis 2026: 15 Providers, $10 Trillion Protected, Zero Post-Quantum Safe</h1>
@@ -964,7 +964,7 @@ tbody td:first-child{background:var(--sticky-body)}
 <div class="section-label">Section 2</div>
 <h2 class="section-title">The Institutional MPC Market</h2>
 <p>Every major institutional custody decision made since 2018 is built on MPC. That installed base is now structurally exposed. The market splits into three segments: large institutional platforms combining MPC with governance, settlement, and regulated trust structures (Fireblocks, Copper, BitGo, Anchorage Digital, Ceffu); bank-grade custody and tokenization infrastructure (Ripple Custody / Metaco, Zodia Custody / Standard Chartered, Fordefi / Paxos, Dfns, Qredo); and hybrid MPC plus HSM or TEE stacks (Safeheron, Liminal, Blockdaemon, Cobo). Across all three segments, the MPC layer improves operational security. Across all three, the final on-chain signature remains classical.</p>
-<div class="table-wrapper">
+<div class="table-wrap">
 <div class="table-caption">Table 1: The Institutional MPC Custody Market at a Glance</div>
 <table class="data-table">
 <thead>
@@ -1047,7 +1047,7 @@ tbody td:first-child{background:var(--sticky-body)}
 <p>“bad actors are early adopters of transformative technology”</p>
 <footer>— <strong>Ari Redbord</strong>, Global Head of Policy and Government Affairs, TRM Labs. <a href="https://www.trmlabs.com/resources/blog/trms-ari-redbord-testifies-before-the-house-committee-on-financial-services-subcommittee-on-national-security" rel="noopener noreferrer" target="_blank">Congressional testimony, 2026</a></footer>
 </blockquote>
-<div class="table-wrapper">
+<div class="table-wrap">
 <div class="table-caption">The Control Plane Incident Log: Key Compromise, Not Code Exploits (2025-2026)</div>
 <table class="data-table">
 <thead>
@@ -1120,7 +1120,7 @@ tbody td:first-child{background:var(--sticky-body)}
 </blockquote>
 <!-- 3C: Impossibility -->
 <p>Taurus SA published in June 2026 that hash-based signatures are "theoretically impossible" under MPC. The mathematical basis is unambiguous. SPHINCS+ signing requires 10,000 to 20,000 SHA-256 compressions per signature. Each compression is approximately 22,000 AND gates in a boolean circuit. To threshold-compute this across 5 institutional MPC parties at 128-bit security: approximately 26 terabytes of communication per signature and 500 to 700 sequential communication rounds. This is 6 to 7 orders of magnitude beyond what institutional custody requires. No optimization trajectory closes this gap. The constraint is not engineering. It is mathematical structure. Hash functions lack the algebraic properties needed to distribute signing computation while preserving completeness, correctness, and privacy.</p>
-<div class="table-wrapper">
+<div class="table-wrap">
 <div class="table-caption">Table 2: PQ Signature Scheme Readiness: HSM vs. MPC (Source: Adapted from Taurus SA, June 2026)</div>
 <table class="data-table">
 <thead>
@@ -1178,7 +1178,7 @@ tbody td:first-child{background:var(--sticky-body)}
 <div class="risk-key-item"><span class="risk-tag risk-green">Medium</span> Public hybrid-PQ experimentation underway. <em>No provider in this review reaches this level.</em></div>
 <div class="risk-key-item"><span class="risk-tag risk-green">Low</span> PQ-native production custody support. <em>No provider in this review reaches this level.</em></div>
 </div>
-<div class="table-wrapper">
+<div class="table-wrap">
 <div class="table-caption">Table 3: MPC Custody Quantum Risk Assessment: 15 Providers</div>
 <table class="data-table">
 <thead>
@@ -1204,7 +1204,7 @@ tbody td:first-child{background:var(--sticky-body)}
 </table>
 <div class="table-summary">7 providers at Critical Quantum Risk. 8 providers at High Quantum Risk. Zero at Medium, Low, or PQ-safe.</div>
 </div>
-<div class="table-wrapper">
+<div class="table-wrap">
 <div class="table-caption">Table 4: Chain-Level PQ Failure Map: 16 Networks, Zero PQ-Safe</div>
 <table class="data-table">
 <thead>
@@ -1340,7 +1340,7 @@ tbody td:first-child{background:var(--sticky-body)}
 <p><strong>SPHINCS+-compliant settlement from day one.</strong> Every asset issued, transferred, or settled on EternaX carries hash-based post-quantum authentication (SPHINCS+ / SLH-DSA, NIST FIPS 205) at the protocol level. No migration debt (<a href="https://eternax.ai/post-quantum-cryptography-risk-framework-for-institutions.html" rel="noopener noreferrer" target="_blank" >see: Cryptographic Migration Debt framework, $57B-$135B institutional exposure</a>). No retrofit. No deadline pressure. Your NIST 2030/2035 compliance obligation is resolved at the infrastructure layer.</p>
 <p><strong>Fiduciary defensibility.</strong> When your board, your regulator, or your auditor asks whether your digital asset custody is post-quantum safe, you have a verifiable answer: hash-based PQ-safe MPC custody, with the most conservative NIST-approved signature standard, on the only chain where that combination is architecturally possible. That is a fiduciary position, not a technology bet.</p>
 </div>
-<div class="table-wrapper">
+<div class="table-wrap">
 <div class="table-caption">Table 5: EternaX vs. Incumbent Chains Under Hash-Based PQ Migration</div>
 <table class="data-table">
 <thead>
@@ -1428,103 +1428,103 @@ tbody td:first-child{background:var(--sticky-body)}
 <h2 class="section-title">Frequently Asked Questions</h2>
 <details class="faq-item" id="what-is-post-quantum-custody">
 <summary class="faq-q">What is post-quantum custody?</summary>
-<div class="faq-a"><p>Post-quantum custody is digital asset custody infrastructure that remains secure after a cryptographically relevant quantum computer can break today’s classical public-key signatures. The issue is not only wallet security; it is the full custody and settlement stack: ECDSA, Ed25519, Schnorr, key recovery, policy engines, backup encryption, MPC workflows, HSM boundaries, and chain-level signature verification. Institutions using Fireblocks, Copper, BitGo, Anchorage Digital, Cobo, Dfns, Safeheron, Fordefi (Paxos), or similar providers still rely on classical signatures on the underlying chains.</p></div>
+<div class="faq-answer"><p>Post-quantum custody is digital asset custody infrastructure that remains secure after a cryptographically relevant quantum computer can break today’s classical public-key signatures. The issue is not only wallet security; it is the full custody and settlement stack: ECDSA, Ed25519, Schnorr, key recovery, policy engines, backup encryption, MPC workflows, HSM boundaries, and chain-level signature verification. Institutions using Fireblocks, Copper, BitGo, Anchorage Digital, Cobo, Dfns, Safeheron, Fordefi (Paxos), or similar providers still rely on classical signatures on the underlying chains.</p></div>
 </details>
 <details class="faq-item" id="why-post-quantum-custody-matters">
 <summary class="faq-q">Why does post-quantum custody matter for institutions?</summary>
-<div class="faq-a"><p>Post-quantum custody matters because institutional digital assets are controlled by signatures, not by branding, regulation, or custody policy alone. A quantum adversary that can recover private keys from exposed public keys can bypass the operational controls around those keys. This affects custody wallets, mint keys, bridge validators, tokenized fund administrators, stablecoin issuers, staking operators, treasury systems, and settlement rails. The risk is structural because every major public chain still verifies classical signatures.</p></div>
+<div class="faq-answer"><p>Post-quantum custody matters because institutional digital assets are controlled by signatures, not by branding, regulation, or custody policy alone. A quantum adversary that can recover private keys from exposed public keys can bypass the operational controls around those keys. This affects custody wallets, mint keys, bridge validators, tokenized fund administrators, stablecoin issuers, staking operators, treasury systems, and settlement rails. The risk is structural because every major public chain still verifies classical signatures.</p></div>
 </details>
 <details class="faq-item" id="is-mpc-custody-post-quantum-safe">
 <summary class="faq-q">Is MPC custody post-quantum safe?</summary>
-<div class="faq-a"><p>No. MPC custody is not post-quantum safe if the final signature verified by the blockchain is still ECDSA, Ed25519, or Schnorr. MPC distributes signing authority across multiple parties, which improves operational security against theft, insiders, and device compromise. But MPC does not change the chain-visible signature scheme. A quantum adversary attacks the public-key signature layer that consensus verifies, not the internal MPC ceremony used to produce the signature.</p></div>
+<div class="faq-answer"><p>No. MPC custody is not post-quantum safe if the final signature verified by the blockchain is still ECDSA, Ed25519, or Schnorr. MPC distributes signing authority across multiple parties, which improves operational security against theft, insiders, and device compromise. But MPC does not change the chain-visible signature scheme. A quantum adversary attacks the public-key signature layer that consensus verifies, not the internal MPC ceremony used to produce the signature.</p></div>
 </details>
 <details class="faq-item" id="does-mpc-protect-against-shors-algorithm">
 <summary class="faq-q">Does MPC protect against Shor’s algorithm?</summary>
-<div class="faq-a"><p>No. MPC does not protect ECDSA, Ed25519, or Schnorr signatures from Shor’s algorithm. Shor’s algorithm attacks the mathematical hardness assumptions behind elliptic-curve and RSA cryptography. MPC can split control of a private key across parties, but once a public key is exposed on-chain, the underlying classical signature scheme remains vulnerable. This is why MPC custody and post-quantum custody are not the same thing.</p></div>
+<div class="faq-answer"><p>No. MPC does not protect ECDSA, Ed25519, or Schnorr signatures from Shor’s algorithm. Shor’s algorithm attacks the mathematical hardness assumptions behind elliptic-curve and RSA cryptography. MPC can split control of a private key across parties, but once a public key is exposed on-chain, the underlying classical signature scheme remains vulnerable. This is why MPC custody and post-quantum custody are not the same thing.</p></div>
 </details>
 <details class="faq-item" id="are-fireblocks-copper-bitgo-cobo-post-quantum-safe">
 <summary class="faq-q">Are Fireblocks, Copper, BitGo, Cobo, Dfns, Safeheron, and Fordefi post-quantum safe?</summary>
-<div class="faq-a"><p>No reviewed institutional MPC custody provider is post-quantum safe today. Fireblocks, Copper, BitGo, Anchorage Digital, Ripple Custody, Cobo, Dfns, Safeheron, Fordefi (Paxos), Zodia Custody, Qredo, and similar platforms may offer strong operational controls, but the assets they custody ultimately settle on chains using classical signatures. Unless the underlying chain supports post-quantum verification and the custody architecture can operate with that verification model, the custody stack remains exposed to quantum key recovery.</p></div>
+<div class="faq-answer"><p>No reviewed institutional MPC custody provider is post-quantum safe today. Fireblocks, Copper, BitGo, Anchorage Digital, Ripple Custody, Cobo, Dfns, Safeheron, Fordefi (Paxos), Zodia Custody, Qredo, and similar platforms may offer strong operational controls, but the assets they custody ultimately settle on chains using classical signatures. Unless the underlying chain supports post-quantum verification and the custody architecture can operate with that verification model, the custody stack remains exposed to quantum key recovery.</p></div>
 </details>
 <details class="faq-item" id="can-mpc-threshold-compute-sphincs-signatures">
 <summary class="faq-q">Can MPC threshold-compute SPHINCS+ signatures?</summary>
-<div class="faq-a"><p>No. Threshold SPHINCS+ is not commercially practical for institutional MPC custody because hash-based signatures lack the algebraic structure MPC needs for efficient distributed signing. SPHINCS+ signing requires thousands of hash computations, and threshold-computing those operations across multiple institutional parties creates extreme communication and round-complexity overhead. This is a structural cryptographic barrier, not a simple implementation gap or vendor roadmap issue.</p></div>
+<div class="faq-answer"><p>No. Threshold SPHINCS+ is not commercially practical for institutional MPC custody because hash-based signatures lack the algebraic structure MPC needs for efficient distributed signing. SPHINCS+ signing requires thousands of hash computations, and threshold-computing those operations across multiple institutional parties creates extreme communication and round-complexity overhead. This is a structural cryptographic barrier, not a simple implementation gap or vendor roadmap issue.</p></div>
 </details>
 <details class="faq-item" id="why-is-sphincs-preferred-for-institutions">
 <summary class="faq-q">Why is SPHINCS+ preferred for conservative institutional post-quantum security?</summary>
-<div class="faq-a"><p>SPHINCS+, standardized by NIST as SLH-DSA in FIPS 205, is preferred by conservative institutions because it is hash-based. Its security relies on hash-function assumptions that have been studied for decades, rather than newer lattice assumptions. That makes SPHINCS+ attractive for critical infrastructure, long-duration assets, settlement systems, tokenized funds, and regulated financial infrastructure where robustness matters more than elegance. The problem is that SPHINCS+ is structurally incompatible with conventional MPC custody.</p></div>
+<div class="faq-answer"><p>SPHINCS+, standardized by NIST as SLH-DSA in FIPS 205, is preferred by conservative institutions because it is hash-based. Its security relies on hash-function assumptions that have been studied for decades, rather than newer lattice assumptions. That makes SPHINCS+ attractive for critical infrastructure, long-duration assets, settlement systems, tokenized funds, and regulated financial infrastructure where robustness matters more than elegance. The problem is that SPHINCS+ is structurally incompatible with conventional MPC custody.</p></div>
 </details>
 <details class="faq-item" id="mpc-vs-hsm-post-quantum-custody">
 <summary class="faq-q">What is the difference between MPC and HSM custody for post-quantum migration?</summary>
-<div class="faq-a"><p>HSM custody can support post-quantum signature standards such as SPHINCS+ inside a protected hardware boundary, while conventional MPC custody cannot efficiently threshold-compute hash-based SPHINCS+ signatures. The tradeoff is severe: HSMs offer post-quantum algorithm support but concentrate trust in hardware boundaries; MPC distributes trust but struggles with the most conservative hash-based PQ signatures. EternaX resolves this by separating MPC-compatible custody control from post-quantum authentication at the chain level.</p></div>
+<div class="faq-answer"><p>HSM custody can support post-quantum signature standards such as SPHINCS+ inside a protected hardware boundary, while conventional MPC custody cannot efficiently threshold-compute hash-based SPHINCS+ signatures. The tradeoff is severe: HSMs offer post-quantum algorithm support but concentrate trust in hardware boundaries; MPC distributes trust but struggles with the most conservative hash-based PQ signatures. EternaX resolves this by separating MPC-compatible custody control from post-quantum authentication at the chain level.</p></div>
 </details>
 <details class="faq-item" id="what-is-the-nist-2030-2035-timeline">
 <summary class="faq-q">What is the NIST 2030 and 2035 timeline for classical signatures?</summary>
-<div class="faq-a"><p>The relevant NIST migration timeline signals that classical public-key schemes such as ECDSA, EdDSA, RSA, and related signature systems should be phased out of sensitive systems over the next decade. For digital assets, that matters because Ethereum, Bitcoin, Solana, Polygon, Avalanche, Arbitrum, BNB Chain, Stellar, and most custody systems still depend on classical signatures. Institutions should not wait until the deadline year; custody migrations require years of vendor review, chain support, testing, audits, governance, and counterparty acceptance.</p></div>
+<div class="faq-answer"><p>The relevant NIST migration timeline signals that classical public-key schemes such as ECDSA, EdDSA, RSA, and related signature systems should be phased out of sensitive systems over the next decade. For digital assets, that matters because Ethereum, Bitcoin, Solana, Polygon, Avalanche, Arbitrum, BNB Chain, Stellar, and most custody systems still depend on classical signatures. Institutions should not wait until the deadline year; custody migrations require years of vendor review, chain support, testing, audits, governance, and counterparty acceptance.</p></div>
 </details>
 <details class="faq-item" id="can-existing-custody-provider-offer-pq-safe-on-eternax">
 <summary class="faq-q">Can my existing custody provider offer PQ-safe custody on EternaX?</summary>
-<div class="faq-a"><p>Yes. EternaX is the only chain where existing MPC custody infrastructure remains functional under hash-based post-quantum migration. Your custody provider (Fireblocks, Copper, BitGo, Anchorage Digital, Zodia Custody, or any MPC provider) runs their distributed authorization quorum exactly as they do today. The chain handles SPHINCS+ (hash-based, NIST FIPS 205) verification at the protocol level. No threshold computation of hash-based signatures is required. Your provider keeps their MPC, their licenses, their policy engine, and your client relationship. You get hash-based PQ-safe custody without switching providers.</p></div>
+<div class="faq-answer"><p>Yes. EternaX is the only chain where existing MPC custody infrastructure remains functional under hash-based post-quantum migration. Your custody provider (Fireblocks, Copper, BitGo, Anchorage Digital, Zodia Custody, or any MPC provider) runs their distributed authorization quorum exactly as they do today. The chain handles SPHINCS+ (hash-based, NIST FIPS 205) verification at the protocol level. No threshold computation of hash-based signatures is required. Your provider keeps their MPC, their licenses, their policy engine, and your client relationship. You get hash-based PQ-safe custody without switching providers.</p></div>
 </details>
 <details class="faq-item" id="does-eternax-compete-with-mpc-custody-providers">
 <summary class="faq-q">Does EternaX compete with MPC custody providers?</summary>
-<div class="faq-a"><p>No. EternaX is a settlement rail, not a custodian. Custody providers keep their clients, their licenses, their MPC infrastructure, and their operating models. EternaX makes their custody hash-based PQ-safe. The chain provides the architecture where the custody provider's MPC authorization output composes with SPHINCS+ verification at the protocol level. This is analogous to how Ethereum provides the settlement layer and Fireblocks provides the custody layer, except that on EternaX, the custody provider can offer hash-based post-quantum compliance that is mathematically impossible on any other chain.</p></div>
+<div class="faq-answer"><p>No. EternaX is a settlement rail, not a custodian. Custody providers keep their clients, their licenses, their MPC infrastructure, and their operating models. EternaX makes their custody hash-based PQ-safe. The chain provides the architecture where the custody provider's MPC authorization output composes with SPHINCS+ verification at the protocol level. This is analogous to how Ethereum provides the settlement layer and Fireblocks provides the custody layer, except that on EternaX, the custody provider can offer hash-based post-quantum compliance that is mathematically impossible on any other chain.</p></div>
 </details>
 <details class="faq-item" id="which-blockchains-are-post-quantum-safe">
 <summary class="faq-q">Which major blockchains are post-quantum safe today?</summary>
-<div class="faq-a"><p>No major public blockchain is post-quantum safe in production today. Ethereum, Bitcoin, Solana, Polygon, Avalanche, Arbitrum, Optimism, BNB Chain, Stellar, Aptos, Sui, Canton, and similar networks still rely on classical signature verification in their production settlement flows. Some ecosystems are researching post-quantum migration, but research direction is not production protection. Assets remain exposed until the chain, account model, wallet stack, custody layer, and migration path are all post-quantum-ready.</p></div>
+<div class="faq-answer"><p>No major public blockchain is post-quantum safe in production today. Ethereum, Bitcoin, Solana, Polygon, Avalanche, Arbitrum, Optimism, BNB Chain, Stellar, Aptos, Sui, Canton, and similar networks still rely on classical signature verification in their production settlement flows. Some ecosystems are researching post-quantum migration, but research direction is not production protection. Assets remain exposed until the chain, account model, wallet stack, custody layer, and migration path are all post-quantum-ready.</p></div>
 </details>
 <details class="faq-item" id="can-ethereum-bitcoin-solana-migrate-to-sphincs">
 <summary class="faq-q">Can Ethereum, Bitcoin, or Solana migrate to SPHINCS+ without breaking MPC custody?</summary>
-<div class="faq-a"><p>Not cleanly. If a chain simply replaces ECDSA or Ed25519 with SPHINCS+, it may improve post-quantum signature security but can break compatibility with conventional MPC custody. That is because SPHINCS+ is hash-based and not efficiently threshold-computable under standard MPC models. A serious migration must solve both problems together: post-quantum chain verification and institutional distributed custody. Treating them separately creates a new custody bottleneck.</p></div>
+<div class="faq-answer"><p>Not cleanly. If a chain simply replaces ECDSA or Ed25519 with SPHINCS+, it may improve post-quantum signature security but can break compatibility with conventional MPC custody. That is because SPHINCS+ is hash-based and not efficiently threshold-computable under standard MPC models. A serious migration must solve both problems together: post-quantum chain verification and institutional distributed custody. Treating them separately creates a new custody bottleneck.</p></div>
 </details>
 <details class="faq-item" id="what-is-pq-safe-custody-vs-pq-safe-settlement">
 <summary class="faq-q">What is the difference between post-quantum custody and post-quantum settlement?</summary>
-<div class="faq-a"><p>Post-quantum custody protects the systems that authorize asset movement; post-quantum settlement protects the chain that validates and finalizes asset movement. Institutions need both. A custody provider can harden devices, approvals, policies, and key storage, but if the blockchain still accepts classical signatures, the final settlement layer remains quantum-exposed. EternaX focuses on post-quantum settlement infrastructure so custody providers can operate on a rail designed for quantum-durable transaction validity from genesis.</p></div>
+<div class="faq-answer"><p>Post-quantum custody protects the systems that authorize asset movement; post-quantum settlement protects the chain that validates and finalizes asset movement. Institutions need both. A custody provider can harden devices, approvals, policies, and key storage, but if the blockchain still accepts classical signatures, the final settlement layer remains quantum-exposed. EternaX focuses on post-quantum settlement infrastructure so custody providers can operate on a rail designed for quantum-durable transaction validity from genesis.</p></div>
 </details>
 <details class="faq-item" id="what-is-the-control-plane-risk">
 <summary class="faq-q">What is custody control-plane risk in a post-quantum world?</summary>
-<div class="faq-a"><p>Custody control-plane risk is the risk that the systems controlling authorization are compromised, even if the asset contract itself is not hacked. Today, attackers target laptops, admin consoles, policy engines, signer devices, backups, bridges, validator keys, and multisig quorums. In a post-quantum world, the attacker may not need theft, phishing, malware, or social engineering. If public keys are exposed and signatures are classical, quantum key recovery can convert control-plane risk into mathematical key compromise.</p></div>
+<div class="faq-answer"><p>Custody control-plane risk is the risk that the systems controlling authorization are compromised, even if the asset contract itself is not hacked. Today, attackers target laptops, admin consoles, policy engines, signer devices, backups, bridges, validator keys, and multisig quorums. In a post-quantum world, the attacker may not need theft, phishing, malware, or social engineering. If public keys are exposed and signatures are classical, quantum key recovery can convert control-plane risk into mathematical key compromise.</p></div>
 </details>
 <details class="faq-item" id="how-much-crypto-stolen-through-key-compromise">
 <summary class="faq-q">How much crypto has been stolen through private key and signing-control compromise?</summary>
-<div class="faq-a"><p>Billions of dollars have been lost through private key compromise, signer compromise, phishing, malware, multisig failures, bridge validator compromise, and admin-key misuse. The institutional lesson is direct: the control plane of crypto is the signing layer. Smart-contract audits do not protect assets if the keys that authorize movement are compromised. A quantum attacker turns this same pattern into an algorithmic attack by recovering keys from vulnerable public-key cryptography.</p></div>
+<div class="faq-answer"><p>Billions of dollars have been lost through private key compromise, signer compromise, phishing, malware, multisig failures, bridge validator compromise, and admin-key misuse. The institutional lesson is direct: the control plane of crypto is the signing layer. Smart-contract audits do not protect assets if the keys that authorize movement are compromised. A quantum attacker turns this same pattern into an algorithmic attack by recovering keys from vulnerable public-key cryptography.</p></div>
 </details>
 <details class="faq-item" id="are-tokenized-assets-exposed-to-quantum-risk">
 <summary class="faq-q">Are tokenized funds, stablecoins, and RWAs exposed to post-quantum custody risk?</summary>
-<div class="faq-a"><p>Yes. Tokenized funds, stablecoins, and real-world assets are exposed if their minting, redemption, transfer, admin, bridge, or settlement workflows depend on classical signatures. This includes assets issued on Ethereum, Solana, Polygon, Avalanche, Stellar, Canton, and other classically signed networks. The risk is not limited to asset holders; it affects issuers, transfer agents, custodians, market makers, settlement venues, auditors, administrators, and distribution partners.</p></div>
+<div class="faq-answer"><p>Yes. Tokenized funds, stablecoins, and real-world assets are exposed if their minting, redemption, transfer, admin, bridge, or settlement workflows depend on classical signatures. This includes assets issued on Ethereum, Solana, Polygon, Avalanche, Stellar, Canton, and other classically signed networks. The risk is not limited to asset holders; it affects issuers, transfer agents, custodians, market makers, settlement venues, auditors, administrators, and distribution partners.</p></div>
 </details>
 <details class="faq-item" id="what-about-lattice-based-pq-mpc">
 <summary class="faq-q">Can lattice-based post-quantum signatures solve MPC custody?</summary>
-<div class="faq-a"><p>Lattice-based post-quantum signatures may be more MPC-compatible than SPHINCS+, but they are not the conservative institutional default. Threshold ML-DSA and related approaches remain newer, more complex, and less production-validated than classical MPC custody. They also rely on lattice assumptions rather than hash-based assumptions. For institutions that want conservative, hash-based post-quantum assurance, lattice-based MPC is not equivalent to SPHINCS+ custody support.</p></div>
+<div class="faq-answer"><p>Lattice-based post-quantum signatures may be more MPC-compatible than SPHINCS+, but they are not the conservative institutional default. Threshold ML-DSA and related approaches remain newer, more complex, and less production-validated than classical MPC custody. They also rely on lattice assumptions rather than hash-based assumptions. For institutions that want conservative, hash-based post-quantum assurance, lattice-based MPC is not equivalent to SPHINCS+ custody support.</p></div>
 </details>
 <details class="faq-item" id="can-existing-blockchains-retrofit-post-quantum-mpc">
 <summary class="faq-q">Can existing blockchains retrofit post-quantum MPC custody support?</summary>
-<div class="faq-a"><p>Existing blockchains can research post-quantum signatures, but retrofitting post-quantum MPC custody is much harder than adding a new signature opcode. A real migration requires new account models, wallet support, custody integrations, validator/client changes, transaction-size management, migration tooling, and governance acceptance. If the chain adopts SPHINCS+ as a simple replacement signature, it may create a custody architecture where conventional MPC cannot efficiently operate.</p></div>
+<div class="faq-answer"><p>Existing blockchains can research post-quantum signatures, but retrofitting post-quantum MPC custody is much harder than adding a new signature opcode. A real migration requires new account models, wallet support, custody integrations, validator/client changes, transaction-size management, migration tooling, and governance acceptance. If the chain adopts SPHINCS+ as a simple replacement signature, it may create a custody architecture where conventional MPC cannot efficiently operate.</p></div>
 </details>
 <details class="faq-item" id="how-eternax-supports-mpc-and-sphincs">
 <summary class="faq-q">How does EternaX support MPC custody with SPHINCS+ compliance?</summary>
-<div class="faq-a"><p>EternaX separates custody authorization from post-quantum authentication at the chain level. The custody side can remain compatible with distributed authorization models used by institutional MPC providers, while the chain enforces post-quantum transaction validity through a SPHINCS+-aligned authentication layer. This avoids forcing institutions into a false choice between distributed custody and conservative hash-based post-quantum security. The design is native to the settlement rail, not bolted on after launch.</p></div>
+<div class="faq-answer"><p>EternaX separates custody authorization from post-quantum authentication at the chain level. The custody side can remain compatible with distributed authorization models used by institutional MPC providers, while the chain enforces post-quantum transaction validity through a SPHINCS+-aligned authentication layer. This avoids forcing institutions into a false choice between distributed custody and conservative hash-based post-quantum security. The design is native to the settlement rail, not bolted on after launch.</p></div>
 </details>
 <details class="faq-item" id="what-is-eternax-performance-under-pq">
 <summary class="faq-q">What is EternaX’s performance under post-quantum cryptography?</summary>
-<div class="faq-a"><p>EternaX is designed to keep post-quantum security compatible with institutional market speed. The architecture targets high-throughput settlement while keeping post-quantum authentication overhead structurally lower than simply placing full SPHINCS+ signatures on every transaction. The key claim is not that post-quantum cryptography is free; it is that PQ performance must be engineered at the settlement-layer architecture level, not retrofitted into chains designed around classical signatures.</p></div>
+<div class="faq-answer"><p>EternaX is designed to keep post-quantum security compatible with institutional market speed. The architecture targets high-throughput settlement while keeping post-quantum authentication overhead structurally lower than simply placing full SPHINCS+ signatures on every transaction. The key claim is not that post-quantum cryptography is free; it is that PQ performance must be engineered at the settlement-layer architecture level, not retrofitted into chains designed around classical signatures.</p></div>
 </details>
 <details class="faq-item" id="what-should-institutions-ask-mpc-providers">
 <summary class="faq-q">What should institutions ask their MPC custody provider about post-quantum risk?</summary>
-<div class="faq-a"><p>Institutions should ask their MPC provider for a written post-quantum roadmap, supported signature schemes, chain migration assumptions, control-plane protections, HSM strategy, lattice-risk posture, SPHINCS+ support, account-migration plan, and expected customer impact before 2030. The key question is not “Do you use MPC?” The key question is “How will this custody stack authorize and settle assets when classical signatures are no longer acceptable?”</p></div>
+<div class="faq-answer"><p>Institutions should ask their MPC provider for a written post-quantum roadmap, supported signature schemes, chain migration assumptions, control-plane protections, HSM strategy, lattice-risk posture, SPHINCS+ support, account-migration plan, and expected customer impact before 2030. The key question is not “Do you use MPC?” The key question is “How will this custody stack authorize and settle assets when classical signatures are no longer acceptable?”</p></div>
 </details>
 <details class="faq-item" id="what-should-tokenized-asset-issuers-do-now">
 <summary class="faq-q">What should tokenized asset issuers, stablecoin issuers, and funds do now?</summary>
-<div class="faq-a"><p>Issuers should map every signing authority that can move, mint, burn, freeze, upgrade, bridge, redeem, or administer assets. They should classify which keys are classical, which chains expose public keys, which custody providers control workflows, and which assets have no documented post-quantum migration path. New tokenized assets should avoid inheriting quantum debt by default. For long-duration institutional products, post-quantum settlement should become a distribution and risk-management requirement, not a future compliance footnote.</p></div>
+<div class="faq-answer"><p>Issuers should map every signing authority that can move, mint, burn, freeze, upgrade, bridge, redeem, or administer assets. They should classify which keys are classical, which chains expose public keys, which custody providers control workflows, and which assets have no documented post-quantum migration path. New tokenized assets should avoid inheriting quantum debt by default. For long-duration institutional products, post-quantum settlement should become a distribution and risk-management requirement, not a future compliance footnote.</p></div>
 </details>
 <details class="faq-item" id="is-post-quantum-custody-a-security-or-market-infrastructure-problem">
 <summary class="faq-q">Is post-quantum custody only a security problem?</summary>
-<div class="faq-a"><p>No. Post-quantum custody is a market-infrastructure problem. The institutions that solve it first can offer safer tokenized funds, stronger stablecoin issuance, more credible collateral rails, and better long-duration settlement guarantees. The institutions that delay may face stranded custody workflows, expensive migrations, counterparty pushback, and weaker distribution in regulated tokenized markets. Post-quantum readiness is not only defensive security; it is a trust and distribution edge.</p></div>
+<div class="faq-answer"><p>No. Post-quantum custody is a market-infrastructure problem. The institutions that solve it first can offer safer tokenized funds, stronger stablecoin issuance, more credible collateral rails, and better long-duration settlement guarantees. The institutions that delay may face stranded custody workflows, expensive migrations, counterparty pushback, and weaker distribution in regulated tokenized markets. Post-quantum readiness is not only defensive security; it is a trust and distribution edge.</p></div>
 </details>
 <details class="faq-item" id="what-is-eternax">
 <summary class="faq-q">What is EternaX?</summary>
-<div class="faq-a"><p>EternaX is post-quantum market infrastructure for stablecoin issuance, tokenized real-world assets, institutional custody workflows, and settlement. It is designed as a PQ-native Layer 1 where post-quantum authentication, institutional performance, and custody-provider compatibility are engineered into the settlement rail from genesis. The core thesis is simple: institutions should not have to choose between MPC-grade operational control and hash-based post-quantum security.</p></div>
+<div class="faq-answer"><p>EternaX is post-quantum market infrastructure for stablecoin issuance, tokenized real-world assets, institutional custody workflows, and settlement. It is designed as a PQ-native Layer 1 where post-quantum authentication, institutional performance, and custody-provider compatibility are engineered into the settlement rail from genesis. The core thesis is simple: institutions should not have to choose between MPC-grade operational control and hash-based post-quantum security.</p></div>
 </details>
 </section>
 </main><!-- /content -->
@@ -1575,8 +1575,8 @@ tbody td:first-child{background:var(--sticky-body)}
       <div class="connect-person"><span class="name">Dariia Porechna</span><span class="connect-sep">-</span><span class="role">Co-Founder</span><span class="connect-sep">-</span><a href="mailto:dariia.p@eternax.ai" class="email">dariia.p@eternax.ai</a></div>
     </div>
     <div class="connect-actions">
-      <a href="https://eternax.ai" target="_blank" rel="noopener" class="connect-btn primary no-print">eternax.ai</a>
-      <a href="mailto:paarrthhh.b@eternax.ai" class="connect-btn secondary">Contact EternaX</a>
+      <a href="https://eternax.ai" target="_blank" rel="noopener" class="report-btn primary no-print">eternax.ai</a>
+      <a href="mailto:paarrthhh.b@eternax.ai" class="report-btn secondary">Contact EternaX</a>
     </div>
   </div>
 </section>

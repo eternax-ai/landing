@@ -1460,7 +1460,7 @@ tbody tr:last-child td { border-bottom: none; }
   .severity-none { background: #f3f4f6; color: var(--none); }
 
   /* TABLES */
-  .report-table-wrapper {
+  .table-wrap {
     overflow-x: auto;
     margin: 24px 0 32px;
     border: 1px solid var(--border);
@@ -2138,7 +2138,7 @@ tbody tr:last-child td { border-bottom: none; }
   body { background: #fff !important; color: var(--text); }
   nav,
   .pdf-download-row,
-  .save-pdf-button,
+  .report-btn,
   .no-print,
   .cta-row,
   footer.py-12,
@@ -2165,7 +2165,7 @@ tbody tr:last-child td { border-bottom: none; }
   .entity-card,
   .internal-links,
   .scenario-block,
-  .report-table-wrapper,
+  .table-wrap,
   details {
     background: #fff !important;
     box-shadow: none !important;
@@ -2194,7 +2194,7 @@ tbody tr:last-child td { border-bottom: none; }
   .solution-section .perf-card,
   .solution-section .tps-row,
   .solution-section .callout,
-  .solution-section .report-table-wrapper {
+  .solution-section .table-wrap {
     background: rgba(255,255,255,0.06) !important;
     border-color: rgba(255,255,255,0.14) !important;
     -webkit-print-color-adjust: exact;
@@ -2252,7 +2252,7 @@ tbody tr:last-child td { border-bottom: none; }
   .faq-section summary::after { display: none !important; }
   .faq-section details:not([open]) .faq-answer { display: block !important; }
   .faq-section details .faq-answer { display: block !important; }
-  .report-table-wrapper {
+  .table-wrap {
     overflow: visible !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -2539,13 +2539,13 @@ tbody tr:last-child td { border-bottom: none; }
 {% include navbar.html %}
 
 <!-- HEADER -->
-<header class="cover cover-flat" role="banner">
+<header class="cover" role="banner">
 <div class="cover-inner">
 <div class="cover-eyebrow">EternaX Labs Research Report &middot; Updated July 24, 2026</div>
 <h1 class="cover-title">Your Chain Will Not Save You: Post-Quantum Institutional Risk Across Ethereum, Besu, Solana, Stellar, and Canton</h1>
 <p class="cover-subtitle"><strong>A roadmap will not protect an issued asset.</strong> Ethereum, Besu-based permissioned EVM networks, Solana, Stellar, and Canton retain classical cryptography across transactions, privileged controls, validators, custody, identity, and privacy. This report identifies where institutional control can fail, what a protocol upgrade cannot repair, and why every new issuance on legacy cryptographic rails creates a migration liability.</p>
 <div class="pdf-download-row hero-pdf-download-row">
-<a class="save-pdf-button" href="eternax-report-post-quantum-non-upgradeable-chains-defi-exposure-report.pdf" download target="_blank" rel="noopener" aria-label="Save report as PDF">
+<a class="report-btn" href="eternax-report-post-quantum-non-upgradeable-chains-defi-exposure-report.pdf" download target="_blank" rel="noopener" aria-label="Save report as PDF">
     <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" aria-hidden="true"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     Save as PDF
   </a>
@@ -2620,7 +2620,7 @@ tbody tr:last-child td { border-bottom: none; }
 </div>
 <h3>Board-Level Translation: From Cryptographic Risk to Business Risk</h3>
 <p class="board-warning">This is not a cryptography debate. It is a continuity-of-control, compliance, liquidity, privacy, and insurability problem.</p><p>When the deployed signature or encryption assumption expires, the board inherits the product failure: unauthorized control, forced migration, stranded integrations, confidentiality loss, operational downtime, and regulatory remediation.</p>
-<div class="report-table-wrapper">
+<div class="table-wrap">
 <table class="report-table">
 <thead>
 <tr>
@@ -2686,7 +2686,7 @@ tbody tr:last-child td { border-bottom: none; }
 <!-- CROSS-ENVIRONMENT COMPARISON MATRIX -->
 <div class="diagram-wrapper">
 <h3 style="margin-top:0;text-align:center;">Cross-Environment Post-Quantum Exposure Summary</h3>
-<div class="report-table-wrapper" style="margin-bottom:14px;">
+<div class="table-wrap" style="margin-bottom:14px;">
 <table class="report-table">
 <thead>
 <tr>
@@ -2804,7 +2804,7 @@ tbody tr:last-child td { border-bottom: none; }
 <p>A PQ-native design can avoid parts of this inherited identity and privacy debt, but it must independently prove its cryptographic schemes, privacy design, KMS support, operational recovery, performance, and interoperability.</p>
 </div>
 <div class="hard-verdict"><span class="verdict-label">Bottom line</span>The risk is distributed across the chain, client, application, identity, custody, validator, and data layers. Protocol teams control only part of it. <strong>The institution owns the rest.</strong> Inventory it, remediate it, replace it, or stop issuing new long-duration products into it.</div>
-<div class="report-table-wrapper">
+<div class="table-wrap">
 <table class="report-table">
 <thead><tr><th>Migration Challenge</th><th>Ethereum</th><th>Besu Private EVM</th><th>Solana</th><th>Stellar</th><th>Canton</th><th>PQ-Native</th></tr></thead>
 <tbody>
@@ -2828,7 +2828,7 @@ tbody tr:last-child td { border-bottom: none; }
 <blockquote>"We encourage system administrators to start integrating them into their systems immediately, because full integration will take time."</blockquote>
 <div class="quote-source">Dustin Moody, NIST PQC Project Lead | <a href="https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards" rel="noopener" target="_blank">NIST finalized PQC standards announcement</a></div>
 </div>
-<div class="report-table-wrapper">
+<div class="table-wrap">
 <table class="report-table">
 <thead>
 <tr>
@@ -2880,7 +2880,7 @@ tbody tr:last-child td { border-bottom: none; }
 <p><strong>Channel 5: Section 6(d) Vulnerability Disclosure.</strong> Contractor vulnerability disclosure expands to cover the use of non-FIPS approved algorithms. For products touching federal procurement or federal-adjacent systems, ECDSA and Ed25519 dependencies become diligence items, not abstract cryptography.</p>
 <h3>What a Chain-Aware CBOM Reveals Today</h3>
 <p><strong>A roadmap is not a CBOM entry.</strong> A CBOM records what protects the product today: transaction signatures, validator authentication, permit logic, claim verification, issuer controls, KMS paths, custody signers, and encryption. Diligence will expose every classical dependency that marketing language leaves vague.</p>
-<div class="report-table-wrapper">
+<div class="table-wrap">
 <table class="report-table">
 <thead>
 <tr>
@@ -3017,7 +3017,7 @@ tbody tr:last-child td { border-bottom: none; }
 <h3>Where Ethereum Standards Lock In Classical Authorization</h3>
 <p>Institutional Ethereum standards fall into different cryptographic categories. ERC-2612 explicitly encodes secp256k1 signatures. ERC-3643 is not intrinsically ECDSA-bound, but conventional deployments can inherit classical-key exposure across owners, agents, investors, trusted issuers, identity registries, compliance controllers, and proxy administrators. ERC-1400-family implementations are implementation-dependent and should not be described as universally ECDSA-bound.</p>
 <!-- ERC STANDARDS TABLE -->
-<div class="report-table-wrapper">
+<div class="table-wrap">
 <table class="report-table">
 <thead>
 <tr>
@@ -3144,7 +3144,7 @@ tbody tr:last-child td { border-bottom: none; }
 </div>
 <h3>Immutable Contracts: Permanent Migration Debt</h3>
 <p><strong>Immutable code converts cryptographic obsolescence into permanent migration debt.</strong> Where a deployed contract relies on ECDSA recovery, fixed classical authorization, or an immutable integration path, that logic cannot be patched in place. The response is containment, replacement deployment, integration migration, approval revocation, and movement of liquidity or assets. Trust minimization at deployment does not remove cryptographic expiry.</p>
-<div class="report-table-wrapper">
+<div class="table-wrap">
 <table class="report-table">
 <thead>
 <tr>
@@ -3179,7 +3179,7 @@ tbody tr:last-child td { border-bottom: none; }
 <p><strong>Besu gives institutions governance control over a private EVM network. It does not give them post-quantum cryptography.</strong> The consortium can control validators, permissioning, gas, and operations while retaining Ethereum-style accounts, transactions, EVM contracts, external signers, and common ERC control patterns.</p>
 <div class="hard-verdict"><span class="verdict-label">Besu verdict</span>Permissioned is not post-quantum. A private network can restrict every participant and still fail at the cryptographic layer. Elliptic-curve transactions, QBFT validator keys, external signers, HSMs, custody, and privileged contract roles remain separate points of failure.</div>
 <h3>What Besu Changes, and What It Does Not</h3>
-<div class="report-table-wrapper"><table class="report-table">
+<div class="table-wrap"><table class="report-table">
 <thead><tr><th>Layer</th><th>Private Besu Capability</th><th>Post-Quantum Consequence</th></tr></thead>
 <tbody>
 <tr><td>Participation</td><td>Known nodes and validators, local permissioning, consortium governance</td><td>Controls access, but does not change the signature algorithm protecting transactions or privileged accounts.</td></tr>
@@ -3196,7 +3196,7 @@ tbody tr:last-child td { border-bottom: none; }
 <h3>No Established Native PQ Transaction Path Today</h3>
 <p>Ethereum proposals such as EIP-7932, which introduces a registry and interface for secondary signature algorithms, and EIP-8051, which proposes ML-DSA precompiles, remain Draft proposals. They demonstrate active work on signature agility, but they are not established production capabilities that a standard Besu network can claim today. A Besu operator can build a bespoke fork, plugin, relayer, or smart-contract verifier, but that must be described as a deployment-specific control rather than native end-to-end Besu PQ support.</p>
 <h3>ERC Standards: Explicitly Bound Versus Inherited Risk</h3>
-<div class="report-table-wrapper"><table class="report-table">
+<div class="table-wrap"><table class="report-table">
 <thead><tr><th>Standard or Layer</th><th>Correct Classification</th><th>Institutional PQ Conclusion</th></tr></thead>
 <tbody>
 <tr><td>Native Besu transactions</td><td>Direct protocol dependency</td><td>Elliptic-curve authentication must be migrated network-wide.</td></tr>
@@ -3312,7 +3312,7 @@ tbody tr:last-child td { border-bottom: none; }
 <!-- SOLANA MIGRATION CONSTRAINTS -->
 <div class="diagram-wrapper">
 <h3 style="margin-top:0;text-align:center;">Solana: Signature and Transaction-Format Constraints</h3>
-<div class="report-table-wrapper" style="margin-bottom:14px;">
+<div class="table-wrap" style="margin-bottom:14px;">
 <table class="report-table">
 <thead><tr><th>Item</th><th>Documented value or status</th><th>Migration implication</th></tr></thead>
 <tbody>
@@ -3364,7 +3364,7 @@ tbody tr:last-child td { border-bottom: none; }
 <h3>Multisig Improves Governance, Not Algorithm Diversity</h3>
 <p>Stellar thresholds and multisig can require multiple authorized signers and support flexible <em>m-of-n</em> policies. This reduces single-key operational risk. It does not automatically create post-quantum safety when the signers rely on the same quantum-vulnerable signature family. Multisig helps when compromise is isolated; it is not a defense against a systemic break of Ed25519.</p>
 <h3>Issuer Controls Are High-Impact Authorization Surfaces</h3>
-<div class="report-table-wrapper"><table class="report-table">
+<div class="table-wrap"><table class="report-table">
 <thead><tr><th>Issuer or Account Function</th><th>Stellar Capability</th><th>Post-Quantum Risk</th></tr></thead>
 <tbody>
 <tr><td>Asset authorization</td><td>Issuer can require and manage authorization for trustlines.</td><td>A compromised issuer-control account could authorize or alter access contrary to policy.</td></tr>
@@ -3424,7 +3424,7 @@ tbody tr:last-child td { border-bottom: none; }
 <p><strong>Canton places institutional identity, authorization, and confidentiality on a cryptographic stack documented today with classical signing and encryption schemes.</strong> Its scale makes the migration problem consequential: namespace continuity, participant and synchronizer keys, KMS support, protocol compatibility, and retained encrypted views cannot be treated as a future vendor patch.</p>
 <div class="hard-verdict"><span class="verdict-label">Canton verdict</span>The most dangerous exposure is not only signature forgery. It is retrospective confidentiality loss. A later migration can protect future traffic. It cannot retract ciphertext already captured under a quantum-vulnerable public-key scheme.</div>
 <!-- CANTON CRYPTO TABLE -->
-<div class="report-table-wrapper">
+<div class="table-wrap">
 <table class="report-table">
 <thead>
 <tr>
@@ -3510,7 +3510,7 @@ tbody tr:last-child td { border-bottom: none; }
 <p>Participants and synchronizer services negotiate protocol compatibility and must support the cryptographic capabilities required by the deployment. This creates real coordination and interoperability work across institutions. It does not justify the universal claim that all network participants must migrate in one simultaneous event; the feasible sequencing depends on protocol design, hybrid support, compatibility rules, and how a particular synchronizer is operated.</p>
 <h3>Surface 4: Historical Confidentiality</h3>
 <p>Canton supports encrypted transaction views and classical public-key encryption schemes. Where traffic has been captured and the confidentiality horizon extends beyond the expected lifetime of the classical scheme, harvest-now-decrypt-later is a material risk. A later migration protects future data but cannot retract ciphertext already collected. The affected volume and named counterparties must be supported by deployment-specific evidence, not inferred from aggregate network activity.</p>
-<div class="report-table-wrapper">
+<div class="table-wrap">
 <table class="report-table">
 <thead><tr><th>Canton layer</th><th>What can rotate or change</th><th>What requires deeper migration</th></tr></thead>
 <tbody>
@@ -3557,7 +3557,7 @@ tbody tr:last-child td { border-bottom: none; }
 <div class="section-chain-label" style="color: var(--navy);">Institutional Response Framework</div>
 <h2>What Institutions Should Do Now</h2>
 <p><strong>The waiting period is over.</strong> Any institution issuing, holding, administering, settling, or custodying digital assets across Ethereum, Besu, Solana, Stellar, or Canton should execute four actions now.</p>
-<div class="report-table-wrapper">
+<div class="table-wrap">
 <table class="report-table">
 <thead>
 <tr>
@@ -3614,7 +3614,7 @@ tbody tr:last-child td { border-bottom: none; }
 </div>
 <p><strong>EternaX does not bolt a PQ verifier onto classical accounts, and it does not replace one permanent cryptographic dependency with another.</strong> Account authorization, transaction envelopes, verifier interfaces, policy controls, and consensus authorization operate as one crypto-agile system. The result is structural: classical fallback debt is removed, algorithm choice is preserved, and future cryptographic rotation becomes a governed operation rather than an asset migration.</p>
 <div class="cbom-pass-banner"><strong>CBOM PASS:</strong> FIPS-aligned schemes, explicit algorithm identifiers, policy allowlists, downgrade prevention, hybrid transition, custody and HSM integration, recovery, and full cryptographic visibility are native controls.</div>
-<div class="report-table-wrapper" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12);">
+<div class="table-wrap" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12);">
 <table class="report-table" style="color: rgba(255,255,255,0.85);">
 <thead><tr><th style="background: rgba(255,255,255,0.1);">Crypto-agility control</th><th style="background: rgba(255,255,255,0.1);">EternaX implementation</th></tr></thead>
 <tbody>
@@ -3669,7 +3669,7 @@ tbody tr:last-child td { border-bottom: none; }
 </div>
 <h3>Performance: Post-Quantum Cryptography from Genesis</h3>
 <p><strong>Legacy chains absorb post-quantum cryptography as retrofit overhead. EternaX builds signature size, verification, networking, storage, validator execution, and finality around post-quantum authorization from genesis.</strong> The architecture removes the ECDSA and Ed25519 transaction-format assumptions that force legacy rails into disruptive redesign.</p>
-<div class="report-table-wrapper" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12);">
+<div class="table-wrap" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12);">
 <table class="report-table" style="color: rgba(255,255,255,0.85);">
 <thead><tr><th style="background: rgba(255,255,255,0.1);">Institutional control</th><th style="background: rgba(255,255,255,0.1);">EternaX architecture</th></tr></thead>
 <tbody>
@@ -3681,7 +3681,7 @@ tbody tr:last-child td { border-bottom: none; }
 </tbody></table></div>
 <h3>Familiar Institutional Interfaces, Signature-Agnostic Authorization</h3>
 <p>EternaX preserves familiar token, vault, smart-account, compliance, and programmable-custody interfaces while decoupling those interfaces from the signature scheme underneath. Institutions move between approved schemes through governed policy, verifier, key, and HSM changes without reissuing the asset or rewriting the business application.</p>
-<div class="report-table-wrapper" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12);">
+<div class="table-wrap" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.12);">
 <table class="report-table" style="color: rgba(255,255,255,0.85);">
 <thead>
 <tr>
@@ -3725,7 +3725,7 @@ tbody tr:last-child td { border-bottom: none; }
 <div class="section-chain-label">Research Additions and Accuracy Corrections</div>
 <h2>What Changed in the July 24, 2026 Edition</h2>
 <p>This edition expands the report from three chains to five institutional ledger environments and sharpens the institutional failure analysis across every rail.</p>
-<div class="report-table-wrapper"><table class="report-table">
+<div class="table-wrap"><table class="report-table">
 <thead><tr><th>Addition or Correction</th><th>What Changed</th><th>Accuracy Rule Applied</th></tr></thead>
 <tbody>
 <tr><td>Hyperledger Besu section</td><td>Added transaction authentication, alternative EC curves, QBFT validator migration, zero-gas distinction, external key-management boundary, ERC classifications, draft EIPs, privacy-current-state correction, and a conservative migration verdict.</td><td>Besu is described as an Ethereum client and ledger environment, not falsely as an independent Layer 1.</td></tr>
@@ -3769,7 +3769,7 @@ tbody tr:last-child td { border-bottom: none; }
 <div class="section-chain-label" style="color: var(--navy);">Claims and Sources</div>
 <h2>Machine-Readable Evidence Map</h2>
 <p>The table below connects the report's highest-value claims to primary sources or standards. It is designed for due diligence, citation, and LLM extraction.</p>
-<div class="report-table-wrapper">
+<div class="table-wrap">
 <table class="report-table">
 <thead><tr><th>Report Claim</th><th>Primary Source</th><th>Why It Matters</th></tr></thead>
 <tbody>
@@ -3791,7 +3791,7 @@ tbody tr:last-child td { border-bottom: none; }
 <div class="section-chain-label" style="color: var(--navy);">Primary Source Register</div>
 <h2>Evidence Base</h2>
 <p>This report is designed for institutional forwarding. The core cryptographic claims should be traceable to primary standards, protocol specifications, or official public guidance.</p>
-<div class="report-table-wrapper">
+<div class="table-wrap">
 <table class="report-table">
 <thead><tr><th>Claim family</th><th>Primary source</th><th>Why it matters</th></tr></thead>
 <tbody>

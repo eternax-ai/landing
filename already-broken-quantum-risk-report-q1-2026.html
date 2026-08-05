@@ -737,7 +737,7 @@
     }
 
     .table-shell,
-    .table-wrapper {
+    .table-wrap {
       overflow-x: auto;
       border: 1px solid var(--border);
       border-radius: 4px;
@@ -749,8 +749,8 @@
         var(--bg-card);
     }
     .exec-briefing table { min-width: 760px; }
-    .table-wrapper { margin: 2rem 0; }
-    .table-wrapper.wide { max-width: var(--content-width-wide); margin-left: -110px; margin-right: -110px; }
+    .table-wrap { margin: 2rem 0; }
+    .table-wrap.wide { max-width: var(--content-width-wide); margin-left: -110px; margin-right: -110px; }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -789,7 +789,7 @@
     .col-mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; }
 
     /* Keep captions aligned with wide tables (reduced wrapping). */
-    .table-wrapper.wide {
+    .table-wrap.wide {
       max-width: var(--content-width-wide);
       margin-left: -110px;
       margin-right: -110px;
@@ -826,20 +826,20 @@
       border-top: 1px solid var(--border-accent);
       border-bottom: 1px solid var(--border-accent);
     }
-    .table-wrapper table th:first-child,
-    .table-wrapper table td:first-child,
+    .table-wrap table th:first-child,
+    .table-wrap table td:first-child,
     .table-shell table th:first-child,
     .table-shell table td:first-child {
       position: sticky;
       left: 0;
       z-index: 2;
     }
-    .table-wrapper table th:first-child,
+    .table-wrap table th:first-child,
     .table-shell table th:first-child {
       background: #E7E3E3;
       box-shadow: 1px 0 0 var(--border-accent);
     }
-    .table-wrapper table td:first-child,
+    .table-wrap table td:first-child,
     .table-shell table td:first-child {
       background: #FCFAFA;
       box-shadow: 1px 0 0 var(--border);
@@ -986,7 +986,7 @@
     }
 
     @media (max-width: 1120px) {
-      .table-wrapper.wide { margin-left: 0; margin-right: 0; }
+      .table-wrap.wide { margin-left: 0; margin-right: 0; }
     }
 
     @media (max-width: 700px) {
@@ -1080,7 +1080,7 @@
         box-shadow: none !important;
         background: #fff !important;
       }
-      .table-wrapper,
+      .table-wrap,
       .verdict,
       .callout,
       .epigraph,
@@ -1095,11 +1095,11 @@
         page-break-inside: auto !important;
         break-inside: auto !important;
       }
-      .table-wrapper.wide { margin-left: 0 !important; margin-right: 0 !important; }
-      .table-wrapper,
+      .table-wrap.wide { margin-left: 0 !important; margin-right: 0 !important; }
+      .table-wrap,
       .table-shell { overflow: visible !important; background: #fff !important; }
-      .table-wrapper table th:first-child,
-      .table-wrapper table td:first-child,
+      .table-wrap table th:first-child,
+      .table-wrap table td:first-child,
       .table-shell table th:first-child,
       .table-shell table td:first-child {
         position: static !important;
@@ -1250,9 +1250,9 @@
     <div class="masthead-inner">
       <div class="masthead-label">EternaX Research | Post-Quantum Financial Infrastructure</div>
       <h1 class="masthead-title">Already Broken</h1>
-      <p class="masthead-kicker">The Post-Quantum Threat to Stablecoins, Tokenized Finance, Privacy Chains, and Cryptographic Migration Debt</p>
+      <p class="masthead-subtitle">The Post-Quantum Threat to Stablecoins, Tokenized Finance, Privacy Chains, and Cryptographic Migration Debt</p>
       <p class="masthead-subtitle">The quantum threat is no longer theoretical. Institutions issuing on classical cryptographic rails in 2026 are creating cryptographic migration debt inside a live pre-upgrade window. This report explains why that matters - and why Post-Quantum Native Day One with EternaX is both a debt escape and a distribution advantage.</p>
-        <a href="eternax-report-already-broken-quantum-risk-report-q1-2026.pdf" target="_blank" rel="noopener" class="connect-btn primary no-print">
+        <a href="eternax-report-already-broken-quantum-risk-report-q1-2026.pdf" target="_blank" rel="noopener" class="report-btn primary no-print">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Save as PDF
         </a>
@@ -1342,7 +1342,7 @@
       <p class="lead">Start here if you are scanning for institutional exposure, migration debt, or open 2026 decision windows. Section 5 names the 27 institutions. Section 8 includes privacy-chain analysis for Zcash and Monero. Section 9 quantifies first-order losses at $57B to $135B. Section 10 identifies live decision windows. Section 11 explains why Post-Quantum Native Day One with EternaX is the only architecture in this report where the debt does not arise at issuance - and why that is also a distribution advantage.</p>
       <h3>Every Major Rail in Crypto Is Accumulating Quantum Migration Debt. One Is Not.</h3>
       <p class="lead">BlackRock, JPMorgan, Visa, PayPal, Tether, Franklin, BNY, and others are already building on classical signature stacks that will have to migrate under pressure.EternaX is the only row built post-quantum native from day one, with auditable privacy and no retrofit debt.</p>
-    <div class="table-wrapper">
+    <div class="table-wrap">
       <table>
         <thead><tr><th>Chain</th><th>Gross Exposure</th><th>Named Institutions / Products</th><th>PQ Failure Path</th><th>Privacy</th><th>Public PQ Plan / Timeline</th></tr></thead>
         <tbody>
@@ -1578,7 +1578,7 @@
       <h2>The $144 Trillion Post-Quantum Financial Infrastructure Problem</h2>
       <p>The standard framing of this risk is too small. $2.62 trillion in crypto market cap. $316 billion in stablecoins. These are the assets already on classical rails. They are evidence of what migration debt looks like at scale. They are not the target of this report. The target is the $144.4 trillion U.S. financial stack now actively choosing its cryptographic foundation.</p>
       <h3>The Financial Stack Now Opening to On-Chain Infrastructure</h3>
-      <div class="table-wrapper">
+      <div class="table-wrap">
         <table>
           <thead><tr><th>Layer</th><th>Value</th><th>Source</th></tr></thead>
           <tbody>
@@ -1614,7 +1614,7 @@
       <p>NIST says full integration takes 10 to 20 years. The clock started in 2024. Optimistic end: full integration by 2034. The 26 domain experts say 49% probability the threat arrives by the same window. Ethereum is still targeting 2029. Institutions are still issuing now. The arithmetic does not close cleanly for anyone choosing classical rails in 2026.</p>
       <div class="manual-page-break"></div>
       <h3>The Regulatory and Industry Timeline</h3>
-      <div class="table-wrapper">
+      <div class="table-wrap">
         <table>
           <thead><tr><th>Year</th><th>Event</th><th>Implication</th></tr></thead>
           <tbody>
@@ -1650,7 +1650,7 @@
           <div class="stat-label">Published post-quantum migration plans</div>
         </div>
       </div>
-      <div class="table-wrapper wide">
+      <div class="table-wrap wide">
         <table>
           <thead>
             <tr><th>Institution</th><th>Product / Role</th><th>Scale</th><th>Signing Infrastructure</th><th>PQ Plan</th></tr>
@@ -1705,7 +1705,7 @@
       <p>The Ethereum Foundation researcher used the phrase “non-starter” to describe migrating his own chain. This report does not need to argue this point. Drake already argued it about himself.</p>
       <div class="manual-page-break"></div>
       <h3>NIST Post-Quantum Signature Standards vs. Current Infrastructure</h3>
-      <div class="table-wrapper">
+      <div class="table-wrap">
         <table>
           <thead><tr><th>Scheme</th><th>Signature Size</th><th>vs Today</th><th>Standard Status</th><th>On-Chain Consequence</th></tr></thead>
           <tbody>
@@ -1719,7 +1719,7 @@
         </table>
       </div>
       <h3>TPS Loss Under System-Wide PQ Migration</h3>
-      <div class="table-wrapper">
+      <div class="table-wrap">
         <table>
           <thead><tr><th>Chain</th><th>TPS Loss</th><th>What Breaks</th></tr></thead>
           <tbody>
@@ -1832,7 +1832,7 @@
       </div>
     </section>
     <section class="section" id="s9b">
-      <div class="table-wrapper wide">
+      <div class="table-wrap wide">
         <table>
           <thead><tr><th>Domino</th><th>Mechanism</th><th>First-Order Estimate</th></tr></thead>
           <tbody>
@@ -1872,7 +1872,7 @@
       <p>The opportunity is not only to avoid future migration cost. It is to issue on infrastructure that enterprises, counterparties, auditors, custodians, and market participants can treat as the cleaner long-duration answer from day one. In that sense, post-quantum-native issuance is not only a risk response. It is a distribution decision.</p>
       <div class="manual-page-break"></div>
       <h3>The Issuance Decision Table - Architecture Still Mutable</h3>
-      <div class="table-wrapper wide">
+      <div class="table-wrap wide">
         <table>
           <thead><tr><th>Institution</th><th>Initiative</th><th>Stage</th><th>Architecture Mutable</th><th>Window</th></tr></thead>
           <tbody>
@@ -1924,7 +1924,7 @@
       <p>ML-DSA and Falcon rely on computational hardness assumptions. Lattice problems are believed to resist quantum attack. Believed is the operative word. If AI-accelerated mathematical research finds a shortcut through lattice problems, those schemes require replacement again. Every institution that migrated to them would still carry migration debt - just a different kind.</p>
       <p>EternaX’s scheme is presented here as information-theoretic. Unforgeability does not depend on any computational hardness assumption - not lattice, not discrete log, not factoring, not any class yet to be discovered or broken by AI. It does not require a belief about the future of mathematics. It is intended to be permanent by construction.</p>
       <h3>The Architecture Comparison</h3>
-      <div class="table-wrapper">
+      <div class="table-wrap">
         <table>
           <thead><tr><th>Scheme</th><th>Signature</th><th>Public Key</th><th>Security Basis</th><th>TPS Loss</th></tr></thead>
           <tbody>
@@ -2085,11 +2085,11 @@
         <div class="connect-person"><span class="name">Dariia Porechna</span><span class="connect-sep">-</span><span class="role">Co-Founder</span><span class="connect-sep">-</span><a href="mailto:dariia.p@eternax.ai" class="email">dariia.p@eternax.ai</a></div>
       </div>
       <div class="connect-actions">
-        <a href="eternax-report-already-broken-quantum-risk-report-q1-2026.pdf" target="_blank" rel="noopener" class="connect-btn primary no-print">
+        <a href="eternax-report-already-broken-quantum-risk-report-q1-2026.pdf" target="_blank" rel="noopener" class="report-btn primary no-print">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Save as PDF
         </a>
-        <a href="https://eternax.ai" target="_blank" rel="noopener" class="connect-btn secondary">eternax.ai</a>
+        <a href="https://eternax.ai" target="_blank" rel="noopener" class="report-btn secondary">eternax.ai</a>
 
       </div>
     </div>
