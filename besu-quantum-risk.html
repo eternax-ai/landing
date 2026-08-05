@@ -43,8 +43,7 @@
 <meta property="article:author" content="https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/">
 <meta property="article:author" content="https://www.linkedin.com/in/chen-feng-75272a37">
 <meta property="article:author" content="https://www.linkedin.com/in/dariia-porechna">
-<link rel="icon" type="image/svg+xml" href="./assets/eternax-icon.svg">
-<link rel="icon" type="image/png" href="./assets/eternax-icon.png">
+<link rel="icon" type="image/png" href="./assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -529,6 +528,31 @@
             border-collapse: collapse;
             font-size: 0.85rem;
         }
+        .table-framework {
+            table-layout: fixed;
+        }
+        .table-framework col.col-framework {
+            width: 10%;
+        }
+        .table-framework th:first-child,
+        .table-framework td:first-child {
+            width: 10%;
+            max-width: 7rem;
+            white-space: normal;
+            word-break: break-word;
+        }
+        .table-dtcc-surface {
+            table-layout: fixed;
+        }
+        .table-dtcc-surface col.col-dtcc-surface {
+            width: 17.5%;
+        }
+        .table-dtcc-surface th:first-child,
+        .table-dtcc-surface td:first-child {
+            width: 17.5%;
+            white-space: normal;
+            word-break: break-word;
+        }
         thead th {
             font-family: 'IBM Plex Sans Condensed', sans-serif;
             font-weight: 600;
@@ -927,13 +951,19 @@
 <h3>Jurisdiction-to-Institution Mapping</h3>
 <p class="secondary">The table maps official PQ positions to publicly supported programme, home-jurisdiction or operating nexuses. It does not assert that every named entity is directly bound; applicability depends on the legal entity, system, contract, data and local implementation.</p>
 <div class="table-wrap">
-<table>
+<table class="table-framework">
+<colgroup>
+<col class="col-framework"/>
+<col/>
+<col/>
+<col/>
+</colgroup>
 <thead>
 <tr>
-<th>Jurisdiction or framework</th>
+<th>Framework</th>
 <th>Official timeline or position</th>
 <th>Weight and applicability</th>
-<th>Named Besu-linked institutions and programmes</th>
+<th>Institutions and programmes</th>
 </tr>
 </thead>
 <tbody>
@@ -1033,7 +1063,13 @@
 </div>
 <h3>DTCC's Post-Quantum Exposure Across the Asset Lifecycle</h3>
 <div class="table-wrap">
-<table>
+<table class="table-dtcc-surface">
+<colgroup>
+<col class="col-dtcc-surface"/>
+<col/>
+<col/>
+<col/>
+</colgroup>
 <thead>
 <tr>
 <th>DTCC control surface</th>
@@ -1182,8 +1218,8 @@
 <tr>
 <th>Besu-linked system</th>
 <th>Publicly disclosed privacy model</th>
-<th>Tessera, Paladin, or other privacy engine</th>
-<th>Post-quantum implication</th>
+<th>Privacy engine</th>
+<th>PQ implication</th>
 </tr>
 </thead>
 <tbody>
@@ -1366,8 +1402,8 @@
 <th>Scheme</th>
 <th>Pubkey</th>
 <th>Signature</th>
-<th>Illustrative Verify Assumption</th>
-<th>Illustrative TPS Range</th>
+<th>Verification</th>
+<th>TPS Range</th>
 <th>TPS Retained</th>
 <th>TPS Loss vs 1,000 Baseline</th>
 </tr>
