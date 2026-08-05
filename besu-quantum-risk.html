@@ -1,0 +1,1887 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#e2e2e2">
+<title>Is Hyperledger Besu Quantum-Safe? | EternaX Risk Assessment</title>
+<link rel="canonical" href="https://eternax.ai/besu-quantum-risk.html">
+<link rel="image_src" href="https://eternax.ai/assets/preview.png">
+<meta name="description" content="No. Mainline Hyperledger Besu is not end-to-end post-quantum safe. This institutional assessment maps five migration surfaces, DTCC exposure, TPS impact, privacy risk, and remediation.">
+<meta name="keywords" content="Hyperledger Besu post-quantum risk, Besu quantum vulnerability, DTCC AppChain quantum security, Swift shared ledger post-quantum, Fnality quantum risk, Citi Token Services quantum security, QBFT validator quantum attack, Tessera Curve25519 quantum, ecRecover quantum vulnerability, SLH-DSA payload impact, ML-DSA Besu throughput model, post-quantum blockchain, quantum-safe settlement, PQ-native assets, post-quantum market infrastructure, quantum-resistant blockchain, ERC-3643 quantum risk, tokenized deposits quantum vulnerability, institutional blockchain quantum migration, Paladin post-quantum safety, Paladin quantum risk, Zeto Groth16 quantum risk, BabyJubjub quantum risk, DTCC ComposerX quantum security, DTCC CATF post-quantum, DTCC tokenization quantum risk, Executive Order 14412 post-quantum, EU PQC roadmap 2030, G7 financial sector PQC roadmap, UK NCSC PQC 2035, Australia PQC 2030, Japan FSA PQC, Singapore quantum-safe migration, Besu regulatory deadlines, Besu crypto agility, crypto-agile Besu migration, cryptographic agility blockchain, signature-agnostic authorization, policy-driven cryptography, post-quantum algorithm agility, Besu CBOM, post-quantum key migration, algorithm downgrade prevention, EternaX Post-Quantum Tokenization for Besu, EternaX Post-Quantum Custody Hardening for Besu, live post-quantum MPC custody demo, dual-gate custody authorization, EternaX Post-Quantum Privacy Manager for Besu, Besu post-quantum privacy manager">
+<meta name="author" content="Paarrthhh Birla, Dr. Chen Feng, Dariia Porechna">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="article:published_time" content="2026-08-03">
+<meta name="article:modified_time" content="2026-08-04">
+<meta name="ai-content-declaration" content="This article contains original technical analysis by EternaX Labs. All institutional deployment data is sourced from public disclosures, regulatory filings, and official project announcements.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="EternaX Labs">
+<meta property="og:title" content="Is Hyperledger Besu Quantum-Safe? An Institutional Post-Quantum Risk Assessment">
+<meta property="og:description" content="No. Mainline Hyperledger Besu is not end-to-end post-quantum safe. See the five coupled migration surfaces, institutional exposure, TPS impact, privacy risk, and practical remediation path.">
+<meta property="og:image" content="https://eternax.ai/assets/preview.png">
+<meta property="og:image:secure_url" content="https://eternax.ai/assets/preview.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+<meta property="og:url" content="https://eternax.ai/besu-quantum-risk.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@EternaXlabs">
+<meta name="twitter:creator" content="@EternaXlabs">
+<meta name="twitter:title" content="Is Hyperledger Besu Quantum-Safe?">
+<meta name="twitter:description" content="No. Mainline Besu is not end-to-end post-quantum safe. This assessment maps five migration surfaces, DTCC exposure, TPS impact, privacy risk, and remediation.">
+<meta name="twitter:image" content="https://eternax.ai/assets/preview.png">
+<meta name="twitter:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+<meta name="twitter:url" content="https://eternax.ai/besu-quantum-risk.html">
+<meta property="article:publisher" content="https://eternax.ai">
+<meta property="article:published_time" content="2026-08-03">
+<meta property="article:modified_time" content="2026-08-04">
+<meta property="article:author" content="https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/">
+<meta property="article:author" content="https://www.linkedin.com/in/chen-feng-75272a37">
+<meta property="article:author" content="https://www.linkedin.com/in/dariia-porechna">
+<link rel="icon" type="image/png" href="./assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="stylesheet" href="./styles/tailwind.generated.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+<!-- Structured Data -->
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Is Hyperledger Besu Quantum-Safe? An Institutional Post-Quantum Risk Assessment",
+    "description": "No. Mainline Hyperledger Besu is not publicly documented as an end-to-end post-quantum-safe stack. This institutional assessment maps five migration surfaces, DTCC exposure, privacy risk, TPS impact, and practical remediation.",
+    "datePublished": "2026-08-03",
+    "dateModified": "2026-08-04",
+    "mainEntityOfPage": "https://eternax.ai/besu-quantum-risk.html",
+    "author": [
+        {
+            "@type": "Person",
+            "name": "Paarrthhh Birla",
+            "url": "https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/",
+            "sameAs": "https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "EternaX Labs",
+                "url": "https://eternax.ai"
+            }
+        },
+        {
+            "@type": "Person",
+            "name": "Dr. Chen Feng",
+            "url": "https://www.linkedin.com/in/chen-feng-75272a37",
+            "sameAs": "https://www.linkedin.com/in/chen-feng-75272a37",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "EternaX Labs",
+                "url": "https://eternax.ai"
+            }
+        },
+        {
+            "@type": "Person",
+            "name": "Dariia Porechna",
+            "url": "https://www.linkedin.com/in/dariia-porechna",
+            "sameAs": "https://www.linkedin.com/in/dariia-porechna",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "EternaX Labs",
+                "url": "https://eternax.ai"
+            }
+        }
+    ],
+    "publisher": {
+        "@type": "Organization",
+        "name": "EternaX Labs",
+        "url": "https://eternax.ai",
+        "sameAs": [
+            "https://x.com/eternaXLabs",
+            "https://github.com/eternax-ai",
+            "https://www.youtube.com/@eternaXlabs",
+            "https://www.linkedin.com/company/eternax-labs"
+        ]
+    },
+    "about": [
+        "Post-quantum cryptography",
+        "Hyperledger Besu",
+        "Institutional blockchain security",
+        "Quantum-resistant digital assets",
+        "Post-quantum regulatory timelines",
+        "Financial-sector cryptographic migration",
+        "Global PQC jurisdiction mapping"
+    ],
+    "keywords": "Hyperledger Besu, post-quantum, EternaX Post-Quantum Tokenization for Besu, EternaX Post-Quantum Custody Hardening for Besu, live post-quantum MPC custody demo, dual-gate custody authorization, EternaX Post-Quantum Privacy Manager for Besu, Besu privacy manager, crypto agility, signature-agnostic authorization, Paladin, Tessera, DTCC AppChain, QBFT, SLH-DSA, ML-DSA, ML-KEM, ERC-3643, institutional blockchain"
+}</script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "EternaX Labs",
+        "alternateName": "EternaX",
+        "url": "https://eternax.ai",
+        "description": "Post-quantum market infrastructure for stablecoin issuance, RWA tokenization, and institutional settlement.",
+        "sameAs": [
+            "https://x.com/eternaXLabs",
+            "https://github.com/eternax-ai",
+            "https://www.youtube.com/@eternaXlabs",
+            "https://farcaster.xyz/eternax",
+            "https://www.linkedin.com/company/eternax-labs"
+        ]
+    }
+    </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://eternax.ai/besu-quantum-risk.html#faq",
+  "url": "https://eternax.ai/besu-quantum-risk.html#faq",
+  "name": "Hyperledger Besu Post-Quantum Security FAQ",
+  "description": "Direct answers about Besu quantum risk, QBFT, Tessera, Paladin, institutional privacy architectures, DTCC tokenization, NIST post-quantum standards, crypto agility, migration performance, and EternaX's Besu-specific products for tokenization, custody hardening, and privacy.",
+  "isPartOf": {
+    "@id": "https://eternax.ai/besu-quantum-risk.html"
+  },
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#is-hyperledger-besu-quantum-safe",
+      "url": "https://eternax.ai/besu-quantum-risk.html#is-hyperledger-besu-quantum-safe",
+      "name": "Is Hyperledger Besu quantum-safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Mainline Hyperledger Besu is not end-to-end quantum-safe. Common deployments use secp256k1 ECDSA for transactions, elliptic-curve keys for QBFT validator authentication, Curve25519 in legacy Tessera privacy, ecRecover in many smart contracts, and elliptic-curve node identity and key agreement in devp2p/RLPx. These public-key dependencies are vulnerable to Shor's algorithm. See the five attack surfaces."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#why-is-besu-vulnerable-to-quantum-computers",
+      "url": "https://eternax.ai/besu-quantum-risk.html#why-is-besu-vulnerable-to-quantum-computers",
+      "name": "Why is Hyperledger Besu vulnerable to quantum computers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quantum risk sits across several load-bearing Besu layers, not only wallets. A cryptographically relevant quantum computer could recover exposed elliptic-curve private keys, forge transactions or privileged actions, impersonate validators or nodes, and decrypt recorded Tessera-era ciphertext. A credible migration must therefore cover transactions, consensus, privacy, contracts, custody, recovery, and P2P trust. See the technical analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#which-institutions-use-hyperledger-besu",
+      "url": "https://eternax.ai/besu-quantum-risk.html#which-institutions-use-hyperledger-besu",
+      "name": "Which institutions and financial-market systems use Hyperledger Besu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Publicly documented Besu use includes DTCC AppChain and its tokenization service, Swift's shared-ledger architecture, Citi's internal digital-asset platform, Fnality, JSCC, and LACChain or LACNet. Besu is also used as an execution component in systems such as Linea and Hedera, but component use is not the same as operating a Besu network. mBridge uses the purpose-built mBridge Ledger, and eNaira's official design paper identifies Hyperledger Fabric, so neither should be counted as a current Besu deployment. See the institutional exposure map."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#is-dtcc-besu-tokenization-post-quantum-safe",
+      "url": "https://eternax.ai/besu-quantum-risk.html#is-dtcc-besu-tokenization-post-quantum-safe",
+      "name": "Is DTCC's tokenization architecture across Besu, Canton and Stellar post-quantum safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is not publicly documented as end-to-end post-quantum safe. DTCC's July 2026 production conversions used its private LFDT Besu network and Canton, and DTC-tokenized assets are planned for Stellar in the first half of 2027. Public materials do not establish a single post-quantum authority profile across DTC lifecycle instructions, ComposerX and CATF roles, participant wallets and custody, Besu transactions and QBFT, Canton topology, signing and encryption, Stellar account and validator authentication, recovery, and cross-network orchestration. This assessment does not assume undisclosed DTCC or participant controls. See the DTCC architecture analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#is-besu-qbft-consensus-quantum-safe",
+      "url": "https://eternax.ai/besu-quantum-risk.html#is-besu-qbft-consensus-quantum-safe",
+      "name": "Is Besu QBFT consensus quantum-safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not in common current configurations. Besu QBFT networks typically authenticate validator messages and commit seals with elliptic-curve signing keys. A future quantum adversary that recovered enough validator keys could impersonate validators, authorize malicious consensus messages, or prevent the honest network from reaching quorum. Migration requires changes to consensus signatures, seal encoding, signing infrastructure, governance, and coordinated network activation below the smart-contract layer. See the QBFT analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#is-besu-tessera-privacy-quantum-safe",
+      "url": "https://eternax.ai/besu-quantum-risk.html#is-besu-tessera-privacy-quantum-safe",
+      "name": "Is Besu privacy with Tessera quantum-safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Legacy Tessera deployments used Curve25519-based public-key cryptography to protect the symmetric keys used for private-payload encryption. Curve25519 is vulnerable to Shor's algorithm. If an adversary records ciphertext and the relevant key-agreement material, a future cryptographically relevant quantum computer could compromise confidentiality. Re-encryption can protect controlled retained data, but it cannot revoke ciphertext already copied by an adversary. See the dedicated privacy analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#which-privacy-technologies-major-besu-deployments-use",
+      "url": "https://eternax.ai/besu-quantum-risk.html#which-privacy-technologies-major-besu-deployments-use",
+      "name": "Which privacy technologies do major Hyperledger Besu deployments use today?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no single publicly documented privacy architecture across major Besu deployments. Legacy networks may retain Tessera-era components; Paladin is the emerging programmable-privacy framework for EVM deployments; and systems such as DTCC, Swift, Citi, Fnality, and JSCC disclose private or permissioned operation without publicly identifying a complete transaction-confidentiality engine. CATF is a compliance framework, not a privacy manager. mBridge, Canton, and eNaira use non-Besu architectures. Privacy technology and post-quantum status must therefore be verified deployment by deployment. See the institutional privacy map."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#does-paladin-make-besu-post-quantum-safe",
+      "url": "https://eternax.ai/besu-quantum-risk.html#does-paladin-make-besu-post-quantum-safe",
+      "name": "Does Paladin make Besu post-quantum safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, not by itself. Paladin is a programmable-privacy framework whose public architecture still uses the base EVM ledger for order and finality. It does not replace Besu transaction authentication, QBFT where used, node identity, RLPx transport, or base-ledger finality. The public Zeto reference stack also includes Circom circuits, BabyJubjub keys, and Groth16 verifier contracts, which are classical rather than NIST post-quantum components. Public documentation does not describe an end-to-end ML-DSA, SLH-DSA, and ML-KEM profile across Pente, Noto, Zeto, secure channels, KMS, backups, and recovery. See the Paladin and privacy analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#does-besu-support-nist-post-quantum-algorithms",
+      "url": "https://eternax.ai/besu-quantum-risk.html#does-besu-support-nist-post-quantum-algorithms",
+      "name": "Does Besu support ML-DSA, SLH-DSA, or ML-KEM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not as a native end-to-end stack. Mainline Besu does not provide generally deployed ML-DSA, SLH-DSA, or ML-KEM protection across transactions, QBFT, privacy, contracts, and P2P transport. EIP-8051 proposes ML-DSA verification and EIP-8052 proposes Falcon verification, but both remain draft Ethereum proposals as of August 2026. Application-specific integrations or private forks can add post-quantum primitives, but that is not equivalent to an upstream full-stack migration. See the full-stack migration surfaces."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#can-besu-simply-adopt-nist-pq-algorithms",
+      "url": "https://eternax.ai/besu-quantum-risk.html#can-besu-simply-adopt-nist-pq-algorithms",
+      "name": "Can Besu simply adopt NIST-approved post-quantum algorithms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. NIST FIPS 203, FIPS 204, and FIPS 205 define cryptographic primitives, not a complete Besu migration architecture. Institutions must separately address transaction authorization, QBFT validator authentication where used, privacy and historical ciphertext, contracts tied to ecRecover , node identity and RLPx transport, custody, HSM/KMS systems, privileged roles, recovery, and coordinated activation. Crypto agility is also required so the next algorithm, parameter, or provider change does not become another full-stack rebuild. See what a credible Besu migration must deliver."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#what-does-crypto-agility-mean-for-besu",
+      "url": "https://eternax.ai/besu-quantum-risk.html#what-does-crypto-agility-mean-for-besu",
+      "name": "What does crypto agility mean for a Hyperledger Besu deployment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Crypto agility is the capability to change approved algorithms, parameters, policies, and cryptographic providers across a Besu deployment without rebuilding the asset or business workflow. It requires cryptographic inventory, abstraction, policy-driven selection, controlled hybrid operation, key and identity re-binding, downgrade prevention, and auditable lifecycle governance. Crypto agility is not the end product; it is the control that keeps a post-quantum-safe deployment adaptable as standards, risks, providers, and institutional requirements change. See how crypto agility fits inside the EternaX solution."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#can-existing-besu-smart-contracts-remain",
+      "url": "https://eternax.ai/besu-quantum-risk.html#can-existing-besu-smart-contracts-remain",
+      "name": "Can existing Besu smart contracts remain in place during migration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some can, but every contract needs an authorization and upgrade review. Cryptographically neutral contracts may remain compatible if their controlling accounts and surrounding infrastructure are migrated safely. Contracts that directly use ecRecover , ECDSA permits, immutable classical-key authorities, non-upgradeable verifiers, or fixed address assumptions may need an upgrade, wrapper, compatibility layer, or replacement. See the smart-contract and ERC analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#is-erc-3643-quantum-safe-on-besu",
+      "url": "https://eternax.ai/besu-quantum-risk.html#is-erc-3643-quantum-safe-on-besu",
+      "name": "Is ERC-3643 quantum-safe on Besu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not automatically. ERC-3643 does not mandate ECDSA, but conventional deployments remain materially exposed when investors, owners, agents, identity registries, trusted issuers, claim signers, compliance controllers, and upgrade authorities are controlled through elliptic-curve accounts. Remediation requires post-quantum-safe application authorization plus migration of the transaction, validator, node-authentication, custody, and recovery layers used by the deployment. See the ERC-3643 analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#besu-performance-under-post-quantum-signatures",
+      "url": "https://eternax.ai/besu-quantum-risk.html#besu-performance-under-post-quantum-signatures",
+      "name": "What happens to Besu performance under post-quantum signatures?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no universal post-quantum Besu TPS result. Throughput depends on the algorithm, implementation, hardware, validator count, transaction mix, batching, block period, and network topology. In EternaX's illustrative 1,000 TPS scenario, ML-DSA-44 retains about 600 to 800 TPS, a 20% to 40% loss; SLH-DSA-128s retains about 30 to 250 TPS, a 75% to 97% loss; and SLH-DSA-192s retains about 15 to 150 TPS, an 85% to 98.5% loss. These are scenario calculations, not production Besu benchmarks. Deployment-specific testing is required before setting capacity or gas assumptions. See the performance model."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#how-to-make-existing-besu-post-quantum-safe",
+      "url": "https://eternax.ai/besu-quantum-risk.html#how-to-make-existing-besu-post-quantum-safe",
+      "name": "How can an institution make critical workflows in an existing Besu deployment post-quantum safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a phased, workflow-first migration. First inventory the cryptographic dependencies; then select one high-value tokenization, custody, or privacy path; protect its authorization and confidentiality boundary; test HSM/KMS compatibility, performance, governance, and interoperability; and expand in controlled phases. Compatible Besu applications, records, providers, and APIs can remain where technically possible. Native transaction authentication, QBFT validator signatures, node identity, and RLPx remain separately governed wherever they still use quantum-vulnerable cryptography. See the EternaX Besu migration approach."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#how-eternax-makes-besu-post-quantum-safe",
+      "url": "https://eternax.ai/besu-quantum-risk.html#how-eternax-makes-besu-post-quantum-safe",
+      "name": "How does EternaX protect critical Hyperledger Besu workflows against post-quantum risk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EternaX uses three Besu-specific products: Post-Quantum Tokenization for Besu protects supported issuer, identity, compliance, permit, vault, recovery, and administrative controls; Post-Quantum Custody Hardening for Besu protects custody and treasury approval paths without replacing the custodian; and Post-Quantum Privacy Manager for Besu protects private-payload encryption, privacy-group authority, recovery, and controlled disclosure. Crypto agility is embedded across all three. Native Besu transaction authentication, QBFT, node identity, and RLPx remain separately governed where they are still quantum-vulnerable. See the EternaX product architecture."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#can-dtcc-begin-pq-migration-before-native-network-pq",
+      "url": "https://eternax.ai/besu-quantum-risk.html#can-dtcc-begin-pq-migration-before-native-network-pq",
+      "name": "Can DTCC begin post-quantum migration before Besu, Canton and Stellar support native post-quantum cryptography?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. DTCC can begin by inventorying cryptographic dependencies and protecting DTC lifecycle instructions, ComposerX and CATF privileged roles, participant and custody approvals, recovery, and cross-network authorization. Native Besu transaction, QBFT and RLPx migration, Canton protocol and encryption migration, and Stellar classic-account and validator migration require broader network coordination. Application-level protection can therefore begin now, but it should not be represented as complete network-level migration. See what DTCC can upgrade now and what requires coordination."
+      }
+    },
+    {
+      "@type": "Question",
+      "@id": "https://eternax.ai/besu-quantum-risk.html#why-eternax-is-different-from-wallet-only-pq-solutions",
+      "url": "https://eternax.ai/besu-quantum-risk.html#why-eternax-is-different-from-wallet-only-pq-solutions",
+      "name": "Why is EternaX different from wallet-only or smart-account post-quantum solutions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wallet-only and smart-account approaches protect one user-authorization path. They do not by themselves secure issuer and token-agent authority, investor identity, custody approvals, privacy-group governance, private-payload encryption, recovery, QBFT validators, node identity, or RLPx transport. EternaX combines Besu-specific tokenization, custody-hardening, and privacy products while preserving compatible applications, providers, and operating workflows. EternaX is not a custody provider, and residual protocol-native dependencies remain explicit. Compare the EternaX protection layers."
+      }
+    }
+  ]
+}
+</script>
+<style>
+        :root {
+            --navy: #283771;
+            --navy-light: #3a4d8f;
+            --bg: #F7F4F4;
+            --surface: #FFFFFF;
+            --border: #E0DEDE;
+            --green: #2F5E52;
+            --red: #8D2E2E;
+            --text: #1a1a1a;
+            --text-secondary: #555;
+            --text-tertiary: #777;
+            --amber: #8B6914;
+            --fg: #283771;
+            --fg-70: rgba(40, 55, 113, 0.7);
+            --fg-80: rgba(40, 55, 113, 0.8);
+        }
+
+        .condensed {
+            font-family: 'IBM Plex Sans Condensed', 'IBM Plex Sans', sans-serif;
+        }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        /* HERO */
+        .hero {
+            background: var(--navy);
+            color: #fff;
+            padding: calc(4.5rem + 64px) 2rem 4rem;
+        }
+        .hero-inner {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .hero-eyebrow {
+            font-family: 'IBM Plex Sans Condensed', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 1.25rem;
+        }
+        .hero h1 {
+            font-family: 'IBM Plex Sans Condensed', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+        .hero-sub {
+            font-size: 1.1rem;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.8);
+            max-width: 700px;
+        }
+        .hero-meta {
+            margin-top: 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+        }
+        .hero-meta strong { color: rgba(255,255,255,0.75); font-weight: 500; }
+        .hero-authors {
+            margin-top: 1.15rem;
+            padding-top: 1.15rem;
+            border-top: 1px solid rgba(255,255,255,0.14);
+            display: flex;
+            align-items: baseline;
+            gap: 0.65rem;
+            flex-wrap: wrap;
+            font-size: 0.86rem;
+            color: rgba(255,255,255,0.58);
+        }
+        .hero-authors-label {
+            font-family: 'IBM Plex Sans Condensed', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.52);
+        }
+        .hero-authors a {
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.32);
+        }
+        .hero-authors a:hover,
+        .hero-authors a:focus-visible {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+        .hero-author-separator { color: rgba(255,255,255,0.3); }
+
+        /* MAIN CONTENT */
+        .content-wrap {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        /* SECTIONS */
+        .section {
+            margin-bottom: 3.5rem;
+        }
+        .section-label {
+            font-family: 'IBM Plex Sans Condensed', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-bottom: 0.6rem;
+        }
+        h2 {
+            font-family: 'IBM Plex Sans Condensed', sans-serif;
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            margin-bottom: 1.25rem;
+        }
+        h3 {
+            font-family: 'IBM Plex Sans Condensed', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.3;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        p.secondary { color: var(--text-secondary); }
+
+        /* CARDS */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .card-critical {
+            border-left: 3px solid var(--red);
+        }
+        .card-warning {
+            border-left: 3px solid var(--amber);
+        }
+        .card-info {
+            border-left: 3px solid var(--navy);
+        }
+
+        /* SEVERITY LABELS */
+        .severity {
+            display: inline-block;
+            font-family: 'IBM Plex Sans Condensed', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            margin-right: 0.5rem;
+        }
+        .severity-critical { background: #f3e0e0; color: var(--red); }
+        .severity-high { background: #f5ecd4; color: var(--amber); }
+        .severity-structural { background: #dde5f4; color: var(--navy); }
+
+        /* TABLES */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.25rem 0 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--surface);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        .table-framework {
+            table-layout: fixed;
+        }
+        .table-framework col.col-framework {
+            width: 10%;
+        }
+        .table-framework th:first-child,
+        .table-framework td:first-child {
+            width: 10%;
+            max-width: 7rem;
+            white-space: normal;
+            word-break: break-word;
+        }
+        .table-dtcc-surface {
+            table-layout: fixed;
+        }
+        .table-dtcc-surface col.col-dtcc-surface {
+            width: 17.5%;
+        }
+        .table-dtcc-surface th:first-child,
+        .table-dtcc-surface td:first-child {
+            width: 17.5%;
+            white-space: normal;
+            word-break: break-word;
+        }
+        thead th {
+            font-family: 'IBM Plex Sans Condensed', sans-serif;
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            background: #f5f3f3;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+        }
+        td {
+            padding: 0.65rem 1rem;
+            border-bottom: 1px solid #f0eded;
+            vertical-align: top;
+        }
+        tr:last-child td { border-bottom: none; }
+        .status-live { color: var(--green); font-weight: 600; font-size: 0.78rem; }
+        .status-pilot { color: var(--amber); font-weight: 600; font-size: 0.78rem; }
+        .status-prototype { color: var(--text-tertiary); font-weight: 600; font-size: 0.78rem; }
+
+        /* STAT BLOCKS */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .stat-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+        .stat-value {
+            font-family: 'IBM Plex Sans Condensed', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.1;
+        }
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-top: 0.35rem;
+        }
+
+        /* KEY FINDINGS */
+        .finding {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+        .finding-num {
+            font-family: 'IBM Plex Sans Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--navy);
+            background: #e8ecf5;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+        .finding-text {
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+        .faq-q {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 1.15rem 3.5rem 1.15rem 1.5rem;
+            font-family: 'IBM Plex Sans Condensed', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.4;
+            color: var(--navy);
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+        }
+        .faq-q::-webkit-details-marker { display: none; }
+        .faq-q::marker { content: ''; }
+        .faq-q::after {
+            content: '+';
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 400;
+            line-height: 1;
+            color: var(--navy);
+        }
+        .faq-item[open] .faq-q::after { content: '−'; }
+        .faq-q:hover { background: #faf9f9; }
+        .faq-q:focus-visible {
+            outline: 2px solid var(--navy-light);
+            outline-offset: -2px;
+        }
+        .faq-a {
+            padding: 1rem 1.5rem 1.25rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* CTA */
+        .cta-block {
+            background: var(--navy);
+            color: #fff;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        .cta-block h2 { color: #fff; margin-bottom: 1rem; }
+        .cta-block p { color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 1.5rem; }
+        .cta-btn {
+            display: inline-block;
+            background: #fff;
+            color: var(--navy);
+            font-family: 'IBM Plex Sans Condensed', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.75rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+        }
+
+        /* BLOCKQUOTE */
+        blockquote {
+            background: #f9f8f8;
+            border-left: 3px solid var(--border);
+            padding: 1rem 1.25rem;
+            margin: 1rem 0 1.25rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* INLINE CODE */
+        code {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.82em;
+            background: #f0eded;
+            padding: 0.15em 0.35em;
+            border-radius: 3px;
+        }
+
+        /* DIVIDER */
+        hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2.5rem 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.35rem; }
+            .hero { padding: calc(3rem + 64px) 1.25rem 2.5rem; }
+            .content-wrap { padding: 2rem 1.25rem 3rem; }
+            .stats-row { grid-template-columns: 1fr 1fr; }
+            .stat-value { font-size: 1.4rem; }
+            .cta-block { padding: 2rem 1.5rem; }
+            table { font-size: 0.78rem; }
+            td, thead th { padding: 0.5rem 0.6rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+        }
+    
+        .report-map a, .flow-bridge a {
+            color: var(--navy);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(40,55,113,0.28);
+        }
+        .report-map a:hover, .report-map a:focus-visible,
+        .flow-bridge a:hover, .flow-bridge a:focus-visible {
+            border-bottom-color: var(--navy);
+        }
+        .flow-bridge {
+            margin-top: 1.25rem;
+        }
+</style>
+</head>
+<body class="font-sans">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+{% include navbar.html %}
+<!-- HERO -->
+<section class="hero">
+<div class="hero-inner">
+<div class="hero-eyebrow">Institutional Post-Quantum Risk Assessment</div>
+<h1>Is Hyperledger Besu Quantum-Safe?</h1>
+<p class="hero-sub"><strong>No. Mainline Hyperledger Besu is not publicly documented as an end-to-end post-quantum-safe stack.</strong> Besu is used in institutionally significant infrastructure including DTCC AppChain, Swift's Besu-based shared ledger, Citi's integrated digital-asset platform, Fnality, JSCC, and LACChain or LACNet.</p>
+<p class="hero-sub">Its post-quantum exposure spans five coupled surfaces: transaction authorization, QBFT validator authentication, privacy and retained ciphertext, smart-contract authorization, and node identity and RLPx transport. Protecting only wallets or adding a post-quantum signature verifier does not secure the complete institutional stack.</p>
+<p class="hero-sub">The public Besu documentation and institutional disclosures reviewed for this report do not identify a coordinated, crypto-agile migration covering all five surfaces. This report maps the institutional exposure, affected cryptographic authorities, privacy dependencies, potential throughput impact, and practical migration path.</p>
+<div class="hero-meta">
+<span>Published <strong>3 August 2026</strong></span>
+<span>Status date <strong>21 July 2026</strong></span>
+<span>Sources <strong>Public disclosures, regulatory filings, project documentation</strong></span>
+</div>
+<div aria-label="Article authors" class="hero-authors">
+<span class="hero-authors-label">Authors</span>
+<a href="https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/" rel="author noopener noreferrer" target="_blank">Paarrthhh Birla</a>
+<span aria-hidden="true" class="hero-author-separator">·</span>
+<a href="https://www.linkedin.com/in/chen-feng-75272a37" rel="author noopener noreferrer" target="_blank">Dr. Chen Feng</a>
+<span aria-hidden="true" class="hero-author-separator">·</span>
+<a href="https://www.linkedin.com/in/dariia-porechna" rel="author noopener noreferrer" target="_blank">Dariia Porechna</a>
+</div>
+</div>
+</section>
+<!-- CONTENT -->
+<main id="main-content" class="content-wrap">
+<!-- EXECUTIVE SUMMARY -->
+<section class="section" id="executive-summary">
+<div class="section-label">Executive Summary</div>
+<h2>Five Coupled PQ Attack Surfaces. No Public End-to-End Remediation Plan.</h2>
+<p>A 2024 Blockdaemon analysis of 92 firms cited Besu more often than any other protocol, with over 40% mentioning it. Public deployments span market infrastructure, tokenized payments, post-trade systems and public-sector networks; institutional transaction volumes must not be misrepresented as Besu-processed volume.</p>
+<p>Besu's default transaction authentication, common QBFT validator configurations and RLPx transport rely on elliptic-curve cryptography vulnerable to a sufficiently capable quantum computer. The risk spans five coupled layers, with no publicly documented programme covering them as one institutional migration.</p>
+<div class="stats-row">
+<div class="stat-block">
+<div class="stat-value">40%+</div>
+<div class="stat-label">of 92 firms cited Besu in a 2024 analysis</div>
+</div>
+<div class="stat-block">
+<div class="stat-value">50+</div>
+<div class="stat-label">firms in DTCC's tokenization working group</div>
+</div>
+<div class="stat-block">
+<div class="stat-value">5</div>
+<div class="stat-label">Distinct PQ attack surfaces</div>
+</div>
+<div class="stat-block">
+<div class="stat-value">121x</div>
+<div class="stat-label">SLH-DSA-128s vs 65-byte ECDSA signature size</div>
+</div>
+</div>
+<div class="card card-info report-map">
+<p style="margin:0; font-size:0.9rem;"><strong>Report path:</strong> <a href="#institutional-besu-deployments">institutional exposure</a>, <a href="#global-pqc-regulatory-deadlines-besu-institutions">global urgency</a>, <a href="#dtcc-besu-tokenization-pq-risk">the DTCC case</a>, <a href="#besu-post-quantum-attack-surfaces">five technical surfaces</a>, the <a href="#besu-pq-vulnerability-index">48-point control map</a>, and <a href="#besu-post-quantum-migration">a credible migration path</a>.</p>
+</div>
+</section>
+<hr/>
+<!-- WHAT IS BESU -->
+<section class="section" id="what-is-hyperledger-besu">
+<div class="section-label">Background</div>
+<h2>What Is Hyperledger Besu?</h2>
+<p>Besu began as PegaSys' Pantheon in 2018 and joined Hyperledger, now LF Decentralized Trust, in 2019. The Apache 2.0 Java client implements enterprise Ethereum specifications.</p>
+<p>Besu runs on Ethereum mainnet and private permissioned networks. Private deployments commonly use QBFT for deterministic finality after validator quorum.</p>
+<p>Its institutional appeal is EVM compatibility: Solidity, ERC standards, JSON-RPC and established tooling can operate in permissioned environments, subject to each network's consensus, permissioning, privacy and transaction design.</p>
+</section>
+<hr/>
+<!-- INSTITUTIONAL DEPLOYMENTS -->
+<section class="section" id="institutional-besu-deployments">
+<div class="section-label">Institutional Exposure Map</div>
+<h2>Which Institutions Use Hyperledger Besu?</h2>
+<p>The tables distinguish confirmed Besu use from historical, component-level and frequently misclassified systems. EVM compatibility, working-group membership or adjacent-project participation does not prove a current deployment.</p>
+<h3>Confirmed, Historical, and Adjacent Institutional Systems</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Network</th>
+<th>Institutions and status</th>
+<th>Besu position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DTCC Tokenization Service</strong></td>
+<td>More than 50 firms contributed through DTCC's working group; more than 30 joined the July 2026 production initiative. Service launch is planned for October 2026.</td>
+<td><span class="status-live">CONFIRMED</span><br/>July trades used LFDT Besu on DTCC's private network and Canton.</td>
+</tr>
+<tr>
+<td><strong>Swift Shared Ledger</strong></td>
+<td>Seventeen banks were preparing to pilot live transactions as of July 2026.</td>
+<td><span class="status-live">BESU-BASED ARCHITECTURE</span><br/>Swift describes an EVM-compatible architecture based on Besu.</td>
+</tr>
+<tr>
+<td><strong>Fnality</strong></td>
+<td>Sterling wholesale settlement entered live operation in December 2023.</td>
+<td><span class="status-live">CONFIRMED</span><br/>LF Decentralized Trust identifies Fnality as Besu-based.</td>
+</tr>
+<tr>
+<td><strong>LACChain / LACNet</strong></td>
+<td>Public- and private-sector ecosystem across Latin America and the Caribbean.</td>
+<td><span class="status-live">CONFIRMED</span><br/>Besu-based network for identity, credentials, inclusion, and tokenization use cases.</td>
+</tr>
+<tr>
+<td><strong>mBridge</strong></td>
+<td>Central banks and commercial banks use the purpose-built mBridge Ledger.</td>
+<td><span class="status-prototype">NOT BESU</span><br/>EVM compatibility does not make the mBridge Ledger a Besu network.</td>
+</tr>
+<tr>
+<td><strong>BIS Project Agorá</strong></td>
+<td>Eight central banks and more than 40 regulated financial institutions participated.</td>
+<td><span class="status-pilot">UNCONFIRMED</span><br/>Public BIS materials do not identify Besu as the runtime.</td>
+</tr>
+<tr>
+<td><strong>Kinexys / JPM Coin</strong></td>
+<td>JPMorgan's production enterprise Ethereum platform.</td>
+<td><span class="status-live">GOQUORUM, NOT BESU</span><br/>GoQuorum is a separate Geth fork.</td>
+</tr>
+<tr>
+<td><strong>eNaira</strong></td>
+<td>Central Bank of Nigeria CBDC, live since October 2021.</td>
+<td><span class="status-prototype">NOT BESU</span><br/>The official design paper identifies a Hyperledger Fabric variant.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>FSWG Membership, Deployments, and Component Use</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Publicly documented relationship</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Visa, Mastercard, Santander</strong></td>
+<td>Founding Financial Services Working Group members. Membership does not establish production Besu use.</td>
+<td><span class="status-prototype">FSWG MEMBERS</span></td>
+</tr>
+<tr>
+<td><strong>Citi</strong></td>
+<td>Selected Besu for its internal digital-asset platform and Citi Token Services infrastructure.</td>
+<td><span class="status-live">CONFIRMED PLATFORM</span></td>
+</tr>
+<tr>
+<td><strong>JSCC</strong></td>
+<td>Deployed Besu for commodity-futures settlement tokenization.</td>
+<td><span class="status-live">CONFIRMED DEPLOYMENT</span></td>
+</tr>
+<tr>
+<td><strong>Drex</strong></td>
+<td>Banco Central do Brasil participated in Besu-based experimentation.</td>
+<td><span class="status-pilot">HISTORICAL PILOT</span></td>
+</tr>
+<tr>
+<td><strong>Digital Rupiah</strong></td>
+<td>Bank Indonesia evaluated multiple DLT approaches; production Besu use is not established.</td>
+<td><span class="status-prototype">NOT VERIFIED</span></td>
+</tr>
+<tr>
+<td><strong>Hedera</strong></td>
+<td>Uses Besu-derived EVM components while operating its own consensus.</td>
+<td><span class="status-live">COMPONENT USE</span></td>
+</tr>
+<tr>
+<td><strong>Linea</strong></td>
+<td>Uses Besu with L2-specific plugins for EVM execution.</td>
+<td><span class="status-live">BESU-BASED EXECUTION</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="secondary">The DTCC-chaired FSWG coordinates enterprise priorities; membership does not prove production use.</p>
+<p class="secondary flow-bridge">The next question is which regulatory, procurement and supervisory timelines govern these institutions and shared transaction paths.</p></section>
+<hr/>
+<!-- GLOBAL PQC REGULATORY AND JURISDICTION MAP -->
+<section class="section" id="global-pqc-regulatory-deadlines-besu-institutions">
+<div class="section-label">Regulatory, Supervisory and Procurement Urgency</div>
+<h2>Why Besu Institutions Must Act Now: Global Post-Quantum Deadlines</h2>
+<p>The issue is not one universal prohibition date. It is whether a multi-year Besu migration can finish before the earliest applicable federal, critical-infrastructure, procurement, supervisory or counterparty deadline across a cross-border transaction path.</p>
+<div class="card card-critical">
+<p style="margin:0; font-size:0.9rem;"><strong>Completion targets are not start dates.</strong> Migration can require cryptographic discovery, transaction and validator redesign, privacy and contract changes, HSM/KMS upgrades, procurement, testing, governance and coordinated activation. Long-lived ciphertext is exposed from the moment it is captured.</p>
+</div>
+<h3>Jurisdiction-to-Institution Mapping</h3>
+<p class="secondary">The table maps official PQ positions to publicly supported programme, home-jurisdiction or operating nexuses. It does not assert that every named entity is directly bound; applicability depends on the legal entity, system, contract, data and local implementation.</p>
+<div class="table-wrap">
+<table class="table-framework">
+<colgroup>
+<col class="col-framework"/>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Official timeline or position</th>
+<th>Weight and applicability</th>
+<th>Institutions and programmes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>G7 financial sector</strong></td>
+<td>The January 2026 roadmap identifies 2030-2032 as a possible priority window for the most critical financial systems and 2035 as a general overall planning target reflected in national roadmaps.</td>
+<td><span class="status-pilot">NON-BINDING FINANCIAL ROADMAP</span><br/>It expressly does not set regulatory expectations, but it addresses financial entities, authorities, critical service providers and technology suppliers.</td>
+<td><strong>DTCC/DTC; BNY; Citi; Wells Fargo; BNP Paribas; HSBC; Lloyds; MUFG; BlackRock; Goldman Sachs; J.P. Morgan; Bank of America.</strong></td>
+</tr>
+<tr>
+<td><strong>United States</strong></td>
+<td>Executive Order 14412 sets federal targets of <strong>31 December 2030</strong> for PQ key establishment and <strong>31 December 2031</strong> for digital signatures. It also directs proposed FAR requirements for covered contractors by <strong>31 December 2030</strong>.</td>
+<td><span class="status-live">BINDING FEDERAL DIRECTION; CONTRACTOR RULEMAKING</span><br/>Private institutions are directly affected only where federal-system, covered-contract, critical-infrastructure or other applicable requirements attach.</td>
+<td><strong>DTCC/DTC; Citi; BNY; Wells Fargo; BlackRock; Goldman Sachs; J.P. Morgan; Bank of America; Broadridge; CME Group.</strong></td>
+</tr>
+<tr>
+<td><strong>European Union</strong></td>
+<td>Member States should start transitioning by the <strong>end of 2026</strong>. Critical infrastructure and high-risk use cases should transition as soon as possible and no later than the <strong>end of 2030</strong>.</td>
+<td><span class="status-pilot">COORDINATED EU ROADMAP</span><br/>It is not a universal directly applicable private-sector prohibition, but it drives national plans, critical-entity priorities, procurement and future supervisory expectations.</td>
+<td><strong>Swift (Belgium); BNP Paribas (France); Santander (Spain, FSWG); EU entities participating in DTCC and Swift programmes.</strong></td>
+</tr>
+<tr>
+<td><strong>France</strong></td>
+<td>ANSSI urges immediate inventory and risk prioritisation, plans PQC obligations for product qualification from <strong>2027</strong>, and states that buying products without PQC support after <strong>2030</strong> will not be reasonable.</td>
+<td><span class="status-pilot">NATIONAL CYBER AUTHORITY AND QUALIFICATION OVERLAY</span><br/>Binding scope is narrower than a universal private-sector mandate, but the procurement and assurance signal is strong.</td>
+<td><strong>BNP Paribas</strong>, named in the Swift Besu pilot and DTCC tokenization initiatives, plus France-regulated entities and suppliers on those transaction paths.</td>
+</tr>
+<tr>
+<td><strong>United Kingdom</strong></td>
+<td>NCSC targets discovery and an initial plan by <strong>2028</strong>, highest-priority migration by <strong>2031</strong>, and completion by <strong>2035</strong>. The Bank of England stated in July 2026 that firms should begin planning.</td>
+<td><span class="status-pilot">NATIONAL GUIDANCE WITH FINANCIAL-STABILITY SIGNAL</span><br/>The dates are guidance, but they are aimed at large organisations, critical infrastructure and bespoke systems and are feeding regulated-sector planning.</td>
+<td><strong>Fnality; HSBC; Lloyds; Standard Chartered</strong>, plus UK operations supporting DTCC and cross-border tokenized-market infrastructure.</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>ASD recommends a refined plan by the <strong>end of 2026</strong>, critical migration underway by the <strong>end of 2028</strong>, and completion by the <strong>end of 2030</strong>. The ISM recommends ceasing traditional asymmetric cryptography by the end of 2030.</td>
+<td><span class="status-live">GOVERNMENT SECURITY STANDARD AND NATIONAL GUIDANCE</span><br/>Direct applicability depends on system and ISM scope, but the guidance also addresses large organisations, infrastructure and vendor assurance.</td>
+<td><strong>ANZ</strong> in the Swift Besu pilot, plus Australian operations and suppliers in cross-border tokenized-payment workflows.</td>
+</tr>
+<tr>
+<td><strong>Japan</strong></td>
+<td>Japan's FSA published a dedicated PQC migration report for deposit-taking institutions in November 2024. Japan also participates in the G7 roadmap and continued developing an inter-ministry roadmap in 2026.</td>
+<td><span class="status-pilot">FINANCIAL-SECTOR GUIDANCE AND ROADMAP DEVELOPMENT</span><br/>No universal public completion date for Japanese private financial institutions is asserted here.</td>
+<td><strong>MUFG</strong> in the Swift Besu pilot and <strong>JSCC</strong> in Besu-based commodity-futures settlement tokenization.</td>
+</tr>
+<tr>
+<td><strong>Singapore</strong></td>
+<td>Singapore uses NIST standards as its baseline and released a Quantum-Safe Migration Handbook and Quantum Readiness Index in July 2026, particularly for critical-information-infrastructure owners, government agencies and critical services.</td>
+<td><span class="status-pilot">NATIONAL MIGRATION GUIDANCE AND CII PREPAREDNESS</span><br/>The public material reviewed does not set one universal completion date for all private financial institutions.</td>
+<td><strong>DBS; OCBC; UOB</strong>, plus Singapore operations of <strong>Citi; HSBC; Standard Chartered</strong> and DTCC's regional ecosystem.</td>
+</tr>
+<tr>
+<td><strong>Hong Kong</strong></td>
+<td>HKMA publicly recruited in 2026 for responsibility to manage the transition from RSA and ECC to quantum-resilient standards, primarily PQC.</td>
+<td><span class="status-prototype">SUPERVISORY PREPAREDNESS SIGNAL</span><br/>The public evidence reviewed does not establish a sector-wide HKMA migration deadline for banks.</td>
+<td>Hong Kong operations of <strong>HSBC; Standard Chartered; Citi</strong> may face future local expectations, but public Besu announcements do not identify the relevant Hong Kong legal entities.</td>
+</tr>
+<tr>
+<td><strong>Switzerland</strong></td>
+<td>The Swiss NCSC has published an assessment of required action and a technology brief on quantum computers and PQC.</td>
+<td><span class="status-prototype">NATIONAL CYBER GUIDANCE</span><br/>No fixed national completion date is asserted from the public material reviewed.</td>
+<td><strong>UBS</strong> in the Swift Besu pilot and related Swiss-regulated infrastructure and suppliers.</td>
+</tr>
+<tr>
+<td><strong>Brazil</strong></td>
+<td>Brazil's Federal Digital Government Strategy requires the government to define a post-quantum cryptographic standard by <strong>2027</strong>. Federal security material also identifies blockchain signatures, PKI and long-lived data as migration concerns.</td>
+<td><span class="status-pilot">FEDERAL GOVERNMENT STRATEGY</span><br/>This is not presented as a direct private-bank PQC deadline.</td>
+<td><strong>Itaú Unibanco</strong>; Banco Central do Brasil's historical Besu-based Drex experimentation; <strong>LACChain/LACNet</strong> and related regional ecosystems.</td>
+</tr>
+<tr>
+<td><strong>UAE and South Africa</strong></td>
+<td>No dedicated public national PQC migration deadline was identified in the official sources reviewed as of <strong>3 August 2026</strong>.</td>
+<td><span class="status-prototype">PUBLIC DEADLINE NOT ESTABLISHED</span><br/>This does not exclude internal, sectoral, contractual, cross-border or future requirements.</td>
+<td><strong>First Abu Dhabi Bank; Mashreq; FirstRand</strong>, all named in the Swift Besu pilot and connected to counterparties, vendors and infrastructures in other jurisdictions.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="card card-warning">
+<p style="margin:0; font-size:0.9rem;"><strong>Shared-path rule:</strong> the earliest applicable requirement can govern the path. Operators, validators, custodians, cloud providers, HSM vendors and software suppliers may sit in different jurisdictions; one classical-only participant can block end-to-end assurance.</p>
+</div>
+<p>For DTCC, Swift, Citi, Fnality, JSCC and similar systems, the question is whether a coordinated, auditable migration can finish before procurement, critical-infrastructure, supervisory and counterparty timelines converge around 2030–2035.</p>
+<p class="secondary flow-bridge">
+<a href="#dtcc-besu-tokenization-pq-risk">DTCC provides the clearest production-oriented case study of this gap.</a>
+</p>
+<p class="secondary" style="font-size:0.82rem;">Primary sources: <a href="https://www.gov.uk/government/publications/advancing-a-coordinated-roadmap-for-the-transition-to-post-quantum-cryptography-in-the-financial-sector/g7-cyber-expert-group-statement-on-advancing-a-coordinated-roadmap-for-the-transition-to-post-quantum-cryptography-in-the-financial-sector-january-20" rel="noopener noreferrer" target="_blank">G7 roadmap</a>; <a href="https://www.whitehouse.gov/presidential-actions/2026/06/securing-the-nation-against-advanced-cryptographic-attacks/" rel="noopener noreferrer" target="_blank">U.S. EO 14412</a>; <a href="https://digital-strategy.ec.europa.eu/en/news/eu-reinforces-its-cybersecurity-post-quantum-cryptography" rel="noopener noreferrer" target="_blank">EU roadmap</a>; <a href="https://cyber.gouv.fr/en/technological-and-cybersecurity-challenges/post-quantum-cryptography/" rel="noopener noreferrer" target="_blank">ANSSI</a>; <a href="https://www.ncsc.gov.uk/guidance/pqc-migration-timelines" rel="noopener noreferrer" target="_blank">UK NCSC</a>; <a href="https://www.cyber.gov.au/business-government/secure-design/quantum/planning-for-post-quantum-cryptography" rel="noopener noreferrer" target="_blank">Australia ASD</a>; <a href="https://www.fsa.go.jp/news/r6/singi/20241126.html" rel="noopener noreferrer" target="_blank">Japan FSA</a>; <a href="https://www.csa.gov.sg/resources/publications/quantum-safe-handbook-and-quantum-readiness-index/" rel="noopener noreferrer" target="_blank">Singapore CSA</a>; <a href="https://www.hkma.gov.hk/eng/about-us/join-us/current-vacancies/recruit-20260109-1/" rel="noopener noreferrer" target="_blank">HKMA</a>; <a href="https://www.ncsc.admin.ch/ncsc/en/home/dokumentation/technologiebetrachtung.html" rel="noopener noreferrer" target="_blank">Swiss NCSC</a>; <a href="https://www.gov.br/governodigital/pt-br/estrategias-e-governanca-digital/EFGD/portaria-sgd-mgi-no-6-618-de-25-de-setembro-de-2024" rel="noopener noreferrer" target="_blank">Brazil strategy</a>; and official <a href="https://www.dtcc.com/news/2026/july/15/dtcc-turns-tokenization-into-reality" rel="noopener noreferrer" target="_blank">DTCC</a>, <a href="https://www.swift.com/news-events/press-releases/swifts-blockchain-ledger-ready-use-17-banks-set-pioneer-tokenised-cross-border-payments-trusted-global-infrastructure" rel="noopener noreferrer" target="_blank">Swift</a> and <a href="https://www.lfdecentralizedtrust.org/case-studies/citi-transforms-transaction-banking-services-with-besu" rel="noopener noreferrer" target="_blank">Citi</a> disclosures.</p></section>
+<hr/>
+<!-- DTCC TOKENIZATION PQ ANALYSIS -->
+<section class="section" id="dtcc-besu-tokenization-pq-risk">
+<div class="section-label">DTCC Multi-Network Exposure: Besu, Canton and Stellar</div>
+<h2>Is DTCC's Tokenization Architecture Post-Quantum Safe Across Besu, Canton and Stellar?</h2>
+<p><strong>It is not publicly documented as end-to-end post-quantum safe.</strong> On 15 July 2026, more than 30 firms used DTC-tokenized assets in production transactions, with digital conversions occurring on DTCC's private LFDT Besu network and Canton. DTCC expects its Tokenization Service to launch in October 2026 and DTC-tokenized assets to become available on Stellar in the first half of 2027.</p>
+<p>This creates a single asset lifecycle governed across several cryptographic domains: DTC custody and conversion, ComposerX lifecycle management, CATF policy enforcement, participant wallets and custodians, Besu execution, Canton identity and synchronization, and planned Stellar issuance and transfer. The central post-quantum question is therefore not whether any one network is resilient. It is whether the authority controlling the same DTC-backed asset can migrate consistently across every network, role and recovery path.</p>
+<div class="card card-critical">
+<h3 style="margin-top:0;">The DTCC control gap: policy compliance is not post-quantum authentication</h3>
+<p style="margin-bottom:0;">CATF can determine whether a transaction satisfies configured regulatory and transactional rules. It does not, by itself, protect the private key behind the participant, issuer, administrator, custodian or infrastructure role requesting that transaction. If a classical key were compromised, the request could still arrive under a valid role and satisfy valid business policy. End-to-end assurance therefore requires both <strong>policy correctness</strong> and <strong>post-quantum-safe authority</strong>.</p>
+</div>
+<h3>DTCC's Post-Quantum Exposure Across the Asset Lifecycle</h3>
+<div class="table-wrap">
+<table class="table-dtcc-surface">
+<colgroup>
+<col class="col-dtcc-surface"/>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<thead>
+<tr>
+<th>DTCC control surface</th>
+<th>What the public architecture establishes</th>
+<th>Post-quantum exposure</th>
+<th>Required migration outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DTC asset creation, conversion and servicing</strong></td>
+<td>DTC can create tokenized representations of DTC-custodied securities, convert assets between traditional and tokenized form, preserve the same rights and protections, and deliver tokens to DTC Participant wallets of choice within approved blockchain ecosystems.</td>
+<td>Equivalent investor protections and lifecycle controls do not establish post-quantum authenticity for the cryptographic authorities governing mint, burn, conversion, force transfer, freeze, recovery, corporate-action or servicing instructions.</td>
+<td>Bind every critical DTC lifecycle instruction to governed PQ authorization, key rotation, recovery and audit evidence without changing the legal asset record.</td>
+</tr>
+<tr>
+<td><strong>ComposerX Factory and CATF</strong></td>
+<td>ComposerX supports token creation and lifecycle management. Factory provides templates, role-based access, minting, burning, clawback and allowlists. CATF validates regulatory and transactional policies in real time.</td>
+<td>Role and policy enforcement depend on the authenticity of the account, wallet, service or administrator invoking the permitted action. Public materials do not define an end-to-end PQ profile for those authorities.</td>
+<td>Separate business-policy validation from signer authentication, then protect issuer, transfer-agent, compliance, recovery and administrative roles with crypto-agile PQ authorization.</td>
+</tr>
+<tr>
+<td><strong>DTCC AppChain on Besu</strong></td>
+<td>DTCC describes an enterprise-grade, Ethereum-compatible, permissioned AppChain based on Hyperledger Besu. It was one of the networks used for the July 2026 production conversions.</td>
+<td>The exact private configuration is not public. Mainline Besu's standard transaction, QBFT, smart-contract authorization, node-identity and RLPx paths are not documented as using NIST-standardized PQ cryptography.</td>
+<td>Harden token and privileged-role controls that can be upgraded around the current stack, while planning coordinated migration for native transaction authentication, validator signatures, node identity and transport.</td>
+</tr>
+<tr>
+<td><strong>Canton Network</strong></td>
+<td>DTCC used Canton for July 2026 conversions. Canton provides need-to-know sub-transaction privacy and a topology-based identity model spanning parties, Participant Nodes and Synchronizer services.</td>
+<td>Canton's published supported key specifications include EC-Curve25519, EC-P256, EC-P384, EC-Secp256k1 and RSA-2048. Its documented signing and asymmetric-encryption profiles are not listed as using NIST-standardized post-quantum schemes. DTCC's specific Canton configuration is not public.</td>
+<td>Migrate DTCC-controlled and participant authority where possible, while Canton-native topology, protocol signing, encryption and Synchronizer dependencies move through a coordinated network migration.</td>
+</tr>
+<tr>
+<td><strong>Stellar connectivity</strong></td>
+<td>DTCC and the Stellar Development Foundation expect DTC-tokenized assets on Stellar in the first half of 2027, supporting conversion and the asset lifecycle on a public network.</td>
+<td>Standard Stellar account transactions use Ed25519 authorization, although Stellar provides mechanisms for additional signer types. Validator nodes still require secret keys to participate in consensus and sign ledger changes. Issuer controls such as authorization, freeze and clawback depend on account authority, while custom contract accounts can add application-specific checks without replacing classic-account or validator cryptography.</td>
+<td>Protect DTC issuer, administrator, participant and custody authority at the application layer where possible, while treating classic account and validator migration as a Stellar-network dependency.</td>
+</tr>
+<tr>
+<td><strong>Participant wallets, custody and recovery</strong></td>
+<td>DTC-tokenized assets can be delivered to Participant wallets of choice, and the production ecosystem includes multiple wallet, custody, infrastructure and application providers.</td>
+<td>Each participant may introduce separate MPC, HSM, KMS, wallet, approval, delegated-authority and recovery keys. A PQ-safe DTCC service cannot create end-to-end assurance if the final participant approval remains classical-only.</td>
+<td>Require PQ-safe institutional approval before execution, independent of the selected wallet or custodian, with auditable key ownership, policy, rotation and recovery.</td>
+</tr>
+<tr>
+<td><strong>Multi-network orchestration and data</strong></td>
+<td>DTCC's strategy spans Besu, Canton and Stellar. ComposerX supports lifecycle processing, while LedgerScan aggregates, reports and reconciles data across traditional and digital ledgers.</td>
+<td>Conversion instructions, wallet delivery, attestations, API messages, oracles, data feeds and recovery actions can create cryptographic authority outside the destination chain. Multi-chain choice does not itself create crypto agility or prevent fallback to a classical-only route.</td>
+<td>Establish one governed authority model across every permitted network path, bind cross-network instructions to PQ authentication and prevent downgrade to weaker authorization.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>What DTCC Can Upgrade Now, and What Requires Coordination</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Control owner</th>
+<th>Actions that can begin now</th>
+<th>Dependencies that require coordination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DTCC-controlled architecture</strong></td>
+<td>Inventory every signer and verifier; protect ComposerX and CATF privileged roles; introduce PQ authorization for issuance, conversion, servicing, recovery and cross-network instructions; define crypto-agile policy and downgrade controls.</td>
+<td>Production integration, governance approval, HSM/KMS support, performance testing, audit evidence and operational rollout.</td>
+</tr>
+<tr>
+<td><strong>DTC Participants and providers</strong></td>
+<td>Harden wallet and custody approvals, delegated authority, treasury workflows, recovery and provider access without replacing the existing custodian by default.</td>
+<td>Participant adoption, provider capability, key migration, certification, interoperability and common assurance requirements.</td>
+</tr>
+<tr>
+<td><strong>Network protocols</strong></td>
+<td>Map residual dependencies and deploy compatible application-layer protections while native migration is prepared.</td>
+<td>Besu transaction, QBFT and RLPx changes; Canton topology, protocol and encryption changes; Stellar classic-account and validator changes.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="card card-info">
+<p style="margin:0; font-size:0.9rem;"><strong>A credible DTCC pilot:</strong> select one DTC-tokenized workflow and trace every authority from DTC instruction through ComposerX and CATF, participant custody, network execution, servicing and recovery. EternaX can use its <a href="https://eternax.ai/pluto-testnet.html" rel="noopener noreferrer" target="_blank">live dual-gate custody authorization demo</a> as the technical starting point for a controlled Besu pilot: post-quantum member authentication and signature-agnostic threshold authorization across a selected participant approval or asset-control path, with measured integration and performance impact and an explicit dependency plan for native Besu, Canton and Stellar changes requiring broader coordination.</p>
+</div>
+<div class="card card-warning">
+<p style="margin:0; font-size:0.9rem;"><strong>Evidence-bounded conclusion:</strong> DTCC has institutionalized tokenization, lifecycle controls and multi-network distribution. Public materials do not establish one end-to-end PQ authority profile across DTC instructions, ComposerX and CATF roles, participant wallets, custody, Besu, Canton, Stellar, recovery and cross-network orchestration. This assessment makes no assumption about undisclosed DTCC or participant controls.</p>
+</div>
+<p><strong>The strategic distinction:</strong> DTCC has modernized the asset lifecycle across Besu, Canton and Stellar. The next requirement is to ensure that the authority governing that lifecycle can migrate consistently across every network, participant and custody path before classical cryptography becomes the weakest link.</p>
+<p class="secondary flow-bridge">The Besu-specific dependencies beneath DTCC AppChain are examined next across five coupled technical surfaces.</p>
+<p class="secondary" style="font-size:0.82rem;">Primary sources: DTCC's <a href="https://www.dtcc.com/news/2026/july/15/dtcc-turns-tokenization-into-reality" rel="noopener noreferrer" target="_blank">July 2026 production announcement</a>, <a href="https://www.dtcc.com/news/2026/may/04/dtcc-advances-development-of-new-tokenization-service" rel="noopener noreferrer" target="_blank">Tokenization Service update</a>, <a href="https://www.dtcc.com/digital-assets/tokenization" rel="noopener noreferrer" target="_blank">tokenization architecture</a>, <a href="https://www.dtcc.com/news/2025/february/04/dtcc-announces-composerx" rel="noopener noreferrer" target="_blank">ComposerX and CATF</a>, <a href="https://www.dtcc.com/digital-assets/composerx/factory" rel="noopener noreferrer" target="_blank">ComposerX Factory</a>, and <a href="https://www.dtcc.com/news/2026/may/27/tokenization-service-to-connect-with-stellar-public-blockchain-as-dtc-advances-multi-chain-strategy" rel="noopener noreferrer" target="_blank">Stellar connectivity</a>; Digital Asset's Canton documentation on <a href="https://docs.digitalasset.com/overview/3.5/explanations/ledger-model/ledger-privacy.html" rel="noopener noreferrer" target="_blank">privacy</a>, <a href="https://docs.digitalasset.com/overview/3.4/explanations/canton/topology.html" rel="noopener noreferrer" target="_blank">topology</a>, <a href="https://docs.digitalasset.com/operate/3.5/howtos/secure/keys/key_management.html" rel="noopener noreferrer" target="_blank">key management</a> and <a href="https://docs.digitalasset.com/operate/3.4/reference/crypto_schemes.html" rel="noopener noreferrer" target="_blank">supported cryptographic schemes</a>; and Stellar documentation on <a href="https://developers.stellar.org/docs/learn/fundamentals/transactions/signatures-multisig" rel="noopener noreferrer" target="_blank">transaction signatures</a>, <a href="https://developers.stellar.org/docs/validators" rel="noopener noreferrer" target="_blank">validators</a>, <a href="https://developers.stellar.org/docs/tokens/control-asset-access" rel="noopener noreferrer" target="_blank">asset controls</a> and <a href="https://developers.stellar.org/docs/build/smart-contracts/example-contracts/complex-account" rel="noopener noreferrer" target="_blank">custom account authorization</a>.</p>
+</section>
+<hr/>
+<!-- THE FIVE ATTACK SURFACES -->
+<section class="section" id="besu-post-quantum-attack-surfaces">
+<div class="section-label">Technical Analysis</div>
+<h2>The Five Post-Quantum Attack Surfaces</h2>
+<p>Besu has five coupled PQ migration surfaces requiring different interventions. Fixing one does not secure the others: PQ transaction signing cannot prevent validator impersonation, protect retained ciphertext or replace classical node transport.</p>
+<!-- SURFACE 1 -->
+<h3>Surface 1: Transaction Signing and the Address-Identity Binding</h3>
+<span class="severity severity-critical">Critical</span>
+<p>Besu's default externally owned account authentication uses secp256k1 ECDSA. The signature exposes a recoverable public key, and the EOA address is derived as keccak256(recovered_pubkey)[12:]. Contract and smart-account identities use different control rules.</p>
+<p>After an EOA broadcasts a recoverable signature, a future quantum computer using Shor's algorithm could derive its private key. Impact depends on that account's balances, roles, approvals and administrative authority.</p>
+<p>ML-DSA and SLH-DSA do not provide Ethereum-style key recovery. Native migration therefore needs an explicit key reference, new address binding or another authorization mechanism. ERC-4337 can support alternative smart-account signatures, but does not migrate native transactions, validators, node identities or transport.</p>
+
+<!-- SURFACE 2 -->
+<h3 id="besu-qbft-quantum-risk">Surface 2: QBFT Validator Block Signing</h3>
+<span class="severity severity-critical">Critical</span>
+<p>QBFT commits a block after validator quorum. Consensus messages and commit seals are authenticated below the smart-contract layer with the network's configured elliptic-curve signing implementation.</p>
+<p>Recovering enough validator keys to meet quorum could enable impersonation or malicious consensus messages; recovering enough to deny quorum could halt finality. Exact thresholds depend on validator-set size and QBFT rules.</p>
+<p>ERC standards and account abstraction cannot change validator authentication. Migration requires new consensus signing and seal encoding, validation logic, signing-infrastructure support and coordinated activation. Mainline Besu documents no native hybrid classical-plus-PQ validator mode.</p>
+<p>A consortium must coordinate client activation, HSM or remote-signing support, testing, governance and rollback. Scheme support and certification remain vendor- and version-specific.</p>
+<!-- SURFACE 3 -->
+<h3>Surface 3: Privacy Encryption (Tessera and Paladin)</h3>
+<span class="severity severity-critical">Critical</span>
+<p>Legacy Besu privacy used Tessera: Curve25519 ECDH for key exchange and XSalsa20-Poly1305 for payload encryption. Curve25519 is vulnerable to Shor's algorithm.</p>
+<p>Native Tessera privacy was sunset and removed from mainline Besu by release 25.6.0. Paladin is the modular successor framework, with Pente for private EVM groups and Zeto privacy domains. These components do not make an entire deployment end-to-end PQ-safe.</p>
+<p>Institutions retaining Tessera-era privacy must maintain or migrate it outside current mainline Besu; other deployments may use different privacy models or none.</p>
+<p>Recorded Tessera ciphertext and key-agreement material create harvest-now-decrypt-later exposure. Future compromise of Curve25519 confidentiality would expose data according to payload content, retention, backups and deployment design.</p>
+<p>Institutions must inventory ciphertext, keys, recipients, backups and retention duties, then re-encrypt controlled data where possible. Data already copied by an adversary cannot be retroactively protected.</p>
+<!-- SURFACE 4 -->
+<h3>Surface 4: Smart Contracts and the ecRecover Precompile</h3>
+<span class="severity severity-critical">Critical</span>
+<p>The ecRecover precompile at 0x01 recovers an ECDSA signer's 20-byte address from a message hash and signature. It is widely embedded in EVM authorization and costs 3,000 gas.</p>
+<p>Mainline Besu has no generally deployed PQ signature precompile. Draft EIP-8051 proposes ML-DSA and EIP-8052 Falcon; pure-Solidity verification is more expensive and requires reproducible implementation-specific benchmarking.</p>
+<p>ERC-2612 Permit and common ERC-3009 authorizations use recoverable ECDSA signatures. A future quantum adversary could derive the key and forge later authorizations; exposure depends on implementation, nonces, deadlines, rotation and message retention.</p>
+<p>Contracts tied to ecrecover remain ECDSA-bound unless preserved through compatibility, upgraded, wrapped or migrated. Non-upgradeable contracts may require replacement. ERC-3643 may also require migration of privileged roles, identity claims, trusted issuers, compliance and proxy administration.</p>
+<!-- SURFACE 5 -->
+<h3>Surface 5: Node Identity and P2P Transport</h3>
+<span class="severity severity-high">High</span>
+<p>Besu node identity uses secp256k1. RLPx transport uses ECIES and secp256k1 ECDH to derive secrets for AES-256-CTR session encryption.</p>
+<p>Recorded handshakes may expose P2P sessions to future quantum decryption. Compromised node keys can also weaken permissioning and enable impersonation, eclipse or routing attacks, although other controls may limit impact.</p>
+<p class="secondary flow-bridge">Privacy requires separate treatment because copied ciphertext creates irreversible exposure.</p></section>
+<hr/>
+<!-- DEDICATED PRIVACY ANALYSIS -->
+<section class="section" id="besu-post-quantum-privacy">
+<div class="section-label">Privacy and Confidentiality</div>
+<h2>The Post-Quantum Privacy Problem in Besu</h2>
+<p>Privacy has the longest risk horizon. Keys can be rotated before a quantum attack; copied ciphertext cannot be recalled. For retained positions, settlement instructions, bilateral exposures and private state, exposure begins when data is captured.</p>
+<h3>Which Privacy Architecture Do Major Besu Deployments Use Today?</h3>
+<p>Public disclosures often say private, permissioned or secure without naming the confidential-transaction engine. Permissioning controls network access; transaction privacy controls which permitted parties see payloads, state, counterparties or amounts. The table records only public evidence as of 4 August 2026.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Besu-linked system</th>
+<th>Publicly disclosed privacy model</th>
+<th>Privacy engine</th>
+<th>PQ implication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DTCC AppChain and Tokenization Service</strong></td>
+<td>Private, permissioned Besu AppChain; the broader programme also uses Canton.</td>
+<td><span class="status-prototype">NOT PUBLICLY DISCLOSED</span><br/>Official materials do not identify Tessera, Paladin or another Besu confidential-transaction manager.</td>
+<td>Permissioning does not prove PQ confidentiality. Inventory participant and administrator keys, private data, transport, backups and the Besu–Canton path.</td>
+</tr>
+<tr>
+<td><strong>Swift Shared Ledger</strong></td>
+<td>Besu-based shared orchestration; Swift operates the ledger while banks retain authority over keys, assets, funding and settlement.</td>
+<td><span class="status-prototype">NOT PUBLICLY DISCLOSED</span><br/>No Tessera, Paladin, ZK-domain or other transaction-level privacy implementation is identified publicly.</td>
+<td>Assess visibility of commitments, bank environments, off-ledger settlement messages, keys and retained records. Permissioning does not guarantee payload confidentiality between participants.</td>
+</tr>
+<tr>
+<td><strong>Citi Integrated Digital Assets Platform and Citi Token Services</strong></td>
+<td>Internal, private, permissioned blockchain owned and managed by Citi; clients need not operate nodes or hold tokens.</td>
+<td><span class="status-prototype">NOT PUBLICLY DISCLOSED</span><br/>Public materials do not identify Tessera, Paladin or another confidential-transaction engine.</td>
+<td>Restricted membership reduces outsider access but not quantum risk in platform keys, privileged roles, encrypted records, node communication or retained data.</td>
+</tr>
+<tr>
+<td><strong>Fnality Payment System</strong></td>
+<td>Private Ethereum payment network with permissioned participation and multiple security layers.</td>
+<td><span class="status-prototype">NOT PUBLICLY DISCLOSED</span><br/>Public architecture does not identify the transaction-level privacy manager or confirm Tessera or Paladin.</td>
+<td>The private-network label does not show who sees each payment or how data is encrypted, retained, recovered and protected from harvest-now-decrypt-later exposure.</td>
+</tr>
+<tr>
+<td><strong>JSCC commodity tokenization platform</strong></td>
+<td>Production Besu platform for commodity-futures settlement tokenization.</td>
+<td><span class="status-prototype">NOT PUBLICLY DISCLOSED</span><br/>Official materials do not identify a privacy manager or confidential-transaction mechanism.</td>
+<td>Do not infer Tessera or Paladin. Confirm deployed version, visibility model, encryption, backups, access and retention with the operator.</td>
+</tr>
+<tr>
+<td><strong>LACChain / LACNet</strong></td>
+<td>Public-permissioned Besu network for broad ecosystem participation.</td>
+<td><span class="status-prototype">NO NETWORK-WIDE ENGINE PUBLICLY IDENTIFIED</span><br/>Public material does not establish Tessera or Paladin; later CBDC work treats privacy as a separate design requirement.</td>
+<td>Permissioned validation is not confidential execution. Sensitive use cases require separate encryption, selective disclosure, private execution or off-chain controls, each with PQ dependencies.</td>
+</tr>
+<tr>
+<td><strong>Legacy Besu privacy deployments</strong></td>
+<td>Historical Besu private transactions used Tessera privacy groups and marker transactions.</td>
+<td><span class="status-pilot">TESSERA, LEGACY ONLY</span><br/>Tessera was removed from current mainline releases; older pinned networks may still operate it.</td>
+<td>Curve25519 key agreement is not PQ-safe, and copied historical ciphertext cannot be protected retroactively.</td>
+</tr>
+<tr>
+<td><strong>Paladin-based Besu deployments</strong></td>
+<td>Modular EVM privacy framework with Pente, Noto and Zeto domains.</td>
+<td><span class="status-pilot">AVAILABLE FRAMEWORK, DEPLOYMENT-SPECIFIC</span><br/>No public evidence reviewed shows the named systems use Paladin today.</td>
+<td>Paladin does not replace base transaction, consensus, node identity or RLPx cryptography. Domain ownership, proofs, endorsements, transport, KMS, backup and recovery need separate PQ assessment.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="card card-warning">
+<p style="margin:0; font-size:0.9rem;"><strong>Critical disclosure gap:</strong> most major Besu-linked systems do not publicly identify their privacy engine. Private, permissioned or secure labels cannot establish PQ privacy; the operator must disclose or inventory the actual cryptographic path.</p>
+</div>
+<div class="card card-critical">
+<h3 style="margin-top:0;">1. Legacy Tessera confidentiality depends on quantum-vulnerable key agreement</h3>
+<p style="margin-bottom:0;">Tessera used Curve25519 to protect symmetric payload keys. Shor's algorithm targets that key-agreement layer, not primarily XSalsa20-Poly1305. Recorded ciphertext and public material could therefore become decryptable later.</p>
+</div>
+<div class="card card-critical">
+<h3 style="margin-top:0;">2. Migration protects future payloads, not ciphertext already copied</h3>
+<p style="margin-bottom:0;">A PQ KEM protects new payloads, not data already copied. Re-encryption is possible only for controlled archives where keys, recipient mappings and legal authority remain. Backups, replicas, databases, queues, telemetry and third-party archives are inside the risk boundary.</p>
+</div>
+<div class="card card-critical">
+<h3 style="margin-top:0;">3. Paladin is not an end-to-end post-quantum privacy stack</h3>
+<p>Paladin is a modular EVM privacy sidecar; the base ledger still orders and finalizes transactions. It therefore does not replace Besu transaction authentication, validator consensus, node identity, RLPx or finality.</p>
+<p>Its domains require separate assessment: Pente provides private EVM execution, Noto notary-backed flows and Zeto zero-knowledge token implementations. Public materials do not define an end-to-end NIST-standardized profile for every authorization, endorsement, data-distribution and communications path.</p>
+<p style="margin-bottom:0;">The public Zeto stack includes Circom, BabyJubjub and Groth16 verifier contracts. BabyJubjub and pairing-based Groth16 verification are classical elliptic-curve systems, not NIST PQ standards. An isolated encrypted component therefore does not secure ownership, proofs, endorsements, finality, transport, vaults, backups or recovery end to end.</p>
+</div>
+<div class="card card-info">
+<h3 style="margin-top:0;">4. Encryption does not eliminate metadata exposure</h3>
+<p style="margin-bottom:0;">Encryption may still expose timing, frequency, gas-payer activity, commitments, access patterns and links between public and private state. PQ encryption protects content, not metadata, governance or authorization.</p>
+</div>
+<h3>What an Institutional Besu Privacy Migration Must Cover</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Privacy component</th>
+<th>Post-quantum question</th>
+<th>Required action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Legacy Tessera payloads</strong></td>
+<td>Were ciphertext, keys, recipient mappings or backups retained or exposed?</td>
+<td>Inventory, classify by confidentiality horizon and re-encrypt controlled data where possible.</td>
+</tr>
+<tr>
+<td><strong>New key establishment</strong></td>
+<td>Does key establishment rely on Curve25519, ECDH, RSA or another vulnerable primitive?</td>
+<td>Use a tested, crypto-agile ML-KEM path, with hybrid transition where required.</td>
+</tr>
+<tr>
+<td><strong>Paladin, Pente, Noto, and Zeto</strong></td>
+<td>Which primitives secure ownership, proofs, endorsements, distribution, vaults and verification?</td>
+<td>Inventory proof systems, account signatures, secure channels, KMS and base-ledger finality; replace or isolate vulnerable dependencies.</td>
+</tr>
+<tr>
+<td><strong>KMS, HSM, backups, and recovery</strong></td>
+<td>Can KMS, HSM, backup and recovery systems store, rotate and audit the new keys and objects?</td>
+<td>Validate support, certification, lifecycle, rollback and cross-participant interoperability.</td>
+</tr>
+<tr>
+<td><strong>Metadata and governance</strong></td>
+<td>What metadata and governance exposure remains after encryption changes?</td>
+<td>Threat-model timing, access patterns, commitments, administration, recovery and disclosure separately.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="card card-critical">
+<p style="margin:0; font-size:0.9rem;"><strong>Institutional conclusion:</strong> replacing Tessera with Paladin changes the architecture but does not itself deliver PQ privacy. Privacy needs its own CBOM, retained-ciphertext treatment and validation of every domain and operational dependency.</p>
+</div>
+<p class="secondary" style="font-size:0.82rem;">Sources: <a href="https://www.dtcc.com/news/2025/april/02/dtcc-announces-new-platform-for-tokenized-real-time-collateral-management" rel="noopener noreferrer" target="_blank">DTCC</a>, <a href="https://www.swift.com/news-events/news/swifts-blockchain-based-shared-ledger-progresses-mvp-implementation" rel="noopener noreferrer" target="_blank">Swift</a>, <a href="https://www.citigroup.com/global/news/perspectives/2024/introducing-citi-integrated-digital-assets-platform" rel="noopener noreferrer" target="_blank">Citi</a>, <a href="https://fnality.com/how-it-works" rel="noopener noreferrer" target="_blank">Fnality</a>, <a href="https://www.lfdecentralizedtrust.org/learn/webinars/jscc-besu-production-launch-and-its-next-steps" rel="noopener noreferrer" target="_blank">JSCC</a>, <a href="https://lacnet.com/gas-distribution-overview/" rel="noopener noreferrer" target="_blank">LACNet</a>, the <a href="https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu" rel="noopener noreferrer" target="_blank">Tessera sunset</a>, <a href="https://lfdt-paladin.github.io/paladin/head/" rel="noopener noreferrer" target="_blank">Paladin</a>, <a href="https://lfdt-paladin.github.io/zeto/latest/" rel="noopener noreferrer" target="_blank">Zeto</a> and NIST <a href="https://csrc.nist.gov/pubs/fips/203/final" rel="noopener noreferrer" target="_blank">FIPS 203</a>.</p>
+</section>
+<hr/>
+<!-- ERC EXPOSURE -->
+<section class="section" id="besu-erc-post-quantum-risk">
+<div class="section-label">Smart Contract Layer</div>
+<h2>ERC Standard Exposure on Besu</h2>
+<p>Institutional ERCs fall into four PQ categories. Some mandate classical signatures; many are cryptographically neutral but inherit the security of controlling accounts and the network.</p>
+<h3>Explicitly ECDSA-Bound Standards</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Standard</th>
+<th>Function</th>
+<th>PQ Severity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ERC-2612</strong> (Permit)</td>
+<td>Requires r, s, v constituting a valid secp256k1 signature from the token owner.</td>
+<td><span class="severity severity-critical">Critical</span></td>
+</tr>
+<tr>
+<td><strong>ERC-3009</strong> (Transfer With Authorization)</td>
+<td>Defines EIP-712 transfer authorizations commonly represented with ECDSA signature components.</td>
+<td><span class="severity severity-critical">Critical</span></td>
+</tr>
+<tr>
+<td><strong>ERC-2098</strong></td>
+<td>Compact representation of a secp256k1 signature.</td>
+<td><span class="severity severity-critical">Critical</span></td>
+</tr>
+<tr>
+<td><strong>EIP-7702</strong></td>
+<td>Set Code for EOAs. Authorization tuples contain y_parity, r, s.</td>
+<td><span class="severity severity-critical">Critical</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Inherited Exposure Through Account Control</h3>
+<p>ERC-20, ERC-721, ERC-1155, ERC-3525, ERC-4626, ERC-7540, ERC-173, ERC-1967 and ERC-7943 are not intrinsically ECDSA-bound. Exposure depends on implementation and controlling accounts; EOA-controlled deployments inherit Besu's elliptic-curve authentication.</p>
+<h3>ERC-3643: The Concentrated Exposure</h3>
+<p>ERC-3643 concentrates authority across token owners and agents, identity and claim registries, compliance, claim issuers, investor wallets and proxy administration. Compromise has role-specific consequences; a token-agent key can enable minting, burning, freezing, forced transfer and recovery.</p>
+<p>ERC-3643 does not mandate ECDSA, but conventional Besu deployments commonly authenticate its authorization graph with elliptic-curve accounts.</p>
+<h3>PQ-Enabling Standards (Not Automatically PQ-Safe)</h3>
+<p>ERC-1271, ERC-4337 and ERC-7913 can support alternative application-layer verification. They do not migrate validators, native transactions, node identities, privacy or networking.</p>
+<p>EIP-7932, EIP-8051, EIP-8052, EIP-8164, EIP-8197 and EIP-8202 propose secondary, PQ or scheme-agile authorization. As of August 2026, none is an established mainline Besu production capability.</p>
+</section>
+<hr/>
+<!-- TPS IMPACT -->
+<section class="section" id="besu-pq-performance">
+<div class="section-label">Performance Analysis</div>
+<h2>Besu Performance Under Post-Quantum Signatures: An Illustrative Model</h2>
+<p>PQ performance depends on scheme, implementation, hardware, workload, validators, block period and topology. These are EternaX scenario calculations, not measured production Besu limits.</p>
+<h3>Signature Size, TPS Retained, and Percentage Throughput Loss</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Scheme</th>
+<th>Pubkey</th>
+<th>Signature</th>
+<th>Verification</th>
+<th>TPS Range</th>
+<th>TPS Retained</th>
+<th>TPS Loss vs 1,000 Baseline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>secp256k1 ECDSA</strong> (current)</td>
+<td>33 B</td>
+<td>65 B</td>
+<td>~0.1 ms</td>
+<td>1,000 (baseline)</td>
+<td>100%</td>
+<td><strong>0%</strong></td>
+</tr>
+<tr>
+<td>ML-DSA-44 (Dilithium2)</td>
+<td>1,312 B</td>
+<td>2,420 B</td>
+<td>~0.5 ms</td>
+<td>~600 to 800</td>
+<td>60% to 80%</td>
+<td><strong>20% to 40%</strong></td>
+</tr>
+<tr>
+<td>ML-DSA-65 (Dilithium3)</td>
+<td>1,952 B</td>
+<td>3,309 B</td>
+<td>~0.7 ms</td>
+<td>~450 to 650</td>
+<td>45% to 65%</td>
+<td><strong>35% to 55%</strong></td>
+</tr>
+<tr>
+<td>Falcon-512 (future FN-DSA)</td>
+<td>896-897 B</td>
+<td>666 B</td>
+<td>~0.1 ms</td>
+<td>~700 to 900</td>
+<td>70% to 90%</td>
+<td><strong>10% to 30%</strong></td>
+</tr>
+<tr style="background:#fcf5f5;">
+<td><strong>SLH-DSA-128s</strong></td>
+<td>32 B</td>
+<td>7,856 B</td>
+<td>~3.6 ms</td>
+<td><strong>~30 to 250</strong></td>
+<td><strong>3% to 25%</strong></td>
+<td><strong>75% to 97%</strong></td>
+</tr>
+<tr style="background:#fcf5f5;">
+<td><strong>SLH-DSA-192s</strong></td>
+<td>48 B</td>
+<td>16,224 B</td>
+<td>~5.5 ms</td>
+<td><strong>~15 to 150</strong></td>
+<td><strong>1.5% to 15%</strong></td>
+<td><strong>85% to 98.5%</strong></td>
+</tr>
+<tr style="background:#fcf5f5;">
+<td>SLH-DSA-128f</td>
+<td>32 B</td>
+<td>17,088 B</td>
+<td>~7 to 8 ms</td>
+<td>~10 to 100</td>
+<td>1% to 10%</td>
+<td><strong>90% to 99%</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="card card-critical">
+<p style="margin:0; font-size:0.9rem;"><strong>Illustrative throughput loss:</strong> at a 1,000 TPS baseline, SLH-DSA-128s loses approximately <strong>75%–97%</strong>, SLH-DSA-192s <strong>85%–98.5%</strong>, ML-DSA-44 <strong>20%–40%</strong>, and ML-DSA-65 <strong>35%–55%</strong>. Results vary by implementation and deployment.</p>
+</div>
+<h3>Illustrative Block-Level Impact at 1,000 TPS (6-Second Blocks)</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>ECDSA (Current)</th>
+<th>SLH-DSA-128s</th>
+<th>SLH-DSA-192s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Signature data per block (6,000 tx)</td>
+<td>390 KB</td>
+<td>47 MB</td>
+<td>97 MB</td>
+</tr>
+<tr>
+<td>Total block size</td>
+<td>~1.5 MB</td>
+<td>~48-50 MB</td>
+<td>~100 MB</td>
+</tr>
+<tr>
+<td>CPU verification (single core)</td>
+<td>0.6 seconds</td>
+<td>21.6 seconds</td>
+<td>33 seconds</td>
+</tr>
+<tr>
+<td>CPU verification (8 cores parallel)</td>
+<td>0.08 seconds</td>
+<td>~2.7 seconds</td>
+<td>~4.1 seconds</td>
+</tr>
+<tr>
+<td>Daily signature storage</td>
+<td>5.6 GB</td>
+<td>678 GB</td>
+<td>1.4 TB</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Illustrative Network-Profile TPS Scenarios and Percentage Loss</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Deployment Profile</th>
+<th>Baseline TPS</th>
+<th>SLH-DSA-128s TPS</th>
+<th>128s TPS Loss</th>
+<th>SLH-DSA-192s TPS</th>
+<th>192s TPS Loss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Well-tuned QBFT, 8-core validators, LAN</td>
+<td>1,000</td>
+<td>~150 to 250</td>
+<td><strong>75% to 85%</strong></td>
+<td>~80 to 150</td>
+<td><strong>85% to 92%</strong></td>
+</tr>
+<tr>
+<td>Multi-jurisdiction WAN validator network</td>
+<td>1,000</td>
+<td>~30 to 80</td>
+<td><strong>92% to 97%</strong></td>
+<td>~15 to 40</td>
+<td><strong>96% to 98.5%</strong></td>
+</tr>
+<tr>
+<td>High-volume permissioned payment network</td>
+<td>500 to 1,000</td>
+<td>~50 to 150</td>
+<td><strong>70% to 95%</strong><br/><span class="secondary">range envelope</span></td>
+<td>~25 to 80</td>
+<td><strong>84% to 97.5%</strong><br/><span class="secondary">range envelope</span></td>
+</tr>
+<tr>
+<td>L2 sequencer-style workload</td>
+<td>5 to 15 (assumed)</td>
+<td>~1 to 3</td>
+<td><strong>~80% at matched endpoints</strong><br/><span class="secondary">broad envelope 40% to 93%</span></td>
+<td>Sub-1</td>
+<td><strong>&gt;80% to &gt;93%</strong><br/><span class="secondary">depending on baseline and sub-1 result</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="secondary" style="font-size:0.82rem;">Loss equals (baseline TPS − PQ TPS) / baseline TPS. Range rows show the arithmetic envelope, not a benchmark confidence interval.</p>
+<div class="card card-warning">
+<p style="margin:0; font-size:0.9rem;">Bandwidth may bind before CPU. A 48 MB block takes roughly 3.8 seconds to transmit at 100 Mbps or 0.4 seconds at 1 Gbps before overhead, fanout, latency and consensus messaging. Deployment benchmarks remain essential.</p>
+</div>
+<h3>Additional Operational Constraints</h3>
+<p><strong>Gas repricing:</strong> SLH-DSA verification would require materially higher pricing than ecRecover under these assumptions; final pricing needs client benchmarks, worst-case analysis and governance.</p>
+<p><strong>Signing latency:</strong> software and HSM results vary by library, hardware, parameter set and concurrency. Capacity planning must use the exact production configuration.</p>
+<p><strong>Archive storage:</strong> at 1,000 TPS, signatures alone imply about 678 GB/day for SLH-DSA-128s versus 5.6 GB/day for 65-byte ECDSA, excluding framing, receipts, state, database overhead, compression and pruning.</p>
+<p class="secondary flow-bridge">Performance is one constraint within the wider 48-point exposure map.</p></section>
+<hr/>
+<!-- COMPREHENSIVE VULNERABILITY MAP -->
+<section class="section" id="besu-pq-vulnerability-index">
+<div class="section-label">Full Vulnerability Index</div>
+<h2>The Full Besu Post-Quantum Exposure Map: 48 Control Points</h2>
+<p>A complete Besu migration can span accounts, consensus, network infrastructure, EVM contracts, interoperability, confidentiality and governance. The 48 points below are an engineering inventory, not 48 independent attacks.</p>
+<h3>Accounts and Transactions (9 exposure points)</h3>
+<p>
+            secp256k1 externally owned accounts, public-key hiding providing only temporary protection, harvest-now-forge-later transaction records, mempool key-extraction race conditions, contract wallets that ultimately trust ECDSA, token issuer/mint/burn/freeze keys, custodian and participant wallet keys, permit and meta-transaction delegated-authority signatures, and old approvals remaining exploitable after account migration.
+        </p>
+<h3>Consensus (7 exposure points)</h3>
+<p>
+            QBFT/IBFT validator signatures, Byzantine threshold collapse from quantum key recovery, forged block proposer identity, forged historical consensus evidence, long-range or offline-node deception, validator onboarding and voting key compromise, and consensus DoS from PQ signature overhead.
+        </p>
+<h3>Network Infrastructure (6 exposure points)</h3>
+<p>
+            Node identity keys and peer authentication, local and on-chain permissioning identities, TLS for RPC and peer gateways, remote-signing services and institutional PKI, certificate authorities, JSON-RPC administrator authentication, and DNS or software-update signing.
+        </p>
+<h3>EVM and Smart Contracts (7 exposure points)</h3>
+<p>
+            ecRecover precompile, fixed 20-byte address model, PQ verification implemented only in Solidity (expensive and error-prone), upgrade keys and proxy administrators, oracles and off-chain attestations, zero-knowledge proofs based on elliptic curves (Groth16, PLONK, KZG), and trusted setup or proof-verifier immutability.
+        </p>
+<h3>Cross-Chain and Interoperability (5 exposure points)</h3>
+<p>
+            Bridge and interoperability committee signatures, Chainlink CCIP or similar external trust dependencies, ISO 20022 and off-chain instruction signatures, destination-chain weakness, and cross-chain replay during algorithm migration.
+        </p>
+<h3>Data Confidentiality (4 exposure points)</h3>
+<p>
+            Harvest-now-decrypt-later of network traffic, encrypted private payloads and off-chain storage, backups and disaster-recovery archives, and privacy leakage from public ledger data.
+        </p>
+<h3>Governance and Operations (10 exposure points)</h3>
+<p>
+            Governance authorization, emergency recovery controlled by classical keys, cryptographic downgrade during hybrid deployment, PQ algorithm monoculture, PQ implementation defects, HSM and key-management incompatibility, legal non-repudiation erosion, asset and contract immobility, scalability failure from PQ overhead, and incomplete vendor and dependency migration.
+        </p>
+<p class="secondary flow-bridge">The scope exceeds any one wallet, validator or privacy component and requires coordinated ownership.</p></section>
+<hr/>
+<!-- STRUCTURAL VACUUM -->
+<section class="section" id="besu-pq-migration-governance-gap">
+<div class="section-label">Governance and Remediation</div>
+<h2>Why Besu Still Lacks an End-to-End Post-Quantum Migration Path</h2>
+<p>The 48-point map is a coordination problem as much as a cryptographic one. Besu is open source, while institutions operate different releases, plugins, managed services, custody systems, privacy designs and governance models. No single actor controls every dependency.</p>
+<h3>Why a Shared Migration Profile Is Missing</h3>
+<div class="finding">
+<div class="finding-num">1</div>
+<div class="finding-text"><strong>Upstream work is fragmented:</strong> Paladin contributors advance privacy, while Ethereum contributors advance account abstraction and alternative signatures. Neither stream automatically migrates QBFT, institutional HSMs, legacy data, contracts, and P2P transport together.</div>
+</div>
+<div class="finding">
+<div class="finding-num">2</div>
+<div class="finding-text"><strong>Coordination is incomplete:</strong> the FSWG aligns enterprise requirements, but no public end-to-end Besu PQ specification or dedicated PQ working group was identified as of August 2026.</div>
+</div>
+<div class="finding">
+<div class="finding-num">3</div>
+<div class="finding-text"><strong>Deployments differ:</strong> independent versions, plugins, custody systems, privacy designs, and governance processes can produce incompatible migration and assurance outcomes.</div>
+</div>
+<h3>Interoperability Expands the Boundary</h3>
+<p>Swift, DTCC, Fnality and other infrastructures connect ledgers, settlement, messaging, identity, oracles and destination chains. Each authorization or verification boundary adds another cryptographic dependency.</p>
+<p>NIST standardized ML-KEM, ML-DSA and SLH-DSA in 2024, but mainline Besu still lacks a built-in migration covering all five surfaces.</p>
+</section>
+<hr/>
+<!-- ETERNAX SOLUTION -->
+<section class="section" id="besu-post-quantum-migration">
+<div class="section-label">EternaX Remediation</div>
+<h2>Make Critical Besu Workflows Post-Quantum Safe Without Rebuilding Your Stack</h2>
+<p>Institutions should not need to abandon Besu, rewrite compatible applications, move asset records or replace custody to address PQ risk. EternaX upgrades selected authorization and confidentiality paths while preserving compatible contracts, assets, APIs, integrations, governance and workflows.</p>
+<p>The goal is not one PQ signature before an otherwise vulnerable stack. It is to secure a selected workflow, including issuance, approval, transfer, recovery, administration, disclosure and settlement, while isolating native Besu changes for a coordinated phase.</p>
+<div class="card card-critical">
+<h3 style="margin-top:0;">The operating principle: upgrade the trust boundary, not the business workflow</h3>
+<p style="margin-bottom:0;">EternaX maps one priority workflow and defines its lowest-friction protection boundary. Compatible components stay; exposed authorization, identity, custody, privacy and verification controls are upgraded, wrapped or re-authorized. Protocol-native dependencies are governed separately.</p>
+</div>
+<h3 id="how-eternax-addresses-besu-migration-gap">EternaX Post-Quantum Protection for Hyperledger Besu</h3>
+<p>Institutions can start with tokenization, custody or privacy, then map remaining native Besu dependencies into a controlled network-level plan.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>EternaX product</th>
+<th>What it makes post-quantum safe</th>
+<th>What the institution can preserve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="https://eternax.ai/post-quantum-stablecoins-and-tokenization.html" rel="noopener noreferrer" target="_blank">EternaX Post-Quantum Tokenization for Besu</a></strong></td>
+<td>Issuer and token-agent authority; mint, burn, freeze, recovery and upgrade controls; identity, eligibility, permits, vault governance and privileged contract actions.</td>
+<td>Compatible contracts and ERC interfaces, asset and investor records, issuance, transfers, compliance, APIs, reporting and execution environment.</td>
+</tr>
+<tr>
+<td><strong><a href="https://eternax.ai/custody-mpc-providers.html" rel="noopener noreferrer" target="_blank">EternaX Post-Quantum Custody Hardening for Besu</a></strong></td>
+<td>Custody and treasury approvals, distributed authorization, recovery, policy administration and asset-movement gates.</td>
+<td>The appointed custodian, MPC/HSM environment, supported Safe controls, treasury process, approval hierarchy and operating model. EternaX is not a custody provider.</td>
+</tr>
+<tr>
+<td><strong>EternaX Post-Quantum Privacy Manager for Besu</strong></td>
+<td>Private-payload key establishment and encryption, group authority, membership and rotation, distribution, recovery, regulatory access and PQ peer authentication.</td>
+<td>The Besu node-plus-sidecar pattern, supported privacy interfaces, private contracts, participant governance and confidentiality workflows.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="card card-critical" id="live-pq-custody-demo">
+<h3 style="margin-top:0;">Live Technical Proof: Post-Quantum Distributed Custody Authorization</h3>
+<p>EternaX's live Pluto testnet demo implements a dual-gate custody model. Gate 1 uses post-quantum member signatures to authenticate each approval. Gate 2 separately enforces that the required threshold authorized the same operation. Assets move only when both gates pass.</p>
+<p style="margin-bottom:0;">This preserves distributed MPC-style approval without claiming a threshold SLH-DSA signature or replacing the custodian. It applies where the Besu asset-control path can enforce programmable verification, such as a smart account, vault, issuer module, bridge controller or HSM-controlled execution gate. Native Besu transactions, QBFT, node identity and RLPx remain outside the demo's protection boundary. <a href="https://eternax.ai/pluto-testnet.html" rel="noopener noreferrer" target="_blank"><strong>Try dual-gate custody on the live testnet.</strong></a> <a href="https://eternax.ai/custody-mpc-providers.html" rel="noopener noreferrer" target="_blank">Review the institutional custody architecture.</a></p>
+</div>
+<div class="card card-info" id="besu-crypto-agility">
+<p style="margin:0; font-size:0.9rem;"><strong>Shared capability: crypto agility.</strong> A signature-agnostic model lets approved algorithms, parameters, providers and policies change without rebuilding the protected workflow. Policy can vary by asset, role, transaction type, jurisdiction, performance and assurance horizon, with downgrade controls.</p>
+</div>
+<div class="card card-warning">
+<p style="margin:0; font-size:0.9rem;"><strong>Scope boundary:</strong> these products harden workflows around an existing Besu deployment. Classical native transactions, QBFT signatures, node identity and RLPx remain separately mapped and require the relevant client, validator or network phase.</p>
+</div>
+<h3>Example: An Existing ERC-3643 Asset on Besu</h3>
+<div class="card">
+<p style="margin:0;">A regulated ERC-3643 asset can retain compatible contracts, identity structures, records, transfer rules, reporting, custody and operations. EternaX can move issuer, agent, compliance, claim, custody, recovery and other privileged actions behind PQ authorization, including PQ-ONCHAINID-compatible controls. Immutable verification and native Besu dependencies remain a separate wrapper, upgrade or network phase.</p>
+</div>
+<h3>Why This Migration Path Is Credible</h3>
+<div class="finding">
+<div class="finding-num">1</div>
+<div class="finding-text"><strong>Besu-specific products:</strong> tokenization, custody, and privacy are protected as distinct institutional workflows rather than through a generic wallet patch or a claim that one signature change secures the whole stack.</div>
+</div>
+<div class="finding">
+<div class="finding-num">2</div>
+<div class="finding-text"><strong>Low-friction integration:</strong> compatible contracts, assets, providers, APIs, records, and operating workflows remain wherever technically possible, while exposed trust points are upgraded inside a clearly defined protection boundary.</div>
+</div>
+<div class="finding">
+<div class="finding-num">3</div>
+<div class="finding-text"><strong>Measured migration:</strong> a controlled pilot shows what can be protected around the existing stack, measures performance and integration impact, and isolates protocol-native dependencies requiring a coordinated later phase.</div>
+</div>
+<div class="card card-info">
+<p style="margin:0; font-size:0.9rem;"><strong>Current technical status:</strong> Pluto validates PQ verification precompiles, PQ-ONCHAINID for ERC-3643-compatible identity and PQ privacy capabilities. Production still requires workflow integration, HSM/KMS validation, governance, interoperability, assurance and performance testing, with migration state evidenced across keys, roles, contracts, providers, validators and residual dependencies.</p>
+</div>
+<h3 id="besu-post-quantum-pilot">Prove the Migration Path Before Production Change</h3>
+<p>A pilot starts with one tokenization, custody or privacy workflow and turns the assessment into an institution-specific migration path.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>What happens</th>
+<th>Institutional output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Scope</strong></td>
+<td>Map contracts, roles, custody approvals, privacy, HSM/KMS, interoperability and relevant QBFT or node dependencies.</td>
+<td>Dependency map, exposure assessment and lowest-friction protection boundary.</td>
+</tr>
+<tr>
+<td><strong>2. Build</strong></td>
+<td>Apply the relevant Besu product while preserving compatible contracts, records, APIs, providers and operations.</td>
+<td>Working testnet path separating controls protectable now from wrapper, upgrade or network phases.</td>
+</tr>
+<tr>
+<td><strong>3. Evaluate</strong></td>
+<td>Measure authorization, privacy, throughput, finality, audit, compliance, HSM/KMS, interoperability and operational effort.</td>
+<td>Measured results and phased production blueprint for integration, governance, assurance and remaining dependencies.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="card card-critical">
+<p style="margin:0; font-size:0.9rem;"><strong>Pilot outcome:</strong> a working path, measured integration and performance evidence, and a production roadmap before new contracts, validator settings, custody or interoperability dependencies increase migration debt. <a href="https://eternax.ai/pilot.html" rel="noopener noreferrer" target="_blank">Review the pilot framework.</a></p>
+</div>
+<h3>Continue the Technical Review</h3>
+<p class="secondary" style="font-size:0.88rem;">EternaX research: <a href="https://eternax.ai/post-quantum-cryptography-risk-framework-for-institutions.html" rel="noopener noreferrer" target="_blank">Institutional Risk Framework</a>, <a href="https://eternax.ai/post_quantum_exposure_map_institutional_crypto_tokenized_assets.html" rel="noopener noreferrer" target="_blank">Exposure Map 2026</a>, <a href="https://eternax.ai/post-quantum-signature-security-ranking-2026.html" rel="noopener noreferrer" target="_blank">Signature Ranking 2026</a> and <a href="https://eternax.ai/post-quantum-stablecoins-and-tokenization.html" rel="noopener noreferrer" target="_blank">tokenization architecture</a>.</p>
+</section>
+<!-- CTA -->
+<div class="cta-block">
+<h2>Evaluate a Live Besu Post-Quantum Protection Path</h2>
+<p>Start with the live dual-gate custody authorization demo, or select one tokenization, custody or privacy workflow for an institution-specific pilot. EternaX will map the dependencies, preserve compatible components, measure the protection path and produce a phased production blueprint.</p>
+<div style="display:flex; gap:0.8rem; justify-content:center; align-items:center; flex-wrap:wrap;">
+<a class="cta-btn" href="https://eternax.ai/pluto-testnet.html" rel="noopener noreferrer" target="_blank">Explore the Live Custody Demo</a>
+<a class="cta-btn" href="mailto:info@eternax.ai?subject=Besu%20Post-Quantum%20Pilot%20Scoping">Scope an Institutional Pilot</a>
+</div>
+</div>
+<hr/>
+<!-- FAQ -->
+<section class="section" id="faq">
+<div class="section-label">Frequently Asked Questions</div>
+<h2>Hyperledger Besu Post-Quantum Security FAQ</h2>
+<p class="secondary">Direct answers to high-intent institutional questions about Hyperledger Besu quantum risk, QBFT, Tessera, Paladin, institutional privacy architectures, DTCC tokenization, NIST post-quantum standards, crypto agility, migration performance, and EternaX's Besu-specific tokenization, custody, and privacy products.</p>
+<details class="faq-item" id="is-hyperledger-besu-quantum-safe">
+<summary class="faq-q">Is Hyperledger Besu quantum-safe?</summary>
+<div class="faq-a">No. Mainline Hyperledger Besu is not end-to-end quantum-safe. Common deployments use secp256k1 ECDSA for transactions, elliptic-curve keys for QBFT validator authentication, Curve25519 in legacy Tessera privacy, <code>ecRecover</code> in many smart contracts, and elliptic-curve node identity and key agreement in devp2p/RLPx. These public-key dependencies are vulnerable to Shor's algorithm. <a href="#besu-post-quantum-attack-surfaces">See the five attack surfaces.</a></div>
+</details>
+<details class="faq-item" id="why-is-besu-vulnerable-to-quantum-computers">
+<summary class="faq-q">Why is Hyperledger Besu vulnerable to quantum computers?</summary>
+<div class="faq-a">Quantum risk sits across several load-bearing Besu layers, not only wallets. A cryptographically relevant quantum computer could recover exposed elliptic-curve private keys, forge transactions or privileged actions, impersonate validators or nodes, and decrypt recorded Tessera-era ciphertext. A credible migration must therefore cover transactions, consensus, privacy, contracts, custody, recovery, and P2P trust. <a href="#besu-post-quantum-attack-surfaces">See the technical analysis.</a></div>
+</details>
+<details class="faq-item" id="which-institutions-use-hyperledger-besu">
+<summary class="faq-q">Which institutions and financial-market systems use Hyperledger Besu?</summary>
+<div class="faq-a">Publicly documented Besu use includes DTCC AppChain and its tokenization service, Swift's shared-ledger architecture, Citi's internal digital-asset platform, Fnality, JSCC, and LACChain or LACNet. Besu is also used as an execution component in systems such as Linea and Hedera, but component use is not the same as operating a Besu network. mBridge uses the purpose-built mBridge Ledger, and eNaira's official design paper identifies Hyperledger Fabric, so neither should be counted as a current Besu deployment. <a href="#institutional-besu-deployments">See the institutional exposure map.</a></div>
+</details>
+<details class="faq-item" id="is-dtcc-besu-tokenization-post-quantum-safe">
+<summary class="faq-q">Is DTCC's tokenization architecture across Besu, Canton and Stellar post-quantum safe?</summary>
+<div class="faq-a">It is not publicly documented as end-to-end post-quantum safe. DTCC's July 2026 production conversions used its private LFDT Besu network and Canton, and DTC-tokenized assets are planned for Stellar in the first half of 2027. Public materials do not establish a single post-quantum authority profile across DTC lifecycle instructions, ComposerX and CATF roles, participant wallets and custody, Besu transactions and QBFT, Canton topology, signing and encryption, Stellar account and validator authentication, recovery, and cross-network orchestration. This assessment does not assume undisclosed DTCC or participant controls. <a href="#dtcc-besu-tokenization-pq-risk">See the DTCC architecture analysis.</a></div>
+</details>
+<details class="faq-item" id="is-besu-qbft-consensus-quantum-safe">
+<summary class="faq-q">Is Besu QBFT consensus quantum-safe?</summary>
+<div class="faq-a">Not in common current configurations. Besu QBFT networks typically authenticate validator messages and commit seals with elliptic-curve signing keys. A future quantum adversary that recovered enough validator keys could impersonate validators, authorize malicious consensus messages, or prevent the honest network from reaching quorum. Migration requires changes to consensus signatures, seal encoding, signing infrastructure, governance, and coordinated network activation below the smart-contract layer. <a href="#besu-qbft-quantum-risk">See the QBFT analysis.</a></div>
+</details>
+<details class="faq-item" id="is-besu-tessera-privacy-quantum-safe">
+<summary class="faq-q">Is Besu privacy with Tessera quantum-safe?</summary>
+<div class="faq-a">No. Legacy Tessera deployments used Curve25519-based public-key cryptography to protect the symmetric keys used for private-payload encryption. Curve25519 is vulnerable to Shor's algorithm. If an adversary records ciphertext and the relevant key-agreement material, a future cryptographically relevant quantum computer could compromise confidentiality. Re-encryption can protect controlled retained data, but it cannot revoke ciphertext already copied by an adversary. <a href="#besu-post-quantum-privacy">See the dedicated privacy analysis.</a></div>
+</details>
+<details class="faq-item" id="which-privacy-technologies-major-besu-deployments-use">
+<summary class="faq-q">Which privacy technologies do major Hyperledger Besu deployments use today?</summary>
+<div class="faq-a">There is no single publicly documented privacy architecture across major Besu deployments. Legacy networks may retain Tessera-era components; Paladin is the emerging programmable-privacy framework for EVM deployments; and systems such as DTCC, Swift, Citi, Fnality, and JSCC disclose private or permissioned operation without publicly identifying a complete transaction-confidentiality engine. CATF is a compliance framework, not a privacy manager. mBridge, Canton, and eNaira use non-Besu architectures. Privacy technology and post-quantum status must therefore be verified deployment by deployment. <a href="#besu-post-quantum-privacy">See the institutional privacy map.</a></div>
+</details>
+<details class="faq-item" id="does-paladin-make-besu-post-quantum-safe">
+<summary class="faq-q">Does Paladin make Besu post-quantum safe?</summary>
+<div class="faq-a">No, not by itself. Paladin is a programmable-privacy framework whose public architecture still uses the base EVM ledger for order and finality. It does not replace Besu transaction authentication, QBFT where used, node identity, RLPx transport, or base-ledger finality. The public Zeto reference stack also includes Circom circuits, BabyJubjub keys, and Groth16 verifier contracts, which are classical rather than NIST post-quantum components. Public documentation does not describe an end-to-end ML-DSA, SLH-DSA, and ML-KEM profile across Pente, Noto, Zeto, secure channels, KMS, backups, and recovery. <a href="#besu-post-quantum-privacy">See the Paladin and privacy analysis.</a></div>
+</details>
+<details class="faq-item" id="does-besu-support-nist-post-quantum-algorithms">
+<summary class="faq-q">Does Besu support ML-DSA, SLH-DSA, or ML-KEM?</summary>
+<div class="faq-a">Not as a native end-to-end stack. Mainline Besu does not provide generally deployed ML-DSA, SLH-DSA, or ML-KEM protection across transactions, QBFT, privacy, contracts, and P2P transport. EIP-8051 proposes ML-DSA verification and EIP-8052 proposes Falcon verification, but both remain draft Ethereum proposals as of August 2026. Application-specific integrations or private forks can add post-quantum primitives, but that is not equivalent to an upstream full-stack migration. <a href="#besu-post-quantum-attack-surfaces">See the full-stack migration surfaces.</a></div>
+</details>
+<details class="faq-item" id="can-besu-simply-adopt-nist-pq-algorithms">
+<summary class="faq-q">Can Besu simply adopt NIST-approved post-quantum algorithms?</summary>
+<div class="faq-a">No. NIST FIPS 203, FIPS 204, and FIPS 205 define cryptographic primitives, not a complete Besu migration architecture. Institutions must separately address transaction authorization, QBFT validator authentication where used, privacy and historical ciphertext, contracts tied to <code>ecRecover</code>, node identity and RLPx transport, custody, HSM/KMS systems, privileged roles, recovery, and coordinated activation. Crypto agility is also required so the next algorithm, parameter, or provider change does not become another full-stack rebuild. <a href="#besu-post-quantum-migration">See what a credible Besu migration must deliver.</a></div>
+</details>
+<details class="faq-item" id="what-does-crypto-agility-mean-for-besu">
+<summary class="faq-q">What does crypto agility mean for a Hyperledger Besu deployment?</summary>
+<div class="faq-a">Crypto agility is the capability to change approved algorithms, parameters, policies, and cryptographic providers across a Besu deployment without rebuilding the asset or business workflow. It requires cryptographic inventory, abstraction, policy-driven selection, controlled hybrid operation, key and identity re-binding, downgrade prevention, and auditable lifecycle governance. Crypto agility is not the end product; it is the control that keeps a post-quantum-safe deployment adaptable as standards, risks, providers, and institutional requirements change. <a href="#besu-crypto-agility">See how crypto agility fits inside the EternaX solution.</a></div>
+</details>
+<details class="faq-item" id="can-existing-besu-smart-contracts-remain">
+<summary class="faq-q">Can existing Besu smart contracts remain in place during migration?</summary>
+<div class="faq-a">Some can, but every contract needs an authorization and upgrade review. Cryptographically neutral contracts may remain compatible if their controlling accounts and surrounding infrastructure are migrated safely. Contracts that directly use <code>ecRecover</code>, ECDSA permits, immutable classical-key authorities, non-upgradeable verifiers, or fixed address assumptions may need an upgrade, wrapper, compatibility layer, or replacement. <a href="#besu-erc-post-quantum-risk">See the smart-contract and ERC analysis.</a></div>
+</details>
+<details class="faq-item" id="is-erc-3643-quantum-safe-on-besu">
+<summary class="faq-q">Is ERC-3643 quantum-safe on Besu?</summary>
+<div class="faq-a">Not automatically. ERC-3643 does not mandate ECDSA, but conventional deployments remain materially exposed when investors, owners, agents, identity registries, trusted issuers, claim signers, compliance controllers, and upgrade authorities are controlled through elliptic-curve accounts. Remediation requires post-quantum-safe application authorization plus migration of the transaction, validator, node-authentication, custody, and recovery layers used by the deployment. <a href="#besu-erc-post-quantum-risk">See the ERC-3643 analysis.</a></div>
+</details>
+<details class="faq-item" id="besu-performance-under-post-quantum-signatures">
+<summary class="faq-q">What happens to Besu performance under post-quantum signatures?</summary>
+<div class="faq-a">There is no universal post-quantum Besu TPS result. Throughput depends on the algorithm, implementation, hardware, validator count, transaction mix, batching, block period, and network topology. In EternaX's illustrative 1,000 TPS scenario, ML-DSA-44 retains about 600 to 800 TPS, a 20% to 40% loss; SLH-DSA-128s retains about 30 to 250 TPS, a 75% to 97% loss; and SLH-DSA-192s retains about 15 to 150 TPS, an 85% to 98.5% loss. These are scenario calculations, not production Besu benchmarks. Deployment-specific testing is required before setting capacity or gas assumptions. <a href="#besu-pq-performance">See the performance model.</a></div>
+</details>
+<details class="faq-item" id="how-to-make-existing-besu-post-quantum-safe">
+<summary class="faq-q">How can an institution make critical workflows in an existing Besu deployment post-quantum safe?</summary>
+<div class="faq-a">Use a phased, workflow-first migration. First inventory the cryptographic dependencies; then select one high-value tokenization, custody, or privacy path; protect its authorization and confidentiality boundary; test HSM/KMS compatibility, performance, governance, and interoperability; and expand in controlled phases. Compatible Besu applications, records, providers, and APIs can remain where technically possible. Native transaction authentication, QBFT validator signatures, node identity, and RLPx remain separately governed wherever they still use quantum-vulnerable cryptography. <a href="#besu-post-quantum-migration">See the EternaX Besu migration approach.</a></div>
+</details>
+<details class="faq-item" id="how-eternax-makes-besu-post-quantum-safe">
+<summary class="faq-q">How does EternaX protect critical Hyperledger Besu workflows against post-quantum risk?</summary>
+<div class="faq-a">EternaX uses three Besu-specific products: Post-Quantum Tokenization for Besu protects supported issuer, identity, compliance, permit, vault, recovery, and administrative controls; Post-Quantum Custody Hardening for Besu protects custody and treasury approval paths without replacing the custodian; and Post-Quantum Privacy Manager for Besu protects private-payload encryption, privacy-group authority, recovery, and controlled disclosure. Crypto agility is embedded across all three. Native Besu transaction authentication, QBFT, node identity, and RLPx remain separately governed where they are still quantum-vulnerable. <a href="#how-eternax-addresses-besu-migration-gap">See the EternaX product architecture.</a></div>
+</details>
+<details class="faq-item" id="can-dtcc-begin-pq-migration-before-native-network-pq">
+<summary class="faq-q">Can DTCC begin post-quantum migration before Besu, Canton and Stellar support native post-quantum cryptography?</summary>
+<div class="faq-a">Yes. DTCC can begin by inventorying cryptographic dependencies and protecting DTC lifecycle instructions, ComposerX and CATF privileged roles, participant and custody approvals, recovery, and cross-network authorization. Native Besu transaction, QBFT and RLPx migration, Canton protocol and encryption migration, and Stellar classic-account and validator migration require broader network coordination. Application-level protection can therefore begin now, but it should not be represented as complete network-level migration. <a href="#dtcc-besu-tokenization-pq-risk">See what DTCC can upgrade now and what requires coordination.</a></div>
+</details>
+<details class="faq-item" id="why-eternax-is-different-from-wallet-only-pq-solutions">
+<summary class="faq-q">Why is EternaX different from wallet-only or smart-account post-quantum solutions?</summary>
+<div class="faq-a">Wallet-only and smart-account approaches protect one user-authorization path. They do not by themselves secure issuer and token-agent authority, investor identity, custody approvals, privacy-group governance, private-payload encryption, recovery, QBFT validators, node identity, or RLPx transport. EternaX combines Besu-specific tokenization, custody-hardening, and privacy products while preserving compatible applications, providers, and operating workflows. EternaX is not a custody provider, and residual protocol-native dependencies remain explicit. <a href="#besu-post-quantum-migration">Compare the EternaX protection layers.</a></div>
+</details>
+</section>
+</main>
+
+{% include footer.html %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconMenu = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
+
+  function closeMobileMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.add('hidden');
+    if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+    if (iconMenu) iconMenu.classList.remove('hidden');
+    if (iconClose) iconClose.classList.add('hidden');
+  }
+
+  function openMobileMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('hidden');
+    if (menuButton) menuButton.setAttribute('aria-expanded', 'true');
+    if (iconMenu) iconMenu.classList.add('hidden');
+    if (iconClose) iconClose.classList.remove('hidden');
+  }
+
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) openMobileMenu();
+      else closeMobileMenu();
+    });
+
+    mobileMenu.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => closeMobileMenu());
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) closeMobileMenu();
+    });
+  }
+});
+</script>
+</body>
+</html>
