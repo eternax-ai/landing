@@ -3054,6 +3054,94 @@ tbody tr:last-child td {
   justify-content: center;
 }
 
+/* Report action buttons: PDF download + connect CTAs */
+.report-page .pdf-download-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.report-page .hero-pdf-download-row,
+.report-page .cover .pdf-download-row {
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+}
+
+.report-page .connect-btn,
+.report-page .pdf-btn,
+.report-page .save-pdf-button {
+  align-items: center;
+  background: var(--navy);
+  border: 1px solid var(--navy);
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  gap: 0.5rem;
+  letter-spacing: 0.08em;
+  padding: 0.7rem 1.35rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.report-page .connect-btn:hover,
+.report-page .pdf-btn:hover,
+.report-page .save-pdf-button:hover {
+  background: #37457b;
+  border-color: #37457b;
+  color: #fff;
+}
+
+.report-page .connect-btn.primary {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+.report-page .connect-btn.primary:hover {
+  background: #37457b;
+  border-color: #37457b;
+}
+
+.report-page .connect-btn.secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.report-page .connect-btn.secondary:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+.report-page .connect-btn svg,
+.report-page .pdf-btn svg,
+.report-page .save-pdf-button svg {
+  flex-shrink: 0;
+  height: 14px;
+  opacity: 0.85;
+  width: 14px;
+}
+
+.report-page .pdf-btn {
+  margin-top: 1.5rem;
+}
+
+@media print {
+  .report-page .pdf-btn,
+  .report-page .save-pdf-button,
+  .report-page .pdf-download-row,
+  .report-page .connect-btn.no-print,
+  .report-page .no-print {
+    display: none !important;
+  }
+}
+
 @media (max-width: 900px) {
   .report-page .content-wide,
   .report-page .table-wrap.wide,
