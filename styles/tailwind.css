@@ -3139,7 +3139,68 @@ tbody tr:last-child td {
   margin-right: 0.5rem;
 }
 
-/* Navy filled stats (exposure / non-upgradeable) */
+/* Light institutional metric grid (framework / mpc / why traction) */
+.report-page .stat-grid,
+.report-page .traction-row {
+  background: var(--border-accent);
+  border: 1px solid var(--border-accent);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 2.25rem 0;
+}
+
+.report-page .stat-grid.stat-grid-4,
+.report-page .traction-row {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.report-page .stat-cell,
+.report-page .traction-stat {
+  background: var(--surface);
+  border-top: 3px solid var(--navy);
+  padding: 1.6rem 1.35rem 1.35rem;
+}
+
+.report-page .stat-cell.stat-alert {
+  border-top-color: var(--red);
+}
+
+.report-page .stat-cell .stat-number,
+.report-page .traction-stat .stat-number,
+.report-page .traction-stat .num {
+  color: var(--navy);
+  display: block;
+  font-family: var(--font-condensed), var(--font);
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.45rem;
+}
+
+.report-page .stat-cell .stat-label,
+.report-page .traction-stat .stat-label,
+.report-page .traction-stat .label {
+  color: var(--text-muted);
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+.report-page .stat-footnote {
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 0.63rem;
+  line-height: 1.5;
+  margin: -1.25rem 0 2rem;
+}
+
+/* Navy filled stats (exposure / non-upgradeable cover) */
 .report-page .stats-grid {
   display: grid;
   gap: 1rem;
@@ -3154,7 +3215,7 @@ tbody tr:last-child td {
   padding: 1.5rem 1.25rem;
 }
 
-.report-page .stat-number {
+.report-page .stat-card .stat-number {
   display: block;
   font-family: var(--font);
   font-size: 2rem;
@@ -3164,11 +3225,14 @@ tbody tr:last-child td {
   margin-bottom: 0.5rem;
 }
 
-.report-page .stat-label {
+.report-page .stat-card .stat-label {
   font-size: 0.78rem;
   font-weight: 400;
   line-height: 1.45;
   opacity: 0.85;
+  text-transform: none;
+  letter-spacing: normal;
+  font-family: var(--font);
 }
 
 .report-page .findings {
@@ -3632,6 +3696,11 @@ tbody tr:last-child td {
 
   .report-page .toc-grid {
     grid-template-columns: 1fr;
+  }
+
+  .report-page .stat-grid,
+  .report-page .traction-row {
+    grid-template-columns: 1fr 1fr;
   }
 
   .report-page .stats-grid {
