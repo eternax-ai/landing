@@ -956,31 +956,7 @@
       color: var(--accent);
       margin: 0 0 0.95rem;
     }
-    .faq-item { border-top: 1px solid rgba(42,49,72,0.2); }
-    .faq-item:last-child { border-bottom: 1px solid rgba(42,49,72,0.2); }
-    .faq-item summary {
-      list-style: none;
-      cursor: pointer;
-      position: relative;
-      padding: 1rem 2.1rem 1rem 0;
-      font-size: 0.94rem;
-      font-weight: 600;
-      line-height: 1.5;
-      color: var(--text-heading);
-    }
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after {
-      content: '+';
-      position: absolute;
-      right: 0.1rem;
-      top: 0.95rem;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .faq-item[open] summary::after { content: '−'; }
-    .faq-answer { padding: 0 0 1rem; }
+    /* FAQ chrome from .report-page; keep answer copy rhythm */
     .faq-answer p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 0; }
     .faq-anchor { text-decoration: none; }
 

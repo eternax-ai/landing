@@ -228,51 +228,6 @@ strong { font-weight: 600; }
   border-left: 3px solid var(--red);
 }
 
-/* STAT CALLOUTS */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-  margin: 2.5rem 0;
-}
-.stat-card {
-  background: var(--stat-bg);
-  color: var(--stat-text);
-  padding: 1.5rem 1.25rem;
-  border-radius: 6px;
-}
-.stat-number {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
-}
-.stat-label {
-  font-size: 0.78rem;
-  font-weight: 400;
-  line-height: 1.45;
-  opacity: 0.85;
-}
-
-/* KEY FINDINGS */
-.findings {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 2rem;
-  margin: 2.5rem 0;
-}
-.findings ol {
-  padding-left: 1.5rem;
-}
-.findings li {
-  margin-bottom: 0.75rem;
-  font-size: 0.92rem;
-  line-height: 1.6;
-}
-.findings li:last-child { margin-bottom: 0; }
-
 /* WHY NOW TABLE */
 .forcing-table {
   width: 100%;
@@ -344,24 +299,6 @@ tbody tr:last-child td { border-bottom: none; }
 .risk-1 { color: #2f7a68; font-weight: 600; }
 
 /* CALLOUT BLOCKS */
-.callout {
-  background: var(--surface);
-  border-left: 3px solid var(--red);
-  padding: 1.25rem 1.5rem;
-  margin: 1.5rem 0;
-  border-radius: 0 6px 6px 0;
-}
-.callout-title {
-  font-weight: 600;
-  font-size: 0.88rem;
-  margin-bottom: 0.4rem;
-  color: var(--brand);
-}
-.callout p { font-size: 0.85rem; margin-bottom: 0; color: var(--text-secondary); }
-
-.callout-green {
-  border-left-color: var(--green);
-}
 
 /* SECTION CLOSERS */
 .section-closer {
@@ -420,45 +357,6 @@ tbody tr:last-child td { border-bottom: none; }
   font-size: 0.85rem;
   color: var(--text-secondary);
   margin-bottom: 0;
-}
-
-/* FAQ */
-.faq-item {
-  border-bottom: 1px solid var(--border);
-}
-.faq-item:last-child { border-bottom: none; }
-.faq-item summary {
-  padding: 1.25rem 0;
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after {
-  content: '+';
-  font-size: 1.2rem;
-  font-weight: 300;
-  color: var(--text-muted);
-  transition: transform 0.2s;
-  flex-shrink: 0;
-  margin-left: 1rem;
-}
-.faq-item[open] summary::after {
-  content: '\2212';
-}
-.faq-item summary h3 {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--brand);
-  font-weight: 600;
-}
-.faq-item .faq-answer {
-  padding: 0 0 1.25rem;
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
 }
 
 /* GREEN ROW for EternaX in chain table */
@@ -628,48 +526,9 @@ tbody tr:last-child td { border-bottom: none; }
   .pull-quote { font-size: 1.05rem; padding: 1.25rem 1.25rem; }
 }
 
-/* TEAM + CONTACT + REPORT FOOTER (aligned with other reports) */
-.team-section,.connect-section{padding-left:2rem;padding-right:2rem}
-.team-inner,.connect-inner{max-width:860px;margin:0 auto}
-.team-section{
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  padding-top:3rem;padding-bottom:3rem;background:var(--bg)
-}
-.team-label{font-size:.68rem;font-weight:700;color:var(--text-muted);margin-bottom:.6rem}
-.team-section h2{font-family:'IBM Plex Serif',serif;font-size:1.3rem;color:var(--text);margin-bottom:1.5rem}
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.team-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.2rem 1rem}
-.team-name{font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:.1rem}
-.team-role{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#37457B;margin-bottom:.6rem}
-.team-bio{font-size:.78rem;color:var(--text-muted);line-height:1.55;margin-bottom:.7rem}
-.team-links{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--text-muted)}
-.team-links a{text-decoration:none}
-.team-links a:hover{color:var(--text)}
-.connect-section{
-  border-bottom:1px solid var(--border);
-  padding-top:3rem;padding-bottom:3rem;background:var(--bg)
-}
-.connect-label{font-size:.68rem;font-weight:700;color:var(--text-muted);margin-bottom:.6rem;text-align:center}
-.connect-section h2{font-family:'IBM Plex Serif',serif;font-size:1.3rem;color:var(--text);margin-bottom:.6rem;text-align:center}
-.connect-intro{font-size:.9rem;color:var(--text-muted);line-height:1.65;max-width:620px;margin:0 auto 2rem;text-align:center}
-.connect-contacts{display:flex;flex-direction:column;align-items:center;gap:.6rem;margin-bottom:2.5rem}
-.connect-person{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:center;font-size:.82rem}
-.connect-person .name{font-weight:600;color:var(--text);min-width:180px;text-align:right}
-.connect-person .role{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--text-muted);min-width:90px;text-align:left}
-.connect-person .email{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:#37457B;text-decoration:none}
-.connect-sep{color:var(--text-muted);margin:0 .25rem}
-
-.report-footer{background:var(--bg);border-top:1px solid var(--border);padding:3rem 0}
-.report-footer-inner{max-width:860px;margin:0 auto;padding:0 40px}
-.report-footer h3{font-size:.7rem;font-weight:600;color:var(--text-muted);margin-bottom:1rem;letter-spacing:.08em;text-transform:uppercase}
-.report-footer p{font-size:.75rem;color:var(--text-muted);line-height:1.72;margin-bottom:.8rem}
-
-@media(max-width:700px){
-  .team-section,.connect-section{padding-left:1rem;padding-right:1rem}
-  .team-grid{grid-template-columns:1fr}
-  .connect-person{flex-direction:column;gap:.2rem}
-  .connect-person .name,.connect-person .role{min-width:auto;text-align:center}
+  
+  
+  .connect-person .name,
 }
 
 /* RISK CHAIN EXPLAINER */
@@ -765,38 +624,6 @@ tbody tr:last-child td { border-bottom: none; }
 }
 
 /* TABLE OF CONTENTS */
-.toc {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1.5rem 2rem;
-  margin: 2rem 0 0;
-}
-.toc-title {
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-  margin-bottom: 0.75rem;
-}
-.toc-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 0.35rem 2rem;
-}
-.toc-grid a {
-  font-size: 0.84rem;
-  color: var(--brand);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.25rem 0;
-  display: block;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
-}
-.toc-grid a:hover { border-bottom-color: var(--brand); }
-.toc-grid a span { color: var(--text-muted); font-weight: 400; margin-right: 0.5rem; font-size: 0.78rem; }
 
 /* PILOTS TABLE */
 .pilot-card {
@@ -856,7 +683,7 @@ tbody tr:last-child td { border-bottom: none; }
   .hero-line { font-size: 1.1rem; }
   .stat-number { font-size: 1.5rem; }
   .advantage-grid { grid-template-columns: 1fr; }
-  .cover-title { font-size: 1.75rem; }
+  
 }
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr; }
