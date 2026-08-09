@@ -172,7 +172,7 @@
         <article class="blog-body">
             <h1>Post-Quantum Custody On-Chain: Signature-Agnostic Distributed Approval</h1>
 <p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 0.25em;">June 15, 2026</p>
-<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: Dariia Porechna, cryptographer, co-founder of EternaX</p>
+<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Authors: Dariia Porechna, cryptographer, co-founder of EternaX, and Dr. Chen Feng, Chief Scientist at EternaX</p>
 <p><img src="Hero_Image.png" alt="Post-quantum MPC custody with dual on-chain authorization gates"></p>
 <p>A protocol-level post-quantum upgrade does not solve custody. Even if a chain adds PQ signatures, the custodian still has to preserve its own control model: who can approve, how quorum is enforced, how recovery works, what auditors can inspect, and what happens when one operator or key is compromised.</p>
 <p>This distinction matters because MPC custody was never valuable only because it produced ECDSA signatures. It was valuable because it removed a single point of compromise from asset control while preserving an operational workflow institutions could use. Threshold ECDSA happened to be a convenient primitive that made this model compatible with existing chains, because it bundled distributed authorization and native signature production into one object.</p>
