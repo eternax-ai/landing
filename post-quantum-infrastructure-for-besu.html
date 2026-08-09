@@ -1,0 +1,1385 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post-Quantum Tokenization, Privacy, Custody &amp; PQ-Safe Ledger for Hyperledger Besu | EternaX</title>
+<meta name="description" content="PQ-safe tokenization, privacy, MPC custody, and consensus for existing and greenfield Besu networks. No replatforming. Crypto-agile. EO 14412 ready. DTCC, SWIFT, Fnality, Citi, Fireblocks, Taurus.">
+<meta name="author" content="EternaX Labs">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<meta name="language" content="English">
+<meta name="distribution" content="global">
+<meta name="rating" content="general">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#e2e2e2">
+<meta name="ai-content-declaration" content="human-authored">
+<meta name="keywords" content="Hyperledger Besu post-quantum, Besu quantum safe, post-quantum privacy Besu, PQ-safe Besu, Tessera deprecated replacement, Besu privacy quantum, institutional Besu security, QBFT post-quantum, EternaX PQ Privacy Overlay, EternaX PQ-Safe Ledger, quantum-safe settlement, post-quantum cryptography, PQ-native assets, post-quantum market infrastructure, quantum-resistant blockchain, crypto-agility Besu, EO 14412 Besu, SLH-DSA Besu, SPHINCS+ Besu, harvest now decrypt later Besu, DTCC Besu quantum, SWIFT Besu quantum, Paladin BN254 quantum vulnerable">
+<link rel="canonical" href="https://eternax.ai/post-quantum-infrastructure-for-besu.html">
+<link rel="icon" type="image/svg+xml" href="./assets/eternax-icon.svg">
+<link rel="icon" type="image/png" href="./assets/eternax-icon.png">
+<meta property="og:title" content="Post-Quantum Tokenization, Privacy, Custody &amp; PQ-Safe Ledger for Hyperledger Besu">
+<meta property="og:description" content="Tessera is deprecated. Paladin uses quantum-vulnerable BN254. EternaX makes Besu tokenization, privacy, MPC custody, and consensus post-quantum safe. DTCC, SWIFT, Citi, Fireblocks, Taurus.">
+<meta property="og:image" content="https://eternax.ai/assets/preview.png">
+<meta property="og:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eternax.ai/post-quantum-infrastructure-for-besu.html">
+<meta property="og:site_name" content="EternaX Labs">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-08-08">
+<meta property="article:publisher" content="https://www.linkedin.com/company/eternax-labs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@EternaXlabs">
+<meta name="twitter:creator" content="@EternaXlabs">
+<meta name="twitter:url" content="https://eternax.ai/post-quantum-infrastructure-for-besu.html">
+<meta name="twitter:title" content="Post-Quantum Tokenization, Privacy, Custody &amp; PQ-Safe Ledger for Hyperledger Besu">
+<meta name="twitter:description" content="Tessera is deprecated. Paladin uses quantum-vulnerable BN254. EternaX makes Besu tokenization, privacy, custody, and consensus post-quantum safe.">
+<meta name="twitter:image" content="https://eternax.ai/assets/preview.png">
+<meta name="twitter:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="stylesheet" href="./styles/tailwind.generated.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"EternaX Labs","alternateName":"eternaX","url":"https://eternax.ai","logo":"https://eternax.ai/assets/eternax-logo-pack/eternax-logo-full-color.svg","description":"Post-quantum market infrastructure for stablecoin issuance, RWA tokenization, and institutional settlement.","foundingDate":"2025","sameAs":["https://x.com/eternaXLabs","https://github.com/eternax-ai","https://www.youtube.com/@eternaXlabs","https://farcaster.xyz/eternax","https://www.linkedin.com/company/eternax-labs"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","url":"https://eternax.ai","name":"EternaX Labs","description":"Post-quantum market infrastructure for institutional settlement.","publisher":{"@type":"Organization","name":"EternaX Labs"},"inLanguage":"en"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://eternax.ai/"},{"@type":"ListItem","position":2,"name":"Solutions","item":"https://eternax.ai/#solutions"},{"@type":"ListItem","position":3,"name":"PQ Infrastructure for Besu","item":"https://eternax.ai/post-quantum-infrastructure-for-besu.html"}]}</script>
+<script type="application/ld+json" id="faq-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Hyperledger Besu post-quantum safe today?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A standard Hyperledger Besu deployment should not be described as post-quantum safe today. Besu does not natively use the NIST PQC standards FIPS 203 , FIPS 204 , or FIPS 205 for standard Ethereum transaction authorization or permissioned-network validator signing. Besu therefore requires an explicit post-quantum migration design for the cryptographic surfaces that an institution needs to protect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does EternaX make Hyperledger Besu post-quantum safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EternaX provides a layered post-quantum architecture for Hyperledger Besu. For existing networks, EternaX can add post-quantum privacy, tokenization authorization, and custody approval controls without replacing the live Besu network. For greenfield deployments, EternaX PQ-Safe Ledger extends the protection boundary into validator authentication, P2P communication, native transaction authorization, and privacy from genesis. Each deployment documents exactly which surfaces are protected and which residual dependencies remain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can EternaX make an existing Besu deployment post-quantum safe without replatforming?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, across defined protection layers. EternaX can add post-quantum privacy, tokenization authorization, and custody approval controls while preserving the existing Besu deployment and, where required, the existing custody provider. Unchanged native consensus, P2P identity, and outer transaction authorization remain outside that retrofit boundary. Full native-network protection is addressed separately through EternaX PQ-Safe Ledger for greenfield deployments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is post-quantum cryptography for Hyperledger Besu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Post-quantum cryptography (PQC) for Hyperledger Besu means protecting the public-key cryptographic functions that could be broken by a cryptographically relevant quantum computer. For an institutional Besu deployment, that can include transaction authorization, validator authentication, P2P identity, private-payload protection, tokenization controls, and external custody workflows. A credible migration defines the protection boundary layer by layer rather than calling the entire network PQ-safe after changing only one component."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which parts of a Hyperledger Besu network can have quantum exposure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The main surfaces are transaction and account authorization; QBFT or IBFT validator authentication; P2P node identity and secure transport; private-payload confidentiality and sender authentication; tokenization controls such as issuer, compliance, permit, and vault authority; and external MPC, HSM, wallet, bridge, oracle, or custody dependencies. EternaX maps these surfaces independently so institutions can see what is protected, what remains exposed, and what can be migrated without replatforming."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes EternaX different from other post-quantum approaches for Hyperledger Besu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The differentiation is architectural. EternaX separates retrofit protection for live Besu networks from full-stack greenfield protection, and treats privacy, tokenization, custody authorization, consensus, P2P, and transaction authorization as distinct security boundaries. The architecture is designed for crypto-agility and explicitly documents residual non-PQ dependencies instead of describing a partially hardened network as fully post-quantum safe. This allows institutions to phase migration without losing technical precision."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between EternaX PQ Privacy Overlay and EternaX PQ-Safe Ledger?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EternaX PQ Privacy Overlay is for existing live Besu networks that need post-quantum privacy without changing consensus. EternaX PQ-Safe Ledger is for greenfield deployments that want post-quantum controls across native network layers from genesis. The overlay deliberately leaves unchanged Besu consensus, P2P identity, and outer transaction authorization outside its boundary; PQ-Safe Ledger is designed to move the protection boundary down into those native layers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which post-quantum algorithms does EternaX use for Hyperledger Besu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EternaX's current Besu design uses ML-KEM-768 for post-quantum key establishment and AES-256-GCM for symmetric authenticated encryption, with SLH-DSA as the conservative signature path and ML-DSA-65 as an operational alternative where appropriate. ML-KEM is standardized in NIST FIPS 203 , ML-DSA in FIPS 204 , and SLH-DSA in FIPS 205 . The exact suite depends on the layer, deployment profile, performance target, and institutional policy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is crypto-agility according to NIST, and why does it matter for Besu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NIST CSWP 39upd1 defines crypto-agility as the capabilities needed to replace and adapt cryptographic algorithms across protocols, applications, software, hardware, firmware, and infrastructure while preserving security and ongoing operations. For Besu, this matters because PQ migration should not create a new permanent algorithm dependency. EternaX is designed to version and govern cryptographic suites so supported algorithms can be introduced, overlapped, retired, or retained for historical verification within the relevant protection boundary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is QBFT consensus in Hyperledger Besu post-quantum safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not by default. Besu QBFT is a proof-of-authority consensus protocol in which a super-majority of validators sign a block before it is inserted into the chain. The standard QBFT path is not natively based on NIST post-quantum digital-signature standards. See the official Besu QBFT documentation . EternaX treats validator authentication as a separate migration surface rather than assuming that application-layer PQC makes consensus post-quantum safe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is IBFT 2.0 in Hyperledger Besu post-quantum safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not by default. IBFT 2.0 is a Byzantine-fault-tolerant permissioned consensus mode whose standard validator authentication is not natively implemented with NIST-standardized post-quantum signatures. An institution using IBFT 2.0 should therefore treat validator authorization as its own PQ migration surface. Privacy, tokenization, or custody hardening above the consensus layer does not by itself make IBFT 2.0 post-quantum safe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is harvest-now-decrypt-later risk for Besu private transactions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Harvest-now-decrypt-later (HNDL) is the risk that an adversary records encrypted data today and decrypts it later if the public-key mechanism used to protect key establishment becomes breakable by a future quantum computer. For long-lived confidential financial data, historical confidentiality can therefore matter before a cryptographically relevant quantum computer exists. EternaX assesses HNDL exposure separately from future signature-forgery risk because the remediation paths are different."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happened to Tessera privacy in Hyperledger Besu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tessera privacy was deprecated and removed from the mainline Besu codebase. LF Decentralized Trust announced the sunset plan in 2024, and the Besu maintainers stated in February 2026 that Privacy/Tessera removal was complete, including the EEA and PRIV RPC methods. See the Tessera sunset announcement and the 2026 Besu maintainer update . EternaX treats historical Tessera data and migration compatibility as explicit assessment items."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Paladin or Pente a post-quantum replacement for Tessera?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paladin and Pente should not by themselves be treated as an end-to-end post-quantum migration for Besu. They address application-layer privacy and tokenization use cases, while native Besu consensus, P2P identity, transaction authorization, historical encrypted data, and external custody dependencies remain separate cryptographic surfaces. EternaX therefore evaluates the actual protection boundary component by component rather than assuming that replacing Tessera automatically makes the surrounding network post-quantum safe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the EternaX PQ Privacy Overlay for Hyperledger Besu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EternaX PQ Privacy Overlay is a retrofit privacy layer for existing Besu networks. It adds post-quantum key establishment, private-payload encryption, sender authentication, privacy-group governance, private execution, availability, recovery, and migration controls alongside the existing Besu node. The design preserves the existing consensus layer and explicitly documents that native consensus, P2P identity, and outer transaction authorization remain outside the overlay's protection boundary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the EternaX PQ Privacy Overlay require changing Besu consensus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The native overlay profile runs alongside an existing Besu deployment through standard JSON-RPC plus an on-chain anchor contract. Existing QBFT or IBFT 2.0 consensus can remain in place, and validators that do not participate in a privacy group do not need the privacy node. This is a post-quantum privacy upgrade, not a claim that unchanged Besu consensus becomes post-quantum safe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the EternaX PQ Privacy Overlay require a Hyperledger Besu binary fork?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No for the native overlay profile. It does not require modifying the Besu binary, creating a Besu client fork, or replacing the live validator set. Standard JSON-RPC and ordinary EVM transactions are used for integration. Optional deeper integrations can be evaluated separately when an institution requires additional validator-side enforcement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the PQ Privacy Overlay make QBFT, P2P, and native Besu transaction signing post-quantum safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. EternaX PQ Privacy Overlay protects the defined privacy and private-authorization boundary while leaving existing Besu consensus, native P2P identity, and outer transaction authorization unchanged. Those residual dependencies remain visible in the security documentation. EternaX PQ-Safe Ledger is the separate greenfield path designed to address those native network layers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can EternaX protect historical Tessera-encrypted transactions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EternaX PQ Privacy Overlay protects new traffic from the point at which the PQ path is enforced. Historical protection is a separate migration problem. Where archived private payloads are available and the institution controls the required keys and data, a re-encryption or rewrapping program can be evaluated. The resulting coverage should state exactly which historical range has been remediated and which range remains dependent on the original cryptography."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can EternaX make tokenization on a Besu network post-quantum safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EternaX can add post-quantum authorization controls to tokenization workflows running on Besu, including issuer authority, compliance claims, permit approvals, and vault governance. EternaX modules include PQ Vault, PQ-ONCHAINID, PQ-Permit, and PQ-4626. These modules protect the application-layer authorization paths they enforce; they do not automatically make unchanged Besu consensus or every external dependency post-quantum safe. See Post-Quantum Stablecoins & Tokenization ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can EternaX make MPC or HSM custody workflows for Besu post-quantum safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EternaX PQ Custody SDK is designed to add a post-quantum authorization gate around existing custody, MPC, and HSM workflows rather than replace the custody provider. The EternaX-enforced approval path becomes a separately defined protection boundary, while the underlying provider, wallet, transaction, and network dependencies are assessed independently. See Post-Quantum Custody & MPC Providers ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is EternaX a custody provider?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. EternaX is not a custody provider. EternaX PQ Custody SDK adds a post-quantum authorization layer around existing MPC, HSM, and institutional custody workflows. An institution can retain its custody provider and operating model while adding a separately enforced PQ approval boundary. Provider-specific integration requirements still depend on the custody interface and deployment. See Post-Quantum Custody & MPC Providers ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does EternaX post-quantum infrastructure for Besu require EternaX Chain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. EternaX Besu products are designed to deploy on Besu networks independently of EternaX Chain. An institution can evaluate PQ Privacy Overlay, tokenization modules, PQ Custody SDK, or PQ-Safe Ledger without migrating its application to EternaX Chain. EternaX Chain is a separate post-quantum settlement network for cross-institution use cases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the EternaX PQ-Safe Ledger for Hyperledger Besu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EternaX PQ-Safe Ledger is the greenfield Besu-compatible deployment path based on the open-source Besu codebase, with post-quantum controls designed into the network from genesis. The architecture targets PQ validator authentication, PQ P2P identity and communication, PQ transaction authorization, PQ verification precompiles, and integrated PQ privacy. It is intended for institutions that want the native network protection boundary to be post-quantum by design rather than retrofitted layer by layer later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does EternaX PQ-Safe Ledger preserve EVM and Solidity compatibility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The design objective is EVM and Solidity compatibility so that application business logic does not need to be rewritten solely because the underlying authorization and network cryptography changes. Integration testing is still required for wallets, SDKs, precompiles, signature assumptions, and any smart-contract logic that explicitly depends on Ethereum ECDSA semantics such as ecrecover . EternaX treats those dependencies as migration surfaces rather than hiding them behind a generic compatibility claim."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can EternaX rotate post-quantum algorithms without a Besu hard fork?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Within the EternaX-controlled protection boundary, that is the design goal. Algorithms and cryptographic suites are represented through governed, versioned components so supported schemes can be activated, overlapped, retired, or retained for historical verification without redesigning the whole application each time. Whether a specific change requires a network upgrade still depends on the layer being changed and the deployment profile. EternaX does not claim that an unchanged Besu client can rotate native consensus cryptography by configuration alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why not migrate Besu to one post-quantum algorithm and stop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because long-lived financial infrastructure has to survive future algorithm transitions as well as the first PQ migration. NIST crypto-agility guidance focuses on the ability to replace and adapt cryptography while preserving security and ongoing operations. EternaX therefore treats PQC plus governed algorithm agility, explicit versioning, transition modes, and historical verification as the stronger institutional design target rather than embedding one new algorithm as another permanent dependency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which institutional Besu deployments can EternaX assess for post-quantum exposure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Institutional initiatives named on this page include DTCC AppChain, SWIFT Shared Ledger, Fnality, Citi CIDAP, BIS Project Agora, mBridge, and eNaira. Their architectures and cryptographic boundaries are not assumed to be identical. EternaX assesses each deployment surface by surface across privacy, sender authentication, tokenization controls, validator or consensus authentication, P2P identity, and custody or key management, then identifies the exact residual exposure and the appropriate retrofit or greenfield remediation path."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Fireblocks, Taurus, BitGo, DFNS, Zodia Custody, or Anchorage Digital workflows be post-quantum hardened for Besu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EternaX PQ Custody SDK is designed to add a post-quantum approval boundary around existing institutional custody and MPC workflows, including integrations with providers such as Fireblocks, Taurus, BitGo, DFNS, Zodia Custody, and Anchorage Digital. The custodian remains in place. EternaX adds the PQ authorization layer on top, while exact integration requirements depend on the provider interfaces, signing workflow, and deployment. See Post-Quantum Custody & MPC Providers ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why should a bank designing a new permissioned tokenization ledger consider PQC and crypto-agility from day one?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A bank may use an internal permissioned ledger to maintain governance, privacy, data control, operational authority, and regulatory separation for tokenized deposits, securities, funds, or internal settlement workflows. If Besu or another EVM-compatible permissioned architecture is selected, designing post-quantum protection and crypto-agility at inception can avoid creating another cryptographic migration dependency later. EternaX PQ-Safe Ledger is the greenfield path for institutions that want that protection boundary from genesis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which NIST post-quantum cryptography standards are most relevant to Besu migration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The core finalized NIST PQC standards are FIPS 203 for ML-KEM key establishment, FIPS 204 for ML-DSA digital signatures, and FIPS 205 for SLH-DSA hash-based digital signatures. Which algorithm belongs at each Besu layer depends on the security function, performance target, implementation boundary, and applicable validation or policy requirements. EternaX maps the algorithm to the function rather than treating one PQ scheme as the answer to every layer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is ERC-3643 and why can a Besu ERC-3643 deployment still have quantum exposure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ERC-3643 is a permissioned token standard used for regulated tokenization on EVM-compatible networks. A Besu deployment can still depend on quantum-vulnerable authorization around issuer or administrator accounts, identity and claim signatures, wallet approvals, permit-style authorization, custody, or governance. Those paths must be assessed individually. EternaX targets these application-layer authorization surfaces through PQ-ONCHAINID, PQ-Permit, PQ-4626, and PQ Vault. See Post-Quantum Stablecoins & Tokenization ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Cryptographic Bill of Materials (CBOM) for a Hyperledger Besu deployment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A CBOM is a structured inventory of the cryptographic algorithms, key types, certificate chains, libraries, protocol dependencies, and implementation locations used across a system. For Besu, that means mapping cryptography across transaction authorization, consensus, P2P, privacy, tokenization, and custody. Executive Order 14412 directs CISA, in coordination with NIST, to release guidance on minimum CBOM elements. EternaX produces CBOM-ready documentation as part of the Besu readiness assessment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is SLH-DSA and why does EternaX use it for Besu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SLH-DSA is the stateless hash-based digital signature algorithm standardized in NIST FIPS 205 . Its security foundation is hash-based rather than lattice-based. EternaX uses SLH-DSA as a conservative root-signature path where that security and performance trade-off is appropriate, while retaining crypto-agility for other approved schemes and future transitions. EternaX does not treat one signature algorithm as universally optimal for every Besu workload."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Executive Order 14412 affect Hyperledger Besu infrastructure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Executive Order 14412 , signed June 22, 2026, directs OMB guidance requiring federal agencies to transition High Value Assets and high-impact systems, excluding National Security Systems, to PQC for key establishment by December 31, 2030 and digital signatures by December 31, 2031. Besu used inside an affected federal system therefore needs a mapped migration path across the cryptographic functions actually in scope. The order also directs support for critical-infrastructure PQC planning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Executive Order 14412 affect federal contractors using Hyperledger Besu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Executive Order 14412 directs the FAR Council to publish a proposed rule requiring covered contractors to comply by December 31, 2030 with NIST FIPS, including applicable FIPS incorporating PQC-compliant algorithms. A contractor should not assume that every Besu deployment is automatically covered; applicability depends on the proposed and final FAR rule, contract scope, system boundary, and agency requirements. EternaX readiness work can map the technical cryptographic boundary that would need to be assessed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do the EO 14412 deadlines automatically apply to every bank or private Besu network?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. EO 14412 does not automatically make every private bank, market infrastructure, or private Besu network subject to the federal 2030 and 2031 HVA deadlines. Private-sector applicability can instead arise through federal procurement, covered-contractor rules, contracts, sector regulation, counterparties, critical-infrastructure guidance, or internal risk policy. EternaX therefore separates technical PQ readiness from the institution's legal determination of scope."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does adding post-quantum cryptography automatically make a Besu deployment compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. PQC is a technical control, not a complete compliance determination. Compliance can depend on system scope, approved algorithms and modules, implementation assurance, key management, cryptographic inventory, transition planning, procurement obligations, testing, audit evidence, and the exact legal or contractual regime. EternaX can define and enforce a technical PQ protection boundary and produce readiness evidence, while the institution remains responsible for legal, regulatory, and certification determinations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should an institution inventory before migrating a Besu network to post-quantum cryptography?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At minimum: Besu and client versions; consensus mode; validator and transaction-signing keys; P2P identity and transport; Tessera or Paladin dependencies; privacy groups; encrypted historical data; token contracts and privileged roles; ecrecover and permit assumptions; wallets, bridges, oracles, HSMs, MPC and custody providers; cryptographic libraries; data-retention horizons; and every route that could bypass the intended PQ authorization path. EternaX turns that inventory into an explicit protection boundary and phased remediation plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the EternaX Besu post-quantum readiness assessment deliver?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The assessment maps the Besu cryptographic attack surface and the institution's actual dependencies, then defines a deployable protection boundary. Deliverables can include privacy and HNDL exposure mapping, consensus and P2P dependency analysis, custody and tokenization review, cryptographic inventory or CBOM inputs, compatibility validation, residual-risk documentation, target PQ suites, and a phased integration and evidence roadmap. The objective is a technically defensible migration plan, not a generic PQC checklist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should an institution choose EternaX PQ Privacy Overlay or EternaX PQ-Safe Ledger?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a live Besu network where changing consensus or the client is not practical, start with PQ Privacy Overlay and separately harden tokenization and custody authorization as required. For a new permissioned network where the institution controls genesis and wants the native network protection boundary to be post-quantum from day one, evaluate PQ-Safe Ledger. The decision is therefore retrofit compatibility versus greenfield full-stack control, not simply one product being stronger than the other."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does an EternaX Besu post-quantum pilot take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The EternaX readiness assessment and initial pilot profile is designed as a 90-day engagement. It can include exposure mapping, compatibility validation, deployment of a bounded privacy group or tokenization module under controlled conditions, and production of the phased integration roadmap. The exact timeline depends on the institution's Besu configuration, privacy-group complexity, tokenization contracts, custody integrations, security review, and regulatory requirements."
+      }
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--navy:#283771;--navy-h:#1e2c5e;--bg:#F7F4F4;--surface:#FFFFFF;--border:#E0DEDE;
+--text:#1a1a1a;--text-s:#555;--text-m:#888;--green:#2F5E52;--green-bg:rgba(47,94,82,.06);
+--red:#8D2E2E;--red-bg:rgba(141,46,46,.06);--amber:#946B2D;--amber-bg:rgba(148,107,45,.06);
+--r:4px;--max:960px;
+--sans:'IBM Plex Sans',system-ui,sans-serif;--cond:'IBM Plex Sans Condensed','IBM Plex Sans',sans-serif;--mono:'IBM Plex Mono',monospace;
+--fg:#283771;--fg-70:rgba(40,55,113,.7);--fg-80:rgba(40,55,113,.8);--pill-bg:#283771;--pill-fg:#ffffff;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--navy);text-decoration:none}a:hover{text-decoration:underline}
+.glass-effect{background:#ffffff;border:1px solid #e0dede;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.link-muted{color:var(--fg-70);transition:color .15s}
+.link-muted:hover{color:var(--fg)}
+.btn-primary{background-color:var(--fg);transition:background-color .15s}
+.btn-primary:hover{background-color:#1e2d5a}
+.nav-products-dropdown{opacity:0;visibility:hidden;transition:opacity .15s,visibility .15s}
+.group:hover .nav-products-dropdown{opacity:1;visibility:visible}
+.skip{position:absolute;top:-40px;left:0;background:var(--navy);color:#fff;padding:8px 16px;z-index:100;font-size:14px}.skip:focus{top:0}
+.c{max-width:var(--max);margin:0 auto;padding:0 24px}
+@media(max-width:640px){.c{padding:0 16px}}
+.legal-note{max-width:var(--max);margin:0 auto;padding:0 24px 28px;font-size:11px;color:var(--text-m);line-height:1.6}
+
+/* HERO */
+.hero{padding:calc(72px + 48px) 0 56px;border-bottom:1px solid var(--border)}
+.hero-g{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:768px){.hero-g{grid-template-columns:1fr;gap:28px}}
+.hero-lab{font-family:var(--cond);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-m);margin-bottom:16px}
+.hero h1{font-family:var(--cond);font-size:clamp(26px,3.5vw,38px);font-weight:700;line-height:1.15;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px}
+.hero-sub{font-size:15px;color:var(--text-s);margin-bottom:28px;line-height:1.55}
+.hero-ctas{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:24px}
+.btn{display:inline-block;padding:11px 24px;font-size:13px;font-weight:600;border-radius:var(--r);transition:all .15s;font-family:var(--sans)}
+.btn-n{background:var(--navy);color:#fff}.btn-n:hover{background:var(--navy-h);text-decoration:none}
+.btn-g{color:var(--text-s);font-weight:500;padding:11px 0;font-size:12px}.btn-g:hover{color:var(--text)}
+.trust{display:flex;gap:12px;flex-wrap:wrap}
+.trust span{font-family:var(--cond);font-size:11px;font-weight:500;letter-spacing:.03em;color:var(--text-m);padding:5px 10px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface)}
+.hero-panel{display:flex;flex-direction:column;gap:16px}
+.hp{padding:20px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);position:relative}
+.hp::before{content:'';position:absolute;top:8px;right:8px;width:6px;height:6px;border-radius:50%}
+.hp.ov::before{background:var(--green)}.hp.na::before{background:var(--navy)}
+.hp.tk::before{background:var(--amber)}.hp.cu::before{background:#555}
+.hp strong{font-family:var(--cond);display:block;font-size:14px;font-weight:600;margin-bottom:4px;color:var(--navy)}
+.hp span{font-size:13px;color:var(--text-s);line-height:1.5}
+
+/* SECTIONS */
+.sec{padding:56px 0;border-bottom:1px solid var(--border)}
+.sec-lab{font-family:var(--cond);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-m);margin-bottom:10px}
+.sec h2{font-family:var(--cond);font-size:clamp(20px,2.8vw,28px);font-weight:700;line-height:1.2;letter-spacing:-.01em;color:var(--navy);margin-bottom:8px;max-width:680px}
+.sec h2+p{color:var(--text-s);font-size:14px;margin-bottom:24px;max-width:640px;line-height:1.6}
+.sec h3{font-size:16px;font-weight:600;margin-bottom:8px}
+
+/* TABLES */
+.tw{overflow-x:auto;margin:20px 0}
+table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}
+thead{border-bottom:2px solid var(--navy)}
+th{text-align:left;padding:8px 12px;font-family:var(--cond);font-weight:600;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-m);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+.ex{color:var(--red);font-weight:500}.cov{color:var(--green);font-weight:500}
+.tag{display:inline-block;font-family:var(--cond);font-size:10px;font-weight:600;letter-spacing:.03em;padding:2px 7px;border-radius:2px}
+.tg{background:var(--green-bg);color:var(--green)}.ta{background:var(--amber-bg);color:var(--amber)}
+.tn{font-size:12px;color:var(--text-m);margin-top:10px;line-height:1.6}
+.ne{font-size:13px;color:var(--text-s);margin-top:16px;line-height:1.6;padding:14px 16px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface)}
+.ne strong{color:var(--text);font-weight:600}
+
+/* TRACKS */
+.track{padding:44px 0}
+.track+.track{border-top:1px solid var(--border)}
+.th{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;flex-wrap:wrap}
+.tname{font-family:var(--cond);font-size:clamp(18px,2.2vw,24px);font-weight:700;color:var(--navy)}
+.tfor{font-family:var(--cond);font-size:11px;font-weight:500;color:var(--text-m);padding:3px 8px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface)}
+.tprom{font-size:15px;color:var(--text-s);margin-bottom:24px;max-width:640px}
+
+/* Arch diagram */
+.arch{display:flex;flex-direction:column;gap:0;margin:24px 0;max-width:520px}
+.ab{padding:14px 18px;border:1px solid var(--border);font-size:12px;line-height:1.5;background:var(--surface)}
+.ab:first-child{border-radius:var(--r) var(--r) 0 0}.ab:last-child{border-radius:0 0 var(--r) var(--r)}
+.ab+.ab{border-top:none}
+.ab.ex-b{background:var(--navy);color:#fff;border-color:var(--navy)}.ab.ex-b strong{color:#fff}
+.al{font-family:var(--cond);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-m);margin-bottom:3px}
+.ab.ex-b .al{color:rgba(255,255,255,.55)}
+.ac{text-align:center;font-size:10px;color:var(--text-m);padding:3px 0}
+
+/* Stays */
+.stays{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0}
+.stays span{font-size:11px;padding:4px 8px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);color:var(--text-s)}
+
+/* Note boxes (small corner dot, no thick accent bar) */
+.nb{margin:24px 0;padding:14px 18px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);font-size:13px;line-height:1.6;position:relative}
+.nb::before{content:'';position:absolute;top:8px;left:8px;width:6px;height:6px;border-radius:50%}
+.nb.ca::before{background:var(--amber)}.nb.in::before{background:var(--navy)}
+.nb strong{display:block;font-family:var(--cond);font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-m);margin-bottom:4px;padding-left:16px}
+.nb p{padding-left:16px}
+
+/* Profiles toggle */
+.pt{font-size:12px;font-weight:500;color:var(--navy);cursor:pointer;background:none;border:none;font-family:var(--sans);padding:0;margin:16px 0 0}
+.pt:hover{text-decoration:underline}
+.pc{display:none;margin-top:12px}.pc.open{display:block}
+
+/* CRYPTO section (navy bg) */
+.crypto{background:var(--navy);color:rgba(255,255,255,.88);padding:64px 0}
+.crypto .sec-lab{color:rgba(255,255,255,.4)}
+.crypto h2{color:#fff}
+.crypto h2+p{color:rgba(255,255,255,.55)}
+.crypto table{color:rgba(255,255,255,.88)}
+.crypto thead{border-bottom-color:rgba(255,255,255,.15)}
+.crypto th{background:var(--navy);color:#fff}
+.crypto td{border-bottom-color:rgba(255,255,255,.08)}
+.crypto tbody td{color:rgba(255,255,255,.88)}
+.crypto tbody td:first-child,
+.crypto tbody td:first-child strong{color:#fff}
+.crypto tbody tr:hover{background:transparent}
+.crypto .ex{color:#e88}.crypto .cov{color:#8d8}
+.crypto .tn{color:rgba(255,255,255,.4)}
+.cc{margin-top:20px;font-size:14px;color:rgba(255,255,255,.75);max-width:640px;line-height:1.6}
+
+/* AUDIENCE */
+.ag{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin:28px 0}
+@media(max-width:768px){.ag{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.ag{grid-template-columns:1fr}}
+.ac-c{padding:24px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);position:relative}
+.ac-c::before{content:'';position:absolute;top:8px;right:8px;width:5px;height:5px;border-radius:50%;background:var(--navy)}
+.ac-c h3{font-family:var(--cond);font-size:14px;font-weight:600;margin-bottom:6px;line-height:1.35;color:var(--navy)}
+.ac-c p{font-size:12px;color:var(--text-s);line-height:1.55;margin-bottom:10px}
+.an{font-family:var(--cond);font-size:11px;color:var(--text-m);line-height:1.4}
+
+/* INSTITUTION PILLS */
+.inst-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;align-items:center}
+.inst-pill{display:inline-flex;align-items:center;min-height:26px;padding:4px 10px;border:1px solid rgba(40,55,113,.22);border-radius:999px;background:rgba(40,55,113,.045);color:var(--navy);font-family:var(--cond);font-size:11px;font-weight:600;line-height:1.2;letter-spacing:.015em;white-space:nowrap}
+.inst-pills-compact{gap:6px;margin-top:9px}
+.inst-pills-compact .inst-pill{min-height:24px;padding:3px 9px;font-size:10.5px}
+.inst-context{display:block;margin-top:9px;font-family:var(--cond);font-size:11px;color:var(--text-m);line-height:1.45}
+.ne .inst-pills{margin-top:12px}
+@media(max-width:480px){.inst-pill{font-size:10.5px;padding:4px 9px}}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:28px 0}
+@media(max-width:640px){.steps{grid-template-columns:1fr}}
+.step{padding:20px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface)}
+.sn{font-family:var(--cond);font-size:28px;font-weight:700;color:var(--border);line-height:1;margin-bottom:10px}
+.step h3{font-family:var(--cond);font-size:15px;font-weight:600;margin-bottom:6px}
+.step p{font-size:12px;color:var(--text-s);line-height:1.55}
+
+/* RESEARCH */
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+@media(max-width:640px){.rg{grid-template-columns:1fr}}
+.rc{padding:20px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);display:block;transition:border-color .15s}
+.rc:hover{border-color:var(--text-m);text-decoration:none}
+.rl{font-family:var(--cond);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-m);margin-bottom:4px}
+.rt{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.3}
+.rd{font-size:12px;color:var(--text-s);line-height:1.45}
+
+/* PILOT CTA */
+.pilot{background:var(--navy);color:#fff;padding:56px 0;text-align:center}
+.pilot h2{color:#fff;font-family:var(--cond);font-size:clamp(18px,2.5vw,26px);margin-bottom:10px;max-width:100%}
+.pilot p{color:rgba(255,255,255,.55);font-size:13px;margin-bottom:24px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.55}
+.btn-w{background:#fff;color:var(--navy);font-weight:600}.btn-w:hover{background:#f0f0f0;text-decoration:none}
+
+/* FAQ */
+.sec h3.fg{font-family:var(--cond);font-size:13px;font-weight:600;color:var(--text-m);margin:28px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border);letter-spacing:0;max-width:none}
+.fi{border-bottom:1px solid var(--border)}
+.fq{display:block;width:100%;text-align:left;background:none;border:none;font-family:var(--sans);font-size:14px;font-weight:600;padding:14px 32px 14px 0;cursor:pointer;color:var(--text);line-height:1.4;position:relative}
+.fq::after{content:'+';position:absolute;right:0;top:14px;font-size:16px;font-weight:300;color:var(--text-m)}
+.fi.open .fq::after{content:'\2212'}
+.fa{display:none;padding:0 0 16px;font-size:13px;color:var(--text-s);line-height:1.65;max-width:700px}
+.fi.open .fa{display:block}
+</style>
+</head>
+<body class="font-sans">
+<a href="#main" class="skip">Skip to main content</a>
+{% include navbar.html %}
+<main>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="main">
+<div class="c">
+<div class="hero-g">
+  <div>
+    <div class="hero-lab">Post-quantum infrastructure for Hyperledger&reg; Besu</div>
+    <h1>Make your Besu network post-quantum safe.</h1>
+    <p class="hero-sub">PQ-safe tokenization, privacy, custody, and consensus for existing and greenfield Besu networks. No replatforming.</p>
+    <div class="hero-ctas">
+      <a href="mailto:info@eternax.ai?subject=Besu%20PQ%20Readiness%20Assessment" class="btn btn-n">Request a Besu readiness assessment</a>
+      <a href="https://eternax.ai/besu-quantum-risk.html" class="btn btn-g">Read: Is Besu Quantum-Safe? &rarr;</a>
+    </div>
+    <div class="trust">
+      <span>NIST FIPS 205</span>
+      <span>EO 14412 aligned</span>
+      <span>Crypto-agile</span>
+    </div>
+  </div>
+  <div class="hero-panel">
+    <div class="hp tk">
+      <strong>Make Besu tokenization PQ-safe</strong>
+      <span>PQ-safe issuer authority, compliance claims, permits, and vault governance for ERC-3643 / ERC-4626 on Besu.</span>
+    </div>
+    <div class="hp ov">
+      <strong>Make Besu privacy PQ-safe</strong>
+      <span>PQ Privacy Overlay. No consensus change. Deploys alongside existing Besu.</span>
+    </div>
+    <div class="hp cu">
+      <strong>Make Besu MPC custody PQ-safe</strong>
+      <span>PQ Custody SDK. Wraps Fireblocks, Taurus, BitGo, DFNS without replacing them.</span>
+    </div>
+    <div class="hp na">
+      <strong>Deploy PQ-safe Besu from genesis</strong>
+      <span>PQ-Safe Ledger. PQ-safe QBFT, P2P, transaction signing, and privacy from day one.</span>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ═══ EXPOSURE TABLE ═══ -->
+<section class="sec">
+<div class="c">
+  <div class="sec-lab">Institutional exposure</div>
+  <h2>No other provider addresses Besu's post-quantum exposure.</h2>
+  <p>Tessera is deprecated. Its successor Paladin uses quantum-vulnerable BN254. No blockchain infrastructure vendor other than EternaX addresses Besu's post-quantum exposure across any of these surfaces.</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th>Migration surface</th><th>Current dependency</th><th>Quantum exposure</th><th>EternaX product</th><th>Coverage</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Private payload confidentiality</strong></td><td>Tessera (deprecated) / Paladin BN254</td><td class="ex">All historical private txns subject to HNDL</td><td>PQ Privacy Overlay</td><td class="cov">ML-KEM-768 + AES-256-GCM</td></tr>
+      <tr><td><strong>Private sender authentication</strong></td><td>ECDSA / EdDSA</td><td class="ex">Forgery under Shor's algorithm</td><td>PQ Privacy Overlay</td><td class="cov">SLH-DSA / ML-DSA-65</td></tr>
+      <tr><td><strong>Tokenization controls</strong></td><td>ECDSA admin keys, ecrecover claims, ERC-2612 permits</td><td class="ex">Issuer forgery, compliance bypass, unauthorized mint/burn</td><td><a href="https://eternax.ai/post-quantum-stablecoins-and-tokenization.html">PQ Vault, PQ-ONCHAINID, PQ-Permit, PQ-4626</a></td><td class="cov">SLH-DSA application-layer enforcement</td></tr>
+      <tr><td><strong>Consensus &amp; validator signatures</strong></td><td>QBFT/IBFT ECDSA/BLS</td><td class="ex">Validator impersonation, block forgery</td><td>PQ-Safe Ledger</td><td class="cov">QBFT with SLH-DSA</td></tr>
+      <tr><td><strong>P2P and node communication</strong></td><td>devp2p classical keys</td><td class="ex">Node impersonation, network partition</td><td>PQ-Safe Ledger</td><td class="cov">PQ P2P</td></tr>
+      <tr><td><strong>Custody and key management</strong></td><td>MPC/HSM ECDSA threshold</td><td class="ex">Key derivation under Shor's algorithm</td><td><a href="https://eternax.ai/custody-mpc-providers.html">PQ Custody SDK</a></td><td class="cov">Dual-gate construction</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tn">PQ Privacy Overlay covers privacy (payload confidentiality and sender authentication) without consensus change. Tokenization modules cover the application layer (issuer authority, compliance, permits, vault governance). PQ-Safe Ledger covers privacy, consensus, and P2P end-to-end. PQ Custody SDK covers key management. All deploy on the same Besu network.</p>
+  <div class="ne"><strong>Institutional Besu deployments affected</strong>
+    <div class="inst-pills" aria-label="Institutional Besu deployments">
+      <span class="inst-pill">DTCC AppChain</span>
+      <span class="inst-pill">SWIFT Shared Ledger</span>
+      <span class="inst-pill">Fnality</span>
+      <span class="inst-pill">Citi CIDAP</span>
+      <span class="inst-pill">BIS Agora</span>
+      <span class="inst-pill">mBridge</span>
+      <span class="inst-pill">eNaira</span>
+    </div>
+    <span class="inst-context">Plus permissioned Besu networks across financial services, central banking, and market infrastructure.</span>
+  </div>
+
+  <!-- Stack diagram: which product covers which surfaces -->
+  <div style="margin-top:36px">
+    <h3 style="font-family:var(--cond);font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-m);margin-bottom:16px">Product coverage across migration surfaces</h3>
+    <svg viewBox="0 0 780 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:780px;height:auto;font-family:'IBM Plex Sans',system-ui,sans-serif" role="img" aria-label="Diagram showing which EternaX product covers which Besu migration surface">
+
+      <rect width="780" height="440" fill="#F7F4F4" rx="4"/>
+
+      <!-- Column headers -->
+      <text x="310" y="28" font-family="'IBM Plex Sans Condensed','IBM Plex Sans',sans-serif" font-size="10" font-weight="600" fill="#888" letter-spacing="0.08em" text-anchor="middle">MIGRATION SURFACE</text>
+      <text x="580" y="28" font-family="'IBM Plex Sans Condensed','IBM Plex Sans',sans-serif" font-size="10" font-weight="600" fill="#888" letter-spacing="0.08em" text-anchor="middle">CURRENT STATUS</text>
+      <text x="720" y="28" font-family="'IBM Plex Sans Condensed','IBM Plex Sans',sans-serif" font-size="10" font-weight="600" fill="#888" letter-spacing="0.08em" text-anchor="middle">ETERNAX</text>
+
+      <!-- Layer 1: Private payload confidentiality -->
+      <rect x="140" y="42" width="380" height="42" rx="3" fill="#FFFFFF" stroke="#E0DEDE"/>
+      <text x="156" y="67" font-size="12" font-weight="600" fill="#1a1a1a">Private payload confidentiality</text>
+      <rect x="540" y="42" width="100" height="42" rx="3" fill="rgba(141,46,46,0.06)" stroke="#E0DEDE"/>
+      <text x="590" y="67" font-size="10" font-weight="500" fill="#8D2E2E" text-anchor="middle">HNDL exposed</text>
+      <rect x="660" y="42" width="100" height="42" rx="3" fill="rgba(47,94,82,0.06)" stroke="#E0DEDE"/>
+      <text x="710" y="67" font-size="10" font-weight="600" fill="#2F5E52" text-anchor="middle">Covered</text>
+
+      <!-- Layer 2: Private sender authentication -->
+      <rect x="140" y="88" width="380" height="42" rx="3" fill="#FFFFFF" stroke="#E0DEDE"/>
+      <text x="156" y="113" font-size="12" font-weight="600" fill="#1a1a1a">Private sender authentication</text>
+      <rect x="540" y="88" width="100" height="42" rx="3" fill="rgba(141,46,46,0.06)" stroke="#E0DEDE"/>
+      <text x="590" y="113" font-size="10" font-weight="500" fill="#8D2E2E" text-anchor="middle">ECDSA/EdDSA</text>
+      <rect x="660" y="88" width="100" height="42" rx="3" fill="rgba(47,94,82,0.06)" stroke="#E0DEDE"/>
+      <text x="710" y="113" font-size="10" font-weight="600" fill="#2F5E52" text-anchor="middle">Covered</text>
+
+      <!-- Bracket: PQ Privacy Overlay (surfaces 1-2) -->
+      <line x1="130" y1="50" x2="130" y2="122" stroke="#2F5E52" stroke-width="2"/>
+      <line x1="130" y1="50" x2="136" y2="50" stroke="#2F5E52" stroke-width="2"/>
+      <line x1="130" y1="122" x2="136" y2="122" stroke="#2F5E52" stroke-width="2"/>
+      <text x="125" y="90" font-family="'IBM Plex Sans Condensed','IBM Plex Sans',sans-serif" font-size="10" font-weight="600" fill="#2F5E52" text-anchor="end" transform="rotate(-90,125,90)">PQ Privacy Overlay</text>
+
+      <!-- Separator: no consensus change above -->
+      <line x1="140" y1="140" x2="760" y2="140" stroke="#E0DEDE" stroke-width="1" stroke-dasharray="4,4"/>
+      <text x="450" y="152" font-size="9" fill="#888" text-anchor="middle">No consensus change above this line</text>
+
+      <!-- Layer 3: Tokenization controls -->
+      <rect x="140" y="162" width="380" height="42" rx="3" fill="#FFFFFF" stroke="#E0DEDE"/>
+      <text x="156" y="187" font-size="12" font-weight="600" fill="#1a1a1a">Tokenization controls</text>
+      <text x="156" y="199" font-size="9" fill="#888">Issuer authority, compliance claims, permits, vault governance</text>
+      <rect x="540" y="162" width="100" height="42" rx="3" fill="rgba(141,46,46,0.06)" stroke="#E0DEDE"/>
+      <text x="590" y="187" font-size="10" font-weight="500" fill="#8D2E2E" text-anchor="middle">ECDSA admin</text>
+      <rect x="660" y="162" width="100" height="42" rx="3" fill="rgba(47,94,82,0.06)" stroke="#E0DEDE"/>
+      <text x="710" y="187" font-size="10" font-weight="600" fill="#2F5E52" text-anchor="middle">Covered</text>
+
+      <!-- Bracket: Tokenization modules -->
+      <line x1="130" y1="168" x2="130" y2="198" stroke="#946B2D" stroke-width="2"/>
+      <line x1="130" y1="168" x2="136" y2="168" stroke="#946B2D" stroke-width="2"/>
+      <line x1="130" y1="198" x2="136" y2="198" stroke="#946B2D" stroke-width="2"/>
+      <text x="125" y="190" font-family="'IBM Plex Sans Condensed','IBM Plex Sans',sans-serif" font-size="9" font-weight="600" fill="#946B2D" text-anchor="end" transform="rotate(-90,125,190)">PQ Tokenization</text>
+
+      <!-- Separator -->
+      <line x1="140" y1="214" x2="760" y2="214" stroke="#E0DEDE" stroke-width="1" stroke-dasharray="4,4"/>
+
+      <!-- Layer 4: Consensus & validator signatures -->
+      <rect x="140" y="224" width="380" height="42" rx="3" fill="#FFFFFF" stroke="#E0DEDE"/>
+      <text x="156" y="249" font-size="12" font-weight="600" fill="#1a1a1a">Consensus &amp; validator signatures</text>
+      <rect x="540" y="224" width="100" height="42" rx="3" fill="rgba(141,46,46,0.06)" stroke="#E0DEDE"/>
+      <text x="590" y="249" font-size="10" font-weight="500" fill="#8D2E2E" text-anchor="middle">ECDSA/BLS</text>
+      <rect x="660" y="224" width="100" height="42" rx="3" fill="rgba(47,94,82,0.06)" stroke="#E0DEDE"/>
+      <text x="710" y="249" font-size="10" font-weight="600" fill="#2F5E52" text-anchor="middle">Covered</text>
+
+      <!-- Layer 5: P2P & node communication -->
+      <rect x="140" y="270" width="380" height="42" rx="3" fill="#FFFFFF" stroke="#E0DEDE"/>
+      <text x="156" y="295" font-size="12" font-weight="600" fill="#1a1a1a">P2P &amp; node communication</text>
+      <rect x="540" y="270" width="100" height="42" rx="3" fill="rgba(141,46,46,0.06)" stroke="#E0DEDE"/>
+      <text x="590" y="295" font-size="10" font-weight="500" fill="#8D2E2E" text-anchor="middle">Classical keys</text>
+      <rect x="660" y="270" width="100" height="42" rx="3" fill="rgba(47,94,82,0.06)" stroke="#E0DEDE"/>
+      <text x="710" y="295" font-size="10" font-weight="600" fill="#2F5E52" text-anchor="middle">Covered</text>
+
+      <!-- Bracket: PQ-Safe Ledger (surfaces 1-2, 4-5) -->
+      <line x1="20" y1="50" x2="20" y2="304" stroke="#283771" stroke-width="2"/>
+      <line x1="20" y1="50" x2="26" y2="50" stroke="#283771" stroke-width="2"/>
+      <line x1="20" y1="304" x2="26" y2="304" stroke="#283771" stroke-width="2"/>
+      <text x="15" y="180" font-family="'IBM Plex Sans Condensed','IBM Plex Sans',sans-serif" font-size="10" font-weight="600" fill="#283771" text-anchor="end" transform="rotate(-90,15,180)">PQ-Safe Ledger (privacy + consensus + P2P)</text>
+
+      <!-- Separator -->
+      <line x1="140" y1="322" x2="760" y2="322" stroke="#E0DEDE" stroke-width="1" stroke-dasharray="4,4"/>
+
+      <!-- Layer 6: Custody & key management -->
+      <rect x="140" y="332" width="380" height="42" rx="3" fill="#FFFFFF" stroke="#E0DEDE"/>
+      <text x="156" y="357" font-size="12" font-weight="600" fill="#1a1a1a">Custody &amp; key management</text>
+      <rect x="540" y="332" width="100" height="42" rx="3" fill="rgba(141,46,46,0.06)" stroke="#E0DEDE"/>
+      <text x="590" y="357" font-size="10" font-weight="500" fill="#8D2E2E" text-anchor="middle">ECDSA MPC</text>
+      <rect x="660" y="332" width="100" height="42" rx="3" fill="rgba(47,94,82,0.06)" stroke="#E0DEDE"/>
+      <text x="710" y="357" font-size="10" font-weight="600" fill="#2F5E52" text-anchor="middle">Covered</text>
+
+      <!-- Bracket: PQ Custody SDK -->
+      <line x1="130" y1="338" x2="130" y2="368" stroke="#555" stroke-width="2"/>
+      <line x1="130" y1="338" x2="136" y2="338" stroke="#555" stroke-width="2"/>
+      <line x1="130" y1="368" x2="136" y2="368" stroke="#555" stroke-width="2"/>
+      <text x="125" y="360" font-family="'IBM Plex Sans Condensed','IBM Plex Sans',sans-serif" font-size="9" font-weight="600" fill="#555" text-anchor="end" transform="rotate(-90,125,360)">PQ Custody SDK</text>
+
+      <!-- Legend -->
+      <rect x="140" y="390" width="8" height="8" rx="1" fill="#2F5E52"/>
+      <text x="154" y="398" font-size="10" fill="#555">PQ Privacy Overlay (no consensus change)</text>
+      <rect x="340" y="390" width="8" height="8" rx="1" fill="#946B2D"/>
+      <text x="354" y="398" font-size="10" fill="#555">PQ tokenization modules</text>
+      <rect x="140" y="408" width="8" height="8" rx="1" fill="#283771"/>
+      <text x="154" y="416" font-size="10" fill="#555">PQ-Safe Ledger (full Besu stack)</text>
+      <rect x="340" y="408" width="8" height="8" rx="1" fill="#555"/>
+      <text x="354" y="416" font-size="10" fill="#555">PQ Custody SDK</text>
+      <text x="540" y="416" font-size="9" fill="#888">All products deploy on the same Besu network</text>
+
+    </svg>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══ COMPACT: BESU TOKENIZATION PQ-SAFE ═══ -->
+<section class="sec">
+<div class="c">
+  <div class="track">
+    <div class="th"><span class="tname">Make Besu tokenization PQ-safe</span><span class="tfor">Existing Besu networks</span></div>
+    <p class="tprom">ERC-3643 security tokens, tokenized deposits, compliance claims, permit approvals, and vault governance running on Besu all use ECDSA authorization paths. EternaX replaces those paths with SLH-DSA enforcement without changing the token contracts, the identity registry, or the compliance logic.</p>
+
+    <div class="tw">
+    <table>
+      <tbody>
+        <tr><td><strong>PQ-ONCHAINID</strong></td><td>PQ-safe compliance claims validation. SLH-DSA claim issuance via precompile. Identity Registry, Trusted Issuers Registry, Claim Topics Registry unchanged in shape.</td></tr>
+        <tr><td><strong>PQ Vault</strong></td><td>PQ-safe vault governance. EIP-4337 account abstraction with SLH-DSA verification for institutional vault controls.</td></tr>
+        <tr><td><strong>PQ-Permit</strong></td><td>PQ-safe gasless approvals. Replaces ERC-2612 ECDSA permits with SLH-DSA permit signatures.</td></tr>
+        <tr><td><strong>PQ-4626</strong></td><td>PQ-safe tokenized vault standard. Deposit, withdraw, and governance authority protected by SLH-DSA.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="ne"><strong>Institutions doing tokenization on Besu today</strong>
+      <div class="inst-pills" aria-label="Institutions tokenizing on Besu">
+        <span class="inst-pill">DTCC AppChain</span>
+        <span class="inst-pill">Citi CIDAP</span>
+        <span class="inst-pill">Fnality</span>
+      </div>
+      <span class="inst-context">Confirmed Besu deployments using ECDSA-based issuer keys, ecrecover claims, and ECDSA permits for tokenized securities, deposits, and settlement instruments. All authorization paths are quantum-vulnerable.</span>
+    </div>
+
+    <div class="ne" style="margin-top:12px"><strong>Institutions tokenizing on other platforms who will evaluate EVM/Besu for internal ledger infrastructure</strong>
+      <div class="inst-pills" aria-label="Institutions tokenizing on other platforms">
+        <span class="inst-pill">HSBC Orion</span>
+        <span class="inst-pill">JPMorgan Kinexys</span>
+        <span class="inst-pill">Goldman Sachs GS DAP</span>
+        <span class="inst-pill">BNP Paribas</span>
+        <span class="inst-pill">Deutsche Bank</span>
+        <span class="inst-pill">SocGen / SG-FORGE</span>
+        <span class="inst-pill">Lloyds</span>
+        <span class="inst-pill">Standard Chartered</span>
+        <span class="inst-pill">UBS</span>
+        <span class="inst-pill">ABN AMRO</span>
+      </div>
+      <span class="inst-context">These institutions are actively tokenizing bonds, deposits, and fund shares on Canton, Fabric, Corda, public Ethereum, or proprietary platforms. As tokenization scales beyond pilot, each will evaluate whether to build or migrate to an EVM/Besu-based internal ledger. Any new EVM/Besu deployment should be PQ-safe from genesis.</span>
+    </div>
+
+    <div class="nb ca">
+      <strong>Coverage boundary</strong>
+      <p>Protects the application-layer authorization paths: issuer authority, compliance claims, permit approvals, vault governance. Does not make unchanged Besu consensus or P2P post-quantum safe. Those surfaces are addressed by the PQ Privacy Overlay (privacy) and PQ-Safe Ledger (consensus + P2P).</p>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <a href="mailto:info@eternax.ai?subject=Besu%20Tokenization%20PQ%20Assessment" class="btn btn-n">Assess your Besu tokenization exposure</a>
+      <a href="https://eternax.ai/post-quantum-stablecoins-and-tokenization.html" class="btn btn-g">Full tokenization solutions page &rarr;</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ COMPACT: BESU MPC CUSTODY PQ-SAFE ═══ -->
+<section class="sec">
+<div class="c">
+  <div class="track">
+    <div class="th"><span class="tname">Make Besu MPC custody PQ-safe</span><span class="tfor">Existing custody providers</span></div>
+    <p class="tprom">MPC custody providers securing Besu-based assets use ECDSA threshold signing. EternaX PQ Custody SDK wraps the existing custodian in a dual-gate construction without replacing it: Gate 1 is per-party SLH-DSA authentication, Gate 2 is affine secret-sharing threshold authorization.</p>
+
+    <div class="tw">
+    <table>
+      <tbody>
+        <tr><td><strong>Gate 1: PQ authentication</strong></td><td>Each party authenticates with SLH-DSA-SHAKE-128s (FIPS 205) before any signing operation proceeds.</td></tr>
+        <tr><td><strong>Gate 2: Threshold authorization</strong></td><td>Affine secret sharing over a prime field. Resolves the impossibility result on threshold hash-based signatures.</td></tr>
+        <tr><td><strong>Provider preserved</strong></td><td>Fireblocks, Taurus, BitGo, DFNS, or any MPC/HSM provider remains in place. EternaX adds the PQ approval gate on top.</td></tr>
+        <tr><td><strong>Signature-agnostic</strong></td><td>Works regardless of the custodian's internal signing scheme. No custodian code change required.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="ne"><strong>MPC custody providers securing Besu-based institutional assets</strong>
+      <div class="inst-pills" aria-label="MPC custody providers on Besu">
+        <span class="inst-pill">Fireblocks</span>
+        <span class="inst-pill">Taurus</span>
+        <span class="inst-pill">BitGo</span>
+        <span class="inst-pill">DFNS</span>
+        <span class="inst-pill">Zodia Custody</span>
+        <span class="inst-pill">Anchorage Digital</span>
+      </div>
+      <span class="inst-context">All use threshold ECDSA or EdDSA. None is post-quantum safe. The dual-gate construction wraps any of them.</span>
+    </div>
+
+    <div class="nb ca">
+      <strong>Coverage boundary</strong>
+      <p>Protects the custody approval and authorization path. Does not replace the custodian, take possession of assets, or modify licensing obligations. Does not make unchanged Besu consensus or privacy post-quantum safe.</p>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <a href="mailto:info@eternax.ai?subject=Besu%20Custody%20PQ%20Assessment" class="btn btn-n">Assess your Besu custody exposure</a>
+      <a href="https://eternax.ai/custody-mpc-providers.html" class="btn btn-g">Full custody solutions page &rarr;</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ TRACK A: PQ PRIVACY OVERLAY ═══ -->
+<section class="sec" style="padding-bottom:0">
+<div class="c">
+  <div class="track">
+    <div class="th"><span class="tname">EternaX PQ Privacy Overlay</span><span class="tfor">Existing Besu networks</span></div>
+    <p class="tprom">Post-quantum privacy for existing Besu networks. No consensus change. No binary fork. No validator migration.</p>
+
+    <div class="arch">
+      <div class="ab"><div class="al">Unchanged</div><strong>Existing Besu node</strong><br>QBFT / IBFT 2.0 / Clique continues as-is. Non-privacy validators install nothing.</div>
+      <div class="ac">+</div>
+      <div class="ab ex-b"><div class="al">EternaX adds</div><strong>One EternaX Privacy Node per privacy participant</strong><br>Standard JSON-RPC. Minimal immutable anchor contract on-chain.</div>
+      <div class="ac">+</div>
+      <div class="ab"><div class="al">Storage</div><strong>Private-state database + encrypted archive</strong><br>Optional HSM / KMS boundary.</div>
+    </div>
+
+    <h3>What stays in place</h3>
+    <div class="stays"><span>Consensus algorithm</span><span>Validator keys</span><span>Block headers</span><span>Block seals</span><span>Genesis</span><span>Validator voting</span><span>Non-privacy validators</span></div>
+
+    <h3>What EternaX adds</h3>
+    <div class="tw">
+    <table>
+      <tbody>
+        <tr><td><strong>PQ payload encryption</strong></td><td>ML-KEM-768 key establishment + AES-256-GCM</td></tr>
+        <tr><td><strong>PQ sender authentication</strong></td><td>SLH-DSA-SHAKE-128s (conservative) / ML-DSA-65 (operational)</td></tr>
+        <tr><td><strong>Privacy group governance</strong></td><td>Dynamic membership, epoch keys, compartmentalized blast radius</td></tr>
+        <tr><td><strong>Private execution</strong></td><td>Deterministic EternaX Private Execution Engine (pinned EVM)</td></tr>
+        <tr><td><strong>Data availability</strong></td><td>Signed overlay receipts; retrievability challenges</td></tr>
+        <tr><td><strong>Regulatory observation</strong></td><td>Group-bound policies, scoped credentials, threshold controls</td></tr>
+        <tr><td><strong>Recovery</strong></td><td>Availability receipts, archives, snapshots, certified recovery</td></tr>
+        <tr><td><strong>Tessera migration</strong></td><td>Version-specific adapters, dual-read, workflow-by-workflow</td></tr>
+        <tr><td><strong>Crypto-agility</strong></td><td>Full-stack governed rotation (<a href="#crypto-agility">see below</a>)</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <button class="pt" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide deployment profiles':'Show deployment profiles \u2193'">Show deployment profiles &#8595;</button>
+    <div class="pc">
+    <div class="tw">
+    <table>
+      <thead><tr><th>Profile</th><th>Target environment</th><th>Consensus change</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A: Native Overlay</strong></td><td>Any existing Besu. JSON-RPC + anchor contract.</td><td><span class="tag tg">No</span></td></tr>
+        <tr><td><strong>B: Legacy Compatibility</strong></td><td>Besu/GoQuorum with Tessera/EEA. Dual-read migration.</td><td><span class="tag tg">No</span></td></tr>
+        <tr><td><strong>C: Middleware Adapter</strong></td><td>FireFly, bank APIs, custody engines, compliance.</td><td><span class="tag tg">No</span></td></tr>
+        <tr><td><strong>D: Assured Integration</strong></td><td>Optional. Besu plugins, validator-side checks.</td><td><span class="tag ta">Optional</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="tn">A privacy group is not PQ-safe until every recipient has activated the PQ suite. Profile B Tessera migration is version-specific. Profile D is not required for A, B, or C.</p>
+    </div>
+
+    <div class="ne"><strong>Institutions with Besu privacy exposure</strong>
+      <div class="inst-pills" aria-label="Institutions with Besu privacy exposure">
+        <span class="inst-pill">DTCC AppChain</span>
+        <span class="inst-pill">SWIFT Shared Ledger</span>
+        <span class="inst-pill">Fnality</span>
+        <span class="inst-pill">Citi CIDAP</span>
+        <span class="inst-pill">BIS Agora</span>
+        <span class="inst-pill">mBridge</span>
+        <span class="inst-pill">eNaira</span>
+      </div>
+      <span class="inst-context">Every Besu network that used Tessera privacy has historical HNDL exposure on every private transaction ever encrypted.</span>
+    </div>
+
+    <div class="nb ca">
+      <strong>Accurate security claim</strong>
+      <p>Post-quantum-safe privacy and private-authorization overlay for existing Besu networks. Not a fully PQ-safe Besu network. Not PQ-safe QBFT. Consensus and outer transaction authorization remain classical. That residual is addressed by the PQ-Safe Ledger.</p>
+    </div>
+    <a href="mailto:info@eternax.ai?subject=PQ%20Privacy%20Overlay%20Assessment" class="btn btn-n">Request a PQ Privacy Overlay assessment</a>
+  </div>
+</div>
+</section>
+
+<!-- ═══ TRACK B: PQ-SAFE LEDGER ═══ -->
+<section class="sec">
+<div class="c">
+  <div class="track">
+    <div class="th"><span class="tname">EternaX PQ-Safe Ledger</span><span class="tfor">Greenfield deployments</span></div>
+    <p class="tprom">Hyperledger Besu's open-source codebase, made post-quantum safe and crypto-agile. For institutions building new permissioned networks who want PQ from day one.</p>
+
+    <h3>PQ-safe Besu stack</h3>
+    <div class="tw">
+    <table>
+      <tbody>
+        <tr><td><strong>PQ consensus</strong></td><td>QBFT with SLH-DSA validator signatures</td></tr>
+        <tr><td><strong>PQ P2P</strong></td><td>Post-quantum node communication and credentials</td></tr>
+        <tr><td><strong>PQ transaction signing</strong></td><td>SLH-DSA native account signatures</td></tr>
+        <tr><td><strong>PQ precompiles</strong></td><td>SLH-DSA verify (0x0404), ML-DSA-65 verify (0x0405)</td></tr>
+        <tr><td><strong>PQ privacy</strong></td><td>PQ Privacy Overlay integrated natively</td></tr>
+        <tr><td><strong>EVM compatibility</strong></td><td>Full. Existing Solidity contracts deploy without modification.</td></tr>
+        <tr><td><strong>TPS under PQ</strong></td><td>~2% loss vs. 84&ndash;90% for post-hoc migration on other chains</td></tr>
+        <tr><td><strong>Crypto-agility</strong></td><td>Full-stack governed rotation (<a href="#crypto-agility">see below</a>)</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p style="font-size:13px;color:var(--text-s);line-height:1.6;margin:20px 0;max-width:640px">EO 14412 mandates PQC for key establishment by December 31, 2030, and digital signatures by December 31, 2031. Every institutional network built on classical Besu in 2026&ndash;2027 faces mandatory PQ migration before those deadlines&mdash;at 84&ndash;90% TPS cost. EternaX PQ-Safe Ledger eliminates that future cost at ~2% TPS cost today.</p>
+
+    <h3>Why G-SIBs will need an internal permissioned ledger</h3>
+    <p style="font-size:13px;color:var(--text-s);line-height:1.6;margin:12px 0 20px;max-width:640px">The dominant institutional DLT architecture is dual-layer: an internal permissioned ledger for intra-institution operations (tokenized deposits, internal settlement, trade lifecycle) plus a shared network for cross-institution settlement. Every G-SIB doing tokenization today either already operates an internal ledger or will need one as tokenized deposits, tokenized bonds, and tokenized fund infrastructure move from pilot to production. EVM/Besu is the dominant technology choice for new institutional permissioned ledger builds. Banks evaluating what to build on face a choice: deploy classical Besu and inherit a mandatory PQ migration before 2030-2031, or deploy PQ-safe Besu from genesis.</p>
+
+    <div class="ne"><strong>Shared ledger: no vendor selected</strong>
+      <div class="inst-pills" aria-label="Named greenfield opportunity">
+        <span class="inst-pill">The Clearing House</span>
+      </div>
+      <span class="inst-context">Tokenized deposit network. 17 banks including Citi, JPMorgan, BofA, Wells Fargo, PNC, US Bancorp, Truist, Capital One. No blockchain vendor selected. H1 2027 target. The cryptographic foundation chosen will be extraordinarily difficult to change after launch.</span>
+    </div>
+
+    <div class="ne" style="margin-top:12px"><strong>G-SIBs: current infrastructure and the internal-ledger question</strong>
+      <div class="inst-pills" aria-label="Banks evaluating chain infrastructure">
+        <span class="inst-pill">HSBC</span>
+        <span class="inst-pill">JPMorgan</span>
+        <span class="inst-pill">Goldman Sachs</span>
+        <span class="inst-pill">BNP Paribas</span>
+        <span class="inst-pill">Deutsche Bank</span>
+        <span class="inst-pill">Morgan Stanley</span>
+        <span class="inst-pill">BofA</span>
+        <span class="inst-pill">Wells Fargo</span>
+        <span class="inst-pill">BNY Mellon</span>
+        <span class="inst-pill">State Street</span>
+        <span class="inst-pill">UBS</span>
+        <span class="inst-pill">Barclays</span>
+        <span class="inst-pill">SocGen</span>
+        <span class="inst-pill">Standard Chartered</span>
+        <span class="inst-pill">Lloyds</span>
+        <span class="inst-pill">ANZ</span>
+      </div>
+      <span class="inst-context">Today these institutions operate on Canton/Daml (Goldman GS DAP, BNP Paribas Neobonds, Lloyds, Broadridge DLR), Fabric (HSBC Orion, strongly reported), Corda (Euroclear, SIX SDX), public EVM (SocGen, UBS, Deutsche Bank DAMA 2), or proprietary/undisclosed platforms (JPMorgan Kinexys, Standard Chartered, Northern Trust, ANZ). Some have confirmed platforms on non-EVM technology. Others are still evaluating. As tokenized deposit and settlement volumes scale beyond pilot, the question of whether to build or consolidate on an EVM/Besu-based internal ledger will arise for each. Any new EVM/Besu deployment built on classical cryptography inherits quantum-vulnerable authorization from day one.</span>
+    </div>
+
+    <div class="ne" style="margin-top:12px"><strong>New CBDC and market infrastructure deployments</strong>
+      <div class="inst-pills" aria-label="CBDC deployments">
+        <span class="inst-pill">New CBDC projects</span>
+        <span class="inst-pill">Digital gilt platforms</span>
+        <span class="inst-pill">Tokenized fund infrastructure</span>
+        <span class="inst-pill">Market infrastructure builds</span>
+      </div>
+      <span class="inst-context">Every new institutional blockchain deployment choosing EVM/Besu inherits quantum-vulnerable cryptography unless PQ is designed in from genesis.</span>
+    </div>
+
+    <div class="nb in">
+      <strong>Coverage boundary</strong>
+      <p>Privacy, consensus, and P2P end-to-end within the network perimeter. This is Besu, made PQ-safe. Tokenization modules and PQ Custody SDK deploy on top. Cross-institution settlement is addressed separately by EternaX.</p>
+    </div>
+    <a href="mailto:info@eternax.ai?subject=PQ-Safe%20Ledger%20Evaluation" class="btn btn-n">Evaluate PQ-Safe Ledger for your greenfield deployment</a>
+  </div>
+</div>
+</section>
+
+<!-- ═══ FULL-STACK BESU PROTECTION ═══ -->
+<section class="sec">
+<div class="c">
+  <div class="sec-lab">Complete Besu coverage</div>
+  <h2>Privacy, tokenization, consensus, and custody on one Besu network.</h2>
+  <p>Institutions running Besu are not just running consensus. They are issuing tokenized securities, managing compliance claims, controlling mint/burn authority, and securing assets through MPC custody. EternaX covers the entire Besu deployment as one integrated protection architecture.</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th>Besu deployment layer</th><th>EternaX product</th><th>What it protects</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Privacy</strong></td><td>PQ Privacy Overlay</td><td>Private payloads, sender authentication, privacy groups, regulatory observation</td></tr>
+      <tr><td><strong>Tokenization</strong></td><td><a href="https://eternax.ai/post-quantum-stablecoins-and-tokenization.html">PQ Vault, PQ-ONCHAINID, PQ-Permit, PQ-4626</a></td><td>Issuer authority, compliance claims, permit approvals, vault governance for ERC-3643 / ERC-4626 on Besu</td></tr>
+      <tr><td><strong>Consensus &amp; P2P</strong></td><td>PQ-Safe Ledger</td><td>QBFT validator signatures, P2P credentials, transaction signing, precompiles</td></tr>
+      <tr><td><strong>Custody</strong></td><td><a href="https://eternax.ai/custody-mpc-providers.html">PQ Custody SDK</a></td><td>MPC/HSM approval workflows, dual-gate construction, signature-agnostic authorization</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tn">All four product lines deploy on the same Besu network. An institution can adopt any combination based on its risk posture: privacy only, privacy plus tokenization, or the full stack. Each product creates a documented protection boundary. Detailed tokenization coverage is on the <a href="https://eternax.ai/post-quantum-stablecoins-and-tokenization.html">Stablecoins &amp; Tokenization</a> page. Detailed custody coverage is on the <a href="https://eternax.ai/custody-mpc-providers.html">Custody &amp; MPC Providers</a> page.</p>
+</div>
+</section>
+
+<!-- ═══ CRYPTO-AGILITY ═══ -->
+<section class="crypto sec" id="crypto-agility" style="border:none">
+<div class="c">
+  <div class="sec-lab">Crypto-agility</div>
+  <h2>Full-stack crypto-agility. Algorithm rotation without hard fork.</h2>
+  <p>OMB M-26-15 Section 5 and NIST CSWP 39 require crypto-agility: rolling algorithm rotation, not a one-time migration. For Besu operators, this means the question is not whether your network can migrate to SLH-DSA once. It is what happens when NIST updates the standard, when a side-channel attack is published, or when your regulator requires a different parameter set. On classical Besu, every rotation is a hard fork. On EternaX Besu products, every rotation is a governance parameter change.</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th>Chain</th><th>To rotate one algorithm</th><th>Consequence</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Classical Besu</strong></td><td>Hard fork. QBFT format change. Genesis reconfiguration.</td><td class="ex">Network-wide coordination. 84&ndash;90% TPS loss. Every rotation.</td></tr>
+      <tr><td><strong>EternaX Besu products</strong></td><td>Governance parameter change</td><td class="cov">Zero downtime. Zero breakage. Zero incremental cost.</td></tr>
+      <tr><td><strong>Ethereum</strong></td><td>Hard fork across 5 client teams</td><td class="ex">Multi-year. Breaks ecrecover, L2s, wallets</td></tr>
+      <tr><td><strong>Solana</strong></td><td>Runtime upgrade</td><td class="ex">Breaks GPU parallelization. ~90% TPS loss</td></tr>
+      <tr><td><strong>Canton</strong></td><td>Participants + Synchronizer + Chainlink DON</td><td class="ex">Full network disruption</td></tr>
+      <tr><td><strong>Stellar</strong></td><td>Protocol bump + validator vote</td><td class="ex">Breaks SDKs, wallets, anchors</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="cc">Other chains can become PQ-safe once, at enormous cost. EternaX Besu products stay PQ-safe permanently, at zero incremental cost per rotation.</p>
+</div>
+</section>
+
+<!-- ═══ AUDIENCE ═══ -->
+<section class="sec">
+<div class="c">
+  <div class="sec-lab">Outcomes by stakeholder</div>
+  <h2>Post-quantum readiness by deployment condition.</h2>
+  <div class="ag">
+    <div class="ac-c">
+      <h3>Make your Besu tokenization PQ-safe before quantum risk reprices your instruments.</h3>
+      <p>PQ-safe issuer authority, compliance claims, permits, and vault governance for tokenization on your existing Besu network.</p>
+      <div class="inst-pills inst-pills-compact" aria-label="Relevant institutions">
+        <span class="inst-pill">DTCC</span><span class="inst-pill">Citi</span><span class="inst-pill">Fnality</span>
+      </div>
+    </div>
+    <div class="ac-c">
+      <h3>Harden your existing Besu privacy layer before EO 14412 transmission arrives.</h3>
+      <p>Deploy PQ Privacy Overlay. No consensus change. Documented coverage boundary. CBOM-ready audit trail. Tessera migration included.</p>
+      <div class="inst-pills inst-pills-compact" aria-label="Relevant institutions">
+        <span class="inst-pill">DTCC</span><span class="inst-pill">SWIFT</span><span class="inst-pill">Fnality</span><span class="inst-pill">Citi</span><span class="inst-pill">BIS</span><span class="inst-pill">mBridge</span><span class="inst-pill">eNaira</span>
+      </div>
+    </div>
+    <div class="ac-c">
+      <h3>Make your Besu MPC custody PQ-safe without replacing your custodian.</h3>
+      <p>PQ Custody SDK wraps Fireblocks, Taurus, BitGo, DFNS, or any MPC/HSM provider. Dual-gate construction. No custodian code change.</p>
+      <div class="inst-pills inst-pills-compact" aria-label="Relevant providers">
+        <span class="inst-pill">Fireblocks</span><span class="inst-pill">Taurus</span><span class="inst-pill">BitGo</span><span class="inst-pill">DFNS</span><span class="inst-pill">Zodia</span><span class="inst-pill">Anchorage</span>
+      </div>
+    </div>
+    <div class="ac-c">
+      <h3>Your next internal ledger should be PQ-native from genesis.</h3>
+      <p>G-SIBs are tokenizing on Canton, Fabric, Corda, public Ethereum, and proprietary platforms. As tokenized deposits scale, each will evaluate EVM/Besu for internal ledger infrastructure. PQ-Safe Ledger eliminates migration debt from day one. ~2% TPS cost. Full EVM compatibility. Full crypto-agility.</p>
+      <div class="inst-pills inst-pills-compact" aria-label="Greenfield prospects">
+        <span class="inst-pill">The Clearing House</span><span class="inst-pill">HSBC</span><span class="inst-pill">JPMorgan</span><span class="inst-pill">Goldman</span><span class="inst-pill">BNP</span><span class="inst-pill">Deutsche</span><span class="inst-pill">BofA</span><span class="inst-pill">BNY</span><span class="inst-pill">UBS</span><span class="inst-pill">Lloyds</span><span class="inst-pill">ANZ</span>
+      </div>
+    </div>
+    <div class="ac-c">
+      <h3>Produce a defensible PQ readiness position for your Besu infrastructure.</h3>
+      <p>Exposure map across six migration surfaces. CBOM inventory. EO 14412 compliance evidence.</p>
+      <div class="an">CISOs and risk officers</div>
+    </div>
+    <div class="ac-c">
+      <h3>Reference architecture for institutional Besu PQ remediation.</h3>
+      <p>Deployable remediation path for banking clients with live Besu infrastructure.</p>
+      <div class="inst-pills inst-pills-compact" aria-label="Relevant advisory institutions">
+        <span class="inst-pill">KPMG</span><span class="inst-pill">EY</span><span class="inst-pill">Deloitte</span><span class="inst-pill">PwC</span><span class="inst-pill">Accenture</span>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:4px"><a href="mailto:info@eternax.ai?subject=Besu%20PQ%20Readiness%20Assessment" class="btn btn-n">Start the Besu readiness assessment</a></div>
+</div>
+</section>
+
+<!-- ═══ INTEGRATION ═══ -->
+<section class="sec">
+<div class="c">
+  <div class="sec-lab">Integration</div>
+  <h2>From exposure map to enforced post-quantum controls.</h2>
+  <div class="steps">
+    <div class="step"><div class="sn">1</div><h3>Map.</h3><p>Inventory Tessera/Paladin status, privacy groups, consensus type, validator keys, tokenization contracts and issuer key types, permit and ecrecover assumptions, MPC custody integrations, observation requirements, and HNDL exposure window. Identify every classical bypass.</p></div>
+    <div class="step"><div class="sn">2</div><h3>Deploy.</h3><p>Connect PQ Privacy Overlay, tokenization modules (PQ-ONCHAINID, PQ-Permit, PQ-4626, PQ Vault), PQ Custody SDK, or PQ-Safe Ledger. Validate profiles, crypto suites, group migration, deterministic execution, and coverage boundaries. IPCP-1 constrains the first build.</p></div>
+    <div class="step"><div class="sn">3</div><h3>Enforce.</h3><p>PQ-safe authorization as exclusive path across all protected surfaces. Document residuals per product. CBOM inventory. EO 14412 evidence. Produce the phased integration roadmap.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ RESEARCH ═══ -->
+<section class="sec">
+<div class="c">
+  <div class="sec-lab">Research</div>
+  <h2>Detailed evidence for post-quantum Besu infrastructure.</h2>
+  <div class="rg">
+    <a href="https://eternax.ai/besu-quantum-risk.html" class="rc"><div class="rl">Besu report &middot; Aug 2026</div><div class="rt">Is Hyperledger Besu Quantum-Safe?</div><div class="rd">Six migration surfaces. DTCC exposure. Remediation paths.</div></a>
+    <a href="https://eternax.ai/post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html" class="rc"><div class="rl">Custody &middot; Jun 2026</div><div class="rt">Post-Quantum MPC Custody Crisis 2026</div><div class="rd">15 MPC providers. $10T+ assets. Zero PQ-safe custody.</div></a>
+    <a href="https://eternax.ai/post-quantum-non-upgradeable-chains-defi-exposure-report.html" class="rc"><div class="rl">Architecture &middot; Jul 2026</div><div class="rt">Non-Upgradeable Chains &amp; DeFi Exposure</div><div class="rd">Immutable contracts. Privacy constraints. Migration risk.</div></a>
+    <a href="https://eternax.ai/post_quantum_exposure_map_institutional_crypto_tokenized_assets.html" class="rc"><div class="rl">Exposure &middot; May 2026</div><div class="rt">Post-Quantum Exposure Map 2026</div><div class="rd">Full institutional exposure across all chains and segments.</div></a>
+  </div>
+</div>
+</section>
+
+<!-- ═══ PILOT CTA ═══ -->
+<section class="pilot">
+<div class="c">
+  <h2>Define a deployable post-quantum protection boundary for your Besu infrastructure.</h2>
+  <p>Map exposure, validate compatibility, produce a phased CBOM-ready integration roadmap aligned to EO 14412 deadlines.</p>
+  <a href="mailto:info@eternax.ai?subject=Besu%20PQ%20Readiness%20Assessment" class="btn btn-w">Start the Besu readiness assessment</a>
+</div>
+</section>
+
+
+<!-- ═══ FAQ ═══ -->
+<section class="sec" id="faq">
+<div class="c">
+  <div class="sec-lab">FAQ</div>
+  <h2>Hyperledger Besu post-quantum security and EternaX: frequently asked questions</h2>
+  <p>Direct, source-linked answers on how EternaX hardens Hyperledger Besu across privacy, tokenization, custody authorization, consensus, P2P, crypto-agility, NIST standards, EO 14412, and institutional migration.</p>
+  <h3 class="fg">Hyperledger Besu post-quantum security and EternaX</h3>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-01">Is Hyperledger Besu post-quantum safe today?</button>
+    <div class="fa" id="faq-a-01" role="region">No. A standard Hyperledger Besu deployment should not be described as post-quantum safe today. Besu does not natively use the NIST PQC standards <a href="https://csrc.nist.gov/pubs/fips/203/final" target="_blank" rel="noopener">FIPS 203</a>, <a href="https://csrc.nist.gov/pubs/fips/204/final" target="_blank" rel="noopener">FIPS 204</a>, or <a href="https://csrc.nist.gov/pubs/fips/205/final" target="_blank" rel="noopener">FIPS 205</a> for standard Ethereum transaction authorization or permissioned-network validator signing. Besu therefore requires an explicit post-quantum migration design for the cryptographic surfaces that an institution needs to protect.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-02">How does EternaX make Hyperledger Besu post-quantum safe?</button>
+    <div class="fa" id="faq-a-02" role="region">EternaX provides a layered post-quantum architecture for Hyperledger Besu. For existing networks, EternaX can add post-quantum privacy, tokenization authorization, and custody approval controls without replacing the live Besu network. For greenfield deployments, EternaX PQ-Safe Ledger extends the protection boundary into validator authentication, P2P communication, native transaction authorization, and privacy from genesis. Each deployment documents exactly which surfaces are protected and which residual dependencies remain.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-03">Can EternaX make an existing Besu deployment post-quantum safe without replatforming?</button>
+    <div class="fa" id="faq-a-03" role="region">Yes, across defined protection layers. EternaX can add post-quantum privacy, tokenization authorization, and custody approval controls while preserving the existing Besu deployment and, where required, the existing custody provider. Unchanged native consensus, P2P identity, and outer transaction authorization remain outside that retrofit boundary. Full native-network protection is addressed separately through EternaX PQ-Safe Ledger for greenfield deployments.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-04">What is post-quantum cryptography for Hyperledger Besu?</button>
+    <div class="fa" id="faq-a-04" role="region">Post-quantum cryptography (PQC) for Hyperledger Besu means protecting the public-key cryptographic functions that could be broken by a cryptographically relevant quantum computer. For an institutional Besu deployment, that can include transaction authorization, validator authentication, P2P identity, private-payload protection, tokenization controls, and external custody workflows. A credible migration defines the protection boundary layer by layer rather than calling the entire network PQ-safe after changing only one component.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-05">Which parts of a Hyperledger Besu network can have quantum exposure?</button>
+    <div class="fa" id="faq-a-05" role="region">The main surfaces are transaction and account authorization; QBFT or IBFT validator authentication; P2P node identity and secure transport; private-payload confidentiality and sender authentication; tokenization controls such as issuer, compliance, permit, and vault authority; and external MPC, HSM, wallet, bridge, oracle, or custody dependencies. EternaX maps these surfaces independently so institutions can see what is protected, what remains exposed, and what can be migrated without replatforming.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-06">What makes EternaX different from other post-quantum approaches for Hyperledger Besu?</button>
+    <div class="fa" id="faq-a-06" role="region">The differentiation is architectural. EternaX separates retrofit protection for live Besu networks from full-stack greenfield protection, and treats privacy, tokenization, custody authorization, consensus, P2P, and transaction authorization as distinct security boundaries. The architecture is designed for crypto-agility and explicitly documents residual non-PQ dependencies instead of describing a partially hardened network as fully post-quantum safe. This allows institutions to phase migration without losing technical precision.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-07">What is the difference between EternaX PQ Privacy Overlay and EternaX PQ-Safe Ledger?</button>
+    <div class="fa" id="faq-a-07" role="region">EternaX PQ Privacy Overlay is for existing live Besu networks that need post-quantum privacy without changing consensus. EternaX PQ-Safe Ledger is for greenfield deployments that want post-quantum controls across native network layers from genesis. The overlay deliberately leaves unchanged Besu consensus, P2P identity, and outer transaction authorization outside its boundary; PQ-Safe Ledger is designed to move the protection boundary down into those native layers.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-08">Which post-quantum algorithms does EternaX use for Hyperledger Besu?</button>
+    <div class="fa" id="faq-a-08" role="region">EternaX's current Besu design uses ML-KEM-768 for post-quantum key establishment and AES-256-GCM for symmetric authenticated encryption, with SLH-DSA as the conservative signature path and ML-DSA-65 as an operational alternative where appropriate. ML-KEM is standardized in <a href="https://csrc.nist.gov/pubs/fips/203/final" target="_blank" rel="noopener">NIST FIPS 203</a>, ML-DSA in <a href="https://csrc.nist.gov/pubs/fips/204/final" target="_blank" rel="noopener">FIPS 204</a>, and SLH-DSA in <a href="https://csrc.nist.gov/pubs/fips/205/final" target="_blank" rel="noopener">FIPS 205</a>. The exact suite depends on the layer, deployment profile, performance target, and institutional policy.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-09">What is crypto-agility according to NIST, and why does it matter for Besu?</button>
+    <div class="fa" id="faq-a-09" role="region"><a href="https://csrc.nist.gov/pubs/cswp/39/upd1/considerations-for-achieving-crypto-agility/final" target="_blank" rel="noopener">NIST CSWP 39upd1</a> defines crypto-agility as the capabilities needed to replace and adapt cryptographic algorithms across protocols, applications, software, hardware, firmware, and infrastructure while preserving security and ongoing operations. For Besu, this matters because PQ migration should not create a new permanent algorithm dependency. EternaX is designed to version and govern cryptographic suites so supported algorithms can be introduced, overlapped, retired, or retained for historical verification within the relevant protection boundary.</div>
+  </div>
+  <h3 class="fg">Existing Besu networks: privacy, Tessera, tokenization, and custody</h3>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-10">Is QBFT consensus in Hyperledger Besu post-quantum safe?</button>
+    <div class="fa" id="faq-a-10" role="region">Not by default. Besu QBFT is a proof-of-authority consensus protocol in which a super-majority of validators sign a block before it is inserted into the chain. The standard QBFT path is not natively based on NIST post-quantum digital-signature standards. See the official <a href="https://docs.besu-eth.org/private-networks/how-to/configure/consensus/qbft" target="_blank" rel="noopener">Besu QBFT documentation</a>. EternaX treats validator authentication as a separate migration surface rather than assuming that application-layer PQC makes consensus post-quantum safe.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-11">Is IBFT 2.0 in Hyperledger Besu post-quantum safe?</button>
+    <div class="fa" id="faq-a-11" role="region">Not by default. IBFT 2.0 is a Byzantine-fault-tolerant permissioned consensus mode whose standard validator authentication is not natively implemented with NIST-standardized post-quantum signatures. An institution using IBFT 2.0 should therefore treat validator authorization as its own PQ migration surface. Privacy, tokenization, or custody hardening above the consensus layer does not by itself make IBFT 2.0 post-quantum safe.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-12">What is harvest-now-decrypt-later risk for Besu private transactions?</button>
+    <div class="fa" id="faq-a-12" role="region">Harvest-now-decrypt-later (HNDL) is the risk that an adversary records encrypted data today and decrypts it later if the public-key mechanism used to protect key establishment becomes breakable by a future quantum computer. For long-lived confidential financial data, historical confidentiality can therefore matter before a cryptographically relevant quantum computer exists. EternaX assesses HNDL exposure separately from future signature-forgery risk because the remediation paths are different.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-13">What happened to Tessera privacy in Hyperledger Besu?</button>
+    <div class="fa" id="faq-a-13" role="region">Tessera privacy was deprecated and removed from the mainline Besu codebase. LF Decentralized Trust announced the sunset plan in 2024, and the Besu maintainers stated in February 2026 that Privacy/Tessera removal was complete, including the EEA and PRIV RPC methods. See the <a href="https://www.lfdecentralizedtrust.org/blog/sunsetting-tessera-and-simplifying-hyperledger-besu" target="_blank" rel="noopener">Tessera sunset announcement</a> and the <a href="https://www.lfdecentralizedtrust.org/blog/a-deep-dive-into-besu-milestones-2025-highlights-and-2026-goals" target="_blank" rel="noopener">2026 Besu maintainer update</a>. EternaX treats historical Tessera data and migration compatibility as explicit assessment items.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-14">Is Paladin or Pente a post-quantum replacement for Tessera?</button>
+    <div class="fa" id="faq-a-14" role="region">Paladin and Pente should not by themselves be treated as an end-to-end post-quantum migration for Besu. They address application-layer privacy and tokenization use cases, while native Besu consensus, P2P identity, transaction authorization, historical encrypted data, and external custody dependencies remain separate cryptographic surfaces. EternaX therefore evaluates the actual protection boundary component by component rather than assuming that replacing Tessera automatically makes the surrounding network post-quantum safe.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-15">What is the EternaX PQ Privacy Overlay for Hyperledger Besu?</button>
+    <div class="fa" id="faq-a-15" role="region">EternaX PQ Privacy Overlay is a retrofit privacy layer for existing Besu networks. It adds post-quantum key establishment, private-payload encryption, sender authentication, privacy-group governance, private execution, availability, recovery, and migration controls alongside the existing Besu node. The design preserves the existing consensus layer and explicitly documents that native consensus, P2P identity, and outer transaction authorization remain outside the overlay's protection boundary.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-16">Does the EternaX PQ Privacy Overlay require changing Besu consensus?</button>
+    <div class="fa" id="faq-a-16" role="region">No. The native overlay profile runs alongside an existing Besu deployment through standard JSON-RPC plus an on-chain anchor contract. Existing QBFT or IBFT 2.0 consensus can remain in place, and validators that do not participate in a privacy group do not need the privacy node. This is a post-quantum privacy upgrade, not a claim that unchanged Besu consensus becomes post-quantum safe.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-17">Does the EternaX PQ Privacy Overlay require a Hyperledger Besu binary fork?</button>
+    <div class="fa" id="faq-a-17" role="region">No for the native overlay profile. It does not require modifying the Besu binary, creating a Besu client fork, or replacing the live validator set. Standard JSON-RPC and ordinary EVM transactions are used for integration. Optional deeper integrations can be evaluated separately when an institution requires additional validator-side enforcement.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-18">Does the PQ Privacy Overlay make QBFT, P2P, and native Besu transaction signing post-quantum safe?</button>
+    <div class="fa" id="faq-a-18" role="region">No. EternaX PQ Privacy Overlay protects the defined privacy and private-authorization boundary while leaving existing Besu consensus, native P2P identity, and outer transaction authorization unchanged. Those residual dependencies remain visible in the security documentation. EternaX PQ-Safe Ledger is the separate greenfield path designed to address those native network layers.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-19">Can EternaX protect historical Tessera-encrypted transactions?</button>
+    <div class="fa" id="faq-a-19" role="region">EternaX PQ Privacy Overlay protects new traffic from the point at which the PQ path is enforced. Historical protection is a separate migration problem. Where archived private payloads are available and the institution controls the required keys and data, a re-encryption or rewrapping program can be evaluated. The resulting coverage should state exactly which historical range has been remediated and which range remains dependent on the original cryptography.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-20">Can EternaX make tokenization on a Besu network post-quantum safe?</button>
+    <div class="fa" id="faq-a-20" role="region">EternaX can add post-quantum authorization controls to tokenization workflows running on Besu, including issuer authority, compliance claims, permit approvals, and vault governance. EternaX modules include PQ Vault, PQ-ONCHAINID, PQ-Permit, and PQ-4626. These modules protect the application-layer authorization paths they enforce; they do not automatically make unchanged Besu consensus or every external dependency post-quantum safe. See <a href="https://eternax.ai/post-quantum-stablecoins-and-tokenization.html">Post-Quantum Stablecoins &amp; Tokenization</a>.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-21">Can EternaX make MPC or HSM custody workflows for Besu post-quantum safe?</button>
+    <div class="fa" id="faq-a-21" role="region">EternaX PQ Custody SDK is designed to add a post-quantum authorization gate around existing custody, MPC, and HSM workflows rather than replace the custody provider. The EternaX-enforced approval path becomes a separately defined protection boundary, while the underlying provider, wallet, transaction, and network dependencies are assessed independently. See <a href="https://eternax.ai/custody-mpc-providers.html">Post-Quantum Custody &amp; MPC Providers</a>.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-22">Is EternaX a custody provider?</button>
+    <div class="fa" id="faq-a-22" role="region">No. EternaX is not a custody provider. EternaX PQ Custody SDK adds a post-quantum authorization layer around existing MPC, HSM, and institutional custody workflows. An institution can retain its custody provider and operating model while adding a separately enforced PQ approval boundary. Provider-specific integration requirements still depend on the custody interface and deployment. See <a href="https://eternax.ai/custody-mpc-providers.html">Post-Quantum Custody &amp; MPC Providers</a>.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-23">Does EternaX post-quantum infrastructure for Besu require EternaX Chain?</button>
+    <div class="fa" id="faq-a-23" role="region">No. EternaX Besu products are designed to deploy on Besu networks independently of EternaX Chain. An institution can evaluate PQ Privacy Overlay, tokenization modules, PQ Custody SDK, or PQ-Safe Ledger without migrating its application to EternaX Chain. EternaX Chain is a separate post-quantum settlement network for cross-institution use cases.</div>
+  </div>
+  <h3 class="fg">PQ-Safe Ledger and full-stack crypto-agility</h3>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-24">What is the EternaX PQ-Safe Ledger for Hyperledger Besu?</button>
+    <div class="fa" id="faq-a-24" role="region">EternaX PQ-Safe Ledger is the greenfield Besu-compatible deployment path based on the open-source Besu codebase, with post-quantum controls designed into the network from genesis. The architecture targets PQ validator authentication, PQ P2P identity and communication, PQ transaction authorization, PQ verification precompiles, and integrated PQ privacy. It is intended for institutions that want the native network protection boundary to be post-quantum by design rather than retrofitted layer by layer later.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-25">Does EternaX PQ-Safe Ledger preserve EVM and Solidity compatibility?</button>
+    <div class="fa" id="faq-a-25" role="region">The design objective is EVM and Solidity compatibility so that application business logic does not need to be rewritten solely because the underlying authorization and network cryptography changes. Integration testing is still required for wallets, SDKs, precompiles, signature assumptions, and any smart-contract logic that explicitly depends on Ethereum ECDSA semantics such as <code>ecrecover</code>. EternaX treats those dependencies as migration surfaces rather than hiding them behind a generic compatibility claim.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-26">Can EternaX rotate post-quantum algorithms without a Besu hard fork?</button>
+    <div class="fa" id="faq-a-26" role="region">Within the EternaX-controlled protection boundary, that is the design goal. Algorithms and cryptographic suites are represented through governed, versioned components so supported schemes can be activated, overlapped, retired, or retained for historical verification without redesigning the whole application each time. Whether a specific change requires a network upgrade still depends on the layer being changed and the deployment profile. EternaX does not claim that an unchanged Besu client can rotate native consensus cryptography by configuration alone.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-27">Why not migrate Besu to one post-quantum algorithm and stop?</button>
+    <div class="fa" id="faq-a-27" role="region">Because long-lived financial infrastructure has to survive future algorithm transitions as well as the first PQ migration. <a href="https://csrc.nist.gov/pubs/cswp/39/upd1/considerations-for-achieving-crypto-agility/final" target="_blank" rel="noopener">NIST crypto-agility guidance</a> focuses on the ability to replace and adapt cryptography while preserving security and ongoing operations. EternaX therefore treats PQC plus governed algorithm agility, explicit versioning, transition modes, and historical verification as the stronger institutional design target rather than embedding one new algorithm as another permanent dependency.</div>
+  </div>
+  <h3 class="fg">Institutional Besu deployments and integrations</h3>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-28">Which institutional Besu deployments can EternaX assess for post-quantum exposure?</button>
+    <div class="fa" id="faq-a-28" role="region">Institutional initiatives named on this page include DTCC AppChain, SWIFT Shared Ledger, Fnality, Citi CIDAP, BIS Project Agora, mBridge, and eNaira. Their architectures and cryptographic boundaries are not assumed to be identical. EternaX assesses each deployment surface by surface across privacy, sender authentication, tokenization controls, validator or consensus authentication, P2P identity, and custody or key management, then identifies the exact residual exposure and the appropriate retrofit or greenfield remediation path.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-29">Can Fireblocks, Taurus, BitGo, DFNS, Zodia Custody, or Anchorage Digital workflows be post-quantum hardened for Besu?</button>
+    <div class="fa" id="faq-a-29" role="region">EternaX PQ Custody SDK is designed to add a post-quantum approval boundary around existing institutional custody and MPC workflows, including integrations with providers such as Fireblocks, Taurus, BitGo, DFNS, Zodia Custody, and Anchorage Digital. The custodian remains in place. EternaX adds the PQ authorization layer on top, while exact integration requirements depend on the provider interfaces, signing workflow, and deployment. See <a href="https://eternax.ai/custody-mpc-providers.html">Post-Quantum Custody &amp; MPC Providers</a>.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-30">Why should a bank designing a new permissioned tokenization ledger consider PQC and crypto-agility from day one?</button>
+    <div class="fa" id="faq-a-30" role="region">A bank may use an internal permissioned ledger to maintain governance, privacy, data control, operational authority, and regulatory separation for tokenized deposits, securities, funds, or internal settlement workflows. If Besu or another EVM-compatible permissioned architecture is selected, designing post-quantum protection and crypto-agility at inception can avoid creating another cryptographic migration dependency later. EternaX PQ-Safe Ledger is the greenfield path for institutions that want that protection boundary from genesis.</div>
+  </div>
+  <h3 class="fg">NIST standards, tokenization, and cryptographic inventory</h3>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-31">Which NIST post-quantum cryptography standards are most relevant to Besu migration?</button>
+    <div class="fa" id="faq-a-31" role="region">The core finalized NIST PQC standards are <a href="https://csrc.nist.gov/pubs/fips/203/final" target="_blank" rel="noopener">FIPS 203</a> for ML-KEM key establishment, <a href="https://csrc.nist.gov/pubs/fips/204/final" target="_blank" rel="noopener">FIPS 204</a> for ML-DSA digital signatures, and <a href="https://csrc.nist.gov/pubs/fips/205/final" target="_blank" rel="noopener">FIPS 205</a> for SLH-DSA hash-based digital signatures. Which algorithm belongs at each Besu layer depends on the security function, performance target, implementation boundary, and applicable validation or policy requirements. EternaX maps the algorithm to the function rather than treating one PQ scheme as the answer to every layer.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-32">What is ERC-3643 and why can a Besu ERC-3643 deployment still have quantum exposure?</button>
+    <div class="fa" id="faq-a-32" role="region">ERC-3643 is a permissioned token standard used for regulated tokenization on EVM-compatible networks. A Besu deployment can still depend on quantum-vulnerable authorization around issuer or administrator accounts, identity and claim signatures, wallet approvals, permit-style authorization, custody, or governance. Those paths must be assessed individually. EternaX targets these application-layer authorization surfaces through PQ-ONCHAINID, PQ-Permit, PQ-4626, and PQ Vault. See <a href="https://eternax.ai/post-quantum-stablecoins-and-tokenization.html">Post-Quantum Stablecoins &amp; Tokenization</a>.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-33">What is a Cryptographic Bill of Materials (CBOM) for a Hyperledger Besu deployment?</button>
+    <div class="fa" id="faq-a-33" role="region">A CBOM is a structured inventory of the cryptographic algorithms, key types, certificate chains, libraries, protocol dependencies, and implementation locations used across a system. For Besu, that means mapping cryptography across transaction authorization, consensus, P2P, privacy, tokenization, and custody. <a href="https://www.whitehouse.gov/presidential-actions/2026/06/securing-the-nation-against-advanced-cryptographic-attacks/" target="_blank" rel="noopener">Executive Order 14412</a> directs CISA, in coordination with NIST, to release guidance on minimum CBOM elements. EternaX produces CBOM-ready documentation as part of the Besu readiness assessment.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-34">What is SLH-DSA and why does EternaX use it for Besu?</button>
+    <div class="fa" id="faq-a-34" role="region">SLH-DSA is the stateless hash-based digital signature algorithm standardized in <a href="https://csrc.nist.gov/pubs/fips/205/final" target="_blank" rel="noopener">NIST FIPS 205</a>. Its security foundation is hash-based rather than lattice-based. EternaX uses SLH-DSA as a conservative root-signature path where that security and performance trade-off is appropriate, while retaining crypto-agility for other approved schemes and future transitions. EternaX does not treat one signature algorithm as universally optimal for every Besu workload.</div>
+  </div>
+  <h3 class="fg">EO 14412, institutional readiness, and pilot</h3>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-35">How does Executive Order 14412 affect Hyperledger Besu infrastructure?</button>
+    <div class="fa" id="faq-a-35" role="region"><a href="https://www.whitehouse.gov/presidential-actions/2026/06/securing-the-nation-against-advanced-cryptographic-attacks/" target="_blank" rel="noopener">Executive Order 14412</a>, signed June 22, 2026, directs OMB guidance requiring federal agencies to transition High Value Assets and high-impact systems, excluding National Security Systems, to PQC for key establishment by December 31, 2030 and digital signatures by December 31, 2031. Besu used inside an affected federal system therefore needs a mapped migration path across the cryptographic functions actually in scope. The order also directs support for critical-infrastructure PQC planning.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-36">How does Executive Order 14412 affect federal contractors using Hyperledger Besu?</button>
+    <div class="fa" id="faq-a-36" role="region"><a href="https://www.whitehouse.gov/presidential-actions/2026/06/securing-the-nation-against-advanced-cryptographic-attacks/" target="_blank" rel="noopener">Executive Order 14412</a> directs the FAR Council to publish a proposed rule requiring covered contractors to comply by December 31, 2030 with NIST FIPS, including applicable FIPS incorporating PQC-compliant algorithms. A contractor should not assume that every Besu deployment is automatically covered; applicability depends on the proposed and final FAR rule, contract scope, system boundary, and agency requirements. EternaX readiness work can map the technical cryptographic boundary that would need to be assessed.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-37">Do the EO 14412 deadlines automatically apply to every bank or private Besu network?</button>
+    <div class="fa" id="faq-a-37" role="region">No. <a href="https://www.whitehouse.gov/presidential-actions/2026/06/securing-the-nation-against-advanced-cryptographic-attacks/" target="_blank" rel="noopener">EO 14412</a> does not automatically make every private bank, market infrastructure, or private Besu network subject to the federal 2030 and 2031 HVA deadlines. Private-sector applicability can instead arise through federal procurement, covered-contractor rules, contracts, sector regulation, counterparties, critical-infrastructure guidance, or internal risk policy. EternaX therefore separates technical PQ readiness from the institution's legal determination of scope.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-38">Does adding post-quantum cryptography automatically make a Besu deployment compliant?</button>
+    <div class="fa" id="faq-a-38" role="region">No. PQC is a technical control, not a complete compliance determination. Compliance can depend on system scope, approved algorithms and modules, implementation assurance, key management, cryptographic inventory, transition planning, procurement obligations, testing, audit evidence, and the exact legal or contractual regime. EternaX can define and enforce a technical PQ protection boundary and produce readiness evidence, while the institution remains responsible for legal, regulatory, and certification determinations.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-39">What should an institution inventory before migrating a Besu network to post-quantum cryptography?</button>
+    <div class="fa" id="faq-a-39" role="region">At minimum: Besu and client versions; consensus mode; validator and transaction-signing keys; P2P identity and transport; Tessera or Paladin dependencies; privacy groups; encrypted historical data; token contracts and privileged roles; <code>ecrecover</code> and permit assumptions; wallets, bridges, oracles, HSMs, MPC and custody providers; cryptographic libraries; data-retention horizons; and every route that could bypass the intended PQ authorization path. EternaX turns that inventory into an explicit protection boundary and phased remediation plan.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-40">What does the EternaX Besu post-quantum readiness assessment deliver?</button>
+    <div class="fa" id="faq-a-40" role="region">The assessment maps the Besu cryptographic attack surface and the institution's actual dependencies, then defines a deployable protection boundary. Deliverables can include privacy and HNDL exposure mapping, consensus and P2P dependency analysis, custody and tokenization review, cryptographic inventory or CBOM inputs, compatibility validation, residual-risk documentation, target PQ suites, and a phased integration and evidence roadmap. The objective is a technically defensible migration plan, not a generic PQC checklist.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-41">Should an institution choose EternaX PQ Privacy Overlay or EternaX PQ-Safe Ledger?</button>
+    <div class="fa" id="faq-a-41" role="region">For a live Besu network where changing consensus or the client is not practical, start with PQ Privacy Overlay and separately harden tokenization and custody authorization as required. For a new permissioned network where the institution controls genesis and wants the native network protection boundary to be post-quantum from day one, evaluate PQ-Safe Ledger. The decision is therefore retrofit compatibility versus greenfield full-stack control, not simply one product being stronger than the other.</div>
+  </div>
+  <div class="fi">
+    <button class="fq" type="button" aria-expanded="false" aria-controls="faq-a-42">How long does an EternaX Besu post-quantum pilot take?</button>
+    <div class="fa" id="faq-a-42" role="region">The EternaX readiness assessment and initial pilot profile is designed as a 90-day engagement. It can include exposure mapping, compatibility validation, deployment of a bounded privacy group or tokenization module under controlled conditions, and production of the phased integration roadmap. The exact timeline depends on the institution's Besu configuration, privacy-group complexity, tokenization contracts, custody integrations, security review, and regulatory requirements.</div>
+  </div>
+  <div style="margin-top:28px">
+    <a href="mailto:info@eternax.ai?subject=Besu%20PQ%20Readiness%20Assessment" class="btn btn-n">Request a Besu post-quantum readiness assessment</a>
+  </div>
+</div>
+</section>
+
+</main>
+
+<p class="legal-note">Hyperledger&reg; is a registered trademark of The Linux Foundation. Besu is a trademark of LF Decentralized Trust&trade;. EternaX products are built for and based on Hyperledger Besu, an LF Decentralized Trust project. EternaX is not affiliated with or endorsed by LF Decentralized Trust.</p>
+
+{% include footer.html %}
+
+<script>
+document.querySelectorAll('.fi .fq').forEach(function(button){
+  button.addEventListener('click', function(){
+    var item = button.parentElement;
+    var isOpen = item.classList.toggle('open');
+    button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconMenu = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
+
+  function closeMobileMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.add('hidden');
+    if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+    if (iconMenu) iconMenu.classList.remove('hidden');
+    if (iconClose) iconClose.classList.add('hidden');
+  }
+
+  function openMobileMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('hidden');
+    if (menuButton) menuButton.setAttribute('aria-expanded', 'true');
+    if (iconMenu) iconMenu.classList.add('hidden');
+    if (iconClose) iconClose.classList.remove('hidden');
+  }
+
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) openMobileMenu();
+      else closeMobileMenu();
+    });
+
+    mobileMenu.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => closeMobileMenu());
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) closeMobileMenu();
+    });
+  }
+});
+</script>
+
+</body>
+</html>
