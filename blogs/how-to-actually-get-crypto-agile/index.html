@@ -1,0 +1,551 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So How Do You Actually Get Crypto-Agile? | EternaX Labs Blog</title>
+    <meta name="description" content="Clients ask how to get crypto-agility. The official answer is an inventory. A CBOM names primitives; it does not see that one signature is identity, authorization, admission, and evidence.">
+    <meta name="keywords" content="post-quantum blockchain, post-quantum cryptography, quantum-safe settlement, stablecoin issuance, rwa tokenization, EternaX, crypto-agility, cryptographic agility, CBOM, cryptographic bill of materials, NIST crypto-agility, authentication architecture, post-quantum cryptography, signature unbundling, verifier models">
+    <meta name="author" content="EternaX Labs">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="article:publisher" content="https://www.linkedin.com/company/eternax-labs">
+    <link rel="canonical" href="https://eternax.ai/blogs/how-to-actually-get-crypto-agile/index.html">
+    <meta name="theme-color" content="#e2e2e2">
+    <link rel="icon" type="image/svg+xml" href="../../assets/eternax-icon.svg">
+    <link rel="icon" type="image/png" href="../../assets/eternax-icon.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="So How Do You Actually Get Crypto-Agile?">
+    <meta property="og:description" content="Clients ask how to get crypto-agility. The official answer is an inventory. A CBOM names primitives; it does not see that one signature is identity, authorization, admission, and evidence.">
+    <meta property="og:site_name" content="EternaX Labs">
+    <meta property="og:url" content="https://eternax.ai/blogs/how-to-actually-get-crypto-agile/index.html">
+    <meta property="og:image" content="https://eternax.ai/assets/preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="So How Do You Actually Get Crypto-Agile?">
+    <meta property="twitter:description" content="Clients ask how to get crypto-agility. The official answer is an inventory. A CBOM names primitives; it does not see that one signature is identity, authorization, admission, and evidence.">
+    <meta property="twitter:url" content="https://eternax.ai/blogs/how-to-actually-get-crypto-agile/index.html">
+    <meta property="twitter:site" content="@EternaXlabs">
+    <meta property="twitter:creator" content="@EternaXlabs">
+    <meta property="twitter:image" content="https://eternax.ai/assets/preview.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../styles/tailwind.generated.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --bg: #f7f4f4;
+            --fg: #283771;
+            --fg-70: #283771;
+            --fg-80: #283771;
+            --border: #283771;
+            --pill-bg: #283771;
+            --pill-fg: #ffffff;
+        }
+        body { background-color: var(--bg); color: var(--fg); }
+        .glass-effect {
+            background: #ffffff;
+            border: 1px solid #e0dede;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .link-muted { color: var(--fg-70); transition: color 0.15s; }
+        .link-muted:hover { color: var(--fg); }
+        .btn-primary {
+            background-color: var(--fg);
+            transition: background-color 0.15s;
+        }
+        .btn-primary:hover { background-color: #1e2d5a; }
+        .nav-products-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s, visibility 0.15s;
+        }
+        .group:hover .nav-products-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        .blog-body { max-width: 720px; margin: 0 auto; }
+        .blog-body h1 { font-size: 2rem; font-weight: 600; margin-top: 0; margin-bottom: 0.75em; letter-spacing: -0.01em; line-height: 1.2; }
+        .blog-body h2 { font-size: 1.5rem; font-weight: 600; margin-top: 1.75rem; margin-bottom: 0.5em; letter-spacing: -0.01em; line-height: 1.3; }
+        .blog-body h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.4em; line-height: 1.3; }
+        .blog-body p { margin-top: 0.75em; margin-bottom: 0.75em; line-height: 1.65; }
+        .blog-body ul, .blog-body ol { margin: 0.75em 0; padding-left: 1.5em; }
+        .blog-body li { margin: 0.35em 0; line-height: 1.6; }
+        .blog-body blockquote { margin: 1em 0; padding-left: 1em; border-left: 3px solid var(--fg); opacity: 0.9; font-style: italic; }
+        .blog-body code { background: rgba(40,55,113,0.1); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.9em; }
+        .blog-body pre { background: rgba(40,55,113,0.08); padding: 1em; border-radius: 6px; overflow-x: auto; margin: 1em 0; }
+        .blog-body pre code { background: none; padding: 0; }
+        .blog-body a { color: var(--fg); text-decoration: underline; }
+        .blog-body a:hover { opacity: 0.8; }
+        .blog-body img { max-width: 100%; height: auto; border-radius: 4px; }
+        .blog-body figure { margin: 1.5em 0; }
+        .blog-body figcaption { margin-top: 0.5em; font-size: 0.9rem; color: var(--fg-70); text-align: center; font-style: italic; }
+        .blog-body hr { border: none; border-top: 1px solid rgba(40,55,113,0.2); margin: 1.5em 0; }
+        .blog-body table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 1em 0; font-size: 0.95em; }
+        .blog-body th, .blog-body td { padding: 0.5em 0.75em; border: 1px solid rgba(40,55,113,0.2); text-align: left; vertical-align: top; }
+        .blog-body th { font-weight: 600; background: rgba(40,55,113,0.06); }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://eternax.ai/#organization",
+      "name": "EternaX Labs",
+      "alternateName": ["EternaX", "EternaX Labs Inc"],
+      "url": "https://eternax.ai",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://eternax.ai/assets/logo.png",
+        "width": 400,
+        "height": 80
+      },
+      "description": "EternaX Labs is a post-quantum-native Layer 1 blockchain infrastructure company.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "general",
+        "email": "info@eternax.ai"
+      },
+      "sameAs": [
+        "https://github.com/eternax-ai",
+        "https://www.linkedin.com/company/eternax-labs",
+        "https://x.com/EternaXlabs"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://eternax.ai/blogs/how-to-actually-get-crypto-agile/index.html#article",
+      "headline": "So How Do You Actually Get Crypto-Agile?",
+      "description": "Clients ask how to get crypto-agility. The official answer is an inventory. A CBOM names primitives; it does not see that one signature is identity, authorization, admission, and evidence.",
+      "datePublished": "2026-08-27",
+      "dateModified": "2026-08-27",
+      "author": { "@id": "https://eternax.ai/#organization" },
+      "publisher": { "@id": "https://eternax.ai/#organization" },
+      "keywords": "crypto-agility, cryptographic agility, CBOM, cryptographic bill of materials, NIST crypto-agility, authentication architecture, post-quantum cryptography, signature unbundling, verifier models",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "EternaX Labs Blog",
+        "url": "https://eternax.ai/blogs/index.html"
+      },
+      "mainEntityOfPage": "https://eternax.ai/blogs/how-to-actually-get-crypto-agile/index.html",
+      "about": [{"@type":"Thing","name":"Crypto-Agility"},{"@type":"Thing","name":"Cryptographic Bill of Materials"},{"@type":"Thing","name":"Authentication Architecture"},{"@type":"Thing","name":"Post-Quantum Cryptography"},{"@type":"Thing","name":"Signature Unbundling"}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "EternaX",
+          "item": "https://eternax.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blogs",
+          "item": "https://eternax.ai/blogs/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "So How Do You Actually Get Crypto-Agile?",
+          "item": "https://eternax.ai/blogs/how-to-actually-get-crypto-agile/index.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="font-sans">
+    {% include navbar.html %}
+
+    <main class="pt-24 pb-16 px-4">
+        <article class="blog-body">
+            <h1>So How Do You Actually Get Crypto-Agile?</h1>
+<p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 0.25em;">August 27, 2026</p>
+<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: Dariia Porechna, cryptographer, co-founder of EternaX</p>
+<p><img src="Hero_Image.png" alt="Hero Image"></p>
+<p><a href="https://doi.org/10.6028/NIST.CSWP.39">NIST defines crypto-agility</a> as the ability to replace and adapt cryptographic algorithms while preserving security and ongoing operations. That definition describes a result. It says nothing about how an existing authentication architecture is supposed to arrive there.</p>
+<p>For authentication systems, the obstacle is the signature bundle. Many systems do not use signatures only as signatures. They use one compact object to carry identity, authorization, admission into a protocol, and later evidence. That was tolerable when the object was a 64-byte elliptic-curve signature. But it is still an optimization, not a law. Once that bundled object is no longer cheap, simple algorithm replacement does not produce agility. It moves the same coupling onto a larger and more expensive object.</p>
+<p>Unbundling is how an authentication system arrives at crypto-agility. Our earlier writings applied the decomposition to <a href="../unbundling-transaction-signature/index.html">transaction signatures on a BFT settlement path</a> and to <a href="../post-quantum-mpc-custody-on-chain/index.html">MPC custody</a>.</p>
+<h2>The signature bundle</h2>
+<p>A digital signature proves that a private key signed a message under a verification key. In deployed systems, that object is often asked to do four jobs at once.</p>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Question answered</th>
+<th>Typical lifetime</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Identity binding</td>
+<td>Which authority, account, or credential is this?</td>
+<td>Account, credential, epoch, institution</td>
+</tr>
+<tr>
+<td>Message authorization</td>
+<td>Was this specific payload approved?</td>
+<td>Action, transaction, session</td>
+</tr>
+<tr>
+<td>Local admissibility</td>
+<td>May this action enter the protocol path?</td>
+<td>Immediate execution path</td>
+</tr>
+<tr>
+<td>Durable evidence</td>
+<td>What can a later party verify?</td>
+<td>Audit, bridge, asset, legal, archive</td>
+</tr>
+</tbody></table>
+<p>Under classical signatures, these jobs were cheap to bundle. ECDSA and EdDSA made public verification small, fast, and easy to archive. A single signature could travel with every action and serve every audience. Authentication became, by default, one publicly verifiable object.</p>
+<p>That convenience hardened into architecture. The hardness assumption, encoding formats, verifier model, and evidence procedures traveled together because the object was small enough that nobody had to ask whether they belonged together.</p>
+<h2>The cost and risk changed</h2>
+<p>Post-quantum signatures change the cost of that optimization. Faster cryptanalysis changes its risk. Long-lived institutional records change the evidence requirement.</p>
+<p>ML-DSA and SLH-DSA are kilobytes where elliptic curve signature was 64 bytes: acceptable at issuance or rotation, not as a permanent object on every protocol path.</p>
+<p>And the risk is no longer only quantum. <a href="https://eprint.iacr.org/2026/1630">Quasipolynomial cryptanalysis of McEliece</a>, a <a href="https://eprint.iacr.org/2026/1593">key-recovery reduction for HAWK</a>, and <a href="https://www.anthropic.com/research/discovering-cryptographic-weaknesses">machine-assisted discovery of cryptographic weaknesses</a> are not predictions that any one standard fails tomorrow. They are evidence that the search for structure in public-key schemes is still accelerating. If identity, authorization, admissibility, and evidence all depend on the same construction and encoding, a scheme break, an implementation defect, or a standards migration forces every boundary to move at once.</p>
+<p>That is the architecture problem.</p>
+<h2>Interface agility is not enough</h2>
+<p>The standard tools are still the right tools at the interface. Algorithm identifiers make the wire format extensible. Provider APIs make the library swappable. Hybrid signatures make the transition dual. Each of these is useful. None of them is sufficient if the object being identified, swapped, or hybridized is still doing different jobs for different audiences.</p>
+<p><a href="https://eips.ethereum.org/EIPS/eip-4844">Ethereum blob data availability</a> is the concrete case. It is built on KZG commitments over BLS12-381. Commitment, opening, and sampling are pairing jobs fused into that curve, not a signature with an algorithm identifier. Swap BLS for a different signature scheme and the DA path does not migrate. It stops working.</p>
+<p>An identifier does not isolate a job, it labels a bundle. A hybrid does not unbundle a job. It duplicates the bundle. A modular API can hide an implementation change from application code and still leave custody workflows, audit logic, packet formats, and historical records coupled to the same artifact. If those couplings remain, the system has modular cryptography, not structural agility.</p>
+<p>The design question is therefore not which post-quantum signature to use. We have to determine which authentication jobs actually require the same verifier, trust anchor, lifetime, hardness assumption, state, failure domain, and evidence procedure. If the answer is not all of them, the jobs should not live in one object.</p>
+<h2>How to achieve crypto-agility</h2>
+<p>Start with the jobs the current object is secretly doing, then make those jobs independently replaceable. The method has six steps.</p>
+<h3>1. Inventory jobs, not algorithms</h3>
+<p>List every authentication artifact in the system: signatures, MACs, certificates, session tokens, quorum certificates, HSM receipts, logs, and finalized state commitments. For each artifact, name the jobs it currently performs. Most production systems discover that one object is doing more than one job.</p>
+<p>This inventory is not a cryptographic bill of materials. A CBOM can tell you which algorithms you have. It cannot tell you which business path will break when one of them is withdrawn. If you cannot name the job, you cannot migrate the object without rewriting the path that depends on it.</p>
+<h3>2. Classify each artifact</h3>
+<p>For every authentication artifact, answer:</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Job</td>
+<td>What function is this artifact performing?</td>
+</tr>
+<tr>
+<td>Verifier</td>
+<td>Who must be convinced?</td>
+</tr>
+<tr>
+<td>Trust anchor</td>
+<td>What does that verifier rely on?</td>
+</tr>
+<tr>
+<td>Lifetime</td>
+<td>How long must the claim remain meaningful?</td>
+</tr>
+<tr>
+<td>Hardness class</td>
+<td>Which assumption protects the claim?</td>
+</tr>
+<tr>
+<td>State</td>
+<td>Does verification need a session, committee, registry, or only public data?</td>
+</tr>
+<tr>
+<td>Failure domain</td>
+<td>What else fails if this primitive, key, encoding, or operator fails?</td>
+</tr>
+<tr>
+<td>Evidence</td>
+<td>What remains checkable after the event, and by whom?</td>
+</tr>
+</tbody></table>
+<p>Two authentication jobs belong in the same artifact only when they require the same verifier model, trust anchor, lifetime, hardness class, state, failure domain, and evidence procedure.</p>
+<p>If the dimensions match, bundling may be correct. If they do not match, bundling creates migration coupling and security concentration. The rule is conservative on purpose. The cost of a false split is an extra interface. The cost of a false bundle is a rewrite.</p>
+<h3>3. Name the verifier before choosing a primitive</h3>
+<p>The verifier is the variable that is usually missing from migration debates. Primitive choice is treated as a matter of taste, conservatism, or standards compliance. It is more often a matter of audience.</p>
+<table>
+<thead>
+<tr>
+<th>Verifier model</th>
+<th>What it needs</th>
+<th>Natural tools</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Universal public verifier</td>
+<td>Anyone can check later from public data</td>
+<td>Public-key signatures, certificates, transparency logs</td>
+</tr>
+<tr>
+<td>Protocol-path verifier</td>
+<td>A named participant checks now</td>
+<td>MACs, authenticated channels, designated verification, local state</td>
+</tr>
+<tr>
+<td>Committee verifier</td>
+<td>A threshold or BFT group decides</td>
+<td>Consensus, quorum certificates, threshold checks</td>
+</tr>
+<tr>
+<td>Enforcement-layer verifier</td>
+<td>Policy satisfaction is checked</td>
+<td>Policy engine, authorization proof, registry, HSM workflow</td>
+</tr>
+<tr>
+<td>Future auditor</td>
+<td>A past event can be reconstructed or opened</td>
+<td>Receipts, logs, finalized state, evidence chains</td>
+</tr>
+</tbody></table>
+<p>A universal public verifier is the strongest audience. It needs an artifact that can stand alone. A protocol-path verifier is narrower: it operates inside an authenticated session, committee, ledger state, or enforcement layer, and it may need immediate conviction rather than a permanent public proof. A future auditor is different again. It needs evidence that remains meaningful relative to a named trust anchor and procedure. A public signature is one possible evidence object. It is not the definition of evidence.</p>
+<p>Once the verifier is explicit, primitive choice becomes less ideological.</p>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>If the verifier is public</th>
+<th>If the verifier is named or stateful</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Identity binding</td>
+<td>Conservative public-key signature, certificate, credential</td>
+<td>Session-bound key, registry entry, organizational authority document</td>
+</tr>
+<tr>
+<td>Message authorization</td>
+<td>Public signature over the payload</td>
+<td>MAC, designated-verifier authentication, channel-bound proof</td>
+</tr>
+<tr>
+<td>Local admissibility</td>
+<td>Public predicate plus state checks</td>
+<td>Local policy, BFT admission, HSM workflow, authenticated session</td>
+</tr>
+<tr>
+<td>Durable evidence</td>
+<td>Public signature, certificate chain</td>
+<td>Receipt, log inclusion, finalized state commitment, evidence chain</td>
+</tr>
+</tbody></table>
+<p>This is not an argument against public-key signatures. It is an argument against using them by reflex. Public-key signatures are the right tool when the verifier must be public, independent, and durable. They are not automatically the right tool when the verifier is named, online, stateful, or part of a consensus path. Public-key primitives belong at trust boundaries where the verifier is unknown. The protocol path can often run on hashes, MACs, authenticated channels, commitments, logs, or committee assumptions, without importing a public-key migration calendar into the hot path.</p>
+<h3>4. Write a substitution contract</h3>
+<p>A replaceable job needs a contract that outlives a specific implementation:</p>
+<ol>
+<li>The security property the job must preserve.</li>
+<li>The verifier and trust anchor that may be used.</li>
+<li>The encodings, key types, and implementations that may change.</li>
+<li>The application semantics that must not change.</li>
+<li>The evidence that must remain meaningful, expire, or be re-issued.</li>
+</ol>
+<p>The primitive implements the contract. The contract does not inherit the primitive&#39;s wire format, key size, or migration calendar. If changing SLH-DSA for ML-DSA still forces a rewrite of custody workflows, audit logic, or packet formats, the contract was never isolated. The algorithm changed. The architecture did not.</p>
+<h3>5. Measure migration risk</h3>
+<p>Ask one operational question for each artifact: if this primitive is withdrawn tomorrow, what else must move?</p>
+<p>Count the forced changes: keys, certificates, session state, wire formats, storage, verification paths, custody workflows, policy engines, bridges, and historical records.</p>
+<p>A bundled signature has a large blast radius because identity, authorization, admission, and evidence all move together. An unbundled design is crypto-agile only when that radius shrinks and the remaining trust movement is explicit. If the radius does not shrink, the system has modular APIs, not structural agility.</p>
+<h3>6. Design the transition, then prove it</h3>
+<p>Replacement is a protocol, not a configuration change. For each substitution class, specify:</p>
+<table>
+<thead>
+<tr>
+<th>Transition step</th>
+<th>What must be true</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Dual operation</td>
+<td>Old and new artifacts can coexist without ambiguous interpretation.</td>
+</tr>
+<tr>
+<td>Cutover</td>
+<td>The activation boundary is exact: time, epoch, key, or profile.</td>
+</tr>
+<tr>
+<td>Rollback</td>
+<td>The system can return to a known-good profile without silent downgrade.</td>
+</tr>
+<tr>
+<td>Compromised root</td>
+<td>Alternate roots, dual authorization, or recovery paths are named in advance.</td>
+</tr>
+<tr>
+<td>Evidence continuity</td>
+<td>Historical claims remain verifiable, are re-issued, or expire under a stated policy.</td>
+</tr>
+<tr>
+<td>Residual exposure</td>
+<td>Operators can say what old keys, ciphertexts, or signatures still prove.</td>
+</tr>
+</tbody></table>
+<p>Then withdraw one primitive on paper or in a staging system and trace every affected claim. If the drill requires an application rewrite, the architecture is not agile yet. Agility that exists only in an API diagram is not agility.</p>
+<h2>Two worked examples</h2>
+<p>The two earlier posts are instances of this method. The settlement case unbundles a transaction signature. The custody case unbundles a threshold signature. The jobs are different. The rule is the same.</p>
+<h3>Settlement</h3>
+<p>In a bundled post-quantum settlement design, every transaction carries a public signature that binds identity, authorizes the action, gates admission, and remains as evidence forever. That is the classical ECDSA bargain continued at a new price.</p>
+<p>An unbundled design asks what each job needs.</p>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Concrete design question</th>
+<th>Possible answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Identity binding</td>
+<td>How is the account or institution rooted?</td>
+<td>Hash-based PQ credential or public key</td>
+</tr>
+<tr>
+<td>Message authorization</td>
+<td>Who must be convinced that this payload was approved?</td>
+<td>Validator, counterparty, or committee path</td>
+</tr>
+<tr>
+<td>Local admissibility</td>
+<td>Who decides whether it enters the ledger?</td>
+<td>BFT validators under protocol rules</td>
+</tr>
+<tr>
+<td>Durable evidence</td>
+<td>What must an auditor or bridge check later?</td>
+<td>Finalized receipt, state commitment, or evidence chain</td>
+</tr>
+</tbody></table>
+<p>The identity root can be conservative and public. Hot-path authorization can be compact and verifier-specific. Admissibility can be tied to consensus. Evidence can be generated after finality for the parties that actually need it.</p>
+<p>That is the pattern in <a href="../unbundling-transaction-signature/index.html">Unbundling the Transaction Signature</a>. Conservative post-quantum signatures stay where universal public verification is actually needed. BFT finality is named as the public trust anchor. A compact finality-anchored receipt carries later audit. The result is not only a smaller object. It is a substitution contract in which the hot path no longer inherits every public-key migration.</p>
+<h3>Custody</h3>
+<p>MPC custody shows the same problem from the control-plane side. Classical custody often bundles member authentication and threshold authorization into one threshold signature workflow: if enough parties participate, the system emits one signature that the asset rail accepts. Threshold ECDSA made that bundle convenient. It did not make the two jobs identical.</p>
+<p>Post-quantum migration breaks the convenience. Standardized hash-based signatures do not naturally support efficient threshold signing, and lattice threshold signing remains an active research and deployment problem. Searching for &quot;the post-quantum threshold signature&quot; therefore preserves the wrong abstraction.</p>
+<p>A signature-agnostic custody design unbundles the jobs:</p>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Bundled TSS design</th>
+<th>Unbundled custody design</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Member authentication</td>
+<td>Hidden inside threshold signing</td>
+<td>Each member signs an approval under any EUF-CMA signature scheme</td>
+</tr>
+<tr>
+<td>Threshold authorization</td>
+<td>The threshold signature is the authorization</td>
+<td>A quorum produces a separate threshold seal over the operation</td>
+</tr>
+<tr>
+<td>Local admissibility</td>
+<td>Asset rail accepts the resulting signature</td>
+<td>Enforcement layer checks both member signatures and the seal</td>
+</tr>
+<tr>
+<td>Crypto-agility</td>
+<td>Changing signature scheme changes the threshold protocol</td>
+<td>Changing signature scheme is key rotation, not protocol redesign</td>
+</tr>
+</tbody></table>
+<p>This is unbundling as an agility mechanism, which is the argument of <a href="../post-quantum-mpc-custody-on-chain/index.html">Post-Quantum Custody On-Chain</a> and the accompanying <a href="https://arxiv.org/abs/2607.08226">signature-agnostic MPC custody paper</a>. The member-signature scheme becomes a deployment parameter: ECDSA, ML-DSA, SLH-DSA, or another EUF-CMA signature can authenticate members without becoming part of the threshold authorization computation. The threshold seal carries the distributed-approval property. The enforcement layer decides whether both gates are satisfied. Migrating a member from ECDSA to SLH-DSA is key rotation. It is not a new distributed key generation, a new combination algorithm, and a new security analysis of the control layer.</p>
+<h2>What makes unbundling valid</h2>
+<p>The settlement design is valid because BFT finality is named as the public trust anchor and the receipt is named as the evidence procedure. The custody design is valid because member authentication, the threshold seal, and the enforcement layer are three proofs with three jobs. Unbundling is not valid because a system is faster. It is valid only when the replacement trust anchor is explicit.</p>
+<p>A serious design must state:</p>
+<ol>
+<li>Which party verifies each job.</li>
+<li>Which trust anchor supports that verification.</li>
+<li>Which evidence remains after the event.</li>
+<li>How replay, revocation, and downgrade are handled.</li>
+<li>What changes if the primitive or assumption class fails.</li>
+</ol>
+<p>A design that replaces &quot;public signature&quot; with &quot;trust the system&quot; has not unbundled authentication. It has removed a proof. A valid unbundled design replaces one proof with a named verifier, named trust anchor, named lifetime, and named evidence procedure.</p>
+<h2>What agility looks like after unbundling</h2>
+<p>Fragments of this decomposition already appear in deployed systems: PBFT used MACs for internal replica authentication, IETF evidence drafts separate verification from authority and evidence satisfaction, and ZK authorization work separates authorization semantics from transaction-carried signatures. The framework above unifies those fragments into one operational rule.</p>
+<p>If authentication is bundled, algorithm replacement can force changes across wire formats, storage, custody flows, audit logic, policy semantics, and verification paths.</p>
+<p>If authentication is unbundled, migration can be localized:</p>
+<ul>
+<li>identity roots can rotate when public-key standards change;</li>
+<li>protocol-path authorization can use stable channel or committee assumptions;</li>
+<li>durable evidence can retain the procedure needed by auditors, bridges, or regulators;</li>
+<li>hot-path formats do not automatically inherit every public-key migration.</li>
+</ul>
+<p>That is the operational value of unbundling. It turns crypto-agility from a desired outcome into an architecture property: future cryptographic changes have fewer places to break the business system.</p>
+<h2>Conclusion</h2>
+<p>Post-everything cryptography is not only about choosing the next signature. It is about not asking one object to be identity, authorization, admission, and evidence unless those jobs truly have the same verifier, trust anchor, lifetime, hardness class, and evidence procedure.</p>
+<p>The method is:</p>
+<ol>
+<li>Inventory the jobs, not the algorithms.</li>
+<li>Classify each artifact by verifier, trust, lifetime, assumption, state, failure domain, and evidence.</li>
+<li>Split jobs whose dimensions do not match.</li>
+<li>Write a substitution contract before selecting a primitive.</li>
+<li>Measure the blast radius of a withdrawal.</li>
+<li>Specify the transition and prove that historical evidence still means something.</li>
+</ol>
+<p>Authentication is not one object. It is a set of jobs. Crypto-agility is not an algorithm identifier. It is the architecture that lets those jobs change independently.</p>
+<h2>Sources and further reading</h2>
+<ul>
+<li>NIST, <a href="https://doi.org/10.6028/NIST.CSWP.39">Considerations for Achieving Crypto Agility: Strategies and Practices (CSWP 39)</a>, 2025.</li>
+<li>Ashrujit Ghoshal, Yuval Ishai, Aayush Jain, and Nuozhou Sun, <a href="https://eprint.iacr.org/2026/1630">Quasipolynomial Cryptanalysis of the McEliece Cryptosystem</a>, 2026.</li>
+<li>Zygimantas Straznickas and Stephen A. Weis, <a href="https://eprint.iacr.org/2026/1593">HAWK-n Key Recovery Reduces to SVP in Dimension n/2 + 1</a>, 2026.</li>
+<li>Anthropic, <a href="https://www.anthropic.com/research/discovering-cryptographic-weaknesses">Discovering cryptographic weaknesses with Claude</a>, 2026.</li>
+<li>I. Schrock, <a href="https://datatracker.ietf.org/doc/draft-schrock-ep-authorization-evidence-chain/">Authorization Evidence Chains: Composing Heterogeneous Agent-Action Evidence</a>, 2026.</li>
+<li>I. Schrock, <a href="https://datatracker.ietf.org/doc/html/draft-schrock-ep-authority-introduction-03">Authority Documents and Scoped Authority for Agent-Action Evidence</a>, 2026.</li>
+<li>J. S. Wang, <a href="https://doi.org/10.48550/arxiv.2603.07974">ZK-ACE: Identity-Centric Zero-Knowledge Authorization for Post-Quantum Blockchain Systems</a>, 2026.</li>
+<li>Dariia Porechna, <a href="https://arxiv.org/abs/2607.08226">Threshold Authorization Without Threshold Signatures: Signature-Agnostic MPC Custody</a>, 2026.</li>
+<li>Miguel Castro and Barbara Liskov, <a href="https://pmg.csail.mit.edu/papers/osdi99.pdf">Practical Byzantine Fault Tolerance</a>, 1999.</li>
+</ul>
+
+        </article>
+
+        <!-- Commercial CTA -->
+        <div class="blog-body" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(40,55,113,0.15);">
+            <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75em; color: var(--fg);">Evaluate PQ-native infrastructure for your institution</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 1em;">
+                <a href="../../pilot.html" style="display: inline-block; background-color: var(--fg); color: #fff; padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Book a Pilot Call</a>
+                <a href="../../post_quantum_exposure_map_institutional_crypto_tokenized_assets.html" style="display: inline-block; border: 1px solid var(--fg); color: var(--fg); padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Exposure Map</a>
+                <!--<a href="../../testnet.html" style="display: inline-block; border: 1px solid var(--fg); color: var(--fg); padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Explore Testnet</a>-->
+            </div>
+        </div>
+    </main>
+
+    {% include footer.html %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuButton = document.getElementById('mobile-menu-button');
+            var mobileMenu = document.getElementById('mobile-menu');
+            var iconMenu = document.getElementById('icon-menu');
+            var iconClose = document.getElementById('icon-close');
+            function closeMenu() {
+                if (!mobileMenu) return;
+                mobileMenu.classList.add('hidden');
+                if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+                if (iconMenu) iconMenu.classList.remove('hidden');
+                if (iconClose) iconClose.classList.add('hidden');
+            }
+            function openMenu() {
+                if (!mobileMenu) return;
+                mobileMenu.classList.remove('hidden');
+                if (menuButton) menuButton.setAttribute('aria-expanded', 'true');
+                if (iconMenu) iconMenu.classList.add('hidden');
+                if (iconClose) iconClose.classList.remove('hidden');
+            }
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() {
+                    if (mobileMenu.classList.contains('hidden')) openMenu(); else closeMenu();
+                });
+                mobileMenu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+                document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+                window.addEventListener('resize', function() { if (window.innerWidth >= 768) closeMenu(); });
+            }
+        });
+    </script>
+</body>
+</html>

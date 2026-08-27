@@ -13,6 +13,13 @@ const root = path.resolve(process.cwd());
 const blogPath = path.resolve(root, blogFolder);
 const blogsDir = path.join(root, 'blogs');
 const postMetaMap = {
+  'how-to-actually-get-crypto-agile': {
+    datePublished: '2026-08-27',
+    description: 'Clients ask how to get crypto-agility. The official answer is an inventory. A CBOM names primitives; it does not see that one signature is identity, authorization, admission, and evidence.',
+    keywords: 'crypto-agility, cryptographic agility, CBOM, cryptographic bill of materials, NIST crypto-agility, authentication architecture, post-quantum cryptography, signature unbundling, verifier models',
+    about: ['Crypto-Agility', 'Cryptographic Bill of Materials', 'Authentication Architecture', 'Post-Quantum Cryptography', 'Signature Unbundling'],
+    authorLine: 'Dariia Porechna, cryptographer, co-founder of EternaX'
+  },
   'post-quantum-mpc-custody-on-chain': {
     datePublished: '2026-06-15',
     description: 'How custody providers can preserve distributed approval on-chain without threshold-signing hash-based signatures: dual gates with SLH-DSA member authentication and SILMARILS affine threshold authorization.',
@@ -188,7 +195,8 @@ if (postMeta.description) {
 
 marked.setOptions({ gfm: true });
 let content = marked.parse(body);
-const publishedDate = new Date(`${postMeta.datePublished}T00:00:00Z`).toLocaleDateString('en-US', {
+const displayDate = postMeta.dateModified || postMeta.datePublished;
+const publishedDate = new Date(`${displayDate}T00:00:00Z`).toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
@@ -213,7 +221,8 @@ html = html
   .replace(/\{\{title\}\}/g, escapeHtml(title))
   .replace(/\{\{description\}\}/g, escapeHtml(description))
   .replace(/\{\{canonicalUrl\}\}/g, `https://eternax.ai/blogs/${slug}/index.html`)
-  .replace(/\{\{datePublished\}\}/g, postMeta.datePublished)
+    .replace(/\{\{datePublished\}\}/g, postMeta.datePublished)
+    .replace(/\{\{dateModified\}\}/g, postMeta.dateModified || postMeta.datePublished)
   .replace(/\{\{keywords\}\}/g, escapeHtml(postMeta.keywords))
   .replace(/\{\{keywordsJson\}\}/g, JSON.stringify(postMeta.keywords))
   .replace(/\{\{aboutJson\}\}/g, JSON.stringify(postMeta.about.map((name) => ({ '@type': 'Thing', name }))))
