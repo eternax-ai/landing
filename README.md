@@ -17,7 +17,7 @@ landing/
 ├── stablecoin-issuers.html             # Solution: stablecoin issuers
 ├── tokenized-funds-rwas.html           # Solution: tokenized funds / RWA platforms
 ├── custody-mpc-providers.html          # Solution: custody and MPC providers
-├── testnet.html                        # Testnet access and developer proof
+├── pluto-testnet.html                  # Testnet access and developer proof
 ├── about.html                          # Company and founders
 ├── glossary.html                       # PQ terminology
 ├── post_quantum_mpc_custody_crisis_*   # Report: MPC Custody Crisis 2026
