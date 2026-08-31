@@ -45,4 +45,3 @@ User-agent: Diffbot
 Allow: /
 
 Sitemap: https://eternax.ai/sitemap.xml
-Sitemap: https://eternax.ai/sitemap-blogs.xml
