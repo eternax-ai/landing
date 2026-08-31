@@ -11,8 +11,6 @@
 - [About EternaX Labs](https://eternax.ai/about.html): Canonical entity page for founders, mission, and company profile.
 - [Glossary](https://eternax.ai/glossary.html): Definitions for post-quantum cryptography and migration terminology.
 - [Blog Index](https://eternax.ai/blogs/index.html): Research reports and blog archive.
-- [Post-Quantum MPC Custody, On-Chain](https://eternax.ai/blogs/post-quantum-mpc-custody-on-chain/index.html): Dual-gate custody authorization without threshold-signing hash-based signatures.
-- [Private Chains Are Not Private](https://eternax.ai/blogs/private-chains-are-not-private/index.html): Why private and privacy-focused chains still fail a post-quantum standard.
 - [Reports Index](https://eternax.ai/reports/index.html): Institutional post-quantum research reports archive.
 
 ## Solutions
