@@ -1,0 +1,699 @@
+---
+---
+<!DOCTYPE html>
+
+<html lang="en">
+<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>CBOM Guide: Cryptographic Bill of Materials, PQC &amp; Crypto Agility | EternaX</title><meta content="The definitive EternaX institutional guide to CBOM and crypto agility: EO 14412, OMB M-26-15, NIST guidance, named financial institutions, cryptographic inventory, and post-quantum migration without operational disruption." name="description"/><meta content="CBOM, Cryptographic Bill of Materials, crypto agility, cryptographic agility, PQC migration, post-quantum cryptography, CycloneDX CBOM, NIST CBOM, CISA CBOM, EO 14412, ECMA-424, SBOM vs CBOM, blockchain CBOM, quantum-safe settlement, post-quantum market infrastructure, quantum-resistant blockchain, quantum-safe signatures, PQ-native assets, PQ-safe vaults, post-quantum stablecoin, RWA tokenization, auditable privacy, spendable finality, post-quantum settlement, OMB M-26-15, Execution of the Migration to Post-Quantum Cryptography, cryptographic agile architecture, financial sector crypto agility, FS-ISAC PQC, financial market utility PQC" name="keywords"/><meta content="Paarrthhh Birla, Dariia Porechna, Dr. Chen Feng, EternaX Labs" name="author"/><meta content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" name="robots"/><meta content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" name="googlebot"/><meta content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" name="bingbot"/><meta content="English" name="language"/><meta content="global" name="distribution"/><meta content="general" name="rating"/><meta content="telephone=no" name="format-detection"/><meta content="#e2e2e2" name="theme-color"/><meta content="AI-assisted research synthesis and editorial production; reviewed against primary sources and approved for publication by EternaX Labs authors." name="ai-content-declaration"/><link href="https://eternax.ai/blogs/cbom-cryptographic-bill-of-materials-guide/index.html" rel="canonical"/><link href="../../assets/eternax-icon.svg" rel="icon" type="image/svg+xml"/><link href="../../assets/favicon.png" rel="icon" type="image/png"/><link href="https://fonts.googleapis.com" rel="dns-prefetch"/><link href="https://fonts.gstatic.com" rel="dns-prefetch"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans+Condensed:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Serif:wght@500;600&amp;display=swap" rel="stylesheet"/><link href="../../styles/tailwind.generated.css" rel="stylesheet"/><meta content="article" property="og:type"/><meta content="https://eternax.ai/blogs/cbom-cryptographic-bill-of-materials-guide/index.html" property="og:url"/><meta content="CBOM: The Complete Guide to Cryptographic Bill of Materials, Crypto Agility &amp; PQC" property="og:title"/><meta content="For banks, FMIs, custodians, issuers and security teams: understand CBOM, OMB M-26-15 crypto-agility requirements, named institutional exposure, and how to migrate cryptography without breaking operations." property="og:description"/><meta content="https://eternax.ai/assets/cbom-guide-og-1200x630.png" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="EternaX CBOM guide: Cryptographic Bill of Materials, crypto agility and post-quantum migration" property="og:image:alt"/><meta content="EternaX Labs" property="og:site_name"/><meta content="en_US" property="og:locale"/><meta content="2026-09-02T12:23:00+05:30" property="article:published_time"/><meta content="2026-09-02T15:38:00+05:30" property="article:modified_time"/><meta content="https://eternax.ai/" property="article:publisher"/><meta content="summary_large_image" name="twitter:card"/><meta content="https://eternax.ai/blogs/cbom-cryptographic-bill-of-materials-guide/index.html" name="twitter:url"/><meta content="CBOM: Cryptographic Bill of Materials, Crypto Agility &amp; PQC" name="twitter:title"/><meta content="The institutional field guide to CBOM and crypto agility: EO 14412, OMB M-26-15, NIST, named financial institutions, and the operating path to post-quantum migration." name="twitter:description"/><meta content="https://eternax.ai/assets/cbom-guide-og-1200x630.png" name="twitter:image"/><meta content="EternaX CBOM guide: Cryptographic Bill of Materials, crypto agility and post-quantum migration" name="twitter:image:alt"/><meta content="@EternaXlabs" name="twitter:site"/><meta content="@parthweb34ai" name="twitter:creator"/><style>
+:root{--navy:#283771;--navy2:#3A4A87;--bg:#F7F4F4;--bg2:#F8F4F4;--surface:#fff;--border:#E0DEDE;--border2:#C9C6C6;--ink:#171B32;--ink2:#4A4F6A;--muted:#6B6870;--green:#2F5E52;--red:#8D2E2E;--soft:#EEF0F8;--shadow:0 14px 38px rgba(40,55,113,.07);--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",Arial,sans-serif;font-size:17px;line-height:1.65;letter-spacing:-.002em}img{max-width:100%;height:auto}main a,.hero a,.toc a,.jump-strip a,.related a,.authors a,.sources a{color:var(--navy);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}main a:hover,.hero a:hover,.toc a:hover,.jump-strip a:hover,.related a:hover,.authors a:hover,.sources a:hover{color:var(--navy2)}button,a{touch-action:manipulation}.wrap{max-width:1240px;margin:auto;padding:0 32px}.article-wrap{max-width:860px;margin:auto;padding:0 32px}.skip-link{position:absolute;left:-9999px;top:8px;z-index:99;background:#fff;color:var(--navy);padding:10px 14px;border-radius:8px}.skip-link:focus{left:12px}.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.site-header{position:sticky;top:0;z-index:30;background:rgba(247,244,244,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px;color:var(--navy);text-decoration:none;font-weight:700;font-size:20px;letter-spacing:-.03em}.brand-mark{width:26px;height:26px;border:1px solid var(--navy);border-radius:8px;display:grid;place-items:center;font:600 10px/1 "IBM Plex Mono",monospace}.brand-sub{font:500 11px/1.2 "IBM Plex Mono",monospace;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-left:4px}.nav-links{display:flex;gap:20px;align-items:center;font-size:14px}.nav-links a{text-decoration:none;color:var(--ink2)}.nav-links .cta{background:var(--navy);color:#fff;padding:10px 15px;border-radius:999px;font-weight:600}
+.hero{padding:72px 0 42px;border-bottom:1px solid var(--border)}.hero-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}.eyebrow{font:600 11px/1.4 "IBM Plex Mono",monospace;color:var(--navy);text-transform:uppercase;letter-spacing:.09em;margin-bottom:16px}.pill{display:inline-flex;align-items:center;gap:7px;background:var(--soft);border:1px solid #DDE1F1;color:var(--navy);border-radius:999px;padding:7px 10px;font:600 11px/1 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);display:inline-block}.dot.red{background:var(--red)}h1,h2{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;color:var(--ink);letter-spacing:-.035em}h1{font-size:clamp(46px,6vw,72px);line-height:.99;margin:14px 0 22px;font-weight:700;max-width:850px}h2{font-size:clamp(31px,4vw,45px);line-height:1.08;margin:72px 0 20px;font-weight:700}h3{font-family:"IBM Plex Sans",sans-serif;font-size:22px;line-height:1.2;letter-spacing:-.018em;margin:38px 0 12px}.dek{font-size:21px;line-height:1.5;color:var(--ink2);max-width:850px;margin:0 0 24px}.meta{display:flex;flex-wrap:wrap;gap:8px 16px;color:var(--muted);font-size:13.5px}.meta strong{color:var(--ink)}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 16px}.btn{appearance:none;border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:999px;padding:11px 16px;font:600 14px/1.2 "IBM Plex Sans",sans-serif}.btn.primary{background:var(--navy);color:#fff}.btn.secondary{background:#fff;color:var(--navy);border:1px solid var(--border2)}.evidence-line{font-size:12.5px;color:var(--muted);margin-top:10px}.hero-panel{background:rgba(255,255,255,.85);border:1px solid var(--border);border-radius:20px;padding:22px;box-shadow:var(--shadow)}.panel-head{display:flex;justify-content:space-between;gap:12px;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--border)}.panel-title{font:600 12px/1.3 "IBM Plex Mono",monospace;color:var(--navy);text-transform:uppercase;letter-spacing:.07em}.status-row{padding:15px 0;border-bottom:1px solid var(--border)}.status-row:last-child{border-bottom:0;padding-bottom:0}.status-label{font:600 11px/1.2 "IBM Plex Mono",monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}.status-value{margin-top:4px;font-weight:600;color:var(--ink);line-height:1.35}.status-note{margin-top:3px;color:var(--ink2);font-size:13px;line-height:1.4}
+.hero-media{padding:32px 0 10px}.hero-media figure{max-width:1120px;margin:0 auto;padding:0 32px}.hero-media img{display:block;width:100%;border-radius:20px;border:1px solid var(--border);box-shadow:var(--shadow)}.hero-media figcaption{font-size:12.5px;color:var(--muted);margin-top:9px;text-align:center}
+.quick-answer{margin:36px auto 0;background:#fff;border:1px solid var(--border);border-radius:18px;padding:25px 27px;box-shadow:var(--shadow);position:relative}.quick-answer:after{content:"";position:absolute;right:18px;top:18px;width:8px;height:8px;background:var(--green);border-radius:50%}.quick-answer .label{font:600 11px/1.3 "IBM Plex Mono",monospace;color:var(--navy);text-transform:uppercase;letter-spacing:.08em}.quick-answer p{font-size:20px;line-height:1.48;margin:8px 0 0}.toc-shell{padding:30px 0 0}.toc{background:#fff;border:1px solid var(--border);border-radius:16px;padding:23px 25px}.toc strong{display:block;margin-bottom:10px}.toc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 22px;font-size:14.5px}.toc a{text-decoration:none;color:var(--ink2)}main{padding:10px 0 90px}p{margin:0 0 18px}.lead{font-size:20px;color:var(--ink2);line-height:1.6}.rule{height:1px;background:var(--border);margin:54px 0}.mental-model{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:30px -95px}.model-card{background:#fff;border:1px solid var(--border);border-radius:15px;padding:18px;position:relative}.model-card:after{content:"";position:absolute;right:13px;top:13px;width:7px;height:7px;border-radius:50%;background:var(--green)}.model-card .k{font:600 11px/1.3 "IBM Plex Mono",monospace;color:var(--navy);text-transform:uppercase;letter-spacing:.07em}.model-card strong{display:block;font-size:17px;margin:7px 0 4px}.model-card p{font-size:14px;line-height:1.45;color:var(--ink2);margin:0}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:25px 0}.card{background:#fff;border:1px solid var(--border);border-radius:15px;padding:22px;position:relative}.card:after{content:"";position:absolute;right:14px;top:14px;width:6px;height:6px;border-radius:50%;background:#C3C8D9}.card h3{font-size:18px;margin:0 0 8px}.card p{font-size:15px;color:var(--ink2);margin:0}.tag{display:inline-block;font:600 10.5px/1 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.07em;color:var(--navy);background:var(--soft);padding:5px 8px;border-radius:999px;margin-bottom:11px}.timeline{margin:28px 0 36px;border-left:1px solid var(--border2);padding-left:26px}.event{position:relative;padding:0 0 27px}.event:before{content:"";position:absolute;left:-31px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--navy);box-shadow:0 0 0 4px var(--bg)}.event .date{font:600 11px/1.2 "IBM Plex Mono",monospace;color:var(--navy);text-transform:uppercase;letter-spacing:.07em}.event strong{display:block;font-size:18px;margin:4px 0 4px}.event p{font-size:15px;color:var(--ink2);margin:0}.table-wrap{overflow-x:auto;margin:25px 0 34px;border:1px solid var(--border);border-radius:15px;background:#fff}table{border-collapse:collapse;width:100%;min-width:680px}th,td{padding:15px 17px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border);font-size:14.5px}th{font:600 11px/1.3 "IBM Plex Mono",monospace;color:var(--navy);text-transform:uppercase;letter-spacing:.055em;background:#FAF9F9}tr:last-child td{border-bottom:0}.callout{margin:29px 0;padding:22px 24px;border-radius:15px;background:#F2F5F3;border:1px solid #D8E0DC;color:#213C34;position:relative}.callout:after{content:"";position:absolute;right:14px;top:14px;width:7px;height:7px;border-radius:50%;background:var(--green)}.callout.warning{background:#F8F1F1;border-color:#E4D6D6;color:#5D2525}.callout.warning:after{background:var(--red)}.callout .title{font-weight:700;margin-bottom:5px}.callout p:last-child{margin:0}.flow{display:grid;grid-template-columns:repeat(7,minmax(105px,1fr));gap:8px;margin:28px -95px 34px}.flow-item{background:#fff;border:1px solid var(--border);border-radius:14px;padding:15px 12px;text-align:center;font-size:13px;position:relative}.flow-item:not(:last-child):after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);z-index:3;color:var(--navy);font-weight:700}.flow-item strong{display:block;color:var(--navy);font-size:13px;margin-bottom:3px}.quote{font-family:"IBM Plex Serif",Georgia,serif;font-size:28px;line-height:1.4;letter-spacing:-.018em;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:30px 0;margin:40px 0;color:var(--navy)}.share-quote{position:relative}.quote-copy{position:absolute;right:0;bottom:10px;background:transparent;border:1px solid var(--border2);color:var(--navy);border-radius:999px;padding:6px 10px;font:600 11px/1 "IBM Plex Sans",sans-serif;cursor:pointer}.source-note{font-size:13px;color:var(--muted)}sup a{text-decoration:none}
+.related{margin-top:66px}.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.related-card{display:block;text-decoration:none;background:#fff;border:1px solid var(--border);border-radius:15px;padding:19px;color:var(--ink);min-height:150px}.related-card:hover{color:var(--ink);border-color:var(--border2);box-shadow:var(--shadow)}.related-card .small{font:600 10.5px/1.3 "IBM Plex Mono",monospace;color:var(--navy);text-transform:uppercase;letter-spacing:.06em}.related-card strong{display:block;font-size:17px;line-height:1.3;margin:8px 0}.related-card span{font-size:13px;color:var(--ink2);line-height:1.45}
+
+.solution-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:24px 0}.solution-card{background:#fff;color:var(--ink);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:21px;box-shadow:0 12px 34px rgba(16,28,65,.12)}.solution-card h3{margin:4px 0 9px;color:var(--navy);font-size:21px}.solution-kicker{font:600 10.5px/1.3 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.065em;color:var(--navy)}.solution-card p{color:var(--ink2);font-size:14px;line-height:1.5;margin:0 0 13px}.solution-card a{color:var(--navy);font-weight:600}.solution-so-what{font-weight:600;color:var(--ink)!important}.institution-label{font:600 10px/1.3 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:14px 0 8px}.institution-pills{display:flex;flex-wrap:wrap;gap:6px}.institution-pills span{display:inline-block;background:var(--soft);border:1px solid #DDE1F1;color:var(--navy);border-radius:999px;padding:5px 8px;font-size:11.5px;line-height:1.2}.conversion-note{font-size:12.5px!important;color:#D9DFF8!important;margin-top:16px!important}.deliverables{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:22px 0 0}.deliverable{border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:12px;color:#fff;font-size:12.5px;line-height:1.35}.deliverable strong{display:block;font-size:13px;margin-bottom:3px}.eternax-section .solution-card .solution-link{display:inline-flex;margin-top:2px;text-decoration:none}@media(max-width:760px){.solution-grid{grid-template-columns:1fr}.deliverables{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){.deliverables{grid-template-columns:1fr}}
+.eternax-section{margin:72px 0 0;background:var(--navy);color:#fff;border-radius:22px;padding:36px;box-shadow:var(--shadow)}.eternax-section h2{color:#fff;margin:0 0 16px;font-size:39px}.eternax-section p{color:#EDF0FF}.eternax-section a{color:#fff}.cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.button{display:inline-block;text-decoration:none;border-radius:999px;padding:11px 16px;font-size:14px;font-weight:600}.button.primary{background:#fff;color:var(--navy)}.button.secondary{border:1px solid rgba(255,255,255,.45);color:#fff}.authors{margin-top:70px}.author-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.author-card{background:#fff;border:1px solid var(--border);border-radius:15px;padding:20px}.author-name{font-weight:700;font-size:17px}.author-role{font:600 10.5px/1.3 "IBM Plex Mono",monospace;color:var(--navy);text-transform:uppercase;letter-spacing:.06em;margin:4px 0 9px}.author-bio{font-size:13.5px;line-height:1.48;color:var(--ink2);margin-bottom:12px}.author-links{display:flex;flex-wrap:wrap;gap:10px;font-size:12.5px}.faq{margin-top:72px}
+/* Research-page team + FAQ (aligned with benchmark / why-eternax research chrome) */
+:root{--surface:#FFFFFF;--text:var(--ink);--text-muted:var(--muted);--border-accent:#C9C6C6;--navy-hover:#37457B;--serif:"IBM Plex Serif",Georgia,serif;--mono:"IBM Plex Mono",monospace}
+.faq-section{margin-top:72px}
+.faq-list{margin-top:8px}
+details.faq-item{background:transparent;border:0;border-bottom:1px solid var(--border);border-radius:0;padding:0;margin:0;overflow:visible}
+details.faq-item[open]{border-bottom:2px solid var(--border-accent);box-shadow:none}
+details.faq-item summary.faq-q{
+  font-size:.97rem;font-weight:600;color:var(--navy);
+  padding:20px 36px 20px 0;line-height:1.4;letter-spacing:-.01em;
+  cursor:pointer;list-style:none;position:relative;user-select:none;display:block;transition:color .15s
+}
+details.faq-item summary.faq-q::-webkit-details-marker,
+details.faq-item summary.faq-q::marker{display:none;content:''}
+details.faq-item summary.faq-q::after{
+  content:''!important;position:absolute;right:2px;top:50%;transform:translateY(-50%) rotate(0deg);
+  width:16px;height:16px;transition:transform .2s ease;flex-shrink:0;margin:0;color:transparent;font-size:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%23283771' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;background-size:contain
+}
+details.faq-item[open] summary.faq-q::after{content:''!important;transform:translateY(-50%) rotate(180deg)}
+details.faq-item summary.faq-q:hover{color:var(--navy-hover)}
+details.faq-item .faq-a,details.faq-item .faq-answer{font-size:.9rem;color:var(--text-muted);line-height:1.72;padding:0 36px 20px 0;border-top:1px solid var(--border);max-width:none}
+details.faq-item .faq-a p,details.faq-item .faq-answer p{margin:14px 0 0;padding:0;font-size:.9rem;color:var(--text-muted)}
+.team-section{margin-top:70px;padding:2.5rem 0 0;border-top:2px solid var(--border-accent);background:transparent}
+.team-inner{max-width:none;margin:0}
+.team-label{font-size:.68rem;font-weight:700;color:var(--text-muted);margin-bottom:.6rem;letter-spacing:.08em;text-transform:uppercase}
+.team-section h2{font-family:var(--serif);font-size:1.3rem;line-height:1.3;letter-spacing:-.02em;color:var(--text);margin:0 0 1.5rem;max-width:none}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.team-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.2rem 1rem;text-align:left}
+.team-name{font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:.1rem}
+.team-role{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--navy-hover);margin-bottom:.6rem}
+.team-bio{font-size:.78rem;color:var(--text-muted);line-height:1.55;margin-bottom:.7rem}
+.team-links{font-family:var(--mono);font-size:.62rem;color:var(--text-muted)}
+.team-links a{text-decoration:none;font-size:.62rem;font-weight:400;color:var(--navy)}
+.team-links a:hover{color:var(--text)}
+@media(max-width:700px){.team-grid{grid-template-columns:1fr}}
+.sources{margin-top:72px;padding-top:26px;border-top:1px solid var(--border)}.sources ol{font-size:13.5px;color:var(--ink2)}.sources li{margin:9px 0}.share-row{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}.share-btn{border:1px solid var(--border2);background:#fff;color:var(--navy);border-radius:999px;padding:8px 11px;font:600 12px/1 "IBM Plex Sans",sans-serif;text-decoration:none;cursor:pointer}.share-status{font-size:12px;color:var(--green);align-self:center;min-width:80px}
+/* custom footer removed; shared footer include used */.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}.footer-title{font-weight:700;color:var(--navy);font-size:18px}.footer-links{display:flex;flex-direction:column;gap:5px}.footer-links a{text-decoration:none;color:var(--ink2)}:focus-visible{outline:3px solid rgba(40,55,113,.35);outline-offset:3px;border-radius:6px}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr}.hero-panel{max-width:680px}.mental-model{margin:30px 0;grid-template-columns:repeat(2,1fr)}.flow{margin:28px 0;grid-template-columns:1fr}.flow-item:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-19px;transform:translateX(-50%)}.related-grid,.author-grid{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){body{font-size:16px}.wrap,.article-wrap,.hero-media figure{padding-left:20px;padding-right:20px}.nav-links a:not(.cta){display:none}.brand-sub{display:none}.hero{padding-top:52px}.hero-grid{gap:28px}h1{font-size:44px}.dek{font-size:18.5px}.quick-answer p{font-size:18px}.toc-grid,.grid-2,.mental-model,.related-grid,.author-grid,.footer-grid{grid-template-columns:1fr}.eternax-section{padding:28px 22px}.share-row{gap:6px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+.audience-strip{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0 0}.audience-strip .audience-label{font:600 10.5px/1 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.075em;color:var(--muted);margin-right:3px}.audience-chip{display:inline-flex;align-items:center;border:1px solid var(--border);background:#fff;border-radius:999px;padding:7px 10px;font-size:12.5px;color:var(--ink2)}
+.institutional-intro{margin:30px 0 10px;padding:26px 28px;background:linear-gradient(135deg,#fff 0%,#F3F4F8 100%);border:1px solid #DADDEA;border-radius:18px;box-shadow:var(--shadow);position:relative}.institutional-intro:after{content:"";position:absolute;right:16px;top:16px;width:8px;height:8px;background:var(--navy);border-radius:50%}.institutional-intro .big{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;font-weight:700;font-size:clamp(24px,3vw,34px);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:8px}.institutional-intro p{margin:0;color:var(--ink2);font-size:16px;line-height:1.55}
+.persona-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:25px -95px 34px}.persona-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;position:relative}.persona-card:after{content:"";position:absolute;right:13px;top:13px;width:7px;height:7px;border-radius:50%;background:#C3C8D9}.persona-card .persona{font:600 10.5px/1.3 "IBM Plex Mono",monospace;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;margin-bottom:9px}.persona-card h3{font-size:18px;margin:0 0 10px}.persona-card p{font-size:14.5px;line-height:1.5;color:var(--ink2);margin:0 0 9px}.persona-card p:last-child{margin-bottom:0}.persona-card strong{color:var(--ink)}
+.decision-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:26px 0 34px}.decision-cell{background:#F9F9FA;border:1px solid var(--border);border-radius:14px;padding:17px}.decision-cell .k{font:600 10px/1.2 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}.decision-cell strong{display:block;margin-top:5px;color:var(--navy);font-size:15.5px}.decision-cell p{font-size:13.5px;color:var(--ink2);line-height:1.4;margin:5px 0 0}
+.self-check{margin:28px 0;padding:24px 26px;border:1px solid #DADDEA;background:#fff;border-radius:16px}.self-check h3{margin:0 0 12px;font-size:20px}.self-check ol{margin:0;padding-left:22px}.self-check li{margin:8px 0;color:var(--ink2)}
+@media(max-width:980px){.persona-grid{grid-template-columns:repeat(2,1fr);margin:25px 0}.decision-strip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.persona-grid,.decision-strip{grid-template-columns:1fr}.institutional-intro{padding:22px}}
+
+
+.definitions-table{table-layout:fixed}
+.definitions-table .col-term{width:16%}
+.definitions-table .col-meaning{width:40%}
+.definitions-table .col-status{width:14%}
+.definitions-table .col-why{width:30%}
+.definitions-table th:nth-child(3),.definitions-table td:nth-child(3){width:14%;white-space:normal;word-break:normal}
+.definitions-table th:nth-child(3) .tag,.definitions-table td:nth-child(3) .tag{white-space:normal;display:inline-block;max-width:100%;line-height:1.25;text-align:left}
+.definitions-table th:nth-child(4),.definitions-table td:nth-child(4){width:30%}
+.definitions-table td{overflow-wrap:anywhere}
+/* Authority and crypto-agility status treatments */
+.table-wrap .tag{white-space:nowrap}.risk{display:inline-flex;align-items:center;border-radius:999px;padding:5px 8px;font:600 10.5px/1.2 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em}.risk.no{color:var(--red);background:#F8ECEC;border:1px solid #E9CACA}.risk.mid{color:#6D5A2A;background:#F8F3E7;border:1px solid #E8DDBB}.risk.yes{color:var(--green);background:#EAF2EF;border:1px solid #C9DDD6}
+
+/* Named-institution and federal-chain treatments */
+.federal-chain{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0 32px}.chain-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;position:relative}.chain-card:after{content:"";position:absolute;right:13px;top:13px;width:7px;height:7px;border-radius:50%;background:#C3C8D9}.chain-card .date{font:600 10.5px/1.3 "IBM Plex Mono",monospace;color:var(--navy);text-transform:uppercase;letter-spacing:.07em}.chain-card h3{font-size:19px;margin:8px 0 9px}.chain-card p{font-size:14.5px;line-height:1.5;color:var(--ink2);margin:0}.chain-card strong{color:var(--ink)}
+.scope-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0 30px}.scope-card{background:#fff;border:1px solid var(--border);border-radius:15px;padding:19px}.scope-card .scope{display:inline-flex;border:1px solid #DDE1F1;background:var(--soft);border-radius:999px;padding:5px 8px;font:600 10px/1.2 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--navy)}.scope-card h3{font-size:18px;margin:10px 0 8px}.scope-card p{font-size:14px;line-height:1.5;color:var(--ink2);margin:0}
+.name-section{margin:28px 0 34px;padding:24px 26px;background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}.name-section h3{margin:0 0 8px}.name-section h4{margin:22px 0 8px;font-size:15px;color:var(--ink);letter-spacing:-.01em}.name-section p{font-size:14.5px;color:var(--ink2);line-height:1.52}.name-cloud{display:flex;flex-wrap:wrap;gap:7px;margin:9px 0 3px}.name-pill{display:inline-flex;align-items:center;border:1px solid var(--border);background:#F9F9FA;border-radius:999px;padding:7px 10px;font-size:12.5px;line-height:1.1;color:var(--ink2);white-space:nowrap}.name-pill.systemic{border-color:#D7DBEB;background:#F2F4FA;color:var(--navy)}.name-pill.sector{border-color:#D8E3DF;background:#F0F5F3;color:var(--green)}.scope-disclaimer{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-size:12.8px!important;color:var(--muted)!important}
+.mandate-box{margin:24px 0 30px;background:linear-gradient(135deg,#283771 0%,#344684 100%);color:#fff;border-radius:18px;padding:26px 28px;box-shadow:var(--shadow)}.mandate-box .eyebrow{color:#D9DFF8;margin-bottom:8px}.mandate-box h3{color:#fff;margin:0 0 12px;font-size:25px}.mandate-box p,.mandate-box li{color:#EEF1FF}.mandate-box ul{margin:12px 0 0;padding-left:21px}.mandate-box li{margin:8px 0}.mandate-box a{color:#fff}
+.role-map{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:22px 0 30px}.role-item{border:1px solid var(--border);background:#fff;border-radius:14px;padding:17px}.role-item strong{display:block;color:var(--navy);font-size:15px;margin-bottom:5px}.role-item p{margin:0;font-size:13.5px;line-height:1.45;color:var(--ink2)}
+@media(max-width:860px){.federal-chain,.scope-grid,.role-map{grid-template-columns:1fr}}
+
+.author-photo{width:72px;height:72px;border-radius:16px;object-fit:cover;display:block;margin:0 0 16px;border:1px solid #E0DEDE;background:#F7F4F4;}
+
+/* Shared site chrome (navbar/footer) — aligned with other pages */
+:root{--fg:#283771;--fg-70:#283771;--fg-80:#283771}
+.glass-effect{background:#ffffff;border:1px solid #e0dede;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+.link-muted{color:var(--fg-70);transition:color 0.15s}
+.link-muted:hover{color:var(--fg)}
+.btn-primary{background-color:var(--fg);transition:background-color 0.15s}
+.btn-primary:hover{background-color:#1e2d5a}
+.nav-products-dropdown{opacity:0;visibility:hidden;transition:opacity 0.15s,visibility 0.15s}
+.group:hover .nav-products-dropdown{opacity:1;visibility:visible}
+
+.hero-panel{margin-top:4px}
+.hero-grid > .hero-panel .status-row{display:grid;grid-template-columns:minmax(140px,.35fr) minmax(0,1fr);gap:8px 20px;align-items:start}
+.hero-grid > .hero-panel .status-label{margin:0}
+.hero-grid > .hero-panel .status-value,.hero-grid > .hero-panel .status-note{grid-column:2}
+@media(max-width:720px){.hero-grid > .hero-panel .status-row{grid-template-columns:1fr}.hero-grid > .hero-panel .status-value,.hero-grid > .hero-panel .status-note{grid-column:auto}}
+/* Fixed site navbar clearance */
+.hero{padding-top:calc(72px + 40px)!important}
+@media(max-width:760px){.hero{padding-top:calc(62px + 28px)!important}}
+</style><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://eternax.ai/#organization","name":"EternaX Labs","alternateName":"EternaX","url":"https://eternax.ai/","logo":{"@type":"ImageObject","url":"https://eternax.ai/assets/eternax-icon.png"},"description":"EternaX is post-quantum market infrastructure for stablecoin issuance, RWA tokenization, custody authorization, and institutional settlement.","foundingDate":"2025","industry":"Post-quantum market infrastructure and blockchain services","sameAs":["https://x.com/eternaXLabs","https://github.com/eternax-ai","https://www.youtube.com/@eternaXlabs","https://farcaster.xyz/eternax","https://www.linkedin.com/company/eternax-labs"],"founder":[{"@type":"Person","@id":"https://eternax.ai/#paarrthhh-birla","name":"Paarrthhh Birla","jobTitle":"Co-Founder","url":"https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/","sameAs":["https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/","https://x.com/parthweb34ai"],"description":"Ex-Polygon (VP Growth Office); Head of Partnerships, Subspace Protocol; Digital assets strategy at EYP, Advised Visa and State Street; MBA, CPA.","image":"https://eternax.ai/assets/parthh.png"},{"@type":"Person","@id":"https://eternax.ai/#dariia-porechna","name":"Dariia Porechna","jobTitle":"Co-Founder","url":"https://www.linkedin.com/in/dariia-porechna","sameAs":["https://www.linkedin.com/in/dariia-porechna","https://x.com/FutureDies"],"description":"Cryptographer and distributed systems architect; Head of Protocol, Subspace; Research Engineer, Wolfram|Alpha. Co-author, SILMARILS.","image":"https://eternax.ai/assets/dariia.png"}],"employee":[{"@type":"Person","@id":"https://eternax.ai/#chen-feng","name":"Dr. Chen Feng","jobTitle":"Chief Scientist","url":"https://www.linkedin.com/in/chen-feng-75272a37","sameAs":["https://www.linkedin.com/in/chen-feng-75272a37","https://scholar.google.com/citations?user=D8b0l-EAAAAJ"],"description":"Assoc. Prof. at University of British Columbia; PhD (Toronto); 100+ peer-reviewed papers; Quantum communications, blockchain, TEE privacy. Co-author, SILMARILS.","image":"https://eternax.ai/assets/chen.png"}],"member":{"@type":"OrganizationRole","roleName":"Chief Scientist","member":{"@id":"https://eternax.ai/#chen-feng"}}},{"@type":"WebSite","@id":"https://eternax.ai/#website","url":"https://eternax.ai/","name":"EternaX Labs","description":"Post-quantum market infrastructure and institutional research from EternaX Labs.","publisher":{"@id":"https://eternax.ai/#organization"},"inLanguage":"en"},{"@type":"BlogPosting","@id":"https://eternax.ai/blogs/cbom-cryptographic-bill-of-materials-guide/index.html#article","url":"https://eternax.ai/blogs/cbom-cryptographic-bill-of-materials-guide/index.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://eternax.ai/blogs/cbom-cryptographic-bill-of-materials-guide/index.html"},"headline":"CBOM: The Complete Guide to Cryptographic Bill of Materials, Crypto Agility & Post-Quantum Migration","alternativeHeadline":"CBOM Explained: From SBOM and CycloneDX to Crypto Agility, PQC Migration and Blockchain","description":"The definitive institutional guide to CBOM and crypto agility, including EO 14412, OMB M-26-15, NIST CSWP 39-upd1, financial-sector institution mapping, cryptographic inventory, and post-quantum migration.","datePublished":"2026-09-02","dateModified":"2026-09-02","inLanguage":"en","isAccessibleForFree":true,"author":[{"@id":"https://eternax.ai/#paarrthhh-birla"},{"@id":"https://eternax.ai/#dariia-porechna"},{"@id":"https://eternax.ai/#chen-feng"}],"publisher":{"@id":"https://eternax.ai/#organization"},"image":["https://eternax.ai/assets/cbom-guide-og-1200x630.png","https://eternax.ai/assets/cbom-guide-4x3-1200x900.png","https://eternax.ai/assets/cbom-guide-square-1200x1200.png"],"thumbnailUrl":"https://eternax.ai/assets/cbom-guide-og-1200x630.png","audience":[{"@type":"Audience","audienceType":"Banks and financial market infrastructures"},{"@type":"Audience","audienceType":"Digital asset custodians and MPC/HSM operators"},{"@type":"Audience","audienceType":"Stablecoin and RWA issuers"},{"@type":"Audience","audienceType":"Asset managers, exchanges and tokenization platforms"},{"@type":"Audience","audienceType":"CISOs, CTOs, risk, compliance and procurement teams"}],"articleSection":["Institutional Exposure","CBOM","Cryptographic Inventory","Crypto Agility","Post-Quantum Cryptography","Blockchain"],"keywords":["CBOM","Cryptographic Bill of Materials","CycloneDX","ECMA-424","NIST","CISA","crypto agility","post-quantum cryptography","PQC migration","blockchain CBOM","institutional cryptographic risk","bank crypto agility","custody PQC migration","stablecoin CBOM","RWA cryptographic risk","SBOM vs CBOM","OMB M-26-15","cryptographic agile architecture","FS-ISAC crypto agility","financial market utilities","U.S. GSIBs"],"about":[{"@type":"Thing","name":"Cryptographic Bill of Materials"},{"@type":"Thing","name":"Crypto Agility"},{"@type":"Thing","name":"Post-Quantum Cryptography"},{"@type":"Thing","name":"CycloneDX"},{"@type":"Thing","name":"Blockchain cryptography"}],"mentions":[{"@type":"Organization","name":"National Institute of Standards and Technology","sameAs":"https://www.nist.gov/"},{"@type":"Organization","name":"Cybersecurity and Infrastructure Security Agency","sameAs":"https://www.cisa.gov/"},{"@type":"Organization","name":"OWASP CycloneDX","sameAs":"https://cyclonedx.org/"},{"@type":"Organization","name":"Ecma International","sameAs":"https://ecma-international.org/"},{"@type":"Organization","name":"IBM Research","sameAs":"https://research.ibm.com/"},{"@type":"Organization","name":"Office of Management and Budget","sameAs":"https://www.whitehouse.gov/omb/"},{"@type":"Organization","name":"U.S. Department of the Treasury","sameAs":"https://home.treasury.gov/"},{"@type":"Organization","name":"Financial Services Information Sharing and Analysis Center","alternateName":"FS-ISAC","sameAs":"https://www.fsisac.com/"},{"@type":"Organization","name":"Federal Reserve Board","sameAs":"https://www.federalreserve.gov/"}],"citation":["https://www.whitehouse.gov/wp-content/uploads/2022/11/M-23-02-M-Memo-on-Migrating-to-Post-Quantum-Cryptography.pdf","https://cyclonedx.org/news/cyclonedx-v1.6-released/","https://ecma-international.org/publications-and-standards/standards/ecma-424/","https://www.whitehouse.gov/presidential-actions/2026/06/securing-the-nation-against-advanced-cryptographic-attacks/","https://csrc.nist.gov/pubs/cswp/39/upd1/considerations-for-achieving-crypto-agility/final","https://csrc.nist.gov/Events/2025/crypto-agility-workshop","https://www.whitehouse.gov/wp-content/uploads/2026/06/M-26-15-Execution-of-the-Migration-to-Post-Quantum-Cryptography.pdf","https://www.cisa.gov/topics/critical-infrastructure-security-and-resilience/critical-infrastructure-sectors/sector-risk-management-agencies","https://www.federalreserve.gov/supervisionreg/global-systemically-important-banks.htm","https://www.federalreserve.gov/paymentsystems/designated_fmu_about.htm","https://www.fsisac.com/pqc-crypto-agility","https://www.gov.uk/government/publications/advancing-a-coordinated-roadmap-for-the-transition-to-post-quantum-cryptography-in-the-financial-sector/g7-cyber-expert-group-statement-on-advancing-a-coordinated-roadmap-for-the-transition-to-post-quantum-cryptography-in-the-financial-sector-january-20"],"copyrightYear":2026,"copyrightHolder":{"@id":"https://eternax.ai/#organization"},"wordCount":7967,"timeRequired":"PT32M"},{"@type":"BreadcrumbList","@id":"https://eternax.ai/blogs/cbom-cryptographic-bill-of-materials-guide/index.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"EternaX","item":"https://eternax.ai/"},{"@type":"ListItem","position":2,"name":"Blogs","item":"https://eternax.ai/blogs/"},{"@type":"ListItem","position":3,"name":"CBOM Guide","item":"https://eternax.ai/blogs/cbom-cryptographic-bill-of-materials-guide/index.html"}]}]}</script>
+<style>
+/* FINAL ETERNAX DESIGN PASS */
+:root{--shadow-soft:0 10px 28px rgba(40,55,113,.055);--shadow-card:0 12px 30px rgba(40,55,113,.075)}
+body{background:linear-gradient(180deg,#F8F5F5 0%,#F7F4F4 34%,#F8F5F5 100%)}
+.site-header{background:rgba(248,245,245,.95)}
+.nav{min-height:68px}
+.nav-links a{transition:color .18s ease,background .18s ease,border-color .18s ease}
+.nav-links a:not(.cta):hover{color:var(--navy)}
+.nav-links .cta{padding:10px 16px;box-shadow:0 6px 18px rgba(40,55,113,.12)}
+.hero{padding:64px 0 38px;background:radial-gradient(circle at 84% 13%,rgba(40,55,113,.055),transparent 30%);}
+.hero-grid{grid-template-columns:1fr;gap:28px}.hero-panel{max-width:none}
+h1{font-size:clamp(44px,5.6vw,68px);line-height:1.005;margin:13px 0 20px;max-width:820px;text-wrap:balance}
+h2{text-wrap:balance}
+.dek{font-size:20px;line-height:1.52;max-width:820px}
+.hero-panel{padding:20px;border-radius:18px;box-shadow:var(--shadow-soft);background:rgba(255,255,255,.9)}
+.status-row{padding:13px 0}.status-note{line-height:1.45}.status-value{font-size:15px}
+.hero-actions{margin:24px 0 14px}.btn{padding:11px 17px}.btn.primary{box-shadow:0 7px 18px rgba(40,55,113,.14)}
+.hero>.wrap:last-child{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px;align-items:stretch}
+.hero>.wrap:last-child .quick-answer{margin:30px 0 0;height:100%;padding:23px 25px;border-radius:16px;box-shadow:var(--shadow-soft)}
+.hero>.wrap:last-child .quick-answer p{font-size:18px;line-height:1.48}
+.hero>.wrap:last-child .audience-strip{grid-column:1/-1;margin-top:4px;padding:10px 0 0}
+.audience-chip{background:rgba(255,255,255,.82)}
+.toc-shell{padding-top:26px}.toc{padding:21px 23px;border-radius:15px;box-shadow:0 7px 22px rgba(40,55,113,.035)}
+.toc-grid{gap:6px 24px;font-size:14px}.toc a{padding:2px 0}.toc a:hover{color:var(--navy)}
+main{padding-top:4px}.lead{font-size:19px;line-height:1.58}
+.mental-model,.persona-grid,.flow{filter:drop-shadow(0 6px 14px rgba(40,55,113,.025))}
+.model-card,.persona-card,.chain-card,.scope-card,.role-item,.decision-cell,.author-card{box-shadow:0 5px 18px rgba(40,55,113,.025)}
+.table-wrap{box-shadow:0 6px 18px rgba(40,55,113,.025)}
+th{background:#F8F7F7}
+.callout{box-shadow:0 5px 16px rgba(40,55,113,.02)}
+.name-section{box-shadow:var(--shadow-soft)}
+.name-pill,.institution-pills span{white-space:normal}
+
+/* Conversion block: one strong institutional action, four calm solution paths. */
+.eternax-section{margin-top:76px;padding:40px;background:linear-gradient(145deg,#283771 0%,#243269 100%);border:1px solid rgba(255,255,255,.08);border-radius:22px;box-shadow:0 18px 44px rgba(40,55,113,.13)}
+.eternax-section>.eyebrow{margin-bottom:9px;color:#DDE2FA!important}
+.eternax-section h2{font-size:clamp(32px,4vw,42px);line-height:1.05;max-width:720px;margin-bottom:13px}
+.eternax-section>p{max-width:820px;font-size:15.5px;line-height:1.55;margin-bottom:20px}
+.solution-grid{gap:16px;margin:24px 0 30px}
+.solution-card{display:flex;flex-direction:column;min-height:100%;padding:22px 22px 20px;border-radius:15px;border:1px solid #E4E4E8;box-shadow:var(--shadow-card);position:relative;overflow:hidden}
+.solution-card:after{content:"";position:absolute;right:15px;top:15px;width:7px;height:7px;border-radius:50%;background:#C8CEDF}
+.solution-card h3{font-size:20px;line-height:1.18;margin:10px 0 9px;max-width:92%}
+.solution-kicker{display:inline-flex;align-self:flex-start;width:auto;background:#F1F3F9;border:1px solid #DCE0EE;border-radius:999px;padding:5px 8px;font-size:10px;line-height:1.1;letter-spacing:.055em}
+.solution-card p{font-size:13.8px;line-height:1.52;margin-bottom:11px}.eternax-section .solution-card p{color:#252A3F}.eternax-section .solution-card .solution-so-what{color:#171B32!important}.eternax-section .solution-card .institution-label{color:#5F6070}.eternax-section .solution-card .institution-pills span{color:#38405F}
+.solution-so-what{background:#F8F8FA;border:1px solid #E8E7EA;border-radius:10px;padding:10px 11px;margin:2px 0 4px!important;font-size:13.5px!important;line-height:1.45!important}
+.institution-label{margin:14px 0 7px;font-size:9.7px;color:#777682}
+.institution-pills{gap:5px;margin-bottom:14px}
+.institution-pills span{background:#F6F6F8;border-color:#E3E2E6;padding:5px 7px;font-size:11px;color:#4F5572}
+.eternax-section .solution-card .solution-link{margin-top:auto;padding-top:13px;border-top:1px solid #E6E5E8;font-size:13px;line-height:1.3;color:var(--navy);text-decoration:none}
+.eternax-section .solution-card .solution-link:hover{text-decoration:underline;text-underline-offset:3px}
+.eternax-section h3[style]{font-size:20px!important;margin-top:28px!important;margin-bottom:10px!important}
+.deliverables{gap:10px;margin-top:14px}
+.deliverable{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.18);padding:13px 14px;border-radius:11px;font-size:12px;line-height:1.4}
+.deliverable strong{font-size:12.8px;margin-bottom:4px}
+.conversion-note{margin:14px 0 0!important;opacity:.86}
+.cta-row{margin-top:24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.17);align-items:center}
+.button{padding:12px 18px;font-size:13.5px;line-height:1.25}
+.button.primary{background:#fff;color:var(--navy);box-shadow:0 8px 22px rgba(10,18,46,.18)}
+.button.primary:hover{background:#F7F8FC;color:var(--navy)}
+.button.secondary{background:rgba(255,255,255,.025);border-color:rgba(255,255,255,.34)}
+.button.secondary:hover{background:rgba(255,255,255,.07);color:#fff}
+
+/* In-article shortcut navigation. */
+.jump-shell{padding-top:24px}
+.jump-strip{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px;background:rgba(255,255,255,.76);border:1px solid var(--border);border-radius:14px;box-shadow:0 8px 24px rgba(40,55,113,.04)}
+.jump-strip a{display:inline-flex;align-items:center;min-height:36px;padding:8px 11px;border-radius:999px;text-decoration:none;color:var(--ink2);font-size:13px;font-weight:600}
+.jump-strip a:hover{background:var(--soft);color:var(--navy)}
+.jump-strip .jump-cta{margin-left:auto;background:var(--navy);color:#fff;padding-left:14px;padding-right:14px}
+.jump-strip .jump-cta:hover{background:var(--navy2);color:#fff}
+
+/* Named voices: compact, source-led quote cards. */
+.voices{margin:40px 0 18px}
+.voices h2{margin-top:0}
+.quote-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.quote-card{background:#fff;border:1px solid var(--border);border-radius:15px;padding:20px;box-shadow:0 8px 22px rgba(40,55,113,.04)}
+.quote-card blockquote{margin:0 0 14px;font-family:"IBM Plex Serif",serif;font-size:18px;line-height:1.42;color:var(--ink)}
+.quote-person{font-weight:700;color:var(--navy);font-size:14px}
+.quote-role{color:var(--muted);font-size:12.5px;line-height:1.4;margin-top:2px}
+.quote-source{font-size:11.5px;margin-top:8px}
+.quote-source a{color:var(--ink2)}
+
+/* Interaction and accessibility polish. */
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid rgba(40,55,113,.28);outline-offset:3px;border-radius:6px}
+.eternax-section a:focus-visible{outline-color:rgba(255,255,255,.65)}
+@media(hover:hover){.solution-card,.model-card,.chain-card,.persona-card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.solution-card:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(16,28,65,.14);border-color:#D8D9E2}.model-card:hover,.chain-card:hover,.persona-card:hover{border-color:#D4D5DE;box-shadow:0 9px 22px rgba(40,55,113,.045)}}
+
+@media(max-width:1040px){
+ .brand-sub{display:none}.nav-links{gap:14px}.hero-grid{grid-template-columns:1fr;gap:28px}.hero-panel{max-width:none}.hero>.wrap:last-child{grid-template-columns:1fr 1fr}.mental-model,.persona-grid,.flow{margin-left:0;margin-right:0}
+}
+@media(max-width:760px){
+ .wrap,.article-wrap{padding-left:20px;padding-right:20px}.jump-strip{gap:5px}.jump-strip a{font-size:12px;padding:7px 9px}.jump-strip .jump-cta{margin-left:0}.quote-grid{grid-template-columns:1fr}.site-header .nav{min-height:62px}.nav-links a:not(.cta){display:none}.nav-links .cta{font-size:12px;padding:9px 12px}.hero{padding:44px 0 28px}.hero>.wrap:last-child{grid-template-columns:1fr}.hero>.wrap:last-child .audience-strip{grid-column:auto}.hero>.wrap:last-child .quick-answer{margin-top:12px}.hero>.wrap:last-child .quick-answer p{font-size:17px}.hero-grid{gap:24px}.hero-panel{padding:18px}.toc-grid{grid-template-columns:1fr}.toc{padding:19px}.eternax-section{padding:28px 22px;border-radius:18px}.solution-grid{gap:12px}.solution-card{padding:20px}.cta-row{flex-direction:column;align-items:stretch}.button{text-align:center}.deliverables{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:480px){
+ h1{font-size:39px}.dek{font-size:18px}.meta{font-size:12.5px}.hero-actions{display:grid;grid-template-columns:1fr}.btn{width:100%}.audience-chip{font-size:11.5px}.deliverables{grid-template-columns:1fr}.institution-pills span{font-size:10.7px}
+}
+</style>
+</head>
+<body class="font-sans"><a class="skip-link" href="#guide">Skip to article</a>
+{% include navbar.html %}
+<section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">EternaX Research · Cryptographic Infrastructure</div><span class="pill"><span class="dot"></span>Institutional field guide · September 2026</span><h1>CBOM: The Complete Guide to Cryptographic Bill of Materials, Crypto Agility &amp; Post-Quantum Migration</h1><p class="dek"><strong>For banks, custodians, issuers, FMIs, exchanges, asset managers and security teams:</strong> where cryptographic exposure sits, what CBOM reveals, what crypto agility means, and how to migrate without disrupting critical operations.</p><div class="meta"><span><strong>Paarrthhh Birla</strong>, Co-Founder</span><span><strong>Dariia Porechna</strong>, Co-Founder</span><span><strong>Dr. Chen Feng</strong>, Chief Scientist</span><span>Published September 2, 2026</span><span>~27 min read</span></div><div class="hero-actions"><a class="btn primary" href="#institutional-exposure">See your exposure</a><a class="btn secondary" href="#guide">Read the guide</a><button class="btn secondary" data-share="copy" type="button">Copy article link</button></div><div class="evidence-line">Primary-source anchored · EO 14412 · OMB M-26-15 · NIST · CISA · FS-ISAC · Federal Reserve · CycloneDX · Ecma International</div></div><aside aria-label="Institutional CBOM brief" class="hero-panel"><div class="panel-head"><span class="panel-title">Institutional CBOM brief</span><span class="pill"><span class="dot"></span>Current</span></div><div class="status-row"><div class="status-label">The risk</div><div class="status-value">Hidden cryptography becomes migration debt</div><div class="status-note">If a critical path cannot change algorithms cleanly, migration can force re-platforming, asset moves or operational disruption.</div></div><div class="status-row"><div class="status-label">The board-level question</div><div class="status-value">Which critical functions fail when RSA, ECC, ECDSA or EdDSA must be replaced?</div><div class="status-note">A useful CBOM maps cryptography to the business function and dependencies it protects.</div></div><div class="status-row"><div class="status-label">Federal milestone</div><div class="status-value">March 19, 2027</div><div class="status-note">Deadline implied by EO 14412 for CISA/NIST public guidance on minimum CBOM elements.</div></div><div class="status-row"><div class="status-label">OMB execution memo</div><div class="status-value">M-26-15 · June 24, 2026</div><div class="status-note">Federal migration plans must include crypto-agile architecture; Phases 3 and 4 explicitly require cryptographic agility.</div></div><div class="status-row"><div class="status-label">The capability</div><div class="status-value">Crypto agility = change cryptography without breaking operations</div><div class="status-note">NIST: replace and adapt algorithms while preserving security and operations. Visibility without replaceability is migration debt.</div></div><div class="status-row"><div class="status-label">Action now</div><div class="status-value">Map visibility → criticality → replaceability → residual exposure</div><div class="status-note">Map owners, vendors, hardware, fallback paths and the actual migration mechanism.</div></div></aside></div><div class="wrap"><div class="quick-answer"><div class="label">Direct answer · What is a CBOM?</div><p><strong>EO 14412 directs CISA, coordinated with NIST, to define minimum CBOM elements for automated assessment of cryptographic assets.</strong><sup><a href="#src-4">4</a></sup> As of September 2, 2026, that guidance is still forthcoming. Operationally, CBOM is a machine-readable inventory of cryptographic assets and dependencies used for risk and migration planning.</p></div><div class="quick-answer"><div class="label">Direct answer · Is crypto agility now in the federal execution plan?</div><p><strong>Yes — explicitly.</strong> OMB M-26-15 makes crypto agility part of federal PQC execution: Phases 3 and 4 call for cryptographically agile systems, while Appendix B requires a crypto-agile architecture in agency migration plans.<sup><a href="#src-16">16</a></sup></p></div><div aria-label="Institutional audiences" class="audience-strip"><span class="audience-label">Built for</span><span class="audience-chip">Banks &amp; FMIs</span><span class="audience-chip">Custodians &amp; MPC/HSM teams</span><span class="audience-chip">Stablecoin &amp; RWA issuers</span><span class="audience-chip">Exchanges &amp; asset managers</span><span class="audience-chip">CISO / CTO</span><span class="audience-chip">Risk, compliance &amp; procurement</span></div></div></section>
+<div class="article-wrap jump-shell"><nav aria-label="Guide shortcuts" class="jump-strip"><a href="#guide">Guide</a><a href="#agility">Crypto agility</a><a href="#timeline">Timeline</a><a href="#blockchain">Blockchain</a><a href="#faq">FAQ</a><a class="jump-cta" href="https://eternax.ai/pilot.html">Readiness assessment</a></nav></div>
+<div class="article-wrap toc-shell">
+<nav aria-label="Table of contents" class="toc">
+<strong>In this guide</strong>
+<div class="toc-grid"><a href="#guide">1. CBOM in plain English</a><a href="#definitions">2. Definitions from federal sources</a><a href="#federal-chain">3. EO → OMB M-26-15 → NIST</a><a href="#institutional-exposure">4. The institutional “so what”</a><a href="#why-now">5. Why CBOM matters now</a><a href="#timeline">6. How we got here</a><a href="#inside">7. What goes inside a CBOM</a><a href="#sbom">8. SBOM vs CBOM</a><a href="#players">9. Who does what</a><a href="#cyclonedx">10. CycloneDX explained</a><a href="#agility">11. Crypto agility: meaning, mandate &amp; impact</a><a href="#pqc">12. CBOM and PQC migration</a><a href="#blockchain">13. The blockchain gap</a><a href="#profile">14. A blockchain CBOM profile</a><a href="#next">15. What happens next</a><a href="#stakeholders">16. Outcomes by stakeholder</a><a href="#faq">17. FAQ</a></div>
+</nav>
+</div>
+<main class="article-wrap" id="guide">
+<h2>CBOM in plain English</h2>
+<p class="lead">Modern systems embed cryptography across TLS, certificates, signatures, APIs, HSMs, identity, software, custody and blockchains. Most institutions still lack a reliable, machine-readable map of <em>where</em> it sits and <em>what depends on it</em>.</p>
+<p>CBOM closes that visibility gap. EO 14412 requires CISA, coordinated with NIST, to publish minimum elements by March 19, 2027.<sup><a href="#src-4">4</a></sup> Until then, treat CBOM as a <strong>cryptographic dependency map</strong>: assets linked to implementations, functions, owners and dependencies.</p>
+<div aria-label="SBOM to CBOM to crypto agility to PQC mental model" class="mental-model"><div class="model-card"><div class="k">SBOM</div><strong>What software do we have?</strong><p>Inventory packages, libraries, versions and software dependencies.</p></div><div class="model-card"><div class="k">CBOM</div><strong>What cryptography do we depend on?</strong><p>Inventory algorithms, keys, certificates, protocols and crypto dependencies.</p></div><div class="model-card"><div class="k">Crypto agility</div><strong>Can we change it safely?</strong><p>Replace algorithms and keys while preserving security and operations.</p></div><div class="model-card"><div class="k">PQC migration</div><strong>What must move?</strong><p>Prioritize quantum-vulnerable cryptography and execute the transition.</p></div></div>
+<p>Inventory is not migration. A CBOM may reveal ECDSA, RSA or a TLS dependency; crypto agility asks whether it can be replaced without breaking identity, interoperability, hardware, validation or operations.</p>
+<h2 id="definitions">The definitions that matter — from U.S. government sources</h2>
+<p class="lead">For institutions, terminology should come from primary sources. Separate <strong>terms defined by Executive Order, OMB or NIST</strong> from requirements still being developed.</p>
+<div class="table-wrap"><table class="definitions-table"><caption class="sr-only">Authoritative federal definitions for SBOM, cryptographic system, CBOM, crypto agility and post-quantum cryptography</caption><colgroup><col class="col-term"/><col class="col-meaning"/><col class="col-status"/><col class="col-why"/></colgroup><thead><tr><th scope="col">Term</th><th scope="col">Authoritative federal meaning</th><th scope="col">Status</th><th scope="col">Why an institution should care</th></tr></thead><tbody>
+<tr><td><strong>SBOM</strong></td><td>Executive Order 14028 / NIST define a Software Bill of Materials as a formal record of software components and their supply-chain relationships.<sup><a href="#src-14">14</a></sup></td><td><span class="tag">Defined</span></td><td>It tells procurement and security teams what software components are present. It does <em>not</em> by itself map how cryptography is used.</td></tr>
+<tr><td><strong>Cryptographic system</strong></td><td>OMB M-23-02 defines it as an active software or hardware implementation of cryptographic algorithms providing key establishment, encrypted connections, or digital-signature creation/validation.<sup><a href="#src-1">1</a></sup></td><td><span class="tag">Defined</span></td><td>This is the object federal agencies were required to inventory. It makes clear that inventory reaches beyond source code into hardware and operational systems.</td></tr>
+<tr><td><strong>CBOM</strong></td><td>EO 14412 uses the term and requires CISA/NIST to publish minimum elements that enable automated assessment of cryptographic assets used by hardware or software.<sup><a href="#src-4">4</a></sup></td><td><span class="tag">Pending</span></td><td>Institutions should build machine-readable cryptographic evidence now, but should not claim that a final federal CBOM schema or mandatory format already exists.</td></tr>
+<tr><td><strong>Crypto agility</strong></td><td><strong>OMB M-26-15 operationalizes it; NIST defines the technical capability.</strong> M-26-15 describes cryptographic agility as an architectural principle that lets an organization switch algorithms with minimal disruption, and requires federal migration plans to include a cryptographic-agile architecture. NIST CSWP 39-upd1 defines the broader capability to replace and adapt cryptography while preserving security and ongoing operations.<sup><a href="#src-16">16</a></sup><sup><a href="#src-5">5</a></sup></td><td><span class="tag">In OMB M-26-15</span></td><td>For federal agencies this is no longer merely a desirable design pattern: it is embedded in the required migration architecture. For private institutions, it is increasingly a procurement, resilience and third-party-risk requirement even when the same federal directive does not directly bind them.</td></tr>
+<tr><td><strong>Post-quantum cryptography (PQC)</strong></td><td>EO 14412 defines PQC as cryptographic algorithms or methods designed to resist attack by both quantum and classical computers.<sup><a href="#src-4">4</a></sup></td><td><span class="tag">In EO 14412</span></td><td>PQC is the destination. Crypto agility is the capability to reach that destination safely and to handle the next cryptographic transition after it.</td></tr>
+</tbody></table></div>
+<div class="callout warning"><div class="title">Legal-status distinction</div><p><strong>EO 14412 sets federal policy; OMB M-26-15 implements it for civilian agencies.</strong> The same deadlines do not automatically bind every private institution. Private-sector relevance can arise through critical infrastructure, federal procurement, shared services, sector rules, customers and resilience requirements.<sup><a href="#src-4">4</a></sup><sup><a href="#src-16">16</a></sup></p></div>
+<h2 id="federal-chain">The federal chain institutions should read in order: EO 14412 → OMB M-26-15 → NIST</h2><p class="lead">Read U.S. post-quantum policy as a three-document chain: <strong>EO sets direction → OMB operationalizes it → NIST defines the technical capability.</strong></p><div class="federal-chain">
+<div class="chain-card"><div class="date">June 22, 2026</div><h3>1. Executive Order 14412</h3><p><strong>Sets policy and deadlines.</strong> Federal HVAs and high-impact systems must transition key establishment by 2030 and digital signatures by 2031; CISA/NIST must define CBOM minimum elements; Sector Risk Management Agencies must assist critical-infrastructure owners/operators; and the FAR Council is directed toward PQC procurement requirements.<sup><a href="#src-4">4</a></sup></p></div>
+<div class="chain-card"><div class="date">June 24, 2026</div><h3>2. OMB Memorandum M-26-15</h3><p><strong>Turns policy into an operating plan.</strong> Agencies must submit a PQC Migration Plan within 120 days, run a phased migration through 2035, use automated cryptographic inventory, populate a central CBOM, coordinate third parties, and build cryptographic agility into architecture and procurement.<sup><a href="#src-16">16</a></sup></p></div>
+<div class="chain-card"><div class="date">June 29, 2026</div><h3>3. NIST CSWP 39-upd1</h3><p><strong>Defines the engineering capability.</strong> NIST describes crypto agility as the capability to replace and adapt cryptography across protocols, applications, software, hardware, firmware and infrastructure while preserving security and ongoing operations.<sup><a href="#src-5">5</a></sup></p></div>
+</div><div class="mandate-box"><div class="eyebrow">Why M-26-15 changes the framing</div><h3>Crypto agility is explicitly part of the federal migration architecture.</h3><ul><li><strong>Phases 3–4 (2028–2031):</strong> after prioritized key-establishment and signature migration, agencies are told to ensure systems are cryptographically agile.</li><li><strong>Appendix A, Section 5:</strong> gives concrete architecture mechanisms — modern crypto libraries, configuration-driven algorithm selection, cipher-suite negotiation and agile KMS/HSM infrastructure.</li><li><strong>Appendix B:</strong> requires crypto-agile architecture in migration plans, PQC/agility provisions in vendor requirements, and crypto-agile/PQC-compatible systems.</li></ul><p><strong>The federal execution model is: discover → map → make replaceable → migrate.</strong><sup><a href="#src-16">16</a></sup></p></div>
+<section aria-labelledby="voices-title" class="voices"><div class="eyebrow">Four voices that frame the transition</div><h2 id="voices-title">What the people leading this shift are saying</h2><div class="quote-grid">
+<article class="quote-card"><blockquote>“Ensure all systems are cryptographically agile.”</blockquote><div class="quote-person">Russell T. Vought</div><div class="quote-role">Director, U.S. Office of Management and Budget · M-26-15</div><div class="quote-source"><a href="#src-16">Federal execution memorandum</a></div></article>
+<article class="quote-card"><blockquote>“We encourage organizations to begin their transition to these standards immediately to ensure their data remains secure in the quantum era.”</blockquote><div class="quote-person">Dustin Moody</div><div class="quote-role">NIST mathematician · Head of the PQC standardization project</div><div class="quote-source"><a href="#src-22">NIST</a></div></article>
+<article class="quote-card"><blockquote>“giving organizations deeper visibility into the cryptography they use, enabling them to assess their quantum readiness”</blockquote><div class="quote-person">Michael Osborne</div><div class="quote-role">CTO, IBM Quantum Safe</div><div class="quote-source"><a href="#src-2">CycloneDX v1.6 / CBOM announcement</a></div></article>
+<article class="quote-card"><blockquote>“This is going to be a multi-year project. It's going to be 10 years easily.”</blockquote><div class="quote-person">Jaime Gómez García</div><div class="quote-role">Global Head, Santander Quantum Threat Program · Chair, Europol Quantum Safe Financial Forum</div><div class="quote-source"><a href="#src-23">FS-ISAC</a></div></article>
+</div></section>
+<h2 id="institutional-exposure">The institutional “so what”</h2>
+<div class="institutional-intro"><div class="big">CBOM maps whether your institution can change cryptography without breaking a critical business function.</div><p>A critical cryptographic dependency that cannot be replaced cleanly becomes <strong>migration debt</strong>: hardware replacement, key or account migration, contract upgrades, vendor coordination, asset moves or downtime.</p></div>
+<h3>Where your institution should see itself</h3>
+<div class="persona-grid">
+<div class="persona-card"><div class="persona">Banks &amp; FMIs</div><h3>Payments, clearing and settlement</h3><p><strong>Typical exposure:</strong> PKI, TLS, HSM/KMS, payment gateways, middleware, code signing, APIs, identity, counterparty certificates and settlement infrastructure.</p><p><strong>So what:</strong> a migration can fail because one appliance, certificate hierarchy, vendor library or counterparty interface cannot support the replacement algorithm on time.</p></div>
+<div class="persona-card"><div class="persona">Custodians &amp; wallet infrastructure</div><h3>Authorization remains the control point</h3><p><strong>Typical exposure:</strong> threshold ECDSA, EdDSA or Schnorr, MPC protocols, HSMs, wallet policy engines, recovery, approvals and blockchain adapters.</p><p><strong>So what:</strong> a blockchain becoming PQ-capable does not make custody PQ-safe if the asset can still be authorized through a classical signing path.</p></div>
+<div class="persona-card"><div class="persona">Stablecoin &amp; RWA issuers</div><h3>Issuer controls can remain classical</h3><p><strong>Typical exposure:</strong> mint, burn, freeze, pause, upgrade and treasury keys; transfer-agent workflows; custody; smart contracts; bridges; oracles and admin roles.</p><p><strong>So what:</strong> the token may run on upgraded infrastructure while the issuer control plane that can create, freeze or redirect value remains dependent on classical cryptography.</p></div>
+<div class="persona-card"><div class="persona">Exchanges, brokers &amp; trading venues</div><h3>Many cryptographic domains meet in one workflow</h3><p><strong>Typical exposure:</strong> client authentication, API signing, custody, wallet infrastructure, TLS, FIX connectivity, withdrawal controls, key management and settlement.</p><p><strong>So what:</strong> the migration path is determined by the least-agile dependency across the full trade-to-settlement chain, not by the strongest component in isolation.</p></div>
+<div class="persona-card"><div class="persona">Asset managers &amp; tokenization platforms</div><h3>Portfolio infrastructure inherits vendor crypto</h3><p><strong>Typical exposure:</strong> custodians, fund administrators, transfer agents, tokenization platforms, signing workflows, identity, data rooms and settlement counterparties.</p><p><strong>So what:</strong> much of the cryptographic estate may sit outside your direct control, making vendor evidence, contractual upgrade paths and dependency ownership critical.</p></div>
+<div class="persona-card"><div class="persona">CISO, CTO, risk &amp; procurement</div><h3>“PQC-ready” is not enough evidence</h3><p><strong>Typical exposure:</strong> enterprise PKI, IAM, VPN, certificates, code signing, HSMs, SaaS, cloud services, firmware, third-party products and long-lived data.</p><p><strong>So what:</strong> without a dependency-aware CBOM, you cannot credibly prioritize spend, challenge vendor claims, estimate migration cost or prove which critical paths remain exposed.</p></div>
+</div>
+<h3>Where private institutions fit under EO 14412 and M-26-15</h3>
+<p><strong>Not every bank is directly regulated by EO 14412.</strong> The relevant pathways are:</p>
+<div class="scope-grid">
+<div class="scope-card"><span class="scope">Direct federal mandate</span><h3>Executive departments and agencies</h3><p>EO 14412 and M-26-15 directly drive civilian federal agency inventory, planning and migration. M-26-15 excludes National Security Systems, which follow a separate national-security track.<sup><a href="#src-16">16</a></sup></p></div>
+<div class="scope-card"><span class="scope">Critical-infrastructure pathway</span><h3>Financial services and other critical sectors</h3><p>EO 14412 requires Sector Risk Management Agencies to work with CISA to assist critical-infrastructure owners and operators with PQC migration plans. For the Financial Services Sector, the designated SRMA is the U.S. Department of the Treasury.<sup><a href="#src-4">4</a></sup><sup><a href="#src-17">17</a></sup></p></div>
+<div class="scope-card"><span class="scope">Procurement pathway</span><h3>Covered federal contractors and suppliers</h3><p>EO 14412 directs the FAR Council to propose PQC/FIPS requirements for covered contractors. M-26-15 separately tells agency requirement owners to include PQC-readiness and cryptographic-agility provisions in vendor requirements.<sup><a href="#src-4">4</a></sup><sup><a href="#src-16">16</a></sup></p></div>
+<div class="scope-card"><span class="scope">Sector / resilience pathway</span><h3>Private financial institutions globally</h3><p>Even where a U.S. federal directive does not directly bind an institution, sector bodies are converging on the same operating capability. NIST's NCCoE points financial-sector readers to FS-ISAC's crypto-agility work, and the G7 Cyber Expert Group has framed PQC migration and cryptographic agility as a coordinated financial-system transition.<sup><a href="#src-8">8</a></sup><sup><a href="#src-20">20</a></sup><sup><a href="#src-21">21</a></sup></p></div>
+</div>
+<div class="name-section">
+<h3>Named institutions: this is already a financial-system problem, not a theoretical security topic</h3>
+<p>These names place the issue in the real financial system, using Federal Reserve and FS-ISAC sources.</p>
+<h4>U.S. GSIBs in the Federal Reserve supervisory program</h4>
+<div class="name-cloud">
+<span class="name-pill systemic">JPMorgan Chase</span><span class="name-pill systemic">Bank of America</span><span class="name-pill systemic">Citigroup</span><span class="name-pill systemic">Goldman Sachs</span><span class="name-pill systemic">Morgan Stanley</span><span class="name-pill systemic">BNY Mellon</span><span class="name-pill systemic">State Street</span><span class="name-pill systemic">Wells Fargo</span>
+</div>
+<p>The Federal Reserve identifies these eight firms as the largest and most complex U.S.-headquartered banking organizations in its GSIB supervisory program.<sup><a href="#src-18">18</a></sup></p>
+<h4>Systemically important U.S. financial market utilities</h4>
+<div class="name-cloud">
+<span class="name-pill systemic">DTCC / DTC</span><span class="name-pill systemic">DTCC / FICC</span><span class="name-pill systemic">DTCC / NSCC</span><span class="name-pill systemic">CHIPS / The Clearing House</span><span class="name-pill systemic">CLS Bank</span><span class="name-pill systemic">CME</span><span class="name-pill systemic">ICE Clear Credit</span><span class="name-pill systemic">OCC</span>
+</div>
+<p>The Federal Reserve lists eight designated systemically important FMUs; DTC, FICC and NSCC are DTCC subsidiaries. Payment, clearing and settlement are continuity-sensitive migration surfaces.<sup><a href="#src-19">19</a></sup></p>
+<h4>Institutions represented in FS-ISAC's financial-sector crypto-agility work</h4>
+<div class="name-cloud">
+<span class="name-pill sector">Wells Fargo</span><span class="name-pill sector">HSBC</span><span class="name-pill sector">Santander</span><span class="name-pill sector">Fidelity Investments</span><span class="name-pill sector">State Street</span><span class="name-pill sector">Swift</span><span class="name-pill sector">Deutsche Bank</span><span class="name-pill sector">JPMorgan Chase</span><span class="name-pill sector">Morgan Stanley</span><span class="name-pill sector">U.S. Bank</span><span class="name-pill sector">USAA</span><span class="name-pill sector">Ally</span><span class="name-pill sector">RBC</span><span class="name-pill sector">Scotiabank</span><span class="name-pill sector">CIBC</span><span class="name-pill sector">Principal Financial</span>
+</div>
+<p>FS-ISAC's financial-sector crypto-agility work includes contributors from major global institutions; NIST's NCCoE points readers to it as a sector resource.<sup><a href="#src-20">20</a></sup><sup><a href="#src-8">8</a></sup></p>
+<p class="scope-disclaimer"><strong>Scope note:</strong> these names show relevant institutional profiles; they do not mean EO 14412 directly imposes federal-agency deadlines on each firm. Applicability depends on the entity's federal, contractor, critical-infrastructure and regulatory role.</p>
+</div>
+<div aria-label="Institutional CBOM decision model" class="decision-strip">
+<div class="decision-cell"><div class="k">1 · Visibility</div><strong>Where is the cryptography?</strong><p>Systems, keys, protocols, libraries, hardware and third parties.</p></div>
+<div class="decision-cell"><div class="k">2 · Criticality</div><strong>What business function does it control?</strong><p>Payments, custody, issuance, identity, trading, settlement or recovery.</p></div>
+<div class="decision-cell"><div class="k">3 · Replaceability</div><strong>How can it change?</strong><p>Configuration, software upgrade, key rotation, hardware replacement, contract upgrade or fork.</p></div>
+<div class="decision-cell"><div class="k">4 · Residual exposure</div><strong>What remains classical?</strong><p>Fallback paths, legacy counterparties, recovery keys or immutable dependencies.</p></div>
+</div>
+<h3>What a real CBOM lets an institution decide</h3>
+<div class="table-wrap"><table><caption class="sr-only">Institutional decisions enabled by CBOM</caption><thead><tr><th scope="col">Institutional question</th><th scope="col">CBOM evidence required</th><th scope="col">Decision unlocked</th></tr></thead><tbody>
+<tr><td><strong>Is our custody path actually PQ-ready?</strong></td><td>Every signing primitive, MPC/HSM dependency, recovery path, wallet policy and classical fallback that can authorize value.</td><td>Know whether PQ protection is end-to-end or whether one legacy path can still bypass it.</td></tr>
+<tr><td><strong>Can we keep issuing or settling assets during migration?</strong></td><td>Mint/burn/freeze/admin keys, treasury controls, settlement signatures, contracts, counterparties and upgrade mechanisms.</td><td>Sequence changes without interrupting issuance, transfer or settlement operations.</td></tr>
+<tr><td><strong>Which vendors become our migration bottleneck?</strong></td><td>Product, version, crypto module, firmware/hardware dependency, algorithm support and contractual upgrade path.</td><td>Prioritize procurement, replacement, testing and vendor escalation before deadlines compress.</td></tr>
+<tr><td><strong>Does “the blockchain supports PQC” solve our risk?</strong></td><td>Transaction authorization, custody, validators, smart contracts, bridges, recovery and governance mapped separately.</td><td>Distinguish a PQ feature from an end-to-end PQ-safe operating path.</td></tr>
+<tr><td><strong>Will migration require re-platforming?</strong></td><td>Identity derivation, hard-coded algorithms, hardware limitations, immutable contracts, protocol rules and historical verification.</td><td>Estimate cost, coordination burden and whether migration is a key rotation, upgrade, re-issuance or architecture change.</td></tr>
+</tbody></table></div>
+<h2 id="why-now">Why CBOM suddenly matters</h2>
+<p>CBOM matters because cryptographic transition is now an operating, procurement and policy problem—not a theoretical one. PQC is the clearest catalyst.</p>
+<p>Quantum computers of sufficient scale are expected to threaten widely deployed public-key cryptography such as RSA and elliptic-curve systems. NIST finalized its first three primary post-quantum FIPS standards in August 2024: <strong>FIPS 203 (ML-KEM)</strong> for key establishment, <strong>FIPS 204 (ML-DSA)</strong> for digital signatures and <strong>FIPS 205 (SLH-DSA)</strong> for digital signatures based on hash functions.<sup><a href="#src-6">6</a></sup></p>
+<p>The hard part is not choosing an algorithm. It is finding cryptography embedded across applications, devices, vendors and protocols—and understanding how each dependency is used.</p>
+<div class="share-quote"><div class="quote">You cannot migrate cryptography you cannot find. You cannot safely replace cryptography whose dependencies you do not understand.</div><button class="quote-copy" data-copy-quote="true" type="button">Copy quote</button></div>
+<h2 id="timeline">How the CBOM journey developed</h2>
+<p>CBOM sits at the intersection of software supply-chain transparency, federal cryptographic inventory, PQC migration and <a href="https://eternax.ai/blogs/stop-waiting-for-better-post-quantum-signatures/index.html">crypto agility</a>.</p>
+<div class="timeline">
+<div class="event">
+<div class="date">May 2021</div>
+<strong>SBOM becomes a major federal software-security concept</strong>
+<p>Executive Order 14028 accelerated federal attention on software supply-chain security and Software Bills of Materials. SBOM asks what software components are inside a product; it does not, by itself, provide a complete cryptographic inventory.</p>
+</div>
+<div class="event">
+<div class="date">May 2022</div>
+<strong>NSM-10 establishes the post-quantum migration imperative</strong>
+<p>U.S. policy called for prioritizing the transition of vulnerable cryptographic systems toward quantum-resistant cryptography and directed work on inventories of deployed cryptographic systems.</p>
+</div>
+<div class="event">
+<div class="date">November 18, 2022</div>
+<strong>OMB M-23-02 turns cryptographic inventory into an operational requirement</strong>
+<p>Federal agencies were directed to inventory active cryptographic systems, with prioritized inventories of quantum-vulnerable systems due by May 4, 2023 and annually thereafter under the memorandum.<sup><a href="#src-1">1</a></sup></p>
+</div>
+<div class="event">
+<div class="date">April 9, 2024</div>
+<strong>CycloneDX 1.6 introduces formal CBOM capability</strong>
+<p>CycloneDX announced CBOM support developed by IBM Research, giving the ecosystem an open machine-readable framework for representing cryptographic assets and dependencies.<sup><a href="#src-2">2</a></sup></p>
+</div>
+<div class="event">
+<div class="date">June 2024 → December 2025</div>
+<strong>CycloneDX becomes ECMA-424 and continues to evolve</strong>
+<p>Ecma International standardized CycloneDX as ECMA-424. The second edition, published in December 2025, specifies CycloneDX v1.7 and explicitly supports domain-specific modeling of cryptographic artefacts.<sup><a href="#src-3">3</a></sup></p>
+</div>
+<div class="event">
+<div class="date">April 17–18, 2025</div>
+<strong>NIST convenes a dedicated Crypto Agility Workshop</strong>
+<p>The program covered hardware, software, financial services, standards, enterprise environments and migration techniques. It also included a session on crypto-agility for blockchain protocols.<sup><a href="#src-7">7</a></sup></p>
+</div>
+<div class="event">
+<div class="date">June 22, 2026</div>
+<strong>Executive Order 14412 elevates CBOM</strong>
+<p>The order directs CISA, coordinated with NIST, to publish public guidance describing minimum CBOM elements within 270 days. Those elements must enable automated assessment of cryptographic assets used by hardware or software.<sup><a href="#src-4">4</a></sup></p>
+</div><div class="event"><div class="date">June 24, 2026</div><strong>OMB M-26-15 makes crypto agility operational</strong><p>Two days after EO 14412, OMB issued the implementing memorandum for civilian federal agencies. It requires agency migration plans within 120 days, phases migration through 2035, calls for automated cryptographic inventory feeding a central CBOM, and explicitly requires cryptographic-agile architecture and systems.<sup><a href="#src-16">16</a></sup></p></div>
+<div class="event">
+<div class="date">June 29, 2026</div>
+<strong>NIST updates its crypto-agility guidance</strong>
+<p>NIST CSWP 39-upd1 defines crypto agility around the ability to replace and adapt cryptographic algorithms across protocols, applications, software, hardware, firmware and infrastructure while preserving security and operations.<sup><a href="#src-5">5</a></sup></p>
+</div>
+<div class="event">
+<div class="date">March 19, 2027</div>
+<strong>Expected deadline for federal minimum CBOM guidance</strong>
+<p>This is 270 days after EO 14412. Importantly, this deadline is about minimum CBOM elements — not a complete universal crypto-agility rulebook.</p>
+</div>
+</div>
+<div class="callout">
+<div class="title">The policy direction is clear.</div>
+<p>EO 14412 sets direction; OMB M-26-15 turns it into execution; NIST provides the technical definition and practices. Institutions should govern CBOM and crypto agility as one migration program.</p>
+</div>
+<h2 id="inside">What exactly goes inside a CBOM?</h2>
+<p>A useful CBOM should describe more than “RSA exists” or “ECDSA exists.” The inventory becomes operationally useful when it answers both <strong>what</strong> the cryptography is and <strong>how</strong> it is used.</p>
+<div class="grid-2">
+<div class="card"><span class="tag">Algorithms</span><h3>Cryptographic primitives</h3><p>Signature, key-establishment, encryption, hashing and related algorithms, including versions and parameters where relevant.</p></div>
+<div class="card"><span class="tag">Keys</span><h3>Key material and lifecycle</h3><p>Key types, sizes, locations, ownership, rotation expectations, expiry and connections to HSMs, KMSs or custody systems.</p></div>
+<div class="card"><span class="tag">Certificates</span><h3>Certificates and trust chains</h3><p>Certificate authorities, signing relationships, validity periods, public-key algorithms and dependencies on PKI infrastructure.</p></div>
+<div class="card"><span class="tag">Protocols</span><h3>Protocols and cipher suites</h3><p>TLS, SSH, VPN, secure messaging, authentication and other protocols where cryptography is negotiated or fixed.</p></div>
+<div class="card"><span class="tag">Implementations</span><h3>Libraries, modules and hardware</h3><p>Which crypto library, module, firmware component, HSM, accelerator or service actually implements the cryptography.</p></div>
+<div class="card"><span class="tag">Dependencies</span><h3>Where change propagates</h3><p>Applications, services, APIs, identities or downstream systems that depend on a given cryptographic choice.</p></div>
+</div>
+<p>The federal minimum fields are not yet final. Institutions should distinguish between <strong>what an effective CBOM needs today</strong> and <strong>what forthcoming CISA/NIST guidance may require</strong>.</p>
+<h2 id="sbom">SBOM vs CBOM: the difference in one table</h2>
+<div class="table-wrap">
+<table><caption class="sr-only">CBOM guide reference table 1</caption>
+<thead><tr><th scope="col">Question</th><th scope="col">SBOM</th><th scope="col">CBOM</th></tr></thead>
+<tbody>
+<tr><td>Primary purpose</td><td>Inventory software components</td><td>Inventory cryptographic assets and dependencies</td></tr>
+<tr><td>Typical objects</td><td>Libraries, packages, versions, dependencies</td><td>Algorithms, keys, certificates, protocols, crypto libraries, parameters and relationships</td></tr>
+<tr><td>Main risk lens</td><td>Software supply-chain and component vulnerability</td><td>Cryptographic vulnerability, policy compliance and migration readiness</td></tr>
+<tr><td>PQC relevance</td><td>Can reveal components that may contain crypto</td><td>Directly maps quantum-vulnerable cryptography and migration dependencies</td></tr>
+<tr><td>Core question</td><td>“What software is inside?”</td><td>“What cryptography do we depend on?”</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="players">Who are the important players — and what does each one actually do?</h2>
+<p>Policy bodies, standards organizations, open-source projects and discovery tools play different roles.</p>
+<div class="table-wrap">
+<table><caption class="sr-only">CBOM guide reference table 2</caption>
+<thead><tr><th scope="col">Player</th><th scope="col">Role</th><th scope="col">What it means for CBOM</th></tr></thead>
+<tbody>
+<tr><td><strong>White House / OMB</strong></td><td>Federal policy and agency direction</td><td>Set national PQC policy through EO 14412 and translate it into agency execution through OMB M-26-15, including migration plans, automated inventory, central CBOM, vendor coordination and crypto-agile architecture.<sup><a href="#src-4">4</a></sup><sup><a href="#src-16">16</a></sup></td></tr>
+<tr><td><strong>CISA</strong></td><td>Operational federal cybersecurity</td><td>EO 14412 directs CISA, coordinated with NIST, to issue public guidance on minimum CBOM elements.</td></tr>
+<tr><td><strong>NIST</strong></td><td>Cryptographic standards and technical guidance</td><td>Standardizes PQC algorithms, publishes crypto-agility guidance and supports migration work through NIST and NCCoE programs.</td></tr>
+<tr><td><strong>NCCoE</strong></td><td>Applied implementation collaboration</td><td>Works with industry collaborators on practical PQC migration and points users to discovery tools and CycloneDX CBOM guidance.<sup><a href="#src-8">8</a></sup></td></tr>
+<tr><td><strong>OWASP CycloneDX</strong></td><td>Open BOM standard and community</td><td>Provides a machine-readable data model that supports cryptographic artefacts and CBOM use cases.</td></tr>
+<tr><td><strong>Ecma International / TC54</strong></td><td>International standardization</td><td>Standardizes CycloneDX as ECMA-424.</td></tr>
+<tr><td><strong>IBM Research</strong></td><td>CBOM capability developer/contributor</td><td>Developed the CBOM functionality introduced into CycloneDX 1.6.<sup><a href="#src-2">2</a></sup></td></tr>
+<tr><td><strong>Discovery vendors and open-source tools</strong></td><td>Find cryptography in real systems</td><td>Scan code, hosts, networks, certificates and infrastructure, then produce inventory data that can be represented in a CBOM.</td></tr>
+<tr><td><strong>Enterprises and public agencies</strong></td><td>Risk owners and migration operators</td><td>Use inventory and dependency data to prioritize cryptographic risk, plan migration, procure compliant technology and demonstrate progress.</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="cyclonedx">CycloneDX explained properly</h2>
+<p><strong>CycloneDX is a machine-readable BOM standard—not a scanner or commercial software company.</strong> It is community-driven under OWASP; IBM Research developed the CBOM functionality introduced in v1.6; and CycloneDX is standardized as ECMA-424.<sup><a href="#src-2">2</a></sup><sup><a href="#src-3">3</a></sup></p>
+<p>ECMA-424's December 2025 second edition defines CycloneDX v1.7 as a structured format for software and hardware components, services, dependencies, vulnerabilities, cryptographic artefacts, machine-learning models and other supply-chain information. It explicitly supports domain-specific modelling for cryptographic artefacts.<sup><a href="#src-3">3</a></sup></p>
+<p>CycloneDX governance is open and consensus-based, allowing community proposals—including domain-specific CBOM requirements.<sup><a href="#src-9">9</a></sup></p>
+<h3>Does NIST require CycloneDX?</h3>
+<p><strong>No.</strong> As of September 2, 2026, no federal rule says “all CBOMs must use CycloneDX.” What is true is that CycloneDX has strong institutional positioning: NIST's NCCoE PQC migration FAQ directs readers to CycloneDX's authoritative CBOM guide, while ECMA-424 provides formal standardization.<sup><a href="#src-8">8</a></sup></p>
+<p>Until CISA/NIST publishes the minimum elements, the required federal format remains unsettled.</p>
+<h2 id="agility">Crypto agility: the capability that determines whether migration is controlled or disruptive</h2>
+<p class="lead"><strong>Crypto agility is the operational objective.</strong> CBOM shows what must change; crypto agility determines whether it can change safely and without disrupting critical services.</p><div class="mandate-box"><div class="eyebrow">OMB M-26-15 · Federal execution language</div><h3>For federal agencies, crypto agility is now an explicit migration requirement.</h3><p>M-26-15 connects <strong>cryptographic inventory → central CBOM → crypto-agile architecture → PQC migration</strong>. Phases 3 and 4 call for cryptographically agile systems; Appendix B requires crypto-agile architecture in agency migration plans.<sup><a href="#src-16">16</a></sup></p></div>
+<h3>The authoritative NIST meaning</h3>
+<p>NIST CSWP 39-upd1 defines crypto agility as the capability to <strong>replace and adapt cryptography across protocols, applications, software, hardware, firmware and infrastructure while preserving security and operations</strong>.<sup><a href="#src-5">5</a></sup></p>
+<div class="grid-2">
+<div class="card"><span class="tag">Enterprise</span><h3>Transition without major disruption</h3><p>NIST describes enterprise crypto agility as the capacity to move rapidly away from vulnerable algorithms and adopt stronger ones without significant infrastructure changes or unnecessary disruption.<sup><a href="#src-12">12</a></sup></p></div>
+<div class="card"><span class="tag">Computing system</span><h3>Stop vulnerable algorithms while the system keeps running</h3><p>For a computing system, NIST focuses on adopting new algorithms and ending use of vulnerable ones without disrupting the running system.<sup><a href="#src-13">13</a></sup></p></div>
+</div>
+<p><strong>The key requirement is preserving security and operations.</strong> Crypto agility is an operational-resilience capability, not a feature checklist.</p>
+<h3>What crypto agility is — and what it is not</h3>
+<div class="table-wrap"><table><caption class="sr-only">What crypto agility is and is not</caption><thead><tr><th scope="col">Often mistaken for crypto agility</th><th scope="col">Why that is insufficient</th><th scope="col">What real agility requires</th></tr></thead><tbody>
+<tr><td>“Our library supports ML-DSA.”</td><td>Applications, identity, payload formats, HSMs or counterparties may still reject it.</td><td>End-to-end ability to deploy, negotiate or coordinate the new primitive across the dependent system.</td></tr>
+<tr><td>“Our HSM vendor has a PQ roadmap.”</td><td>A future hardware feature does not prove that policies, MPC, recovery, APIs or applications can migrate.</td><td>Verified migration path across hardware, software, authorization, recovery and operations.</td></tr>
+<tr><td>“We have a CBOM.”</td><td>Visibility can reveal that a dependency is immovable.</td><td>Mechanisms to replace algorithms, rotate keys, manage coexistence, test, roll back and retire the vulnerable path.</td></tr>
+<tr><td>“We can run classical + PQ signatures.”</td><td>Hybrid operation can be useful, but it may preserve a classical bypass or create compatibility and performance problems.</td><td>A governed transition state with explicit security policy, expiry conditions and no unintended fallback.</td></tr>
+<tr><td>“The blockchain/network will upgrade.”</td><td>Custody, addresses, smart contracts, validators, bridges or historical verification may remain tied to the old primitive.</td><td>Layer-by-layer transition covering every path that can authorize, validate or recover assets.</td></tr>
+</tbody></table></div>
+<h3>The institutional “so what” for crypto agility</h3>
+<div class="institutional-intro"><div class="big">Crypto agility determines your time-to-safety.</div><p>The real metric is <strong>how quickly a vulnerable primitive can be removed from every critical path without breaking the business</strong>.</p></div>
+<div class="decision-strip">
+<div class="decision-cell"><div class="k">Time</div><strong>How fast can we replace it?</strong><p>Weeks, months or a multi-year re-platforming program?</p></div>
+<div class="decision-cell"><div class="k">Continuity</div><strong>Can services stay live?</strong><p>Can payments, custody, settlement and customer access continue through transition?</p></div>
+<div class="decision-cell"><div class="k">Dependency</div><strong>Who can block us?</strong><p>HSM vendor, cloud provider, counterparty, protocol, wallet, contract or hardware lifecycle?</p></div>
+<div class="decision-cell"><div class="k">Control</div><strong>Can the old path be retired?</strong><p>A migration is incomplete if a classical fallback can still authorize the same asset or action.</p></div>
+</div>
+<h3>CBOM and crypto agility must be assessed together</h3>
+<div class="table-wrap"><table><caption class="sr-only">CBOM visibility and crypto agility maturity matrix</caption><thead><tr><th scope="col">State</th><th scope="col">What it means</th><th scope="col">Institutional consequence</th></tr></thead><tbody>
+<tr><td><strong>Low CBOM visibility + low agility</strong></td><td>You do not know all dependencies and cannot change them predictably.</td><td><span class="risk no">Blind and trapped</span> — highest migration and outage risk.</td></tr>
+<tr><td><strong>High CBOM visibility + low agility</strong></td><td>You can see the vulnerable dependencies, but many are hard-coded, vendor-locked or operationally immovable.</td><td><span class="risk no">Known migration debt</span> — the problem is visible but still expensive.</td></tr>
+<tr><td><strong>Low CBOM visibility + high agility mechanisms</strong></td><td>Some systems can rotate cryptography, but the organization cannot prove coverage or prioritize the highest-risk dependencies.</td><td><span class="risk mid">Unproven readiness</span> — capability exists, assurance does not.</td></tr>
+<tr><td><strong>High CBOM visibility + high agility</strong></td><td>Dependencies are known, replaceability is tested, transition states are governed and vulnerable paths can be retired.</td><td><span class="risk yes">Controlled migration</span> — the target operating state.</td></tr>
+</tbody></table></div>
+<h3>Why this has regulatory and procurement relevance now</h3>
+<p>EO 14412 sets federal migration policy; OMB M-26-15 operationalizes crypto agility through agency architecture, vendor requirements and system ownership; NIST provides the technical definition and practices.<sup><a href="#src-4">4</a></sup><sup><a href="#src-16">16</a></sup><sup><a href="#src-5">5</a></sup></p>
+<p><strong>Institutional consequence:</strong> CBOM answers “where are we exposed?”; crypto agility answers “can we migrate without breaking a critical service?” Procurement should test replaceability, coexistence, rollback and retirement—not merely PQC support.</p>
+<h3>Who owns crypto agility inside the institution?</h3><p>M-26-15's role model maps cleanly to private institutions:</p><div class="role-map">
+<div class="role-item"><strong>CIO / CISO</strong><p>Prioritization, risk acceptance and resource allocation. This is an enterprise risk program, not a cryptography-lab side project.</p></div>
+<div class="role-item"><strong>Procurement / Requirement Owner</strong><p>Put PQC-readiness and crypto-agility provisions into vendor requirements, contracts and renewal criteria.</p></div>
+<div class="role-item"><strong>CFO / Finance</strong><p>Fund the multi-year migration, hardware refresh, vendor replacement, testing and contingency capacity.</p></div>
+<div class="role-item"><strong>PQC / Cryptographic Migration Lead</strong><p>Own the enterprise inventory, sequencing, cross-business coordination and executive reporting.</p></div>
+<div class="role-item"><strong>Security Architect / Technical Lead</strong><p>Design the crypto-agile architecture, select algorithms, test interoperability and integrate with identity, ZTA, KMS/HSM and applications.</p></div>
+<div class="role-item"><strong>Application &amp; System Owners</strong><p>Actually remove hard-coded cryptography, upgrade components, test fallbacks and prove that each critical path can change without disruption.</p></div>
+</div><div class="self-check"><h3>Seven questions that reveal whether you are actually crypto-agile</h3><ol>
+<li>Can every critical cryptographic primitive be mapped to an accountable system owner and business function?</li>
+<li>Can the algorithm or key type be changed through configuration, policy or an upgrade path rather than a full redesign?</li>
+<li>Can old and new cryptography coexist safely during a controlled migration window?</li>
+<li>Can the vulnerable algorithm be completely disabled after migration, including fallback, recovery and emergency paths?</li>
+<li>Can HSMs, MPC systems, wallets, APIs, counterparties and protocol dependencies support the new primitive on the same timeline?</li>
+<li>Can the institution test, observe, audit and — where safe — roll back the migration without losing service continuity?</li>
+<li>Can the same migration mechanism be reused for the <em>next</em> cryptographic transition, rather than rebuilt for every algorithm change?</li>
+</ol></div>
+<p>NIST explicitly presents CSWP 39-upd1 as a starting point for developing environment-specific, actionable mechanisms.<sup><a href="#src-10">10</a></sup> In other words, crypto agility is not achieved by adopting one product or one algorithm. It has to be engineered into the institution's protocols, applications, hardware, governance, vendor contracts and operating model.</p>
+<h2 id="pqc">How CBOM and crypto agility fit into post-quantum migration</h2>
+<p><strong>CBOM shows what exists; crypto agility enables safe replacement; PQC supplies the replacement algorithms.</strong></p>
+<div aria-label="Post-quantum migration flow" class="flow">
+<div class="flow-item"><strong>Discover</strong>Find cryptography</div>
+<div class="flow-item"><strong>Locate</strong>Map systems</div>
+<div class="flow-item"><strong>Classify</strong>Assess risk</div>
+<div class="flow-item"><strong>Depend</strong>Map impact</div>
+<div class="flow-item"><strong>Prioritize</strong>Sequence work</div>
+<div class="flow-item"><strong>Migrate</strong>Replace safely</div>
+<div class="flow-item"><strong>Monitor</strong>Stay current</div>
+</div>
+<p>Discovery must become a <strong>dependency-aware inventory</strong>: what the cryptography protects, where it runs, who controls it, whether it can change and what must move with it.</p>
+<p>EO 14412 explicitly requires minimum elements that support <strong>automated assessment of cryptographic assets used by hardware or software</strong>.<sup><a href="#src-4">4</a></sup> CBOM is not meant to remain a static spreadsheet.</p>
+<h2 id="blockchain">Why blockchain makes CBOM harder</h2>
+<p>Blockchain makes CBOM harder because cryptography is embedded in protocol rules, identity models and permanent state.</p>
+<p>A conventional CBOM might correctly report:</p>
+<div class="callout"><p><strong>“This system uses ECDSA over secp256k1.”</strong></p></div>
+<p>For migration, that is not enough. You need to know <strong>what ECDSA controls</strong> and <strong>what replacing it requires</strong>.</p>
+<div class="table-wrap">
+<table><caption class="sr-only">CBOM guide reference table 3</caption>
+<thead><tr><th scope="col">Blockchain surface</th><th scope="col">CBOM must understand</th><th scope="col">Migration question</th></tr></thead>
+<tbody>
+<tr><td>Transaction authorization</td><td>Signature scheme, verification path, encoding, gas/fee assumptions</td><td>Can a new signature type be accepted without breaking transaction processing?</td></tr>
+<tr><td>Address derivation</td><td>How public keys become account identifiers</td><td>Does changing the key require changing the address or moving assets?</td></tr>
+<tr><td>Consensus / validators</td><td>Validator signatures, certificates, aggregation and peer authentication</td><td>Can validator cryptography change without a consensus upgrade or coordinated fork?</td></tr>
+<tr><td>Smart contracts</td><td>Signature verification, precompiles, hard-coded curves, immutable logic</td><td>Can applications verify PQ signatures, and are deployed contracts upgradeable?</td></tr>
+<tr><td>Custody / MPC / HSM</td><td>Signing primitives, key shares, policy engines, recovery and approval paths</td><td>Can the authorization architecture change without replacing custody infrastructure?</td></tr>
+<tr><td>Bridges / interoperability</td><td>Validator sets, light clients, message authentication and external chain assumptions</td><td>Does one classical dependency keep the cross-chain path quantum-vulnerable?</td></tr>
+<tr><td>Historical verification</td><td>Old signatures, proofs, blocks and archival rules</td><td>How will the network verify pre-migration history after algorithms change?</td></tr>
+<tr><td>Recovery / governance</td><td>Admin keys, upgrade keys, recovery keys and emergency controls</td><td>Can a classical fallback bypass the new PQ protection?</td></tr>
+</tbody>
+</table>
+</div>
+<p>This is why blockchain requires more than “cryptographic asset inventory.” It requires <strong>protocol-level cryptographic dependency and migration intelligence</strong>.</p>
+<div class="share-quote"><div class="quote">For blockchain, the important question is not only “Which cryptography exists?” It is “What does that cryptography control, and can it be replaced without changing identity, consensus, custody, application logic or history?”</div><button class="quote-copy" data-copy-quote="true" type="button">Copy quote</button></div>
+<p>NIST's April 2025 Crypto Agility Workshop included a dedicated blockchain session highlighting persistence, immutability, historical validity and coordinated protocol transition.<sup><a href="#src-15">15</a></sup> It is not a binding rule, but it confirms blockchain needs dedicated migration treatment.</p>
+<h2 id="profile">What a Blockchain CBOM / Crypto-Agility Profile should add</h2>
+<p>A blockchain-aware profile should add <strong>function, immutability, upgrade path and migration dependency</strong> so cryptographic migration surfaces can be described consistently and machine-readably.</p>
+<div class="grid-2">
+<div class="card"><span class="tag">Function</span><h3>What does the cryptography control?</h3><p>Transaction signing, validator identity, address derivation, smart-contract verification, bridge authorization, custody, privacy, recovery or governance.</p></div>
+<div class="card"><span class="tag">Layer</span><h3>Where is it enforced?</h3><p>Client, wallet, HSM, smart contract, precompile, execution layer, consensus layer, P2P layer, bridge or off-chain service.</p></div>
+<div class="card"><span class="tag">Mutability</span><h3>Can it be upgraded?</h3><p>Configuration change, software update, contract upgrade, governance vote, hard fork, address migration or impossible without replacing the component.</p></div>
+<div class="card"><span class="tag">Fallback</span><h3>Can classical crypto bypass it?</h3><p>A PQ verifier is not a complete control if a legacy ECDSA or EdDSA path can still authorize the same critical action.</p></div>
+<div class="card"><span class="tag">Compatibility</span><h3>What breaks when it changes?</h3><p>Signature encoding, transaction size, gas model, hardware support, RPC interfaces, indexing, custody workflows, wallets or downstream contracts.</p></div>
+<div class="card"><span class="tag">Migration</span><h3>What is the actual transition mechanism?</h3><p>Dual-signature window, key rotation, account abstraction, new precompile, hard fork, validator epoch transition, proof migration or re-issuance.</p></div>
+</div>
+<p>That turns CBOM into a map of <strong><a href="https://eternax.ai/post-quantum-cryptography-risk-framework-for-institutions.html">cryptographic migration debt</a></strong>: where change is easy, coordinated, identity-changing, or requires a fork or asset migration.</p>
+<h2 id="next">What happens next?</h2>
+<p>CBOM is moving into procurement, audit, software lifecycle and migration programs. <strong>For institutions, cryptographic inventory becomes a capital-planning and resilience input</strong>: what to upgrade, replace, remediate or coordinate.</p>
+<div class="table-wrap">
+<table><caption class="sr-only">CBOM guide reference table 4</caption>
+<thead><tr><th scope="col">Period</th><th scope="col">What to watch</th><th scope="col">Why it matters</th></tr></thead>
+<tbody>
+<tr><td><strong>Now → March 2027</strong></td><td>CISA/NIST minimum CBOM elements; vendor alignment; more machine-readable discovery</td><td>Defines the federal baseline and may influence procurement and enterprise tooling.</td></tr>
+<tr><td><strong>2027–2030</strong></td><td>PQC pilots, crypto-agility architecture, migration prioritization, procurement requirements</td><td>Inventory begins turning into funded migration work.</td></tr>
+<tr><td><strong>2030–2031</strong></td><td>EO 14412 federal migration and procurement milestones</td><td>Quantum-safe requirements move closer to contractual and operational enforcement in covered contexts.</td></tr>
+<tr><td><strong>Through 2035</strong></td><td>Broader transition of vulnerable public-key cryptography</td><td>Legacy systems, long-lived assets and protocol-level dependencies become the hardest tail of migration.</td></tr>
+</tbody>
+</table>
+</div>
+<p>For institutions, the immediate practical question is not “Which CBOM product should we buy?” It is:</p>
+<ol>
+<li>Do we have complete cryptographic visibility?</li>
+<li>Can we map cryptography to business and protocol functions?</li>
+<li>Can we automatically identify vulnerable or non-compliant cryptography?</li>
+<li>Do we know which dependencies make migration difficult?</li>
+<li>Can algorithms and keys be changed without re-platforming?</li>
+<li>Can we prove progress continuously rather than through one-off inventory exercises?</li>
+</ol>
+<h2 id="stakeholders">Outcomes by stakeholder</h2>
+<p class="lead">A strong CBOM gives every institutional team the cryptographic evidence it needs—not just security engineering.</p>
+<div class="table-wrap"><table><caption class="sr-only">Institutional stakeholder outcomes from a CBOM program</caption><thead><tr><th scope="col">Stakeholder</th><th scope="col">What they need to know</th><th scope="col">What CBOM should give them</th></tr></thead><tbody>
+<tr><td><strong>Board / Risk Committee</strong></td><td>Where could cryptographic migration interrupt critical services or create material operational risk?</td><td>A ranked map of critical cryptographic dependencies, owners, migration difficulty and residual exposure.</td></tr>
+<tr><td><strong>CISO / Security Architecture</strong></td><td>Where are vulnerable algorithms and which dependencies prevent replacement?</td><td>Machine-readable inventory tied to system, implementation, criticality, owner and remediation path.</td></tr>
+<tr><td><strong>CTO / Engineering</strong></td><td>Which changes are configuration work versus architecture changes?</td><td>Replaceability, compatibility, test requirements, API impacts, hardware constraints and migration mechanism.</td></tr>
+<tr><td><strong>Custody / Digital Assets</strong></td><td>Can value still be authorized through a classical path?</td><td>End-to-end signing and recovery map across wallets, MPC, HSM, chain, contracts and governance.</td></tr>
+<tr><td><strong>Issuer / Product</strong></td><td>Can minting, burning, transfer, freeze and settlement continue during migration?</td><td>Control-path mapping plus sequencing for issuer keys, treasury, contracts, custody and counterparties.</td></tr>
+<tr><td><strong>Compliance / Audit</strong></td><td>Can the institution demonstrate what crypto it uses and what is being remediated?</td><td>Evidence that is repeatable, attributable, versioned and capable of supporting automated assessment.</td></tr>
+<tr><td><strong>Procurement / Vendor Risk</strong></td><td>Which products create lock-in or a future forced replacement?</td><td>Vendor-specific algorithm support, firmware/hardware constraints, upgrade commitments and fallback exposure.</td></tr>
+</tbody></table></div>
+<div class="self-check"><h3>Six questions an institution should be able to answer now</h3><ol>
+<li>Which production systems and third parties still depend on quantum-vulnerable public-key cryptography?</li>
+<li>Which of those cryptographic dependencies control payments, custody, issuance, identity, trading, settlement, recovery or governance?</li>
+<li>Which dependencies can be replaced by configuration or key rotation — and which require new hardware, software, contracts, addresses or protocols?</li>
+<li>Where does a classical fallback remain capable of authorizing the same critical action?</li>
+<li>Which vendor or counterparty is the slowest dependency in the migration path?</li>
+<li>Can the institution prove this continuously from machine-readable evidence rather than a one-off spreadsheet?</li>
+</ol></div>
+<div class="callout"><div class="title">If you cannot answer these questions, the gap is not the PQ algorithm.</div><p>It is insufficient cryptographic visibility and migration intelligence.</p></div>
+<section aria-labelledby="related-title" class="related"><div class="eyebrow">EternaX topic cluster</div><h2 id="related-title">Go deeper on post-quantum migration</h2><div class="related-grid"><a class="related-card" href="../../post-quantum-cryptography-risk-framework-for-institutions.html"><span class="small">Framework</span><strong>Cryptographic Migration Debt</strong><span>How classical cryptographic dependencies become long-lived institutional migration liabilities.</span></a><a class="related-card" href="../stop-waiting-for-better-post-quantum-signatures/index.html"><span class="small">Crypto agility</span><strong>Stop waiting for better signatures</strong><span>Why the durable requirement is infrastructure that can rotate cryptography without rebuilding applications.</span></a><a class="related-card" href="../../post-quantum-stablecoins-and-tokenization.html"><span class="small">Tokenization</span><strong>PQ controls for stablecoins &amp; RWAs</strong><span>Map issuer, compliance, permit, vault and custody control paths to post-quantum protection.</span></a><a class="related-card" href="../../custody-mpc-providers.html"><span class="small">Custody</span><strong>Post-quantum MPC &amp; HSM authorization</strong><span>How to add a PQ authorization boundary around existing institutional custody workflows.</span></a><a class="related-card" href="../../post-quantum-infrastructure-for-besu.html"><span class="small">Enterprise blockchain</span><strong>Post-quantum infrastructure for Besu</strong><span>Crypto-agility, tokenization, privacy, custody and consensus considerations for Hyperledger Besu.</span></a><a class="related-card" href="../../reports/index.html"><span class="small">Research library</span><strong>EternaX institutional research</strong><span>Evidence-graded reports on PQ readiness, custody, migration debt, signatures and tokenized-asset exposure.</span></a></div></section><section aria-labelledby="eternax-view" class="eternax-section">
+<div class="eyebrow" style="color:#D9DFF8">EternaX institutional migration paths</div>
+<h2 id="eternax-view">From CBOM findings to the right migration path</h2>
+<p>CBOM identifies exposure; crypto agility tests replaceability. EternaX addresses four institutional migration paths.</p>
+<div class="solution-grid">
+<article class="solution-card">
+<div class="solution-kicker">01 · Stablecoins &amp; Tokenization</div>
+<h3>Protect issuer and asset-control authority</h3>
+<p>For stablecoins, tokenized funds and RWAs, EternaX adds PQ-safe controls around mint/burn, compliance, permits, vault governance and custody while preserving the existing tokenization stack.</p>
+<p class="solution-so-what">So what: protect the control plane without reissuing the asset simply because cryptography changes.</p>
+<div class="institution-label">Relevant institutional profiles</div>
+<div class="institution-pills"><span>Circle</span><span>Paxos</span><span>Ripple</span><span>JPMorgan / Kinexys</span><span>BlackRock / BUIDL</span><span>Franklin Templeton</span><span>Ondo</span><span>BNY Mellon</span><span>DTCC</span></div>
+<a class="solution-link" href="https://eternax.ai/post-quantum-stablecoins-and-tokenization.html">Explore Stablecoins &amp; Tokenization →</a>
+</article>
+<article class="solution-card">
+<div class="solution-kicker">02 · Custody &amp; MPC</div>
+<h3>Add PQ authorization without replacing custody</h3>
+<p>For MPC, HSM and smart-account custody, EternaX introduces an independent post-quantum authorization boundary around existing institutional workflows.</p>
+<p class="solution-so-what">So what: migrate the authorization layer while keeping the custodian, assets and operating model in place.</p>
+<div class="institution-label">Relevant institutional profiles</div>
+<div class="institution-pills"><span>Fireblocks</span><span>BitGo</span><span>Copper</span><span>Anchorage Digital</span><span>Zodia Custody</span><span>Hex Trust</span><span>Safe</span><span>Thales</span><span>Utimaco</span></div>
+<a class="solution-link" href="https://eternax.ai/custody-mpc-providers.html">Explore Custody &amp; MPC →</a>
+</article>
+<article class="solution-card">
+<div class="solution-kicker">03 · PQ-Native Settlement</div>
+<h3>Start new long-duration rails inside a PQ-native boundary</h3>
+<p>For programmes that require post-quantum authorization, consensus, privacy and future algorithm rotation in one infrastructure boundary, EternaX provides PQ-native institutional settlement.</p>
+<p class="solution-so-what">So what: avoid embedding new long-lived assets and liquidity into infrastructure that already carries migration debt.</p>
+<div class="institution-label">Relevant institutional profiles</div>
+<div class="institution-pills"><span>DTCC</span><span>JPMorgan</span><span>Citi</span><span>HSBC</span><span>BNY Mellon</span><span>State Street</span><span>Circle</span><span>Paxos</span><span>BlackRock</span></div>
+<a class="solution-link" href="https://eternax.ai/pq-native-settlement.html">Explore PQ-Native Settlement →</a>
+</article>
+<article class="solution-card">
+<div class="solution-kicker">04 · Hyperledger Besu</div>
+<h3>Make institutional Besu infrastructure migration-ready</h3>
+<p>For existing or planned Besu networks, EternaX provides PQ tokenization controls, privacy protection, custody authorization and a deeper PQ-safe ledger path where required.</p>
+<p class="solution-so-what">So what: keep the institutional EVM operating model while removing the cryptographic bottlenecks that make future migration difficult.</p>
+<div class="institution-label">Relevant programmes &amp; profiles</div>
+<div class="institution-pills"><span>DTCC AppChain</span><span>SWIFT</span><span>Fnality</span><span>Citi</span><span>Project Agora</span><span>mBridge</span><span>HSBC</span><span>Standard Chartered</span><span>BNP Paribas</span></div>
+<a class="solution-link" href="https://eternax.ai/post-quantum-infrastructure-for-besu.html">Explore Hyperledger Besu →</a>
+</article>
+</div>
+<h3 style="color:#fff;margin-top:28px">What an institutional readiness engagement should produce</h3>
+<div class="deliverables">
+<div class="deliverable"><strong>Exposure map</strong>Where classical cryptography remains.</div>
+<div class="deliverable"><strong>Agility gap</strong>What cannot be changed safely today.</div>
+<div class="deliverable"><strong>Migration path</strong>Custody, tokenization, Besu or PQ-native.</div>
+<div class="deliverable"><strong>Priority plan</strong>What to protect now vs. later.</div>
+</div>
+<p class="conversion-note">Institution names above illustrate relevant institutional profiles or public programmes; they do not imply EternaX customer relationships.</p>
+<div class="cta-row"><a class="button primary" href="https://eternax.ai/pilot.html">Request an Institutional CBOM &amp; PQ Readiness Map</a><a class="button secondary" href="https://eternax.ai/">Explore all EternaX solutions</a></div>
+</section>
+<section class="team-section" id="authors" aria-labelledby="authors-title">
+  <div class="team-inner">
+    <div class="team-label">Research authors</div>
+    <h2 id="authors-title">About the authors</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="flex justify-center mb-3">
+          <img src="../../assets/parthh.png" alt="Paarrthhh Birla" class="w-32 h-32 rounded-full object-cover" loading="lazy" itemprop="image">
+        </div>
+        <div class="team-name">Paarrthhh Birla</div>
+        <div class="team-role">Co-Founder</div>
+        <div class="team-bio">Ex-Polygon (VP Growth Office); Head of Partnerships, Subspace Protocol; Digital assets strategy at EYP, Advised Visa and State Street; MBA, CPA.</div>
+        <div class="team-links"><a href="https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://x.com/parthweb34ai" target="_blank" rel="noopener">X</a></div>
+      </div>
+      <div class="team-card">
+        <div class="flex justify-center mb-3">
+          <img src="../../assets/dariia.png" alt="Dariia Porechna" class="w-32 h-32 rounded-full object-cover" loading="lazy" itemprop="image">
+        </div>
+        <div class="team-name">Dariia Porechna</div>
+        <div class="team-role">Co-Founder</div>
+        <div class="team-bio">Cryptographer and distributed systems architect; Head of Protocol, Subspace; Research Engineer, Wolfram|Alpha. Co-author, SILMARILS.</div>
+        <div class="team-links"><a href="https://www.linkedin.com/in/dariia-porechna" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://x.com/FutureDies" target="_blank" rel="noopener">X</a></div>
+      </div>
+      <div class="team-card">
+        <div class="flex justify-center mb-3">
+          <img src="../../assets/chen.png" alt="Dr. Chen Feng" class="w-32 h-32 rounded-full object-cover" loading="lazy" itemprop="image">
+        </div>
+        <div class="team-name">Dr. Chen Feng</div>
+        <div class="team-role">Chief Scientist</div>
+        <div class="team-bio">Assoc. Prof. at University of British Columbia; PhD (Toronto); 100+ peer-reviewed papers; Quantum communications, blockchain, TEE privacy. Co-author, SILMARILS.</div>
+        <div class="team-links"><a href="https://www.linkedin.com/in/chen-feng-75272a37" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://scholar.google.com/citations?user=D8b0l-EAAAAJ" target="_blank" rel="noopener">Google Scholar</a></div>
+      </div>
+    </div>
+  </div>
+</section><section class="faq-section" id="faq" aria-labelledby="faq-title"><div class="eyebrow">Frequently asked questions</div><h2 id="faq-title">CBOM FAQ</h2><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a CBOM?</summary><div class="faq-a"><p>A <strong>Cryptographic Bill of Materials (CBOM)</strong> is a structured inventory of cryptographic assets and dependencies used by hardware or software. It can describe algorithms, keys, certificates, protocols, libraries, parameters and relationships so an organization can identify cryptographic risk and plan migration.</p></div></details><details class="faq-item"><summary class="faq-q">What is the difference between SBOM and CBOM?</summary><div class="faq-a"><p>An SBOM inventories software components such as packages and libraries. A CBOM inventories cryptography and its dependencies. SBOM answers “what software is inside?” while CBOM answers “what cryptography do we depend on?”</p></div></details><details class="faq-item"><summary class="faq-q">Why is CBOM important for post-quantum cryptography?</summary><div class="faq-a"><p>Post-quantum migration cannot be planned reliably without knowing where quantum-vulnerable cryptography exists. CBOM provides the inventory layer needed to discover, classify and prioritize cryptographic dependencies before replacing them with PQC.</p></div></details><details class="faq-item"><summary class="faq-q">Does M-26-15 connect CBOM and crypto agility?</summary><div class="faq-a"><p>Yes. Appendix A says automated cryptographic inventory should populate a central CBOM to provide a real-time view of cryptographic posture. The same appendix then defines cryptographic agility and gives architecture mechanisms, while Appendix B requires a plan for a cryptographic-agile architecture. The memo therefore treats visibility and replaceability as connected parts of one migration program.<sup><a href="#src-16">16</a></sup></p></div></details><details class="faq-item"><summary class="faq-q">Is CBOM mandatory?</summary><div class="faq-a"><p>There is no single universal rule requiring every organization to produce a CBOM in one format. However, U.S. federal policy already requires cryptographic inventories in defined contexts, and EO 14412 directs CISA and NIST to publish minimum CBOM elements. Procurement and sector-specific requirements can make CBOM capabilities increasingly important even where the term itself is not mandated.</p></div></details><details class="faq-item"><summary class="faq-q">What does Executive Order 14412 require for CBOM?</summary><div class="faq-a"><p>EO 14412, signed June 22, 2026, directs the Secretary of Homeland Security through CISA, in coordination with NIST, to release public guidance within 270 days describing the agencies' considered view on minimum CBOM elements. Those elements must enable automated assessment of cryptographic assets used by hardware or software.<sup><a href="#src-4">4</a></sup></p></div></details><details class="faq-item"><summary class="faq-q">What is OMB Memorandum M-26-15, and why is it important?</summary><div class="faq-a"><p>M-26-15, <em>Execution of the Migration to Post-Quantum Cryptography</em>, was issued June 24, 2026 to implement EO 14412 for civilian federal agencies. It requires a PQC Migration Plan within 120 days, phases migration through 2035, makes automated cryptographic inventory and central CBOM part of execution, and explicitly requires cryptographic-agile architecture and systems.<sup><a href="#src-16">16</a></sup></p></div></details><details class="faq-item"><summary class="faq-q">What happens on March 19, 2027?</summary><div class="faq-a"><p>March 19, 2027 is 270 days after EO 14412. It is therefore the deadline implied by the order for CISA/NIST public guidance on minimum CBOM elements. It is not a deadline for a complete universal crypto-agility framework.</p></div></details><details class="faq-item"><summary class="faq-q">What is CycloneDX?</summary><div class="faq-a"><p>CycloneDX is an open, machine-readable Bill of Materials standard under the OWASP community. It can represent software, hardware, services, cryptographic artefacts and other supply-chain information. CycloneDX is standardized internationally as ECMA-424.<sup><a href="#src-3">3</a></sup></p></div></details><details class="faq-item"><summary class="faq-q">Is CycloneDX itself a CBOM scanner?</summary><div class="faq-a"><p>No. CycloneDX is primarily a data model and exchange standard. Discovery products and open-source tools scan systems or code; their findings can then be represented in a CycloneDX CBOM.</p></div></details><details class="faq-item"><summary class="faq-q">Did IBM invent CBOM?</summary><div class="faq-a"><p>IBM Research developed the CBOM capability introduced into CycloneDX 1.6. CycloneDX explicitly credits IBM Research for developing that CBOM functionality.<sup><a href="#src-2">2</a></sup> The broader idea of cryptographic inventory is also driven by government policy, standards work and industry migration needs, so it is more accurate to distinguish the CycloneDX CBOM implementation from the broader concept.</p></div></details><details class="faq-item"><summary class="faq-q">Does NIST require CycloneDX for CBOM?</summary><div class="faq-a"><p>No. As of September 2, 2026, no federal mandate says that CBOM must use CycloneDX. NIST's NCCoE PQC migration material points users to CycloneDX's authoritative CBOM guide, but that is not the same as mandating one format.<sup><a href="#src-8">8</a></sup></p></div></details><details class="faq-item"><summary class="faq-q">Is there a NIST-approved CBOM scanner?</summary><div class="faq-a"><p>There is no general NIST certification category equivalent to “approved CBOM scanner.” NCCoE lists collaborator and discovery tools, but listing a tool is not the same as CMVP/FIPS validation or federal certification.</p></div></details><details class="faq-item"><summary class="faq-q">What is crypto agility?</summary><div class="faq-a"><p>NIST defines crypto agility as the capabilities needed to replace and adapt cryptographic algorithms across protocols, applications, software, hardware, firmware and infrastructure while preserving security and ongoing operations. For an enterprise, NIST further frames it as the capacity to move rapidly away from vulnerable algorithms and adopt stronger ones without major infrastructure change or unnecessary disruption.<sup><a href="#src-5">5</a></sup><sup><a href="#src-12">12</a></sup></p></div></details><details class="faq-item"><summary class="faq-q">Is crypto agility legally required?</summary><div class="faq-a"><p><strong>For civilian federal agencies executing M-26-15, crypto agility is explicitly part of the required migration architecture.</strong> The memorandum says Phase 3 and Phase 4 should ensure all systems are cryptographically agile and requires migration plans to include a cryptographic-agile architecture. It is <em>not</em> a universal statutory duty imposed on every private company. Private institutions can become affected through critical-infrastructure coordination, federal procurement/contracting, FedRAMP/shared-service dependencies, sector rules and customer/vendor requirements.<sup><a href="#src-16">16</a></sup><sup><a href="#src-4">4</a></sup></p></div></details><details class="faq-item"><summary class="faq-q">Is CBOM the same as crypto agility?</summary><div class="faq-a"><p>No. CBOM is the evidence and inventory problem; crypto agility is the transition-capability problem. An institution can know exactly where ECDSA, RSA or a certificate profile is used and still be non-agile if changing it requires new hardware, new identities, contract upgrades, counterparty coordination or downtime. The strongest readiness program measures both visibility and replaceability.</p></div></details><details class="faq-item"><summary class="faq-q">Does CBOM apply to blockchain?</summary><div class="faq-a"><p>Yes. Blockchain systems contain cryptographic algorithms in transaction authorization, consensus, addresses, custody, smart contracts, bridges and other components. The key challenge is that those cryptographic choices can be protocol-critical and persistent.</p></div></details><details class="faq-item"><summary class="faq-q">Why does blockchain need a special CBOM profile?</summary><div class="faq-a"><p>A normal CBOM can identify an algorithm. A blockchain profile should also describe what that algorithm controls, which layer enforces it, whether a classical fallback remains, whether changing the key changes the address, and whether migration requires an application upgrade, validator transition, hard fork or asset move.</p></div></details><details class="faq-item"><summary class="faq-q">Has NIST discussed blockchain crypto agility?</summary><div class="faq-a"><p>Yes at the research and stakeholder level. NIST's April 2025 Crypto Agility Workshop included a presentation titled “Crypto-agility for Blockchain Protocols.” That does not establish a binding blockchain standard, but it demonstrates that blockchain migration is a recognized topic within crypto-agility work.<sup><a href="#src-7">7</a></sup></p></div></details><details class="faq-item"><summary class="faq-q">What are the NIST post-quantum standards most relevant to migration?</summary><div class="faq-a"><p>NIST finalized FIPS 203 (ML-KEM) for key establishment, FIPS 204 (ML-DSA) for digital signatures and FIPS 205 (SLH-DSA) for digital signatures in August 2024. Additional standards, including FIPS 206 for FN-DSA, remain part of the continuing PQC standardization program.<sup><a href="#src-6">6</a></sup></p></div></details><details class="faq-item"><summary class="faq-q">Which financial institutions are already treating crypto agility as a sector issue?</summary><div class="faq-a"><p>FS-ISAC's financial-sector crypto-agility work includes contributors from institutions such as Wells Fargo, HSBC, Santander, Fidelity Investments, State Street, Swift, Deutsche Bank, JPMorgan Chase, Morgan Stanley, U.S. Bank, RBC and others. Separately, the Federal Reserve's U.S. GSIB program includes JPMorgan Chase, Bank of America, Citigroup, Goldman Sachs, Morgan Stanley, BNY Mellon, State Street and Wells Fargo. These names show that cryptographic migration is already a systemic-finance issue; they do not imply that EO 14412 directly imposes federal-agency deadlines on each private firm.<sup><a href="#src-18">18</a></sup><sup><a href="#src-20">20</a></sup></p></div></details><details class="faq-item"><summary class="faq-q">What should an institution do now?</summary><div class="faq-a"><p>Build or validate cryptographic inventory now; map every high-risk dependency to the business function it controls; identify owners, vendors, hardware and fallback paths; classify replaceability; test PQC support; and create a funded migration sequence. For custody, tokenization and blockchain, separately map transaction authorization, admin/recovery controls, consensus, contracts and bridges so a single classical path cannot be mistaken for end-to-end PQ readiness.</p></div></details></div></section>
+<section aria-labelledby="sources-title" class="sources">
+<div class="eyebrow">Primary sources</div>
+<h2 id="sources-title">Sources &amp; further reading</h2>
+<ol>
+<li id="src-1"><a href="https://www.whitehouse.gov/wp-content/uploads/2022/11/M-23-02-M-Memo-on-Migrating-to-Post-Quantum-Cryptography.pdf">OMB M-23-02 — Migrating to Post-Quantum Cryptography</a>. November 18, 2022.</li>
+<li id="src-2"><a href="https://cyclonedx.org/news/cyclonedx-v1.6-released/">CycloneDX v1.6 Released — Cryptographic Bill of Materials</a>. April 9, 2024.</li>
+<li id="src-3"><a href="https://ecma-international.org/publications-and-standards/standards/ecma-424/">ECMA-424 — CycloneDX Bill of Materials specification</a>. Ecma International.</li>
+<li id="src-4"><a href="https://www.whitehouse.gov/presidential-actions/2026/06/securing-the-nation-against-advanced-cryptographic-attacks/">Executive Order 14412 — Securing the Nation Against Advanced Cryptographic Attacks</a>. June 22, 2026.</li>
+<li id="src-5"><a href="https://csrc.nist.gov/pubs/cswp/39/upd1/considerations-for-achieving-crypto-agility/final">NIST CSWP 39-upd1 — Considerations for Achieving Crypto Agility: Strategies and Practices</a>. Updated June 29, 2026.</li>
+<li id="src-6"><a href="https://www.nist.gov/news-events/news/2024/08/announcing-approval-three-federal-information-processing-standards-fips">NIST — Approval of FIPS 203, FIPS 204 and FIPS 205 for Post-Quantum Cryptography</a>. August 13, 2024.</li>
+<li id="src-7"><a href="https://csrc.nist.gov/Events/2025/crypto-agility-workshop">NIST Crypto Agility Workshop</a>. April 17–18, 2025.</li>
+<li id="src-8"><a href="https://pages.nist.gov/nccoe-migration-post-quantum-cryptography/">NIST NCCoE — Migration to Post-Quantum Cryptography FAQ and collaborator tools</a>.</li>
+<li id="src-9"><a href="https://cyclonedx.org/about/governance/">CycloneDX Governance</a>.</li>
+<li id="src-10"><a href="https://csrc.nist.gov/News/2025/considerations-for-achieving-crypto-agility">NIST — Considerations for Achieving Crypto Agility</a>.</li>
+<li id="src-11"><a href="https://csrc.nist.gov/glossary/term/crypto_agility">NIST CSRC Glossary — Crypto Agility</a>. Source: CSWP 39-upd1.</li>
+<li id="src-12"><a href="https://csrc.nist.gov/glossary/term/crypto_agility_for_an_enterprise">NIST CSRC Glossary — Crypto Agility for an Enterprise</a>. Source: CSWP 39-upd1.</li>
+<li id="src-13"><a href="https://csrc.nist.gov/glossary/term/crypto_agility_for_a_computing_system">NIST CSRC Glossary — Crypto Agility for a Computing System</a>. Source: CSWP 39-upd1.</li>
+<li id="src-14"><a href="https://csrc.nist.gov/glossary/term/software_bill_of_materials">NIST CSRC Glossary — Software Bill of Materials</a>. Definition sourced from Executive Order 14028 and NIST publications.</li>
+<li id="src-15"><a href="https://csrc.nist.gov/csrc/media/Events/2025/crypto-agility-workshop/documents/presentations/s8-kigen-fukuda-presentation.pdf">NIST Crypto Agility Workshop — Crypto-agility for Blockchain Protocols</a>. April 18, 2025.</li>
+<li id="src-16"><a href="https://www.whitehouse.gov/wp-content/uploads/2026/06/M-26-15-Execution-of-the-Migration-to-Post-Quantum-Cryptography.pdf">OMB M-26-15 — Execution of the Migration to Post-Quantum Cryptography</a>. June 24, 2026.</li><li id="src-17"><a href="https://www.cisa.gov/topics/critical-infrastructure-security-and-resilience/critical-infrastructure-sectors/sector-risk-management-agencies">CISA — Sector Risk Management Agencies</a>. Financial Services Sector: U.S. Department of the Treasury.</li><li id="src-18"><a href="https://www.federalreserve.gov/supervisionreg/global-systemically-important-banks.htm">Federal Reserve Board — Global Systemically Important Banks</a>. Eight U.S. GSIBs as of February 2026.</li><li id="src-19"><a href="https://www.federalreserve.gov/paymentsystems/designated_fmu_about.htm">Federal Reserve Board — Designated Financial Market Utilities.</a></li><li id="src-20"><a href="https://www.fsisac.com/pqc-crypto-agility">FS-ISAC — Post Quantum Cryptography: Building Cryptographic Agility in the Financial Sector.</a></li><li id="src-21"><a href="https://www.gov.uk/government/publications/advancing-a-coordinated-roadmap-for-the-transition-to-post-quantum-cryptography-in-the-financial-sector/g7-cyber-expert-group-statement-on-advancing-a-coordinated-roadmap-for-the-transition-to-post-quantum-cryptography-in-the-financial-sector-january-20">G7 Cyber Expert Group — Advancing a Coordinated Roadmap for the Transition to Post-Quantum Cryptography in the Financial Sector</a>. January 2026.</li><li id="src-22"><a href="https://www.nist.gov/cybersecurity-and-privacy/what-post-quantum-cryptography">NIST — What Is Post-Quantum Cryptography?</a>. Updated February 27, 2026.</li><li id="src-23"><a href="https://www.fsisac.com/insights/jaime-gomez-garcia-prep-for-quantum-like-its-basic-cyber-hygiene-because-it-is">FS-ISAC — Jaime Gomez Garcia: Prep for Quantum Like It’s Basic Cyber Hygiene — Because It Is</a>. 2026.</li></ol>
+<p class="source-note">Editorial note: Definitions and mandate statements are anchored to primary U.S. government sources wherever available. This guide distinguishes EO 14412, OMB M-26-15 agency requirements, NIST technical guidance, critical-infrastructure coordination, and proposed procurement rules. Named private institutions are shown to help readers recognize their place in the financial-system migration ecosystem; their inclusion is not a claim that EO 14412 directly imposes federal-agency deadlines on each firm.</p>
+<div aria-label="Share this guide" class="share-row"><button class="share-btn" data-share="native" type="button">Share guide</button><a class="share-btn" data-share-link="linkedin" href="#" rel="noopener noreferrer" target="_blank">LinkedIn</a><a class="share-btn" data-share-link="x" href="#" rel="noopener noreferrer" target="_blank">X</a><button class="share-btn" data-share="copy" type="button">Copy link</button><span aria-live="polite" class="share-status" role="status"></span></div></section>
+</main>
+{% include footer.html %}
+<script>
+(function(){
+  const canonical='https://eternax.ai/blogs/cbom-cryptographic-bill-of-materials-guide/index.html';
+  const title='CBOM: The Complete Guide to Cryptographic Bill of Materials, Crypto Agility & Post-Quantum Migration';
+  const status=()=>document.querySelector('.share-status');
+  async function copyText(text,label){try{await navigator.clipboard.writeText(text); if(status()) status().textContent=label||'Copied';}catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();if(status()) status().textContent=label||'Copied';}}
+  document.querySelectorAll('[data-share="copy"]').forEach(b=>b.addEventListener('click',()=>copyText(canonical,'Link copied')));
+  document.querySelectorAll('[data-share="native"]').forEach(b=>b.addEventListener('click',async()=>{if(navigator.share){try{await navigator.share({title,url:canonical});}catch(e){}}else{copyText(canonical,'Link copied');}}));
+  document.querySelectorAll('[data-copy-quote]').forEach(b=>b.addEventListener('click',()=>{const q=b.parentElement.querySelector('.quote');copyText(q.innerText.trim(),'Quote copied');b.textContent='Copied';setTimeout(()=>b.textContent='Copy quote',1400);}));
+  const li=document.querySelector('[data-share-link="linkedin"]'); if(li) li.href='https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(canonical);
+  const x=document.querySelector('[data-share-link="x"]'); if(x) x.href='https://twitter.com/intent/tweet?text='+encodeURIComponent('CBOM explained: the institutional field guide to cryptographic inventory, crypto agility and post-quantum migration.')+'&url='+encodeURIComponent(canonical);
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var menuButton = document.getElementById('mobile-menu-button');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var iconMenu = document.getElementById('icon-menu');
+  var iconClose = document.getElementById('icon-close');
+  function closeMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.add('hidden');
+    if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+    if (iconMenu) iconMenu.classList.remove('hidden');
+    if (iconClose) iconClose.classList.add('hidden');
+  }
+  function openMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('hidden');
+    if (menuButton) menuButton.setAttribute('aria-expanded', 'true');
+    if (iconMenu) iconMenu.classList.add('hidden');
+    if (iconClose) iconClose.classList.remove('hidden');
+  }
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', function() {
+      if (mobileMenu.classList.contains('hidden')) openMenu(); else closeMenu();
+    });
+    mobileMenu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+    window.addEventListener('resize', function() { if (window.innerWidth >= 768) closeMenu(); });
+  }
+});
+</script>
+</body>
+</html>

@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://eternax.ai/blogs/index.html</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -119,6 +119,12 @@
     <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eternax.ai/blogs/cbom-cryptographic-bill-of-materials-guide/index.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://eternax.ai/blogs/how-to-actually-get-crypto-agile/index.html</loc>
