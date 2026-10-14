@@ -1,10 +1,10 @@
 # EternaX Labs
 
-> EternaX is post-quantum security engineering for institutions that run their own digital-asset infrastructure. Market infrastructures, banks and transfer agents use it to set one NIST post-quantum authorization policy at their boundary, under the custody, tokenization and Besu/EVM systems they already operate, so participants and custodians inherit it without changing their stacks, and the institution picks and rotates the algorithm itself. The cryptography is published with the University of British Columbia and implemented in open source, and the controls run on unmodified Besu today.
+> EternaX is post-quantum security engineering for institutional digital assets. Market infrastructures, banks and transfer agents use it to keep control over who can move their assets: one NIST post-quantum authorization policy at their control points, under the custody, tokenization and EVM systems they already operate, on their own network or on Ethereum, so participants and custodians inherit it without changing their stacks, and the institution picks and rotates the algorithm itself. The cryptography is published with the University of British Columbia and implemented in open source, and the controls run on unmodified Besu today.
 
 ## Core Pages
 
-- [Homepage](https://eternax.ai/): Post-quantum control plane for institutional digital assets: the authorization path, the three product surfaces (custody, tokenization, Besu/EVM), evidence, exposure map, and pilot.
+- [Homepage](https://eternax.ai/): Post-quantum control plane for institutional digital assets, on the institution's own network or on Ethereum: the authorization path, the three product surfaces (custody, tokenization, Besu/EVM), evidence, exposure map, and pilot.
 - [Why EternaX](https://eternax.ai/why-eternax.html): PQ-native rationale, performance comparison, and institutional positioning.
 - [Pilot Programme](https://eternax.ai/pilot.html): Three enterprise pilot paths — stablecoin issuance, tokenized funds/RWAs, and post-quantum custody/MPC authorization.
 - [Testnet](https://eternax.ai/pluto-testnet.html): Pluto testnet access — web wallet, block explorer, CLI tools, RPC endpoints.
