@@ -192,17 +192,6 @@
             opacity: 1;
             visibility: visible;
         }
-        .hero-network-bg {
-            background-image: url("./assets/eternax-network.webp");
-            background-position: center bottom;
-            transform: scaleX(-1);
-        }
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
-            .hero-network-bg {
-                background-image: url("./assets/eternax-network.svg");
-            }
-        }
-
         .hero-signals {
             display: flex;
             flex-wrap: wrap;
@@ -486,7 +475,6 @@
     <main id="main-content">
     <!-- Hero Section -->
     <section class="flex items-center justify-center relative overflow-hidden pt-32 lg:pt-40 pb-12 lg:pb-16" itemscope itemtype="https://schema.org/WebPageElement" itemprop="mainContentOfPage">
-        <div class="hero-network-bg absolute inset-0 bg-center bg-no-repeat opacity-80"></div>
         <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 class="w-full text-left font-semibold tracking-tight mb-6 font-condensed" itemprop="headline" style="font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.08; color: var(--fg);">
                 Post-quantum control plane<br>for institutional digital assets
