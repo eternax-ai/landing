@@ -195,13 +195,12 @@
         /* Homepage: hero */
         .hp-hero {
             background:
-                radial-gradient(circle at 82% 18%, rgba(47, 94, 82, 0.14), transparent 32%),
-                radial-gradient(circle at 8% 90%, rgba(40, 55, 113, 0.08), transparent 36%),
-                linear-gradient(135deg, #ffffff 0%, #f7f4f4 52%, #ece9e9 100%);
-            border-bottom: 1px solid #e0dede;
+                radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.09), transparent 34%),
+                linear-gradient(160deg, #2f3f7f 0%, #283771 45%, #1e2b5c 100%);
+            color: #ffffff;
         }
         .hp-hero-eyebrow {
-            color: #2F5E52;
+            color: rgba(255, 255, 255, 0.7);
             font-family: "IBM Plex Sans Condensed", ui-sans-serif, system-ui, sans-serif;
             font-size: 0.7rem;
             font-weight: 600;
@@ -210,20 +209,17 @@
             margin-bottom: 0.85rem;
         }
         .hp-hero-title {
-            color: var(--fg);
+            color: #ffffff;
             font-family: "IBM Plex Sans Condensed", ui-sans-serif, system-ui, sans-serif;
             font-size: clamp(2.4rem, 4.6vw, 4.2rem);
             font-weight: 700;
             letter-spacing: -0.045em;
             line-height: 0.98;
             margin-bottom: 1.25rem;
-            max-width: 680px;
-        }
-        .hp-hero-highlight {
-            color: #2F5E52;
+            max-width: 720px;
         }
         .hp-hero-sub {
-            color: #39435d;
+            color: rgba(255, 255, 255, 0.82);
             font-size: 1.2rem;
             line-height: 1.5;
             margin-bottom: 2rem;
@@ -234,9 +230,8 @@
             gap: 0.75rem;
         }
         .hp-hero-card {
-            background: rgba(255, 255, 255, 0.86);
-            border: 1px solid rgba(40, 55, 113, 0.16);
-            box-shadow: 0 18px 44px rgba(24, 33, 63, 0.08);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             padding: 1.25rem 1.375rem;
         }
         .hp-hero-card h2 {
@@ -245,23 +240,39 @@
             font-weight: 600;
             letter-spacing: 0;
             line-height: 1.35;
-            color: var(--fg);
+            color: #ffffff;
             margin-bottom: 0.375rem;
         }
         .hp-hero-card p {
             font-size: 0.8125rem;
             line-height: 1.6;
-            color: rgba(40, 55, 113, 0.78);
+            color: rgba(255, 255, 255, 0.74);
         }
         .hp-hero-card--lead {
-            background: var(--fg);
-            border-color: var(--fg);
+            background: #ffffff;
+            border-color: #ffffff;
         }
         .hp-hero-card--lead h2 {
-            color: #ffffff;
+            color: var(--fg);
         }
         .hp-hero-card--lead p {
-            color: rgba(255, 255, 255, 0.78);
+            color: rgba(40, 55, 113, 0.8);
+        }
+        .hp-hero .btn-primary {
+            background-color: #ffffff;
+            color: var(--fg);
+        }
+        .hp-hero .btn-primary:hover {
+            background-color: #ece9e9;
+        }
+        .hp-hero .btn-hero-secondary {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.4);
+            color: #ffffff;
+        }
+        .hp-hero .btn-hero-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #ffffff;
         }
 
         /* Homepage: authorization-path table */
@@ -528,13 +539,13 @@
             <div class="lg:col-span-3">
             <p class="hp-hero-eyebrow">Post-quantum authorization control</p>
             <h1 class="hp-hero-title" itemprop="headline">
-                Post-quantum control plane <span class="hp-hero-highlight">for institutional digital assets</span>
+                Post-quantum control plane for institutional digital assets
             </h1>
             <p class="hp-hero-sub">
                 One post-quantum policy over who can move your assets.
             </p>
             <div class="flex flex-col sm:flex-row items-start gap-3">
-                <a href="pilot.html" class="btn-primary inline-block px-8 py-4 rounded-lg text-base font-semibold text-white hover:opacity-90 transition-opacity">Scope a 90-day pilot</a>
+                <a href="pilot.html" class="btn-primary inline-block px-8 py-4 rounded-lg text-base font-semibold transition-colors">Scope a 90-day pilot</a>
                 <a href="#protect" class="btn-hero-secondary">How the controls work <span class="ml-2" aria-hidden="true">&darr;</span></a>
             </div>
             </div>
