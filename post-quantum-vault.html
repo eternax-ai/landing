@@ -853,23 +853,6 @@ th.hl{background:var(--tint);color:var(--navy)}
 .toast{font-size:.88rem;color:var(--green);min-height:1.2em}
 
 /* FAQ */
-.faq-groups{display:grid;grid-template-columns:240px minmax(0,1fr);gap:40px;align-items:start}
-.faq-nav{position:sticky;top:90px;display:grid;gap:4px;font-size:.92rem}
-.faq-nav a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:6px}
-.faq-nav a:hover{background:var(--tint);color:var(--navy)}
-.faq-group{margin-bottom:36px}
-.faq-group > h3{font-family:var(--cond);font-size:1.35rem;font-weight:600;margin-bottom:12px}
-details.qa{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:10px}
-details.qa .q{font-size:1rem;font-weight:600;color:var(--ink);margin:0;line-height:1.4;font-family:var(--sans)}
-details.qa summary{cursor:pointer;list-style:none;padding:16px 48px 16px 18px;font-weight:600;color:var(--ink);position:relative;line-height:1.4}
-details.qa summary::-webkit-details-marker{display:none}
-details.qa summary::after{content:"+";position:absolute;right:18px;top:13px;font-size:1.3rem;font-weight:400;color:var(--muted)}
-details.qa[open] summary::after{content:"\2212"}
-details.qa .ans{padding:0 18px 16px;font-size:.98rem}
-details.qa .ans p{margin-bottom:.7em}
-.linkans{all:unset;cursor:pointer;font-size:.82rem;color:var(--navy);text-decoration:underline;text-underline-offset:3px}
-.linkans:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-@media (max-width:900px){.faq-groups{grid-template-columns:1fr}.faq-nav{position:static;display:flex;flex-wrap:wrap}}
 
 /* Sources */
 .sources ol{font-size:.86rem;color:var(--muted);columns:2;column-gap:40px;padding-left:20px}
@@ -879,12 +862,12 @@ details.qa .ans p{margin-bottom:.7em}
 
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 @media print{
-  nav.fixed,.toc,.filter,.share,.cta-row,.scen,.faq-nav{display:none!important}
+  nav.fixed,.toc,.filter,.share,.cta-row,.scen{display:none!important}
   body{background:#fff;color:#000;font-size:11pt}
   section{padding:24px 0;break-inside:auto}
   .card,.panel,.tbl-wrap,.gates,.agile{box-shadow:none}
-  details.qa{break-inside:avoid}
-  details.qa .ans{display:block}
+  .hp-faq-item{break-inside:avoid}
+  .faq-answer{display:block!important}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#555}
   .cta-block{background:#fff;color:#000;border:1px solid #999}
   .cta-block h2,.cta-block p,.cta-block ul{color:#000}
@@ -901,6 +884,8 @@ nav.fixed .btn-primary:hover,footer[itemtype] .btn-primary:hover{background-colo
 footer[itemtype] h2{font-family:var(--sans);letter-spacing:normal}
 footer[itemtype] p{margin:0}
 #main{padding-top:57px}
+.hp-faq-item{font-size:16px;line-height:1.5}
+.faq-answer p{margin:0}
 .disclaimer-band{padding:28px 0;border-top:1px solid var(--rule)}
 </style>
 </head>
@@ -1198,35 +1183,269 @@ https://eternax.ai/post-quantum-vault.html</pre>
       <p class="kicker">FAQ</p>
       <h2 id="faq-h">EternaX Vault, answered</h2>
     </div>
-<details class="qa" id="q-what-is"><summary><h3 class="q">What is EternaX Vault?</h3></summary><div class="ans"><p>EternaX Vault is a post-quantum secure, crypto-agile vault for institutions and the platforms that serve their clients, on Ethereum and EVM chains. Assets leave a vault only with NIST post-quantum signatures (SLH-DSA or ML-DSA) from existing HSMs or MPC, plus a second independent approval. No one has to wait for a custodian or the chain to migrate.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-pq-secure"><summary><h3 class="q">What does post-quantum secure mean?</h3></summary><div class="ans"><p>Post-quantum secure means protected by cryptography designed to resist attacks from quantum computers, using algorithms standardized by NIST such as SLH-DSA (FIPS 205) and ML-DSA (FIPS 204). EternaX Vault is post-quantum secure because every payment requires these signatures and accepts no ECDSA signature, the scheme quantum computers are expected to break.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-eth-safe"><summary><h3 class="q">Is Ethereum quantum-safe today?</h3></summary><div class="ans"><p>No. Ethereum accounts use ECDSA signatures and validators use BLS, both of which a large quantum computer is expected to break. Ethereum targets full post-quantum security by December 2029 as a planning goal. EternaX Vault makes assets held on Ethereum post-quantum secure now, without waiting for that upgrade.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-steal"><summary><h3 class="q">Can a quantum computer steal ETH or USDC from a digital-asset account?</h3></summary><div class="ans"><p>A sufficiently powerful quantum computer could recover private keys from ECDSA public keys, which become visible on-chain after a key signs, and then forge transfers. Assets held in EternaX Vault cannot be moved that way, because the vault accepts only post-quantum signatures and a second independent approval.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-how-to"><summary><h3 class="q">How can an institution make its digital assets quantum-safe today?</h3></summary><div class="ans"><p>Institutions can make digital assets quantum-safe today with EternaX Vault in three steps: generate post-quantum keys in existing HSMs or MPC, deploy and verify the vault, then move assets in. No custodian change, chain migration or protocol upgrade is required, and a 30-day pilot starts with a capped deployment.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-platform"><summary><h3 class="q">Can a wealth manager, private bank or fintech offer a vault to each client?</h3></summary><div class="ans"><p>Yes. With EternaX Vault, each client gets their own vault, approved by any combination of the client, the adviser and the custodian, with limits and time locks set from the platform's policy. Per-client vaults are offered through design-partner pilots.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-individuals"><summary><h3 class="q">Can individuals use EternaX Vault directly?</h3></summary><div class="ans"><p>EternaX Vault is offered to institutions and platforms, not directly to individuals. Individuals can hold assets in an EternaX Vault through a wealth manager, private bank or fintech that offers it to its clients, which also provides onboarding, support and recovery.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-bunker"><summary><h3 class="q">What is bunker mode, and why does it matter for institutions?</h3></summary><div class="ans"><p>Bunker mode is a defensive posture proposed by Ethereum Foundation researcher Justin Drake on 7 October 2026, after warning that ECDSA could break before quantum computers arrive. Hiding public keys protects idle funds, but institutions and their clients sign constantly. EternaX Vault keeps them post-quantum secure while they keep signing, using NIST SLH-DSA approvals.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-bunker-prepare"><summary><h3 class="q">How should institutions prepare for bunker mode?</h3></summary><div class="ans"><p>Institutions should prepare for bunker mode by listing every key that controls assets, prioritizing keys whose public keys are already exposed on-chain, and moving high-value assets and admin roles behind post-quantum approval. EternaX Vault does this without changing custodians or chains: post-quantum keys in existing HSMs, a verified vault, then a capped 30-day pilot.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-programmable-bunker"><summary><h3 class="q">Who is building a programmable bunker?</h3></summary><div class="ans"><p>In October 2026, StarkWare co-founder Eli Ben-Sasson asked publicly who is building a programmable bunker. EternaX Labs builds one for institutions: EternaX Vault, a post-quantum secure vault on Ethereum and EVM chains with programmable controls, including quorums, limits, an address book, time locks and freeze, and crypto-agility for future algorithm changes.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-eth-bunker"><summary><h3 class="q">Is Ethereum in bunker mode?</h3></summary><div class="ans"><p>No. Bunker mode is a defensive posture proposed by Ethereum Foundation researcher Justin Drake on 7 October 2026, not a protocol state Ethereum has entered. The network runs normally; the proposal is that holders and institutions prepare now by protecting exposed keys, while Ethereum works toward full post-quantum security, targeted for December 2029.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-lido-bunker"><summary><h3 class="q">Is this the same as Lido's bunker mode?</h3></summary><div class="ans"><p>No. Lido's bunker mode is a protective state in Lido's staking withdrawals, designed for adverse network events such as mass slashing. The bunker mode discussed here is the cryptographic-risk posture Justin Drake proposed in October 2026, about protecting keys before ECDSA can be broken. EternaX Vault addresses that second meaning.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-wait"><summary><h3 class="q">Why not wait for Ethereum's post-quantum upgrade?</h3></summary><div class="ans"><p>EternaX Vault makes digital assets post-quantum secure now, while waiting for Ethereum leaves exposed keys at risk for years. Ethereum targets full post-quantum security by December 2029, as a planning goal rather than a guarantee, and researchers now warn ECDSA could fail sooner.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-alternatives"><summary><h3 class="q">Why not wait for our custodian's post-quantum MPC, or switch to a new custody platform?</h3></summary><div class="ans"><p>EternaX Vault works now with your existing custodian. Custodian post-quantum MPC is ML-DSA-only and still early, and on Ethereum its signatures still need an on-chain verifier to protect assets. A new custody platform means re-platforming. EternaX Vault can also accept ML-DSA MPC signers later.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-custodian"><summary><h3 class="q">Do we need to change our custodian or agreements to use EternaX Vault?</h3></summary><div class="ans"><p>No. EternaX Vault adds a vault your institution owns and does not replace your custodian, which can hold an approver key. Your counsel and custodian should confirm during the pilot that assets held in your own contract fit your existing agreements.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-keys"><summary><h3 class="q">Does EternaX hold our keys or funds?</h3></summary><div class="ans"><p>No. With EternaX Vault, keys stay in your HSMs or MPC, approval shares are held by your members, and assets sit in a contract your institution governs. EternaX is not a custodian.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-qualified"><summary><h3 class="q">Is EternaX Vault compatible with qualified-custody rules?</h3></summary><div class="ans"><p>EternaX Vault supports a setup where your qualified custodian holds approver keys in its own HSM, so nothing moves without it. Regulated funds generally must keep client assets with a qualified custodian; whether this setup meets a specific rule depends on jurisdiction and structure, so your counsel and custodian decide. EternaX does not give legal advice.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-chains"><summary><h3 class="q">Which chains does EternaX Vault support?</h3></summary><div class="ans"><p>EternaX Vault runs on Ethereum and can be deployed on EVM-compatible chains, including Arbitrum One, Base, OP Mainnet, Polygon PoS, BNB Smart Chain, Avalanche C-Chain and private Hyperledger Besu networks, and it is the native wallet of EternaX Chain. Ethereum is recommended for post-quantum claims, because other chains keep their own validator and bridge security. SLH-DSA works on any EVM chain; the ML-DSA path needs the latest EVM rules, confirmed per chain.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-tokens"><summary><h3 class="q">Which tokens can EternaX Vault hold?</h3></summary><div class="ans"><p>EternaX Vault holds the native coin of each supported chain (ETH, POL, BNB, AVAX) and any ERC-20, including USDC, USDT, USDS, PYUSD, tokenized funds such as BUIDL and OUSG, WBTC, stETH, LINK, UNI and AAVE. Permissioned tokens need the issuer to allowlist the vault address.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-usdc"><summary><h3 class="q">Does holding USDC in EternaX Vault make USDC itself quantum-safe?</h3></summary><div class="ans"><p>No. Holding USDC in EternaX Vault makes your control of the tokens post-quantum secure, so no one can forge an approval to move them. The USDC contract itself is governed by Circle. Issuers can protect their own mint and admin roles with EternaX Vault for Issuers.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-slh-ml"><summary><h3 class="q">What are SLH-DSA and ML-DSA?</h3></summary><div class="ans"><p>SLH-DSA (NIST FIPS 205) and ML-DSA (NIST FIPS 204) are post-quantum digital signature standards published by NIST in August 2024. SLH-DSA is hash-based, the most conservative assumption, and is EternaX Vault's default. ML-DSA is lattice-based with smaller signatures, and serves HSMs without SLH-DSA firmware and post-quantum MPC signers.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-hsm"><summary><h3 class="q">Which HSMs support SLH-DSA and ML-DSA for EternaX Vault?</h3></summary><div class="ans"><p>For EternaX Vault, HSMs with published SLH-DSA and ML-DSA support include Entrust nShield 5, Securosys Primus, Futurex, Marvell LiquidSecurity and Crypto4A. Thales Luna and Utimaco support ML-DSA, with SLH-DSA to confirm per firmware version, and Thales TCT Luna T-Series supports ML-DSA. EternaX validates each integration on your hardware during the pilot.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-mpc"><summary><h3 class="q">Can we keep our existing MPC provider with EternaX Vault?</h3></summary><div class="ans"><p>Yes. MPC platforms that sign with threshold ECDSA or EdDSA, such as Fireblocks, Copper or Dfns, are not post-quantum, but they can remain your approval workflow while the post-quantum key sits in your HSM. Post-quantum MPC signers that produce ML-DSA can sign EternaX Vault approvals directly.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-agility"><summary><h3 class="q">What is crypto-agility, and how does EternaX Vault provide it?</h3></summary><div class="ans"><p>Crypto-agility is the ability to replace cryptographic algorithms without rebuilding the system around them. EternaX Vault adds new signature schemes through a governed registry, lets approvers rotate while mixed quorums keep payments flowing, and retires weakened schemes with a security floor. The vault address, assets, quorum and audit history never change.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-safe"><summary><h3 class="q">How is EternaX Vault different from a multisig like Safe?</h3></summary><div class="ans"><p>EternaX Vault accepts only post-quantum signatures, while multisigs such as Safe use ECDSA owners today and only count signatures. EternaX Vault also adds a second independent approval, so stolen signing keys are not enough, and changes algorithms by key rotation rather than redeployment.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-dashboard"><summary><h3 class="q">What if the dashboard or coordinator is hacked?</h3></summary><div class="ans"><p>Funds stay safe. The EternaX Vault coordinator holds no keys and cannot create or change an approval. Each approver signs in their own app, which re-checks every payment against its own limits and never signs a blind hash, and the vault verifies every signature on-chain.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-lost"><summary><h3 class="q">What happens if an approver leaves or loses a key?</h3></summary><div class="ans"><p>In EternaX Vault, approver changes go through your admin quorum under a settings time lock, and the vault refuses any change that would leave too few approvers to reach the quorum, so rotation can never lock funds. Approval shares are refreshed in a new ceremony, and any approver can freeze the vault in an emergency.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-gas"><summary><h3 class="q">How much does an EternaX Vault payment cost?</h3></summary><div class="ans"><p>An EternaX Vault payment costs under $1 in network fees at mid-October 2026 gas prices (about 0.08 gwei, with ETH near $2,430). A payment with an initiator and two approvers uses about 4.7 million gas on Ethereum: about $11 if gas rises to 1 gwei and about $114 at 10 gwei. EVM Layer 2s and EternaX Chain are cheaper still.</p><button class="linkans" type="button">Link to this answer</button></div></details>
-<details class="qa" id="q-start"><summary><h3 class="q">How do we start with EternaX Vault?</h3></summary><div class="ans"><p>Request a vault readiness map with the form on this page or email info@eternax.ai. EternaX maps which keys to protect first and scopes a 30-day pilot with a capped first deployment. No production funds are needed to start.</p><button class="linkans" type="button">Link to this answer</button></div></details>
+    <div class="divide-y" style="border-color: var(--border);">
+      <div id="q-what-is" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-what-is-answer">
+          <span class="font-semibold pr-4">What is EternaX Vault?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-what-is-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">EternaX Vault is a post-quantum secure, crypto-agile vault for institutions and the platforms that serve their clients, on Ethereum and EVM chains. Assets leave a vault only with NIST post-quantum signatures (SLH-DSA or ML-DSA) from existing HSMs or MPC, plus a second independent approval. No one has to wait for a custodian or the chain to migrate.</p>
+        </div>
+      </div>
+      <div id="q-pq-secure" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-pq-secure-answer">
+          <span class="font-semibold pr-4">What does post-quantum secure mean?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-pq-secure-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">Post-quantum secure means protected by cryptography designed to resist attacks from quantum computers, using algorithms standardized by NIST such as SLH-DSA (FIPS 205) and ML-DSA (FIPS 204). EternaX Vault is post-quantum secure because every payment requires these signatures and accepts no ECDSA signature, the scheme quantum computers are expected to break.</p>
+        </div>
+      </div>
+      <div id="q-eth-safe" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-eth-safe-answer">
+          <span class="font-semibold pr-4">Is Ethereum quantum-safe today?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-eth-safe-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">No. Ethereum accounts use ECDSA signatures and validators use BLS, both of which a large quantum computer is expected to break. Ethereum targets full post-quantum security by December 2029 as a planning goal. EternaX Vault makes assets held on Ethereum post-quantum secure now, without waiting for that upgrade.</p>
+        </div>
+      </div>
+      <div id="q-steal" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-steal-answer">
+          <span class="font-semibold pr-4">Can a quantum computer steal ETH or USDC from a digital-asset account?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-steal-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">A sufficiently powerful quantum computer could recover private keys from ECDSA public keys, which become visible on-chain after a key signs, and then forge transfers. Assets held in EternaX Vault cannot be moved that way, because the vault accepts only post-quantum signatures and a second independent approval.</p>
+        </div>
+      </div>
+      <div id="q-how-to" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-how-to-answer">
+          <span class="font-semibold pr-4">How can an institution make its digital assets quantum-safe today?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-how-to-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">Institutions can make digital assets quantum-safe today with EternaX Vault in three steps: generate post-quantum keys in existing HSMs or MPC, deploy and verify the vault, then move assets in. No custodian change, chain migration or protocol upgrade is required, and a 30-day pilot starts with a capped deployment.</p>
+        </div>
+      </div>
+      <div id="q-platform" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-platform-answer">
+          <span class="font-semibold pr-4">Can a wealth manager, private bank or fintech offer a vault to each client?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-platform-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">Yes. With EternaX Vault, each client gets their own vault, approved by any combination of the client, the adviser and the custodian, with limits and time locks set from the platform's policy. Per-client vaults are offered through design-partner pilots.</p>
+        </div>
+      </div>
+      <div id="q-individuals" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-individuals-answer">
+          <span class="font-semibold pr-4">Can individuals use EternaX Vault directly?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-individuals-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">EternaX Vault is offered to institutions and platforms, not directly to individuals. Individuals can hold assets in an EternaX Vault through a wealth manager, private bank or fintech that offers it to its clients, which also provides onboarding, support and recovery.</p>
+        </div>
+      </div>
+      <div id="q-bunker" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-bunker-answer">
+          <span class="font-semibold pr-4">What is bunker mode, and why does it matter for institutions?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-bunker-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">Bunker mode is a defensive posture proposed by Ethereum Foundation researcher Justin Drake on 7 October 2026, after warning that ECDSA could break before quantum computers arrive. Hiding public keys protects idle funds, but institutions and their clients sign constantly. EternaX Vault keeps them post-quantum secure while they keep signing, using NIST SLH-DSA approvals.</p>
+        </div>
+      </div>
+      <div id="q-bunker-prepare" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-bunker-prepare-answer">
+          <span class="font-semibold pr-4">How should institutions prepare for bunker mode?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-bunker-prepare-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">Institutions should prepare for bunker mode by listing every key that controls assets, prioritizing keys whose public keys are already exposed on-chain, and moving high-value assets and admin roles behind post-quantum approval. EternaX Vault does this without changing custodians or chains: post-quantum keys in existing HSMs, a verified vault, then a capped 30-day pilot.</p>
+        </div>
+      </div>
+      <div id="q-programmable-bunker" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-programmable-bunker-answer">
+          <span class="font-semibold pr-4">Who is building a programmable bunker?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-programmable-bunker-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">In October 2026, StarkWare co-founder Eli Ben-Sasson asked publicly who is building a programmable bunker. EternaX Labs builds one for institutions: EternaX Vault, a post-quantum secure vault on Ethereum and EVM chains with programmable controls, including quorums, limits, an address book, time locks and freeze, and crypto-agility for future algorithm changes.</p>
+        </div>
+      </div>
+      <div id="q-eth-bunker" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-eth-bunker-answer">
+          <span class="font-semibold pr-4">Is Ethereum in bunker mode?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-eth-bunker-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">No. Bunker mode is a defensive posture proposed by Ethereum Foundation researcher Justin Drake on 7 October 2026, not a protocol state Ethereum has entered. The network runs normally; the proposal is that holders and institutions prepare now by protecting exposed keys, while Ethereum works toward full post-quantum security, targeted for December 2029.</p>
+        </div>
+      </div>
+      <div id="q-lido-bunker" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-lido-bunker-answer">
+          <span class="font-semibold pr-4">Is this the same as Lido's bunker mode?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-lido-bunker-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">No. Lido's bunker mode is a protective state in Lido's staking withdrawals, designed for adverse network events such as mass slashing. The bunker mode discussed here is the cryptographic-risk posture Justin Drake proposed in October 2026, about protecting keys before ECDSA can be broken. EternaX Vault addresses that second meaning.</p>
+        </div>
+      </div>
+      <div id="q-wait" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-wait-answer">
+          <span class="font-semibold pr-4">Why not wait for Ethereum's post-quantum upgrade?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-wait-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">EternaX Vault makes digital assets post-quantum secure now, while waiting for Ethereum leaves exposed keys at risk for years. Ethereum targets full post-quantum security by December 2029, as a planning goal rather than a guarantee, and researchers now warn ECDSA could fail sooner.</p>
+        </div>
+      </div>
+      <div id="q-alternatives" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-alternatives-answer">
+          <span class="font-semibold pr-4">Why not wait for our custodian's post-quantum MPC, or switch to a new custody platform?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-alternatives-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">EternaX Vault works now with your existing custodian. Custodian post-quantum MPC is ML-DSA-only and still early, and on Ethereum its signatures still need an on-chain verifier to protect assets. A new custody platform means re-platforming. EternaX Vault can also accept ML-DSA MPC signers later.</p>
+        </div>
+      </div>
+      <div id="q-custodian" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-custodian-answer">
+          <span class="font-semibold pr-4">Do we need to change our custodian or agreements to use EternaX Vault?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-custodian-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">No. EternaX Vault adds a vault your institution owns and does not replace your custodian, which can hold an approver key. Your counsel and custodian should confirm during the pilot that assets held in your own contract fit your existing agreements.</p>
+        </div>
+      </div>
+      <div id="q-keys" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-keys-answer">
+          <span class="font-semibold pr-4">Does EternaX hold our keys or funds?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-keys-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">No. With EternaX Vault, keys stay in your HSMs or MPC, approval shares are held by your members, and assets sit in a contract your institution governs. EternaX is not a custodian.</p>
+        </div>
+      </div>
+      <div id="q-qualified" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-qualified-answer">
+          <span class="font-semibold pr-4">Is EternaX Vault compatible with qualified-custody rules?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-qualified-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">EternaX Vault supports a setup where your qualified custodian holds approver keys in its own HSM, so nothing moves without it. Regulated funds generally must keep client assets with a qualified custodian; whether this setup meets a specific rule depends on jurisdiction and structure, so your counsel and custodian decide. EternaX does not give legal advice.</p>
+        </div>
+      </div>
+      <div id="q-chains" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-chains-answer">
+          <span class="font-semibold pr-4">Which chains does EternaX Vault support?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-chains-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">EternaX Vault runs on Ethereum and can be deployed on EVM-compatible chains, including Arbitrum One, Base, OP Mainnet, Polygon PoS, BNB Smart Chain, Avalanche C-Chain and private Hyperledger Besu networks, and it is the native wallet of EternaX Chain. Ethereum is recommended for post-quantum claims, because other chains keep their own validator and bridge security. SLH-DSA works on any EVM chain; the ML-DSA path needs the latest EVM rules, confirmed per chain.</p>
+        </div>
+      </div>
+      <div id="q-tokens" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-tokens-answer">
+          <span class="font-semibold pr-4">Which tokens can EternaX Vault hold?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-tokens-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">EternaX Vault holds the native coin of each supported chain (ETH, POL, BNB, AVAX) and any ERC-20, including USDC, USDT, USDS, PYUSD, tokenized funds such as BUIDL and OUSG, WBTC, stETH, LINK, UNI and AAVE. Permissioned tokens need the issuer to allowlist the vault address.</p>
+        </div>
+      </div>
+      <div id="q-usdc" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-usdc-answer">
+          <span class="font-semibold pr-4">Does holding USDC in EternaX Vault make USDC itself quantum-safe?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-usdc-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">No. Holding USDC in EternaX Vault makes your control of the tokens post-quantum secure, so no one can forge an approval to move them. The USDC contract itself is governed by Circle. Issuers can protect their own mint and admin roles with EternaX Vault for Issuers.</p>
+        </div>
+      </div>
+      <div id="q-slh-ml" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-slh-ml-answer">
+          <span class="font-semibold pr-4">What are SLH-DSA and ML-DSA?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-slh-ml-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">SLH-DSA (NIST FIPS 205) and ML-DSA (NIST FIPS 204) are post-quantum digital signature standards published by NIST in August 2024. SLH-DSA is hash-based, the most conservative assumption, and is EternaX Vault's default. ML-DSA is lattice-based with smaller signatures, and serves HSMs without SLH-DSA firmware and post-quantum MPC signers.</p>
+        </div>
+      </div>
+      <div id="q-hsm" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-hsm-answer">
+          <span class="font-semibold pr-4">Which HSMs support SLH-DSA and ML-DSA for EternaX Vault?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-hsm-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">For EternaX Vault, HSMs with published SLH-DSA and ML-DSA support include Entrust nShield 5, Securosys Primus, Futurex, Marvell LiquidSecurity and Crypto4A. Thales Luna and Utimaco support ML-DSA, with SLH-DSA to confirm per firmware version, and Thales TCT Luna T-Series supports ML-DSA. EternaX validates each integration on your hardware during the pilot.</p>
+        </div>
+      </div>
+      <div id="q-mpc" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-mpc-answer">
+          <span class="font-semibold pr-4">Can we keep our existing MPC provider with EternaX Vault?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-mpc-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">Yes. MPC platforms that sign with threshold ECDSA or EdDSA, such as Fireblocks, Copper or Dfns, are not post-quantum, but they can remain your approval workflow while the post-quantum key sits in your HSM. Post-quantum MPC signers that produce ML-DSA can sign EternaX Vault approvals directly.</p>
+        </div>
+      </div>
+      <div id="q-agility" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-agility-answer">
+          <span class="font-semibold pr-4">What is crypto-agility, and how does EternaX Vault provide it?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-agility-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">Crypto-agility is the ability to replace cryptographic algorithms without rebuilding the system around them. EternaX Vault adds new signature schemes through a governed registry, lets approvers rotate while mixed quorums keep payments flowing, and retires weakened schemes with a security floor. The vault address, assets, quorum and audit history never change.</p>
+        </div>
+      </div>
+      <div id="q-safe" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-safe-answer">
+          <span class="font-semibold pr-4">How is EternaX Vault different from a multisig like Safe?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-safe-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">EternaX Vault accepts only post-quantum signatures, while multisigs such as Safe use ECDSA owners today and only count signatures. EternaX Vault also adds a second independent approval, so stolen signing keys are not enough, and changes algorithms by key rotation rather than redeployment.</p>
+        </div>
+      </div>
+      <div id="q-dashboard" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-dashboard-answer">
+          <span class="font-semibold pr-4">What if the dashboard or coordinator is hacked?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-dashboard-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">Funds stay safe. The EternaX Vault coordinator holds no keys and cannot create or change an approval. Each approver signs in their own app, which re-checks every payment against its own limits and never signs a blind hash, and the vault verifies every signature on-chain.</p>
+        </div>
+      </div>
+      <div id="q-lost" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-lost-answer">
+          <span class="font-semibold pr-4">What happens if an approver leaves or loses a key?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-lost-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">In EternaX Vault, approver changes go through your admin quorum under a settings time lock, and the vault refuses any change that would leave too few approvers to reach the quorum, so rotation can never lock funds. Approval shares are refreshed in a new ceremony, and any approver can freeze the vault in an emergency.</p>
+        </div>
+      </div>
+      <div id="q-gas" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-gas-answer">
+          <span class="font-semibold pr-4">How much does an EternaX Vault payment cost?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-gas-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">An EternaX Vault payment costs under $1 in network fees at mid-October 2026 gas prices (about 0.08 gwei, with ETH near $2,430). A payment with an initiator and two approvers uses about 4.7 million gas on Ethereum: about $11 if gas rises to 1 gwei and about $114 at 10 gwei. EVM Layer 2s and EternaX Chain are cheaper still.</p>
+        </div>
+      </div>
+      <div id="q-start" class="hp-faq-item">
+        <button class="faq-question w-full py-4 text-left flex justify-between items-center transition-colors hover:opacity-70" style="color: var(--fg);" aria-controls="q-start-answer">
+          <span class="font-semibold pr-4">How do we start with EternaX Vault?</span>
+          <svg class="faq-icon w-5 h-5 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="q-start-answer" class="faq-answer hidden pb-4">
+          <p class="text-sm" style="color: var(--fg-80); line-height: 1.7;">Request a vault readiness map with the form on this page or email info@eternax.ai. EternaX maps which keys to protect first and scopes a 30-day pilot with a capped first deployment. No production funds are needed to start.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1296,9 +1515,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function fb(){ var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); done();}catch(e){} document.body.removeChild(ta); }
     if(navigator.clipboard&&window.isSecureContext){ navigator.clipboard.writeText(text).then(done,fb); } else fb(); }
   var cb=document.getElementById('copy-brief'); if(cb) cb.addEventListener('click',function(){ copy(document.getElementById('brief-text').textContent,'Brief copied.'); });
-  document.querySelectorAll('details.qa .linkans').forEach(function(btn){ btn.addEventListener('click',function(){
-    var id=btn.closest('details').id; copy('https://eternax.ai/post-quantum-vault.html#'+id,'Link copied.');
-    btn.textContent='Link copied'; setTimeout(function(){btn.textContent='Link to this answer';},2200); track('faq_link_'+id); }); });
   var form=document.getElementById('readiness-form');
   if(form){ form.addEventListener('submit',function(e){ e.preventDefault();
     var err=document.getElementById('f-err'); err.textContent='';
@@ -1321,7 +1537,11 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.addEventListener('mouseleave',off); btn.addEventListener('blur',off);
     btn.addEventListener('click',function(){ on(); track('screenshot_callout_'+k); });
   });
-  function openHash(){ if(!location.hash) return; var el=document.getElementById(location.hash.slice(1)); if(el&&el.tagName==='DETAILS') el.open=true; }
+  function openFaq(item){ document.querySelectorAll('.hp-faq-item').forEach(function(it){ var on=it===item; it.querySelector('.faq-answer').classList.toggle('hidden',!on); it.querySelector('.faq-icon').classList.toggle('rotate-180',on); }); }
+  document.querySelectorAll('.faq-question').forEach(function(btn){ btn.addEventListener('click',function(){
+    var item=btn.closest('.hp-faq-item'); var open=!item.querySelector('.faq-answer').classList.contains('hidden');
+    if(open){ item.querySelector('.faq-answer').classList.add('hidden'); item.querySelector('.faq-icon').classList.remove('rotate-180'); } else openFaq(item); }); });
+  function openHash(){ var el=location.hash&&document.getElementById(decodeURIComponent(location.hash.slice(1))); if(el&&el.classList.contains('hp-faq-item')) openFaq(el); }
   openHash(); window.addEventListener('hashchange',openHash);
 })();
 </script>
