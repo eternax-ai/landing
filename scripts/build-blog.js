@@ -195,6 +195,7 @@ if (postMeta.description) {
 
 marked.setOptions({ gfm: true });
 let content = marked.parse(body);
+if (postMeta.typesetNotation) content = typesetNotation(content);
 const displayDate = postMeta.dateModified || postMeta.datePublished;
 const publishedDate = new Date(`${displayDate}T00:00:00Z`).toLocaleDateString('en-US', {
   year: 'numeric',
@@ -232,6 +233,28 @@ html = html
 const outPath = path.join(blogPath, 'index.html');
 fs.writeFileSync(outPath, html, 'utf8');
 console.log('Wrote', path.relative(root, outPath));
+
+// Typeset plain-text notation in text nodes only (never inside tags, code or pre):
+// 2^118.35 -> 2<sup>118.35</sup>, W_16 -> W<sub>16</sub>, sigma0 -> σ<sub>0</sub>, Sigma0 -> Σ<sub>0</sub>.
+function typesetNotation(html) {
+  let codeDepth = 0;
+  return html
+    .split(/(<[^>]+>)/)
+    .map((part) => {
+      if (part.startsWith('<')) {
+        if (/^<(code|pre)\b/i.test(part)) codeDepth++;
+        else if (/^<\/(code|pre)>/i.test(part)) codeDepth--;
+        return part;
+      }
+      if (codeDepth > 0) return part;
+      return part
+        .replace(/\b2\^(-?\d+(?:\.\d+)?)/g, (m, exp) => `2<sup>${exp.replace('-', '−')}</sup>`)
+        .replace(/\b([A-Za-z])_(\d{1,2})\b/g, '$1<sub>$2</sub>')
+        .replace(/\bsigma([01])\b/g, 'σ<sub>$1</sub>')
+        .replace(/\bSigma([01])\b/g, 'Σ<sub>$1</sub>');
+    })
+    .join('');
+}
 
 function escapeHtml(s) {
   return s
