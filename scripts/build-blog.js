@@ -13,6 +13,20 @@ const root = path.resolve(process.cwd());
 const blogPath = path.resolve(root, blogFolder);
 const blogsDir = path.join(root, 'blogs');
 const postMetaMap = {
+  'sha-256-39-step-collisions-below-generic-search': {
+    datePublished: '2026-10-21',
+    description: 'A collision attack on 39-step SHA-256 costs about 2^118.35 under the HashSmash cost model, against 2^124.83 for generic search. How it works, who built what, and what it rests on.',
+    keywords: 'SHA-256, collision attack, reduced-round SHA-256, 39-step SHA-256, differential cryptanalysis, HashSmash, AI-assisted cryptanalysis, hash-based signatures, SLH-DSA, post-quantum signatures',
+    about: ['SHA-256', 'Collision Attack', 'Differential Cryptanalysis', 'AI-Assisted Cryptanalysis', 'Hash-Based Signatures'],
+    authorLine: 'Dariia Porechna, cryptographer, co-founder of EternaX',
+    typesetNotation: true,
+    scholarlyArticle: {
+      '@type': 'ScholarlyArticle',
+      name: 'Pushing Collision Attacks on SHA-2 to 39 Steps',
+      url: 'https://eprint.iacr.org/2026/1120',
+      identifier: 'IACR ePrint 2026/1120'
+    }
+  },
   'how-to-actually-get-crypto-agile': {
     datePublished: '2026-08-27',
     description: 'Clients ask how to get crypto-agility. The official answer is an inventory. A CBOM names primitives; it does not see that one signature is identity, authorization, admission, and evidence.',
@@ -195,6 +209,7 @@ if (postMeta.description) {
 
 marked.setOptions({ gfm: true });
 let content = marked.parse(body);
+if (postMeta.typesetNotation) content = typesetNotation(content);
 const displayDate = postMeta.dateModified || postMeta.datePublished;
 const publishedDate = new Date(`${displayDate}T00:00:00Z`).toLocaleDateString('en-US', {
   year: 'numeric',
@@ -232,6 +247,28 @@ html = html
 const outPath = path.join(blogPath, 'index.html');
 fs.writeFileSync(outPath, html, 'utf8');
 console.log('Wrote', path.relative(root, outPath));
+
+// Typeset plain-text notation in text nodes only (never inside tags, code or pre):
+// 2^118.35 -> 2<sup>118.35</sup>, W_16 -> W<sub>16</sub>, sigma0 -> σ<sub>0</sub>, Sigma0 -> Σ<sub>0</sub>.
+function typesetNotation(html) {
+  let codeDepth = 0;
+  return html
+    .split(/(<[^>]+>)/)
+    .map((part) => {
+      if (part.startsWith('<')) {
+        if (/^<(code|pre)\b/i.test(part)) codeDepth++;
+        else if (/^<\/(code|pre)>/i.test(part)) codeDepth--;
+        return part;
+      }
+      if (codeDepth > 0) return part;
+      return part
+        .replace(/\b2\^(-?\d+(?:\.\d+)?)/g, (m, exp) => `2<sup>${exp.replace('-', '−')}</sup>`)
+        .replace(/\b([A-Za-z])_(\d{1,2})\b/g, '$1<sub>$2</sub>')
+        .replace(/\bsigma([01])\b/g, 'σ<sub>$1</sub>')
+        .replace(/\bSigma([01])\b/g, 'Σ<sub>$1</sub>');
+    })
+    .join('');
+}
 
 function escapeHtml(s) {
   return s

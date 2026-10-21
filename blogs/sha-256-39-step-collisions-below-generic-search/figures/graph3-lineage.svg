@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 698" width="760" height="698" role="img" aria-label="Graph 3: who built on whom, 15 to 21 October 2026" font-family='"IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif'>
+<title>Graph 3: who built on whom, 15 to 21 October 2026</title>
+<rect width="760" height="698" fill="#ffffff"/>
+<defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9 Z" fill="#52514e"/></marker></defs>
+<text x="16.0" y="22.0" font-size="12" fill="#1a1a19" text-anchor="start" font-weight="600">Generic baselines</text>
+<text x="276.0" y="22.0" font-size="12" fill="#1a1a19" text-anchor="start" font-weight="600">dariolina (the author)</text>
+<text x="536.0" y="22.0" font-size="12" fill="#1a1a19" text-anchor="start" font-weight="600">sraiw</text>
+<path d="M380.0,110.0 C380.0,126.5 380.0,123.5 380.0,138.0" fill="none" stroke="#52514e" stroke-width="1.3" marker-end="url(#a3)"/>
+<text x="387.0" y="129.0" font-size="10" fill="#52514e" text-anchor="start" font-weight="normal" stroke="#ffffff" stroke-width="4" paint-order="stroke">refiled, tail corrected</text>
+<path d="M380.0,210.0 C380.0,226.5 380.0,223.5 380.0,238.0" fill="none" stroke="#52514e" stroke-width="1.3" marker-end="url(#a3)"/>
+<text x="387.0" y="229.0" font-size="10" fill="#52514e" text-anchor="start" font-weight="normal" stroke="#ffffff" stroke-width="4" paint-order="stroke">new bound, same data</text>
+<path d="M484.0,75.0 C554.0,75.0 640.0,100.0 640.0,138.0" fill="none" stroke="#52514e" stroke-width="1.3" marker-end="url(#a3)"/>
+<text x="536.0" y="67.0" font-size="10" fill="#52514e" text-anchor="start" font-weight="normal" stroke="#ffffff" stroke-width="4" paint-order="stroke">cited as source</text>
+<path d="M640.0,210.0 C640.0,226.5 640.0,223.5 640.0,238.0" fill="none" stroke="#52514e" stroke-width="1.3" marker-end="url(#a3)"/>
+<text x="647.0" y="229.0" font-size="10" fill="#52514e" text-anchor="start" font-weight="normal" stroke="#ffffff" stroke-width="4" paint-order="stroke">refiled</text>
+<path d="M120.0,310.0 C120.0,336.4 289.0,331.6 289.0,356.0" fill="none" stroke="#52514e" stroke-width="1.3" marker-end="url(#a3)"/>
+<text x="196.5" y="338.0" font-size="10" fill="#52514e" text-anchor="end" font-weight="normal" stroke="#ffffff" stroke-width="4" paint-order="stroke">kernel method</text>
+<path d="M380.0,310.0 C380.0,336.4 380.0,331.6 380.0,356.0" fill="none" stroke="#52514e" stroke-width="1.3" marker-end="url(#a3)"/>
+<text x="387.0" y="338.0" font-size="10" fill="#52514e" text-anchor="start" font-weight="normal" stroke="#ffffff" stroke-width="4" paint-order="stroke">claw idea, tail method</text>
+<path d="M640.0,310.0 C640.0,336.4 471.0,331.6 471.0,356.0" fill="none" stroke="#52514e" stroke-width="1.3" marker-end="url(#a3)"/>
+<text x="565.5" y="338.0" font-size="10" fill="#52514e" text-anchor="start" font-weight="normal" stroke="#ffffff" stroke-width="4" paint-order="stroke">construction</text>
+<path d="M380.0,428.0 C380.0,448.9 380.0,445.1 380.0,464.0" fill="none" stroke="#52514e" stroke-width="1.3" marker-end="url(#a3)"/>
+<path d="M380.0,536.0 C380.0,556.9 380.0,553.1 380.0,572.0" fill="none" stroke="#52514e" stroke-width="1.3" marker-end="url(#a3)"/>
+<text x="387.0" y="559.0" font-size="10" fill="#52514e" text-anchor="start" font-weight="normal" stroke="#ffffff" stroke-width="4" paint-order="stroke">larger tail replica</text>
+<path d="M484.0,609.0 H534.0" fill="none" stroke="#52514e" stroke-width="1.3" marker-end="url(#a3)"/>
+<rect x="16.0" y="40" width="208" height="70" rx="6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="26.0" y="57.0" font-size="11" fill="#ffffff" text-anchor="start" font-weight="600">744875ec (PR 95) · 15 Oct</text>
+<text x="26.0" y="72.0" font-size="10.5" fill="#ffffff" text-anchor="start" font-weight="normal">dariolina</text>
+<text x="26.0" y="87.0" font-size="10.5" fill="#ffffff" text-anchor="start" font-weight="600">124.83 · accepted</text>
+<text x="26.0" y="102.0" font-size="10.5" fill="#ffffff" text-anchor="start" font-weight="normal">generic birthday search, 7 lanes</text>
+<rect x="276.0" y="40" width="208" height="70" rx="6" fill="#fafaf8" stroke="#8a8984" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="286.0" y="57.0" font-size="11" fill="#52514e" text-anchor="start" font-weight="600">PR 193 · 16 Oct 13:32</text>
+<text x="286.0" y="72.0" font-size="10.5" fill="#8a8984" text-anchor="start" font-weight="normal">dariolina (21b6653a)</text>
+<text x="286.0" y="87.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="600">claimed 121.67 · refuted</text>
+<text x="286.0" y="102.0" font-size="10.5" fill="#8a8984" text-anchor="start" font-weight="normal">first row-16 claw filing</text>
+<rect x="536.0" y="140" width="208" height="70" rx="6" fill="#fafaf8" stroke="#8a8984" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="546.0" y="157.0" font-size="11" fill="#52514e" text-anchor="start" font-weight="600">PR 223 · 16 Oct 20:21</text>
+<text x="546.0" y="172.0" font-size="10.5" fill="#8a8984" text-anchor="start" font-weight="normal">sraiw</text>
+<text x="546.0" y="187.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="600">claimed 121.07 · refuted</text>
+<text x="546.0" y="202.0" font-size="10.5" fill="#8a8984" text-anchor="start" font-weight="normal">claw variant, cites PR 193</text>
+<rect x="276.0" y="140" width="208" height="70" rx="6" fill="#ffffff" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="286.0" y="157.0" font-size="11" fill="#1a1a19" text-anchor="start" font-weight="600">PR 306 · 17 Oct 05:45</text>
+<text x="286.0" y="172.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">dariolina</text>
+<text x="286.0" y="187.0" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="600">125.25 · AI-valid</text>
+<text x="286.0" y="202.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">claw, 1 MiB solver, 140-seed tail</text>
+<rect x="16.0" y="240" width="208" height="70" rx="6" fill="#ffffff" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="26.0" y="257.0" font-size="11" fill="#1a1a19" text-anchor="start" font-weight="600">0c1ef7c3 · 17 Oct 09:29</text>
+<text x="26.0" y="272.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">Jbenisek</text>
+<text x="26.0" y="287.0" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="600">124.25 · AI-valid</text>
+<text x="26.0" y="302.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">generic, 256 bit-sliced lanes</text>
+<rect x="276.0" y="240" width="208" height="70" rx="6" fill="#ffffff" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="286.0" y="257.0" font-size="11" fill="#1a1a19" text-anchor="start" font-weight="600">PR 416 · 17 Oct 14:48</text>
+<text x="286.0" y="272.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">dariolina</text>
+<text x="286.0" y="287.0" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="600">124.39 · AI-valid</text>
+<text x="286.0" y="302.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">same claw, corrected tail bound</text>
+<rect x="536.0" y="240" width="208" height="70" rx="6" fill="#ffffff" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="546.0" y="257.0" font-size="11" fill="#1a1a19" text-anchor="start" font-weight="600">PR 421 · 17 Oct 15:39</text>
+<text x="546.0" y="272.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">sraiw</text>
+<text x="546.0" y="287.0" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="600">120.46 · AI-valid</text>
+<text x="546.0" y="302.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">transplant, bijection, 2<tspan dy="-3.99" font-size="7.56">-75.67</tspan><tspan dy="3.99"> tail</tspan></text>
+<rect x="255.0" y="358" width="250" height="70" rx="6" fill="#ffffff" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="265.0" y="375.0" font-size="11" fill="#1a1a19" text-anchor="start" font-weight="600">PR 554 · 19 Oct 00:14</text>
+<text x="265.0" y="390.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">Jbenisek, co-author dariolina</text>
+<text x="265.0" y="405.0" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="600">118.61 · AI-valid</text>
+<text x="265.0" y="420.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">bit-sliced 256-lane walk, exact ledger</text>
+<rect x="255.0" y="466" width="250" height="70" rx="6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="265.0" y="483.0" font-size="11" fill="#ffffff" text-anchor="start" font-weight="600">PR 574 · 19 Oct 08:38</text>
+<text x="265.0" y="498.0" font-size="10.5" fill="#ffffff" text-anchor="start" font-weight="normal">lamb356, co-author dariolina</text>
+<text x="265.0" y="513.0" font-size="10.5" fill="#ffffff" text-anchor="start" font-weight="600">118.35 · accepted 19 Oct 11:26</text>
+<text x="265.0" y="528.0" font-size="10.5" fill="#ffffff" text-anchor="start" font-weight="normal">shorter kernel</text>
+<rect x="276.0" y="574" width="208" height="70" rx="6" fill="#ffffff" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="286.0" y="591.0" font-size="11" fill="#1a1a19" text-anchor="start" font-weight="600">PR 845 · 20 Oct 23:15</text>
+<text x="286.0" y="606.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">mitchuski</text>
+<text x="286.0" y="621.0" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="600">118.28 · AI-valid</text>
+<text x="286.0" y="636.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">same program, 2<tspan dy="-3.99" font-size="7.56">-75.60</tspan><tspan dy="3.99"> tail</tspan></text>
+<rect x="536.0" y="574" width="208" height="70" rx="6" fill="#ffffff" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="546.0" y="591.0" font-size="11" fill="#1a1a19" text-anchor="start" font-weight="600">PR 894 · 21 Oct 01:57</text>
+<text x="546.0" y="606.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">geeknik</text>
+<text x="546.0" y="621.0" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="600">118.15 · AI-valid</text>
+<text x="546.0" y="636.0" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">same program, 2<tspan dy="-3.99" font-size="7.56">-75.47</tspan><tspan dy="3.99"> tail</tspan></text>
+<rect x="16" y="658" width="22" height="13" rx="3" fill="#2a78d6"/>
+<text x="44.0" y="669.0" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="normal">accepted by the human reviewer</text>
+<rect x="240" y="658" width="22" height="13" rx="3" fill="#ffffff" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="268.0" y="669.0" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="normal">rated valid by the AI judge, in review</text>
+<rect x="496" y="658" width="22" height="13" rx="3" fill="#fafaf8" stroke="#8a8984" stroke-width="1.5" stroke-dasharray="4 2"/>
+<text x="524.0" y="669.0" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="normal">refuted by the judge</text>
+<text x="16.0" y="688.0" font-size="10" fill="#8a8984" text-anchor="start" font-weight="normal">Arrow: the later filing names the earlier one as a source. Scores are log2 of work under the board's cost model; times UTC.</text>
+</svg>

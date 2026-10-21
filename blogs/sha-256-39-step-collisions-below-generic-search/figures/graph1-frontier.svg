@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" width="760" height="440" role="img" aria-label="Graph 1: the SHA-256 collision frontier, 2008–2026" font-family='"IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif'>
+<title>Graph 1: the SHA-256 collision frontier, 2008–2026</title>
+<rect width="760" height="440" fill="#ffffff"/>
+<defs><marker id="a1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9" fill="none" stroke="#52514e" stroke-width="1.5"/></marker></defs>
+<line x1="52.0" y1="353.2" x2="520.0" y2="353.2" stroke="#e6e5e0" stroke-width="1" stroke-linecap="butt"/>
+<text x="44.0" y="357.2" font-size="11" fill="#8a8984" text-anchor="end" font-weight="normal">24</text>
+<line x1="52.0" y1="293.1" x2="520.0" y2="293.1" stroke="#e6e5e0" stroke-width="1" stroke-linecap="butt"/>
+<text x="44.0" y="297.1" font-size="11" fill="#8a8984" text-anchor="end" font-weight="normal">32</text>
+<line x1="52.0" y1="233.0" x2="520.0" y2="233.0" stroke="#e6e5e0" stroke-width="1" stroke-linecap="butt"/>
+<text x="44.0" y="237.0" font-size="11" fill="#8a8984" text-anchor="end" font-weight="normal">40</text>
+<line x1="52.0" y1="173.0" x2="520.0" y2="173.0" stroke="#e6e5e0" stroke-width="1" stroke-linecap="butt"/>
+<text x="44.0" y="177.0" font-size="11" fill="#8a8984" text-anchor="end" font-weight="normal">48</text>
+<line x1="52.0" y1="112.9" x2="520.0" y2="112.9" stroke="#e6e5e0" stroke-width="1" stroke-linecap="butt"/>
+<text x="44.0" y="116.9" font-size="11" fill="#8a8984" text-anchor="end" font-weight="normal">56</text>
+<line x1="52.0" y1="52.8" x2="520.0" y2="52.8" stroke="#e6e5e0" stroke-width="1" stroke-linecap="butt"/>
+<text x="44.0" y="56.8" font-size="11" fill="#8a8984" text-anchor="end" font-weight="normal">64</text>
+<line x1="68.6" y1="372.0" x2="68.6" y2="376.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<text x="68.6" y="390.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">2008</text>
+<line x1="163.7" y1="372.0" x2="163.7" y2="376.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<text x="163.7" y="390.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">2012</text>
+<line x1="258.7" y1="372.0" x2="258.7" y2="376.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<text x="258.7" y="390.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">2016</text>
+<line x1="353.7" y1="372.0" x2="353.7" y2="376.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<text x="353.7" y="390.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">2020</text>
+<line x1="448.7" y1="372.0" x2="448.7" y2="376.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<text x="448.7" y="390.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">2024</text>
+<line x1="496.2" y1="372.0" x2="496.2" y2="376.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<text x="496.2" y="390.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">2026</text>
+<line x1="52.0" y1="372.0" x2="520.0" y2="372.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<text transform="translate(16,203.0) rotate(-90)" font-size="11" fill="#52514e" text-anchor="middle">Steps of SHA-256 attacked (out of 64)</text>
+<rect x="52" y="52.8" width="468" height="187.8" fill="#eaf2fc"/>
+<line x1="52.0" y1="52.8" x2="520.0" y2="52.8" stroke="#2a78d6" stroke-width="1.5" stroke-linecap="butt"/>
+<text x="58.0" y="46.8" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">64 steps = full SHA-256</text>
+<text x="286.0" y="144.9" font-size="14" fill="#1a1a19" text-anchor="middle" font-weight="600">Remaining margin: 25 of 64 steps</text>
+<text x="286.0" y="162.9" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">No attack on full SHA-256 better than generic</text>
+<rect x="496.2" y="34" width="23.8" height="338" fill="#eb6834" fill-opacity="0.10"/>
+<text x="508.1" y="68.0" font-size="10" fill="#eb6834" text-anchor="middle" font-weight="600">2026</text>
+<text x="508.1" y="80.0" font-size="11" fill="#eb6834" text-anchor="middle" font-weight="normal">→</text>
+<path d="M191.4,276.6 H489.9" stroke="#52514e" stroke-width="1" marker-start="url(#a1)" marker-end="url(#a1)"/>
+<text x="340.6" y="270.6" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">12-year plateau at 31 steps (2013–2025)</text>
+<path d="M68.6,353.2 H139.9 V330.7 H187.4 V323.2 H448.7 V300.6 H505.2 V270.6 H506.1 V263.1 H520.0" fill="none" stroke="#8a8984" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M68.6,353.2 H139.9 V330.7 H187.4 V300.6 H499.0 V255.6 H506.1 V248.1 H515.1 V240.6 H520.0" fill="none" stroke="#2a78d6" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="184.4" y="320.2" width="6" height="6" fill="#8a8984" stroke="#fff" stroke-width="1.5"/>
+<rect x="445.7" y="297.6" width="6" height="6" fill="#8a8984" stroke="#fff" stroke-width="1.5"/>
+<circle cx="68.6" cy="353.2" r="3.6" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="139.9" cy="330.7" r="3.6" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="187.4" cy="300.6" r="3.6" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<text x="70.6" y="369.2" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">2008 · 24</text>
+<text x="143.9" y="344.7" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">2011 · 27</text>
+<text x="193.4" y="293.6" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="normal">2013 · 31 (2<tspan dy="-3.99" font-size="7.56">65.5</tspan><tspan dy="3.99">)</tspan></text>
+<text x="193.4" y="337.2" font-size="10.5" fill="#52514e" text-anchor="start" font-weight="normal">2013 · 28 practical</text>
+<text x="444.7" y="314.6" font-size="10.5" fill="#52514e" text-anchor="end" font-weight="normal">2024 · first practical 31</text>
+<text x="590.0" y="20.0" font-size="11" fill="#eb6834" text-anchor="start" font-weight="600">2026, month by month</text>
+<line x1="590.0" y1="348.9" x2="742.0" y2="348.9" stroke="#e6e5e0" stroke-width="1" stroke-linecap="butt"/>
+<text x="584.0" y="352.9" font-size="11" fill="#8a8984" text-anchor="end" font-weight="normal">31</text>
+<line x1="590.0" y1="233.3" x2="742.0" y2="233.3" stroke="#e6e5e0" stroke-width="1" stroke-linecap="butt"/>
+<text x="584.0" y="237.3" font-size="11" fill="#8a8984" text-anchor="end" font-weight="normal">35</text>
+<line x1="590.0" y1="204.4" x2="742.0" y2="204.4" stroke="#e6e5e0" stroke-width="1" stroke-linecap="butt"/>
+<text x="584.0" y="208.4" font-size="11" fill="#8a8984" text-anchor="end" font-weight="normal">36</text>
+<line x1="590.0" y1="175.6" x2="742.0" y2="175.6" stroke="#e6e5e0" stroke-width="1" stroke-linecap="butt"/>
+<text x="584.0" y="179.6" font-size="11" fill="#8a8984" text-anchor="end" font-weight="normal">37</text>
+<line x1="590.0" y1="146.7" x2="742.0" y2="146.7" stroke="#e6e5e0" stroke-width="1" stroke-linecap="butt"/>
+<text x="584.0" y="150.7" font-size="11" fill="#8a8984" text-anchor="end" font-weight="normal">38</text>
+<line x1="590.0" y1="117.8" x2="742.0" y2="117.8" stroke="#e6e5e0" stroke-width="1" stroke-linecap="butt"/>
+<text x="584.0" y="121.8" font-size="11" fill="#8a8984" text-anchor="end" font-weight="normal">39</text>
+<line x1="590.0" y1="372.0" x2="742.0" y2="372.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<line x1="590.0" y1="34.0" x2="590.0" y2="372.0" stroke="#eb6834" stroke-width="1" stroke-linecap="butt"/>
+<text x="596.3" y="390.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">Jan</text>
+<text x="634.3" y="390.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">Apr</text>
+<text x="672.3" y="390.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">Jul</text>
+<text x="710.3" y="390.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">Oct</text>
+<path d="M590.0,348.9 H647.0 V233.3 H653.3 V204.4 H742.0" fill="none" stroke="#8a8984" stroke-width="2" stroke-dasharray="6 4"/>
+<path d="M590.0,348.9 H607.7 V175.6 H653.3 V146.7 H711.0 V117.8 H742.0" fill="none" stroke="#2a78d6" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="607.7" cy="175.6" r="3.6" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<rect x="644.0" y="230.3" width="6" height="6" fill="#8a8984" stroke="#fff" stroke-width="1.5"/>
+<rect x="650.3" y="201.4" width="6" height="6" fill="#8a8984" stroke="#fff" stroke-width="1.5"/>
+<circle cx="653.3" cy="146.7" r="3.6" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="711.0" cy="117.8" r="5.5" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="612.7" y="194.0" font-size="10.5" fill="#1a1a19">Feb · 37<tspan dx="6" font-size="10" fill="#52514e">ePrint 2026/232</tspan></text>
+<text x="653.0" y="248.3" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="normal">May · 35 practical</text>
+<text x="653.0" y="261.3" font-size="10" fill="#52514e" text-anchor="start" font-weight="normal">ePrint 2026/1080</text>
+<text x="663.3" y="217.4" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="normal">Jun · 36 (pair)</text>
+<text x="663.3" y="229.4" font-size="10" fill="#52514e" text-anchor="start" font-weight="normal">ePrint 2026/1120</text>
+<text x="658.3" y="161.7" font-size="10.5" fill="#1a1a19" text-anchor="start" font-weight="normal">Jun · 38 (2<tspan dy="-3.99" font-size="7.56">104.3</tspan><tspan dy="3.99">)</tspan></text>
+<text x="658.3" y="174.7" font-size="10" fill="#52514e" text-anchor="start" font-weight="normal">ePrint 2026/1120</text>
+<text x="715.0" y="73.8" font-size="10.5" fill="#eb6834" text-anchor="end" font-weight="600">Oct · 39 (2<tspan dy="-3.99" font-size="7.56">118.35</tspan><tspan dy="3.99">,</tspan></text>
+<text x="715.0" y="86.8" font-size="10.5" fill="#eb6834" text-anchor="end" font-weight="600">board cost model)</text>
+<text x="715.0" y="101.8" font-size="10" fill="#52514e" text-anchor="end" font-weight="normal">HashSmash filings</text>
+<line x1="56.0" y1="414.0" x2="86.0" y2="414.0" stroke="#2a78d6" stroke-width="2.5" stroke-linecap="butt"/>
+<text x="92.0" y="418.0" font-size="11" fill="#1a1a19" text-anchor="start" font-weight="normal">Best collision attack from the standard IV (theoretical)</text>
+<line x1="424.0" y1="414.0" x2="454.0" y2="414.0" stroke="#8a8984" stroke-width="2" stroke-linecap="butt" stroke-dasharray="6 4"/>
+<text x="460.0" y="418.0" font-size="11" fill="#1a1a19" text-anchor="start" font-weight="normal">Practical collision attack</text>
+</svg>
