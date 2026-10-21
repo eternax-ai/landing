@@ -1,0 +1,444 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pushing Collision Attacks on 39-Step SHA-256 Below Generic Search | EternaX Labs Blog</title>
+    <meta name="description" content="A collision attack on 39-step SHA-256 costs about 2^118.35 under the HashSmash cost model, against 2^124.83 for generic search. How it works, who built what, and what it rests on.">
+    <meta name="keywords" content="post-quantum blockchain, post-quantum cryptography, quantum-safe settlement, stablecoin issuance, rwa tokenization, EternaX, SHA-256, collision attack, reduced-round SHA-256, 39-step SHA-256, differential cryptanalysis, HashSmash, AI-assisted cryptanalysis, hash-based signatures, SLH-DSA, post-quantum signatures">
+    <meta name="author" content="EternaX Labs">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="article:publisher" content="https://www.linkedin.com/company/eternax-labs">
+    <link rel="canonical" href="https://eternax.ai/blogs/sha-256-39-step-collisions-below-generic-search/index.html">
+    <meta name="theme-color" content="#e2e2e2">
+    <link rel="icon" type="image/svg+xml" href="../../assets/eternax-icon.svg">
+    <link rel="icon" type="image/png" href="../../assets/favicon.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Pushing Collision Attacks on 39-Step SHA-256 Below Generic Search">
+    <meta property="og:description" content="A collision attack on 39-step SHA-256 costs about 2^118.35 under the HashSmash cost model, against 2^124.83 for generic search. How it works, who built what, and what it rests on.">
+    <meta property="og:site_name" content="EternaX Labs">
+    <meta property="og:url" content="https://eternax.ai/blogs/sha-256-39-step-collisions-below-generic-search/index.html">
+    <meta property="og:image" content="https://eternax.ai/assets/preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Pushing Collision Attacks on 39-Step SHA-256 Below Generic Search">
+    <meta property="twitter:description" content="A collision attack on 39-step SHA-256 costs about 2^118.35 under the HashSmash cost model, against 2^124.83 for generic search. How it works, who built what, and what it rests on.">
+    <meta property="twitter:url" content="https://eternax.ai/blogs/sha-256-39-step-collisions-below-generic-search/index.html">
+    <meta property="twitter:site" content="@EternaXlabs">
+    <meta property="twitter:creator" content="@EternaXlabs">
+    <meta property="twitter:image" content="https://eternax.ai/assets/preview.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../styles/tailwind.generated.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --bg: #f7f4f4;
+            --fg: #283771;
+            --fg-70: #283771;
+            --fg-80: #283771;
+            --border: #283771;
+            --pill-bg: #283771;
+            --pill-fg: #ffffff;
+        }
+        body { background-color: var(--bg); color: var(--fg); }
+        .glass-effect {
+            background: #ffffff;
+            border: 1px solid #e0dede;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .link-muted { color: var(--fg-70); transition: color 0.15s; }
+        .link-muted:hover { color: var(--fg); }
+        .btn-primary {
+            background-color: var(--fg);
+            transition: background-color 0.15s;
+        }
+        .btn-primary:hover { background-color: #1e2d5a; }
+        .nav-products-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s, visibility 0.15s;
+        }
+        .group:hover .nav-products-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        .blog-body { max-width: 720px; margin: 0 auto; }
+        .blog-body h1 { font-size: 2rem; font-weight: 600; margin-top: 0; margin-bottom: 0.75em; letter-spacing: -0.01em; line-height: 1.2; }
+        .blog-body h2 { font-size: 1.5rem; font-weight: 600; margin-top: 1.75rem; margin-bottom: 0.5em; letter-spacing: -0.01em; line-height: 1.3; }
+        .blog-body h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.4em; line-height: 1.3; }
+        .blog-body p { margin-top: 0.75em; margin-bottom: 0.75em; line-height: 1.65; }
+        .blog-body ul, .blog-body ol { margin: 0.75em 0; padding-left: 1.5em; }
+        .blog-body li { margin: 0.35em 0; line-height: 1.6; }
+        .blog-body blockquote { margin: 1em 0; padding-left: 1em; border-left: 3px solid var(--fg); opacity: 0.9; font-style: italic; }
+        .blog-body code { background: rgba(40,55,113,0.1); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.9em; }
+        .blog-body pre { background: rgba(40,55,113,0.08); padding: 1em; border-radius: 6px; overflow-x: auto; margin: 1em 0; }
+        .blog-body pre code { background: none; padding: 0; }
+        .blog-body a { color: var(--fg); text-decoration: underline; }
+        .blog-body a:hover { opacity: 0.8; }
+        .blog-body img { max-width: 100%; height: auto; border-radius: 4px; }
+        .blog-body figure { margin: 1.5em 0; }
+        .blog-body figcaption { margin-top: 0.5em; font-size: 0.9rem; color: var(--fg-70); text-align: center; font-style: italic; }
+        .blog-body hr { border: none; border-top: 1px solid rgba(40,55,113,0.2); margin: 1.5em 0; }
+        .blog-body table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 1em 0; font-size: 0.95em; }
+        .blog-body th, .blog-body td { padding: 0.5em 0.75em; border: 1px solid rgba(40,55,113,0.2); text-align: left; vertical-align: top; }
+        .blog-body th { font-weight: 600; background: rgba(40,55,113,0.06); }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://eternax.ai/#organization",
+      "name": "EternaX Labs",
+      "alternateName": ["EternaX", "EternaX Labs Inc"],
+      "url": "https://eternax.ai",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://eternax.ai/assets/eternax-logo-pack/eternax-logo-full-color.svg",
+        "width": 400,
+        "height": 80
+      },
+      "description": "EternaX Labs is a post-quantum-native Layer 1 blockchain infrastructure company.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "general",
+        "email": "info@eternax.ai"
+      },
+      "sameAs": [
+        "https://github.com/eternax-ai",
+        "https://www.linkedin.com/company/eternax-labs",
+        "https://x.com/EternaXlabs"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://eternax.ai/blogs/sha-256-39-step-collisions-below-generic-search/index.html#article",
+      "headline": "Pushing Collision Attacks on 39-Step SHA-256 Below Generic Search",
+      "description": "A collision attack on 39-step SHA-256 costs about 2^118.35 under the HashSmash cost model, against 2^124.83 for generic search. How it works, who built what, and what it rests on.",
+      "datePublished": "2026-10-21",
+      "dateModified": "2026-10-21",
+      "author": { "@id": "https://eternax.ai/#organization" },
+      "publisher": { "@id": "https://eternax.ai/#organization" },
+      "keywords": "SHA-256, collision attack, reduced-round SHA-256, 39-step SHA-256, differential cryptanalysis, HashSmash, AI-assisted cryptanalysis, hash-based signatures, SLH-DSA, post-quantum signatures",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "EternaX Labs Blog",
+        "url": "https://eternax.ai/blogs/index.html"
+      },
+      "mainEntityOfPage": "https://eternax.ai/blogs/sha-256-39-step-collisions-below-generic-search/index.html",
+      "about": [{"@type":"Thing","name":"SHA-256"},{"@type":"Thing","name":"Collision Attack"},{"@type":"Thing","name":"Differential Cryptanalysis"},{"@type":"Thing","name":"AI-Assisted Cryptanalysis"},{"@type":"Thing","name":"Hash-Based Signatures"}],
+      "isBasedOn": {"@type":"ScholarlyArticle","name":"Pushing Collision Attacks on SHA-2 to 39 Steps","url":"https://eprint.iacr.org/2026/1120","identifier":"IACR ePrint 2026/1120"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "EternaX",
+          "item": "https://eternax.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blogs",
+          "item": "https://eternax.ai/blogs/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Pushing Collision Attacks on 39-Step SHA-256 Below Generic Search",
+          "item": "https://eternax.ai/blogs/sha-256-39-step-collisions-below-generic-search/index.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="font-sans">
+    {% include navbar.html %}
+
+    <main class="pt-24 pb-16 px-4">
+        <article class="blog-body">
+            <h1>Pushing Collision Attacks on 39-Step SHA-256 Below Generic Search</h1>
+<p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 0.25em;">October 21, 2026</p>
+<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: Dariia Porechna, cryptographer, co-founder of EternaX</p>
+<h2>At a glance</h2>
+<table>
+<thead>
+<tr>
+<th>Figure</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>39 of 64 steps</td>
+<td>New frontier for collision attacks, 39 rounds out of 64 rounds for full SHA-256</td>
+</tr>
+<tr>
+<td>2<sup>118.35</sup> vs 2<sup>124.83</sup></td>
+<td>The attack vs the best accepted generic search, both under the board&#39;s cost model (about 6.5 bits better)</td>
+</tr>
+<tr>
+<td>about 2<sup>127.6</sup> vs 2<sup>128</sup></td>
+<td>The attack under the harshest accounting vs the birthday bound (still below it)</td>
+</tr>
+<tr>
+<td>25 rounds</td>
+<td>Remaining security margin on full SHA-256</td>
+</tr>
+</tbody></table>
+<p>In October 2026 a collision attack on SHA-256 reduced to 39 of its 64 steps came in below generic search, to our knowledge for the first time. It started from my row-16 claw construction, first filed on 16 October, which turned the published 39-step differential trail of ePrint 2026/1120 into a differential attack at about the cost of generic search. Within three days three other researchers, working under the handles sraiw, Jbenisek (aka CyberAxe) and lamb356, extended and optimized it. On the board I file as dariolina. The version the board&#39;s reviewers accepted costs about 2<sup>118.35</sup> SHA-256 compression evaluations against 2<sup>124.83</sup> for the best accepted generic search under the same accounting. Two later filings, still in review, keep that program and only measure its tail more tightly, bringing the figure to 2<sup>118.15</sup>. Even under the harshest accounting, at about 2<sup>127.6</sup>, it stays below the 2<sup>128</sup> birthday bound. The paper the construction starts from had concluded that its own method could not reach 39-step SHA-256: by its count, the attack would cost 2<sup>168</sup>.</p>
+<p>The work was done on HashSmash, an open competition launched on 5 October 2026 by Eigen Labs and Shielded Labs to test how far AI agents can push attacks on SHA-256, SHA-3, BLAKE3 and Poseidon. Every package in this result was written with AI coding agents and checked by the board&#39;s AI judge; lamb356&#39;s filing was accepted by the board&#39;s human reviewers on 19 October.</p>
+<p><strong>NB:</strong> This is not a break of SHA-256. No colliding pair from the standard IV exists, 2<sup>118</sup> compression evaluations is far beyond any computation that will ever be run, and the work has not yet been peer-reviewed. Full SHA-256 has 64 steps, so 25 steps of security margin remain.</p>
+<p>When frontier AI agents were pointed at a heavily studied hash function in public, the attack frontier moves by one step. In the same year, AI-assisted research led to the withdrawal of a lattice-based signature candidate from NIST&#39;s standardization process. For anyone choosing post-quantum signatures, I think that contrast matters; the section &quot;Lattices and hashes in the AI era&quot; below compares what each family assumes.</p>
+<p>The rest of this post explains how the attack works, which parts are mine and which are my co-filers&#39;, what the number rests on, and what comes next.</p>
+<h2>Prior work</h2>
+<p>For more than a decade, collision attacks on reduced SHA-256 stalled at 31 steps: Mendel, Nad and Schläffer&#39;s 2013 attack, at 2<sup>65.5</sup>, set the record, and a practical collision for 31 steps followed only in 2024. Then 2026 brought rapid progress: the first 37-step attack in February (ePrint 2026/232), a practical collision attack on 35 steps in May (ePrint 2026/1080), and 38 steps at 2<sup>104.3</sup> in June, in &quot;Pushing Collision Attacks on SHA-2 to 39 Steps&quot; (Li, Zhang, Li, Liu, Qian and Zhu, ePrint 2026/1120), which also gives the first colliding pair for 36 steps.</p>
+<p><strong>Graph 1 · The SHA-256 collision frontier, 2008–2026</strong></p>
+<p><a href="figures/graph1-frontier.svg"><img src="figures/graph1-frontier.svg" alt="SHA-256 collision attacks by year, in steps out of 64, with 2026 shown month by month"></a></p>
+<p><em>SHA-256 collision attacks, 2008–2026, in steps out of 64, with 2026 shown month by month. After a 12-year plateau at 31 steps, the frontier reached 37 and 38 steps in the first half of 2026; the October 2026 result extends it to 39. Full SHA-256 retains a 25-step margin. Sources: Sanadhya–Sarkar (2008); Mendel–Nad–Schläffer (2011, 2013); Li–Liu–Wang–Dong–Sun (2024); ePrint 2026/232, 2026/1080 and 2026/1120; HashSmash filings, October 2026.</em></p>
+<p>That June paper also gives the first collision attack on 39-step SHA-512, at 2<sup>178</sup>. For 39-step SHA-256 it finds a differential characteristic and a semi-free-start colliding pair, that is, a collision of the compression function from a chaining value of the attacker&#39;s choice rather than from the standard NIST initialization. It then counts 168 conditions on the state and message words from step 16 onward and concludes that its attack would cost 2<sup>168</sup>: &quot;worse than the generic birthday attack&quot;, so &quot;an ineffective collision attack on 39-step SHA-256&quot;.</p>
+<p><strong>Attack mechanism</strong> A differential collision attack takes two messages that differ in a few chosen places and follows a <em>characteristic</em>: a step-by-step prescription of how that difference spreads through the internal state and then cancels before the last step. Each step of the prescription imposes conditions on the actual values, and every condition the attacker cannot meet by construction has to be paid for by trying again. The attacks on SHA-2 in this line use two message blocks. The first is random and only supplies a chaining value; the second carries the difference. The densest part of the characteristic, where conditions are far too many to meet by chance, is solved once in advance. Each new chaining value is then connected to that fixed solution through the first few message words, and the conditions after the dense part are paid by trial.</p>
+<p>The paper&#39;s framework fixes the dense solution for the early steps, including the first state words, so the only thing that changes between trials is the chaining value of the first block, and every condition from step 16 onward is paid by trial. At 38 steps that leaves 2<sup>104.3</sup> of work. Shifting the same message-difference shape by one word to reach 39 steps moves a heavy word across the boundary into the uncontrolled part, and the trial cost jumps by about sixty bits.</p>
+<h2>Crowd-sourced research board</h2>
+<p>HashSmash is a public board where participants file reproducible attack packages against reduced-round hash functions. An automated AI judge checks each package mechanically, runs its declared sandbox experiments, reviews its argument, and scores it; a human reviewer then decides acceptance. Cost is measured in a fixed model: a classical word RAM with 256-bit words, in which one 39-step compression costs 2812 primitive operations and every other operation costs one. The score is the log2 of total charged work, counted in compressions and including preprocessing, the construction of any advice, failed trials and success amplification; memory is reported in bytes and penalised above one MiB. The model fixes conventions the literature leaves open, such as how many 32-bit lanes a 256-bit word may hold, and the board&#39;s numbers must be read with that in mind.</p>
+<p>Until 17 October the 39-step frontier on the board was generic: birthday searches at 2<sup>124.83</sup> (entry 744875ec, a 7-lane packed kernel, human reviewer accepted) and 2<sup>124.25</sup> (Jbenisek&#39;s 0c1ef7c3, a 256-lane bit-sliced kernel, accepted by the AI judge). My own differential attempts sat above them. They used the published 39-step trail and solved its row-16 condition by a claw search rather than by trial, which was the right idea, but the tail probability I could measure for the full characteristic was about 2<sup>−79.8</sup>. My first filings of the claw, on 16 October, claimed to beat generic search; the AI judge refuted them, and on 17 October I withdrew that claim myself, because a pre-registered 140-seed study showed that the 20-seed tail estimate behind it had dropped a stalled run instead of counting it. With the corrected tail the attack cost 2<sup>124.25</sup> of time plus a memory penalty, a score of 125.25: dominated by generic search, and filed as such. A second version, with a different bound on the same data, scored 124.39. Neither the retracted estimate nor these two scores enter the accepted result, which uses a different tail measurement (below).</p>
+<h2>The construction</h2>
+<p>The construction has four parts.</p>
+<p><strong>1. Leave the first two state words free.</strong> At 39 steps the local collision starts at message word W<sub>8</sub>, and the paper itself notes that W<sub>5</sub>, W<sub>6</sub>, W<sub>7</sub> and E<sub>1</sub>, E<sub>2</sub>, E<sub>3</sub> then carry no conditions. Neither do E<sub>4</sub> and E<sub>5</sub>, the words the first two state words A<sub>0</sub> and A<sub>1</sub> feed into. So A<sub>0</sub> and A<sub>1</sub> need not be part of the fixed solution. Pin the state words of steps 2 to 15 of both members and the message words W<sub>10</sub> to W<sub>15</sub>. For a chaining value cv from a random first block and any choice a<sub>0</sub>, a<sub>1</sub> of the first two state words, the step function can then be inverted to read off W<sub>0</sub> to W<sub>9</sub>, and both members follow the pinned trajectories through step 15 as an identity of the step function, not as an event with a probability. Each first block now yields 2<sup>64</sup> candidate second blocks instead of a handful. This is the freedom the paper&#39;s framework leaves unused, and the observation my first claw filing, on 16 October, was built on. At 38 steps it does not exist: the cluster starts at W<sub>7</sub>, E<sub>4</sub> carries conditions, and only A<sub>0</sub> is free.</p>
+<p><strong>2. Row 16 is a claw.</strong> The message expansion gives W<sub>16</sub> = σ<sub>1</sub>(W<sub>14</sub>) + W<sub>9</sub> + σ<sub>0</sub>(W<sub>1</sub>) + W<sub>0</sub>. With the dense part pinned, W<sub>9</sub> is affine in a<sub>1</sub>, W<sub>0</sub> is affine in a<sub>0</sub>, and a<sub>1</sub> can be traded for u = W<sub>1</sub>. Exhaustive enumeration shows that the characteristic admits exactly two values of W<sub>16</sub> and that only one of them, g, admits a row-17 continuation. The condition W<sub>16</sub> = g then separates as F(a<sub>0</sub>) = F(u), where F is a single 32-bit map that takes one branch on even inputs and another on odd inputs. A pair of inputs, one from each branch, with the same output is a <em>claw</em>. Finding one claw by a birthday search costs about 2<sup>16</sup> evaluations of F; a distinguished-point walk in the style of van Oorschot and Wiener, which keeps running and harvests claws in bulk, gets them at about 2<sup>11</sup> evaluations each, amortised. That replaces 2<sup>32</sup> trials of a 32-bit condition. Every opposite-parity collision of the walk is a claw with W<sub>16</sub> = g by identity, which the sandbox checks on every claw (no failure in 1,517,394). This is what the extra free word buys: with only a<sub>0</sub> free, as at 38 steps, there is nothing to pair it with. The claw is the construction my filings of 16 and 17 October introduced.</p>
+<p><strong>3. Transplant the published pair, and make the rest exact.</strong> My filings carried their own dense solution (the published one with rows 0 to 3 re-solved, about 4 KB of characteristic data, and a solver able to produce such solutions inside one MiB). sraiw&#39;s filing (PR 421) took a cleaner route. It uses the semi-free-start pair of the paper&#39;s Table 23 itself as the only advice: 160 bytes, a chaining value and two message blocks that collide under the 39-step compression from that chaining value. It reads off the pair&#39;s dense part and transplants it onto a random first block from step 2. It then proves that the map from (cv, a<sub>0</sub>, a<sub>1</sub>) to (W<sub>8</sub>, W<sub>9</sub>, W<sub>16</sub>, ..., W<sub>23</sub>) is an exact bijection on 320 bits, triangular in five stages. Two consequences carry the rest of the attack. Over uniform (a<sub>0</sub>, a<sub>1</sub>), the words W<sub>8</sub> and W<sub>9</sub> are exactly uniform for every chaining value, so the side conditions below have exactly their counting probabilities. And the words W<sub>18</sub> to W<sub>23</sub> that drive the tail are a bijective image of free inputs, so the tail can be measured on uniform random draws and every hit inverted to an actual semi-free-start pair and checked. sraiw also proved the side-condition densities as active-bit theorems, showed that on the measured distribution &quot;u odd&quot; has probability exactly one half, so that the tail can be measured on exactly the inputs the claws produce (the &quot;dual-parity fibre&quot;), and measured the tail there.</p>
+<p><strong>4. Pay the rest.</strong> A claw gives a pair that follows the characteristic through row 16. Four more things must hold. Every filing in the line pays for the same four; the prices below are those of lamb356&#39;s accepted filing, each exact or measured:</p>
+<table>
+<thead>
+<tr>
+<th>What must hold</th>
+<th align="right">log2 probability</th>
+<th>How it is known</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Row 16: W<sub>16</sub> = g</td>
+<td align="right">0</td>
+<td>built by the claw; checked on every claw</td>
+</tr>
+<tr>
+<td>W<sub>8</sub> in a set F<sub>8</sub>, so that the difference of W<sub>23</sub> comes out as published</td>
+<td align="right">−3.83 (9/128)</td>
+<td>exact count over all 2<sup>32</sup> words, later proved</td>
+</tr>
+<tr>
+<td>W<sub>9</sub> in a set F<sub>9</sub>, so that the difference of W<sub>24</sub> comes out as published</td>
+<td align="right">−5.98 (65/4096)</td>
+<td>exact count over all 2<sup>32</sup> words, later proved</td>
+</tr>
+<tr>
+<td>W<sub>17</sub> equals the one admissible value</td>
+<td align="right">−32</td>
+<td>premise: W<sub>17</sub> is uniform over claws</td>
+</tr>
+<tr>
+<td>Rows 18 to 38 end in equal states</td>
+<td align="right">−75.67</td>
+<td>measured; premise</td>
+</tr>
+<tr>
+<td><strong>Per claw</strong></td>
+<td align="right"><strong>−117.48</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>About 2<sup>116.46</sup> independent claws are therefore needed for success probability 0.39, the board&#39;s target. The walk delivers them at 3.65 compressions&#39; worth of work each, about 2<sup>1.87</sup>, which gives 2<sup>118.33</sup>; the filed 2<sup>118.35</sup> adds statistical margins on the measured yield and cost.</p>
+<p>The tail is the one quantity that is measured rather than counted, and the measurement does not run the attack. It samples the words W<sub>18</sub> to W<sub>23</sub> directly, with W<sub>8</sub> and W<sub>9</sub> drawn already inside F<sub>8</sub> and F<sub>9</sub> and the published E<sub>16</sub> and E<sub>17</sub> pinned, and lets the chaining value fall out of the bijection, read backwards. It estimates the probability row by row with sequential Monte Carlo over rows 18 to 23, which keeps resampling the survivors of each row, times the fraction of final proposals that end in equal states after step 38. Every hit is rebuilt into a pair and checked by two real compressions. The declared value is 2<sup>−75.67</sup> (99% lower bound 2<sup>−75.59</sup> over fourteen organizer-run replicas), and the hits are semi-free-start collisions from chaining values the sampler derived, which is why they are cheap: the attack has to take whatever chaining value a random first block gives, and there only one claw in 2<sup>117.48</sup> completes.</p>
+<p>Set against the paper&#39;s count, the difference is quantified. The paper pays 168 conditions on rows 16 to 38 by trial, at roughly one compression per trial. Here row 16 is not paid by trial at all; rows 18 to 38 are paid as the measured probability of the event, with several rows checked only on their signed differences, rather than as a count of bit conditions; and the work per trial is a few compressions spread over many claws. The price of the free words is the 9.81 bits of side conditions on W<sub>8</sub> and W<sub>9</sub>, which the paper&#39;s fixed solution never pays.</p>
+<h2>Making it cheaper</h2>
+<p>The remaining work was engineering, and it is where most of the final score came from. sraiw&#39;s version walked F on 7 packed lanes of 36 bits and charged about 10.4 compressions per distinct claw, for 2<sup>120.46</sup> in total. Jbenisek (PR 554) rewrote the walk as a bit-sliced program: 256 lanes, one bit of each lane per 256-bit register, so that rotations cost nothing and one step of F for all 256 lanes is about 955 straight-line records of five bytes. Every operation of the program runs through a counted machine, so the ledger is the program&#39;s own counter rather than a price table: 12,360 operations per distinct claw, 4.40 compressions, 2<sup>118.61</sup> in total, in 1,047,548 bytes including the advice. lamb356 (PR 574) then shortened the kernel to about 723 records by restructuring the generator: sharing the rotation pair at distance 11 between Σ<sub>0</sub> and σ<sub>0</sub>, specialising bit 0 by parity, and folding the constants, the branch selection and the final subtraction into one column-wise compression. That gave 3.65 compressions per claw and 2<sup>118.35</sup> in total, in 1,047,892 bytes, with a Hoeffding bound on the total work over 2<sup>100.84</sup> independent windows. Two later filings changed nothing in this program: mitchuski&#39;s (20 October) and geeknik&#39;s (21 October) spent more of the sandbox&#39;s time budget on the tail replica, which narrows the confidence bound on the same tail probability. They declare 2<sup>−75.60</sup> and 2<sup>−75.47</sup>, for 2<sup>118.28</sup> and 2<sup>118.15</sup> in total; both are AI-valid and in review.</p>
+<h2>Comparison with generic search</h2>
+<p><strong>Graph 2 · 39-step SHA-256: below generic search, measured like for like</strong></p>
+<p><a href="figures/graph2-like-for-like.svg"><img src="figures/graph2-like-for-like.svg" alt="Two bar panels comparing the attack with generic search on the board and with the birthday bound in the literature convention"></a></p>
+<p><em>Cost of a collision attack on 39-step SHA-256, in log2 of total work, compared like for like. Panel A: under the board&#39;s cost model, the accepted attack beats the best accepted generic search by about 6.5 bits. Panel B: under the literature&#39;s convention, with every inner step charged as a full compression, it stays about 0.4 bits below the 2<sup>128</sup> birthday bound; the published method (ePrint 2026/1120) exceeded it. Source: HashSmash board records (PRs 421 and 574, entry 744875ec); ePrint 2026/1120.</em></p>
+<table>
+<thead>
+<tr>
+<th>Reading</th>
+<th align="right">log2 work</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>Board cost model</em></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>Same program, tighter tail bound (geeknik&#39;s PR 894, AI-valid, in review)</td>
+<td align="right">118.15</td>
+</tr>
+<tr>
+<td>Accepted filing (lamb356&#39;s PR 574)</td>
+<td align="right">118.35</td>
+</tr>
+<tr>
+<td>Same construction, 7-lane packing, no bit-slicing (PR 421)</td>
+<td align="right">120.46</td>
+</tr>
+<tr>
+<td>Best generic search filed on the board (Jbenisek&#39;s 0c1ef7c3, AI-valid, in review)</td>
+<td align="right">124.25</td>
+</tr>
+<tr>
+<td>Best generic search accepted by the board&#39;s reviewer (my 744875ec)</td>
+<td align="right">124.83</td>
+</tr>
+<tr>
+<td><em>Literature convention, every walk evaluation charged as a full compression</em></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>Stage-1 walk evaluations only</td>
+<td align="right">about 126.8</td>
+</tr>
+<tr>
+<td>Walk evaluations of both stages</td>
+<td align="right">about 127.6</td>
+</tr>
+<tr>
+<td>Generic birthday bound</td>
+<td align="right">128</td>
+</tr>
+<tr>
+<td>The paper&#39;s own method at 39 steps</td>
+<td align="right">168</td>
+</tr>
+</tbody></table>
+<p>One evaluation of F costs a few word operations per lane when bit-sliced, and about 70 operations for seven lanes when packed; charging it as a 2812-operation compression is not a reasonable price. I report it because it is the one reading under which the comparison with the literature&#39;s 2<sup>128</sup> needs no convention at all, and the attack still sits below. The 2<sup>126.8</sup> figure counts only the first-stage walk; the second-stage re-walks that locate each claw add two thirds as many evaluations again, which gives 2<sup>127.6</sup>.</p>
+<p>So under the board&#39;s model the construction beats the best accepted generic search by 6.5 bits, and the best generic search filed, which is still in review, by 5.9 bits. Under the harshest model it beats the birthday bound by about 0.4 bits. The first statement is the honest headline. The second shows the result is not an artifact of the accounting, but its margin is smaller than the tail&#39;s four-bit uncertainty: on my stricter tail the harsh reading would be about 2<sup>131.7</sup>, while the board-model reading would still sit 2.4 bits below generic search. The two readings should not be mixed: 2<sup>118.35</sup> is a board-model figure and belongs next to 2<sup>124.83</sup>, while 2<sup>128</sup> belongs next to 2<sup>127.6</sup>.</p>
+<h2>Timeline of submissions</h2>
+<p>The sequence took three days, from my first claw filing on 16 October to lamb356&#39;s accepted filing on 19 October. Two filings on 20 and 21 October, by mitchuski and geeknik, kept lamb356&#39;s program and re-measured its tail.</p>
+<p><strong>Graph 3 · Who built on whom, 15–21 October 2026</strong></p>
+<p><a href="figures/graph3-lineage.svg"><img src="figures/graph3-lineage.svg" alt="Lineage of the filings: three lines of work, mine, sraiw's and Jbenisek's kernel, merging into the two joint filings and two later re-measurements, with the accepted generic search standing apart"></a></p>
+<p><em>Each box is a filing, with its score under the board&#39;s cost model and its status; times are UTC. An arrow means the later filing names the earlier one as a source in its own note. The generic searches are what the attack is measured against; Source: HashSmash pull requests and Yukon submission records, 21 October 2026.</em></p>
+<p>I contributed the observation that A<sub>0</sub> and A<sub>1</sub> are both free at 39 steps, the row-16 claw built on it, the exact side-condition rates by exhaustive enumeration, the pre-registered tail methodology, the generic baseline the result is measured against, and, with Jbenisek, the 5-byte record convention the bit-sliced kernels are priced in. The transplant of the published pair, the bijection theorem, the dual-parity fibre and the tail value the accepted number uses are sraiw&#39;s. The bit-sliced walk and its exact ledger are Jbenisek&#39;s. The shorter kernel is lamb356&#39;s. The characteristic and the semi-free-start pair are the work of Li, Zhang, Li, Liu, Qian and Zhu.</p>
+<p>This is joint work by filers who did not coordinate beyond the board itself. Each filing credits its predecessors by submission id: an early claw filing by sraiw, on the evening of 16 October, names my two filings of that day as its source, PRs 554 and 574 name me as co-author and credit the claw idea and the tail methodology to me, and the two later filings repeat that credit. Their credit lines also name three of my refuted filings, where the ideas first appeared.</p>
+<p>All seven valid packages in the line were written with AI coding agents (Claude Opus, Fable, Gemini and GLM, as declared in the public submission notes). In my case the agents wrote and ran the code; I chose which approaches to try, steered and checked the runs, and argued past the points where an agent declared a route impossible. The board&#39;s judge is itself an AI pipeline with a human decision at the end. &quot;Accepted&quot; is the board&#39;s decision on a package under its rules, in an exploratory lane that admits declared heuristics; it is not a proof of those heuristics and not peer review.</p>
+<h2>Assumptions</h2>
+<p>Every filing declares its score-critical premises. For lamb356&#39;s accepted filing they are: that the chaining value of a random first block behaves as an independent input to the walk and the later events, and that the yield and cost measured on 24 full windows extrapolate to 2<sup>100.84</sup> of them; that a claw is a fair trial for the side conditions and for W<sub>17</sub>, where uniformity of W<sub>17</sub> was tested on 310,224 real claws but only in its low 16 bits; that the tail probability measured on uniform draws of the fibre applies to claws; and that groups of claws with disjoint inputs are independent. Of the 117.48 bits of per-claw probability, 9.81 are exact counts, 32 rest on the uniformity of W<sub>17</sub>, and 75.67 rest on the tail. A correlation between claw selection and the tail would move the exponent one for one, and nothing testable at sandbox scale reaches it.</p>
+<p>Why is the accepted tail so much larger than the 2<sup>−79.8</sup> I measured? Partly because the events differ: my measurement exhausted the row-16 and row-17 words and divided out an exact 2<sup>−64</sup> prefix, while the transplant pins the published values and measures only what follows; partly because of a relaxation at rows 19 and 20 worth 0.8 bits; and partly because the estimators and their treatment of stalled runs differ. The filings do not reconcile the two families of numbers, and the joint report does not either. The four-bit gap between them is the largest single uncertainty in the whole lineage, and anyone evaluating the result should know that. The two later filings rerun the same estimator with about three and five times the proposals per run; their means, 2<sup>−75.33</sup> and 2<sup>−75.25</sup>, sit close to the earlier runs&#39; 2<sup>−75.39</sup>, so they tighten the estimate within its family and do not touch the gap.</p>
+<p>The published pair is free advice in the academic convention and must be constructed in the board&#39;s. The filings count its construction at 2<sup>36</sup> compressions: 2<sup>34</sup> candidates for the dense part, each tested for a non-empty row-16 and row-17 fibre in under four compressions. The paper&#39;s own figure for the corresponding step is 2<sup>34.2</sup>. Whether 2<sup>36</sup> is the right price for &quot;the characteristic plus one dense solution&quot; is a fair question for review; it would have to exceed about 2<sup>118</sup> to change the score.</p>
+<h2>Costs of developing the idea</h2>
+<p>Readers ask what an attack like this costs to produce. For my two early filings, the generic birthday entry 744875ec (124.83, 15 October) and the claw line through its first valid filing (125.25, 17 October), it took about 4 and about 40 hours of elapsed time. The first used under an hour of compute, a ledger and kernel-accounting exercise on an existing search. The second used about 140 core-hours on a 10-core local machine: 55.5 for the SAT campaign that re-derived the trail&#39;s shape, about 46 for the dense-base solver (34 of random restarts, 12.3 for the 1 MiB WebAssembly run), about 40 for the 140-seed tail study, and minutes for the 2<sup>30</sup>-evaluation claw run. That is small by cryptanalytic standards, and it would have been smaller still without the trail re-derivation, which the board&#39;s cost model required me to account for. The figures come from the job logs in my run folders; the method is in the report&#39;s source map.</p>
+<h2>Limitations</h2>
+<p>No colliding pair for 39-step SHA-256 exists or will exist from this work; the ~2<sup>118</sup> compression evaluations is not a computation anyone will run. The result does not touch full SHA-256, whose 64 steps keep a margin of 25 steps over this one. The number is a complexity claim under a stated cost model and declared heuristics, filed on a board and accepted by its reviewer, and it should be cited as exactly that until the technical report has been through review by people who did not write it.</p>
+<h2>Post-AI &amp; quantum cryptography</h2>
+<p>Two families of post-quantum signatures are now standardized: lattice-based (ML-DSA, FIPS 204, with FN-DSA/Falcon still being standardized as FIPS 206) and hash-based (SLH-DSA, FIPS 205). Both are designed to resist quantum computers. They differ in what an attacker must defeat. Lattice schemes rest on structured algebraic problems; hash-based schemes rest only on the properties of a hash function.</p>
+<p><strong>Lattice-based schemes have a long record of failure, even though the core lattice problems have held.</strong> From GGH in 1999 and NTRUSign in its basic form in 2006 to EagleSign in 2023, scheme after scheme fell to attacks on its specific structure (Graph 4). In July 2026, an Anthropic researcher working with Claude Mythos Preview spent about 60 hours finding a hidden symmetry in HAWK&#39;s lattice; the resulting paper (Straznickas and Weis, ePrint 2026/1593) cuts HAWK-512&#39;s estimated key-recovery cost from 2<sup>150</sup> to 2<sup>108</sup>. HAWK was the only lattice-based scheme in Round 3 of NIST&#39;s additional-signature process; its designers withdrew it the next day.</p>
+<p>None of these results breaks the underlying problems (LWE and SIS) or ML-DSA, and HAWK&#39;s attackers state explicitly that ML-DSA and Falcon are unaffected. But the pattern is clear: lattice schemes fail through structure, and AI has now shown it can find exploitable structure that years of human review had not found. NIST anticipated the risk in 2022, when it said it was &quot;primarily interested in additional general-purpose signature schemes that are not based on structured lattices,&quot; in order to diversify its standards.</p>
+<p><strong>Hash-based signatures have a different record.</strong> XMSS, LMS, SPHINCS+ and SLH-DSA have not been broken. The one notable cryptanalytic issue, a 2022 forgery attack on SPHINCS+&#39;s category-five SHA-256 parameter sets, was fixed before FIPS 205, which uses SHA-512 in the affected functions at the higher security levels and keeps SHA-256 for the 128-bit parameter sets. Their foundation, SHA-256, has held for twenty-four years. Unlike MD5 and SHA-1, broken between 2004 and 2017, it uses a substantially stronger design, and no attack on full 64-step SHA-256 has done better than generic search. The attacks that would matter for hash-based signatures are of the preimage type, and on SHA-256 those reach fewer than 50 of 64 steps, at a cost close to the generic 2<sup>256</sup>. SLH-DSA&#39;s security against forgery does not rely on SHA-256&#39;s collision resistance, so the 39-step result has no bearing on it.</p>
+<p>The 39-step result is itself AI-assisted work that found usable structure in reduced SHA-256. The difference is where that structure sits: 25 steps short of the full function, and in a property that SLH-DSA&#39;s security against forgery does not depend on.</p>
+<p><strong>My view.</strong> AI is now a working cryptanalyst, and so far it has been most effective at finding hidden structure. The ground is also moving faster than standards cycles: in 2026 the SHA-256 collision frontier went from 31 to 39 steps, and a Round 3 signature candidate was withdrawn the day after its attack was posted. That makes crypto-agility, the ability to swap a scheme or a parameter set without rebuilding the system around it, more important than ever. For long-lived assets I would pair that agility with the foundation that has the least structure to find: security that rests on the fewest and most-studied assumptions. That is a risk judgment, not a proof.</p>
+<p><strong>Graph 4 · What gave way, 1999–2026</strong></p>
+<p><a href="figures/graph4-what-gave-way.svg"><img src="figures/graph4-what-gave-way.svg" alt="Timeline of broken lattice-based signature schemes against hash-based schemes and SHA-256, 1999 to 2026"></a></p>
+<p><em>Lattice-based schemes broken since 1999, set against hash-based signature schemes and SHA-256. Sources: Nguyen (1999); Nguyen–Regev (2006); Ducas–Nguyen (2012); NIST PQC Round 1 reports; Pulles–Tibouchi, ePrint 2024/1137; Straznickas–Weis, ePrint 2026/1593; NIST pqc-forum, July 2026; Perlner–Kelsey–Cooper, ePrint 2022/1061; NIST FIPS 180-2 and FIPS 205.</em></p>
+<h2>Next steps</h2>
+<p><strong>Review.</strong> A joint technical report with sraiw, Jbenisek and lamb356 is in preparation: the construction stated once, in one notation, with every number mapped to the filing it comes from. It needs review by people who did not write it. The first thing review should press on is the tail, where the two families of measurements differ by four bits and the later filings tighten only one of them.</p>
+<p><strong>Other rows and earlier step counts.</strong> The claw works because two free state words meet in a single condition of the message expansion, at row 16. At 38 steps only one state word is free, so this placement does not exist there, but other pairs of free words, or a condition at another row, might give a claw in the attacks from 35 to 38 steps. The paper&#39;s 39-step SHA-512 attack uses the same message-difference shape; whether its first two state words are free as well, and whether a claw on its 64-bit row-16 condition would pay, is open.</p>
+<p><strong>Later step counts.</strong> Whether the construction reaches 40 steps is open; I expect it does not. It needs two inputs: a semi-free-start collision at the target step count, and a message-difference shape whose cluster starts late enough that the first two state words carry no conditions. Neither is known at 40 steps. No 40-step semi-free-start collision has been published, and the nine-word shape behind the 2026 attacks from 35 to 39 steps has, in the linearised message expansion, a solution space of dimension 2 at 37, 38 and 39 steps and dimension 0 at 40. The linearised model is not the whole space, though: the 37-step attack of ePrint 2026/232 uses a six-word signed pattern that it does not contain, so a usable 40-step shape could come from outside it. The closest known 40-step candidate inside it is the weight-26 codeword that Matusiewicz, Pieprzyk, Pramstaller, Rechberger and Rijmen found in their 2005 analysis of the message expansion as a linear code. It is the same shape with one extra bit on the chaining-value side: its expansion runs back before step 0, which, as they noted, means it cannot be used directly, and using it would need a first block that produces that difference, a near-collision nobody has costed. My working assumption is that the fixed-dense-solution accounting closed 39 steps, the free first two state words were the one currency it left unspent, and at 40 steps nothing obvious is left to spend. That is an assumption, not a result, and I am writing it up separately with the computations behind it.</p>
+<h2>References</h2>
+<p><strong>The attack and the board</strong></p>
+<ol>
+<li>Y. Li, Z. Zhang, M. Li, F. Liu, H. Qian, J. Zhu. &quot;Pushing Collision Attacks on SHA-2 to 39 Steps.&quot; IACR ePrint 2026/1120. <a href="https://eprint.iacr.org/2026/1120">eprint.iacr.org/2026/1120</a></li>
+<li>HashSmash filings in <code>Layr-Labs/hash-smash-pareto</code>, in order: <a href="https://github.com/Layr-Labs/hash-smash-pareto/pull/95">PR 95</a> (dariolina, generic birthday search, 744875ec, accepted); <a href="https://github.com/Layr-Labs/hash-smash-pareto/pull/193">PR 193</a> (dariolina, first row-16 claw filing, 16 October, refuted); <a href="https://github.com/Layr-Labs/hash-smash-pareto/pull/223">PR 223</a> (sraiw, 16 October, citing PR 193&#39;s construction); <a href="https://github.com/Layr-Labs/hash-smash-pareto/pull/282">PR 282</a> (dariolina, withdrawal of the earlier tail estimate, 17 October); <a href="https://github.com/Layr-Labs/hash-smash-pareto/pull/306">PR 306</a> and <a href="https://github.com/Layr-Labs/hash-smash-pareto/pull/416">PR 416</a> (dariolina, the claw construction, AI-valid); <a href="https://github.com/Layr-Labs/hash-smash-pareto/pull/421">PR 421</a> (sraiw, the transplant); <a href="https://github.com/Layr-Labs/hash-smash-pareto/pull/554">PR 554</a> (Jbenisek, co-author dariolina, the bit-sliced walk); <a href="https://github.com/Layr-Labs/hash-smash-pareto/pull/574">PR 574</a> (lamb356, co-author dariolina, accepted 19 October 2026); <a href="https://github.com/Layr-Labs/hash-smash-pareto/pull/845">PR 845</a> (mitchuski, 20 October, larger tail replica); <a href="https://github.com/Layr-Labs/hash-smash-pareto/pull/894">PR 894</a> (geeknik, 21 October, variance-balanced tail replica).</li>
+<li>HashSmash cost model <code>collision-frontier-v5</code>. <a href="https://github.com/Layr-Labs/hash-smash-pareto/blob/master/cost-models/collision-frontier-v5.json">github.com/Layr-Labs/hash-smash-pareto</a></li>
+<li>Yukon submission records of the <code>sha256</code> track (benchmark <code>mooselumph/hashsmash-pareto/sha256</code>), including the scores, review status and public submission notes of every filing cited here, as of 21 October 2026.</li>
+<li>&quot;Preparing the World&#39;s Cryptography for the AI Era, Eigen Labs and Zcash organization Shielded Labs, launch HashSmash, an open multiplayer competition to test how far AI can advance attacks on widely used hash functions.&quot; PR Newswire, 5 October 2026. <a href="https://www.prnewswire.com/news-releases/preparing-the-worlds-cryptography-for-the-ai-era-eigen-labs-and-zcash-organization-shielded-labs-launch-hashsmash-an-open-multiplayer-competition-to-test-how-far-ai-can-advance-attacks-on-widely-used-hash-functions-302897508.html">prnewswire.com</a></li>
+<li>P. C. van Oorschot, M. J. Wiener. &quot;Parallel Collision Search with Cryptanalytic Applications.&quot; Journal of Cryptology, 1999. <a href="https://doi.org/10.1007/PL00003816">doi:10.1007/PL00003816</a></li>
+</ol>
+<p><strong>Collision and preimage attacks on SHA-256 and its predecessors</strong></p>
+<ol start="7">
+<li>S. K. Sanadhya, P. Sarkar. &quot;New Collision Attacks Against Up To 24-step SHA-2.&quot; INDOCRYPT 2008. <a href="https://eprint.iacr.org/2008/270">eprint.iacr.org/2008/270</a></li>
+<li>F. Mendel, T. Nad, M. Schläffer. &quot;Finding SHA-2 Characteristics: Searching through a Minefield of Contradictions.&quot; ASIACRYPT 2011. <a href="https://doi.org/10.1007/978-3-642-25385-0_16">doi:10.1007/978-3-642-25385-0_16</a></li>
+<li>F. Mendel, T. Nad, M. Schläffer. &quot;Improving Local Collisions: New Attacks on Reduced SHA-256.&quot; EUROCRYPT 2013. <a href="https://eprint.iacr.org/2015/350">eprint.iacr.org/2015/350</a></li>
+<li>Y. Li, F. Liu, G. Wang, X. Dong, S. Sun. &quot;The First Practical Collision for 31-Step SHA-256.&quot; ASIACRYPT 2024. <a href="https://doi.org/10.1007/978-981-96-0941-3_8">doi:10.1007/978-981-96-0941-3_8</a></li>
+<li>Z. Zhang, M. Li, L. Gao, M. Wang. &quot;Collision Attacks on SHA-256 up to 37 Steps with Improved Trail Search.&quot; EUROCRYPT 2026. <a href="https://eprint.iacr.org/2026/232">eprint.iacr.org/2026/232</a></li>
+<li>Y. Li, F. Liu, G. Wang, J. Shi. &quot;Pushing the Limit of Memory-efficient Collision Attack Framework for SHA-2.&quot; CRYPTO 2026. <a href="https://eprint.iacr.org/2026/1080">eprint.iacr.org/2026/1080</a></li>
+<li>K. Matusiewicz, J. Pieprzyk, N. Pramstaller, C. Rechberger, V. Rijmen. &quot;Analysis of simplified variants of SHA-256.&quot; WEWoRC 2005, LNI P-74. <a href="https://dl.gi.de/handle/20.500.12116/24844">dl.gi.de/handle/20.500.12116/24844</a></li>
+<li>D. Khovratovich, C. Rechberger, A. Savelieva. &quot;Bicliques for Preimages: Attacks on Skein-512 and the SHA-2 family.&quot; FSE 2012. <a href="https://eprint.iacr.org/2011/286">eprint.iacr.org/2011/286</a></li>
+<li>X. Wang, D. Feng, X. Lai, H. Yu. &quot;Collisions for Hash Functions MD4, MD5, HAVAL-128 and RIPEMD.&quot; 2004. <a href="https://eprint.iacr.org/2004/199">eprint.iacr.org/2004/199</a></li>
+<li>M. Stevens, E. Bursztein, P. Karpman, A. Albertini, Y. Markov. &quot;The first collision for full SHA-1.&quot; CRYPTO 2017. <a href="https://eprint.iacr.org/2017/190">eprint.iacr.org/2017/190</a></li>
+<li>NIST. FIPS 180-2, Secure Hash Standard, August 2002. <a href="https://csrc.nist.gov/pubs/fips/180-2/upd1/final">csrc.nist.gov/pubs/fips/180-2</a></li>
+</ol>
+<p><strong>Post-quantum signatures</strong></p>
+<ol start="18">
+<li>P. Q. Nguyen. &quot;Cryptanalysis of the Goldreich-Goldwasser-Halevi Cryptosystem from Crypto &#39;97.&quot; CRYPTO 1999. <a href="https://doi.org/10.1007/3-540-48405-1_18">doi:10.1007/3-540-48405-1_18</a></li>
+<li>P. Q. Nguyen, O. Regev. &quot;Learning a Parallelepiped: Cryptanalysis of GGH and NTRU Signatures.&quot; EUROCRYPT 2006. <a href="https://doi.org/10.1007/11761679_17">doi:10.1007/11761679_17</a></li>
+<li>L. Ducas, P. Q. Nguyen. &quot;Learning a Zonotope and More: Cryptanalysis of NTRUSign Countermeasures.&quot; ASIACRYPT 2012. <a href="https://doi.org/10.1007/978-3-642-34961-4_27">doi:10.1007/978-3-642-34961-4_27</a></li>
+<li>NIST IR 8240. &quot;Status Report on the First Round of the NIST Post-Quantum Cryptography Standardization Process.&quot; 2019. <a href="https://doi.org/10.6028/NIST.IR.8240">doi:10.6028/NIST.IR.8240</a></li>
+<li>L. N. Pulles, M. Tibouchi. &quot;Cryptanalysis of EagleSign.&quot; SCN 2024. <a href="https://eprint.iacr.org/2024/1137">eprint.iacr.org/2024/1137</a></li>
+<li>Anthropic. &quot;Discovering cryptographic weaknesses with Claude.&quot; 28 July 2026. <a href="https://www.anthropic.com/research/discovering-cryptographic-weaknesses">anthropic.com/research</a></li>
+<li>Z. Straznickas, S. A. Weis. &quot;HAWK-n Key Recovery Reduces to SVP in Dimension n/2 + 1.&quot; IACR ePrint 2026/1593. <a href="https://eprint.iacr.org/2026/1593">eprint.iacr.org/2026/1593</a></li>
+<li>S. Weis. &quot;HAWK-n Key Recovery Reduces to SVP in Dimension n/2 + 1.&quot; NIST pqc-forum, 28 July 2026. <a href="https://groups.google.com/a/list.nist.gov/g/pqc-forum/c/2r2u6SbHun4">groups.google.com</a></li>
+<li>NIST. &quot;Nine Candidates Advance to the Third Round of the Additional Digital Signatures for the PQC Standardization Process,&quot; with its note on HAWK&#39;s withdrawal on 29 July 2026; and the Round 3 candidate list. <a href="https://www.nist.gov/news-events/news/2026/05/nine-candidates-advance-third-round-additional-digital-signatures-pqc">nist.gov</a>, <a href="https://csrc.nist.gov/Projects/pqc-dig-sig/round-3-additional-signatures">csrc.nist.gov</a></li>
+<li>NIST. &quot;Request for Additional PQC Digital Signature Schemes.&quot; 6 September 2022. <a href="https://csrc.nist.gov/News/2022/request-additional-pqc-digital-signature-schemes">csrc.nist.gov</a></li>
+<li>R. Perlner, J. Kelsey, D. Cooper. &quot;Breaking Category Five SPHINCS+ with SHA-256.&quot; PQCrypto 2022. <a href="https://eprint.iacr.org/2022/1061">eprint.iacr.org/2022/1061</a></li>
+<li>J. Buchmann, E. Dahmen, A. Hülsing. &quot;XMSS – A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions.&quot; PQCrypto 2011. <a href="https://doi.org/10.1007/978-3-642-25405-5_8">doi:10.1007/978-3-642-25405-5_8</a>; standardized as <a href="https://www.rfc-editor.org/rfc/rfc8391">RFC 8391</a></li>
+<li>D. McGrew, M. Curcio, S. Fluhrer. &quot;Leighton-Micali Hash-Based Signatures.&quot; <a href="https://www.rfc-editor.org/rfc/rfc8554">RFC 8554</a>, 2019.</li>
+<li>D. J. Bernstein, D. Hopwood, A. Hülsing, T. Lange, R. Niederhagen, L. Papachristodoulou, M. Schneider, P. Schwabe, Z. Wilcox-O&#39;Hearn. &quot;SPHINCS: practical stateless hash-based signatures.&quot; EUROCRYPT 2015. <a href="https://eprint.iacr.org/2014/795">eprint.iacr.org/2014/795</a></li>
+<li>NIST. FIPS 204, Module-Lattice-Based Digital Signature Standard (ML-DSA), and FIPS 205, Stateless Hash-Based Digital Signature Standard (SLH-DSA), August 2024. <a href="https://doi.org/10.6028/NIST.FIPS.204">doi:10.6028/NIST.FIPS.204</a>, <a href="https://doi.org/10.6028/NIST.FIPS.205">doi:10.6028/NIST.FIPS.205</a></li>
+</ol>
+
+        </article>
+
+        <!-- Commercial CTA -->
+        <div class="blog-body" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(40,55,113,0.15);">
+            <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75em; color: var(--fg);">Evaluate PQ-native infrastructure for your institution</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 1em;">
+                <a href="../../pilot.html" style="display: inline-block; background-color: var(--fg); color: #fff; padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Book a Pilot Call</a>
+                <a href="../../post_quantum_exposure_map_institutional_crypto_tokenized_assets.html" style="display: inline-block; border: 1px solid var(--fg); color: var(--fg); padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Exposure Map</a>
+                <!--<a href="../../testnet.html" style="display: inline-block; border: 1px solid var(--fg); color: var(--fg); padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Explore Testnet</a>-->
+            </div>
+        </div>
+    </main>
+
+    {% include footer.html %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuButton = document.getElementById('mobile-menu-button');
+            var mobileMenu = document.getElementById('mobile-menu');
+            var iconMenu = document.getElementById('icon-menu');
+            var iconClose = document.getElementById('icon-close');
+            function closeMenu() {
+                if (!mobileMenu) return;
+                mobileMenu.classList.add('hidden');
+                if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+                if (iconMenu) iconMenu.classList.remove('hidden');
+                if (iconClose) iconClose.classList.add('hidden');
+            }
+            function openMenu() {
+                if (!mobileMenu) return;
+                mobileMenu.classList.remove('hidden');
+                if (menuButton) menuButton.setAttribute('aria-expanded', 'true');
+                if (iconMenu) iconMenu.classList.add('hidden');
+                if (iconClose) iconClose.classList.remove('hidden');
+            }
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() {
+                    if (mobileMenu.classList.contains('hidden')) openMenu(); else closeMenu();
+                });
+                mobileMenu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+                document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+                window.addEventListener('resize', function() { if (window.innerWidth >= 768) closeMenu(); });
+            }
+        });
+    </script>
+</body>
+</html>

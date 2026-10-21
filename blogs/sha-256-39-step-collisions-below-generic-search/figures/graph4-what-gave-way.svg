@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" width="760" height="430" role="img" aria-label="Graph 4: what gave way, 1999–2026" font-family='"IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif'>
+<title>Graph 4: what gave way, 1999–2026</title>
+<rect width="760" height="430" fill="#ffffff"/>
+<text x="30.0" y="20.0" font-size="13" fill="#1a1a19" text-anchor="start" font-weight="600">Lattice-based schemes broken</text>
+<line x1="48.7" y1="84.0" x2="713.7" y2="84.0" stroke="#b9b8b2" stroke-width="1.5" stroke-linecap="butt"/>
+<circle cx="65.0" cy="84.0" r="5" fill="#77756f" stroke="#ffffff" stroke-width="2"/>
+<text x="65.0" y="56.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">GGH encryption</text>
+<text x="65.0" y="69.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">1999</text>
+<circle cx="228.3" cy="84.0" r="5" fill="#77756f" stroke="#ffffff" stroke-width="2"/>
+<text x="228.3" y="108.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">NTRUSign (basic)</text>
+<text x="228.3" y="121.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">2006</text>
+<circle cx="368.3" cy="84.0" r="5" fill="#77756f" stroke="#ffffff" stroke-width="2"/>
+<text x="368.3" y="56.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">NTRUSign fixes</text>
+<text x="368.3" y="69.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">2012</text>
+<circle cx="508.3" cy="84.0" r="5" fill="#77756f" stroke="#ffffff" stroke-width="2"/>
+<text x="508.3" y="108.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">NIST round-1 lattice</text>
+<text x="508.3" y="121.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">(e.g. Compact-LWE) 2017–19</text>
+<circle cx="625.0" cy="84.0" r="5" fill="#77756f" stroke="#ffffff" stroke-width="2"/>
+<text x="625.0" y="56.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">EagleSign</text>
+<text x="625.0" y="69.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">2023</text>
+<circle cx="708.4" cy="84.0" r="6" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="712.4" y="108.0" font-size="11" fill="#eb6834" text-anchor="end" font-weight="600">HAWK · Jul 2026</text>
+<text x="712.4" y="121.0" font-size="11" fill="#eb6834" text-anchor="end" font-weight="600">AI-assisted, withdrawn</text>
+<text x="30.0" y="158.0" font-size="13" fill="#1a1a19" text-anchor="start" font-weight="600">Hash-based signature schemes</text>
+<rect x="345.0" y="207" width="368.7" height="10" rx="5" fill="#2a78d6"/>
+<line x1="345.0" y1="194.0" x2="345.0" y2="207.0" stroke="#2a78d6" stroke-width="1.2" stroke-linecap="butt"/>
+<text x="345.0" y="176.0" font-size="11" fill="#2a78d6" text-anchor="middle" font-weight="600">XMSS</text>
+<text x="345.0" y="189.0" font-size="11" fill="#2a78d6" text-anchor="middle" font-weight="normal">2011</text>
+<line x1="438.3" y1="194.0" x2="438.3" y2="207.0" stroke="#2a78d6" stroke-width="1.2" stroke-linecap="butt"/>
+<text x="448.3" y="176.0" font-size="11" fill="#2a78d6" text-anchor="end" font-weight="600">SPHINCS</text>
+<text x="448.3" y="189.0" font-size="11" fill="#2a78d6" text-anchor="end" font-weight="normal">2015</text>
+<line x1="485.0" y1="194.0" x2="485.0" y2="207.0" stroke="#2a78d6" stroke-width="1.2" stroke-linecap="butt"/>
+<text x="475.0" y="176.0" font-size="11" fill="#2a78d6" text-anchor="start" font-weight="600">SPHINCS+</text>
+<text x="475.0" y="189.0" font-size="11" fill="#2a78d6" text-anchor="start" font-weight="normal">2017</text>
+<line x1="648.3" y1="194.0" x2="648.3" y2="207.0" stroke="#2a78d6" stroke-width="1.2" stroke-linecap="butt"/>
+<text x="648.3" y="176.0" font-size="11" fill="#2a78d6" text-anchor="middle" font-weight="600">SLH-DSA</text>
+<text x="648.3" y="189.0" font-size="11" fill="#2a78d6" text-anchor="middle" font-weight="normal">FIPS 205, 2024</text>
+<text x="345.0" y="236.0" font-size="12" fill="#2a78d6" text-anchor="start" font-weight="700">None broken</text>
+<circle cx="601.7" cy="212" r="6" fill="#ffffff" stroke="#eb6834" stroke-width="2.5"/>
+<text x="601.7" y="236.0" font-size="10.5" fill="#b4521f" text-anchor="middle" font-weight="normal">2022 · category-5 SHA-256</text>
+<text x="601.7" y="249.0" font-size="10.5" fill="#b4521f" text-anchor="middle" font-weight="normal">parameter weakness, fixed</text>
+<text x="30.0" y="284.0" font-size="13" fill="#1a1a19" text-anchor="start" font-weight="600">SHA-256</text>
+<rect x="135.0" y="299" width="578.7" height="10" rx="5" fill="#2a78d6"/>
+<text x="135.0" y="328.0" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">Standardized 2002 (FIPS 180-2)</text>
+<text x="713.7" y="328.0" font-size="11" fill="#52514e" text-anchor="end" font-weight="normal">No attack on full SHA-256 better than generic</text>
+<line x1="30.0" y1="350.0" x2="730.0" y2="350.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<line x1="88.3" y1="350.0" x2="88.3" y2="354.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<text x="88.3" y="368.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">2000</text>
+<line x1="205.0" y1="350.0" x2="205.0" y2="354.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<text x="205.0" y="368.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">2005</text>
+<line x1="321.7" y1="350.0" x2="321.7" y2="354.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<text x="321.7" y="368.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">2010</text>
+<line x1="438.3" y1="350.0" x2="438.3" y2="354.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<text x="438.3" y="368.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">2015</text>
+<line x1="555.0" y1="350.0" x2="555.0" y2="354.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<text x="555.0" y="368.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">2020</text>
+<line x1="671.7" y1="350.0" x2="671.7" y2="354.0" stroke="#b9b8b2" stroke-width="1" stroke-linecap="butt"/>
+<text x="671.7" y="368.0" font-size="11" fill="#8a8984" text-anchor="middle" font-weight="normal">2025</text>
+<text x="30.0" y="392.0" font-size="10.5" fill="#8a8984" text-anchor="start" font-weight="normal">Scheme failures shown. The core lattice problems (LWE, SIS) and ML-DSA remain unbroken.</text>
+<text x="30.0" y="406.0" font-size="10.5" fill="#8a8984" text-anchor="start" font-weight="normal">Implementation attacks (side channels, faults) affect both families and are not shown.</text>
+<text x="30.0" y="420.0" font-size="10.5" fill="#8a8984" text-anchor="start" font-weight="normal">Earlier hash functions MD5 and SHA-1 were broken in 2004–2017; SHA-2 uses a substantially stronger design.</text>
+</svg>

@@ -13,6 +13,20 @@ const root = path.resolve(process.cwd());
 const blogPath = path.resolve(root, blogFolder);
 const blogsDir = path.join(root, 'blogs');
 const postMetaMap = {
+  'sha-256-39-step-collisions-below-generic-search': {
+    datePublished: '2026-10-21',
+    description: 'A collision attack on 39-step SHA-256 costs about 2^118.35 under the HashSmash cost model, against 2^124.83 for generic search. How it works, who built what, and what it rests on.',
+    keywords: 'SHA-256, collision attack, reduced-round SHA-256, 39-step SHA-256, differential cryptanalysis, HashSmash, AI-assisted cryptanalysis, hash-based signatures, SLH-DSA, post-quantum signatures',
+    about: ['SHA-256', 'Collision Attack', 'Differential Cryptanalysis', 'AI-Assisted Cryptanalysis', 'Hash-Based Signatures'],
+    authorLine: 'Dariia Porechna, cryptographer, co-founder of EternaX',
+    typesetNotation: true,
+    scholarlyArticle: {
+      '@type': 'ScholarlyArticle',
+      name: 'Pushing Collision Attacks on SHA-2 to 39 Steps',
+      url: 'https://eprint.iacr.org/2026/1120',
+      identifier: 'IACR ePrint 2026/1120'
+    }
+  },
   'how-to-actually-get-crypto-agile': {
     datePublished: '2026-08-27',
     description: 'Clients ask how to get crypto-agility. The official answer is an inventory. A CBOM names primitives; it does not see that one signature is identity, authorization, admission, and evidence.',
