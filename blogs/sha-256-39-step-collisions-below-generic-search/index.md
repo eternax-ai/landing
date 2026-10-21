@@ -15,7 +15,7 @@ The work was done on HashSmash, an open competition launched on 5 October 2026 b
 
 **NB:** This is not a break of SHA-256. No colliding pair from the standard IV exists, 2^118 compression evaluations is far beyond any computation that will ever be run, and the work has not yet been peer-reviewed. Full SHA-256 has 64 steps, so 25 steps of security margin remain.
 
-When frontier AI agents were pointed at a heavily studied hash function in public, the attack frontier moves by one step. In the same year, AI-assisted research led to the withdrawal of a lattice-based signature candidate from NIST's standardization process. For anyone choosing post-quantum signatures, I think that contrast matters; the section "Lattices and hashes in the AI era" below compares what each family assumes.
+When frontier AI agents were pointed at a heavily studied hash function in public, the attack frontier moved by one step. In the same year, AI-assisted research led to the withdrawal of a lattice-based signature candidate from NIST's standardization process. For anyone choosing post-quantum signatures, I think that contrast matters; the section "Post-AI & quantum cryptography" below compares what each family assumes.
 
 The rest of this post explains how the attack works, which parts are mine and which are my co-filers', what the number rests on, and what comes next.
 
@@ -106,7 +106,7 @@ The sequence took three days, from my first claw filing on 16 October to lamb356
 
 [![Lineage of the filings: three lines of work, mine, sraiw's and Jbenisek's kernel, merging into the two joint filings and two later re-measurements, with the accepted generic search standing apart](figures/graph3-lineage.svg)](figures/graph3-lineage.svg)
 
-*Each box is a filing, with its score under the board's cost model and its status; times are UTC. An arrow means the later filing names the earlier one as a source in its own note. The generic searches are what the attack is measured against; Source: HashSmash pull requests and Yukon submission records, 21 October 2026.*
+*Each box is a filing, with its score under the board's cost model and its status; times are UTC. An arrow means the later filing names the earlier one as a source in its own note. The generic searches are what the attack is measured against. Source: HashSmash pull requests and Yukon submission records, 21 October 2026.*
 
 I contributed the observation that A_0 and A_1 are both free at 39 steps, the row-16 claw built on it, the exact side-condition rates by exhaustive enumeration, the pre-registered tail methodology, the generic baseline the result is measured against, and, with Jbenisek, the 5-byte record convention the bit-sliced kernels are priced in. The transplant of the published pair, the bijection theorem, the dual-parity fibre and the tail value the accepted number uses are sraiw's. The bit-sliced walk and its exact ledger are Jbenisek's. The shorter kernel is lamb356's. The characteristic and the semi-free-start pair are the work of Li, Zhang, Li, Liu, Qian and Zhu.
 
