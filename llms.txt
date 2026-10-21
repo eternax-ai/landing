@@ -29,6 +29,10 @@
 - [Cryptographic Migration Debt Framework for Institutions](https://eternax.ai/post-quantum-cryptography-risk-framework-for-institutions.html): Post-quantum exposure framework quantifying migration costs.
 - [Already Broken — Quantum Risk Report Q1 2026](https://eternax.ai/already-broken-quantum-risk-report-q1-2026.html): The case that institutional blockchain infrastructure is already at risk.
 
+## Research Posts
+
+- [Pushing Collision Attacks on 39-Step SHA-256 Below Generic Search](https://eternax.ai/blogs/sha-256-39-step-collisions-below-generic-search/index.html): A HashSmash collision attack on SHA-256 reduced to 39 of 64 steps, at about 2^118.35 under the board's cost model against 2^124.83 for generic search; not a break of full SHA-256.
+
 ## Contact
 
 - Email: info@eternax.ai
