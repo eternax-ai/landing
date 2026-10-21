@@ -223,10 +223,17 @@ content = content.replace(/<h1>([\s\S]*?)<\/h1>/, (match, h1Content) => {
   return `<h1>${h1Content}</h1>\n<p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 0.25em;">${escapeHtml(publishedDate)}</p>\n<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: ${authorLine}</p>`;
 });
 
-const blogPostingExtensions =
+// Share image: a post's own ogImage (a 1200x630 file in its folder) or the site-wide preview.
+const ogImage = postMeta.ogImage
+  ? `https://eternax.ai/blogs/${slug}/${postMeta.ogImage}`
+  : 'https://eternax.ai/assets/preview.png';
+const ogImageAlt = postMeta.ogImageAlt || 'EternaX - Post-Quantum Market Infrastructure';
+
+let blogPostingExtensions =
   postMeta.scholarlyArticle && typeof postMeta.scholarlyArticle === 'object'
     ? ',\n      "isBasedOn": ' + JSON.stringify(postMeta.scholarlyArticle)
     : '';
+if (postMeta.ogImage) blogPostingExtensions += ',\n      "image": ' + JSON.stringify(ogImage);
 
 const templatePath = path.join(__dirname, 'blog-template.html');
 let html = fs.readFileSync(templatePath, 'utf8');
@@ -241,6 +248,8 @@ html = html
   .replace(/\{\{keywords\}\}/g, escapeHtml(postMeta.keywords))
   .replace(/\{\{keywordsJson\}\}/g, JSON.stringify(postMeta.keywords))
   .replace(/\{\{aboutJson\}\}/g, JSON.stringify(postMeta.about.map((name) => ({ '@type': 'Thing', name }))))
+  .replace(/\{\{ogImage\}\}/g, ogImage)
+  .replace(/\{\{ogImageAlt\}\}/g, escapeHtml(ogImageAlt))
   .replace(/\{\{blogPostingExtensions\}\}/g, blogPostingExtensions)
   .replace(/\{\{content\}\}/, content);
 
