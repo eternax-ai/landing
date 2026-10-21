@@ -20,6 +20,8 @@ const postMetaMap = {
     about: ['SHA-256', 'Collision Attack', 'Differential Cryptanalysis', 'AI-Assisted Cryptanalysis', 'Hash-Based Signatures'],
     authorLine: 'Dariia Porechna, cryptographer, co-founder of EternaX',
     typesetNotation: true,
+    ogImage: 'share-card.png',
+    ogImageAlt: '39 of 64 steps of SHA-256: a collision attack below generic search, 2^118.35 vs 2^124.83 under the HashSmash cost model',
     scholarlyArticle: {
       '@type': 'ScholarlyArticle',
       name: 'Pushing Collision Attacks on SHA-2 to 39 Steps',

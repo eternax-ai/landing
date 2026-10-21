@@ -1,5 +1,7 @@
 # Pushing Collision Attacks on 39-Step SHA-256 Below Generic Search
 
+![Two walks, from even and from odd inputs, meet at one point and continue together to a distinguished point](hero-claw.svg)
+
 ## At a glance
 
 | Figure | What it means |
