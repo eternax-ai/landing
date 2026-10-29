@@ -31,6 +31,7 @@
 
 ## Research Posts
 
+- [The 100-Key Vault: one block, no Bitcoin fork](https://eternax.ai/blogs/one-time-vault/index.html): One-Time Vaulting, a Bitcoin custody method that holds coins in a P2WSH address behind 100 fresh keys that all must sign, spends each address once, and approves every spend with SLH-DSA off chain; post-quantum secure at rest and quantum-resilient in flight on today's Bitcoin, with no fork and a confirmed mainnet spend; the in-flight protection is a dated work factor, not post-quantum signatures.
 - [Pushing Collision Attacks on 39-Step SHA-256 Below Generic Search](https://eternax.ai/blogs/sha-256-39-step-collisions-below-generic-search/index.html): A HashSmash collision attack on SHA-256 reduced to 39 of 64 steps, at about 2^118.35 under the board's cost model against 2^124.83 for generic search; not a break of full SHA-256.
 
 ## Contact
