@@ -18,6 +18,8 @@
 - [Stablecoin Issuers](https://eternax.ai/stablecoin-issuers.html): PQ-native mint/burn from day one. For stablecoin issuers, payment networks, and banks.
 - [Tokenized Funds & RWAs](https://eternax.ai/tokenized-funds-rwas.html): One PQ-native chain replacing multi-chain classical deployments. For asset managers and RWA platforms.
 - [Custody & MPC Providers](https://eternax.ai/custody-mpc-providers.html): Dual-gate post-quantum custody authorization. Preserve distributed approval without threshold SLH-DSA.
+- [EternaX Vault](https://eternax.ai/post-quantum-vault.html): Post-quantum secure vault for ETH, stablecoins and any ERC-20 on Ethereum and EVM chains. Payments are approved with NIST post-quantum signatures (SLH-DSA or ML-DSA) from existing HSMs or MPC; EternaX never holds keys or funds. Live on testnet; 30-day pilots for institutions and platforms.
+- [EternaX Bitcoin Vault](https://eternax.ai/post-quantum-bitcoin-vault.html): Bitcoin custody on an institution's existing HSM, with no fork: coins rest behind a hash, every spend needs 100 keys plus SLH-DSA or ML-DSA approvals; post-quantum secure at rest, quantum-resilient in flight. For banks, wealth managers, family offices and wealth platforms; no-cost 30-day pilot.
 
 ## Research Reports
 
