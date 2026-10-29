@@ -1,0 +1,1727 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100-Key Vault: Post-Quantum Bitcoin Custody Today | EternaX</title>
+<meta name="description" content="Post-quantum secure at rest, quantum-resilient in flight, on today's Bitcoin: no fork, no HSM changes. The 100-Key Vault, with math, dates, cost and mainnet proof.">
+<meta name="keywords" content="quantum-safe settlement, post-quantum cryptography, PQ-native assets, post-quantum market infrastructure, quantum-resistant blockchain, quantum-safe signatures, PQ-safe vaults, post-quantum stablecoin, RWA tokenization, auditable privacy, spendable finality, post-quantum settlement, 100-key vault, one-time vault, One-Time Vaulting, OTV, is Bitcoin quantum safe, Bitcoin post-quantum without a fork, quantum-resilient Bitcoin custody, on-spend attack, Google 9 minutes Bitcoin, P2WSH 100 keys, BIP-360, QSB StarkWare, SLH-DSA">
+<meta name="author" content="Paarrthhh Birla, Dariia Porechna, EternaX Labs">
+<link rel="canonical" href="https://eternax.ai/blogs/one-time-vault/index.html">
+<meta name="theme-color" content="#e2e2e2">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<meta name="language" content="English">
+<meta name="distribution" content="global">
+<meta name="rating" content="general">
+<meta name="format-detection" content="telephone=no">
+<meta name="ai-content-declaration" content="Research, modelling and drafting assisted by AI; all claims reviewed and sourced by EternaX Labs.">
+<meta property="article:publisher" content="https://www.linkedin.com/company/eternax-labs">
+<meta property="article:published_time" content="2026-10-27">
+<meta property="article:modified_time" content="2026-10-28">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://eternax.ai/blogs/one-time-vault/index.html">
+<meta property="og:title" content="The 100-Key Vault: post-quantum secure at rest, quantum-resilient in flight, on today's Bitcoin">
+<meta property="og:description" content="Bitcoin is not post-quantum secure today. It can be made post-quantum secure at rest and quantum-resilient in flight right now, with no fork and no change to Bitcoin. Here is the method, the math, the dates, and the transaction.">
+<meta property="og:image" content="https://eternax.ai/assets/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+<meta property="og:site_name" content="EternaX Labs">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://eternax.ai/blogs/one-time-vault/index.html">
+<meta name="twitter:title" content="The 100-Key Vault: a quantum-resilient way to hold Bitcoin today, without changing Bitcoin">
+<meta name="twitter:description" content="Every key is seen once. An attacker has one block to break all 100. Post-quantum secure at rest, quantum-resilient in flight, on the Bitcoin that exists. The math, the dates, the objections, the cost.">
+<meta name="twitter:image" content="https://eternax.ai/assets/preview.png">
+<meta name="twitter:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+<meta name="twitter:site" content="@EternaXlabs">
+<meta name="twitter:creator" content="@parthweb34ai">
+<link rel="icon" type="image/svg+xml" href="../../assets/eternax-icon.svg">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../styles/tailwind.generated.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+<style>
+/* Page-specific article layout. Tokens and shared components (callout, table-wrap,
+   stat-card, cta-block, faq-item) come from styles/tailwind.css. */
+.article-shell {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: calc(2.5rem + 64px) 24px 3rem;
+}
+.article-shell [id] { scroll-margin-top: 84px; }
+.article-shell h1 {
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+}
+.article-shell h2 { margin: 3rem 0 1rem; }
+.article-shell h3 {
+  font-size: 1.2rem;
+  line-height: 1.35;
+  margin: 2rem 0 0.6rem;
+}
+.article-shell h3.ask { color: var(--brand); }
+.article-shell a { color: var(--green); }
+.article-shell .cta-link { color: var(--brand); }
+.article-shell .cta-link-ghost { color: #fff; }
+.article-shell .cover-eyebrow span { opacity: 0.55; margin: 0 0.25rem; }
+.article-shell .meta-line {
+  margin-bottom: 1.75rem;
+  line-height: 1.5;
+}
+.article-shell .meta-line a {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+.article-shell ul,
+.article-shell ol {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+.article-shell ul { list-style: disc; }
+.article-shell ol { list-style: decimal; }
+.article-shell li { margin: 0 0 0.5rem; }
+.article-shell code {
+  background: rgba(40,55,113,0.07);
+  border-radius: 4px;
+  font-size: 0.88em;
+  padding: 0.1em 0.35em;
+}
+.article-shell pre {
+  background: rgba(40,55,113,0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 1rem 0 1.25rem;
+  overflow-x: auto;
+  padding: 1rem 1.15rem;
+}
+.article-shell pre code { background: none; padding: 0; }
+.article-shell .callout { margin: 1.75rem 0; }
+.lead { font-size: 1.1rem; }
+.small {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+.pull {
+  border-left: 3px solid var(--brand);
+  color: var(--brand);
+  font-family: var(--font-condensed);
+  font-size: 1.55rem;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 2rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+}
+.abstract {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin: 0 0 1.5rem;
+  padding: 1.1rem 1.35rem;
+}
+.summary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(24,33,63,0.04);
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0 0.5rem;
+  padding: 1.5rem 1.65rem;
+}
+.summary .row {
+  align-items: start;
+  border-top: 1px solid var(--border);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 130px minmax(0, 1fr);
+  padding-top: 1rem;
+}
+.summary .row:first-child { border-top: 0; padding-top: 0; }
+.summary .lab {
+  color: var(--brand);
+  font-family: var(--font-condensed);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.summary .stats-grid {
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+}
+.summary .stat-card { padding: 1rem; }
+.toc {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+}
+.article-shell .toc ol {
+  column-gap: 1.75rem;
+  columns: 2;
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+.toc li { break-inside: avoid; margin: 0 0 0.25rem; }
+.toc a { text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.fig {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(24,33,63,0.04);
+  margin: 1.75rem 0;
+  padding: 1.1rem 1.1rem 0.75rem;
+}
+.fig svg { display: block; height: auto; width: 100%; }
+.fig .cap {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0.6rem 0.25rem 0;
+}
+.fig .cap b { color: var(--text); font-weight: 600; }
+.table-wrap table { min-width: 640px; }
+.table-wrap td.hl { background: rgba(40,55,113,0.06); }
+.table-wide {
+  margin-left: calc(50% - min(540px, calc(50vw - 20px)));
+  width: min(1080px, calc(100vw - 40px));
+}
+.table-wide table { min-width: 900px; }
+.table-wide thead th { white-space: normal; }
+.calc {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(24,33,63,0.04);
+  margin: 1.5rem 0;
+  padding: 1.35rem 1.5rem;
+}
+.calc-grid {
+  display: grid;
+  gap: 0.9rem 1.5rem;
+  grid-template-columns: 1fr 1fr;
+}
+.calc label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  font-weight: 500;
+  gap: 0.4rem;
+}
+.calc label.calc-check {
+  align-items: center;
+  flex-direction: row;
+  gap: 0.6rem;
+  grid-column: 1 / -1;
+}
+.calc input[type=range] { accent-color: var(--brand); width: 100%; }
+.calc input[type=range]:focus-visible { outline: 2px solid var(--brand); outline-offset: 4px; }
+.calc select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.85rem;
+  padding: 0.5rem 0.6rem;
+}
+.calc-val {
+  color: var(--brand);
+  font-family: var(--font-condensed);
+  font-weight: 600;
+  margin-left: 0.35rem;
+}
+.calc-out {
+  border-top: 1px solid var(--border);
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+}
+.calc-big {
+  color: var(--brand);
+  font-family: var(--font-condensed);
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.calc-sub { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.4rem; }
+.calc-note { font-size: 0.92rem; margin-top: 0.6rem; }
+.calc .small { margin: 1rem 0 0; }
+.glossary {
+  display: grid;
+  font-size: 0.88rem;
+  gap: 0.5rem 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  margin: 1rem 0 1.5rem;
+}
+.glossary b { font-weight: 600; }
+.article-shell .refs { font-size: 0.82rem; line-height: 1.55; }
+.refs li { word-break: break-word; }
+.article-shell .cta-block {
+  display: block;
+  justify-items: unset;
+  padding: 2.5rem 2rem;
+  text-align: left;
+}
+.article-shell .cta-block h2 {
+  margin: 0 0 0.9rem;
+  max-width: none;
+  text-align: left;
+}
+.faq-section {
+  border-top: 2px solid var(--brand);
+  margin-top: 3rem;
+  padding-top: 2rem;
+}
+.article-shell .faq-section h2 { margin-top: 0; }
+.faq-intro { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem; }
+.faq-answer p:last-child { margin-bottom: 0; }
+@media (max-width: 768px) {
+  .article-shell { padding: calc(2rem + 64px) 1rem 2rem; }
+}
+@media (max-width: 640px) {
+  .summary { padding: 1.1rem 1rem; }
+  .summary .row { gap: 0.4rem; grid-template-columns: 1fr; }
+  .summary .stats-grid,
+  .calc-grid,
+  .glossary { grid-template-columns: 1fr; }
+  .article-shell .toc ol { columns: 1; }
+  .fig { overflow-x: auto; padding: 0.75rem 0.75rem 0.5rem; }
+  .fig svg { min-width: 600px; }
+  .pull { font-size: 1.3rem; }
+  .calc { padding: 1rem; }
+  .calc-big { font-size: 2.25rem; }
+  .article-shell .cta-block { padding: 1.75rem 1.25rem; }
+}
+@media print {
+  nav.fixed, footer, .toc, .cta-row { display: none; }
+  .article-shell { padding-top: 0; }
+  .table-wide { margin-left: 0; width: auto; }
+  .table-wide table { min-width: 0; }
+  .fig, .callout, .summary { break-inside: avoid; }
+}
+</style>
+</head>
+<body class="font-sans">
+{% include navbar.html %}
+
+<main class="article-shell">
+<article>
+<div class="cover-eyebrow">EternaX Labs <span>/</span> Bitcoin custody <span>/</span> October 2026</div>
+<h1>The 100-Key Vault: one block, no Bitcoin fork</h1>
+<p class="subtitle">Bitcoin is not post-quantum secure today, and the fix in the protocol is years away. We propose a method, One-Time Vaulting, that makes Bitcoin custody <b>post-quantum secure at rest and quantum-resilient in flight</b> on the Bitcoin mainnet today: no fork, no miner deals, no change to wherever your keys already live, one ordinary transaction. Bitcoin will become post-quantum on its own schedule, once the protocol upgrades and the economy migrates; this method is for the years in between.</p>
+<div class="meta-line">By <a href="https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/" rel="noopener noreferrer" target="_blank"><strong>Paarrthhh Birla</strong></a>, Co-Founder, EternaX Labs · <a href="https://www.linkedin.com/in/dariia-porechna" rel="noopener noreferrer" target="_blank"><strong>Dariia Porechna</strong></a>, Co-Founder and Cryptography Lead, EternaX Labs</div>
+
+<p class="abstract" id="abstract"> The One-Time 100-Key Vault is a Bitcoin custody method, built from the standard P2WSH output and 100 fresh ECDSA keys that all must sign, each address spent exactly once. It is post-quantum secure at rest, because only a SHA-256 hash is visible, and quantum-resilient in flight, because an attacker must derive all 100 private keys inside one Bitcoin block interval. Using the estimate in Google Quantum AI’s 2026 paper <i>Securing Elliptic Curve Cryptocurrencies against Quantum Vulnerabilities: Resource Estimates and Mitigations</i>, about nine minutes per key on a first-generation fast-clock quantum computer, an attacker with seven such machines succeeds about once in 730,000 spends, with twenty about 1% of the time, and with a hundred about 41%. On published expert surveys and vendor roadmaps, the method holds below one in a million per spend through about 2032 and below 1% through about 2035, which covers the estimated seven-year window for Bitcoin to adopt native post-quantum signatures. It requires no change to Bitcoin, no relationship with miners, and no change to existing hardware security modules; a spend costs about 2,800 virtual bytes (2,759 measured on mainnet for one input and one output). The method is called One-Time Vaulting, written OTV; implemented here by EternaX Labs in October 2026.</p>
+
+<div class="summary" aria-label="Ninety-second summary">
+  <div class="row">
+    <div class="lab">Problem</div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number">34%</div><div class="stat-label">of all bitcoin today sits behind a public key that is visible on-chain. A quantum computer can attack those coins at leisure, the day it exists.</div></div>
+      <div class="stat-card"><div class="stat-number">9 min</div><div class="stat-label">Google Quantum AI's estimate for deriving one Bitcoin private key on the first fast superconducting quantum computer, once the public key is revealed.</div></div>
+      <div class="stat-card"><div class="stat-number">41%</div><div class="stat-label">The chance that the next Bitcoin block takes longer than 9 minutes. Every ordinary spend reveals its key for that long.</div></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="lab">Method</div>
+    <div>A <b>100-Key Vault</b> holds bitcoin in a standard address that shows the chain nothing but a hash (P2WSH). It is spent exactly once, revealing 100 fresh keys that an attacker would have to break, every single one, before the next block. Then those keys are never used again. The mechanism is called <b>One-Time Vaulting</b>; 100 is the most keys Bitcoin Core's default policy relays in one input.</div>
+  </div>
+  <div class="row">
+    <div class="lab">Claim</div>
+    <div><b>Post-quantum secure at rest:</b> two hash-based locks, a SHA-256 script hash on chain and an SLH-DSA approval off chain for institutional custody, and no curve key anywhere for a quantum computer to attack. <b>Quantum-resilient in flight:</b> theft requires 100 parallel quantum key derivations inside one block; on current evidence that holds below one in a million per spend through about 2032 and below 1% through about 2035, which covers Bitcoin's own migration window. Resilient, not immune: the in-flight guarantee is a measured work factor with an end date, and the method is built to hand off to native post-quantum signatures when Bitcoin has them.</div>
+  </div>
+  <div class="row">
+    <div class="lab">Window</div>
+    <div>The vault holds below one in a million per spend through about 2032 and below 1% through about 2035, on our estimate. Bitcoin's own migration to native post-quantum outputs, by a BIP-360 co-author's estimate, finishes around 2033–34 if it starts now. The first covers the second, with margin. This is a bridge, built to be left behind.</div>
+  </div>
+  <div class="row">
+    <div class="lab">Proof</div>
+    <div>A 100-Key Vault spend, confirmed on Bitcoin mainnet as an ordinary transaction: <a href="https://mempool.space/tx/397b3672fd908901906802fc02ab3307d43264ca72776329340a2173dc84220c">397b3672…220c</a>: 100 signatures, 2,759 vB, a 2,759-sat fee (1 sat/vB, $2.24), mined in block 973,546 by MARA Pool on 28 October 2026 (<a href="https://mempool.space/tx/b77b3538628e78d7902ffaa4bb90106b3b9b342440e037b05d610993780d1085">funding</a>; <a href="https://github.com/eternax-ai/eternax-bitcoin-vault">code and measurements</a>).</div>
+  </div>
+</div>
+
+<p class="pull">Bitcoin will fix this itself, eventually. The question is what you do with your bitcoin until it does.</p>
+
+<nav class="toc" aria-label="Contents">
+  <strong>In this piece</strong>
+  <ol>
+    <li><a href="#problem">The problem not priced in</a></li>
+    <li><a href="#bitcoin">Bitcoin can't fix it this year</a></li>
+    <li><a href="#method">The One-Time 100-Key Vault</a></li>
+    <li><a href="#numbers">A theft needs all 100 keys before the next block</a></li>
+    <li><a href="#guards">A thief must pass seven gates</a></li>
+    <li><a href="#compare">Every option gives something up</a></li>
+    <li><a href="#objections">Most objections are true, and the design accounts for them</a></li>
+    <li><a href="#upgrade">One spend moves the vault to post-quantum outputs</a></li>
+    <li><a href="#quarter">Four steps can start this quarter</a></li>
+    <li><a href="#faq">Questions people ask</a></li>
+    <li><a href="#refs">Glossary and references</a></li>
+  </ol>
+</nav>
+
+<h2 id="problem">1. The problem not priced in</h2>
+
+<p class="lead">If you have heard that Bitcoin is not post-quantum secure and that nothing can be done about it until the protocol changes, the first half is true and the second is not. This piece shows a way to hold and move bitcoin that a quantum computer cannot touch at rest and can only race in flight, built entirely from what Bitcoin already does, and proves it with an ordinary mainnet transaction. First, the problem as it actually is.</p>
+
+<p>Bitcoin ownership is a public key. Whoever can turn a public key into its private key owns the coins, and a sufficiently large quantum computer running Shor's algorithm does exactly that. Nothing else about Bitcoin changes when it arrives; only the signatures stop meaning anything. Two things make this sharper than the usual story: secp256k1's 256-bit keys need a smaller quantum computer than RSA-2048, and there is no undo. A bank that loses a wire to fraud has recourse; a bitcoin moved by a forged signature is gone.</p>
+
+<p>The question that matters is not "when will a quantum computer exist" but "when it does, which of my coins can it reach, and how fast". Google Quantum AI's March 2026 whitepaper, co-authored with the Ethereum Foundation and Stanford, gives the first careful answer, and it splits the problem into two attacks that are not alike.</p>
+
+<h3>At rest: coins whose key is already visible</h3>
+<p>If a public key is sitting on the blockchain, an attacker can read it today and work on it for as long as they like. Three kinds of bitcoin are in this state: the original pay-to-public-key outputs (about 1.7 million BTC, including Satoshi's), every Taproot address, because Taproot writes the public key into the output, and every reused address, because the first spend revealed the key. Google counts roughly 6.9 million BTC in this condition; BIP-361's authors put it at more than 34% of supply. For these coins the only cure is to move them before a quantum computer exists.</p>
+
+<figure class="fig" aria-labelledby="fig1cap">
+<svg viewBox="0 0 720 206" role="img" aria-label="Bar chart: of roughly 19.9 million bitcoin in circulation, about 6.9 million have an exposed public key on-chain; 1.7 million of those are pay-to-public-key outputs.">
+<text x="20" y="30" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#283771" text-anchor="start">All bitcoin in circulation ≈ 19.9M BTC</text>
+<rect x="20" y="42" width="680" height="30" rx="4" fill="#EEF0F6" stroke="#E0DEDE"/>
+<rect x="20" y="42" width="236" height="30" rx="4" fill="#8D2E2E" opacity=".85"/>
+<rect x="20" y="42" width="58" height="30" rx="4" fill="#8D2E2E"/>
+<text x="30" y="62" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#fff" text-anchor="start">exposed ≈ 6.9M (34%)</text>
+<text x="268" y="62" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#5B617A" text-anchor="start">hidden behind a hash ≈ 13M: safe at rest, not in flight</text>
+<line x1="49" y1="76" x2="49" y2="90" stroke="#8D2E2E"/>
+<text x="20" y="104" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#5B617A" text-anchor="start">of which P2PK (Satoshi-era) ≈ 1.7M BTC</text>
+<text x="20" y="128" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#5B617A" text-anchor="start">Also exposed: every Taproot (bc1p) address, and every bc1q, 1… or 3… address that has been spent</text>
+<text x="20" y="144" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#5B617A" text-anchor="start">from and still holds coins.</text>
+<text x="20" y="170" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Approximate figures from Google Quantum AI, Fig. 5 and Table I (2026), and BIP-361 (data as of March</text>
+<text x="20" y="185" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">1, 2026). Not investment information.</text>
+</svg>
+<figcaption class="cap" id="fig1cap"><b>Figure 1.</b> Roughly a third of all bitcoin can be attacked at rest the day a large enough quantum computer exists. The other two thirds are safe at rest only because their keys have never been shown, which lasts exactly until they are spent.</figcaption>
+</figure>
+
+<h3>In flight: every other coin, for about ten minutes</h3>
+<p>The remaining two thirds of bitcoin sit behind a hash. The chain shows a fingerprint of the key, not the key, and a quantum computer cannot invert a hash in any useful time. That protection holds until the owner spends. To spend, the owner must reveal the public key so the network can check the signature, and from that moment until the transaction is buried in a block, the key is public and the race is on.</p>
+
+<p>Google's whitepaper is the first to put a number on that race. Its optimised circuits need either 1,200 logical qubits and 90 million Toffoli gates or 1,450 and 70 million, fitting in fewer than half a million physical superconducting qubits, and take about 23 or 18 minutes per key. Half of Shor's algorithm depends only on the curve, so a machine can be "primed" in advance; from that state Google estimates roughly 12 or 9 minutes from seeing a public key to holding its private key, and simplifies to "about 9 minutes" for the first generation of fast machines.</p>
+
+<p>Bitcoin blocks arrive on average every ten minutes, but randomly: the wait is exponentially distributed, so a nine-minute quantum attacker beats the next block about 41% of the time. The number, per Google, assumes a single key, no network congestion, and an attacker who then outbids you for block space. The last assumption is now the network's default: since Bitcoin Core 28, any unconfirmed transaction can be replaced by a conflicting one that pays a higher fee.</p>
+
+<figure class="fig" aria-labelledby="fig2cap">
+<svg viewBox="0 0 720 350" role="img" aria-label="Line chart of the probability that the next Bitcoin block has not yet arrived, decaying exponentially from 100 percent at broadcast to 41 percent at 9 minutes and 13.5 percent at 20 minutes; a vertical marker at 9 minutes shows the quantum key derivation time.">
+<line x1="60" y1="40" x2="660" y2="40" stroke="#E0DEDE"/>
+<text x="54" y="44" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">100%</text>
+<line x1="60" y1="105" x2="660" y2="105" stroke="#E0DEDE"/>
+<text x="54" y="109" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">75%</text>
+<line x1="60" y1="170" x2="660" y2="170" stroke="#E0DEDE"/>
+<text x="54" y="174" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">50%</text>
+<line x1="60" y1="235" x2="660" y2="235" stroke="#E0DEDE"/>
+<text x="54" y="239" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">25%</text>
+<line x1="60" y1="300" x2="660" y2="300" stroke="#E0DEDE"/>
+<text x="54" y="304" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">0%</text>
+<text x="60.0" y="322" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">0</text>
+<text x="193.33333333333334" y="322" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">10</text>
+<text x="326.6666666666667" y="322" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">20</text>
+<text x="460.0" y="322" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">30</text>
+<text x="593.3333333333334" y="322" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">40</text>
+<text x="660" y="322" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">45 min</text>
+<text x="360" y="340" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">Minutes since the transaction was broadcast</text>
+<rect x="60" y="40" width="120" height="260" fill="#8D2E2E" opacity=".07"/>
+<path d="M60.0,40.0 L66.7,52.7 L73.3,64.7 L80.0,76.2 L86.7,87.1 L93.3,97.5 L100.0,107.4 L106.7,116.8 L113.3,125.7 L120.0,134.2 L126.7,142.3 L133.3,150.0 L140.0,157.3 L146.7,164.3 L153.3,170.9 L160.0,177.2 L166.7,183.2 L173.3,188.9 L180.0,194.3 L186.7,199.4 L193.3,204.4 L200.0,209.0 L206.7,213.5 L213.3,217.7 L220.0,221.7 L226.7,225.5 L233.3,229.1 L240.0,232.6 L246.7,235.9 L253.3,239.0 L260.0,242.0 L266.7,244.8 L273.3,247.5 L280.0,250.1 L286.7,252.5 L293.3,254.8 L300.0,257.0 L306.7,259.1 L313.3,261.1 L320.0,263.0 L326.7,264.8 L333.3,266.5 L340.0,268.2 L346.7,269.7 L353.3,271.2 L360.0,272.6 L366.7,273.9 L373.3,275.2 L380.0,276.4 L386.7,277.6 L393.3,278.7 L400.0,279.7 L406.7,280.7 L413.3,281.6 L420.0,282.5 L426.7,283.4 L433.3,284.2 L440.0,285.0 L446.7,285.7 L453.3,286.4 L460.0,287.1 L466.7,287.7 L473.3,288.3 L480.0,288.9 L486.7,289.4 L493.3,289.9 L500.0,290.4 L506.7,290.9 L513.3,291.3 L520.0,291.7 L526.7,292.1 L533.3,292.5 L540.0,292.9 L546.7,293.2 L553.3,293.6 L560.0,293.9 L566.7,294.2 L573.3,294.5 L580.0,294.7 L586.7,295.0 L593.3,295.2 L600.0,295.5 L606.7,295.7 L613.3,295.9 L620.0,296.1 L626.7,296.3 L633.3,296.5 L640.0,296.6 L646.7,296.8 L653.3,297.0 L660.0,297.1" fill="none" stroke="#283771" stroke-width="2.5"/>
+<line x1="180" y1="40" x2="180" y2="300" stroke="#8D2E2E" stroke-width="1.5" stroke-dasharray="5 4"/>
+<circle cx="180" cy="194" r="5" fill="#8D2E2E"/>
+<text x="188" y="60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#8D2E2E" text-anchor="start">key derivation ≈ 9 min</text>
+<text x="190" y="186" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#283771" text-anchor="start">41% of blocks arrive later than 9 min</text>
+<text x="190" y="202" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">the attacker has the key before the block does</text>
+<text x="330" y="250" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">13.5% later than 20 min · 5% later than 30 min</text>
+<text x="330" y="100" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Probability the next block has not arrived yet</text>
+</svg>
+<figcaption class="cap" id="fig2cap"><b>Figure 2.</b> The race for one key. Block arrival is a Poisson process with a ten-minute mean, so the chance the next block is still pending after <i>t</i> minutes is e<sup>−t/10</sup>. At nine minutes that is 40.7%, the figure Google reports. Redrawn from Google Quantum AI, Fig. 6; the model assumes no congestion and an attacker who outbids the original transaction.</figcaption>
+</figure>
+
+<p>Google paper notes only fast-clock machines, superconducting, photonic or silicon-spin, can run this race; ion-trap and neutral-atom machines are 2-3 orders of magnitude slower and more likely attack coins at rest long before coins in flight. And the first such machine may not announce itself: early quantum computers "may first be detected on the blockchain rather than announced."</p>
+
+<p>The same paper warns against the opposite failure mode: unscientific resource estimates are themselves a form of attack on the system. So every number in this article is cited to a primary source and scope.</p>
+
+<h2 id="bitcoin">2. Bitcoin can't fix it this year</h2>
+
+<p>The proper fix is a post-quantum signature scheme in Bitcoin's consensus rules, so that a coin can be locked to a key no quantum computer can derive.</p>
+
+<p>Currently, Bitcoin's scripting language can verify exactly two kinds of signature, ECDSA and Schnorr, both on the same vulnerable curve. It has no opcode for SLH-DSA, ML-DSA or any other post-quantum scheme, no way to express one with existing opcodes, and the only post-quantum primitive it offers at all is the hash function. Adding a new signature scheme means a soft fork. BIP-360, "Pay to Merkle Root", was merged into the BIPs repository as a draft in February 2026; it removes Taproot's exposed key path but defers post-quantum signature opcodes to a future proposal. BIP-361, the proposal to retire legacy signatures on a schedule, is also currently a draft.</p>
+
+<p>User adoption timelines are an another unknown. A BIP-360 co-author has estimated that even on an optimistic path, with consensus reached and no setbacks, migration takes about seven years: two and a half years of review and testing, half a year to activation, and roughly five years for most of the economy to move. A bank holding bitcoin today cannot plan on the protocol solving the problem for it.</p>
+
+<figure class="fig" aria-labelledby="bridge">
+<svg viewBox="0 0 720 303" role="img" aria-label="Timeline 2026 to 2040 with two bands. Top: the 100-Key Vault holds below one in a million per spend to about 2032, below one percent to about 2035, and should not be relied on from about 2038. Bottom: Bitcoin's post-quantum migration, BIP-360 draft February 2026, activation around 2029, ninety percent migrated around 2033 by the co-author's estimate. The vault band covers the migration band with margin.">
+<text x="20" y="24" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#283771" text-anchor="start">How long the vault holds against how long Bitcoin needs</text>
+<line x1="40" y1="212" x2="680" y2="212" stroke="#E0DEDE"/>
+<text x="40.0" y="230" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">2026</text>
+<text x="131.42857142857144" y="230" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">2028</text>
+<text x="222.85714285714286" y="230" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">2030</text>
+<text x="314.2857142857143" y="230" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">2032</text>
+<text x="405.7142857142857" y="230" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">2034</text>
+<text x="497.14285714285717" y="230" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">2036</text>
+<text x="588.5714285714286" y="230" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">2038</text>
+<text x="680.0" y="230" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">2040</text>
+<text x="40" y="56" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#283771" text-anchor="start">100-Key Vault, per-spend theft risk</text>
+<rect x="40.0" y="64" width="274.2857142857143" height="30" rx="5" fill="#2F5E52"/>
+<text x="48.0" y="84" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#fff" text-anchor="start">below 1 in a million</text>
+<rect x="314.2857142857143" y="64" width="137.14285714285717" height="30" rx="5" fill="#d6c04a"/>
+<text x="322.2857142857143" y="84" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1F2541" text-anchor="start">below 1%</text>
+<rect x="451.42857142857144" y="64" width="137.1428571428571" height="30" rx="5" fill="#EEF0F6" stroke="#E0DEDE"/>
+<text x="459.42857142857144" y="84" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1F2541" text-anchor="start">review yearly</text>
+<rect x="588.5714285714286" y="64" width="91.42857142857144" height="30" rx="5" fill="#8D2E2E"/>
+<text x="596.5714285714286" y="84" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#fff" text-anchor="start">do not rely</text>
+<text x="40" y="112" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">needs ≥7 fast-clock machines · needs ≥20 · fleets of tens, or one machine ~10× faster</text>
+<text x="40" y="142" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#283771" text-anchor="start">Bitcoin's native post-quantum migration </text>
+<circle cx="46.0" cy="170" r="5" fill="#283771"/>
+<rect x="40.0" y="158" width="137.14285714285714" height="24" rx="5" fill="#EEF0F6" stroke="#E0DEDE"/>
+<text x="56.0" y="174" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#1F2541" text-anchor="start">BIP ≈ 3 yr</text>
+<rect x="177.14285714285714" y="158" width="228.57142857142858" height="24" rx="5" fill="#283771"/>
+<text x="185.14285714285714" y="174" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#fff" text-anchor="start">migration ≈ 5 yr</text>
+<text x="40" y="196" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">BIP-360 draft Feb 2026 → PQ signature BIP → activation ≈ 2029 → ≈90% migrated ≈ 2033–34: inside the vault's span</text>
+<text x="40" y="254" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Vault dates: our synthesis of GRI Quantum Threat Timeline 2025, Metaculus (RSA-2048), IBM and PsiQuantum</text>
+<text x="40" y="269" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">roadmaps; estimates. Migration: E. Heilman, Cointelegraph Magazine, Feb 2026, "seven years total, but I'm</text>
+<text x="40" y="284" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">just spitballing."</text>
+</svg>
+<figcaption class="cap" id="bridge"><b>A temporary bridge.</b> The vault does not need to last forever, only to outlast the migration and on current evidence it does, with margin.</figcaption>
+</figure>
+
+<p>So the constraint on a method that works now is severe: no change to consensus or relay policy, no relationship with miners, no new software for nodes, nothing new for the device that holds the keys to learn. The only post-quantum material Bitcoin offers is the hash. The only lever it offers on the in-flight race is how much work the attacker must do and how long they have.</p>
+
+<p>The chart above is the shape of the problem. The lower band is how long Bitcoin needs; the upper band is how long a method built from today's Bitcoin can hold. Everything that follows is built for the span between those two dates, and built to be left behind at the end of it.</p>
+
+<h2 id="method">3. The One-Time 100-Key Vault</h2>
+
+<p class="lead">A 100-Key Vault is a standard Bitcoin P2WSH address built from 100 fresh keys that all have to sign, used exactly once, with the decision to spend made by a hash-based signature that no quantum computer can forge. The mechanism is One-Time Vaulting; written generally it is OTV(<i>N</i>), and OTV(100) is the instance this piece is about, because 100 is the most keys Bitcoin Core's default policy relays in a single input.</p>
+
+<p>In plain words: you generate 100 brand-new keys, in a hardware security module for a bank or on an offline computer for an individual, build a script that says "all 100 must sign", and put bitcoin into the address that is the hash of that script. On chain that is all anyone sees, for as long as the coins sit there. When it is time to move them, whoever governs the vault approves one exact transaction with a hash-based signature that lives off-chain; only then does the signing device produce the 100 signatures, and the transaction goes out exactly as any other: Bitcoin Core nodes relay it, pools on Core's policy mine it, and it confirms in the next block that takes it. Change goes into a new vault with 100 new keys in the same transaction. The 100 keys that signed are deleted and never used again.</p>
+
+<p>That is the whole method. Nothing in it is new to Bitcoin, and two of its parts are not new at all. Never reusing an address has been Bitcoin's own advice since 2010. Using several keys as a quantum defence was proposed by Holmes and Chen at the University of Surrey in 2021, up to the 20 keys that Bitcoin's multisig opcode allows, with the observation that it multiplies the attacker's required capacity but can be attacked in parallel. What has not been done is to take the number to the ceiling: 100 keys needs a different construction than the one everyone uses, it sits exactly at the limits Bitcoin Core relays, and nobody had built it, spent it on mainnet, put a hash-based approval gate around it, or quantified it against a dated fleet of quantum machines. That combination is what we call One-Time Vaulting, and the 100-Key Vault is its first instance. This is the first description of it.</p>
+
+<h3>Locked by hash at rest</h3>
+<p>A resting vault is safer than a single hashed address, for a reason that is itself post-quantum. There are exactly two ways to move its coins: produce 100 valid ECDSA signatures, which needs the 100 public keys, hidden behind a SHA-256 hash of the script that a quantum computer cannot invert; or persuade the device that holds the keys to sign, which needs the off-chain lock to open first: an approval signed with SLH-DSA, the hash-based scheme NIST standardised as FIPS 205, which a quantum computer cannot forge. For an institution that approval is a quorum of officers; for an individual it is one hash-based key on a token they hold. Both locks rest on hash functions. Shor's algorithm is irrelevant to either. The curve matters only during the minutes of the spend itself, which is why that moment gets the next four sections.</p>
+
+<p>Nothing in the method requires an institution. Hardware security modules and officer quorums are how a bank runs it; the construction itself is a script, a rule about reuse, and a hash-based approval, and it scales down. The same vault at 20 keys uses Bitcoin's ordinary multisig opcode and can be built by any wallet software that can construct a custom witness script; 100 keys is the reserve-grade setting. The number is a dial. What does not change with the dial is the discipline: every address used once, every spend approved by a signature a quantum computer cannot forge, change into a fresh vault.</p>
+
+<p class="pull">A 100-Key Vault shows the chain nothing until it spends, and when it spends, it shows everything at once and only once.</p>
+
+<h3>The script</h3>
+<p>The vault is a pay-to-witness-script-hash output. Its witness script is a chain of 100 signature checks:</p>
+<pre><code>&lt;pubkey_1&gt;   OP_CHECKSIGVERIFY
+&lt;pubkey_2&gt;   OP_CHECKSIGVERIFY
+   …
+&lt;pubkey_99&gt;  OP_CHECKSIGVERIFY
+&lt;pubkey_100&gt; OP_CHECKSIG</code></pre>
+<p>One hundred 33-byte keys and one hundred opcodes come to 3,500 bytes. Bitcoin Core's relay policy allows a witness script of up to 3,600 bytes and up to 100 witness items per input; its source code notes that these limits are "adequate for multisignatures up to n-of-100 using OP_CHECKSIG". So 100 is not a number chosen for effect. It is the largest vault a single input can hold and still be relayed under Bitcoin Core's default policy. Bitcoin Knots is stricter: its default <code>-maxscriptsize</code> of 1,650 bytes counts the whole witness, which caps the chain at 15 keys, so Knots nodes, and the OCEAN pool that runs them, neither relay nor mine a 100-key spend; Core nodes relay it and other pools mine it. Our mainnet spend, one input to one output, weighed 2,759 virtual bytes, roughly 20 times an ordinary payment; with a change output it is about 2,800.</p>
+
+<p>Why not the familiar <code>OP_CHECKMULTISIG</code>? It is capped at 20 keys by consensus, and chaining five of them pushes the witness past the 100-item limit. The chain of single checks is both larger and standard.</p>
+
+<h3>The chain sees only a hash until the spend</h3>
+
+<figure class="fig" aria-labelledby="diag1cap">
+<svg viewBox="0 0 720 466" role="img" aria-label="Diagram of a 100-Key Vault's life in five stages: funding, at rest, approval, broadcast, and confirmed, showing what the chain sees and what the attacker can do at each stage.">
+<line x1="20" y1="60" x2="700" y2="60" stroke="#283771" stroke-width="2"/>
+<rect x="20" y="80" width="128" height="330" rx="8" fill="#fff" stroke="#E0DEDE"/>
+<circle cx="84.0" cy="60" r="7" fill="#283771"/>
+<text x="84.0" y="48" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#283771" text-anchor="middle">Funding</text>
+<text x="30" y="104" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">Coins sent to a</text>
+<text x="30" y="119" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">bc1q address.</text>
+<text x="30" y="146" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Chain sees</text>
+<text x="30" y="161" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">one 32-byte hash</text>
+<text x="30" y="185" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Attacker can</text>
+<text x="30" y="200" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#2F5E52" text-anchor="start">nothing</text>
+<text x="30" y="225" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Keys exposed</text>
+<text x="30" y="240" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#1F2541" text-anchor="start">0 of 100</text>
+<rect x="158" y="80" width="128" height="330" rx="8" fill="#fff" stroke="#E0DEDE"/>
+<circle cx="222.0" cy="60" r="7" fill="#283771"/>
+<text x="222.0" y="48" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#283771" text-anchor="middle">At rest</text>
+<text x="168" y="104" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">Months or years.</text>
+<text x="168" y="131" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Chain sees</text>
+<text x="168" y="146" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">the same hash</text>
+<text x="168" y="170" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Attacker can</text>
+<text x="168" y="185" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#2F5E52" text-anchor="start">nothing</text>
+<text x="168" y="210" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Keys exposed</text>
+<text x="168" y="225" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#1F2541" text-anchor="start">0 of 100</text>
+<text x="168" y="249" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">No xpub, no reuse,</text>
+<text x="168" y="263" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">no Taproot: no key</text>
+<text x="168" y="277" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">exists outside</text>
+<text x="168" y="291" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">the signing device.</text>
+<rect x="296" y="80" width="128" height="330" rx="8" fill="#fff" stroke="#E0DEDE"/>
+<circle cx="360.0" cy="60" r="7" fill="#2F5E52"/>
+<text x="360.0" y="48" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#283771" text-anchor="middle">Approval</text>
+<text x="306" y="104" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">Owner or quorum</text>
+<text x="306" y="119" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">approves one exact</text>
+<text x="306" y="134" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">tx with SLH-DSA.</text>
+<text x="306" y="161" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Chain sees</text>
+<text x="306" y="176" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">nothing yet</text>
+<text x="306" y="200" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Attacker can</text>
+<text x="306" y="215" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#2F5E52" text-anchor="start">nothing</text>
+<text x="306" y="240" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Keys exposed</text>
+<text x="306" y="255" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#1F2541" text-anchor="start">0 of 100</text>
+<text x="306" y="279" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Approvals are</text>
+<text x="306" y="293" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">hash-based: a</text>
+<text x="306" y="307" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">quantum computer</text>
+<text x="306" y="321" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">cannot forge them.</text>
+<rect x="434" y="80" width="128" height="330" rx="8" fill="#F4E9E9" stroke="#8D2E2E"/>
+<circle cx="498.0" cy="60" r="7" fill="#8D2E2E"/>
+<text x="498.0" y="48" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#283771" text-anchor="middle">Broadcast</text>
+<text x="444" y="104" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">Keys sign; tx sent</text>
+<text x="444" y="119" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">to the public</text>
+<text x="444" y="134" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">mempool.</text>
+<text x="444" y="161" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Chain sees</text>
+<text x="444" y="176" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">all 100 keys</text>
+<text x="444" y="200" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Attacker can</text>
+<text x="444" y="215" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#8D2E2E" text-anchor="start">race: break 100</text>
+<text x="444" y="230" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#8D2E2E" text-anchor="start">keys, outbid fee</text>
+<text x="444" y="255" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Keys exposed</text>
+<text x="444" y="270" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#8D2E2E" text-anchor="start">100 of 100</text>
+<text x="444" y="294" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Window: until the</text>
+<text x="444" y="308" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">next block, ~10 min</text>
+<text x="444" y="322" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">average.</text>
+<rect x="572" y="80" width="128" height="330" rx="8" fill="#fff" stroke="#E0DEDE"/>
+<circle cx="636.0" cy="60" r="7" fill="#283771"/>
+<text x="636.0" y="48" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#283771" text-anchor="middle">Confirmed</text>
+<text x="582" y="104" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">Coins at recipient;</text>
+<text x="582" y="119" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">change in a fresh</text>
+<text x="582" y="134" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">vault, 100 new keys.</text>
+<text x="582" y="161" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Chain sees</text>
+<text x="582" y="176" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">100 spent keys</text>
+<text x="582" y="200" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Attacker can</text>
+<text x="582" y="215" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#2F5E52" text-anchor="start">nothing: keys</text>
+<text x="582" y="230" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#2F5E52" text-anchor="start">control no coins</text>
+<text x="582" y="255" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Keys exposed</text>
+<text x="582" y="270" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#1F2541" text-anchor="start">100, now worthless</text>
+<text x="582" y="294" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Final after six</text>
+<text x="582" y="308" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">confirmations.</text>
+<text x="20" y="432" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">The red stage is the only moment a quantum attacker has anything to work with. Everything in the method exists</text>
+<text x="20" y="447" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">to make that moment short, expensive, and worth little.</text>
+</svg>
+<figcaption class="cap" id="diag1cap"><b>The life of a 100-Key Vault.</b> The chain sees a hash, then a hash, then nothing, then everything, then a set of dead keys. The method's claim lives entirely in the fourth column.</figcaption>
+</figure>
+
+<h2 id="numbers">4. A theft needs all 100 keys before the next block</h2>
+
+<p class="lead">Here is the whole in-flight argument in one sentence: the attacker must derive every one of the 100 private keys from the 100 public keys, in the time between your broadcast and the next block, and then win a fee auction. Everything else is arithmetic.</p>
+
+<p>Google's whitepaper states the two facts that govern that arithmetic, and we quote both because they cut both ways: "The cost of quantum attacks on multi-signature transactions, such as P2WSH, increases linearly with the number of signatures required. However, these attacks parallelize trivially, so an attacker with a sufficient number of CRQCs can achieve the probability shown in Figure 6." And: "for scripts that require a large number m of signatures, on-spend attacks by an attacker with a small number of CRQCs are made more difficult by the need to derive a large number of private keys in the ten minutes average block interval."</p>
+
+<p>So the honest model is this. Take an attacker with <i>M</i> primed machines, each needing about 9 minutes per key. To break <i>N</i> keys they need ⌈<i>N</i>/<i>M</i>⌉ rounds of 9 minutes, and they succeed if the next block takes longer than that: probability e<sup>−0.9·⌈N/M⌉</sup>. Table B shows what that gives.</p>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Attacker's machines</th><th>N = 1 (ordinary address)</th><th>OTV(20)</th><th>OTV(100)</th></tr></thead>
+<tbody>
+<tr><td>1</td><td class="risk-5">41%</td><td class="risk-1">1 in 66 million</td><td class="risk-1">≈ 10<sup>−39</sup></td></tr>
+<tr><td>5</td><td class="risk-5">41%</td><td class="risk-3">2.7%</td><td class="risk-1">1 in 66 million</td></tr>
+<tr><td>10</td><td class="risk-5">41%</td><td class="risk-5">16.5%</td><td class="risk-1">1 in 8,000</td></tr>
+<tr><td>20</td><td class="risk-5">41%</td><td class="risk-5">41%</td><td class="risk-3">1.1%</td></tr>
+<tr><td>50</td><td class="risk-5">41%</td><td class="risk-5">41%</td><td class="risk-5">16.5%</td></tr>
+<tr><td>100</td><td class="risk-5">41%</td><td class="risk-5">41%</td><td class="risk-5">41%</td></tr>
+</tbody>
+</table>
+</div>
+<p class="small">Table B. Probability that an attacker derives all keys before the next block, per spend. Assumes 9 minutes per key per machine (Google's primed figure), no congestion, and that the attacker then wins the fee auction. Favourable to the attacker in every respect but one, batching, which is covered under gate 2 in section 5. It also charges every round only 9 minutes, although a machine must re-prime between keys, so later rounds really cost closer to 18.</p>
+
+<figure class="fig" aria-labelledby="fig3cap">
+<svg viewBox="0 0 720 366" role="img" aria-label="Log-log chart of attacker success probability per spend against number of quantum machines, for N equals 1, 20 and 100 keys. Each curve rises steeply and plateaus at 41 percent in this model once the attacker has as many machines as there are keys; spare machines that split a key push past it.">
+<line x1="60" y1="40" x2="660" y2="40" stroke="#E0DEDE"/>
+<text x="54" y="44" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">100%</text>
+<line x1="60" y1="96" x2="660" y2="96" stroke="#E0DEDE"/>
+<text x="54" y="100" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">1%</text>
+<line x1="60" y1="152" x2="660" y2="152" stroke="#E0DEDE"/>
+<text x="54" y="156" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">10⁻⁴</text>
+<line x1="60" y1="208" x2="660" y2="208" stroke="#E0DEDE"/>
+<text x="54" y="212" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">10⁻⁶</text>
+<line x1="60" y1="264" x2="660" y2="264" stroke="#E0DEDE"/>
+<text x="54" y="268" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">10⁻⁸</text>
+<line x1="60" y1="320" x2="660" y2="320" stroke="#E0DEDE"/>
+<text x="54" y="324" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">10⁻¹⁰</text>
+<line x1="60" y1="208" x2="660" y2="208" stroke="#2F5E52" stroke-dasharray="4 4"/>
+<text x="656" y="222" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#2F5E52" text-anchor="end">one-in-a-million line</text>
+<text x="60.0" y="340" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">1</text>
+<text x="120.20599913279624" y="340" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">2</text>
+<text x="199.79400086720378" y="340" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">5</text>
+<text x="260.0" y="340" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">10</text>
+<text x="320.20599913279625" y="340" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">20</text>
+<text x="399.79400086720375" y="340" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">50</text>
+<text x="460.0" y="340" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">100</text>
+<text x="520.2059991327963" y="340" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">200</text>
+<text x="599.7940008672037" y="340" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">500</text>
+<text x="660.0" y="340" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">1000</text>
+<text x="360" y="356" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">Number of primed quantum machines the attacker controls (log scale)</text>
+<path d="M60.0,50.9 L120.2,50.9 L199.8,50.9 L260.0,50.9 L320.2,50.9 L399.8,50.9 L460.0,50.9 L520.2,50.9 L599.8,50.9 L660.0,50.9" fill="none" stroke="#8D2E2E" stroke-width="2"/>
+<path d="M60.0,258.9 L120.2,149.4 L199.8,83.8 L260.0,61.9 L320.2,50.9 L399.8,50.9 L460.0,50.9 L520.2,50.9 L599.8,50.9 L660.0,50.9" fill="none" stroke="#7A5A1E" stroke-width="2"/>
+<path d="M60.0,320.0 L120.2,320.0 L199.8,258.9 L260.0,149.4 L320.2,94.7 L399.8,61.9 L460.0,50.9 L520.2,50.9 L599.8,50.9 L660.0,50.9" fill="none" stroke="#283771" stroke-width="2.5"/>
+<text x="66" y="72" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#8D2E2E" text-anchor="start">N = 1 (ordinary address)</text>
+<text x="84" y="118" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#7A5A1E" text-anchor="start">OTV(20)</text>
+<text x="124" y="190" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#283771" text-anchor="start">OTV(100)</text>
+<text x="656" y="32" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">~41% in this model; spare machines that split a key push past it</text>
+</svg>
+<figcaption class="cap" id="fig3cap"><b>Figure 3.</b> The attacker's success per spend against the number of machines they own. N moves the curve to the right; it does not change its ceiling. Once an attacker has as many machines as the vault has keys, a 100-Key Vault is exactly as exposed as a single key, and the model's 41% ceiling understates both: Google reports that eleven primed machines working one key together get a 6.5× speedup. That is the method's limit, stated by us.</figcaption>
+</figure>
+
+<div class="callout callout-green">
+<div class="callout-title">The guarantee, in the words we are prepared to defend</div>
+<p><b>At rest</b>, a 100-Key Vault is behind two hash-based locks: no elliptic-curve public key exists on-chain or off-chain outside the signing device, so a quantum computer has no target, and the device will not sign until an SLH-DSA approval of the exact transaction exists, which a quantum computer cannot forge. Security at rest rests on the preimage resistance of SHA-256 and the security of SLH-DSA (FIPS 205). <b>In flight</b>, theft requires an adversary to derive all <i>N</i> secp256k1 private keys between broadcast and confirmation and to win the resulting fee auction; against fewer than roughly <i>N</i>/15 primed fast-clock quantum computers (fewer still if batch optimisations are engineered) the chance is below one in a million per spend, and against <i>N</i> or more it is 41% or worse. <b>This is a resource bound on the attacker, not a cryptographic hardness bound</b>, and it is offered as a defence for the migration window, not as post-quantum security. <b>Not covered:</b> coins left in exposed outputs, a leaked signed transaction, collusion of all signing parties, a hash-function break, or an attacker who can also reorganise the chain.</p>
+</div>
+
+
+<h2 id="guards">5. A thief must pass seven gates</h2>
+
+<p class="lead">"Hard" is not one argument. It is a sequence of gates an attacker has to pass in order, each with its own number, its own source, and a date for when it weakens. Together they are the case for 100.</p>
+
+<figure class="fig" aria-labelledby="gaunt">
+<svg viewBox="0 0 720 491" role="img" aria-label="Seven gates an attacker must pass in sequence to steal from a 100-Key Vault spend: a fast-clock quantum computer; a fleet of machines; all primed and idle at broadcast; 100 keys derived before a random block; outbid the fee ladder; loot exceeds cost; survive six confirmations.">
+<text x="20" y="24" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#283771" text-anchor="start">The gauntlet: what a thief must do, in order, during one spend</text>
+<rect x="20" y="40" width="160" height="160" rx="8" fill="#fff" stroke="#E0DEDE"/>
+<text x="30" y="62" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#283771" text-anchor="start">1 · Fast clock</text>
+<text x="30" y="84" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">Ions and atoms are</text>
+<text x="30" y="99" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">100–1,000× slower;</text>
+<text x="30" y="114" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">they cannot race</text>
+<text x="30" y="129" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">a block.</text>
+<text x="30" y="188" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Google 2026</text>
+<path d="M180,120 L192,120" stroke="#283771" stroke-width="2"/>
+<rect x="192" y="40" width="160" height="160" rx="8" fill="#fff" stroke="#E0DEDE"/>
+<text x="202" y="62" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#283771" text-anchor="start">2 · A fleet, not one</text>
+<text x="202" y="84" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">One machine: ~15 h</text>
+<text x="202" y="99" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">for 100 keys. Each</text>
+<text x="202" y="114" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">key is its own</text>
+<text x="202" y="129" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">Shor run.</text>
+<text x="202" y="188" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Google 2026</text>
+<path d="M352,120 L364,120" stroke="#283771" stroke-width="2"/>
+<rect x="364" y="40" width="160" height="160" rx="8" fill="#fff" stroke="#E0DEDE"/>
+<text x="374" y="62" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#283771" text-anchor="start">3 · Primed and idle</text>
+<text x="374" y="84" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">The whole fleet waits</text>
+<text x="374" y="99" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">for your broadcast</text>
+<text x="374" y="114" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">instead of harvesting</text>
+<text x="374" y="129" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">6.9M exposed BTC.</text>
+<text x="374" y="188" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Google 2026</text>
+<path d="M524,120 L536,120" stroke="#283771" stroke-width="2"/>
+<rect x="536" y="40" width="160" height="160" rx="8" fill="#F4E9E9" stroke="#8D2E2E"/>
+<text x="546" y="62" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#283771" text-anchor="start">4 · Beat the block</text>
+<text x="546" y="84" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">7 machines need</text>
+<text x="546" y="99" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">135 min; chance no</text>
+<text x="546" y="114" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">block arrives first:</text>
+<text x="546" y="135" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#8D2E2E" text-anchor="start">1 in 730,000</text>
+<text x="546" y="188" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">derived, e^−T/10</text>
+<rect x="20" y="215" width="160" height="160" rx="8" fill="#fff" stroke="#E0DEDE"/>
+<text x="30" y="237" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#283771" text-anchor="start">5 · Outbid the fee</text>
+<text x="30" y="259" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">Full-RBF: the</text>
+<text x="30" y="274" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">replacement must pay</text>
+<text x="30" y="289" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">strictly more than the</text>
+<text x="30" y="304" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">pre-signed ladder.</text>
+<text x="30" y="363" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Bitcoin Core 29</text>
+<path d="M180,295 L192,295" stroke="#283771" stroke-width="2"/>
+<rect x="192" y="215" width="160" height="160" rx="8" fill="#fff" stroke="#E0DEDE"/>
+<text x="202" y="237" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#283771" text-anchor="start">6 · Loot &gt; cost</text>
+<text x="202" y="259" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">100 key-runs of</text>
+<text x="202" y="274" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">quantum time vs a</text>
+<text x="202" y="289" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">capped slice, times</text>
+<text x="202" y="304" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">the odds at gate 4.</text>
+<text x="202" y="363" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">derived</text>
+<path d="M352,295 L364,295" stroke="#283771" stroke-width="2"/>
+<rect x="364" y="215" width="160" height="160" rx="8" fill="#fff" stroke="#E0DEDE"/>
+<text x="374" y="237" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#283771" text-anchor="start">7 · Six blocks</text>
+<text x="374" y="259" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">After that, theft</text>
+<text x="374" y="274" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">needs a bought reorg;</text>
+<text x="374" y="289" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">cost grows</text>
+<text x="374" y="304" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">exponentially.</text>
+<text x="374" y="363" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Google 2026</text>
+<path d="M524,295 L536,295" stroke="#283771" stroke-width="2"/>
+<rect x="536" y="215" width="160" height="160" rx="8" fill="#EEF0F6" stroke="#E0DEDE"/>
+<text x="546" y="237" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#2F5E52" text-anchor="start">At rest: no gauntlet</text>
+<text x="546" y="259" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">There is no key to</text>
+<text x="546" y="274" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">attack: a SHA-256</text>
+<text x="546" y="289" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">hash on chain, no</text>
+<text x="546" y="304" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">master key anywhere,</text>
+<text x="546" y="319" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">and a hash-based</text>
+<text x="546" y="334" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#1F2541" text-anchor="start">approval gate.</text>
+<text x="20" y="406" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Gates 1–3 decide whether an attack is possible at all; gate 4 is the one with a probability; gates 5–7 decide</text>
+<text x="20" y="421" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">whether it pays. The gates are not independent, so they are not multiplied. Each has its number in the text</text>
+<text x="20" y="436" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">below and a date for when it weakens.</text>
+<text x="20" y="457" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Sources: Google Quantum AI (arXiv:2603.28846); Holmes &amp; Chen, University of Surrey (IACR 2021/967); Bitcoin</text>
+<text x="20" y="472" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Core 29.0/29.1 release notes. "Derived" marks our own arithmetic from those sources.</text>
+</svg>
+<figcaption class="cap" id="gaunt"><b>The gauntlet.</b> Seven things that all have to go right for an attacker, inside one spend. Read left to right; the number at each gate is explained below.</figcaption>
+</figure>
+
+<h3>Gate 1. Only fast-clock machines can race</h3>
+<p>Google's paper separates quantum platforms by how fast they run a single operation. Superconducting, photonic and silicon-spin machines are fast-clock. Trapped ions and neutral atoms, which hold today's records for logical qubits, are "about two to three orders of magnitude slower": a key that takes nine minutes on fast hardware takes fifteen hours to six days on slow. That threatens coins whose keys are already visible, and not a spend that confirms in minutes. Half the quantum industry is not in this race. <i>Weakens if:</i> slow-clock platforms find magic-state techniques suited to their hardware, which Google calls plausible and nobody has shown.</p>
+
+<h3>Gate 2. A fleet, not a machine</h3>
+<p>Each key is a separate run of Shor's algorithm. One first-generation machine working through 100 keys needs about fifteen hours, during which roughly ninety blocks go by. For the single-key odds of 41% the attacker needs 100 machines running at once; for one in a hundred, twenty; for one in a million, seven. On the published expert surveys and vendor roadmaps we assess a coordinated fleet of seven fast-clock machines as unlikely before about 2032 and no better than one in eight by 2035.</p>
+<p>Say the limit out loud: adding keys multiplies the attacker's hardware, not the difficulty of the mathematics. Going from one key to a hundred adds about log<sub>2</sub>(100) ≈ 6.6 bits of work, and nobody calls 6.6 bits a security parameter. What those bits buy is time, during which the machines that could use them are few, expensive, and owned by governments and hyperscalers. Against a handful, an OTV(100) spend is safe to better than one in a million; against a hundred it is a coin flip. The method is a bet about how many such machines exist before Bitcoin adopts post-quantum signatures, and the bet should be made with the chart in front of you.</p>
+<p>Table B in section 4 is kind to the vault in one way an attacker would not be. Litinski's 2023 work shows a quantum computer can derive several keys in one execution by reusing its initial state, nine per run in Google's description, which Google's headline numbers exclude. An attacker building a machine for vault spends, where all 100 keys arrive together, would use it. The effect is that 100 keys become roughly a dozen batch runs, each longer and needing more qubits than a single-key run; on that assumption the one-in-a-million line holds against one machine rather than six, and a dozen batching machines would reach roughly a 13% shot. Treat the right-hand columns of Table B as the optimistic case.</p>
+<p><i>Weakens as:</i> fast-clock programmes go from one-off machines to production, and as per-key time falls, because every halving of key time halves the fleet required.</p>
+
+<h3>Gate 3. Primed, idle, and waiting for you</h3>
+<p>Half of Shor's algorithm depends only on the curve and can be precomputed; the machine then sits "in this primed state until a public key is available," in Google's words. A one-time key that confirms before it is derived is worthless a minute later, so there is nothing to stockpile. The fleet has to be primed and idle at the exact moment you broadcast, which could be any day, and while it waits it is not working through the roughly 6.9 million bitcoin already exposed on chain, at about three keys per machine-hour. A rational attacker drains that pool first; your spend is at the bottom of the queue until it is gone. <i>Weakens when:</i> exposed coins have been migrated or stolen and fleets have idle capacity, the late 2030s on any current projection.</p>
+
+<figure class="fig" aria-labelledby="queue">
+<svg viewBox="0 0 720 268" role="img" aria-label="Comparison of two targets: 6.9 million bitcoin with exposed keys, attackable at leisure, versus one vault spend that requires the whole fleet idle and primed at the moment of broadcast and offers a 10-minute window.">
+<text x="20" y="24" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#283771" text-anchor="start">The attacker's queue</text>
+<rect x="20" y="40" width="680" height="34" rx="6" fill="#8D2E2E"/>
+<text x="32" y="62" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#fff" text-anchor="start">≈ 6.9M BTC already exposed at rest: attack at leisure, no deadline</text>
+<text x="20" y="96" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5B617A" text-anchor="start">P2PK (≈1.7M BTC), every Taproot address, every reused address. At about three keys per machine-hour,</text>
+<text x="20" y="112" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5B617A" text-anchor="start">years of work for a single machine, and the first thing any owner of a quantum computer would do with it.</text>
+<rect x="20" y="138" width="22" height="34" rx="6" fill="#2F5E52"/>
+<text x="52" y="160" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#283771" text-anchor="start">One vault spend: whole fleet idle and primed at the right second, 100 keys, one block</text>
+<text x="20" y="196" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5B617A" text-anchor="start">The vault does not need to be unbreakable. It needs to be the worst target on the list for as long as the</text>
+<text x="20" y="212" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11.5" fill="#5B617A" text-anchor="start">list exists.</text>
+<text x="20" y="234" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Exposure figures: Google Quantum AI 2026, Fig. 5 and Table I. Throughput: ~18–23 min per key at rest,</text>
+<text x="20" y="249" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Google 2026. Bar lengths are value, not probability.</text>
+</svg>
+<figcaption class="cap" id="queue"><b>Where a vault spend sits in an attacker's priorities.</b> Bar lengths are value, not probability.</figcaption>
+</figure>
+
+<h3>Gate 4. Beat a block that arrives at random</h3>
+<p>This is the only gate with a probability, and the rest of the piece rests on it. Blocks arrive every ten minutes on average but at random, so the chance the next one is still pending after <i>t</i> minutes is e<sup>−t/10</sup>: 41% at nine minutes, 13.5% at twenty, 0.25% at an hour. An attacker with <i>M</i> machines at nine minutes a key needs 9 × ⌈100/<i>M</i>⌉ minutes. Seven machines need 135 minutes, which the next block outlasts about once in 730,000 spends; ten machines, once in 8,000; twenty, about 1%. The tables are generous in one more way: a machine must re-prime between keys, so every round after the first really costs closer to eighteen minutes than nine. <i>Weakens as:</i> per-key time falls or the window is stretched (the heat map below).</p>
+
+<h3>Gate 5. Outbid the fee</h3>
+<p>Deriving the keys gives the attacker a signature, not the coins. Their replacement must displace yours in every miner's mempool, and since Bitcoin Core 29.0 the rule is uniform: a replacement must pay a strictly higher fee, plus an increment for its own size. A custodian signs a ladder of higher-fee versions of the same transaction before destroying the keys, so the attacker has to climb past every rung. Google notes this can become a "scorched earth" auction in which the fee eats the asset; with the odds at gate 4, it is an auction the custodian can afford to lose once in a very long time. <i>Weakens if:</i> never, mechanically; it is policy Bitcoin Core nodes already run.</p>
+
+<h3>Gate 6. The loot has to exceed the cost</h3>
+<p>Each attempt costs the attacker 100 key-derivations of quantum machine time, whatever the outcome, plus any flooding bought to stretch the window; the expected gain is the slice's value times the odds at gate 4. With a value cap per spend the attack is irrational whenever cap × odds is less than 100 × cost-per-key. At any plausible first-generation cost per key, tens of thousands of dollars of amortised capital alone, a seven-machine attacker would need a single spend in the hundreds of billions to break even. The cap starts to bind only against fleets the size of the vault. <i>Weakens as:</i> machine time gets cheap; review the cap whenever a credible cost estimate halves.</p>
+
+<h3>Gate 7. Six blocks and it is over</h3>
+<p>After confirmation the keys are dead unless the attacker can orphan the block that holds your spend. Google describes that attack, a bribe to miners to abandon the block while the keys are derived, and states that reversal cost "grow[s] exponentially in the number of blocks." Natural single-block reorganisations happen a handful of times a year; a six-block one has never been bought. A six-confirmation rule makes post-confirmation theft a majority-hashrate problem, which is a different attack on a different thing. <i>Weakens if:</i> hashrate centralises, which has nothing to do with quantum computing.</p>
+
+<h3>Large fleets and mempool flooding are the two weak points</h3>
+<p>Two gates are honest weak points: a large enough fleet walks through gate 2, and an attacker who floods the mempool stretches gate 4. Holmes and Chen worked out the hybrid in 2021: flood for about two blocks and lean on the difficulty, and Bitcoin's effective window becomes about 31 minutes. The table shows both at once, for 100 keys, so nobody has to discover them.</p>
+
+<div class="table-wrap">
+<table aria-label="Heat map of attacker success probability per spend for OTV(100) by fleet size and confirmation window">
+<thead><tr><th>Attacker's machines</th><th>Normal window (next block)</th><th>Stretched to ~31 min (flooding 2 blocks)</th><th>Stretched to ~60 min (flooding 5 blocks)</th></tr></thead>
+<tbody>
+<tr><td>1</td><td style="background:#1f5e3f;color:#fff">≈ 10<sup>−39</sup></td><td style="background:#1f5e3f;color:#fff">≈ 10<sup>−32</sup></td><td style="background:#1f5e3f;color:#fff">≈ 10<sup>−32</sup></td></tr>
+<tr><td>3</td><td style="background:#2F5E52;color:#fff">1 in 2×10<sup>13</sup></td><td style="background:#3a7a5c;color:#fff">1 in 3 billion</td><td style="background:#4e9470;color:#fff">1 in 70 million</td></tr>
+<tr><td>7</td><td style="background:#4e9470;color:#fff">1 in 730,000</td><td style="background:#9fbf5a;color:#1F2541">1 in 2,400</td><td style="background:#d6c04a;color:#1F2541">0.77%</td></tr>
+<tr><td>10</td><td style="background:#9fbf5a;color:#1F2541">1 in 8,000</td><td style="background:#d6c04a;color:#1F2541">1.2%</td><td style="background:#d98a3a;color:#fff">11.6%</td></tr>
+<tr><td>20</td><td style="background:#d6c04a;color:#1F2541">1.1%</td><td style="background:#d98a3a;color:#fff">22.5%</td><td style="background:#b04545;color:#fff">70%</td></tr>
+<tr><td>100</td><td style="background:#b04545;color:#fff">40.7%</td><td style="background:#8D2E2E;color:#fff">95%</td><td style="background:#8D2E2E;color:#fff">≈ 100%</td></tr>
+</tbody>
+</table>
+</div>
+<p class="small">Heat map (derived). OTV(100), 9 minutes per key per machine, attacker never has to re-prime. "Stretched" windows model the Holmes–Chen hybrid: the target cannot confirm for 2 or 5 blocks, so the wait is a sum of exponentials. Flooding costs the attacker roughly 1 BTC per suppressed block at a 100 sat/vB fee level, and is visible on the network after about two blocks. Congestion gating and a high fee are the custodian's answer; both are cheap.</p>
+
+<p>The rows that go orange and red are fleets of ten or more fast-clock machines; the rows that stay green are what exists on any roadmap before the mid-2030s. Window stretching is the attacker's strongest lever, which is why a vault spend is never broadcast into a congested mempool.</p>
+
+<h3>Faster keys need a new generation of hardware</h3>
+<p>Could the attacker just build a faster machine? The constraint is not the qubits but the loop around them: every layer of a fault-tolerant computation waits for a classical computer to decode the errors and feed back. Google assumes that loop takes 10 microseconds; the best published figure, from Google's own Willow processor, is 63, and that decoder does not yet feed back into the logical circuit at all. The trade that does exist is Google's: doubling the qubits roughly doubles the speed. A machine ten times faster than the first therefore needs either a decode loop ten times faster than anything built, or ten machines' worth of qubits. Either is a generation of hardware. <i>Weakens as:</i> decoder latency approaches 10 µs, which we would expect leading groups to reach around the turn of the decade.</p>
+
+<figure class="fig" aria-labelledby="floor">
+<svg viewBox="0 0 720 256" role="img" aria-label="Ladder of control reaction times and the per-key time each implies: 63 microseconds demonstrated gives roughly an hour per key; 10 microseconds assumed by Google gives about nine minutes; 1 microsecond, not demonstrated, would give about one minute.">
+<text x="20" y="24" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#283771" text-anchor="start">The physics floor: control reaction time sets the key time</text>
+<line x1="60" y1="56" x2="60" y2="196" stroke="#E0DEDE" stroke-width="2"/>
+<circle cx="60" cy="72" r="8" fill="#2F5E52"/>
+<text x="80" y="68" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#2F5E52" text-anchor="start">63 µs: demonstrated (Google Willow, 2024–25)</text>
+<text x="80" y="85" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">roughly an hour per primed key; the decoder does not yet feed back into the circuit · derived</text>
+<circle cx="60" cy="128" r="8" fill="#7A5A1E"/>
+<text x="80" y="124" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#7A5A1E" text-anchor="start">10 µs: assumed (Google's 2026 estimate)</text>
+<text x="80" y="141" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">gives the ~9-minute primed key used throughout this piece · Google 2026</text>
+<circle cx="60" cy="184" r="8" fill="#8D2E2E"/>
+<text x="80" y="180" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#8D2E2E" text-anchor="start">1 µs: not demonstrated anywhere</text>
+<text x="80" y="197" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">~1 minute per key, or the same with ~10× the qubits · derived from Google's qubits-for-speed trade</text>
+<text x="20" y="222" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Sources: Google Quantum AI, Nature 638, 920 (2025), arXiv:2408.13687 (63 ± 17 µs decoder latency);</text>
+<text x="20" y="237" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">arXiv:2603.28846 (10 µs reaction time, 50% Toffoli overhead).</text>
+</svg>
+<figcaption class="cap" id="floor"><b>Why "just make it faster" is a generation of hardware away.</b> The middle rung is where every number in this piece comes from. The top rung is where hardware actually is.</figcaption>
+</figure>
+
+<h3>Try it yourself</h3>
+<p>The whole in-flight argument is one formula. Set the dials to whatever you think the attacker has, including values more generous than anything published, and read the result. Drag minutes-per-key to one to see what a machine ten times the first does to the defence; that collapse is why section 8 exists.</p>
+
+<div class="calc" id="calc">
+  <div class="calc-grid">
+    <label>Keys per spend (N) <span class="calc-val" id="vN">100</span><input type="range" id="iN" min="1" max="100" value="100" step="1"></label>
+    <label>Attacker's primed machines (M) <span class="calc-val" id="vM">7</span><input type="range" id="iM" min="1" max="200" value="7" step="1"></label>
+    <label>Minutes per key per machine <span class="calc-val" id="vT">9</span><input type="range" id="iT" min="1" max="30" value="9" step="1"></label>
+    <label>Confirmation window
+      <select id="iW">
+        <option value="10">Normal: next block, 10-min average</option>
+        <option value="31">Stretched: 2 blocks suppressed (~31 min)</option>
+        <option value="60">Stretched: 5 blocks suppressed (~60 min)</option>
+      </select>
+    </label>
+    <label class="calc-check"><input type="checkbox" id="iR"> Attacker must re-prime between rounds (+9 min per extra round)</label>
+  </div>
+  <div class="calc-out">
+    <div class="calc-big" id="oP">—</div>
+    <div class="calc-sub" id="oS">—</div>
+    <div class="calc-note" id="oN">—</div>
+  </div>
+  <p class="small">Model: success = P(no confirmation before T), with T = minutes-per-key × ⌈N/M⌉ (+ re-prime). Normal window: e<sup>−T/10</sup>. Stretched windows: sum of 3 or 6 exponential block intervals (the Holmes–Chen hybrid). 9 min/key is Google's primed first-generation figure; 1 min/key corresponds to a machine roughly ten times larger, per Google's qubits-for-speed trade. The model ignores fee auctions, value caps and reorg cost, all of which favour the defender. All derived.</p>
+</div>
+<script>
+(function(){
+  function tailGamma(k,theta,T){var x=T/theta,s=0,f=1;for(var i=0;i<k;i++){if(i>0)f*=i;s+=Math.pow(x,i)/f;}return Math.exp(-x)*s;}
+  var N=document.getElementById('iN'),M=document.getElementById('iM'),Tm=document.getElementById('iT'),W=document.getElementById('iW'),R=document.getElementById('iR');
+  var vN=document.getElementById('vN'),vM=document.getElementById('vM'),vT=document.getElementById('vT'),oP=document.getElementById('oP'),oS=document.getElementById('oS'),oN=document.getElementById('oN');
+  function fmt(p){if(p>=0.01)return (p*100).toFixed(1)+'%';if(p>=1e-6)return '1 in '+Math.round(1/p).toLocaleString();if(p<1e-30)return 'below 1 in 10\u00b3\u2070';return '1 in 10^'+(-Math.log10(p)).toFixed(0);}
+  function run(){
+    var n=+N.value,m=+M.value,t=+Tm.value,w=W.value,r=R.checked;
+    vN.textContent=n;vM.textContent=m;vT.textContent=t;
+    var rounds=Math.ceil(n/m),T=t*rounds+(r?9*(rounds-1):0),p;
+    if(w==='10')p=Math.exp(-T/10);else if(w==='31')p=tailGamma(3,11,T);else p=tailGamma(6,10,T);
+    oP.textContent=fmt(p);
+    oS.textContent='Chance per spend that the attacker derives all '+n+' keys before confirmation \u00b7 attack takes '+T+' minutes ('+rounds+' round'+(rounds>1?'s':'')+')';
+    var note='';
+    if(t<=3)note='At '+t+' min/key you are modelling a machine several generations past the first one (Google: doubling qubits doubles speed). ';
+    if(m>=n)note+='With as many machines as keys, the vault is exactly as exposed as a single key. ';
+    if(p<1e-6)note+='Below one in a million: the value cap and fee auction make this a losing trade for the attacker.';
+    else if(p<0.01)note+='Below 1%: review the value cap; this is the band in which the economics decide.';
+    else note+='This is an attacker the vault is not built for: migrate to native post-quantum outputs when they exist.';
+    oN.textContent=note;
+  }
+  [N,M,Tm,W,R].forEach(function(e){e.addEventListener('input',run);e.addEventListener('change',run);});
+  run();
+})();
+</script>
+
+<h3>The defence holds to about 2035</h3>
+<p>Through about 2032, the chance that any one OTV(100) spend is stolen in flight is below one in a million with high confidence, because that requires a fleet of seven or more fast-clock machines, which we assess at five percent or less to exist by then. Through about 2035 it stays below one percent, which requires twenty such machines, or ten plus a sustained stretching of the window. From about 2038 the construction should no longer be relied on by itself. Those dates are our synthesis of the Global Risk Institute's 2025 expert survey, the Metaculus forecast for factoring RSA-2048, and the IBM and PsiQuantum roadmaps; they are estimates, reviewed every year against the signals in section 8. That window is the medium term this method is built for, and it is wider than the window Bitcoin needs to adopt post-quantum signatures.</p>
+
+<h2 id="compare">6. Every option gives something up</h2>
+
+<p class="lead">There are five other things an institution can do about this problem today or soon. The table puts them side by side on the questions a custodian actually asks: what has to change, whom you have to trust, what is protected, when it is available, and what it costs. Our row is not the best in every column, and the columns where it loses are the point of section 8.</p>
+
+<div class="table-wrap table-wide">
+<table aria-label="Comparison of Bitcoin post-quantum custody options">
+<thead><tr><th>Option</th><th>Changes to Bitcoin</th><th>Changes to HSMs or wallets</th><th>Stays trustless? Who you depend on</th><th>At rest</th><th>In flight</th><th>Available</th><th>Cost per spend</th></tr></thead>
+<tbody>
+<tr><td>Hygiene alone: fresh bc1q address, no reuse, no Taproot</td><td>none</td><td>none</td><td class="risk-1">yes · nobody</td><td class="risk-1">hash only</td><td class="risk-5">1 key, one block</td><td class="risk-1">now</td><td class="risk-1">~140 vB, under $2</td></tr>
+<tr><td class="hl"><b>100-Key Vault</b> (One-Time Vaulting)</td><td class="hl">none</td><td class="hl">none: standard keygen and signing calls</td><td class="risk-1 hl">yes · nobody; Core nodes relay, most pools mine (not Knots or OCEAN)</td><td class="risk-1 hl">hash only, plus hash-based approval gate</td><td class="risk-3 hl">100 keys, one block: resilient, dated to ~2035</td><td class="risk-1 hl">now · <a href="https://mempool.space/tx/397b3672fd908901906802fc02ab3307d43264ca72776329340a2173dc84220c">mainnet tx</a></td><td class="risk-1 hl">~2,800 vB, $4–$112 at 2–50 sat/vB</td></tr>
+<tr><td>QSB hash lock (StarkWare, 2026)</td><td>none, but relies on legacy script behaviour a cleanup could remove</td><td>new signing flow; hours of GPU grinding per spend</td><td class="risk-5">no · a cooperating miner must include each non-standard tx</td><td class="risk-1">hash only</td><td class="risk-1">hash-bound, ~2<sup>118</sup>: stronger than ours</td><td class="risk-3">one mainnet tx; unaudited; no fee bumping</td><td class="risk-3">~10 KB non-standard tx plus GPU time; reported $50–$320 for the first spend</td></tr>
+<tr><td>Sidechain or wrapped BTC on a PQ chain</td><td>none</td><td>new chain, new keys</td><td class="risk-5">no · the peg federation or bridge</td><td class="risk-5">the peg is a curve-key UTXO</td><td class="risk-5">the peg still races</td><td class="risk-1">now</td><td>peg-in/out fees plus the other chain's fees</td></tr>
+<tr><td>Wait for the fork</td><td>soft fork required</td><td>new firmware, new address type</td><td class="risk-1">yes · nobody</td><td class="risk-5">single key until then</td><td class="risk-5">single key until then</td><td class="risk-5">no proposal yet; ~7 years after one</td><td>unknown; PQ signatures are 1–4 KB each</td></tr>
+<tr><td>Native P2MR + PQ signatures (BIP-360 plus a PQ signature BIP)</td><td>soft fork</td><td>new firmware</td><td class="risk-1">yes · nobody</td><td class="risk-1">hash only</td><td class="risk-1">post-quantum signature: the destination</td><td class="risk-5">draft; no activation date</td><td>est. 10–40× an ordinary spend from signature size</td></tr>
+</tbody>
+</table>
+</div>
+<p class="small">Table A. Costs in USD at $80,000 per bitcoin, late October 2026. "Stays trustless" means the spend relies on no party beyond the ordinary Bitcoin network. QSB's reported first-spend compute cost varies by source ($50–$320) and is quoted as a range. PQ signature sizes: ML-DSA-44 ≈ 2.4 KB, SLH-DSA-128s ≈ 7.9 KB, FALCON-512 ≈ 0.7 KB; the native-output fee is an estimate from those sizes, not a published figure.</p>
+
+<p>Three things the table says that we would say ourselves. QSB is stronger in flight, by a wide margin, and is the right research direction; it is not yet something a bank can run, for the reasons in its row. Native post-quantum outputs win every column except "available", and that column is why this piece exists. Hygiene alone is most of the at-rest story; the vault is hygiene enforced, multiplied by a hundred, and governed. Sidechains move the problem: the peg is a curve-key output on Bitcoin, plus trust in whoever runs it.</p>
+
+<h3>A vault spend costs about twenty times an ordinary payment</h3>
+<p>One input, two outputs, the payment and a fresh vault for the change: about 2,800 virtual bytes, roughly twenty times an ordinary payment (our mainnet spend, one input to one output, weighed 2,759). At 2 satoshis per virtual byte that is 5,600 satoshis, about $4.50; at 10 sat/vB, 28,000 satoshis, about $22; at 50 sat/vB, seen only in congested periods, 140,000 satoshis, about $112. All at $80,000 per bitcoin, where it closed on 26–27 October 2026, against positions typically eight or nine figures. OTV(20) for operational wallets costs about a quarter, roughly $5.40 at 10 sat/vB. There is no other cost: ordinary key-generation and signing calls, a standard transaction, nothing paid to anyone but the miner. A custodian with Bitcoin signing in place can pilot on signet in weeks and on mainnet the quarter after.</p>
+
+<h2 id="objections">7. Most objections are true, and the design accounts for them</h2>
+
+<p>We wrote this section before publishing by asking what the sharpest reviewers in three communities, Bitcoin Core, quantum computing, and bank custody, would say first. Here is what they would say, and what is true in it.</p>
+
+<h3 class="ask">"Isn't 100 keys just 100 machines?"</h3>
+<p>Yes. Google says it plainly: the attacks "parallelize trivially", which is why every curve in Figure 3 reaches 41%, and spare machines push past it. What the objection misses is the other half of the same paragraph: against an attacker with a small number of machines, which is what the first generation will be, deriving 100 keys in ten minutes is exactly the obstacle. The method is a bet on fleet size over a window of years, and the fleet sizes are in a table rather than a slogan: a seven-machine fleet is unlikely before about 2032, twenty before the mid-2030s, and a hundred, or one machine a hundred times faster, is a late-2030s proposition on anything published today.</p>
+
+<h3 class="ask">"What about one bigger machine?"</h3>
+<p>Also true. Google notes that doubling the qubits roughly doubles the speed, and that eleven primed machines working one key together get a 6.5× speedup. A machine a hundred times the first would do 100 keys serially inside a block; it is also a hundred times harder to build than one that does not yet exist. The question for a risk committee is not "can this be beaten in principle" but "by whom, when, and at what cost per spend", and section 8 gives the signals that say when to stop relying on it.</p>
+
+<h3 class="ask">"Attacks always get better."</h3>
+<p>They do, and the trend is the strongest argument for treating this as a bridge. Between 2017 and 2026 the estimated cost of breaking one secp256k1 key fell by orders of magnitude on every axis: roughly 1,800× fewer Toffoli gates from Roetteler et al. to Google, about 20× fewer physical qubits from Litinski's photonic estimate to Google's superconducting one, and about 10× less spacetime volume between the two most recent. A defence worth 6.6 bits can be erased by one good paper. That is why the migration plan in section 8 is part of the method, not an afterthought.</p>
+
+<figure class="fig" aria-labelledby="fig4cap">
+<svg viewBox="0 0 720 304" role="img" aria-label="Scatter chart of published resource estimates for breaking a 256-bit elliptic-curve key, 2017 to 2026, on a log scale of Toffoli gate count: Roetteler 2017 about 1.3 times 10 to the 11; Litinski 2023 about 2 times 10 to the 8; Chevignard 2026 over 10 to the 11 with only 1,100 logical qubits; Google 2026 at 70 to 90 million.">
+<line x1="70" y1="40" x2="660" y2="40" stroke="#E0DEDE"/>
+<text x="64" y="44" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">10¹²</text>
+<line x1="70" y1="100" x2="660" y2="100" stroke="#E0DEDE"/>
+<text x="64" y="104" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">10¹⁰</text>
+<line x1="70" y1="160" x2="660" y2="160" stroke="#E0DEDE"/>
+<text x="64" y="164" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">10⁸</text>
+<line x1="70" y1="220" x2="660" y2="220" stroke="#E0DEDE"/>
+<text x="64" y="224" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">10⁶</text>
+<text x="20" y="130" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" transform="rotate(-90 20 130)">Toffoli gates per key</text>
+<text x="100" y="246" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">2017</text>
+<text x="240" y="246" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">2020</text>
+<text x="380" y="246" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">2023</text>
+<text x="520" y="246" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="middle">2026</text>
+<path d="M100,67 L380,151 L520,164" fill="none" stroke="#283771" stroke-width="1.5" stroke-dasharray="5 4"/>
+<circle cx="100" cy="67" r="7" fill="#283771"/>
+<text x="112" y="46" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#283771" text-anchor="start">Roetteler et al. 2017</text>
+<text x="112" y="61" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">≈1.3×10¹¹ gates, 2,330 logical qubits</text>
+<circle cx="380" cy="151" r="7" fill="#283771"/>
+<text x="392" y="112" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#283771" text-anchor="start">Litinski 2023</text>
+<text x="392" y="128" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">≈2×10⁸ single key; ≈9M photonic qubits</text>
+<circle cx="520" cy="164" r="8" fill="#8D2E2E"/>
+<text x="470" y="196" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#8D2E2E" text-anchor="start">Google 2026</text>
+<text x="430" y="211" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">7–9×10⁷ gates, &lt;500k superconducting qubits</text>
+<circle cx="540" cy="58" r="6" fill="#5B617A"/>
+<text x="528" y="54" font-family="IBM Plex Sans Condensed, IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#283771" text-anchor="end">Chevignard et al. 2026</text>
+<text x="528" y="69" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="end">1,100 logical qubits, &gt;10¹¹ gates</text>
+<text x="70" y="270" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">Sources: Roetteler, Naehrig, Svore, Lauter (2017); Litinski (2023); Chevignard et al. (2026) as</text>
+<text x="70" y="285" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#5B617A" text-anchor="start">cited by Google; Google Quantum AI (2026). Toffoli counts, single instance.</text>
+</svg>
+<figcaption class="cap" id="fig4cap"><b>Figure 4.</b> Nine years of "attacks always get better". The gate count for one key fell by three orders of magnitude, and the physical machine shrank from millions of qubits to under half a million. There is no reason to think the curve has stopped.</figcaption>
+</figure>
+
+<h3 class="ask">"This isn't post-quantum cryptography."</h3>
+<p>In flight, correct, which is why we say resilient and not resistant. At rest it is: a SHA-256 commitment and an SLH-DSA approval gate are post-quantum cryptography in the ordinary sense. The in-flight security of a 100-Key Vault still rests on ECDSA over secp256k1, which NIST's draft transition timeline (IR 8547) lists as disallowed after 2035 and CNSA 2.0 phases out for national security systems by 2033. Neither binds a commercial custodian, but no auditor will call ECDSA post-quantum, and we do not ask them to. What the method gives you is the only post-quantum property Bitcoin can express today, the hash at rest, a hash-based governance layer around the spend, and a quantified work factor in the one window where Bitcoin cannot yet help you.</p>
+
+<h3 class="ask">"Bitcoin never verifies your hash-based approvals."</h3>
+<p>True by construction. Bitcoin checks 100 ECDSA signatures and nothing else; the SLH-DSA approval is enforced off-chain, by the software that decides whether the keys are asked to sign. Its job is not to make the chain post-quantum but to ensure the one moment of exposure happens only when the right people have agreed to the exact transaction, so the attacker's only route is the race and not the approval. Who can trigger the signatures is answered two objections below; section 8 shows how the same approval trail becomes the migration record.</p>
+
+<h3 class="ask">"The window isn't really ten minutes."</h3>
+<p>Correct. Blocks are random, the mempool can be flooded, and the Surrey paper's hybrid attack puts Bitcoin's effective window at about 31 minutes if an attacker pays for it. The heat map in section 5 shows what that does: against seven machines the odds go from one in 730,000 to one in 2,400; against twenty, from 1% to 22%. So a vault spend is never broadcast into a congested mempool and always pays a next-block fee with margin, which is cheap and removes most of the lever. And the window argument only bites against fleets of ten or more fast-clock machines, the same fleet the first objection already needs: it makes an existing large attacker more dangerous, not a new one.</p>
+
+<h3 class="ask">"Wouldn't they just go after the exposed coins first?"</h3>
+<p>Yes, and that is a guard, not a gap. About 6.9 million bitcoin already sit with keys visible on chain, attackable at leisure at roughly three keys per machine-hour, with no race and no deadline. The first owner of a quantum computer has years of that work waiting. A vault spend, by contrast, requires the whole fleet idle and primed at the exact second of broadcast for a capped slice behind a hundred keys. It is the worst target on the list, and it stays that way for as long as the list exists.</p>
+
+<h3 class="ask">"What about a reorg?"</h3>
+<p>Google describes it: when a high-value key first appears in a block, an attacker can pay miners to orphan that block while the quantum computer works on the key, then collect in the replacement. It is real, and it means the window does not end at the first confirmation. It also requires buying a chain reorganisation, which is expensive, public, and grows exponentially harder with every block; natural ones are a handful of single-block events a year. The method's response is a rule: a vault spend is final at six confirmations, and the value in any one spend is capped so that buying a reorganisation is never worth it.</p>
+
+<h3 class="ask">"At rest, you're just a SegWit address."</h3>
+<p>Yes. Every unreused bc1q address hides its key behind a hash, and Google's paper recommends exactly that hygiene as the first mitigation. The at-rest property is Bitcoin's, not ours. What the method adds is enforcement: a vault address cannot be reused, cannot be exposed through a shared master key, and cannot be spent without the hash-based approval, and when it is spent, the attacker faces 100 keys rather than one. Hygiene that is enforced by construction is worth more than hygiene that is recommended.</p>
+
+
+
+<p>Two further objections come from custody rather than quantum computing, and they are the ones a bank's reviewer asks first.</p>
+
+<h3 class="ask">"Who can trigger the 100 signatures?"</h3>
+<p>Ordinary signing devices, HSMs included, sign whatever they are asked to sign; they cannot see a hash-based approval. If one program can ask all 100 keys to sign, that program is the custody, and anyone who compromises it needs no quantum computer. The method's answer is that no single system may hold that power: the 100 keys are spread across independent signing systems under separate control, including one the asset owner runs, and each checks the hash-based approvals against the exact transaction before signing its share. Stealing means breaching all of them at once, the standard every multi-party custody system is held to. The operating rules that make it concrete are a custodian's implementation, published separately.</p>
+
+<h3 class="ask">"What if one of the 100 keys is lost?"</h3>
+<p>A script that needs all 100 keys has no mercy on its own: one failed device and the coins are gone. The answer uses the same hash that hides the main path: the witness script can carry a second spending path, for a separate recovery quorum, that opens only after a fixed date. Like the main path, it is hidden only while the vault is unspent. A P2WSH spend reveals the whole witness script, unused branch included, so every ordinary spend also publishes the recovery keys, and they are retired with the vault. That is why the lock must be a date, an absolute timelock, with each vault rolled into a fresh one before it arrives: a relative delay would already have run out on any vault older than the delay, and an attacker racing an ordinary spend could take the coins through the recovery path, which has far fewer keys. The branch also costs one main key, 99 instead of 100, because choosing a path takes one of the 100 witness items Bitcoin Core relays, and the recovery quorum fits in the remaining script space only up to about three keys. If a key is lost, the custodian waits for the date and moves the coins to a fresh vault; that recovery spend races with only the recovery quorum's keys, so it is for emergencies. It is the timelock machinery that has protected cold storage since 2016, placed behind a one-time hash.</p>
+
+<h2 id="upgrade">8. One spend moves the vault to post-quantum outputs</h2>
+
+<p>Everything above is designed to be temporary. When Bitcoin activates native post-quantum outputs, a 100-Key Vault migrates in one ordinary spend: the 100 keys sign a transaction whose output is a post-quantum address, the keys are revealed once, the coins are then locked by a signature scheme no quantum computer can forge, and no curve key has ever been visible at rest at any point in the coins' history. That last property is the one that matters. Coins that spent the waiting years in a Taproot address, or in a reused address, carry an exposed key into the migration and have to run the race one last time with the whole world watching; coins that waited in a One-Time Vault run it on their own terms, in a transaction of the custodian's choosing, with 100 keys.</p>
+
+<p>Two more things the method leaves behind for that day. The hash-based approval trail, kept off-chain, is a timestamped record of every spend decision that no quantum computer can have forged, which is the kind of evidence a BIP-361-style recovery phase or a regulator will want. And the discipline itself carries over: post-quantum signatures are large, and the value caps and recovery paths a custodian learns now are what it will run then, with different keys.</p>
+
+
+
+<h3>Five signals mean it is time to move</h3>
+<p>A bridge is only honest if you say when to get off it. The dates in the chart in section 2 are reviewed every year against the indicators in section 5. Any one of the following signals means the in-flight bet is no longer worth making, and cold reserves should move to the strongest construction available at the time, whether that is native post-quantum outputs or a hash-locked spend path that has by then become standard:</p>
+<ul>
+<li>A publicly demonstrated fault-tolerant machine passes roughly a thousand logical qubits on a fast-clock platform.</li>
+<li>A logical error rate below one in a hundred million is demonstrated at scale.</li>
+<li>A published estimate cuts the cost of breaking a 256-bit curve key by another factor of five.</li>
+<li>Any unexplained theft from an address with an exposed key.</li>
+<li>Native post-quantum outputs activate on Bitcoin.</li>
+</ul>
+<p>The bridge is the point. It is what lets a custodian say, truthfully, that its bitcoin was never exposed at rest and that it never had to choose between acting now and waiting for the protocol.</p>
+
+<h2 id="quarter">9. Four steps can start this quarter</h2>
+
+<div class="callout">
+<div class="callout-title">If you hold bitcoin, four things this quarter</div>
+<ol style="margin:0">
+<li>Move anything in Taproot, pay-to-public-key or reused addresses into fresh hashed addresses now, while no quantum computer exists. This is Google's first recommendation too, and it costs a transaction fee.</li>
+<li>Don't receive into Taproot (bc1p) addresses at all. A Taproot output is a public key, exposed from the moment coins arrive, however briefly they stay.</li>
+<li>Hold reserves in one-time, all-keys-sign addresses: 100 keys if your custodian can build them, 20 if not. Spend each once, cap the value per spend, treat six confirmations as final.</li>
+<li>Decide now what will make you move to native post-quantum outputs, and write it down before you need it. The signals are in section 8.</li>
+</ol>
+</div>
+
+<h3>It runs on standard tools, and the code is open</h3>
+<p>The cost is in section 6: a few dollars to a little over a hundred per spend, nothing to anyone but the miner, no new hardware. Everything here is standard Bitcoin and standard signing-device operation, and a custodian or a capable individual can build it from the description above or start from our <a href="https://github.com/eternax-ai/eternax-bitcoin-vault">open-source reference implementation</a>, which made the mainnet spend. A ready implementation for custodian banks exists as <a href="../../post-quantum-bitcoin-vault.html">EternaX Bitcoin Vault</a>; <a href="mailto:info@eternax.ai?subject=100-Key%20Vault%3A%20implementation">ask for the details</a>, which are deliberately not in this piece.</p>
+
+<div class="cta-block">
+<h2>Get the security model and a readiness map</h2>
+<p>The concept is above. The operating rules, the full security model with its machine-count tables and batching analysis, and the parameter choices a custodian makes are a separate document, written to be filed in a bank’s risk record. EternaX Labs shares it with custodians and banks, and runs a readiness assessment: holdings by exposure class, a migration path, and a pilot plan on unmodified HSMs. Nothing in it requires buying anything.</p>
+<div class="cta-row">
+<a class="cta-link" href="mailto:info@eternax.ai?subject=100-Key%20Vault%3A%20operating%20rules%20and%20security%20model">Request the operating rules and security model</a>
+<a class="cta-link-ghost" href="mailto:info@eternax.ai?subject=100-Key%20Vault%3A%20readiness%20assessment">Readiness assessment for custodians</a>
+<a class="cta-link-ghost" href="../../post-quantum-bitcoin-vault.html">See EternaX Bitcoin Vault</a>
+</div>
+</div>
+
+<section class="faq-section" id="faq">
+<h2>10. Questions people ask</h2>
+<div class="faq-intro"><p>Answered in the first sentence, then expanded, with a link to the section that shows the evidence. These are the questions as people type them; each has its own anchor for citing.</p></div>
+<div class="faq-list">
+<details class="faq-item" id="faq-is-bitcoin-quantum-safe"><summary><h3>Is Bitcoin quantum safe?</h3></summary><div class="faq-answer"><p>No. Every bitcoin is secured by an ECDSA or Schnorr signature on the secp256k1 curve, which Shor's algorithm breaks on a large enough quantum computer. About a third of all bitcoin already has its public key visible on chain and can be attacked at leisure once such a machine exists; the rest is safe only until it is spent. No such machine exists today. Google Quantum AI's 2026 estimate is under half a million physical qubits and about nine minutes per key on a first-generation fast machine. See <a href="#problem">section 1</a>.</p></div></details>
+<details class="faq-item" id="faq-will-quantum-computers-break-bitcoin"><summary><h3>Will quantum computers break Bitcoin?</h3></summary><div class="faq-answer"><p>They can break the signatures that prove ownership, not Bitcoin itself. A large enough quantum computer running Shor’s algorithm can derive a private key from any public key it can see; blocks, mining and the hash functions are unaffected. What that means in practice depends on whether your public key is visible: about a third of bitcoin is exposed today, the rest only during a spend. No such machine exists yet; Google Quantum AI’s 2026 estimate puts the first one at under half a million physical qubits. See <a href="#problem">section 1</a>.</p></div></details>
+<details class="faq-item" id="faq-how-can-i-protect-my-bitcoin-from-quantum-computers"><summary><h3>How can I protect my bitcoin from quantum computers?</h3></summary><div class="faq-answer"><p>Three things, in order. Move any coins in Taproot, pay-to-public-key or reused addresses to fresh hashed addresses now, while no quantum computer exists. Hold reserves in one-time, all-keys-sign addresses, 100 keys if your custodian can build them and 20 if not, and spend each address once. Decide in advance what will make you migrate to native post-quantum outputs when Bitcoin has them. The first step is free apart from a transaction fee; the second is the method in this piece; the third is <a href="#upgrade">section 8</a>.</p></div></details>
+<details class="faq-item" id="faq-how-much-bitcoin-is-vulnerable-to-a-quantum-attack-today"><summary><h3>How much bitcoin is vulnerable to a quantum attack today?</h3></summary><div class="faq-answer"><p>About 6.9 million BTC, roughly a third of supply, by Google Quantum AI’s 2026 count; BIP-361’s authors put it at more than 34%. That is the bitcoin whose public key is already visible on chain: about 1.7 million BTC in early pay-to-public-key outputs, every Taproot address, and every reused address. The remaining two thirds are exposed only while a spend is unconfirmed. See <a href="#problem">Figure 1</a>.</p></div></details>
+<details class="faq-item" id="faq-are-satoshi-s-coins-at-risk-from-quantum-computers"><summary><h3>Are Satoshi’s coins at risk from quantum computers?</h3></summary><div class="faq-answer"><p>Yes, and they are the clearest case. Satoshi-era coins sit in pay-to-public-key outputs, which put the public key directly on chain, so a sufficiently large quantum computer could derive the private keys at leisure and move them. Nothing in Bitcoin as it stands can prevent that; it is why proposals such as BIP-361 discuss what to do about legacy outputs. The 100-Key Vault addresses coins that are moved into it; it cannot protect coins that stay where they are.</p></div></details>
+<details class="faq-item" id="faq-can-bitcoin-be-made-post-quantum-secure-without-a-fork"><summary><h3>Can Bitcoin be made post-quantum secure without a fork?</h3></summary><div class="faq-answer"><p>At rest, yes, today: a coin behind a never-revealed hash has no public key for a quantum computer to attack, and the 100-Key Vault adds a hash-based approval gate so the decision to spend cannot be forged either. In flight, not fully: Bitcoin cannot verify a post-quantum signature without a soft fork, so the best no-fork method makes the spend quantum-resilient rather than quantum-resistant, by requiring an attacker to break 100 keys inside one block. The vault does the first completely and the second with a measured, dated work factor. See <a href="#method">section 3</a>.</p></div></details>
+<details class="faq-item" id="faq-what-is-the-100-key-vault"><summary><h3>What is the 100-Key Vault?</h3></summary><div class="faq-answer"><p>A standard Bitcoin address built from 100 fresh keys that all have to sign, used exactly once, with spends approved by a hash-based (SLH-DSA) quorum off chain. On chain it is a single SHA-256 hash until it spends; when it spends, all 100 keys appear at once and are never used again. It is the first instance of a method we call One-Time Vaulting, written OTV(100). See <a href="#method">section 3</a>.</p></div></details>
+<details class="faq-item" id="faq-what-is-one-time-vaulting"><summary><h3>What is One-Time Vaulting?</h3></summary><div class="faq-answer"><p>Holding bitcoin behind N fresh keys that all sign, spending each address exactly once, rolling change into a fresh address in the same transaction, and gating every spend with a hash-based approval quorum. It combines Bitcoin's own advice (never reuse an address), a 2021 academic proposal (multiple keys as a quantum defence), and a construction that reaches the 100-key relay limit. Written generally as OTV(N). See <a href="#method">section 3</a>.</p></div></details>
+<details class="faq-item" id="faq-what-is-the-difference-between-quantum-resilient-and-quantum"><summary><h3>What is the difference between quantum-resilient and quantum-resistant?</h3></summary><div class="faq-answer"><p>Quantum-resistant, or post-quantum, cryptography is unbroken by any known quantum algorithm; SLH-DSA and ML-DSA are examples. Quantum-resilient means a defence withstands a quantum attacker within stated limits of machines and time, rather than being immune. The 100-Key Vault is post-quantum secure at rest and quantum-resilient in flight; we use the words precisely so that a regulator or auditor reading them gets exactly what we mean.</p></div></details>
+<details class="faq-item" id="faq-what-is-an-on-spend-attack-on-bitcoin"><summary><h3>What is an on-spend attack on Bitcoin?</h3></summary><div class="faq-answer"><p>An attack during the minutes between a transaction being broadcast and being confirmed in a block, when the spender's public key is visible to the whole network. A quantum computer that can derive the private key in that window can broadcast a competing transaction with a higher fee and steal the coins. Google's 2026 estimate gives a first-generation machine about a 41% chance of beating one block for a single key. Against 100 keys it needs 100 such machines for the same odds. See <a href="#numbers">section 4</a>.</p></div></details>
+<details class="faq-item" id="faq-what-is-shor-s-algorithm-and-why-does-it-matter-for-bitcoin"><summary><h3>What is Shor’s algorithm and why does it matter for Bitcoin?</h3></summary><div class="faq-answer"><p>A quantum algorithm, published in 1994, that solves the discrete-logarithm and factoring problems in polynomial time. Bitcoin’s ECDSA and Schnorr signatures rest on the discrete logarithm over the secp256k1 curve being hard, so a quantum computer large enough to run Shor against a 256-bit key can derive any private key whose public key it can see. Google Quantum AI’s 2026 estimate is about 1,200 to 1,450 logical qubits and 70 to 90 million Toffoli gates per key.</p></div></details>
+<details class="faq-item" id="faq-what-did-google-s-2026-paper-actually-say-about-breaking-bit"><summary><h3>What did Google's 2026 paper actually say about breaking Bitcoin in 9 minutes?</h3></summary><div class="faq-answer"><p>That its optimised Shor circuits need about 1,200 to 1,450 logical qubits and 70 to 90 million Toffoli gates, fitting in under half a million physical superconducting qubits; that a full run takes about 18 to 23 minutes per key; and that because half the computation can be done before the key is known, a primed machine needs about 9 to 12 minutes from seeing a public key to holding the private key. It also said attacks on multisig outputs grow linearly with the number of keys and parallelise across machines. See <a href="#problem">section 1</a>.</p></div></details>
+<details class="faq-item" id="faq-how-long-until-a-quantum-computer-can-break-bitcoin"><summary><h3>How long until a quantum computer can break Bitcoin?</h3></summary><div class="faq-answer"><p>Nobody knows, and the honest answers are probabilities. The Global Risk Institute's 2025 survey of 26 experts put a machine able to break RSA-2048 within a day at 28 to 49% likely within ten years and 51 to 70% within fifteen. The Metaculus community forecast for the same event has a median around 2034. Google set its own internal post-quantum migration deadline at 2029. None of these is a date; all of them say the window is this decade or the next.</p></div></details>
+<details class="faq-item" id="faq-what-is-q-day"><summary><h3>What is Q-Day?</h3></summary><div class="faq-answer"><p>The day a cryptographically relevant quantum computer exists: one able to break the public-key cryptography in use today, including Bitcoin’s secp256k1 signatures. Nobody knows the date. The Global Risk Institute’s 2025 survey of 26 experts put a machine able to break RSA-2048 within a day at 28 to 49% likely within ten years; the Metaculus community median is around 2034; Google set its own migration deadline at 2029. Google also warns the first such machine may be detected on the blockchain before it is announced.</p></div></details>
+<details class="faq-item" id="faq-how-many-keys-can-a-bitcoin-multisig-have"><summary><h3>How many keys can a Bitcoin multisig have?</h3></summary><div class="faq-answer"><p>The familiar OP_CHECKMULTISIG opcode allows at most 20 keys. A chain of single OP_CHECKSIGVERIFY checks is not limited by that opcode and, under Bitcoin Core's relay rules of 3,600 bytes of script and 100 witness items per input, allows 100 keys in one input. Up to 201 keys are valid by consensus, but anything above 100 is non-standard and has to be handed to a miner directly. Spreading keys over several inputs adds nothing: each input falls to its own keys.</p></div></details>
+<details class="faq-item" id="faq-why-100-keys-and-not-20-or-1-000"><summary><h3>Why 100 keys and not 20 or 1,000?</h3></summary><div class="faq-answer"><p>100 is the most keys a single Bitcoin input will relay under Bitcoin Core's standard policy, so it is Bitcoin's own number, not ours. 20 is what the multisig opcode allows and is a reasonable setting for high-frequency operational wallets. More than 100 cannot be relayed in one input, and splitting a vault across inputs adds no protection: an attacker who breaks one input's keys takes that input. See <a href="#method">section 3</a>.</p></div></details>
+<details class="faq-item" id="faq-does-the-100-key-vault-require-a-soft-fork-or-any-change-to"><summary><h3>Does the 100-Key Vault require a soft fork or any change to Bitcoin?</h3></summary><div class="faq-answer"><p>No. It uses pay-to-witness-script-hash outputs, OP_CHECKSIGVERIFY and ordinary ECDSA, all consensus rules since 2017, in a script that Bitcoin Core's default policy relays and any miner can mine. No miner relationship, no special relay, no new software for anyone else. Bitcoin Knots' stricter default refuses it, so Knots nodes and the OCEAN pool will not carry it.</p></div></details>
+<details class="faq-item" id="faq-what-is-p2wsh-and-why-does-the-100-key-vault-use-it"><summary><h3>What is P2WSH and why does the 100-Key Vault use it?</h3></summary><div class="faq-answer"><p>Pay-to-witness-script-hash, the SegWit output type (BIP-141, 2017) that commits to a spending script by its SHA-256 hash. The script is revealed only when the coins are spent, so until then the chain sees no public keys at all. Bitcoin Core relays P2WSH scripts up to 3,600 bytes with up to 100 witness items, which is exactly what makes a 100-key script possible. See <a href="#method">the script in section 3</a>.</p></div></details>
+<details class="faq-item" id="faq-what-is-slh-dsa"><summary><h3>What is SLH-DSA?</h3></summary><div class="faq-answer"><p>The stateless hash-based digital signature scheme NIST standardised in August 2024 as FIPS 205, derived from SPHINCS+. Its security rests only on hash functions, which no known quantum algorithm breaks in useful time. In the 100-Key Vault it is the off-chain approval that must exist before the keys will sign, so the decision to spend cannot be forged by a quantum computer even though the on-chain signatures still use ECDSA.</p></div></details>
+<details class="faq-item" id="faq-what-is-a-one-time-address-and-why-does-it-matter"><summary><h3>What is a one-time address, and why does it matter?</h3></summary><div class="faq-answer"><p>An address that receives coins once and spends them once, so its public key is revealed only in the spending transaction and never again. Bitcoin has recommended this since 2010 for privacy; for quantum security it is what keeps coins at rest invisible to an attacker. The 100-Key Vault enforces it by construction: the change from every spend goes into a fresh address with fresh keys. See <a href="#method">section 3</a>.</p></div></details>
+<details class="faq-item" id="faq-does-it-work-with-existing-hsms"><summary><h3>Does it work with existing HSMs?</h3></summary><div class="faq-answer"><p>Yes. The HSMs generate 100 secp256k1 keys through their ordinary key-generation call and sign through their ordinary signing call; no firmware change. The hash-based approval layer runs in software around the HSMs, not inside them, and the keys are deleted after signing through the standard destroy call.</p></div></details>
+<details class="faq-item" id="faq-can-an-individual-use-one-time-vaulting-or-is-it-only-for-ba"><summary><h3>Can an individual use One-Time Vaulting, or is it only for banks?</h3></summary><div class="faq-answer"><p>An individual can. The construction is a script, a never-reuse rule and a hash-based approval; nothing requires a hardware security module or a committee. At 20 keys it uses Bitcoin's ordinary multisig opcode and any wallet software that can build a custom witness script; the approval can be one hash-based key on a token you hold. 100 keys is the reserve-grade setting a custodian would run, and our <a href="https://github.com/eternax-ai/eternax-bitcoin-vault">open-source reference implementation</a> runs it from one 24-word phrase on an ordinary computer. The discipline, not the number, is the method.</p></div></details>
+<details class="faq-item" id="faq-is-a-hardware-wallet-quantum-safe"><summary><h3>Is a hardware wallet quantum safe?</h3></summary><div class="faq-answer"><p>At rest, if you never reuse an address and do not use Taproot: a fresh hashed address shows the chain only a hash, whatever device holds the key. In flight, no: a hardware wallet reveals one public key when it spends, and a fast quantum machine would have about a 41% chance of beating the next block. Hardware wallets cannot run this method today without weakening it: they sign custom scripts only through registered wallet policies built on an exported xpub, and a quantum computer turns one exposed xpub into every key below it. Until firmware derives hardened keys internally, use an offline computer. See the <a href="https://github.com/eternax-ai/eternax-bitcoin-vault#faq">reference implementation's FAQ</a>.</p></div></details>
+<details class="faq-item" id="faq-can-a-quantum-computer-break-sha-256-or-mine-bitcoin-faster"><summary><h3>Can a quantum computer break SHA-256 or mine bitcoin faster?</h3></summary><div class="faq-answer"><p>Not in any useful way. Grover’s algorithm gives at most a square-root speedup on hash search, and the published estimate for finding a SHA-256 preimage that way is around 2¹⁶⁶ operations, which no foreseeable machine performs. Google’s 2026 paper also rebuts the idea that quantum computers threaten mining. The quantum threat to Bitcoin is to its signatures, not its hashes, which is exactly why a hash is what the 100-Key Vault shows the chain at rest. See <a href="#method">section 3</a>.</p></div></details>
+<details class="faq-item" id="faq-what-does-a-100-key-vault-spend-cost"><summary><h3>What does a 100-Key Vault spend cost?</h3></summary><div class="faq-answer"><p>About 2,800 virtual bytes for one input and two outputs (our one-output mainnet spend weighed 2,759): roughly $4.50 at 2 sat/vB, $22 at 10 sat/vB and $112 at 50 sat/vB, at $80,000 per bitcoin in late October 2026. Nothing is paid to anyone but the miner. A 20-key vault spend is about a quarter of that. See <a href="#compare">section 6</a>.</p></div></details>
+<details class="faq-item" id="faq-how-long-does-the-100-key-vault-hold-against-quantum-compute"><summary><h3>How long does the 100-Key Vault hold against quantum computers?</h3></summary><div class="faq-answer"><p>Below one in a million per spend through about 2032, below 1% through about 2035, and not to be relied on from about 2038, on our synthesis of the published expert surveys and hardware roadmaps. Those are estimates, labelled as such and reviewed annually. The window is wider than Bitcoin's own post-quantum migration window, which is the point. See <a href="#upgrade">section 8</a>.</p></div></details>
+<details class="faq-item" id="faq-is-taproot-quantum-safe"><summary><h3>Is Taproot quantum safe?</h3></summary><div class="faq-answer"><p>No. Taproot (bc1p) addresses place a public key directly in the output, so those coins can be attacked at rest the day a large enough quantum computer exists. Google's 2026 paper counts Taproot as fully exposed. Coins in Taproot addresses should be moved to fresh hashed addresses, or vaults, while no such machine exists. See <a href="#problem">section 1</a>.</p></div></details>
+<details class="faq-item" id="faq-i-never-reused-an-address-is-my-bitcoin-safe-from-quantum-co"><summary><h3>I never reused an address. Is my bitcoin safe from quantum computers?</h3></summary><div class="faq-answer"><p>At rest, yes: a fresh bc1q or legacy hashed address shows the chain only a hash. In flight, no: the moment you spend, your single public key is visible until the transaction confirms, and a first-generation fast quantum machine would have about a 41% chance of deriving it first. The 100-Key Vault keeps the at-rest property and replaces the single-key race with a 100-key one.</p></div></details>
+<details class="faq-item" id="faq-what-is-bip-360"><summary><h3>What is BIP-360?</h3></summary><div class="faq-answer"><p>Pay-to-Merkle-Root, a proposed new Bitcoin output type that removes Taproot's exposed key path. It was merged into the BIPs repository as a draft in February 2026. By its own text it defers post-quantum signature opcodes to a future proposal, so on its own it fixes at-rest exposure, not on-spend. A co-author has estimated about seven years from a decision to widespread migration. See <a href="#bitcoin">section 2</a>.</p></div></details>
+<details class="faq-item" id="faq-what-is-bip-361"><summary><h3>What is BIP-361?</h3></summary><div class="faq-answer"><p>“Post Quantum Migration and Legacy Signature Sunset”, a draft Bitcoin Improvement Proposal by Jameson Lopp and others, published April 2026. It proposes retiring quantum-vulnerable signatures on a schedule: no new sends to legacy outputs about three years after activation, legacy spends invalid about two years later. It depends on a post-quantum signature proposal that has not yet been written, and it is the source of the figure that more than 34% of bitcoin has an exposed public key.</p></div></details>
+<details class="faq-item" id="faq-what-is-qsb-starkware-s-quantum-safe-bitcoin-transaction-and"><summary><h3>What is QSB, StarkWare's quantum-safe Bitcoin transaction, and how does it compare?</h3></summary><div class="faq-answer"><p>A construction published in April 2026 that buries a hash-based one-time lock inside a legacy Bitcoin script, so the spend's security rests on hash second-preimage resistance rather than on the curve. In flight it is cryptographically stronger than a 100-Key Vault. It is not yet deployable by a custodian: each spend needs hours of GPU grinding, the transactions are non-standard and must be handed to a cooperating miner, fees cannot be bumped, and it depends on legacy script behaviour a future cleanup could remove. One mainnet transaction exists. See <a href="#compare">section 6</a>.</p></div></details>
+<details class="faq-item" id="faq-is-ethereum-more-or-less-exposed-to-quantum-attack-than-bitc"><summary><h3>Is Ethereum more or less exposed to quantum attack than Bitcoin?</h3></summary><div class="faq-answer"><p>Both use the same curve and the same kind of signature, so both are exposed. Ethereum accounts reveal their public key on first transaction and keep using the same address, so most active Ethereum accounts are exposed at rest the way reused Bitcoin addresses are. Ethereum can, however, verify a post-quantum signature inside a smart contract today, which Bitcoin cannot, so a post-quantum vault on Ethereum can be cryptographically complete in flight. That is a different piece.</p></div></details>
+<details class="faq-item" id="faq-what-is-the-bitcoin-quantum-migration-timeline"><summary><h3>What is the Bitcoin quantum migration timeline?</h3></summary><div class="faq-answer"><p>No activation date exists. BIP-360 is a draft; the post-quantum signature proposal it needs has not been written. A BIP-360 co-author's public estimate is roughly three years to activation and five more for 90% of the economy to migrate, about seven years in total from a start in 2026, which points to the mid-2030s.</p></div></details>
+<details class="faq-item" id="faq-is-there-a-ready-implementation-of-the-100-key-vault"><summary><h3>Is there a ready implementation of the 100-Key Vault?</h3></summary><div class="faq-answer"><p>Yes, at two levels. An <a href="https://github.com/eternax-ai/eternax-bitcoin-vault">open-source reference implementation</a> builds, signs and spends the 100-key script with Bitcoin Core, and made the mainnet spend in this piece. For custodian banks, EternaX Labs has built the rest as <a href="../../post-quantum-bitcoin-vault.html">EternaX Bitcoin Vault</a>: the signing orchestration split across independent nodes, the hash-based approval layer, the recovery design, and a security model a bank can file. It runs on unmodified Bitcoin and unmodified HSMs. Details on request at <a href="mailto:info@eternax.ai?subject=100-Key%20Vault">info@eternax.ai</a>, not in this piece.</p></div></details>
+<details class="faq-item" id="faq-can-i-run-one-time-vaulting-without-eternax"><summary><h3>Can I run One-Time Vaulting without EternaX?</h3></summary><div class="faq-answer"><p>Yes. Everything in this piece is standard Bitcoin and standard signing-device operation, the script is printed above, and the <a href="https://github.com/eternax-ai/eternax-bitcoin-vault">open-source reference implementation</a> builds and spends it. What EternaX supplies is the operating discipline around it: the split-signing orchestration, the hash-based approval layer, the recovery design, and a security model a bank can file. The method does not depend on us.</p></div></details>
+<details class="faq-item" id="faq-does-this-protect-bitcoin-on-lightning"><summary><h3>Does this protect bitcoin on Lightning?</h3></summary><div class="faq-answer"><p>No. Lightning channels keep public keys live for the life of the channel, so they are at-rest exposed by design. One-Time Vaulting is for holding and settling; operational liquidity is a separate problem.</p></div></details>
+<details class="faq-item" id="faq-isn-t-the-hash-based-approval-just-a-document-since-bitcoin"><summary><h3>Isn't the hash-based approval just a document, since Bitcoin never checks it?</h3></summary><div class="faq-answer"><p>On chain, yes: Bitcoin verifies the 100 ECDSA signatures and nothing else. Operationally, no: it is the condition every signing system checks before any key is asked to sign, split across independent parties so no single system can trigger a spend, and it is the only part of the spend decision a quantum computer cannot forge. It is governance, and we call it that.</p></div></details>
+<details class="faq-item" id="faq-what-if-a-quantum-computer-appears-tomorrow"><summary><h3>What if a quantum computer appears tomorrow?</h3></summary><div class="faq-answer"><p>Coins in exposed addresses, Taproot, pay-to-public-key and reused addresses, would be at immediate risk and should already have been moved. Coins behind hashes or in vaults would be safe at rest and exposed only when spent. A 100-Key Vault spend would then be the difference between a coin flip and a hundred coin flips, and between having a migration plan and not having one.</p></div></details>
+<details class="faq-item" id="faq-does-insurance-cover-quantum-theft-of-bitcoin"><summary><h3>Does insurance cover quantum theft of bitcoin?</h3></summary><div class="faq-answer"><p>Ask your insurer; most custody policies are silent on it or exclude it. What a 100-Key Vault gives an underwriter is a quantified exposure with a date rather than an unquantified one, which is the precondition for any conversation about cover.</p></div></details>
+</div>
+</section>
+
+<h2 id="refs">11. Glossary and references</h2>
+
+<div class="glossary">
+<div><b>At-rest attack.</b> Attacking a public key that is already visible, with unlimited time.</div>
+<div><b>On-spend (in-flight) attack.</b> Attacking a key revealed by a pending transaction, before it confirms.</div>
+<div><b>CRQC.</b> A cryptographically relevant quantum computer: large enough to run Shor's algorithm against real keys.</div>
+<div><b>Fast-clock / slow-clock.</b> Google's distinction between platforms that can run the in-flight race (superconducting, photonic, silicon) and those that cannot yet (ions, neutral atoms).</div>
+<div><b>Primed machine.</b> A quantum computer that has precomputed the key-independent half of Shor's algorithm and is waiting for a public key.</div>
+<div><b>P2WSH.</b> Pay-to-witness-script-hash: a SegWit address that commits to a script by its SHA-256 hash.</div>
+<div><b>Taproot / P2TR.</b> Bitcoin's 2021 output type; places a tweaked public key directly in the output.</div>
+<div><b>Full-RBF.</b> Bitcoin Core's policy, default since v28 and mandatory since v29, that any unconfirmed transaction can be replaced by a higher-fee conflict.</div>
+<div><b>SLH-DSA.</b> NIST's stateless hash-based signature standard (FIPS 205), derived from SPHINCS+.</div>
+<div><b>BIP-360 / BIP-361.</b> Draft proposals for a key-path-free output type and for a scheduled sunset of legacy signatures.</div>
+<div><b>Work factor.</b> The resources an attacker must spend, as opposed to a mathematical hardness bound.</div>
+<div><b>100-Key Vault.</b> A One-Time Vault with 100 keys in one input, the most Bitcoin Core's default policy relays; the instance this piece describes.</div>
+<div><b>One-Time Vaulting.</b> Holding bitcoin behind N fresh keys that all sign, used once, with spends approved by a hash-based signature: a quorum for an institution, a single key for an individual.</div>
+<div><b>OTV(N).</b> One-Time Vaulting with N keys per input; OTV(20) for operational wallets, OTV(100) for reserves.</div>
+<div><b>Post-quantum secure.</b> Protected by cryptography no known quantum algorithm breaks: here, SHA-256 commitments and SLH-DSA signatures, at rest.</div>
+<div><b>Quantum-resilient.</b> Withstands a quantum attacker within stated limits of machines and time, rather than being immune: here, the in-flight race, dated to about 2035.</div>
+</div>
+
+<ol class="refs">
+<li>Babbush, R., Zalcman, A., Gidney, C., et al. <i>Securing Elliptic Curve Cryptocurrencies against Quantum Vulnerabilities: Resource Estimates and Mitigations.</i> Google Quantum AI, Ethereum Foundation, Stanford. arXiv:2603.28846, March 2026. <a href="https://arxiv.org/abs/2603.28846">arxiv.org/abs/2603.28846</a></li>
+<li>Litinski, D. <i>How to compute a 256-bit elliptic curve private key with only 50 million Toffoli gates.</i> arXiv:2306.08585, 2023.</li>
+<li>Roetteler, M., Naehrig, M., Svore, K., Lauter, K. <i>Quantum resource estimates for computing elliptic curve discrete logarithms.</i> ASIACRYPT 2017; ePrint 2017/598 (9n+2⌈log₂n⌉+10 qubits, 448n³log₂n+4090n³ Toffolis). <a href="https://eprint.iacr.org/2017/598">eprint.iacr.org/2017/598</a></li>
+<li>Gidney, C. <i>How to factor 2048 bit RSA integers with less than a million noisy qubits.</i> arXiv:2505.15917, 2025.</li>
+<li>Lopp, J., Papathanasiou, C., Smith, I., Ross, J., Vaile, S., Dallaire-Demers, P.-L. <i>BIP-361: Post Quantum Migration and Legacy Signature Sunset.</i> Draft, 2026. <a href="https://github.com/bitcoin/bips">github.com/bitcoin/bips</a></li>
+<li>Beast, H., Heilman, E., Foxen Duke, I. <i>BIP-360: Pay to Merkle Root.</i> Draft, merged February 2026.</li>
+<li>BIP-141 (Segregated Witness), BIP-143 (transaction signature verification for version 0 witness program), BIP-341 (Taproot).</li>
+<li>Bitcoin Core, <code>src/policy/policy.h</code>: MAX_STANDARD_P2WSH_SCRIPT_SIZE = 3600; MAX_STANDARD_P2WSH_STACK_ITEMS = 100; MAX_STANDARD_P2WSH_STACK_ITEM_SIZE = 80. <a href="https://github.com/bitcoin/bitcoin/blob/master/src/policy/policy.h">github.com/bitcoin/bitcoin</a></li>
+<li>Bitcoin Core 28.0 release notes (full-RBF default) and 29.0 release notes (option removed). <a href="https://bitcoincore.org/en/releases/28.0/">bitcoincore.org/en/releases/28.0</a></li>
+<li>NIST IR 8547 (initial public draft), <i>Transition to Post-Quantum Cryptography Standards</i>, November 2024.</li>
+<li>NSA, <i>Commercial National Security Algorithm Suite 2.0</i> and FAQ.</li>
+<li>Levy, A. <i>Quantum-Safe Bitcoin Transactions.</i> StarkWare, April 2026. <a href="https://github.com/avihu28/Quantum-Safe-Bitcoin-Transactions">github.com/avihu28/Quantum-Safe-Bitcoin-Transactions</a>; StarkWare, <i>The first quantum-safe Bitcoin transaction has been mined</i>, August 2026.</li>
+<li>Heilman, E., public estimate of migration duration, Cointelegraph Magazine, February 2026.</li>
+<li>Holmes, S., Chen, L. <i>Assessment of Quantum Threat To Bitcoin and Derived Cryptocurrencies.</i> University of Surrey, IACR ePrint 2021/967. <a href="https://eprint.iacr.org/2021/967">eprint.iacr.org/2021/967</a></li>
+<li>Google Quantum AI. <i>Quantum error correction below the surface code threshold.</i> Nature 638, 920–926 (2025); arXiv:2408.13687 (1.1 µs cycle; 63 ± 17 µs decoder latency).</li>
+<li>Mosca, M., Piani, M. <i>Quantum Threat Timeline Report 2025.</i> Global Risk Institute / evolutionQ, March 2026.</li>
+<li>Metaculus, "When will the RSA-2048 challenge number be factorized by a quantum computer?", community forecast, accessed October 2026.</li>
+<li>Bitcoin Core 29.1 release notes (incremental relay fee default lowered to 0.1 sat/vB). <a href="https://bitcoincore.org/en/releases/29.1/">bitcoincore.org/en/releases/29.1</a></li>
+<li>One-Time Vault OTV(100) on Bitcoin mainnet, 28 October 2026: funding <a href="https://mempool.space/tx/b77b3538628e78d7902ffaa4bb90106b3b9b342440e037b05d610993780d1085">b77b3538…1085</a> (block 973,544); 100-signature spend <a href="https://mempool.space/tx/397b3672fd908901906802fc02ab3307d43264ca72776329340a2173dc84220c">397b3672…220c</a> (block 973,546, MARA Pool).</li>
+<li>EternaX Labs. <i>eternax-bitcoin-vault</i>: open-source reference implementation, tests and measured results (Bitcoin Core v31.1, Bitcoin Knots v29.2, signet, mainnet). <a href="https://github.com/eternax-ai/eternax-bitcoin-vault">github.com/eternax-ai/eternax-bitcoin-vault</a></li>
+<li>Bitcoin Knots v29.2, <code>-maxscriptsize</code> (default 1,650 bytes, the whole witness stack); OCEAN, <i>Node Policy</i>. <a href="https://ocean.xyz/docs/nodepolicy">ocean.xyz/docs/nodepolicy</a></li>
+</ol>
+
+<div class="callout">
+<div class="callout-title">Cite this</div>
+<p style="margin:0">Birla, P., Porechna, D. (2026). <i>The 100-Key Vault: one block, no change to Bitcoin. One-Time Vaulting for the post-quantum migration window.</i> EternaX Labs, 27 October 2026. https://eternax.ai/blogs/one-time-vault/index.html</p>
+</div>
+
+<h3>Change log</h3>
+<p class="small">28 Oct 2026: added the mainnet transaction links and the open-source reference implementation. Removed the multi-input setting: splitting a vault across inputs adds no work for an attacker, since each input falls to its own keys. Scoped relay claims to Bitcoin Core's default policy and noted Bitcoin Knots' 15-key limit. Corrected the Taproot advice, the hardware-wallet answer, the recovery-path description, the 41% ceiling and the spend size to the measured mainnet figure.</p>
+<p class="small">27 Oct 2026: first publication. Numbers with a shelf life carry their as-of date in the text: the bitcoin price in the cost section, the fleet-date estimates, the BIP statuses and the Metaculus median. This piece is reviewed every year against the migration signals in section 8 and revised when any of them moves; changes are listed here.</p>
+
+<p class="small">Figures in this piece are redrawn from the cited sources or computed from the stated model; the model's code and the full machine-count tables are in the operating rules and security model document. Nothing here is investment, legal or regulatory advice.</p>
+
+</article>
+</main>
+
+{% include footer.html %}
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eternax.ai/#organization",
+   "name": "EternaX Labs",
+   "alternateName": "EternaX",
+   "url": "https://eternax.ai/",
+   "logo": "https://eternax.ai/assets/eternax-icon.svg",
+   "description": "Post-quantum market infrastructure for stablecoin issuance, RWA tokenization, and institutional settlement.",
+   "foundingDate": "2025",
+   "industry": "Financial technology",
+   "sameAs": [
+    "https://x.com/eternaXLabs",
+    "https://github.com/eternax-ai",
+    "https://www.youtube.com/@eternaXlabs",
+    "https://farcaster.xyz/eternax",
+    "https://www.linkedin.com/company/eternax-labs"
+   ],
+   "founder": [
+    {
+     "@type": "Person",
+     "name": "Paarrthhh Birla",
+     "sameAs": [
+      "https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/",
+      "https://x.com/parthweb34ai"
+     ]
+    },
+    {
+     "@type": "Person",
+     "name": "Dariia Porechna",
+     "sameAs": [
+      "https://www.linkedin.com/in/dariia-porechna",
+      "https://x.com/FutureDies"
+     ]
+    }
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://eternax.ai/#website",
+   "url": "https://eternax.ai/",
+   "name": "EternaX",
+   "description": "Post-Quantum Market Infrastructure",
+   "publisher": {
+    "@id": "https://eternax.ai/#organization"
+   },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "ScholarlyArticle",
+   "@id": "https://eternax.ai/blogs/one-time-vault/index.html#article",
+   "headline": "The 100-Key Vault: one block, no change to Bitcoin",
+   "alternativeHeadline": "One-Time Vaulting: a post-quantum secure at rest, quantum-resilient in flight Bitcoin custody method for the migration window",
+   "description": "The 100-Key Vault, by One-Time Vaulting: post-quantum secure at rest, quantum-resilient in flight, on today's Bitcoin, with no fork, no miner deals and no HSM changes. Math, dates, objections, comparison, cost, and a mainnet transaction.",
+   "author": [
+    {
+     "@type": "Person",
+     "name": "Paarrthhh Birla",
+     "url": "https://www.linkedin.com/in/paarrthhh-birla-b3607bb4/",
+     "affiliation": {
+      "@id": "https://eternax.ai/#organization"
+     }
+    },
+    {
+     "@type": "Person",
+     "name": "Dariia Porechna",
+     "jobTitle": "Co-Founder and Cryptography Lead",
+     "url": "https://www.linkedin.com/in/dariia-porechna",
+     "affiliation": {
+      "@id": "https://eternax.ai/#organization"
+     }
+    }
+   ],
+   "publisher": {
+    "@id": "https://eternax.ai/#organization"
+   },
+   "datePublished": "2026-10-27",
+   "dateModified": "2026-10-28",
+   "mainEntityOfPage": "https://eternax.ai/blogs/one-time-vault/index.html",
+   "image": "https://eternax.ai/assets/preview.png",
+   "keywords": "100-key vault, one-time vault, One-Time Vaulting, OTV, Bitcoin quantum safe, Bitcoin post-quantum without fork, quantum-resilient custody, on-spend attack, P2WSH, SLH-DSA, BIP-360, QSB",
+   "inLanguage": "en",
+   "isAccessibleForFree": true,
+   "citation": [
+    "https://arxiv.org/abs/2603.28846",
+    "https://arxiv.org/abs/2306.08585",
+    "https://arxiv.org/abs/2505.15917"
+   ],
+   "abstract": "The 100-Key Vault is a Bitcoin custody method, built from the standard pay-to-witness-script-hash output and 100 fresh ECDSA keys that all must sign, each address spent exactly once, with every spend approved by an SLH-DSA hash-based signature off chain. It is post-quantum secure at rest, because only a SHA-256 hash is visible and signing requires a hash-based approval a quantum computer cannot forge, and quantum-resilient in flight, because an attacker must derive all 100 private keys inside one Bitcoin block interval. Using the estimate in Google Quantum AI’s 2026 paper “Securing Elliptic Curve Cryptocurrencies against Quantum Vulnerabilities: Resource Estimates and Mitigations”, about nine minutes per key on a first-generation fast-clock quantum computer, an attacker with seven such machines succeeds about once in 730,000 spends, with twenty about 1% of the time, and with a hundred about 41%. On published expert surveys and vendor roadmaps, the method holds below one in a million per spend through about 2032 and below 1% through about 2035, which covers the estimated seven-year window for Bitcoin to adopt native post-quantum signatures. It requires no change to Bitcoin, no relationship with miners, and no change to existing hardware security modules or wallets; a spend costs about 2,800 virtual bytes (2,759 measured on mainnet for one input and one output). The method is called One-Time Vaulting, written OTV(N); it was first described here by EternaX Labs in October 2026.",
+   "about": [
+    {
+     "@type": "Thing",
+     "name": "Bitcoin",
+     "sameAs": "https://www.wikidata.org/wiki/Q131723"
+    },
+    {
+     "@type": "Thing",
+     "name": "Post-quantum cryptography",
+     "sameAs": "https://www.wikidata.org/wiki/Q7233548"
+    },
+    {
+     "@type": "Thing",
+     "name": "Quantum computing",
+     "sameAs": "https://www.wikidata.org/wiki/Q176555"
+    },
+    {
+     "@type": "Thing",
+     "name": "Cryptocurrency custody"
+    }
+   ],
+   "mentions": [
+    {
+     "@type": "Thing",
+     "name": "Google Quantum AI"
+    },
+    {
+     "@type": "Thing",
+     "name": "Shor's algorithm",
+     "sameAs": "https://www.wikidata.org/wiki/Q1049061"
+    },
+    {
+     "@type": "Thing",
+     "name": "SLH-DSA (FIPS 205)"
+    },
+    {
+     "@type": "Thing",
+     "name": "Pay-to-witness-script-hash (P2WSH, BIP-141)"
+    },
+    {
+     "@type": "Thing",
+     "name": "BIP-360 Pay to Merkle Root"
+    },
+    {
+     "@type": "Thing",
+     "name": "BIP-361"
+    },
+    {
+     "@type": "Thing",
+     "name": "QSB Quantum-Safe Bitcoin (StarkWare)"
+    },
+    {
+     "@type": "Thing",
+     "name": "Holmes and Chen, University of Surrey, 2021"
+    },
+    {
+     "@type": "Thing",
+     "name": "secp256k1"
+    },
+    {
+     "@type": "Thing",
+     "name": "Taproot (P2TR)"
+    }
+   ],
+   "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+     "#abstract",
+     ".summary"
+    ]
+   },
+   "isPartOf": {
+    "@type": "Blog",
+    "name": "EternaX Labs Blog",
+    "url": "https://eternax.ai/blogs/index.html"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-is-bitcoin-quantum-safe",
+     "name": "Is Bitcoin quantum safe?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Every bitcoin is secured by an ECDSA or Schnorr signature on the secp256k1 curve, which Shor's algorithm breaks on a large enough quantum computer. About a third of all bitcoin already has its public key visible on chain and can be attacked at leisure once such a machine exists; the rest is safe only until it is spent. No such machine exists today. Google Quantum AI's 2026 estimate is under half a million physical qubits and about nine minutes per key on a first-generation fast machine."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-will-quantum-computers-break-bitcoin",
+     "name": "Will quantum computers break Bitcoin?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "They can break the signatures that prove ownership, not Bitcoin itself. A large enough quantum computer running Shor’s algorithm can derive a private key from any public key it can see; blocks, mining and the hash functions are unaffected. What that means in practice depends on whether your public key is visible: about a third of bitcoin is exposed today, the rest only during a spend. No such machine exists yet; Google Quantum AI’s 2026 estimate puts the first one at under half a million physical qubits. See section 1."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-how-can-i-protect-my-bitcoin-from-quantum-computers",
+     "name": "How can I protect my bitcoin from quantum computers?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Three things, in order. Move any coins in Taproot, pay-to-public-key or reused addresses to fresh hashed addresses now, while no quantum computer exists. Hold reserves in one-time, all-keys-sign addresses, 100 keys if your custodian can build them and 20 if not, and spend each address once. Decide in advance what will make you migrate to native post-quantum outputs when Bitcoin has them. The first step is free apart from a transaction fee; the second is the method in this piece; the third is section 8."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-how-much-bitcoin-is-vulnerable-to-a-quantum-attack-today",
+     "name": "How much bitcoin is vulnerable to a quantum attack today?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "About 6.9 million BTC, roughly a third of supply, by Google Quantum AI’s 2026 count; BIP-361’s authors put it at more than 34%. That is the bitcoin whose public key is already visible on chain: about 1.7 million BTC in early pay-to-public-key outputs, every Taproot address, and every reused address. The remaining two thirds are exposed only while a spend is unconfirmed. See Figure 1."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-are-satoshi-s-coins-at-risk-from-quantum-computers",
+     "name": "Are Satoshi’s coins at risk from quantum computers?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, and they are the clearest case. Satoshi-era coins sit in pay-to-public-key outputs, which put the public key directly on chain, so a sufficiently large quantum computer could derive the private keys at leisure and move them. Nothing in Bitcoin as it stands can prevent that; it is why proposals such as BIP-361 discuss what to do about legacy outputs. The 100-Key Vault addresses coins that are moved into it; it cannot protect coins that stay where they are."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-can-bitcoin-be-made-post-quantum-secure-without-a-fork",
+     "name": "Can Bitcoin be made post-quantum secure without a fork?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "At rest, yes, today: a coin behind a never-revealed hash has no public key for a quantum computer to attack, and the 100-Key Vault adds a hash-based approval gate so the decision to spend cannot be forged either. In flight, not fully: Bitcoin cannot verify a post-quantum signature without a soft fork, so the best no-fork method makes the spend quantum-resilient rather than quantum-resistant, by requiring an attacker to break 100 keys inside one block. The vault does the first completely and the second with a measured, dated work factor."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-is-the-100-key-vault",
+     "name": "What is the 100-Key Vault?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A standard Bitcoin address built from 100 fresh keys that all have to sign, used exactly once, with spends approved by a hash-based (SLH-DSA) quorum off chain. On chain it is a single SHA-256 hash until it spends; when it spends, all 100 keys appear at once and are never used again. It is the first instance of a method we call One-Time Vaulting, written OTV(100)."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-is-one-time-vaulting",
+     "name": "What is One-Time Vaulting?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Holding bitcoin behind N fresh keys that all sign, spending each address exactly once, rolling change into a fresh address in the same transaction, and gating every spend with a hash-based approval quorum. It combines Bitcoin's own advice (never reuse an address), a 2021 academic proposal (multiple keys as a quantum defence), and a construction that reaches the 100-key relay limit. Written generally as OTV(N)."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-is-the-difference-between-quantum-resilient-and-quantum",
+     "name": "What is the difference between quantum-resilient and quantum-resistant?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Quantum-resistant, or post-quantum, cryptography is unbroken by any known quantum algorithm; SLH-DSA and ML-DSA are examples. Quantum-resilient means a defence withstands a quantum attacker within stated limits of machines and time, rather than being immune. The 100-Key Vault is post-quantum secure at rest and quantum-resilient in flight; we use the words precisely so that a regulator or auditor reading them gets exactly what we mean."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-is-an-on-spend-attack-on-bitcoin",
+     "name": "What is an on-spend attack on Bitcoin?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "An attack during the minutes between a transaction being broadcast and being confirmed in a block, when the spender's public key is visible to the whole network. A quantum computer that can derive the private key in that window can broadcast a competing transaction with a higher fee and steal the coins. Google's 2026 estimate gives a first-generation machine about a 41% chance of beating one block for a single key. Against 100 keys it needs 100 such machines for the same odds."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-is-shor-s-algorithm-and-why-does-it-matter-for-bitcoin",
+     "name": "What is Shor’s algorithm and why does it matter for Bitcoin?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A quantum algorithm, published in 1994, that solves the discrete-logarithm and factoring problems in polynomial time. Bitcoin’s ECDSA and Schnorr signatures rest on the discrete logarithm over the secp256k1 curve being hard, so a quantum computer large enough to run Shor against a 256-bit key can derive any private key whose public key it can see. Google Quantum AI’s 2026 estimate is about 1,200 to 1,450 logical qubits and 70 to 90 million Toffoli gates per key."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-did-google-s-2026-paper-actually-say-about-breaking-bit",
+     "name": "What did Google's 2026 paper actually say about breaking Bitcoin in 9 minutes?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "That its optimised Shor circuits need about 1,200 to 1,450 logical qubits and 70 to 90 million Toffoli gates, fitting in under half a million physical superconducting qubits; that a full run takes about 18 to 23 minutes per key; and that because half the computation can be done before the key is known, a primed machine needs about 9 to 12 minutes from seeing a public key to holding the private key. It also said attacks on multisig outputs grow linearly with the number of keys and parallelise across machines."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-how-long-until-a-quantum-computer-can-break-bitcoin",
+     "name": "How long until a quantum computer can break Bitcoin?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nobody knows, and the honest answers are probabilities. The Global Risk Institute's 2025 survey of 26 experts put a machine able to break RSA-2048 within a day at 28 to 49% likely within ten years and 51 to 70% within fifteen. The Metaculus community forecast for the same event has a median around 2034. Google set its own internal post-quantum migration deadline at 2029. None of these is a date; all of them say the window is this decade or the next."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-is-q-day",
+     "name": "What is Q-Day?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The day a cryptographically relevant quantum computer exists: one able to break the public-key cryptography in use today, including Bitcoin’s secp256k1 signatures. Nobody knows the date. The Global Risk Institute’s 2025 survey of 26 experts put a machine able to break RSA-2048 within a day at 28 to 49% likely within ten years; the Metaculus community median is around 2034; Google set its own migration deadline at 2029. Google also warns the first such machine may be detected on the blockchain before it is announced."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-how-many-keys-can-a-bitcoin-multisig-have",
+     "name": "How many keys can a Bitcoin multisig have?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The familiar OP_CHECKMULTISIG opcode allows at most 20 keys. A chain of single OP_CHECKSIGVERIFY checks is not limited by that opcode and, under Bitcoin Core's relay rules of 3,600 bytes of script and 100 witness items per input, allows 100 keys in one input. Up to 201 keys are valid by consensus, but anything above 100 is non-standard and has to be handed to a miner directly. Spreading keys over several inputs adds nothing: each input falls to its own keys."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-why-100-keys-and-not-20-or-1-000",
+     "name": "Why 100 keys and not 20 or 1,000?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "100 is the most keys a single Bitcoin input will relay under Bitcoin Core's standard policy, so it is Bitcoin's own number, not ours. 20 is what the multisig opcode allows and is a reasonable setting for high-frequency operational wallets. More than 100 cannot be relayed in one input, and splitting a vault across inputs adds no protection: an attacker who breaks one input's keys takes that input."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-does-the-100-key-vault-require-a-soft-fork-or-any-change-to",
+     "name": "Does the 100-Key Vault require a soft fork or any change to Bitcoin?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. It uses pay-to-witness-script-hash outputs, OP_CHECKSIGVERIFY and ordinary ECDSA, all consensus rules since 2017, in a script that Bitcoin Core's default policy relays and any miner can mine. No miner relationship, no special relay, no new software for anyone else. Bitcoin Knots' stricter default refuses it, so Knots nodes and the OCEAN pool will not carry it."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-is-p2wsh-and-why-does-the-100-key-vault-use-it",
+     "name": "What is P2WSH and why does the 100-Key Vault use it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Pay-to-witness-script-hash, the SegWit output type (BIP-141, 2017) that commits to a spending script by its SHA-256 hash. The script is revealed only when the coins are spent, so until then the chain sees no public keys at all. Bitcoin Core relays P2WSH scripts up to 3,600 bytes with up to 100 witness items, which is exactly what makes a 100-key script possible. See the script in section 3."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-is-slh-dsa",
+     "name": "What is SLH-DSA?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The stateless hash-based digital signature scheme NIST standardised in August 2024 as FIPS 205, derived from SPHINCS+. Its security rests only on hash functions, which no known quantum algorithm breaks in useful time. In the 100-Key Vault it is the off-chain approval that must exist before the keys will sign, so the decision to spend cannot be forged by a quantum computer even though the on-chain signatures still use ECDSA."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-is-a-one-time-address-and-why-does-it-matter",
+     "name": "What is a one-time address, and why does it matter?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "An address that receives coins once and spends them once, so its public key is revealed only in the spending transaction and never again. Bitcoin has recommended this since 2010 for privacy; for quantum security it is what keeps coins at rest invisible to an attacker. The 100-Key Vault enforces it by construction: the change from every spend goes into a fresh address with fresh keys. See section 3."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-does-it-work-with-existing-hsms",
+     "name": "Does it work with existing HSMs?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The HSMs generate 100 secp256k1 keys through their ordinary key-generation call and sign through their ordinary signing call; no firmware change. The hash-based approval layer runs in software around the HSMs, not inside them, and the keys are deleted after signing through the standard destroy call."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-can-an-individual-use-one-time-vaulting-or-is-it-only-for-ba",
+     "name": "Can an individual use One-Time Vaulting, or is it only for banks?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "An individual can. The construction is a script, a never-reuse rule and a hash-based approval; nothing requires a hardware security module or a committee. At 20 keys it uses Bitcoin's ordinary multisig opcode and any wallet software that can build a custom witness script; the approval can be one hash-based key on a token you hold. 100 keys is the reserve-grade setting a custodian would run, and our open-source reference implementation (github.com/eternax-ai/eternax-bitcoin-vault) runs it from one 24-word phrase on an ordinary computer. The discipline, not the number, is the method."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-is-a-hardware-wallet-quantum-safe",
+     "name": "Is a hardware wallet quantum safe?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "At rest, if you never reuse an address and do not use Taproot: a fresh hashed address shows the chain only a hash, whatever device holds the key. In flight, no: a hardware wallet reveals one public key when it spends, and a fast quantum machine would have about a 41% chance of beating the next block. Hardware wallets cannot run this method today without weakening it: they sign custom scripts only through registered wallet policies built on an exported xpub, and a quantum computer turns one exposed xpub into every key below it. Until firmware derives hardened keys internally, use an offline computer."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-can-a-quantum-computer-break-sha-256-or-mine-bitcoin-faster",
+     "name": "Can a quantum computer break SHA-256 or mine bitcoin faster?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not in any useful way. Grover’s algorithm gives at most a square-root speedup on hash search, and the published estimate for finding a SHA-256 preimage that way is around 2¹⁶⁶ operations, which no foreseeable machine performs. Google’s 2026 paper also rebuts the idea that quantum computers threaten mining. The quantum threat to Bitcoin is to its signatures, not its hashes, which is exactly why a hash is what the 100-Key Vault shows the chain at rest. See section 3."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-does-a-100-key-vault-spend-cost",
+     "name": "What does a 100-Key Vault spend cost?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "About 2,800 virtual bytes for one input and two outputs (our one-output mainnet spend weighed 2,759): roughly $4.50 at 2 sat/vB, $22 at 10 sat/vB and $112 at 50 sat/vB, at $80,000 per bitcoin in late October 2026. Nothing is paid to anyone but the miner. A 20-key vault spend is about a quarter of that."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-how-long-does-the-100-key-vault-hold-against-quantum-compute",
+     "name": "How long does the 100-Key Vault hold against quantum computers?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Below one in a million per spend through about 2032, below 1% through about 2035, and not to be relied on from about 2038, on our synthesis of the published expert surveys and hardware roadmaps. Those are estimates, labelled as such and reviewed annually. The window is wider than Bitcoin's own post-quantum migration window, which is the point."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-is-taproot-quantum-safe",
+     "name": "Is Taproot quantum safe?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Taproot (bc1p) addresses place a public key directly in the output, so those coins can be attacked at rest the day a large enough quantum computer exists. Google's 2026 paper counts Taproot as fully exposed. Coins in Taproot addresses should be moved to fresh hashed addresses, or vaults, while no such machine exists."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-i-never-reused-an-address-is-my-bitcoin-safe-from-quantum-co",
+     "name": "I never reused an address. Is my bitcoin safe from quantum computers?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "At rest, yes: a fresh bc1q or legacy hashed address shows the chain only a hash. In flight, no: the moment you spend, your single public key is visible until the transaction confirms, and a first-generation fast quantum machine would have about a 41% chance of deriving it first. The 100-Key Vault keeps the at-rest property and replaces the single-key race with a 100-key one."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-is-bip-360",
+     "name": "What is BIP-360?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Pay-to-Merkle-Root, a proposed new Bitcoin output type that removes Taproot's exposed key path. It was merged into the BIPs repository as a draft in February 2026. By its own text it defers post-quantum signature opcodes to a future proposal, so on its own it fixes at-rest exposure, not on-spend. A co-author has estimated about seven years from a decision to widespread migration."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-is-bip-361",
+     "name": "What is BIP-361?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "“Post Quantum Migration and Legacy Signature Sunset”, a draft Bitcoin Improvement Proposal by Jameson Lopp and others, published April 2026. It proposes retiring quantum-vulnerable signatures on a schedule: no new sends to legacy outputs about three years after activation, legacy spends invalid about two years later. It depends on a post-quantum signature proposal that has not yet been written, and it is the source of the figure that more than 34% of bitcoin has an exposed public key."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-is-qsb-starkware-s-quantum-safe-bitcoin-transaction-and",
+     "name": "What is QSB, StarkWare's quantum-safe Bitcoin transaction, and how does it compare?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A construction published in April 2026 that buries a hash-based one-time lock inside a legacy Bitcoin script, so the spend's security rests on hash second-preimage resistance rather than on the curve. In flight it is cryptographically stronger than a 100-Key Vault. It is not yet deployable by a custodian: each spend needs hours of GPU grinding, the transactions are non-standard and must be handed to a cooperating miner, fees cannot be bumped, and it depends on legacy script behaviour a future cleanup could remove. One mainnet transaction exists."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-is-ethereum-more-or-less-exposed-to-quantum-attack-than-bitc",
+     "name": "Is Ethereum more or less exposed to quantum attack than Bitcoin?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Both use the same curve and the same kind of signature, so both are exposed. Ethereum accounts reveal their public key on first transaction and keep using the same address, so most active Ethereum accounts are exposed at rest the way reused Bitcoin addresses are. Ethereum can, however, verify a post-quantum signature inside a smart contract today, which Bitcoin cannot, so a post-quantum vault on Ethereum can be cryptographically complete in flight. That is a different piece."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-is-the-bitcoin-quantum-migration-timeline",
+     "name": "What is the Bitcoin quantum migration timeline?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No activation date exists. BIP-360 is a draft; the post-quantum signature proposal it needs has not been written. A BIP-360 co-author's public estimate is roughly three years to activation and five more for 90% of the economy to migrate, about seven years in total from a start in 2026, which points to the mid-2030s."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-is-there-a-ready-implementation-of-the-100-key-vault",
+     "name": "Is there a ready implementation of the 100-Key Vault?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, at two levels. An open-source reference implementation (github.com/eternax-ai/eternax-bitcoin-vault) builds, signs and spends the 100-key script with Bitcoin Core, and made the mainnet spend in this piece. For custodian banks, EternaX Labs has built the rest as EternaX Bitcoin Vault (eternax.ai/post-quantum-bitcoin-vault.html): the signing orchestration split across independent nodes, the hash-based approval layer, the recovery design, and a security model a bank can file. It runs on unmodified Bitcoin and unmodified HSMs. Details on request at info@eternax.ai, not in this piece."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-can-i-run-one-time-vaulting-without-eternax",
+     "name": "Can I run One-Time Vaulting without EternaX?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Everything in this piece is standard Bitcoin and standard signing-device operation, the script is printed above, and the open-source reference implementation at github.com/eternax-ai/eternax-bitcoin-vault builds and spends it. What EternaX supplies is the operating discipline around it: the split-signing orchestration, the hash-based approval layer, the recovery design, and a security model a bank can file. The method does not depend on us."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-does-this-protect-bitcoin-on-lightning",
+     "name": "Does this protect bitcoin on Lightning?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Lightning channels keep public keys live for the life of the channel, so they are at-rest exposed by design. One-Time Vaulting is for holding and settling; operational liquidity is a separate problem."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-isn-t-the-hash-based-approval-just-a-document-since-bitcoin",
+     "name": "Isn't the hash-based approval just a document, since Bitcoin never checks it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On chain, yes: Bitcoin verifies the 100 ECDSA signatures and nothing else. Operationally, no: it is the condition every signing system checks before any key is asked to sign, split across independent parties so no single system can trigger a spend, and it is the only part of the spend decision a quantum computer cannot forge. It is governance, and we call it that."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-what-if-a-quantum-computer-appears-tomorrow",
+     "name": "What if a quantum computer appears tomorrow?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Coins in exposed addresses, Taproot, pay-to-public-key and reused addresses, would be at immediate risk and should already have been moved. Coins behind hashes or in vaults would be safe at rest and exposed only when spent. A 100-Key Vault spend would then be the difference between a coin flip and a hundred coin flips, and between having a migration plan and not having one."
+     }
+    },
+    {
+     "@type": "Question",
+     "@id": "https://eternax.ai/blogs/one-time-vault/index.html#faq-does-insurance-cover-quantum-theft-of-bitcoin",
+     "name": "Does insurance cover quantum theft of bitcoin?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ask your insurer; most custody policies are silent on it or exclude it. What a 100-Key Vault gives an underwriter is a quantified exposure with a date rather than an unquantified one, which is the precondition for any conversation about cover."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "EternaX",
+     "item": "https://eternax.ai/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Blogs",
+     "item": "https://eternax.ai/blogs/index.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "The 100-Key Vault",
+     "item": "https://eternax.ai/blogs/one-time-vault/index.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var menuButton = document.getElementById('mobile-menu-button');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var iconMenu = document.getElementById('icon-menu');
+        var iconClose = document.getElementById('icon-close');
+        function closeMenu() {
+            if (!mobileMenu) return;
+            mobileMenu.classList.add('hidden');
+            if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+            if (iconMenu) iconMenu.classList.remove('hidden');
+            if (iconClose) iconClose.classList.add('hidden');
+        }
+        function openMenu() {
+            if (!mobileMenu) return;
+            mobileMenu.classList.remove('hidden');
+            if (menuButton) menuButton.setAttribute('aria-expanded', 'true');
+            if (iconMenu) iconMenu.classList.add('hidden');
+            if (iconClose) iconClose.classList.remove('hidden');
+        }
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', function() {
+                if (mobileMenu.classList.contains('hidden')) openMenu(); else closeMenu();
+            });
+            mobileMenu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+            document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+            window.addEventListener('resize', function() { if (window.innerWidth >= 768) closeMenu(); });
+        }
+        // Open a FAQ answer when its anchor is linked directly.
+        var target = location.hash && document.getElementById(location.hash.slice(1));
+        if (target && target.matches('details.faq-item')) target.open = true;
+    });
+</script>
+</body>
+</html>

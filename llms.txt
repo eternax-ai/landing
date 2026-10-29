@@ -18,6 +18,8 @@
 - [Stablecoin Issuers](https://eternax.ai/stablecoin-issuers.html): PQ-native mint/burn from day one. For stablecoin issuers, payment networks, and banks.
 - [Tokenized Funds & RWAs](https://eternax.ai/tokenized-funds-rwas.html): One PQ-native chain replacing multi-chain classical deployments. For asset managers and RWA platforms.
 - [Custody & MPC Providers](https://eternax.ai/custody-mpc-providers.html): Dual-gate post-quantum custody authorization. Preserve distributed approval without threshold SLH-DSA.
+- [EternaX Vault](https://eternax.ai/post-quantum-vault.html): Post-quantum secure vault for ETH, stablecoins and any ERC-20 on Ethereum and EVM chains. Payments are approved with NIST post-quantum signatures (SLH-DSA or ML-DSA) from existing HSMs or MPC; EternaX never holds keys or funds. Live on testnet; 30-day pilots for institutions and platforms.
+- [EternaX Bitcoin Vault](https://eternax.ai/post-quantum-bitcoin-vault.html): Bitcoin custody on an institution's existing HSM, with no fork: coins rest behind a hash, every spend needs 100 keys plus SLH-DSA or ML-DSA approvals; post-quantum secure at rest, quantum-resilient in flight. For banks, wealth managers, family offices and wealth platforms; no-cost 30-day pilot.
 
 ## Research Reports
 
@@ -31,6 +33,7 @@
 
 ## Research Posts
 
+- [The 100-Key Vault: one block, no Bitcoin fork](https://eternax.ai/blogs/one-time-vault/index.html): One-Time Vaulting, a Bitcoin custody method that holds coins in a P2WSH address behind 100 fresh keys that all must sign, spends each address once, and approves every spend with SLH-DSA off chain; post-quantum secure at rest and quantum-resilient in flight on today's Bitcoin, with no fork and a confirmed mainnet spend; the in-flight protection is a dated work factor, not post-quantum signatures.
 - [Pushing Collision Attacks on 39-Step SHA-256 Below Generic Search](https://eternax.ai/blogs/sha-256-39-step-collisions-below-generic-search/index.html): A HashSmash collision attack on SHA-256 reduced to 39 of 64 steps, at about 2^118.35 under the board's cost model against 2^124.83 for generic search; not a break of full SHA-256.
 
 ## Contact
