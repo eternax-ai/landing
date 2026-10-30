@@ -473,26 +473,18 @@ td.mid{color:var(--amber);font-weight:600}
    "inLanguage": "en"
   },
   {
-   "@type": [
-    "Product",
-    "SoftwareApplication"
-   ],
-   "@id": "https://eternax.ai/post-quantum-bitcoin-vault.html#product",
+   "@type": "Service",
+   "@id": "https://eternax.ai/post-quantum-bitcoin-vault.html#service",
    "name": "EternaX Bitcoin Vault",
    "alternateName": [
     "100-Key Vault",
     "OTV(100)",
     "One-Time Vaulting"
    ],
-   "brand": {
+   "serviceType": "Post-quantum Bitcoin custody security",
+   "provider": {
     "@id": "https://eternax.ai/#organization"
    },
-   "manufacturer": {
-    "@id": "https://eternax.ai/#organization"
-   },
-   "category": "Post-quantum Bitcoin custody security",
-   "applicationCategory": "SecurityApplication",
-   "operatingSystem": "Runs alongside an institution’s existing HSM",
    "url": "https://eternax.ai/post-quantum-bitcoin-vault.html",
    "image": "https://eternax.ai/assets/preview.png",
    "description": "EternaX Bitcoin Vault is post-quantum security software for Bitcoin custody, built by EternaX Labs. Coins sit in one-time addresses that show the blockchain only a SHA-256 hash, each address needs all 100 of its independent keys to sign, and every spend is approved with NIST post-quantum signatures chosen by policy. It runs on today’s Bitcoin and the HSM an institution already uses, with no fork, and was proven with a 100-key spend on Bitcoin mainnet on 28 October 2026.",
@@ -501,19 +493,6 @@ td.mid{color:var(--amber);font-weight:600}
     "@type": "BusinessAudience",
     "audienceType": "Banks launching Bitcoin custody, wealth managers, private banks, family offices and wealth platforms"
    },
-   "featureList": [
-    "Key backup and recovery",
-    "Post-quantum approvals",
-    "Policy engine",
-    "Split signing",
-    "Crypto-agility",
-    "Key and exposure discovery",
-    "Migration tooling",
-    "Monitoring and fee management",
-    "Audit trail and client reporting",
-    "Integrations",
-    "Production support and SLAs"
-   ],
    "offers": {
     "@type": "Offer",
     "name": "No-cost 30-day pilot",
@@ -525,33 +504,89 @@ td.mid{color:var(--amber);font-weight:600}
      "@id": "https://eternax.ai/#organization"
     }
    },
-   "additionalProperty": [
-    {
-     "@type": "PropertyValue",
-     "name": "Security at rest",
-     "value": "Post-quantum secure: only a SHA-256 script hash is visible on-chain"
-    },
-    {
-     "@type": "PropertyValue",
-     "name": "Security in flight",
-     "value": "Quantum-resilient: all 100 keys must be derived before the next block"
-    },
-    {
-     "@type": "PropertyValue",
-     "name": "Crypto-agility",
-     "value": "Approval algorithm selected by policy (SLH-DSA FIPS 205, ML-DSA FIPS 204); one transaction from Bitcoin’s future post-quantum outputs"
-    },
-    {
-     "@type": "PropertyValue",
-     "name": "Changes required",
-     "value": "None to Bitcoin, the HSM or custody agreements"
-    },
-    {
-     "@type": "PropertyValue",
-     "name": "Measured mainnet spend",
-     "value": "2,758.5 vB; 2,759 sat at 1 sat/vB; block 973,546"
-    }
-   ],
+   "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "EternaX Bitcoin Vault capabilities",
+    "itemListElement": [
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Key backup and recovery"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Post-quantum approvals"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Policy engine"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Split signing"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Crypto-agility"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Key and exposure discovery"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Migration tooling"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Monitoring and fee management"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Audit trail and client reporting"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Integrations"
+      }
+     },
+     {
+      "@type": "Offer",
+      "itemOffered": {
+       "@type": "Service",
+       "name": "Production support and SLAs"
+      }
+     }
+    ]
+   },
    "subjectOf": {
     "@type": "ScholarlyArticle",
     "name": "The 100-Key Vault",
@@ -561,7 +596,7 @@ td.mid{color:var(--amber);font-weight:600}
     "url": "https://eternax.ai/blogs/one-time-vault/index.html"
    },
    "isRelatedTo": {
-    "@type": "Product",
+    "@type": "Service",
     "name": "EternaX Vault",
     "url": "https://eternax.ai/post-quantum-vault.html"
    }
@@ -576,10 +611,10 @@ td.mid{color:var(--amber);font-weight:600}
     "@id": "https://eternax.ai/#website"
    },
    "about": {
-    "@id": "https://eternax.ai/post-quantum-bitcoin-vault.html#product"
+    "@id": "https://eternax.ai/post-quantum-bitcoin-vault.html#service"
    },
    "mainEntity": {
-    "@id": "https://eternax.ai/post-quantum-bitcoin-vault.html#product"
+    "@id": "https://eternax.ai/post-quantum-bitcoin-vault.html#service"
    },
    "datePublished": "2026-10-28",
    "dateModified": "2026-10-28",
@@ -626,7 +661,7 @@ td.mid{color:var(--amber);font-weight:600}
    "dateModified": "2026-10-28",
    "inLanguage": "en",
    "about": {
-    "@id": "https://eternax.ai/post-quantum-bitcoin-vault.html#product"
+    "@id": "https://eternax.ai/post-quantum-bitcoin-vault.html#service"
    },
    "mainEntity": [
     {
