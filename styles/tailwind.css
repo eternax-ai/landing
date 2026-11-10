@@ -1871,13 +1871,6 @@ tbody tr:last-child td {
   margin-top: 0.5rem;
 }
 
-.integration-demo-cta {
-  border-radius: 6px;
-  font-size: 1.15rem;
-  min-height: 84px;
-  padding: 1.2rem 2.2rem;
-}
-
 .faq-list,
 .faq-intro {
   max-width: 900px;
