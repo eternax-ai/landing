@@ -540,172 +540,131 @@
 </script>
 
 <style>
-/* Page-specific article layout. Tokens and shared components (callout, cta-block,
-   faq-item) come from styles/tailwind.css; the tokens below exist only on this page. */
-.fv-page{--tint:#EEF0F6;--tint-green:#E8F0ED;--tint-red:#F4E9E9;--maxw:1120px;--measure:700px;
- color:var(--text);font-size:17px;line-height:1.6;padding-top:64px}
+/* Page-specific layout only. Typography, buttons, tables, callouts, cards, the CTA block
+   and the FAQ come from the shared styles in styles/tailwind.css. */
+.fv-page{--measure:700px}
 .fv-page [id]{scroll-margin-top:84px}
-.fv-page a{color:var(--brand)}
+.fv-page a:not([class]){color:var(--green)}
 .fv-page a:focus-visible,.fv-page summary:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
-.fv-page svg{max-width:100%;height:auto}
 .fv-page ul{list-style:disc}
 .fv-page ol{list-style:decimal}
-.fv-page .faq-item{max-width:var(--measure)}
-.fv-page .faq-item .faq-answer p{margin:0 0 10px}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.fv-page code{background:rgba(40,55,113,0.07);border-radius:4px;font-size:0.88em;padding:0.1em 0.35em}
+.fv-page .small{color:var(--text-muted);font-size:0.82rem;line-height:1.6}
 
+.fv-page h1{margin-bottom:1.25rem}
+.fv-page h1 .cover-eyebrow{display:block;line-height:1.5}
+.fv-page .fv-crumbs{margin-bottom:1rem}
+.fv-page .fv-crumbs a{color:var(--text-muted);text-decoration:none}
+.fv-page .fv-crumbs a:hover{text-decoration:underline}
+.fv-page .fv-byline{margin-bottom:1.5rem}
+.fv-page .toc{display:flex;flex-wrap:wrap;gap:0.4rem 1rem;margin:0.5rem 0 0;font-size:0.85rem}
+.fv-page .toc a{color:var(--text-secondary);text-decoration:none}
+.fv-page .toc a:hover{text-decoration:underline}
+.fv-diagram svg{display:block;height:auto;margin-top:0.75rem;width:100%}
 
-.hero{padding:56px 0 40px}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
-@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:32px}}
-.crumbs{font-size:13px;color:var(--text-muted);margin:0 0 18px}
-.crumbs a{color:var(--text-muted);text-decoration:none}
-.crumbs a:hover{text-decoration:underline}
-.fv-page h1{font-family:var(--font-condensed);font-weight:600;font-size:clamp(34px,4.6vw,56px);line-height:1.04;letter-spacing:-.01em;margin:0 0 20px}
-.h1-kicker{display:block;font-family:var(--font-condensed);font-weight:600;font-size:clamp(17px,1.6vw,21px);letter-spacing:.02em;color:var(--green);margin-bottom:12px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.lede{font-family:var(--serif);font-size:20px;line-height:1.55;color:var(--text-secondary);margin:0 0 26px;max-width:620px}
-.byline{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--text-muted);margin-bottom:26px}
-.byline b{color:var(--text);font-weight:500}
-.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.btn{display:inline-block;padding:12px 18px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--brand)}
-.fv-page .btn-primary{background:var(--brand);color:#fff}
-.btn-ghost{background:transparent;color:var(--brand)}
-.fv-page .btn-ghost:hover{background:var(--tint)}
-.toc{margin-top:26px;font-size:14px;color:var(--text-muted)}
-.toc{display:flex;flex-wrap:wrap;gap:8px 16px}
-.toc a{color:var(--text-secondary);text-decoration:none}
-.toc a:hover{text-decoration:underline}
+.fv-page .article{padding:2.25rem 0 0.5rem;counter-reset:fig}
+.fv-page .section{padding:2.5rem 0;border-top:1px solid var(--border)}
+.fv-page .section > h2{margin:0 0 1.1rem}
+.fv-page .section > h3{font-size:1.2rem;line-height:1.35;margin:2rem 0 0.6rem}
+.fv-page .article p,.fv-page .article ul,.fv-page .article ol,.fv-page .section > h3,.fv-page .defs,.fv-page blockquote,.fv-page .callout{max-width:var(--measure)}
+.fv-page .article ul,.fv-page .article ol{margin:0 0 1rem;padding-left:1.4rem}
+.fv-page .article li{margin-bottom:0.5rem}
 
-.panel{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 8px 28px rgba(40,55,113,.06);padding:18px 18px 14px;position:relative}
-.panel:before{content:"";position:absolute;top:14px;right:14px;width:8px;height:8px;border-radius:50%;background:var(--green)}
-.panel-title{font-family:var(--font-condensed);font-weight:600;font-size:15px;margin:0 0 4px;padding-right:20px}
-.panel-sub{font-size:13px;color:var(--text-muted);margin:0 0 10px}
-.panel svg{display:block;width:100%;height:auto}
-.panel-foot{font-size:12.5px;color:var(--text-muted);margin:10px 0 0}
+.fv-summary{margin:0.5rem 0 0.75rem}
+.fv-page .fv-summary ul{columns:2;column-gap:2rem;color:var(--text-secondary);font-size:0.95rem;margin:0;max-width:none;padding-left:1.25rem}
+.fv-summary li{break-inside:avoid}
+@media (max-width:720px){.fv-page .fv-summary ul{columns:1}}
 
-.summary{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:8px 0 10px}
-.summary h2{font-size:18px;margin:0 0 10px;font-family:var(--font-condensed)}
-.summary ul{margin:0;padding-left:20px;columns:2;column-gap:32px;font-size:15px;color:var(--text-secondary);max-width:none}
-.summary li{margin-bottom:8px;break-inside:avoid}
-@media (max-width:720px){.summary ul{columns:1}}
-
-.article{padding:24px 0 8px}
-.section{padding:40px 0;border-top:1px solid var(--border)}
-.eyebrow{display:inline-block;background:var(--tint);color:var(--brand);font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;margin-bottom:14px}
-.fv-page h2{font-family:var(--font-condensed);font-weight:600;font-size:clamp(28px,3.2vw,38px);line-height:1.1;margin:0 0 18px;letter-spacing:-.005em}
-.fv-page h3{font-family:var(--font-condensed);font-weight:600;font-size:21px;margin:30px 0 10px}
-.fv-page p{margin:0 0 18px}
-.article p,.article ul,.article ol,.article h3,.article blockquote,.article .tw,.article .defs,.article .takeaway{max-width:var(--measure)}
-.article ul,.article ol{padding-left:22px;margin:0 0 18px}
-.article li{margin-bottom:8px}
-.fv-page blockquote{margin:26px 0;padding:4px 0 4px 22px;border-left:2px solid var(--brand);font-family:var(--serif);font-size:19px;line-height:1.5;color:var(--text-secondary)}
-.fv-page blockquote cite{display:block;font-family:var(--font);font-style:normal;font-size:13.5px;color:var(--text-muted);margin-top:8px}
-.fv-page .callout{font-size:15px;color:var(--text-secondary);margin:0 0 22px;max-width:var(--measure)}
-.fv-page .callout b{color:var(--text)}
-.takeaway{font-family:var(--serif);font-size:19px;color:var(--text);border-top:1px solid var(--border);padding-top:14px;margin-top:6px}
-.defs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 24px}
+.fv-page blockquote{border-left:3px solid var(--brand);color:var(--brand);font-family:var(--font-condensed);font-size:1.4rem;font-weight:500;line-height:1.3;margin:2rem 0;padding:0.25rem 0 0.25rem 1.25rem}
+.fv-page blockquote cite{color:var(--text-muted);display:block;font-family:var(--font);font-size:0.82rem;font-style:normal;font-weight:400;line-height:1.5;margin-top:0.6rem}
+.fv-page .takeaway{border-top:1px solid var(--border);color:var(--brand);font-family:var(--font-condensed);font-size:1.15rem;font-weight:500;line-height:1.5;margin-top:0.5rem;padding-top:0.9rem}
+.fv-page .callout{margin:1.5rem 0}
+.fv-page .fv-def p{color:var(--text);font-family:var(--font-condensed);font-size:1.2rem;line-height:1.5}
+.defs{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin:1.1rem 0 1.5rem}
 @media (max-width:640px){.defs{grid-template-columns:1fr}}
-.defs div{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--text-secondary)}
-.defs b{display:block;color:var(--text);font-family:var(--font-condensed);font-size:16px;margin-bottom:4px}
+.fv-page .defs .card{color:var(--text-secondary);font-size:0.9rem;line-height:1.55;padding:1rem 1.1rem}
+.defs b{color:var(--brand);display:block;font-family:var(--font-condensed);font-size:1rem;font-weight:600;margin-bottom:0.2rem}
+.reasons{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:0.75rem;margin:0.25rem 0 0.4rem}
+.fv-page .reason.card{background:var(--bg);box-shadow:none;padding:1rem 1.1rem}
+.reason b{color:var(--brand);display:block;font-family:var(--font-condensed);font-size:1.05rem;font-weight:600;margin-bottom:0.2rem}
+.reason span{color:var(--text-secondary);font-size:0.88rem;line-height:1.5}
 
-.fv-page figure{margin:30px 0 34px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 18px 12px;position:relative}
-.fv-page figure:after{content:"";position:absolute;top:12px;right:12px;width:7px;height:7px;border-radius:50%;background:var(--brand);opacity:.6}
-.fv-page figcaption{font-size:13.5px;color:var(--text-muted);margin-top:10px;line-height:1.5}
-.fv-page figure svg{display:block;width:100%;height:auto;font-family:var(--font)}
-.article{counter-reset:fig}
-.fv-page figure{counter-increment:fig}
+.fv-page figure.card{counter-increment:fig;margin:1.75rem 0 2rem;padding:1.1rem 1.1rem 0.75rem}
+.fv-page figure svg{display:block;font-family:var(--font);height:auto;width:100%}
+.fv-page figcaption{color:var(--text-muted);font-size:0.82rem;line-height:1.5;margin:0.6rem 0.25rem 0}
+.fv-page .fig-t{color:var(--brand);font-family:var(--font-condensed);font-size:0.95rem;font-weight:600;margin:0 0 0.6rem}
 .fig-t:before{content:"Figure " counter(fig) "  ·  ";color:var(--text-muted);font-weight:500}
 @media (max-width:640px){.fv-page figure:has(svg){overflow-x:auto;-webkit-overflow-scrolling:touch}.fv-page figure svg{min-width:660px}.fv-page figure:has(svg) .fig-t:after{content:" (swipe to see the full chart)";font-weight:400;color:var(--text-muted)}}
-.fig-t{font-family:var(--font-condensed);font-weight:600;font-size:15px;margin:0 0 10px;padding-right:20px}
 
-.fv-page table{border-collapse:collapse;width:100%;font-size:14.5px;margin:18px 0 24px;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.fv-page th,.fv-page td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:top}
-.fv-page th{font-weight:600;background:#F2F1F3;color:var(--text-secondary);font-size:13.5px}
-.fv-page tr:last-child td{border-bottom:0}
-.tw{overflow-x:auto;max-width:100%}
-.tw table{min-width:640px}
-.tw-wide{max-width:none !important}
+.fv-page .table-wrap table{min-width:640px}
+.fv-page .table-wrap thead th{white-space:normal}
 
-.faq > h3{font-size:17px;color:var(--text-muted);margin:26px 0 10px;font-family:var(--font);font-weight:600}
-
-.convert.cta-block{display:block;justify-items:initial;text-align:left;margin:48px 0 40px;padding:40px 36px}
-.convert.cta-block h2{text-align:left;max-width:none}
-.convert h2{color:#fff;margin-bottom:12px}
-.convert p{color:rgba(255,255,255,.84);max-width:680px}
-.convert ul{color:rgba(255,255,255,.84);max-width:680px;padding-left:20px}
-.convert li{margin-bottom:8px}
-.fv-page .convert .btn-primary{background:#fff;color:var(--brand);border-color:#fff}
-.fv-page .convert .btn-primary:hover{background:#EEF0F6}
-.fv-page .convert .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5)}
-.fv-page .convert .btn-ghost:hover{background:rgba(255,255,255,.1)}
-.convert .small{font-size:13.5px;color:rgba(255,255,255,.7);margin-top:16px}
-.convert a{color:#fff}
-.fv-page .walk{width:100%;max-width:760px;border-collapse:collapse;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.22);border-radius:12px;overflow:hidden;margin:16px 0 18px;font-size:14.5px}
-.fv-page .walk th,.fv-page .walk td{border-bottom:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.9);padding:12px 14px;vertical-align:top}
-.fv-page .walk th{background:transparent;color:#fff;width:30%;font-weight:600;font-size:14px}
+.fv-page .cta-block{display:block;justify-items:normal;margin:3rem 0 2.5rem;padding:2.5rem 2rem;text-align:left}
+.fv-page .cta-block h2{margin:0 0 0.9rem;max-width:none;text-align:left}
+.fv-page .cta-block h3{color:#fff;font-size:1.2rem;margin:1.75rem 0 0.4rem}
+.fv-page .cta-block ul{color:rgba(255,255,255,0.8)}
+.fv-page .cta-block .cta-row{align-items:center;margin:1.25rem 0 1.5rem}
+.fv-page .cta-block .cta-link{margin-top:0}
+.fv-page .cta-block a:not([class]){color:#fff}
+.fv-page .cta-block code{background:rgba(255,255,255,0.1)}
+.fv-page .cta-block .small{color:rgba(255,255,255,0.7);margin-top:1rem}
+.fv-page .walk{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.22);border-collapse:separate;border-radius:10px;border-spacing:0;font-size:0.88rem;margin:1rem 0 1.1rem;max-width:760px;overflow:hidden;width:100%}
+.fv-page .walk th,.fv-page .walk td{border-bottom:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);padding:0.75rem 0.9rem;text-align:left;vertical-align:top}
+.fv-page .walk th{color:#fff;font-weight:600;width:30%}
 .fv-page .walk tr:last-child th,.fv-page .walk tr:last-child td{border-bottom:0}
-.fv-page .walk code{font-family:var(--mono);font-size:13px;background:rgba(255,255,255,.1);padding:1px 6px;border-radius:4px}
-.walk-tag{display:inline-block;background:#fff;color:var(--brand);font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;margin-bottom:10px}
-.sol-links{display:flex;flex-direction:column;gap:6px}
-.sol-links a{font-size:13.5px;font-weight:600;color:#fff;text-decoration:none}
+.fv-page .walk tbody tr:hover{background:transparent}
+.sol-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:0.75rem;margin:1rem 0 0.5rem}
+.sol{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;display:flex;flex-direction:column;gap:0.75rem;justify-content:space-between;min-height:156px;padding:1rem;text-decoration:none;transition:background .15s,border-color .15s}
+.sol:hover{background:rgba(255,255,255,0.13);border-color:rgba(255,255,255,0.45)}
+.sol b{font-family:var(--font-condensed);font-size:1.05rem;font-weight:600}
+.sol span{color:rgba(255,255,255,0.8);font-size:0.88rem;line-height:1.45}
+.sol em{color:#fff;font-size:0.82rem;font-style:normal;font-weight:600}
+.sol-links{display:flex;flex-direction:column;gap:0.35rem}
+.fv-page .sol-links a{font-size:0.82rem;font-weight:600;text-decoration:none}
 .sol-links a:hover{text-decoration:underline}
-@media (max-width:640px){.fv-page .walk th,.fv-page .walk td{display:block;width:auto}.fv-page .walk th{padding-bottom:2px;border-bottom:0}.fv-page .walk code{word-break:break-all}.convert{padding:28px 20px}}
-.convert h3{color:#fff;font-family:var(--font-condensed);font-size:22px;margin:28px 0 6px}
-.sol-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin:16px 0 8px}
-.sol{display:flex;flex-direction:column;justify-content:space-between;gap:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:16px;color:#fff;text-decoration:none;min-height:156px;transition:background .15s,border-color .15s}
-.sol:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.45)}
-.sol b{font-family:var(--font-condensed);font-size:17px;font-weight:600}
-.sol span{font-size:14px;line-height:1.45;color:rgba(255,255,255,.8)}
-.sol em{font-style:normal;font-size:13.5px;font-weight:600;color:#fff}
-.defbox{background:var(--tint-green);border-left:3px solid var(--green);border-radius:0 12px 12px 0;padding:18px 22px;margin:4px 0 24px;max-width:var(--measure)}
-.reasons{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:4px 0 6px}
-.reason{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
-.reason i{font-style:normal;font-family:var(--mono);font-size:12.5px;color:var(--green);display:block;margin-bottom:4px}
-.reason b{display:block;font-family:var(--font-condensed);font-size:17px;color:var(--text);margin-bottom:4px}
-.reason span{font-size:14px;color:var(--text-secondary);line-height:1.5}
-.defbox p{font-family:var(--serif);font-size:20px;line-height:1.5;color:var(--text);margin:0}
+@media (max-width:640px){.fv-page .walk th,.fv-page .walk td{display:block;width:auto}.fv-page .walk th{border-bottom:0;padding-bottom:0.1rem}.fv-page .walk code{word-break:break-all}.fv-page .cta-block{padding:1.75rem 1.25rem}}
 
-.refs{padding:40px 0 20px;border-top:1px solid var(--border)}
-.refs ol{font-size:14px;color:var(--text-secondary);padding-left:20px;max-width:860px}
-.refs li{margin-bottom:8px;word-break:break-word}
-.share{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.share a{font-size:13.5px;text-decoration:none;border:1px solid var(--border);background:var(--surface);padding:7px 12px;border-radius:999px;color:var(--text-secondary)}
-.share a:hover{border-color:var(--brand);color:var(--brand)}
+.fv-page .faq-group-title{font-size:1.2rem}
+.fv-page .faq-answer p{max-width:none}
+.fv-page .faq-answer p:last-child{margin-bottom:0}
+.fv-page .faq-more{margin-top:1.4rem}
+.fv-page .share{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.4rem}
+.fv-page .share a{background:var(--surface);border:1px solid var(--border);border-radius:999px;color:var(--text-secondary);font-size:0.82rem;padding:0.4rem 0.8rem;text-decoration:none}
+.fv-page .share a:hover{border-color:var(--brand);color:var(--brand)}
+
+.fv-page .refs{border-top:1px solid var(--border);padding:2.5rem 0 1.25rem}
+.fv-page .refs h3{font-size:1.2rem;margin:0 0 0.75rem}
+.fv-page .refs ol{color:var(--text-secondary);font-size:0.82rem;line-height:1.55;max-width:860px;padding-left:1.25rem}
+.fv-page .refs li{margin-bottom:0.5rem;word-break:break-word}
 </style>
 </head>
 <body class="font-sans">
 {% include navbar.html %}
 
 <main class="fv-page">
-<section class="hero">
- <div class="wrap hero-grid">
+<header class="cover cover-two-column">
+ <div class="cover-inner">
   <div>
-   <p class="crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Blog</a> / Formal verification</p>
-   <h1><span class="h1-kicker">Formal verification<span class="sr">: </span></span>Audits find bugs.<br>Proofs rule them out.</h1>
-   <p class="lede">Formal verification is the only form of software assurance that answers "can this ever go wrong?" rather than "did we find anything?" This plain-language guide explains how proofs work, why money moving onto blockchains needs them, where they fail, and four questions to test any "formally verified" claim.</p>
-   <div class="byline">
-    <span>By <b>Paarrthhh Birla</b>, Co-founder, EternaX Labs</span>
-    <span>November 2026</span>
-    <span>16 min read</span>
-   </div>
-   <div class="cta-row">
-    <a class="btn btn-primary" href="#definition">Start reading</a>
-    <a class="btn btn-ghost" href="#claims">The four questions</a>
+   <p class="meta-line fv-crumbs"><a href="../../index.html">Home</a> / <a href="../index.html">Blog</a> / Formal verification</p>
+   <h1 class="cover-title"><span class="cover-eyebrow">Formal verification<span class="sr-only">: </span></span>Audits find bugs.<br>Proofs rule them out.</h1>
+   <p class="hero-summary">Formal verification is the only form of software assurance that answers "can this ever go wrong?" rather than "did we find anything?" This plain-language guide explains how proofs work, why money moving onto blockchains needs them, where they fail, and four questions to test any "formally verified" claim.</p>
+   <p class="meta-line fv-byline">By <strong>Paarrthhh Birla</strong>, Co-founder, EternaX Labs · November 2026 · 16 min read</p>
+   <div class="hero-actions">
+    <a class="hero-cta" href="#definition">Start reading</a>
+    <a class="hero-link" href="#claims">The four questions</a>
    </div>
    <p class="toc"><a href="#definition">Definition</a><a href="#vs-audit">Proofs vs audits</a><a href="#why-it-matters">Why it matters</a><a href="#why-now">Why now</a><a href="#limits">Where it fails</a><a href="#claims">Reading a claim</a><a href="#eternax">Solutions</a><a href="#faq">FAQ</a></p>
   </div>
 
   <!-- VISUAL 1: how a proof works -->
-  <aside class="panel" aria-label="How formal verification works, in four parts">
-   <p class="panel-title">How a formal proof works</p>
-   <p class="panel-sub">Four parts. Only the last one has to be trusted.</p>
+  <aside class="status-panel fv-diagram" aria-label="How formal verification works, in four parts">
+   <div class="status-panel-header"><div>How a formal proof works<strong>Four parts. Only the last one has to be trusted.</strong></div></div>
    <svg viewBox="0 0 440 332" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, sans-serif" font-size="12.5" role="img" aria-label="Specification and code feed a prover, which may be a human or an AI; the resulting proof is re-checked by a small trusted kernel.">
     <defs><marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L8 5L1 9" fill="none" stroke="#283771" stroke-width="1.5"/></marker></defs>
     <rect x="12" y="14" width="196" height="64" rx="10" fill="#FFFFFF" stroke="#E0DEDE"/>
     <text x="26" y="38" fill="#283771" font-weight="600" font-size="14">Specification</text>
     <text x="26" y="58" fill="#6E738C">The rule, written precisely.</text>
-    <text x="26" y="72" fill="#6E738C" font-family="IBM Plex Mono, monospace" font-size="11">no_spend_without_quorum</text>
+    <text x="26" y="72" fill="#6E738C" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="11">no_spend_without_quorum</text>
     <rect x="232" y="14" width="196" height="64" rx="10" fill="#FFFFFF" stroke="#E0DEDE"/>
     <text x="246" y="38" fill="#283771" font-weight="600" font-size="14">Code</text>
     <text x="246" y="58" fill="#6E738C">The software that must obey</text>
@@ -726,16 +685,16 @@
     <rect x="228" y="292" width="200" height="30" rx="15" fill="#F4E9E9"/>
     <text x="328" y="311" text-anchor="middle" fill="#8D2E2E" font-weight="600">Fails: counterexample found</text>
    </svg>
-   <p class="panel-foot">This is why AI can write proofs without being trusted: the AI only searches, and the kernel decides.</p>
+   <div class="panel-note">This is why AI can write proofs without being trusted: the AI only searches, and the kernel decides.</div>
   </aside>
  </div>
-</section>
+</header>
 
 <article class="article">
-<div class="wrap">
+<div class="container">
 
-<div class="summary" id="summary">
- <h2>In this guide</h2>
+<div class="card fv-summary" id="summary">
+ <h2 class="section-label">In this guide</h2>
  <ul>
   <li>Formal verification is machine-checked mathematical proof that software meets a written rule for every possible input.</li>
   <li>A proof covers every input for the rule you wrote; an audit samples the inputs an expert chose.</li>
@@ -750,9 +709,9 @@
 
 <!-- SECTION 0: DEFINITION -->
 <section class="section" id="definition">
- <span class="eyebrow">Definition</span>
+ <p class="section-label">Definition</p>
  <h2>What is formal verification?</h2>
- <div class="defbox"><p><b>Formal verification</b> is the use of mathematical proof, checked by a computer, to show that software satisfies a precise written specification for every possible input, not only the inputs someone tested.</p></div>
+ <div class="callout callout-green fv-def"><p><b>Formal verification</b> is the use of mathematical proof, checked by a computer, to show that software satisfies a precise written specification for every possible input, not only the inputs someone tested.</p></div>
  <p>In plain terms: you state exactly what the software must always do, and then you prove, step by step, that it does. The proof is not an opinion and not a sample. It is a chain of logical steps that a separate program, called a proof checker or kernel, verifies one by one. If any step is wrong, the check fails. If the check passes, the rule holds for every input the code can ever receive, within the stated assumptions.</p>
  <p>Formal verification is the strictest member of a wider family called formal methods: mathematically rigorous techniques for specifying, designing and checking software and hardware.</p>
 
@@ -765,16 +724,16 @@
  <p>Take one rule from a digital-asset vault: <em>funds move only if at least three different approvers sign.</em> Suppose the code counts valid signatures but never checks that they come from different approvers. Every test the team wrote uses three different people, so every test passes, and a reviewer reading quickly may miss it. A proof attempt fails at once, because the checker reasons about inputs the tests never tried, including one approver submitting the same valid signature three times. That counterexample is the bug. Fix the code, the proof goes through, and the rule now holds for every possible input.</p>
 
  <!-- VISUAL: worked example -->
- <figure role="img" aria-label="Worked example: the same bug seen by unit tests, manual review and a formal proof. Tests pass and miss the bug, review may or may not catch it, and the proof fails with a counterexample that exposes the bug.">
+ <figure class="card" role="img" aria-label="Worked example: the same bug seen by unit tests, manual review and a formal proof. Tests pass and miss the bug, review may or may not catch it, and the proof fails with a counterexample that exposes the bug.">
   <p class="fig-t">One rule, one bug, three ways to look for it</p>
   <svg viewBox="0 0 880 290" xmlns="http://www.w3.org/2000/svg" font-size="13">
    <rect x="190" y="10" width="500" height="40" rx="20" fill="#EEF0F6"/>
-   <text x="440" y="35" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" fill="#283771">Rule: funds move only if 3 different approvers sign</text>
+   <text x="440" y="35" text-anchor="middle" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="14" fill="#283771">Rule: funds move only if 3 different approvers sign</text>
    <!-- tests -->
    <rect x="20" y="74" width="270" height="190" rx="12" fill="#FFFFFF" stroke="#E0DEDE"/>
    <text x="40" y="104" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-weight="600" font-size="17" fill="#283771">Unit tests</text>
    <text x="40" y="136" fill="#4A5276">Every test uses approvers</text>
-   <text x="40" y="156" fill="#4A5276" font-family="IBM Plex Mono, monospace" font-size="12.5">A, B, C</text>
+   <text x="40" y="156" fill="#4A5276" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="12.5">A, B, C</text>
    <text x="40" y="184" fill="#4A5276">The duplicate case never runs.</text>
    <rect x="40" y="214" width="230" height="32" rx="16" fill="#EFEEEE"/>
    <text x="155" y="235" text-anchor="middle" fill="#6E738C" font-weight="600">Pass, bug missed</text>
@@ -791,7 +750,7 @@
    <text x="610" y="104" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-weight="600" font-size="17" fill="#2F5E52">Formal proof</text>
    <text x="610" y="136" fill="#2F5E52">Reasons about every input.</text>
    <text x="610" y="156" fill="#2F5E52">Counterexample found:</text>
-   <text x="610" y="184" fill="#2F5E52" font-family="IBM Plex Mono, monospace" font-size="12.5">approver A signs 3 times</text>
+   <text x="610" y="184" fill="#2F5E52" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="12.5">approver A signs 3 times</text>
    <rect x="610" y="214" width="230" height="32" rx="16" fill="#F4E9E9"/>
    <text x="725" y="235" text-anchor="middle" fill="#8D2E2E" font-weight="600">Proof fails: bug found</text>
    <text x="440" y="284" text-anchor="middle" fill="#6E738C" font-size="12.5">Once the code also checks that approvers are distinct, the proof passes, for every possible input.</text>
@@ -800,7 +759,7 @@
  </figure>
 
  <h3>The three main techniques</h3>
- <div class="tw tw-wide"><table>
+ <div class="table-wrap"><table>
   <thead><tr><th>Technique</th><th>How it works</th><th>Typical tools</th><th>Best for</th></tr></thead>
   <tbody>
    <tr><td>Model checking</td><td>Exhaustively explores every reachable state of a finite model of the system</td><td>TLA+ with TLC, SPIN, NuSMV</td><td>Protocols, concurrency, distributed designs</td></tr>
@@ -819,27 +778,27 @@
  </ol>
  <h3>Vocabulary you will see in a verification report</h3>
  <div class="defs">
-  <div><b>Specification</b>The rule, written precisely. A proof is only as good as its specification.</div>
-  <div><b>Invariant</b>A rule that must hold at all times, after every possible operation. Most rules about moving money are invariants.</div>
-  <div><b>Proof checker (kernel)</b>The small program that verifies every step. It is the part you must trust, which is why careful teams cross-check with independent checkers.</div>
-  <div><b>Trusted computing base</b>Everything a proof relies on without proving: the checker, the specification, the compiler, the hardware, stated assumptions.</div>
-  <div><b>Vacuous proof</b>A theorem whose assumptions can never all be true, so it proves nothing about real behavior.</div>
-  <div><b>Specification error</b>A mistake in the rule itself. The proof is correct; it proves the wrong thing.</div>
-  <div><b>Verification boundary</b>The line between code covered by proofs and code trusted without them.</div>
-  <div><b>Axiom</b>A statement the checker accepts without proof. Every axiom is a place where proof ends and trust begins.</div>
+  <div class="card"><b>Specification</b>The rule, written precisely. A proof is only as good as its specification.</div>
+  <div class="card"><b>Invariant</b>A rule that must hold at all times, after every possible operation. Most rules about moving money are invariants.</div>
+  <div class="card"><b>Proof checker (kernel)</b>The small program that verifies every step. It is the part you must trust, which is why careful teams cross-check with independent checkers.</div>
+  <div class="card"><b>Trusted computing base</b>Everything a proof relies on without proving: the checker, the specification, the compiler, the hardware, stated assumptions.</div>
+  <div class="card"><b>Vacuous proof</b>A theorem whose assumptions can never all be true, so it proves nothing about real behavior.</div>
+  <div class="card"><b>Specification error</b>A mistake in the rule itself. The proof is correct; it proves the wrong thing.</div>
+  <div class="card"><b>Verification boundary</b>The line between code covered by proofs and code trusted without them.</div>
+  <div class="card"><b>Axiom</b>A statement the checker accepts without proof. Every axiom is a place where proof ends and trust begins.</div>
  </div>
  <p class="takeaway">Formal verification turns "we believe it is correct" into "here is the proof; check it yourself."</p>
 </section>
 
 <!-- SECTION 2 -->
 <section class="section" id="vs-audit">
- <span class="eyebrow">Proofs versus audits</span>
+ <p class="section-label">Proofs versus audits</p>
  <h2>Inspection samples. A proof covers everything in its box.</h2>
  <p>A security audit is skilled inspection. Experts read the code, follow the paths they judge most dangerous, and report findings. Good audits catch a great deal, and nothing on this page argues against them. But an audit's strongest possible conclusion is "we found nothing further." It cannot say "nothing further exists." Euler Finance had been audited by several firms before a missing health check cost roughly $197 million in March 2023. The reviewers sampled around the bug.</p>
  <p>The same is true of tests, fuzzing and AI review. Each is a search, and however fast or wide, a search ends with a list of what it found. As Edsger Dijkstra put it in 1970, testing can show the presence of bugs, but never their absence.</p>
 
  <!-- VISUAL 2 -->
- <figure role="img" aria-label="Diagram comparing audit sampling of inputs against formal proof coverage of the whole input space">
+ <figure class="card" role="img" aria-label="Diagram comparing audit sampling of inputs against formal proof coverage of the whole input space">
   <p class="fig-t">Audit versus proof, same code</p>
   <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg">
    <defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="2.2" fill="#C9CBD6"/></pattern><pattern id="dotsG" x="460" y="44" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="3.2" fill="#2F5E52" fill-opacity=".55"/></pattern></defs>
@@ -862,7 +821,7 @@
    <circle cx="669" cy="165" r="7" fill="#8D2E2E"/>
    <circle cx="669" cy="165" r="14" fill="none" stroke="#8D2E2E" stroke-width="2"/>
    <rect x="690" y="148" width="150" height="20" rx="10" fill="#FFFFFF" stroke="#8D2E2E"/><text x="765" y="162" text-anchor="middle" fill="#8D2E2E" font-size="11.5" font-weight="600">caught: counterexample</text>
-   <rect x="540" y="226" width="240" height="26" rx="13" fill="#FFFFFF" stroke="#2F5E52"/><text x="660" y="243" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12.5" fill="#2F5E52">∀ input: rule checked</text>
+   <rect x="540" y="226" width="240" height="26" rx="13" fill="#FFFFFF" stroke="#2F5E52"/><text x="660" y="243" text-anchor="middle" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="12.5" fill="#2F5E52">∀ input: rule checked</text>
    <text x="460" y="290" font-size="13" fill="#6E738C">Every input is covered, so the same bug is caught, but only for</text>
    <text x="460" y="310" font-size="13" fill="#6E738C">the written rule and the code inside the box.</text>
   </svg>
@@ -871,7 +830,7 @@
 
  <p>Two words in the definition carry the whole argument. <b>Every</b> input: a proof is exhaustive. <b>The rule</b>: a proof covers only what was written down. That is why formal verification is the strongest assurance available, and why its claims must be read carefully.</p>
 
- <div class="tw tw-wide"><table>
+ <div class="table-wrap"><table>
   <thead><tr><th>Method</th><th>What it establishes</th><th>Coverage</th><th>Certainty</th><th>What it cannot tell you</th></tr></thead>
   <tbody>
    <tr><td>Unit and integration tests</td><td>Chosen inputs behave as expected</td><td>Chosen cases</td><td>High, for those cases</td><td>Anything about untested inputs</td></tr>
@@ -893,36 +852,36 @@
 
 <!-- SECTION 1: WHY IT MATTERS -->
 <section class="section" id="why-it-matters">
- <span class="eyebrow">Why it matters now</span>
+ <p class="section-label">Why it matters now</p>
  <h2>The world's money is moving through code</h2>
  <p>The world's listed stocks and bonds are worth about $318 trillion: $157.8 trillion in equities and $160.7 trillion in fixed income at the end of 2025, according to SIFMA. The flows on top of them are far larger. DTCC, the core post-trade infrastructure of US markets, processed securities transactions worth $4.7 quadrillion in 2025.</p>
  <p>Those flows have started to run on blockchains and distributed ledgers. In August 2026, Broadridge's Distributed Ledger Repo settled $7.4 trillion of repo transactions, about $351 billion a day, using smart contracts to move tokenized securities and cash together. On 28 October 2026, DTCC launched its Tokenization Service on the Canton Network and its own private Besu network, with collateral mobility among its stated goals. The assets are mostly still off-chain. The money is already moving through on-chain code.</p>
 
  <!-- VISUAL: billions to quadrillions -->
- <figure role="img" aria-label="Log-scale bar chart: tokenized real-world assets $39 billion, stablecoins $285 billion, tokenized repo on one platform $7.4 trillion in one month, global stocks and bonds $318 trillion, DTCC securities transactions $4.7 quadrillion in 2025">
+ <figure class="card" role="img" aria-label="Log-scale bar chart: tokenized real-world assets $39 billion, stablecoins $285 billion, tokenized repo on one platform $7.4 trillion in one month, global stocks and bonds $318 trillion, DTCC securities transactions $4.7 quadrillion in 2025">
   <p class="fig-t">From billions to quadrillions: what exists, and what moves</p>
   <svg viewBox="0 0 880 350" xmlns="http://www.w3.org/2000/svg" font-size="13">
-   <line x1="250" y1="30" x2="250" y2="286" stroke="#F0EFEF"/><text x="250" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Mono, monospace" font-size="11">$10B</text><line x1="350" y1="30" x2="350" y2="286" stroke="#F0EFEF"/><text x="350" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Mono, monospace" font-size="11">$100B</text><line x1="450" y1="30" x2="450" y2="286" stroke="#F0EFEF"/><text x="450" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Mono, monospace" font-size="11">$1T</text><line x1="550" y1="30" x2="550" y2="286" stroke="#F0EFEF"/><text x="550" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Mono, monospace" font-size="11">$10T</text><line x1="650" y1="30" x2="650" y2="286" stroke="#F0EFEF"/><text x="650" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Mono, monospace" font-size="11">$100T</text><line x1="750" y1="30" x2="750" y2="286" stroke="#F0EFEF"/><text x="750" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Mono, monospace" font-size="11">$1,000T</text><line x1="850" y1="30" x2="850" y2="286" stroke="#F0EFEF"/><text x="850" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Mono, monospace" font-size="11">$10,000T</text>
+   <line x1="250" y1="30" x2="250" y2="286" stroke="#F0EFEF"/><text x="250" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="11">$10B</text><line x1="350" y1="30" x2="350" y2="286" stroke="#F0EFEF"/><text x="350" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="11">$100B</text><line x1="450" y1="30" x2="450" y2="286" stroke="#F0EFEF"/><text x="450" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="11">$1T</text><line x1="550" y1="30" x2="550" y2="286" stroke="#F0EFEF"/><text x="550" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="11">$10T</text><line x1="650" y1="30" x2="650" y2="286" stroke="#F0EFEF"/><text x="650" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="11">$100T</text><line x1="750" y1="30" x2="750" y2="286" stroke="#F0EFEF"/><text x="750" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="11">$1,000T</text><line x1="850" y1="30" x2="850" y2="286" stroke="#F0EFEF"/><text x="850" y="302" text-anchor="middle" fill="#6E738C" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="11">$10,000T</text>
    <text x="240" y="48" text-anchor="end" fill="#283771" font-weight="600">Tokenized real-world assets</text>
    <text x="240" y="64" text-anchor="end" fill="#6E738C" font-size="11.5">on-chain value, Nov 2026</text>
    <rect x="250" y="38" width="59.1" height="22" rx="4" fill="#283771"/>
-   <text x="317.1" y="54" fill="#283771" font-family="IBM Plex Mono, monospace" font-size="12.5" font-weight="500">$39B</text>
+   <text x="317.1" y="54" fill="#283771" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="12.5" font-weight="500">$39B</text>
    <text x="240" y="98" text-anchor="end" fill="#283771" font-weight="600">Stablecoins</text>
    <text x="240" y="114" text-anchor="end" fill="#6E738C" font-size="11.5">on-chain value, Nov 2026</text>
    <rect x="250" y="88" width="145.5" height="22" rx="4" fill="#283771"/>
-   <text x="403.5" y="104" fill="#283771" font-family="IBM Plex Mono, monospace" font-size="12.5" font-weight="500">$285B</text>
+   <text x="403.5" y="104" fill="#283771" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="12.5" font-weight="500">$285B</text>
    <text x="240" y="148" text-anchor="end" fill="#283771" font-weight="600">Tokenized repo, one platform</text>
    <text x="240" y="164" text-anchor="end" fill="#6E738C" font-size="11.5">settled in one month, Aug 2026</text>
    <rect x="250" y="138" width="286.9" height="22" rx="4" fill="#2F5E52"/>
-   <text x="544.9" y="154" fill="#283771" font-family="IBM Plex Mono, monospace" font-size="12.5" font-weight="500">$7.4T</text>
+   <text x="544.9" y="154" fill="#283771" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="12.5" font-weight="500">$7.4T</text>
    <text x="240" y="198" text-anchor="end" fill="#283771" font-weight="600">Global stocks and bonds</text>
    <text x="240" y="214" text-anchor="end" fill="#6E738C" font-size="11.5">outstanding, end 2025</text>
    <rect x="250" y="188" width="450.2" height="22" rx="4" fill="#283771"/>
-   <text x="708.2" y="204" fill="#283771" font-family="IBM Plex Mono, monospace" font-size="12.5" font-weight="500">$318T</text>
+   <text x="708.2" y="204" fill="#283771" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="12.5" font-weight="500">$318T</text>
    <text x="240" y="248" text-anchor="end" fill="#283771" font-weight="600">DTCC securities transactions</text>
    <text x="240" y="264" text-anchor="end" fill="#6E738C" font-size="11.5">processed in 2025</text>
    <rect x="250" y="238" width="567.2" height="22" rx="4" fill="#2F5E52"/>
-   <text x="809.2" y="254" text-anchor="end" fill="#FFFFFF" font-family="IBM Plex Mono, monospace" font-size="12.5" font-weight="500">$4.7 quadrillion</text>
+   <text x="809.2" y="254" text-anchor="end" fill="#FFFFFF" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="12.5" font-weight="500">$4.7 quadrillion</text>
    <line x1="250" y1="30" x2="250" y2="286" stroke="#E0DEDE"/>
    <path d="M24 38 H18 V166 H24" fill="none" stroke="#2F5E52" stroke-width="1.5"/>
    <text transform="translate(11,102) rotate(-90)" text-anchor="middle" fill="#2F5E52" font-size="11.5" font-weight="600">On-chain today</text>
@@ -939,15 +898,15 @@
  <p>Size alone does not demand proof: far more money moves through traditional systems whose code has never been formally verified. What changes on a blockchain is what the code is allowed to decide, and whether anyone can undo it.</p>
 
  <!-- VISUAL: six reasons -->
- <figure aria-label="Six reasons blockchains need formal verification">
+ <figure class="card" aria-label="Six reasons blockchains need formal verification">
   <p class="fig-t">Why blockchains need proofs, not just inspection</p>
   <div class="reasons">
-   <div class="reason"><i>01</i><b>No undo button</b><span>Settlement is designed to be final, and deployed contracts are hard to change. A bug costs whatever the contract holds.</span></div>
-   <div class="reason"><i>02</i><b>Code is the final authority</b><span>No clerk, court or back office sits above the contract. If the code allows a transfer, it happens.</span></div>
-   <div class="reason"><i>03</i><b>Attackers search everything</b><span>On public chains the code is open and callable around the clock. Attackers rehearse on copies of the chain, with AI. One bad input is enough.</span></div>
-   <div class="reason"><i>04</i><b>Combinations nobody imagined</b><span>Contracts call contracts, and flash loans put vast borrowed capital into a single transaction. A proof covers any caller, any sequence, any amount.</span></div>
-   <div class="reason"><i>05</i><b>Small, exact rules</b><span>“Nothing moves without a valid quorum.” The money-moving core is small and precise, the ideal target for proof.</span></div>
-   <div class="reason"><i>06</i><b>Deterministic by design</b><span>The same transaction always gives the same result, on precisely defined execution environments. That makes blockchain code easier to prove than ordinary software.</span></div>
+   <div class="reason card"><div class="mono-label">01</div><b>No undo button</b><span>Settlement is designed to be final, and deployed contracts are hard to change. A bug costs whatever the contract holds.</span></div>
+   <div class="reason card"><div class="mono-label">02</div><b>Code is the final authority</b><span>No clerk, court or back office sits above the contract. If the code allows a transfer, it happens.</span></div>
+   <div class="reason card"><div class="mono-label">03</div><b>Attackers search everything</b><span>On public chains the code is open and callable around the clock. Attackers rehearse on copies of the chain, with AI. One bad input is enough.</span></div>
+   <div class="reason card"><div class="mono-label">04</div><b>Combinations nobody imagined</b><span>Contracts call contracts, and flash loans put vast borrowed capital into a single transaction. A proof covers any caller, any sequence, any amount.</span></div>
+   <div class="reason card"><div class="mono-label">05</div><b>Small, exact rules</b><span>“Nothing moves without a valid quorum.” The money-moving core is small and precise, the ideal target for proof.</span></div>
+   <div class="reason card"><div class="mono-label">06</div><b>Deterministic by design</b><span>The same transaction always gives the same result, on precisely defined execution environments. That makes blockchain code easier to prove than ordinary software.</span></div>
   </div>
   <figcaption>Permissioned ledgers such as DTCC's Besu network narrow the first and third points, but not the others, and they increasingly connect to public networks.</figcaption>
  </figure>
@@ -959,19 +918,19 @@
  <p>Software flaws are being found faster than ever, by defenders and attackers alike. 48,185 vulnerabilities were published in 2025, 21% more than in 2024, and FIRST's mid-year forecast projects around 66,000 for 2026, with AI accelerating the search on both sides.</p>
 
  <!-- VISUAL: CVEs -->
- <figure role="img" aria-label="Bar chart of published software vulnerabilities: 39,962 in 2024, 48,185 in 2025, about 66,000 projected for 2026">
+ <figure class="card" role="img" aria-label="Bar chart of published software vulnerabilities: 39,962 in 2024, 48,185 in 2025, about 66,000 projected for 2026">
   <p class="fig-t">Software vulnerabilities published per year</p>
   <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" font-size="13">
    <defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#EEF0F6"/><line x1="0" y1="0" x2="0" y2="8" stroke="#283771" stroke-width="2"/></pattern></defs>
    <line x1="130" y1="240" x2="770" y2="240" stroke="#E0DEDE"/>
    <rect x="170" y="125.8" width="120" height="114.2" rx="6" fill="#283771" stroke="none" stroke-width="1.5"/>
-   <text x="230" y="115.8" text-anchor="middle" fill="#283771" font-family="IBM Plex Mono, monospace" font-size="15" font-weight="500">39,962</text>
+   <text x="230" y="115.8" text-anchor="middle" fill="#283771" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="15" font-weight="500">39,962</text>
    <text x="230" y="262" text-anchor="middle" fill="#4A5276" font-weight="600">2024</text>
    <rect x="370" y="102.30000000000001" width="120" height="137.7" rx="6" fill="#283771" stroke="none" stroke-width="1.5"/>
-   <text x="430" y="92.30000000000001" text-anchor="middle" fill="#283771" font-family="IBM Plex Mono, monospace" font-size="15" font-weight="500">48,185</text>
+   <text x="430" y="92.30000000000001" text-anchor="middle" fill="#283771" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="15" font-weight="500">48,185</text>
    <text x="430" y="262" text-anchor="middle" fill="#4A5276" font-weight="600">2025</text>
    <rect x="570" y="51.400000000000006" width="120" height="188.6" rx="6" fill="url(#hatch)" stroke="#283771" stroke-width="1.5"/>
-   <text x="630" y="41.400000000000006" text-anchor="middle" fill="#283771" font-family="IBM Plex Mono, monospace" font-size="15" font-weight="500">~66,000</text>
+   <text x="630" y="41.400000000000006" text-anchor="middle" fill="#283771" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="15" font-weight="500">~66,000</text>
    <text x="630" y="262" text-anchor="middle" fill="#4A5276" font-weight="600">2026 (projected)</text>
    <rect x="300" y="120" width="60" height="24" rx="12" fill="#EEF0F6"/><text x="330" y="137" text-anchor="middle" fill="#283771" font-weight="600">+21%</text>
    <rect x="500" y="80" width="60" height="24" rx="12" fill="#EEF0F6"/><text x="530" y="97" text-anchor="middle" fill="#283771" font-weight="600">+37%</text>
@@ -983,19 +942,19 @@
  <p>At the same time, the most sensitive code is being rewritten. NIST finalized its post-quantum standards in August 2024, and US Executive Order 14412 requires post-quantum key establishment by the end of 2030 and post-quantum digital signatures by the end of 2031. Every signature check that authorizes the movement of value will be replaced with new, larger cryptography, written under deadline, which is historically when the worst bugs enter: the 2008 Debian OpenSSL key flaw, Heartbleed in 2014, ROCA in 2017, timing leaks in early ML-KEM implementations in 2023 and 2024. Inspection missed all four. Three were implementation errors that a proof of the right property would have caught; ROCA was a design flaw, the kind a careful specification exists to prevent.</p>
 
  <!-- VISUAL: convergence -->
- <figure role="img" aria-label="Three forces converge on one requirement: value moving onto code, bugs found faster, and cryptography being rewritten all lead to proving the rules that move money">
+ <figure class="card" role="img" aria-label="Three forces converge on one requirement: value moving onto code, bugs found faster, and cryptography being rewritten all lead to proving the rules that move money">
   <p class="fig-t">Three forces, one requirement</p>
   <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" font-size="13">
    <defs><marker id="arrc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L8 5L1 9" fill="none" stroke="#283771" stroke-width="1.5"/></marker></defs>
    <rect x="20" y="20" width="330" height="72" rx="12" fill="#FFFFFF" stroke="#E0DEDE"/>
    <text x="38" y="48" fill="#283771" font-weight="600" font-size="15">Value is moving onto code</text>
-   <text x="38" y="72" fill="#2F5E52" font-family="IBM Plex Mono, monospace" font-size="12.5">$7.4T settled in one month, one platform</text>
+   <text x="38" y="72" fill="#2F5E52" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="12.5">$7.4T settled in one month, one platform</text>
    <rect x="20" y="114" width="330" height="72" rx="12" fill="#FFFFFF" stroke="#E0DEDE"/>
    <text x="38" y="142" fill="#283771" font-weight="600" font-size="15">Bugs are found faster</text>
-   <text x="38" y="166" fill="#2F5E52" font-family="IBM Plex Mono, monospace" font-size="12.5">~66,000 vulnerabilities projected, 2026</text>
+   <text x="38" y="166" fill="#2F5E52" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="12.5">~66,000 vulnerabilities projected, 2026</text>
    <rect x="20" y="208" width="330" height="72" rx="12" fill="#FFFFFF" stroke="#E0DEDE"/>
    <text x="38" y="236" fill="#283771" font-weight="600" font-size="15">Cryptography is being rewritten</text>
-   <text x="38" y="260" fill="#2F5E52" font-family="IBM Plex Mono, monospace" font-size="12.5">PQ signatures required by end of 2031</text>
+   <text x="38" y="260" fill="#2F5E52" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="12.5">PQ signatures required by end of 2031</text>
    <g stroke="#283771" stroke-width="1.5" fill="none" marker-end="url(#arrc)">
     <path d="M352 56 C 440 56, 440 150, 518 150"/>
     <path d="M352 150 L 518 150"/>
@@ -1015,7 +974,7 @@
 
 <!-- SECTION 3 -->
 <section class="section" id="why-now">
- <span class="eyebrow">Why now</span>
+ <p class="section-label">Why now</p>
  <h2>Proofs were a luxury. In 2026 they are a tool.</h2>
  <p>The idea is not new. Alan Turing argued in 1949 that programmers should attach assertions to a program so a checker could verify it piece by piece. Tony Hoare's logic of 1969 supplied the mathematics. Proof assistants arrived in the 1970s and 1980s. For fifty years the obstacle was never doubt about whether proofs worked. It was cost.</p>
  <p>The seL4 operating-system kernel shows the price. Its 2009 proof covered about 8,700 lines of C with roughly 200,000 lines of proof script, around 20 person-years of work. At that price, proofs were reserved for aircraft, trains and chips: avionics standard DO-178C credits proofs in place of some testing, Paris Métro Line 14 was built with the B method, and Intel turned to formal methods after the 1994 Pentium division flaw cost it a $475 million charge. Everyone else inspected and hoped.</p>
@@ -1026,7 +985,7 @@
  </blockquote>
 
  <!-- VISUAL 3: timeline -->
- <figure role="img" aria-label="Timeline of formal verification from 1949 to 2026">
+ <figure class="card" role="img" aria-label="Timeline of formal verification from 1949 to 2026">
   <p class="fig-t">From theory to baseline: 77 years in one line</p>
   <svg viewBox="-10 0 930 300" xmlns="http://www.w3.org/2000/svg">
    <text x="290" y="34" text-anchor="middle" font-size="13" fill="#6E738C">Proofs for aircraft, trains and chips</text>
@@ -1038,39 +997,39 @@
    <g font-size="12.5" fill="#283771">
     <!-- above: 1949 -->
     <circle cx="60" cy="150" r="5" fill="#C9CBD6"/><line x1="60" y1="118" x2="60" y2="145" stroke="#E0DEDE"/>
-    <text x="60" y="80" text-anchor="middle" font-family="IBM Plex Mono, monospace" fill="#6E738C">1949</text>
+    <text x="60" y="80" text-anchor="middle" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" fill="#6E738C">1949</text>
     <text x="60" y="98" text-anchor="middle">Turing: checking</text><text x="60" y="113" text-anchor="middle">a large routine</text>
     <!-- below: 1969–70 -->
     <circle cx="160" cy="150" r="5" fill="#C9CBD6"/><line x1="160" y1="155" x2="160" y2="182" stroke="#E0DEDE"/>
-    <text x="160" y="200" text-anchor="middle" font-family="IBM Plex Mono, monospace" fill="#6E738C">1969–70</text>
+    <text x="160" y="200" text-anchor="middle" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" fill="#6E738C">1969–70</text>
     <text x="160" y="218" text-anchor="middle">Hoare logic;</text><text x="160" y="233" text-anchor="middle">Dijkstra on testing</text>
     <!-- above: 1994 -->
     <circle cx="260" cy="150" r="5" fill="#C9CBD6"/><line x1="260" y1="118" x2="260" y2="145" stroke="#E0DEDE"/>
-    <text x="260" y="80" text-anchor="middle" font-family="IBM Plex Mono, monospace" fill="#6E738C">1994</text>
+    <text x="260" y="80" text-anchor="middle" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" fill="#6E738C">1994</text>
     <text x="260" y="98" text-anchor="middle">Pentium FDIV flaw:</text><text x="260" y="113" text-anchor="middle">chips adopt proofs</text>
     <!-- below: 2009 -->
     <circle cx="360" cy="150" r="5" fill="#C9CBD6"/><line x1="360" y1="155" x2="360" y2="182" stroke="#E0DEDE"/>
-    <text x="360" y="200" text-anchor="middle" font-family="IBM Plex Mono, monospace" fill="#6E738C">2009</text>
+    <text x="360" y="200" text-anchor="middle" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" fill="#6E738C">2009</text>
     <text x="360" y="218" text-anchor="middle">seL4 kernel proven:</text><text x="360" y="233" text-anchor="middle">~20 person-years</text>
     <!-- above: 2017–20 -->
     <circle cx="460" cy="150" r="5" fill="#C9CBD6"/><line x1="460" y1="118" x2="460" y2="145" stroke="#E0DEDE"/>
-    <text x="460" y="80" text-anchor="middle" font-family="IBM Plex Mono, monospace" fill="#6E738C">2017–20</text>
+    <text x="460" y="80" text-anchor="middle" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" fill="#6E738C">2017–20</text>
     <text x="460" y="98" text-anchor="middle">Proofs reach</text><text x="460" y="113" text-anchor="middle">smart contracts</text>
     <!-- below: 2024 -->
     <circle cx="560" cy="150" r="5" fill="#C9CBD6"/><line x1="560" y1="155" x2="560" y2="182" stroke="#E0DEDE"/>
-    <text x="560" y="200" text-anchor="middle" font-family="IBM Plex Mono, monospace" fill="#6E738C">2024</text>
+    <text x="560" y="200" text-anchor="middle" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" fill="#6E738C">2024</text>
     <text x="560" y="218" text-anchor="middle">NIST post-quantum</text><text x="560" y="233" text-anchor="middle">standards final</text>
     <!-- above: 2025 -->
     <circle cx="660" cy="150" r="6" fill="#283771"/><line x1="660" y1="118" x2="660" y2="144" stroke="#283771"/>
-    <text x="660" y="80" text-anchor="middle" font-family="IBM Plex Mono, monospace" fill="#283771">2025</text>
+    <text x="660" y="80" text-anchor="middle" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" fill="#283771">2025</text>
     <text x="660" y="98" text-anchor="middle">Industrial prover</text><text x="660" y="113" text-anchor="middle">open-sourced</text>
     <!-- below: May 2026 -->
     <circle cx="760" cy="150" r="6" fill="#283771"/><line x1="760" y1="156" x2="760" y2="182" stroke="#283771"/>
-    <text x="760" y="200" text-anchor="middle" font-family="IBM Plex Mono, monospace" fill="#283771">May 2026</text>
+    <text x="760" y="200" text-anchor="middle" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" fill="#283771">May 2026</text>
     <text x="760" y="218" text-anchor="middle">AI provers in</text><text x="760" y="233" text-anchor="middle">production pipelines</text>
     <!-- above: Sep 2026 -->
     <circle cx="860" cy="150" r="6" fill="#283771"/><line x1="860" y1="118" x2="860" y2="144" stroke="#283771"/>
-    <text x="860" y="80" text-anchor="middle" font-family="IBM Plex Mono, monospace" fill="#283771">Nov 2026</text>
+    <text x="860" y="80" text-anchor="middle" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" fill="#283771">Nov 2026</text>
     <text x="860" y="98" text-anchor="middle">Signal code</text><text x="860" y="113" text-anchor="middle">verified, 4 weeks</text>
    </g>
    <text x="460" y="278" text-anchor="middle" font-size="13" fill="#6E738C">Highlighted: the eighteen months in which cost, tooling and regulation moved at once.</text>
@@ -1088,24 +1047,24 @@
  <p>The effect on trust is already visible. In November 2026, when an AI-assisted proof of the Aaronson-Ambainis conjecture was announced, the complexity theorist Scott Aaronson wrote that he believed it before he had understood it, for two reasons: "there's a Lean certificate," and independent human experts had already checked it. That is the new division of labour: machines check, humans review, and trust no longer depends on who wrote the proof.</p>
 
  <!-- VISUAL 4: cost of a proof -->
- <figure role="img" aria-label="Chart comparing the cost of landmark proofs: seL4 in 2009 at about 20 person-years for 8,700 lines, versus the 2026 Fermat formalization at 11 days for 13 million lines">
+ <figure class="card" role="img" aria-label="Chart comparing the cost of landmark proofs: seL4 in 2009 at about 20 person-years for 8,700 lines, versus the 2026 Fermat formalization at 11 days for 13 million lines">
   <p class="fig-t">The cost of a proof collapsed: seL4 in 2009, Signal in 2026</p>
   <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" font-size="13">
    <!-- left: 2009 -->
    <rect x="20" y="20" width="410" height="250" rx="14" fill="#FFFFFF" stroke="#E0DEDE"/>
    <text x="40" y="50" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-weight="600" font-size="16" fill="#283771">2009: seL4 microkernel, human-written proof</text>
-   <text x="40" y="98" font-family="IBM Plex Mono, monospace" font-size="42" fill="#283771" font-weight="500">8,700</text>
+   <text x="40" y="98" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="42" fill="#283771" font-weight="500">8,700</text>
    <text x="40" y="124" fill="#6E738C">lines of C code proven</text>
-   <text x="40" y="178" font-family="IBM Plex Mono, monospace" font-size="42" fill="#283771" font-weight="500">~20</text>
+   <text x="40" y="178" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="42" fill="#283771" font-weight="500">~20</text>
    <text x="40" y="204" fill="#6E738C">person-years of proof work</text>
    <text x="40" y="236" fill="#4A5276" font-size="12.5">About 200,000 lines of proof script for 8,700 lines of code.</text>
    <text x="40" y="254" fill="#4A5276" font-size="12.5">Klein et al., SOSP 2009.</text>
    <!-- right: 2026 -->
    <rect x="450" y="20" width="410" height="250" rx="14" fill="#E8F0ED" stroke="#2F5E52" stroke-width="1.5"/>
    <text x="470" y="50" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-weight="600" font-size="16" fill="#2F5E52">2026: Signal protocol, AI-written proofs</text>
-   <text x="470" y="98" font-family="IBM Plex Mono, monospace" font-size="42" fill="#2F5E52" font-weight="500">Production</text>
+   <text x="470" y="98" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="42" fill="#2F5E52" font-weight="500">Production</text>
    <text x="470" y="124" fill="#2F5E52">cryptographic code, down to compiled code</text>
-   <text x="470" y="178" font-family="IBM Plex Mono, monospace" font-size="42" fill="#2F5E52" font-weight="500">4 weeks</text>
+   <text x="470" y="178" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="42" fill="#2F5E52" font-weight="500">4 weeks</text>
    <text x="470" y="204" fill="#2F5E52">calendar time, researchers plus AI agents</text>
    <text x="470" y="236" fill="#2F5E52" font-size="12.5">Code that protects billions of private conversations.</text>
    <text x="470" y="254" fill="#2F5E52" font-size="12.5">Google DeepMind, 10 November 2026.</text>
@@ -1122,12 +1081,12 @@
 
 <!-- SECTION 4 -->
 <section class="section" id="limits">
- <span class="eyebrow">Where it fails</span>
+ <p class="section-label">Where it fails</p>
  <h2>What a proof will not do for you</h2>
  <p>A proof covers a rule, over some code, under some assumptions. Everything outside those three things is exactly as unverified as it was before. This is the honest shape of a verified system.</p>
 
  <!-- VISUAL 5 -->
- <figure role="img" aria-label="Map of a verified system: a proven core surrounded by five areas a proof does not cover">
+ <figure class="card" role="img" aria-label="Map of a verified system: a proven core surrounded by five areas a proof does not cover">
   <p class="fig-t">The shape of a verified system</p>
   <svg viewBox="0 0 880 400" xmlns="http://www.w3.org/2000/svg" font-size="13">
    <rect x="20" y="16" width="840" height="340" rx="18" fill="#FFFFFF" stroke="#E0DEDE"/>
@@ -1135,7 +1094,7 @@
    <rect x="240" y="62" width="400" height="108" rx="12" fill="#E8F0ED" stroke="#2F5E52" stroke-width="1.5"/>
    <text x="440" y="88" text-anchor="middle" fill="#2F5E52" font-weight="600" font-size="15">Proven zone</text>
    <text x="440" y="110" text-anchor="middle" fill="#2F5E52">the stated rules · the in-scope code · the stated assumptions</text>
-   <text x="440" y="132" text-anchor="middle" fill="#2F5E52" font-family="IBM Plex Mono, monospace" font-size="12">certain, for all inputs</text>
+   <text x="440" y="132" text-anchor="middle" fill="#2F5E52" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="12">certain, for all inputs</text>
    <text x="440" y="154" text-anchor="middle" fill="#2F5E52" font-size="12">re-checkable by anyone</text>
    <g>
     <rect x="40" y="200" width="150" height="62" rx="10" fill="#F4E9E9" stroke="#E0DEDE"/>
@@ -1172,7 +1131,7 @@
  <p>In October 2025, a zero-knowledge virtual machine's developer announced, with a respected verification team, that the machine's entire core, 62 instructions, was formally verified against the official RISC-V specification. In May 2026 the Ethereum Foundation published its review: 51 of the 62 had complete, correct proofs. The one real bug sat inside an assumption the code itself admitted was unproven, and it was found by standard conformance tests, not by the proofs. The developer fixed it, and the Foundation drew the right conclusion: not to trust proofs less, but because many audiences treat formal verification as the final tool, to state exactly what has and has not been proven.</p>
 
  <!-- VISUAL 8: 51 of 62 breakdown -->
- <figure role="img" aria-label="Breakdown of the 62 instructions claimed as formally verified: 51 fully proven and 11 not, split into vacuous, wrong specification, no theorem, unfinished, and unproven assumption">
+ <figure class="card" role="img" aria-label="Breakdown of the 62 instructions claimed as formally verified: 51 fully proven and 11 not, split into vacuous, wrong specification, no theorem, unfinished, and unproven assumption">
   <p class="fig-t">When "formally verified" was checked: 62 claimed instructions</p>
   <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" font-size="13">
    <!-- stacked bar: 62 units over 820px => 13.2258 px/unit -->
@@ -1182,7 +1141,7 @@
    <rect x="770.6" y="36" width="39.7" height="54" fill="#B86A6A"/>
    <rect x="810.3" y="36" width="26.5" height="54" fill="#CC8C8C"/>
    <rect x="836.8" y="36" width="13.2" height="54" fill="#5E1C1C"/>
-   <text x="367" y="69" text-anchor="middle" fill="#fff" font-family="IBM Plex Mono, monospace" font-size="20" font-weight="500">51 complete, correct proofs</text>
+   <text x="367" y="69" text-anchor="middle" fill="#fff" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="20" font-weight="500">51 complete, correct proofs</text>
    <text x="777" y="24" text-anchor="middle" fill="#8D2E2E" font-weight="600" font-size="12.5">11 not proven as claimed</text>
    <!-- legend -->
    <g font-size="13">
@@ -1201,11 +1160,11 @@
  <p>And there is the oldest lesson, the one no proof touches. The roughly $1.5 billion Bybit theft in February 2025 exploited no contract flaw. Signers approved a transaction that differed from what their screens showed. A perfectly proven vault would have released the funds, because valid signatures satisfied its rules. Keys, people, hardware and displays are the real-world layer, and proofs do not reach it; clear-signing, hardware-side re-verification, time locks, policy limits and operational assurance do.</p>
 
  <!-- VISUAL 6 -->
- <figure role="img" aria-label="Bar chart of major crypto losses classified as logic bugs a proof could address versus operational failures no proof covers">
+ <figure class="card" role="img" aria-label="Bar chart of major crypto losses classified as logic bugs a proof could address versus operational failures no proof covers">
   <p class="fig-t">Selected losses, US$ millions, by root cause</p>
   <svg viewBox="0 0 880 290" xmlns="http://www.w3.org/2000/svg" font-size="13">
    <g stroke="#E0DEDE"><line x1="150" y1="24" x2="150" y2="246"/><line x1="150" y1="246" x2="860" y2="246"/></g>
-   <g fill="#6E738C" font-family="IBM Plex Mono, monospace" font-size="11.5">
+   <g fill="#6E738C" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="11.5">
     <text x="150" y="264" text-anchor="middle">0</text><text x="383" y="264" text-anchor="middle">500</text><text x="616" y="264" text-anchor="middle">1,000</text><text x="849" y="264" text-anchor="middle">1,500</text>
    </g>
    <g stroke="#F0EFEF"><line x1="383" y1="24" x2="383" y2="246"/><line x1="616" y1="24" x2="616" y2="246"/><line x1="849" y1="24" x2="849" y2="246"/></g>
@@ -1225,7 +1184,7 @@
    <g fill="#8D2E2E" text-anchor="end">
     <text x="140" y="180">Ronin, 2022</text><text x="140" y="206">Bybit, 2025</text>
    </g>
-   <g fill="#6E738C" font-family="IBM Plex Mono, monospace" font-size="11.5">
+   <g fill="#6E738C" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="11.5">
     <text x="184" y="48">~60</text><text x="308" y="74">~326</text><text x="245" y="100">~190</text><text x="248" y="126">~197</text>
     <text x="447" y="180">~625</text><text x="790" y="206" fill="#fff" font-weight="500">~1,500</text>
    </g>
@@ -1243,7 +1202,7 @@
 
 <!-- SECTION 5 -->
 <section class="section" id="claims">
- <span class="eyebrow">Reading a claim</span>
+ <p class="section-label">Reading a claim</p>
  <h2>Four questions for anyone who says "formally verified"</h2>
  <p>"Formally verified" is becoming a marketing phrase. Because the underlying evidence is precise, a precise claim is easy to check and a vague one is easy to spot. These four questions separate them.</p>
  <ol>
@@ -1256,13 +1215,13 @@
  <p>Here is what a credible answer looks like in practice: a real, published verification statement.</p>
 
  <!-- VISUAL 7: real verification statement -->
- <figure role="img" aria-label="A real, published verification statement for EternaX's open-source Bitcoin vault, annotated with the four questions: which properties, which code, which assumptions, and how to re-run it">
+ <figure class="card" role="img" aria-label="A real, published verification statement for EternaX's open-source Bitcoin vault, annotated with the four questions: which properties, which code, which assumptions, and how to re-run it">
   <p class="fig-t">A real verification statement: EternaX's open-source Bitcoin vault</p>
   <svg viewBox="0 0 880 360" xmlns="http://www.w3.org/2000/svg" font-size="13">
    <rect x="20" y="16" width="560" height="326" rx="14" fill="#FFFFFF" stroke="#E0DEDE"/>
    <text x="40" y="44" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-weight="600" font-size="15" fill="#283771">Verification statement · eternax-bitcoin-vault</text>
    <rect x="440" y="28" width="122" height="22" rx="11" fill="#E8F0ED"/><text x="501" y="43" text-anchor="middle" fill="#2F5E52" font-size="11.5" font-weight="600">published</text>
-   <g font-family="IBM Plex Mono, monospace" font-size="12.5" fill="#4A5276">
+   <g font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-size="12.5" fill="#4A5276">
     <text x="40" y="80">P1: only all n signatures spend it, n = 1 to 201</text>
     <text x="40" y="100">P2–P6: valid unlocks, exact address, seed recovery,</text>
     <text x="40" y="120">  value conserved, never pays the vault it spends</text>
@@ -1297,13 +1256,13 @@
   <figcaption>A trustworthy statement is short and specific: properties, boundary, assumptions, and a way to reproduce the result. This one is public: <a href="https://github.com/eternax-ai/eternax-bitcoin-vault#the-vault-script-is-formally-verified">read the verification on GitHub</a>, including the <a href="https://github.com/eternax-ai/eternax-bitcoin-vault/blob/main/verification/SPEC.md">specification</a> and the <a href="https://github.com/eternax-ai/eternax-bitcoin-vault/blob/main/verification/REPORT.md">report</a>.</figcaption>
  </figure>
 
- <div class="callout"><b>Words to treat as warning signs.</b> "Bug-free." "Unhackable." "Mathematically guaranteed secure." "Formally audited." "AI-verified." Each either claims more than a proof can give or names something that is not a proof. The accurate form is narrow: <em>these invariants, of this code, under these assumptions, with machine-checked proofs you can re-run.</em></div>
+ <div class="callout"><p class="callout-title">Words to treat as warning signs.</p><p>"Bug-free." "Unhackable." "Mathematically guaranteed secure." "Formally audited." "AI-verified." Each either claims more than a proof can give or names something that is not a proof. The accurate form is narrow: <em>these invariants, of this code, under these assumptions, with machine-checked proofs you can re-run.</em></p></div>
 
 
  <p>One more test belongs to the buyer: are the proven rules the ones that matter? A proof that an interest calculation rounds correctly is real but minor. A proof that value cannot move without authorization is what a risk committee needs.</p>
 
  <!-- VISUAL 9: the four questions, as a card -->
- <figure role="img" aria-label="Card listing the four questions to ask anyone who says their code is formally verified">
+ <figure class="card" role="img" aria-label="Card listing the four questions to ask anyone who says their code is formally verified">
   <p class="fig-t">The four questions, on one card</p>
   <svg viewBox="0 0 880 360" xmlns="http://www.w3.org/2000/svg" font-size="13">
    <text x="30" y="30" font-family="IBM Plex Sans Condensed, IBM Plex Sans, sans-serif" font-weight="600" font-size="22" fill="#283771">Ask anyone who says their code is "formally verified":</text>
@@ -1340,11 +1299,11 @@
 </section>
 
 <!-- CLOSING: ETERNAX -->
-<section class="convert cta-block" id="eternax">
+<section class="cta-block" id="eternax">
  <h2>Where EternaX stands</h2>
  <p>We adopted formal verification because our products exist to answer one question for institutions: can value move without authorization? Only a proof answers that for every possible case. That is why every EternaX solution comes with formal verification of the rules that govern how value moves: the quorum of post-quantum approvals, limits, time locks, freeze, replay protection, key rotation and crypto-agility.</p>
  <h3 id="walk-the-talk">We walk the talk: proof, published</h3>
- <span class="walk-tag">Open-source Bitcoin vault · formal verification published</span>
+ <p class="cta-kicker">Open-source Bitcoin vault · formal verification published</p>
  <p>We ask every vendor four questions. Here are our answers, in public, for our open-source Bitcoin vault reference implementation.</p>
  <table class="walk">
   <tr><th>What is proven</th><td>Only all of its signatures can spend the vault, for every key count from 1 to 201, plus five more properties: valid unlocks, an exact address, key recovery from the seed, conserved value, and no payment back to a spent vault. <a href="https://github.com/eternax-ai/eternax-bitcoin-vault/blob/main/verification/REPORT.md">Read the report</a>.</td></tr>
@@ -1354,10 +1313,10 @@
  </table>
  <p>The open-source release demonstrates one part of the design, and our method. The EternaX Bitcoin Vault product goes much further: post-quantum (SLH-DSA) approval quorums, enforcement inside the institution's HSM, attestation, and private relay for up to 201 keys. It is built and verified with the same discipline.</p>
  <div class="cta-row">
-  <a class="btn btn-primary" href="https://github.com/eternax-ai/eternax-bitcoin-vault#the-vault-script-is-formally-verified">See the published verification</a>
-  <a class="btn btn-ghost" href="../../post-quantum-bitcoin-vault.html">Explore the Bitcoin Vault product</a>
+  <a class="cta-link" href="https://github.com/eternax-ai/eternax-bitcoin-vault#the-vault-script-is-formally-verified">See the published verification</a>
+  <a class="cta-link-ghost" href="../../post-quantum-bitcoin-vault.html">Explore the Bitcoin Vault product</a>
  </div>
- <p style="margin-top:20px">Our proofs are published for our open-source code, and delivered to the institutions that engage with us for our products, to run in their own environment. Either way, trust rests on a check your own team performs, not on our word.</p>
+ <p>Our proofs are published for our open-source code, and delivered to the institutions that engage with us for our products, to run in their own environment. Either way, trust rests on a check your own team performs, not on our word.</p>
  <ul>
   <li>Post-quantum signatures: hash-based SLH-DSA (FIPS 205) by default, the most conservative NIST standard and the cleanest to specify against.</li>
   <li>EternaX never holds keys. Custody stays with the institution; the proofs govern authorization, not key storage.</li>
@@ -1375,11 +1334,13 @@
 </section>
 
 <!-- FAQ -->
-<section class="section faq" id="faq">
- <span class="eyebrow">Questions institutions ask</span>
+<section class="section" id="faq">
+ <p class="section-label">Questions institutions ask</p>
  <h2>Frequently asked questions</h2>
 
- <h3>Definitions</h3>
+ <div class="faq-list">
+ <div class="faq-group">
+ <h3 class="faq-group-title">Definitions</h3>
  <details class="faq-item" id="faq-what-is-formal-verification-in-simple-terms"><summary><h3>What is formal verification in simple terms?</h3></summary><div class="faq-answer"><p>Formal verification is the use of mathematical proof, checked by a computer, to show that software satisfies a precise written specification for every possible input, not only the inputs someone tested. Testing and audits try inputs and look for failures; a proof covers all inputs for the stated rule, and anyone with the proof files can re-run the checker.</p></div></details>
  <details class="faq-item" id="faq-what-does-formally-verified-actually-mean"><summary><h3>What does "formally verified" actually mean?</h3></summary><div class="faq-answer"><p>It means specific, written properties of specific code have been proven with a machine-checked proof, under stated assumptions. It does not mean the whole product is proven or that it is bug-free. A credible claim names the properties, the code version, the assumptions, and provides proofs that can be re-run.</p></div></details>
  <details class="faq-item" id="faq-what-is-the-difference-between-formal-verification-formal-methods-and"><summary><h3>What is the difference between formal verification, formal methods and model checking?</h3></summary><div class="faq-answer"><p>Formal methods is the umbrella term for mathematically rigorous techniques in software engineering. Formal verification is the subset that proves code meets a specification. Model checking is one formal verification technique that exhaustively explores every state of a finite model; deductive verification with proof assistants such as Lean, Rocq or Isabelle is another.</p></div></details>
@@ -1387,14 +1348,18 @@
  <details class="faq-item" id="faq-what-is-a-specification-or-invariant-in-formal-verification"><summary><h3>What is a specification or invariant in formal verification?</h3></summary><div class="faq-answer"><p>A specification is the precise written rule the code must satisfy. An invariant is a rule that must hold at all times, after every operation, for example "no funds leave the vault without a valid quorum of signatures." Most rules about moving money are invariants, which is why they are natural targets for proofs.</p></div></details>
  <details class="faq-item" id="faq-what-is-a-proof-assistant-such-as-lean"><summary><h3>What is a proof assistant such as Lean?</h3></summary><div class="faq-answer"><p>Software in which proofs are written in a formal language and checked step by step by a small trusted core called the kernel. Lean 4, Rocq (formerly Coq) and Isabelle/HOL are the main ones. The kernel is the only part that has to be trusted; everything else, including AI that helps write proofs, is checked by it.</p></div></details>
 
- <h3>Comparisons</h3>
+ </div>
+ <div class="faq-group">
+ <h3 class="faq-group-title">Comparisons</h3>
  <details class="faq-item" id="faq-is-formal-verification-the-same-as-a-security-audit"><summary><h3>Is formal verification the same as a security audit?</h3></summary><div class="faq-answer"><p>No. An audit is expert inspection: reviewers search for bugs and report what they found. Formal verification is a machine-checked proof that code satisfies a written rule for every input. Audits are wide and probabilistic; proofs are narrow and certain. Serious teams use both.</p></div></details>
  <details class="faq-item" id="faq-how-is-formal-verification-different-from-testing-and-fuzzing"><summary><h3>How is formal verification different from testing and fuzzing?</h3></summary><div class="faq-answer"><p>Testing and fuzzing run the code on chosen or random inputs and report failures; they can only show the presence of bugs. Formal verification reasons about all inputs at once and shows that a stated rule cannot be violated. Fuzzing remains valuable for the properties nobody thought to specify.</p></div></details>
  <details class="faq-item" id="faq-is-an-ai-code-review-the-same-as-formal-verification"><summary><h3>Is an AI code review the same as formal verification?</h3></summary><div class="faq-answer"><p>No. AI review searches for bugs; formal verification proves their absence for stated properties. AI now helps write proofs, but a small trusted proof checker re-verifies every step, so the result is a proof regardless of who or what wrote it. A bug search without a checkable proof artifact is a review, however good it is.</p></div></details>
  <details class="faq-item" id="faq-does-formal-verification-replace-soc-2-or-an-external-audit"><summary><h3>Does formal verification replace SOC 2 or an external audit?</h3></summary><div class="faq-answer"><p>No. SOC 2 and ISAE 3402 assess a company's controls and processes over time. An external audit provides independent review by people with no stake in the outcome. Formal verification proves code properties. Institutions need all three. Proofs shrink audit scope and cost; they do not replace independence.</p></div></details>
  <details class="faq-item" id="faq-does-formal-verification-mean-the-code-is-bug-free"><summary><h3>Does formal verification mean the code is bug-free?</h3></summary><div class="faq-answer"><p>No. A proof shows the code follows the specific rules that were written down, over the specific code that was proven, under stated assumptions. Bugs can remain in behavior nobody specified, in a rule that was itself wrong, in code outside the proof, and in the real-world layer: keys, people, hardware and what signers see on screen.</p></div></details>
 
- <h3>Cost, time and trust</h3>
+ </div>
+ <div class="faq-group">
+ <h3 class="faq-group-title">Cost, time and trust</h3>
  <details class="faq-item" id="faq-how-long-does-formal-verification-take"><summary><h3>How long does formal verification take?</h3></summary><div class="faq-answer"><p>It depends on scope. The seL4 kernel, about 8,700 lines of C, took around 20 person-years to prove in 2009. In 2026, AI provers close many proof obligations automatically, and a small set of smart-contract invariants can typically be specified and proven in weeks rather than years. Proving a cryptographic verifier against its standard is a larger, months-scale effort.</p></div></details>
  <details class="faq-item" id="faq-how-much-does-formal-verification-cost"><summary><h3>How much does formal verification cost?</h3></summary><div class="faq-answer"><p>Costs are not usually public and vary with scope. The main driver is engineering time to write specifications and proofs; AI provers and open-source tools such as the Certora Prover, Kontrol and Halmos have reduced it substantially since 2025. Narrow, well-chosen scopes are far cheaper than attempting to verify a whole product.</p></div></details>
  <details class="faq-item" id="faq-can-an-entire-product-be-formally-verified"><summary><h3>Can an entire product be formally verified?</h3></summary><div class="faq-answer"><p>In practice, no. Proofs are far longer than the code they cover, every rule must be written precisely, and user-facing code changes constantly. Even seL4 trusts its hardware and parts of its boot code. The effective pattern is a small proven core through which every sensitive operation must pass, surrounded by tested and reviewed code.</p></div></details>
@@ -1402,7 +1367,9 @@
  <details class="faq-item" id="faq-has-production-cryptographic-code-ever-been-formally-verified"><summary><h3>Has production cryptographic code ever been formally verified?</h3></summary><div class="faq-answer"><p>Yes, increasingly. Verified implementations of cryptographic building blocks such as HACL* and Fiat-Crypto have shipped in major browsers for years. In November 2026, Google DeepMind announced it had used AI agents to prove key security properties of the Signal protocol's production code, down to the compiled code on devices, in four weeks; it says this is the first time the implementation of a widely deployed protocol like this has been formally verified by any method.</p></div></details>
  <details class="faq-item" id="faq-can-the-proof-checker-itself-have-bugs"><summary><h3>Can the proof checker itself have bugs?</h3></summary><div class="faq-answer"><p>Yes. A proof checker is software, so a bug in it could let a false proof pass. In July and August 2026, security researchers using frontier AI found several such soundness bugs in Lean's kernel, including one that allowed an illicit disproof of the Collatz conjecture; all were fixed and Lean's main library was re-verified. The defence is to re-check important proofs with independent checkers: about 25 independent Lean kernels exist, and a Lean checker with a formal consistency proof was released in September 2026.</p></div></details>
 
- <h3>Blockchain and digital assets</h3>
+ </div>
+ <div class="faq-group">
+ <h3 class="faq-group-title">Blockchain and digital assets</h3>
  <details class="faq-item" id="faq-why-do-blockchains-need-formal-verification"><summary><h3>Why do blockchains need formal verification?</h3></summary><div class="faq-answer"><p>Because on a blockchain there is no second chance. Settlement is designed to be final, the smart contract is the final authority over who can move value, the code is often public and callable around the clock, and attackers can combine contracts and borrowed capital in ways no tester anticipates. Testing, audits, monitoring and patching all assume a chance to fix things later. Formal verification is the only method that establishes, before the code runs, that the rules that move money hold for every possible input.</p></div></details>
  <details class="faq-item" id="faq-how-much-value-moves-through-blockchain-based-financial-infrastructure"><summary><h3>How much value moves through blockchain-based financial infrastructure?</h3></summary><div class="faq-answer"><p>Tokenized repo already settles trillions of dollars a month: Broadridge's Distributed Ledger Repo processed $7.4 trillion in August 2026. DTCC, which processed $4.7 quadrillion in securities transactions in 2025, launched its Tokenization Service on the Canton Network and its private Besu network on 28 October 2026. Tokenized real-world assets held on-chain were about $39 billion in November 2026, alongside roughly $285 billion in stablecoins.</p></div></details>
  <details class="faq-item" id="faq-can-smart-contracts-be-formally-verified"><summary><h3>Can smart contracts be formally verified?</h3></summary><div class="faq-answer"><p>Yes. Smart contracts are a strong fit because their critical rules are short and exact. Tools include the Certora Prover (open-sourced in February 2025), Kontrol and KEVM from Runtime Verification, Halmos, and Solidity's SMTChecker. Ethereum's deposit contract and major DeFi protocols have had properties formally verified.</p></div></details>
@@ -1412,22 +1379,31 @@
  <details class="faq-item" id="faq-which-tools-are-used-for-formal-verification-in-crypto"><summary><h3>Which tools are used for formal verification in crypto?</h3></summary><div class="faq-answer"><p>For EVM contracts: Certora Prover, Kontrol/KEVM, Halmos and SMTChecker. For Rust: Aeneas and hax (to Lean or F*), Verus and Kani. For proof assistants: Lean 4, Rocq and Isabelle/HOL. AI provers such as Harmonic's Aristotle and Logical Intelligence's Aleph now assist within these pipelines.</p></div></details>
  <details class="faq-item" id="faq-would-formal-verification-have-prevented-hacks-like-the-dao-or-euler"><summary><h3>Would formal verification have prevented hacks like The DAO or Euler?</h3></summary><div class="faq-answer"><p>Likely yes for those two. The DAO's reentrancy and Euler's missing health check each violated a rule short enough to state in one line, and a proof of that rule would have failed. Euler had passed multiple audits. Formal verification would not have prevented key-theft or phishing incidents such as Ronin or Bybit.</p></div></details>
 
- <h3>Post-quantum and regulation</h3>
+ </div>
+ <div class="faq-group">
+ <h3 class="faq-group-title">Post-quantum and regulation</h3>
  <details class="faq-item" id="faq-can-post-quantum-signature-code-be-formally-verified"><summary><h3>Can post-quantum signature code be formally verified?</h3></summary><div class="faq-answer"><p>Yes, and it is a priority target. Verified implementations of ML-KEM and ML-DSA exist, Vitalik Buterin named quantum-resistant signatures as a prime formal-verification target in May 2026, and hash-based SLH-DSA (FIPS 205) is a clean target because its security rests only on hash functions. Correctness proofs must still be read carefully, as the 2026 "verification theatre" findings showed.</p></div></details>
  <details class="faq-item" id="faq-why-are-hash-based-signatures-a-good-fit-for-formal-verification"><summary><h3>Why are hash-based signatures a good fit for formal verification?</h3></summary><div class="faq-answer"><p>SLH-DSA (FIPS 205) rests only on the security of hash functions, with no structured algebraic problem for new attacks, classical, quantum or AI-assisted, to target. It is the most conservative NIST post-quantum signature standard, and a verifier's correctness can be stated directly against the standard.</p></div></details>
  <details class="faq-item" id="faq-do-regulators-require-formal-verification"><summary><h3>Do regulators require formal verification?</h3></summary><div class="faq-answer"><p>Not for financial software today. Formal methods are recognised in avionics (DO-178C with DO-333), rail (EN 50128) and Common Criteria EAL7, and the 2024 White House report on software security encourages them. Bank third-party risk rules such as the US interagency guidance and EU DORA are principles-based: they require demonstrable assurance, which proofs strengthen, but they do not mandate proofs.</p></div></details>
  <details class="faq-item" id="faq-how-does-executive-order-14412-relate-to-formal-verification"><summary><h3>How does Executive Order 14412 relate to formal verification?</h3></summary><div class="faq-answer"><p>EO 14412 (June 2026) sets US federal deadlines for post-quantum key establishment by the end of 2030 and post-quantum digital signatures by the end of 2031. It does not mention formal verification, but it forces a wave of new cryptographic code written on a deadline, which is historically when implementation bugs enter, and which is exactly where proofs add the most.</p></div></details>
 
- <h3>Evaluating a vendor</h3>
+ </div>
+ <div class="faq-group">
+ <h3 class="faq-group-title">Evaluating a vendor</h3>
  <details class="faq-item" id="faq-what-should-an-institution-ask-when-a-vendor-says-formally-verified"><summary><h3>What should an institution ask when a vendor says "formally verified"?</h3></summary><div class="faq-answer"><p>Four questions: Which properties were proven? Over which code and version? Under which assumptions and axioms? Can our team re-run the proof checker? A vendor who cannot answer all four has not formally verified anything in the sense that matters.</p></div></details>
  <details class="faq-item" id="faq-what-are-warning-signs-of-an-overstated-formal-verification-claim"><summary><h3>What are warning signs of an overstated formal verification claim?</h3></summary><div class="faq-answer"><p>Phrases such as "bug-free," "unhackable," "mathematically guaranteed secure," "formally audited" or "AI-verified"; no list of proven properties; no stated assumptions; no way to re-run the proofs; and claims that cover "the whole system." The Ethereum Foundation's 2026 review of SP1 Hypercube and Kobeissi's "Verification Theatre" paper document what happens when claims outrun proofs.</p></div></details>
  <details class="faq-item" id="faq-does-formal-verification-stop-attacks-like-bybit"><summary><h3>Does formal verification stop attacks like Bybit?</h3></summary><div class="faq-answer"><p>No. The roughly $1.5 billion Bybit theft in February 2025 did not exploit a contract bug; signers approved a transaction that differed from what they saw. Proofs cover code logic. Compromised signer machines and phished approvals require clear-signing, hardware-side re-verification of what is being approved, time locks and policy limits.</p></div></details>
 
- <h3>EternaX</h3>
+ </div>
+ <div class="faq-group">
+ <h3 class="faq-group-title">EternaX</h3>
  <details class="faq-item" id="faq-do-eternax-solutions-come-with-formal-verification"><summary><h3>Do EternaX solutions come with formal verification?</h3></summary><div class="faq-answer"><p>Yes. Every EternaX solution comes with formal verification of the rules that govern how value moves. For EternaX products, proofs, specifications and assumptions are delivered to the institutions that engage with EternaX, to run in their own environment; for EternaX's open-source Bitcoin vault, the full verification is published. EternaX uses hash-based SLH-DSA (FIPS 205) as its post-quantum primitive and never holds keys. See the solutions in "Where EternaX stands," above.</p></div></details>
  <details class="faq-item" id="faq-has-eternax-published-its-formal-verification"><summary><h3>Has EternaX published its formal verification?</h3></summary><div class="faq-answer"><p>Yes. For its open-source Bitcoin vault reference implementation, EternaX has published the specification, the Z3 proofs, the verification report and a script that re-runs every check: for every key count from 1 to 201, the vault can be spent only with all of its signatures. The EternaX Bitcoin Vault product goes further and is verified with the same discipline; proofs for EternaX products are delivered to the institutions that engage with EternaX. <a href="https://github.com/eternax-ai/eternax-bitcoin-vault#the-vault-script-is-formally-verified">Read the published verification</a>.</p></div></details>
 
- <p style="max-width:var(--measure);margin-top:22px"><a href="#eternax"><b>Explore EternaX solutions →</b></a> Each is delivered with its formal verification proofs.</p>
+ </div>
+ </div>
+
+ <p class="faq-more"><a href="#eternax"><b>Explore EternaX solutions →</b></a> Each is delivered with its formal verification proofs.</p>
  <div class="share">
   <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Feternax.ai%2Fblogs%2Fformal-verification-post-quantum-custody%2Findex.html">Share on LinkedIn</a>
   <a href="https://x.com/intent/post?text=Audits%20find%20bugs.%20Proofs%20rule%20them%20out.%20Formal%20verification%2C%20explained%20for%20institutions%2C%20by%20%40EternaXlabs&url=https%3A%2F%2Feternax.ai%2Fblogs%2Fformal-verification-post-quantum-custody%2Findex.html">Share on X</a>
@@ -1440,8 +1416,8 @@
 </article>
 
 <section class="refs">
- <div class="wrap">
-  <h3 style="margin-top:0">References</h3>
+ <div class="container">
+  <h3>References</h3>
   <ol>
    <li>Cody Gunton, Ethereum Foundation zkEVM team, "On Formal Verification and a Bug in SP1 Hypercube," 20 May 2026. <a href="https://zkevm.ethereum.foundation/blog/sp1-fv">zkevm.ethereum.foundation/blog/sp1-fv</a></li>
    <li>Vitalik Buterin, "A shallow dive into formal verification," 18 May 2026. <a href="https://vitalik.eth.limo/general/2026/05/18/fv.html">vitalik.eth.limo</a></li>
