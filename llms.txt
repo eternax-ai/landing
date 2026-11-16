@@ -33,6 +33,7 @@
 
 ## Research Posts
 
+- [Formal Verification: Audits Find Bugs. Proofs Rule Them Out.](https://eternax.ai/blogs/formal-verification-post-quantum-custody/index.html): A plain-language guide to formal verification for institutions: machine-checked proofs that code meets a written rule for every input, how they differ from audits and tests, why on-chain settlement needs them, why AI-written proofs checked by a small kernel made them practical in 2026, where proofs fail (wrong specifications, overstated claims, checker bugs, keys and signers outside the proof), and four questions to test any "formally verified" claim; includes the published verification of the open-source EternaX Bitcoin vault.
 - [The 100-Key Vault: one block, no Bitcoin fork](https://eternax.ai/blogs/one-time-vault/index.html): One-Time Vaulting, a Bitcoin custody method that holds coins in a P2WSH address behind 100 fresh keys that all must sign, spends each address once, and approves every spend with SLH-DSA off chain; post-quantum secure at rest and quantum-resilient in flight on today's Bitcoin, with no fork and a confirmed mainnet spend; the in-flight protection is a dated work factor, not post-quantum signatures.
 - [Pushing Collision Attacks on 39-Step SHA-256 Below Generic Search](https://eternax.ai/blogs/sha-256-39-step-collisions-below-generic-search/index.html): A HashSmash collision attack on SHA-256 reduced to 39 of 64 steps, at about 2^118.35 under the board's cost model against 2^124.83 for generic search; not a break of full SHA-256.
 
