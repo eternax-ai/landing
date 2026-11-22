@@ -24,6 +24,7 @@
 ## Research Reports
 
 - [Reports Index](https://eternax.ai/reports/index.html): All institutional post-quantum research reports.
+- [Collateral in Motion: Is tokenized collateral post-quantum safe? (Nov 2026)](https://eternax.ai/collateral-in-motion-tokenized-collateral-post-quantum-2026.html): Institutional research on tokenized collateral mobility and post-quantum risk. Covers tokenized repo, deposit tokens and tokenized money-market funds as collateral; a segment map of 30 institutions building the market; a readiness map of signature schemes across Besu, Canton-type, Corda, Fabric, Ethereum, Solana, bridges and MPC custody; the Bank of England and MAS tokenised collateral frameworks; EO 14412 and the U.S. Treasury Quantum-Readiness Task Force; and 47 answer-first FAQs.
 - [Non-Upgradeable Chains & DeFi Exposure Report](https://eternax.ai/post-quantum-non-upgradeable-chains-defi-exposure-report.html): Why chain upgrades cannot fix immutable contracts, frozen standards, and DeFi liquidity on Ethereum, Solana, and Canton.
 - [Post-Quantum MPC Custody Crisis 2026](https://eternax.ai/post_quantum_mpc_custody_crisis_hash_based_sphincs_institutional.html): 15 institutional MPC providers, $10T+ in assets, zero post-quantum safe custody.
 - [Post-Quantum Exposure Map 2026](https://eternax.ai/post_quantum_exposure_map_institutional_crypto_tokenized_assets.html): Institutional exposure map for 20+ institutions, tokenized assets, stablecoins, RWAs, collateral, and privacy.
