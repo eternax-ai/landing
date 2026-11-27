@@ -1,0 +1,290 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Half-Life of Cryptographic Hardness | EternaX Labs Blog</title>
+    <meta name="description" content="Cryptography does not need P = NP to fail, only for its problems to get cheaper to solve. A hypothesis that security erodes fastest where assumptions carry the most structure, with five predictions to 2033.">
+    <meta name="keywords" content="post-quantum blockchain, post-quantum cryptography, quantum-safe settlement, stablecoin issuance, rwa tokenization, EternaX, cryptographic hardness, P vs NP, Structural Exposure Hypothesis, Impagliazzo five worlds, Minicrypt, Heuristica, AI-assisted cryptanalysis, post-quantum cryptography, lattice cryptography, hash-based signatures, SLH-DSA, information-theoretic security">
+    <meta name="author" content="EternaX Labs">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="article:publisher" content="https://www.linkedin.com/company/eternax-labs">
+    <link rel="canonical" href="https://eternax.ai/blogs/half-life-of-cryptographic-hardness/index.html">
+    <meta name="theme-color" content="#e2e2e2">
+    <link rel="icon" type="image/svg+xml" href="../../assets/eternax-icon.svg">
+    <link rel="icon" type="image/png" href="../../assets/favicon.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Half-Life of Cryptographic Hardness">
+    <meta property="og:description" content="Cryptography does not need P = NP to fail, only for its problems to get cheaper to solve. A hypothesis that security erodes fastest where assumptions carry the most structure, with five predictions to 2033.">
+    <meta property="og:site_name" content="EternaX Labs">
+    <meta property="og:url" content="https://eternax.ai/blogs/half-life-of-cryptographic-hardness/index.html">
+    <meta property="og:image" content="https://eternax.ai/assets/preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="EternaX - Post-Quantum Market Infrastructure">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="The Half-Life of Cryptographic Hardness">
+    <meta property="twitter:description" content="Cryptography does not need P = NP to fail, only for its problems to get cheaper to solve. A hypothesis that security erodes fastest where assumptions carry the most structure, with five predictions to 2033.">
+    <meta property="twitter:url" content="https://eternax.ai/blogs/half-life-of-cryptographic-hardness/index.html">
+    <meta property="twitter:site" content="@EternaXlabs">
+    <meta property="twitter:creator" content="@EternaXlabs">
+    <meta property="twitter:image" content="https://eternax.ai/assets/preview.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../styles/tailwind.generated.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --bg: #f7f4f4;
+            --fg: #283771;
+            --fg-70: #283771;
+            --fg-80: #283771;
+            --border: #283771;
+            --pill-bg: #283771;
+            --pill-fg: #ffffff;
+        }
+        body { background-color: var(--bg); color: var(--fg); }
+        .glass-effect {
+            background: #ffffff;
+            border: 1px solid #e0dede;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .link-muted { color: var(--fg-70); transition: color 0.15s; }
+        .link-muted:hover { color: var(--fg); }
+        .btn-primary {
+            background-color: var(--fg);
+            transition: background-color 0.15s;
+        }
+        .btn-primary:hover { background-color: #1e2d5a; }
+        .nav-products-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s, visibility 0.15s;
+        }
+        .group:hover .nav-products-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        .blog-body { max-width: 720px; margin: 0 auto; }
+        .blog-body h1 { font-size: 2rem; font-weight: 600; margin-top: 0; margin-bottom: 0.75em; letter-spacing: -0.01em; line-height: 1.2; }
+        .blog-body h2 { font-size: 1.5rem; font-weight: 600; margin-top: 1.75rem; margin-bottom: 0.5em; letter-spacing: -0.01em; line-height: 1.3; }
+        .blog-body h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.4em; line-height: 1.3; }
+        .blog-body p { margin-top: 0.75em; margin-bottom: 0.75em; line-height: 1.65; }
+        .blog-body ul, .blog-body ol { margin: 0.75em 0; padding-left: 1.5em; }
+        .blog-body li { margin: 0.35em 0; line-height: 1.6; }
+        .blog-body blockquote { margin: 1em 0; padding-left: 1em; border-left: 3px solid var(--fg); opacity: 0.9; font-style: italic; }
+        .blog-body code { background: rgba(40,55,113,0.1); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.9em; }
+        .blog-body pre { background: rgba(40,55,113,0.08); padding: 1em; border-radius: 6px; overflow-x: auto; margin: 1em 0; }
+        .blog-body pre code { background: none; padding: 0; }
+        .blog-body a { color: var(--fg); text-decoration: underline; }
+        .blog-body a:hover { opacity: 0.8; }
+        .blog-body img { max-width: 100%; height: auto; border-radius: 4px; }
+        .blog-body figure { margin: 1.5em 0; }
+        .blog-body figcaption { margin-top: 0.5em; font-size: 0.9rem; color: var(--fg-70); text-align: center; font-style: italic; }
+        .blog-body hr { border: none; border-top: 1px solid rgba(40,55,113,0.2); margin: 1.5em 0; }
+        .blog-body table { width: 100%; table-layout: fixed; border-collapse: collapse; margin: 1em 0; font-size: 0.95em; }
+        .blog-body th, .blog-body td { padding: 0.5em 0.75em; border: 1px solid rgba(40,55,113,0.2); text-align: left; vertical-align: top; }
+        .blog-body th { font-weight: 600; background: rgba(40,55,113,0.06); }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://eternax.ai/#organization",
+      "name": "EternaX Labs",
+      "alternateName": ["EternaX", "EternaX Labs Inc"],
+      "url": "https://eternax.ai",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://eternax.ai/assets/eternax-logo-pack/eternax-logo-full-color.svg",
+        "width": 400,
+        "height": 80
+      },
+      "description": "EternaX Labs is a post-quantum-native Layer 1 blockchain infrastructure company.",
+      "foundingDate": "2025",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "general",
+        "email": "info@eternax.ai"
+      },
+      "sameAs": [
+        "https://github.com/eternax-ai",
+        "https://www.linkedin.com/company/eternax-labs",
+        "https://x.com/EternaXlabs"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://eternax.ai/blogs/half-life-of-cryptographic-hardness/index.html#article",
+      "headline": "The Half-Life of Cryptographic Hardness",
+      "description": "Cryptography does not need P = NP to fail, only for its problems to get cheaper to solve. A hypothesis that security erodes fastest where assumptions carry the most structure, with five predictions to 2033.",
+      "datePublished": "2026-11-27",
+      "dateModified": "2026-11-27",
+      "author": { "@id": "https://eternax.ai/#organization" },
+      "publisher": { "@id": "https://eternax.ai/#organization" },
+      "keywords": "cryptographic hardness, P vs NP, Structural Exposure Hypothesis, Impagliazzo five worlds, Minicrypt, Heuristica, AI-assisted cryptanalysis, post-quantum cryptography, lattice cryptography, hash-based signatures, SLH-DSA, information-theoretic security",
+      "isPartOf": {
+        "@type": "Blog",
+        "name": "EternaX Labs Blog",
+        "url": "https://eternax.ai/blogs/index.html"
+      },
+      "mainEntityOfPage": "https://eternax.ai/blogs/half-life-of-cryptographic-hardness/index.html",
+      "about": [{"@type":"Thing","name":"Cryptographic Hardness"},{"@type":"Thing","name":"Computational Complexity"},{"@type":"Thing","name":"AI-Assisted Cryptanalysis"},{"@type":"Thing","name":"Post-Quantum Cryptography"},{"@type":"Thing","name":"Hash-Based Signatures"}]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "EternaX",
+          "item": "https://eternax.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blogs",
+          "item": "https://eternax.ai/blogs/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The Half-Life of Cryptographic Hardness",
+          "item": "https://eternax.ai/blogs/half-life-of-cryptographic-hardness/index.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="font-sans">
+    {% include navbar.html %}
+
+    <main class="pt-24 pb-16 px-4">
+        <article class="blog-body">
+            <h1>The Half-Life of Cryptographic Hardness</h1>
+<p class="blog-date" style="color: var(--fg-70); font-size: 0.9rem; margin-top: -0.5em; margin-bottom: 0.25em;">November 27, 2026</p>
+<p class="blog-author" style="color: var(--fg-70); font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5em;">Author: Dariia Porechna, cryptographer, co-founder of EternaX</p>
+<p><img src="alice-in-minicrypt.jpg" alt="Alice before a small door marked Minicrypt; the White Rabbit holds a watch labelled OWF, a key marked One Way Only lies on the floor, hash-chain mushrooms grow beside a signpost to Cryptomania and a locked gate"></p>
+<p>Cryptography does not need P = NP to fail. It is enough for its problems to become cheaper to solve than their designers anticipated.</p>
+<p>This week a claim circulated that P = NP had been proved. The proof is said to run thousands of pages, none of which has been released. Unreleased proofs of this kind have a poor record, but the rumor spread for a reason. The distance between recognising a solution and producing one is shrinking in practice, on the problems people care about, and no theorem is required for that.</p>
+<p>P ≠ NP is a claim about worst cases: no efficient algorithm solves every instance of the hardest problems in NP. It makes no promise about the practical instances we build.</p>
+<h2>Worst cases are not our cases</h2>
+<p>Boolean satisfiability was the first problem shown to be NP-complete, by Cook in 1971. Today SAT solvers routinely settle industrial instances with millions of variables. The theory did not change, but the instances had structure, and the solvers learned to find it. The worst case was always out there. Nobody in industry was posing it.</p>
+<p>Cryptography met the same distinction early. In 1978 Merkle and Hellman proposed a public-key system resting on the knapsack problem, which is NP-complete. The scheme was a lock that looked like a hard problem from the outside and an easy one from the inside. In 1982 Shamir found the inside. His attack solved nothing hard in general, only the instances the scheme produced, which carried a disguised easy structure so that the legitimate user could decrypt.</p>
+<p>In 1995 Russell Impagliazzo named Heuristica, a world where P ≠ NP holds, but NP problems are still easy on the instances that we build. I do not claim we are in Heuristica. But cryptography assumes that hard instances can be generated on demand. Do the ones we can design, justify and standardise stay hard once discovery becomes cheap?</p>
+<h2>Discovery became cheap in 2026</h2>
+<p>In July, an AI-assisted attack exposed a symmetry in HAWK, a lattice signature scheme, and its designers withdrew it from NIST&#39;s process.</p>
+<p>The year was not kind to older assumptions either. The central problem of isogeny cryptography lost its square-root barrier. Classic McEliece, which had stood since 1978, was repriced firmly enough that Germany&#39;s BSI advised against it in new designs. Longevity of an assumption measures the search that has been done; it says less about the search that is now affordable.</p>
+<p>Autumn has shaken different kinds of problems. In October two laboratories posted machine-written, machine-checked algorithms said to solve 3-SAT in subexponential time, which would refute the Exponential Time Hypothesis. In November the same laboratories posted claimed proofs that VP ≠ VNP, a lower bound in algebraic complexity. These are early results, but if the first holds, P ≠ NP is untouched and the worst case itself has become cheaper.</p>
+<h2>Structure is the price of efficiency</h2>
+<p>The structure introduced to make cryptography efficient may also be the structure that makes it vulnerable. As discovery becomes cheaper, the trade becomes less favourable.</p>
+<p>The other cost is understanding. A scheme is trusted when we have a reason it should be hard: a reduction, a clean algebraic problem, a long record of analysis. Each of these is a form of understanding, and understanding depends on structure. Search depends on structure too. The hardness we can certify is therefore the hardness most exposed to audit. Elegance is what we trust, and elegance is what gets searched.</p>
+<p>Key agreement between strangers cannot avoid this. It must publish enough structure to create an asymmetry between the legitimate user and the adversary. Signatures can avoid it: a hash-based signature is public-key cryptography built on nothing but a hash function. And a hash function is the opposite of an elegant idea. It is deliberate mess: bits rotated, mixed and added, round after round, until there is very little algebraic handle left to grab. It reduces to no clean mathematical problem. Its design rules out known classes of attack, and beyond that the guarantee is that attacks keep failing. This looks like the weaker kind of assurance, but with cheap discovery it may be the more durable one.</p>
+<h2>The Structural Exposure Hypothesis</h2>
+<p>If the argument holds, security should not erode at random. It should erode fastest where the underlying assumption carries the most structure.</p>
+<table>
+<colgroup><col style="width: 4em"><col><col><col></colgroup>
+<thead>
+<tr><th>Tier</th><th>The assumption rests on</th><th>Examples</th><th>Record so far</th></tr>
+</thead>
+<tbody>
+<tr style="background: #fee2e2;"><td>1</td><td>Extra structure beyond the base problem: symmetries, auxiliary points, special maps</td><td>SIDH, Rainbow, HAWK</td><td>SIDH (2011) and Rainbow (2005) broken in 2022; HAWK withdrawn in 2026</td></tr>
+<tr style="background: #ffedd5;"><td>2</td><td>A structured version of a base problem: rings, modules, specific code families</td><td>ML-KEM, ML-DSA, Falcon, Classic McEliece, HQC</td><td>Standing; Classic McEliece repriced in 2026</td></tr>
+<tr style="background: #fef9c3;"><td>3</td><td>The base problem with little added structure</td><td>FrodoKEM (plain LWE), random linear codes</td><td>Standing</td></tr>
+<tr style="background: #dcfce7;"><td>4</td><td>Symmetric primitives alone</td><td>SHA-2, SHA-3, AES, hash-based signatures</td><td>Standing for decades</td></tr>
+</tbody>
+</table>
+
+<p>The title borrows from physics. Nobody can say when a given atom will decay, yet the half-life of a kilogram of them is known to several decimal places. Assumptions may behave the same way. No one can say which will fall next, but a population of them can have a rate, and the rate depends on what they are made of.</p>
+<p>So the hypothesis is about rate and magnitude; no tier is immune.</p>
+<p>Physics also has stable isotopes, and so does cryptography. In 1949 Shannon described secrecy that holds against an adversary with unlimited computation. It rests on no hard problem, so there is nothing for discovery to find. The price was stated in the same paper: a key as long as the message, shared in advance. Information-theoretic security has no half-life. It has a cost, and for seventy years the cost decided the matter.</p>
+<h2>Predictions</h2>
+<p>The hypothesis makes five predictions for the years to 2033.</p>
+<ol>
+<li><strong>Order.</strong> Structured constructions suffer material security downgrades at a higher rate than their less-structured counterparts at comparable initial security levels.</li>
+<li><strong>Target.</strong> Most major advances against structured constructions exploit their added algebraic restrictions, not general improvements to the base problem.</li>
+<li><strong>Floor.</strong> No machine-found attack lowers the accepted classical security of full-round SHA-2, SHA-3 or AES by more than 10 bits.</li>
+<li><strong>Tempo.</strong> The median time from a scheme&#39;s publication to its first significant independent cryptanalysis falls.</li>
+<li><strong>Insurance.</strong> More institutions follow the BSI in trusting a less-structured fallback, and at least one does so explicitly as a hedge against algorithmic discovery.</li>
+</ol>
+<p>The floor is set at 10 bits and not at zero for a reason. Full-round AES has been attackable slightly below exhaustive search since 2011, with no practical consequence. Margins erode; the question is whether primitives fall.</p>
+<p>We saw the difference at first hand in October. Working with other researchers on an open cryptanalysis board, and with machine assistance, we helped push the <a href="https://eternax.ai/blogs/sha-256-39-step-collisions-below-generic-search/index.html">best known collision attack on 39-step SHA-256</a> below the cost of generic search. That is erosion of a margin: 39 steps of 64, and collisions, not preimages.</p>
+<h2>Where the hypothesis can fail</h2>
+<p>Elliptic curves are the strongest counterexample. They are rich in structure and thoroughly understood as mathematical objects, and they have been used in cryptography since 1985. Special families fell already, such as curves with small embedding degrees, anomalous curves, certain curves over extension fields. Yet well-chosen prime-field curves have resisted classical attacks substantially below square-root complexity for forty-one years.</p>
+<p>Structure does not imply decay. But the pattern on curves is also the pattern the hypothesis predicts: the special cases fell and the generic case held.</p>
+<p>Lattices are trickier. Worst-case-to-average-case reductions provide a form of assurance rarely available in cryptography. Module-LWE has such reductions, but to problems over module lattices rather than arbitrary lattices. We do not yet know whether this restriction, introduced for efficiency, created exploitable regularities. If module lattices absorb years of intensive machine-assisted cryptanalysis with no more security erosion than plain LWE, then well-chosen structure is survivable.</p>
+<p>A more immediate challenge comes from the isogeny results of 2026. They improved an algorithm for the base problem itself, rather than exploiting structure added by a particular scheme. One case does not overturn &quot;most&quot;. Several would.</p>
+<p>Finally, a machine-found attack that takes more than ten bits from the accepted security estimate of a modern full-strength hash function or block cipher would invalidate the predicted symmetric floor. What remained would be the cryptography that never depended on hardness.</p>
+<p>The hypothesis is about where security erodes first, not a guarantee it can never erode.</p>
+<h2>At the bottom of the rabbit hole</h2>
+<p>Suppose the hypothesis is roughly right, and follow it down. The upper tiers thin out and what stays standing is the bottom one: hash functions, symmetric ciphers, and signatures built from hashes.</p>
+<p>Impagliazzo&#39;s map had a world with exactly that inventory. In Minicrypt, one-way functions exist but public-key encryption does not. Symmetric crypto survives. The one thing lost is the ability of two strangers to agree on a key.</p>
+<p>We do not need to provably live in Minicrypt to find ourselves engineering for it in practice. Public-key cryptography may remain possible while the efficient constructions on which infrastructure depends become increasingly expensive to trust.</p>
+<p>There is ground beneath even that. Shamir&#39;s secret sharing, from 1979, splits a key so that too few shares reveal nothing, to any adversary with any computer. Wegman and Carter showed in 1981 how to authenticate a message with the same kind of guarantee. These tools assume nothing about computation. They also cannot introduce strangers, and they cannot produce a signature that anyone at all may verify. They work between parties who already share something.</p>
+<p>The engineering follows from that.</p>
+<ul>
+<li>Let strangers meet over a structured assumption, because nothing else lets strangers meet.</li>
+<li>Move the relationship onto hashes and symmetric keys as soon as it exists.</li>
+<li>Where a relationship is already in place and the secret must outlive every assumption, use mechanisms that assume nothing about computation.</li>
+<li>Keep every structured assumption replaceable, with the replacement path built before it is needed.</li>
+<li>Attack your own scheme by machine before someone else does.</li>
+</ul>
+<p>Public-key structure becomes the handshake, not the conversation.</p>
+<p>We have chosen a hash-based signature, SLH-DSA, as the conservative anchor at EternaX, so the conclusion is a convenient one for us. The predictions are specific enough for the convenience to be checked.</p>
+<p>The rumor will most likely fade, and P ≠ NP will remain the default belief. What has changed is how quickly we learn whether the problems we design, justify and standardise are as hard as we assumed. No one can say which assumption falls next, any more than which atom decays next. But a population has a rate, and the rate tells you where to put the replaceable parts. Our confidence in any single assumption has a half-life.</p>
+
+        </article>
+
+        <!-- Commercial CTA -->
+        <div class="blog-body" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(40,55,113,0.15);">
+            <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75em; color: var(--fg);">Evaluate PQ-native infrastructure for your institution</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 1em;">
+                <a href="../../pilot.html" style="display: inline-block; background-color: var(--fg); color: #fff; padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Book a Pilot Call</a>
+                <a href="../../post_quantum_exposure_map_institutional_crypto_tokenized_assets.html" style="display: inline-block; border: 1px solid var(--fg); color: var(--fg); padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Exposure Map</a>
+                <!--<a href="../../testnet.html" style="display: inline-block; border: 1px solid var(--fg); color: var(--fg); padding: 0.6em 1.2em; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none;">Explore Testnet</a>-->
+            </div>
+        </div>
+    </main>
+
+    {% include footer.html %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuButton = document.getElementById('mobile-menu-button');
+            var mobileMenu = document.getElementById('mobile-menu');
+            var iconMenu = document.getElementById('icon-menu');
+            var iconClose = document.getElementById('icon-close');
+            function closeMenu() {
+                if (!mobileMenu) return;
+                mobileMenu.classList.add('hidden');
+                if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+                if (iconMenu) iconMenu.classList.remove('hidden');
+                if (iconClose) iconClose.classList.add('hidden');
+            }
+            function openMenu() {
+                if (!mobileMenu) return;
+                mobileMenu.classList.remove('hidden');
+                if (menuButton) menuButton.setAttribute('aria-expanded', 'true');
+                if (iconMenu) iconMenu.classList.add('hidden');
+                if (iconClose) iconClose.classList.remove('hidden');
+            }
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() {
+                    if (mobileMenu.classList.contains('hidden')) openMenu(); else closeMenu();
+                });
+                mobileMenu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+                document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
+                window.addEventListener('resize', function() { if (window.innerWidth >= 768) closeMenu(); });
+            }
+        });
+    </script>
+</body>
+</html>

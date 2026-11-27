@@ -163,6 +163,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://eternax.ai/blogs/half-life-of-cryptographic-hardness/index.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://eternax.ai/blogs/formal-verification-post-quantum-custody/index.html</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>

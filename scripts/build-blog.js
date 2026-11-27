@@ -13,6 +13,13 @@ const root = path.resolve(process.cwd());
 const blogPath = path.resolve(root, blogFolder);
 const blogsDir = path.join(root, 'blogs');
 const postMetaMap = {
+  'half-life-of-cryptographic-hardness': {
+    datePublished: '2026-11-27',
+    description: 'Cryptography does not need P = NP to fail, only for its problems to get cheaper to solve. A hypothesis that security erodes fastest where assumptions carry the most structure, with five predictions to 2033.',
+    keywords: 'cryptographic hardness, P vs NP, Structural Exposure Hypothesis, Impagliazzo five worlds, Minicrypt, Heuristica, AI-assisted cryptanalysis, post-quantum cryptography, lattice cryptography, hash-based signatures, SLH-DSA, information-theoretic security',
+    about: ['Cryptographic Hardness', 'Computational Complexity', 'AI-Assisted Cryptanalysis', 'Post-Quantum Cryptography', 'Hash-Based Signatures'],
+    authorLine: 'Dariia Porechna, cryptographer, co-founder of EternaX'
+  },
   'sha-256-39-step-collisions-below-generic-search': {
     datePublished: '2026-10-21',
     description: 'A collision attack on 39-step SHA-256 costs about 2^118.35 under the HashSmash cost model, against 2^124.83 for generic search. How it works, who built what, and what it rests on.',
